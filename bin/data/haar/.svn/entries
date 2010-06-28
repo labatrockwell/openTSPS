@@ -1,0 +1,66 @@
+8
+
+dir
+32
+https://backsmith@cya-alpha.googlecode.com/svn/trunk/OF_0061_LAB/core/apps/LAB/openTSPS/bin/data/haar
+https://backsmith@cya-alpha.googlecode.com/svn
+
+
+
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+
+
+svn:special svn:externals svn:needs-lock
+
+haarcascade_frontalface_alt.xml
+file
+
+
+
+
+2010-01-29T03:58:40.000000Z
+a18fd28b6213cde128ee75998cb10a58
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+
+haarcascade_frontalface_default.xml
+file
+
+
+
+
+2010-01-29T03:58:40.000000Z
+5f5a6bb58f251bcbf879985dec415244
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
+haarcascade_upperbody.xml
+file
+
+
+
+
+2010-01-29T03:58:40.000000Z
+a9283a1107f98d1791665a5ea041f77e
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+
+HS.xml
+file
+
+
+
+
+2010-01-29T03:58:40.000000Z
+6bdd8473b2784ff41722e96b1a83555d
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+

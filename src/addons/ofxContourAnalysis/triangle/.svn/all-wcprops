@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/OF_0061_LAB/core/addons/ofxContourAnalysis/triangle
+END
+dpoint.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/2/trunk/OF_0061_LAB/core/addons/ofxContourAnalysis/triangle/dpoint.hpp
+END
+del_impl.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/2/trunk/OF_0061_LAB/core/addons/ofxContourAnalysis/triangle/del_impl.cpp
+END
+assert.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/2/trunk/OF_0061_LAB/core/addons/ofxContourAnalysis/triangle/assert.hpp
+END
+del_interface.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2/trunk/OF_0061_LAB/core/addons/ofxContourAnalysis/triangle/del_interface.hpp
+END
+triangle.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/2/trunk/OF_0061_LAB/core/addons/ofxContourAnalysis/triangle/triangle.h
+END
+triangle_impl.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2/trunk/OF_0061_LAB/core/addons/ofxContourAnalysis/triangle/triangle_impl.hpp
+END

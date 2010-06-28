@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="openTSPS" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="src\;addons\;addons\ofxXmlSettings\;addons\ofxOsc\;addons\ofxThread\;addons\ofxDirList\;addons\ofxOpenCv\;addons\ofxContourAnalysis\;addons\ofxCvHaarTracker\;addons\ofxLabGui\;addons\ofxMSAInteractiveObject\;addons\ofxNetwork\;addons\ofxOpenCVExtensions\;addons\ofxTuioWrapper\;addons\ofxFileDialog\;addons\ofxTSPS\;" />
+		<Build>
+			<Target title="release">
+				<Option output="bin\$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj\release" />
+				<Option external_deps="..\..\..\libs\openFrameworksCompiled\lib\win_cb\openFrameworks.lib;" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworks.lib" />
+				</Linker>
+			</Target>
+			<Target title="debug">
+				<Option output="bin\$(PROJECT_NAME)_DEBUG" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj\debug\" />
+				<Option external_deps="..\..\..\libs\openFrameworksCompiled\lib\win_cb\openFrameworksDebug.lib;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworksDebug.lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wno-multichar" />
+			<Add directory="..\..\..\libs\glu\include" />
+			<Add directory="..\..\..\libs\freetype\include" />
+			<Add directory="..\..\..\libs\freetype\include\freetype2" />
+			<Add directory="..\..\..\libs\FreeImage\include" />
+			<Add directory="..\..\..\libs\quicktime\include" />
+			<Add directory="..\..\..\libs\rtAudio\include" />
+			<Add directory="..\..\..\libs\fmodex\include" />
+			<Add directory="..\..\..\libs\videoInput\include" />
+			<Add directory="..\..\..\libs\glee\include" />
+			<Add directory="..\..\..\libs\glut\include" />
+			<Add directory="..\..\..\libs\openFrameworks" />
+			<Add directory="..\..\..\libs\openFrameworks\app" />
+			<Add directory="..\..\..\libs\openFrameworks\events" />
+			<Add directory="..\..\..\libs\openFrameworks\graphics" />
+			<Add directory="..\..\..\libs\openFrameworks\utils" />
+			<Add directory="..\..\..\libs\openFrameworks\sound" />
+			<Add directory="..\..\..\libs\openFrameworks\video" />
+			<Add directory="..\..\..\libs\openFrameworks\communication" />
+			<Add directory="..\..\..\libs\poco\include" />
+			<Add directory="src\ofxContourAnalysis\triangle" />
+			<Add directory="src\ofxCvHaarTracker" />
+			<Add directory="src\ofxTSPS\src" />
+			<Add directory="..\..\..\addons\ofxDirList\src" />
+			<Add directory="src\ofxMSAInteractiveObject\src" />
+			<Add directory="..\..\..\addons\ofxOsc\src" />
+			<Add directory="..\..\..\addons\ofxOsc\libs" />
+			<Add directory="..\..\..\addons\ofxXmlSettings\src" />
+			<Add directory="..\..\..\addons\ofxXmlSettings\libs" />
+			<Add directory="src\ofxOpenCVExtensions\src" />
+			<Add directory="..\..\..\addons\ofxOsc\libs\oscpack\include\ip" />
+			<Add directory="..\..\..\addons\ofxOsc\libs\oscpack\include\osc" />
+			<Add directory="src\ofxContourAnalysis" />
+			<Add directory="src\ofxTuioWrapper" />
+			<Add directory="src\ofxTuioWrapper\oscpack\include\ip" />
+			<Add directory="src\ofxTuioWrapper\oscpack\lib\win32" />
+			<Add directory="src\ofxTuioWrapper\oscpack\include\osc" />
+			<Add directory="src\ofxTuioWrapper\core" />
+			<Add directory="src\ofxNetwork\src" />
+			<Add directory="..\..\..\addons\ofxThread\src" />
+			<Add directory="..\..\..\addons\ofxOpenCv\src" />
+			<Add directory="..\..\..\addons\ofxOpenCv\libs\opencv\include" />
+			<Add directory="..\..\..\addons\ofxOpenCv\libs\opencv\lib\win_cb" />
+			<Add directory="src\ofxLabGui" />
+			<Add directory="src\ofxFileDialog\src" />
+		</Compiler>
+		<Linker>
+			<Add option="../../../libs/FreeImage/lib/win_cb/FreeImage.lib" />
+			<Add option="../../../libs/rtAudio/lib/win_cb/RtAudio.a" />
+			<Add option="../../../libs/quicktime/lib/win_cb/qtmlClient.lib" />
+			<Add option="../../../libs/freetype/lib/win_cb/libfreetype.a" />
+			<Add option="../../../libs/glut/lib/win_cb/libglut.a" />
+			<Add option="../../../libs/videoInput/lib/win_cb/videoInputLib.a" />
+			<Add option="../../../libs/fmodex/lib/win_cb/libfmodex.a" />
+			<Add option="../../../libs/glee/lib/win_cb/GLee.lib" />
+			<Add option="../../../libs/glu/lib/win_cb/glu32.lib" />
+			<Add option="../../../libs/poco/lib/win_cb/libPocoNetmt.a" />
+			<Add option="../../../libs/poco/lib/win_cb/libPocoUtilmt.a" />
+			<Add option="../../../libs/poco/lib/win_cb/libPocoXMLmt.a" />
+			<Add option="../../../libs/poco/lib/win_cb/libPocoFoundationmt.a" />
+			<Add option="../../../addons/ofxOsc/libs/oscpack/lib/win_cb/oscpack.a" />
+			<Add option="src/ofxTuioWrapper/oscpack/lib/win32/oscpack.a" />
+			<Add option="-lopengl32" />
+			<Add option="-lglu32" />
+			<Add option="-ldsound" />
+			<Add option="-lwinmm" />
+			<Add option="-ldxguid" />
+			<Add option="-lstrmbase" />
+			<Add option="-lstrmiids" />
+			<Add option="-lz" />
+			<Add option="-luuid" />
+			<Add option="-lole32" />
+			<Add option="-loleaut32" />
+			<Add option="-lsetupapi" />
+			<Add option="-lwsock32" />
+			<Add option="-lws2_32" />
+			<Add option="-lIphlpapi" />
+			<Add library="..\..\..\addons\ofxOpenCv\libs\opencv\lib\win_cb\libcv.a" />
+			<Add library="..\..\..\addons\ofxOpenCv\libs\opencv\lib\win_cb\libcvaux.a" />
+			<Add library="..\..\..\addons\ofxOpenCv\libs\opencv\lib\win_cb\libcxcore.a" />
+			<Add library="src\ofxTuioWrapper\oscpack\lib\win32\oscpack.lib" />
+			<Add library="src\ofxTuioWrapper\oscpack\lib\win32\oscpackd.lib" />
+			<Add library="..\..\..\addons\ofxOsc\libs\oscpack\lib\win_cb\oscpack.a" />
+			<Add library="src\ofxTuioWrapper\oscpack\lib\win32\oscpack.a" />
+		</Linker>
+		<ExtraCommands>
+			<Add after='xcopy /e /i /y &quot;$(PROJECT_DIR)..\..\..\export\win_cb\*.dll&quot;  &quot;$(PROJECT_DIR)bin&quot;' />
+			<Add after='cmd /c if not exist &quot;$(PROJECT_DIR)bin/data&quot; mkdir &quot;$(PROJECT_DIR)bin/data&quot;' />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="..\..\..\addons\ofxDirList\src\ofxDirList.cpp">
+			<Option virtualFolder="addons\ofxDirList\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxDirList\src\ofxDirList.h">
+			<Option virtualFolder="addons\ofxDirList\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxFileDialog\src\ofxFileDialog.cpp">
+			<Option virtualFolder="addons\ofxFileDialog\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxFileDialog\src\ofxFileDialog.h">
+			<Option virtualFolder="addons\ofxFileDialog\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvMain.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h">
+			<Option virtualFolder="addons\ofxOpenCv\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOsc.h">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
+			<Option virtualFolder="addons\ofxOsc\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxThread\src\ofxThread.cpp">
+			<Option virtualFolder="addons\ofxThread\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxThread\src\ofxThread.h">
+			<Option virtualFolder="addons\ofxThread\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
+			<Option virtualFolder="addons\ofxXmlSettings\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+			<Option virtualFolder="addons\ofxXmlSettings\" />
+		</Unit>
+		<Unit filename="src\main.cpp">
+			<Option virtualFolder="src\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\convexHull.h">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\ofxContourAnalysis.h">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\ofxContourAnalysisConstants.h">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\polylineSimplify.h">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\triangle\assert.hpp">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\triangle\del_impl.cpp">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\triangle\del_interface.hpp">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\triangle\dpoint.hpp">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\triangle\triangle.h">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxContourAnalysis\triangle\triangle_impl.hpp">
+			<Option virtualFolder="addons\ofxContourAnalysis\" />
+		</Unit>
+		<Unit filename="src\ofxCvHaarTracker\ofxCvHaarFinder.cpp">
+			<Option virtualFolder="addons\ofxCvHaarTracker\" />
+		</Unit>
+		<Unit filename="src\ofxCvHaarTracker\ofxCvHaarFinder.h">
+			<Option virtualFolder="addons\ofxCvHaarTracker\" />
+		</Unit>
+		<Unit filename="src\ofxCvHaarTracker\ofxCvHaarTracker.cpp">
+			<Option virtualFolder="addons\ofxCvHaarTracker\" />
+		</Unit>
+		<Unit filename="src\ofxCvHaarTracker\ofxCvHaarTracker.h">
+			<Option virtualFolder="addons\ofxCvHaarTracker\" />
+		</Unit>
+		<Unit filename="src\ofxCvHaarTracker\ofxCvHaarTrackerItem.cpp">
+			<Option virtualFolder="addons\ofxCvHaarTracker\" />
+		</Unit>
+		<Unit filename="src\ofxCvHaarTracker\ofxCvHaarTrackerItem.h">
+			<Option virtualFolder="addons\ofxCvHaarTracker\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiBaseObject.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiColor.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiCustomImpl.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiIncludes.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTextBase.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiType2DSlider.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeButton.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeCustom.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeDrawable.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeFileLister.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeGroup.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeLogger.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeMultiToggle.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypePanel.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeSlider.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeText.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiTypeToggle.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiValue.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\guiXmlValue.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\ofxLabGui.cpp">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\ofxLabGui.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\simpleColor.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\simpleFileLister.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxLabGui\simpleLogger.h">
+			<Option virtualFolder="addons\ofxLabGui\" />
+		</Unit>
+		<Unit filename="src\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp">
+			<Option virtualFolder="addons\ofxMSAInteractiveObject\" />
+		</Unit>
+		<Unit filename="src\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h">
+			<Option virtualFolder="addons\ofxMSAInteractiveObject\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxNetwork.h">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxTCPClient.cpp">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxTCPClient.h">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxTCPManager.cpp">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxTCPManager.h">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxTCPServer.cpp">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxTCPServer.h">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxUDPManager.cpp">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxNetwork\src\ofxUDPManager.h">
+			<Option virtualFolder="addons\ofxNetwork\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\CPUImageFilter.cpp">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\CPUImageFilter.h">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvBlobTracker.cpp">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvBlobTracker.h">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvConstants_Track.h">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvCoordWarping.cpp">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvCoordWarping.h">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.cpp">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.h">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvOpticalFlowLK.cpp">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvOpticalFlowLK.h">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxOpenCVExtensions\src\ofxCvTrackedBlob.h">
+			<Option virtualFolder="addons\ofxOpenCVExtensions\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPS.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSGuiManager.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSGuiManager.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSOscSender.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSOscSender.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSPeopleTracker.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSPeopleTracker.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSPerson.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSPerson.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSScene.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSScene.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSSettings.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSSettings.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSTCPSender.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSTCPSender.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSTUIOSender.cpp">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSTUIOSender.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTSPS\src\ofxTSPSView.h">
+			<Option virtualFolder="addons\ofxTSPS\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\TuioTcpXmlServer.cpp">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\TuioTcpXmlServer.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioClient.cpp">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioClient.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioContainer.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioCursor.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioListener.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioObject.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioPoint.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioServer.cpp">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioServer.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioTime.cpp">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\core\TuioTime.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\ofxTuioClient.cpp">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\ofxTuioClient.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\ofxTuioServer.cpp">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\ofxTuioServer.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\ip\IpEndpointName.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\ip\NetworkingUtils.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\ip\PacketListener.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\ip\TimerListener.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\ip\UdpSocket.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\MessageMappingOscPacketListener.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\OscException.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\OscHostEndianness.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\OscOutboundPacketStream.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\OscPacketListener.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\OscPrintReceivedElements.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\OscReceivedElements.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\ofxTuioWrapper\oscpack\include\osc\OscTypes.h">
+			<Option virtualFolder="addons\ofxTuioWrapper\" />
+		</Unit>
+		<Unit filename="src\testApp.cpp">
+			<Option virtualFolder="src\" />
+		</Unit>
+		<Unit filename="src\testApp.h">
+			<Option virtualFolder="src\" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

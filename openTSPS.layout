@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="release" />
+	<File name="..\..\..\addons\ofxFileDialog\src\ofxFileDialog.cpp" open="0" top="0" tabpos="8">
+		<Cursor position="3657" topLine="117" />
+	</File>
+	<File name="..\..\..\addons\ofxFileDialog\src\ofxFileDialog.h" open="0" top="0" tabpos="7">
+		<Cursor position="31" topLine="0" />
+	</File>
+	<File name="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" open="1" top="0" tabpos="4">
+		<Cursor position="835" topLine="0" />
+	</File>
+	<File name="src\ofxLabGui\guiTypeButton.h" open="0" top="0" tabpos="0">
+		<Cursor position="31" topLine="0" />
+	</File>
+	<File name="src\ofxLabGui\guiTypeGroup.h" open="0" top="0" tabpos="0">
+		<Cursor position="30" topLine="0" />
+	</File>
+	<File name="src\ofxLabGui\ofxLabGui.h" open="0" top="0" tabpos="3">
+		<Cursor position="7357" topLine="193" />
+	</File>
+	<File name="src\ofxLabGui\simpleFileLister.h" open="0" top="0" tabpos="4">
+		<Cursor position="426" topLine="36" />
+	</File>
+	<File name="src\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="105" topLine="0" />
+	</File>
+	<File name="src\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.h" open="0" top="0" tabpos="0">
+		<Cursor position="103" topLine="0" />
+	</File>
+	<File name="src\ofxTSPS\src\ofxTSPS.h" open="0" top="0" tabpos="0">
+		<Cursor position="6" topLine="0" />
+	</File>
+	<File name="src\ofxTSPS\src\ofxTSPSPeopleTracker.h" open="1" top="0" tabpos="3">
+		<Cursor position="3045" topLine="15" />
+	</File>
+	<File name="src\testApp.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="5116" topLine="177" />
+	</File>
+	<File name="src\testApp.h" open="1" top="1" tabpos="1">
+		<Cursor position="267" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

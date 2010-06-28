@@ -1,0 +1,54 @@
+8
+
+dir
+32
+https://backsmith@cya-alpha.googlecode.com/svn/trunk/OF_0061_LAB/core/addons/ofxFileDialog/src
+https://backsmith@cya-alpha.googlecode.com/svn
+
+
+
+2010-03-08T03:36:41.708760Z
+21
+backsmith
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3618dc3e-0c63-11df-8158-cd644e702c08
+
+ofxFileDialog.h
+file
+
+
+
+
+2010-03-03T14:53:03.000000Z
+990c592b26c69dc3cac4ee7215dcfc51
+2010-02-12T22:12:00.897126Z
+17
+robotconscience
+has-props
+
+ofxFileDialog.cpp
+file
+
+
+
+
+2010-03-08T03:33:34.000000Z
+9d9980fe3b9a9ebe7d3a8cb03eec8620
+2010-03-08T03:36:41.708760Z
+21
+backsmith
+has-props
+

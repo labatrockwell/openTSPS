@@ -1,0 +1,81 @@
+8
+
+dir
+32
+https://backsmith@cya-alpha.googlecode.com/svn/trunk/OF_0061_LAB/core/apps/LAB/openTSPS/bin/data/fonts
+https://backsmith@cya-alpha.googlecode.com/svn
+
+
+
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+
+
+svn:special svn:externals svn:needs-lock
+
+TIMESBD.TTF
+file
+
+
+
+
+2010-02-05T23:03:44.000000Z
+d3ab9493f38ee4c1215fdba7882e3b05
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
+timesi.ttf
+file
+
+
+
+
+2010-02-05T23:03:44.000000Z
+4820e812c9f22caabeca9bad36d765cd
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
+timesbi.ttf
+file
+
+
+
+
+2010-02-05T23:03:44.000000Z
+e9f0868adb427f15807f903531eb6d1e
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
+verdana.ttf
+file
+
+
+
+
+2010-02-05T23:03:44.000000Z
+562fa31bba08b3f71cb71257ddb880d5
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
+times.ttf
+file
+
+
+
+
+2010-02-05T23:03:44.000000Z
+7b58b97fe9788e2dbd80b4422f70632a
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+

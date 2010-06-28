@@ -1,0 +1,55 @@
+8
+
+dir
+32
+https://backsmith@cya-alpha.googlecode.com/svn/trunk/OF_0061_LAB/core/apps/LAB/openTSPS/bin/data/graphic/triggers
+https://backsmith@cya-alpha.googlecode.com/svn
+
+
+
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+
+
+svn:special svn:externals svn:needs-lock
+
+PersonLeft_Active.png
+file
+
+
+
+
+2010-02-05T23:03:45.000000Z
+bc35e4f74700718e10e196e83bbb81d1
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
+PersonEntered_Active.png
+file
+
+
+
+
+2010-02-05T23:03:45.000000Z
+308ca48223ed1e8c76a9b2808ef7f2b1
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
+PersonUpdated_Active.png
+file
+
+
+
+
+2010-02-05T23:03:45.000000Z
+2bedfc4ccec0b00dabf3ed9c2173ee40
+2010-03-17T15:24:32.134757Z
+29
+backsmith
+has-props
+
