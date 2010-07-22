@@ -48,7 +48,9 @@ ofxTSPSGuiManager::ofxTSPSGuiManager() {
 	ofAddListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
 	ofAddListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
 	ofAddListener(ofEvents.keyPressed, this, &ofxTSPSGuiManager::keyPressed);
-	
+}
+
+void ofxTSPSGuiManager::setup(){
 	//ofxTSPSSettings *p_Settings;
 	//p_Settings = ofxTSPSSettings::getInstance();
 	
@@ -60,204 +62,204 @@ ofxTSPSGuiManager::ofxTSPSGuiManager() {
 	
 	//panel layout
 	
-		panel.setPosition(10, 10);
-		panel.setShowText(false);
-		panel.setDimensions(330, 680); //yikes... autospacing is not working so well
-		panel.setCollapsible(false);
-		panel.setDraggable(false);
-		panel.setBackgroundColor(255,255,255);
-		panel.setOutlineColor(255,255,255,0);
-		panel.setTextColor(148,129,85);
-		panel.setSaveColor(58, 187, 147);
-		panel.setLoadColor(180, 87, 128);
-		panel.setSaveAsColor(238, 53, 35);
-		panel.setSaveSelectedColor(80, 253, 190);
-		panel.setRestoreColor(34, 151, 210);
-		panel.setRestoreSelectedColor(116, 191, 228);
-		panel.setDrawBarOnTop(false);
-				
-		guiTypePanel * videoPanel = panel.addPanel("video", 1, false);
-		videoPanel->setDrawLock( false );	
-		videoPanel->setBackgroundColor(174,139,138);
-		videoPanel->setBackgroundSelectColor(174,139,138);
+	panel.setPosition(10, 10);
+	panel.setShowText(false);
+	panel.setDimensions(330, 680); //yikes... autospacing is not working so well
+	panel.setCollapsible(false);
+	panel.setDraggable(false);
+	panel.setBackgroundColor(255,255,255);
+	panel.setOutlineColor(255,255,255,0);
+	panel.setTextColor(148,129,85);
+	panel.setSaveColor(58, 187, 147);
+	panel.setLoadColor(180, 87, 128);
+	panel.setSaveAsColor(238, 53, 35);
+	panel.setSaveSelectedColor(80, 253, 190);
+	panel.setRestoreColor(34, 151, 210);
+	panel.setRestoreSelectedColor(116, 191, 228);
+	panel.setDrawBarOnTop(false);
 	
-		guiTypePanel * backgroundPanel = panel.addPanel("background", 1, false);
-		backgroundPanel->setDrawLock( false );	
-		backgroundPanel->setBackgroundColor(213,105,68);
-		backgroundPanel->setBackgroundSelectColor(213,105,68);
+	guiTypePanel * videoPanel = panel.addPanel("video", 1, false);
+	videoPanel->setDrawLock( false );	
+	videoPanel->setBackgroundColor(174,139,138);
+	videoPanel->setBackgroundSelectColor(174,139,138);
 	
-		guiTypePanel * differencingPanel = panel.addPanel("differencing", 1, false);
-		differencingPanel->setDrawLock( false );	
-		differencingPanel->setBackgroundColor(113,171,154);
-		differencingPanel->setBackgroundSelectColor(113,171,154);
+	guiTypePanel * backgroundPanel = panel.addPanel("background", 1, false);
+	backgroundPanel->setDrawLock( false );	
+	backgroundPanel->setBackgroundColor(213,105,68);
+	backgroundPanel->setBackgroundSelectColor(213,105,68);
 	
-		guiTypePanel * sensingPanel = panel.addPanel("sensing", 1, false);
-		sensingPanel->setDrawLock( false );
-		sensingPanel->setBackgroundColor(191,120,0);
-		sensingPanel->setBackgroundSelectColor(191,120,0);
-		
-		guiTypePanel * communicationPanel = panel.addPanel("communication", 1, false);
-		communicationPanel->setDrawLock( false );
-		communicationPanel->setBackgroundColor(180,87,128);
-		communicationPanel->setBackgroundSelectColor(180,87,128);
-		
-	#ifdef USE_CUSTOM_GUI
-		guiTypePanel * customPanel = panel.addPanel("custom", 1, false);
-		customPanel->setDrawLock( false );
-		customPanel->setBackgroundColor(218,173,90);
-		customPanel->setBackgroundSelectColor(191,120,0);
-	#endif		
+	guiTypePanel * differencingPanel = panel.addPanel("differencing", 1, false);
+	differencingPanel->setDrawLock( false );	
+	differencingPanel->setBackgroundColor(113,171,154);
+	differencingPanel->setBackgroundSelectColor(113,171,154);
+	
+	guiTypePanel * sensingPanel = panel.addPanel("sensing", 1, false);
+	sensingPanel->setDrawLock( false );
+	sensingPanel->setBackgroundColor(191,120,0);
+	sensingPanel->setBackgroundSelectColor(191,120,0);
+	
+	guiTypePanel * communicationPanel = panel.addPanel("communication", 1, false);
+	communicationPanel->setDrawLock( false );
+	communicationPanel->setBackgroundColor(180,87,128);
+	communicationPanel->setBackgroundSelectColor(180,87,128);
+	
+#ifdef USE_CUSTOM_GUI
+	guiTypePanel * customPanel = panel.addPanel("custom", 1, false);
+	customPanel->setDrawLock( false );
+	customPanel->setBackgroundColor(218,173,90);
+	customPanel->setBackgroundSelectColor(191,120,0);
+#endif		
 	
 	// video settings		
-		panel.setWhichPanel("video");	
-		guiTypeGroup * amplificationGroup = panel.addGroup("amplification");
-		amplificationGroup->setBackgroundColor(148,129,85);
-		amplificationGroup->setBackgroundSelectColor(148,129,85);
-		amplificationGroup->seBaseColor(244,136,136);
-		amplificationGroup->setShowText(false);
-		panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
-		panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
+	panel.setWhichPanel("video");	
+	guiTypeGroup * amplificationGroup = panel.addGroup("amplification");
+	amplificationGroup->setBackgroundColor(148,129,85);
+	amplificationGroup->setBackgroundSelectColor(148,129,85);
+	amplificationGroup->seBaseColor(244,136,136);
+	amplificationGroup->setShowText(false);
+	panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
+	panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
 	
 	//background settings
-			
-		panel.setWhichPanel("background");
-		guiTypeGroup * backgroundGroup = panel.addGroup("background");
-		backgroundGroup->setBackgroundColor(148,129,85);
-		backgroundGroup->setBackgroundSelectColor(148,129,85);
-		backgroundGroup->seBaseColor(58,187,147);
-		backgroundGroup->setShowText(false);
-		backgroundGroup->setActive(true);
-		//TODO: use the button class for this maybe?
-		panel.addToggle("capture background", "LEARN_BACKGROUND", false);
 	
-		guiTypeGroup * relearnGroup = panel.addGroup("background relearn");
-		relearnGroup->setBackgroundColor(148,129,85);
-		relearnGroup->setBackgroundSelectColor(148,129,85);
-		relearnGroup->seBaseColor(180,87,128);
-		relearnGroup->setShowText(false);
-		panel.addToggle("progressive background recapture", "RELEARN", false);
-		panel.addSlider("recapture rate :", "RELEARN_BACKGROUND", .1f, 0.0f, 1000.0f, false);
+	panel.setWhichPanel("background");
+	guiTypeGroup * backgroundGroup = panel.addGroup("background");
+	backgroundGroup->setBackgroundColor(148,129,85);
+	backgroundGroup->setBackgroundSelectColor(148,129,85);
+	backgroundGroup->seBaseColor(58,187,147);
+	backgroundGroup->setShowText(false);
+	backgroundGroup->setActive(true);
+	//TODO: use the button class for this maybe?
+	panel.addToggle("capture background", "LEARN_BACKGROUND", false);
+	
+	guiTypeGroup * relearnGroup = panel.addGroup("background relearn");
+	relearnGroup->setBackgroundColor(148,129,85);
+	relearnGroup->setBackgroundSelectColor(148,129,85);
+	relearnGroup->seBaseColor(180,87,128);
+	relearnGroup->setShowText(false);
+	panel.addToggle("progressive background recapture", "RELEARN", false);
+	panel.addSlider("recapture rate :", "RELEARN_BACKGROUND", .1f, 0.0f, 1000.0f, false);
 	
 	//differencing settings
 	
-		panel.setWhichPanel("differencing");
-		guiTypeGroup * thresholdGroup = panel.addGroup("threshold group");	
-		thresholdGroup->setBackgroundColor(148,129,85);
-		thresholdGroup->setBackgroundSelectColor(148,129,85);
-		thresholdGroup->seBaseColor(255,136,37);
-		thresholdGroup->setShowText(false);
-		thresholdGroup->setActive(true);
-		panel.addSlider("threshold:", "THRESHOLD", 40, 0, 255, false);
-		vector<string> multi;
-		multi.push_back("light on dark");
-		multi.push_back("dark on light");
-		multi.push_back("absolute difference");
-		panel.addMultiToggle("type of differencing:", "BLOB_TYPE", 0, multi);
-			
-		guiTypeGroup * highpassGroup = panel.addGroup("highpass");
-		highpassGroup->setBackgroundColor(148,129,85);
-		highpassGroup->setBackgroundSelectColor(148,129,85);
-		highpassGroup->seBaseColor(58,187,147);
-		highpassGroup->setShowText(false);
-		panel.addToggle("use highpass", "USE_HIGHPASS", true);
-		panel.addSlider("highpass blur:", "HIGHPASS_BLUR", 1, 1, 200, true);
-		panel.addSlider("highpass noise:", "HIGHPASS_NOISE", 1, 1, 30, true);
+	panel.setWhichPanel("differencing");
+	guiTypeGroup * thresholdGroup = panel.addGroup("threshold group");	
+	thresholdGroup->setBackgroundColor(148,129,85);
+	thresholdGroup->setBackgroundSelectColor(148,129,85);
+	thresholdGroup->seBaseColor(255,136,37);
+	thresholdGroup->setShowText(false);
+	thresholdGroup->setActive(true);
+	panel.addSlider("threshold:", "THRESHOLD", 40, 0, 255, false);
+	vector<string> multi;
+	multi.push_back("light on dark");
+	multi.push_back("dark on light");
+	multi.push_back("absolute difference");
+	panel.addMultiToggle("type of differencing:", "BLOB_TYPE", 0, multi);
 	
-		guiTypeGroup * smoothingGroup = panel.addGroup("smoothing");		
-		smoothingGroup->setBackgroundColor(148,129,85);
-		smoothingGroup->setBackgroundSelectColor(148,129,85);
-		smoothingGroup->seBaseColor(34,151,210);
-		smoothingGroup->setShowText(false);
-		panel.addToggle("use shape smoothing", "USE_SMOOTHING", false);
-		panel.addSlider("smooth amount:", "SMOOTH_AMOUNT", 0, 0, 15, false);		
+	guiTypeGroup * highpassGroup = panel.addGroup("highpass");
+	highpassGroup->setBackgroundColor(148,129,85);
+	highpassGroup->setBackgroundSelectColor(148,129,85);
+	highpassGroup->seBaseColor(58,187,147);
+	highpassGroup->setShowText(false);
+	panel.addToggle("use highpass", "USE_HIGHPASS", true);
+	panel.addSlider("highpass blur:", "HIGHPASS_BLUR", 1, 1, 200, true);
+	panel.addSlider("highpass noise:", "HIGHPASS_NOISE", 1, 1, 30, true);
+	
+	guiTypeGroup * smoothingGroup = panel.addGroup("smoothing");		
+	smoothingGroup->setBackgroundColor(148,129,85);
+	smoothingGroup->setBackgroundSelectColor(148,129,85);
+	smoothingGroup->seBaseColor(34,151,210);
+	smoothingGroup->setShowText(false);
+	panel.addToggle("use shape smoothing", "USE_SMOOTHING", false);
+	panel.addSlider("smooth amount:", "SMOOTH_AMOUNT", 0, 0, 15, false);		
 	
 	//sensing
-		
-		panel.setWhichPanel("sensing");
-		//TODO optionally disable people?
-				
-		guiTypeGroup * blobGroup = panel.addGroup("blobs");
-		blobGroup->setBackgroundColor(148,129,85);
-		blobGroup->setBackgroundSelectColor(148,129,85);
-		blobGroup->seBaseColor(238,218,0);
-		blobGroup->setShowText(false);
-		blobGroup->setActive(true);
-
-		//JG 12/8/09 GUI-REDUX Removing this feature
-		panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 2.0f, false);
-		panel.addSlider("maximum blob size (% of view):", "MAX_BLOB", .50f, 0.1f, 100.f, false);
-		panel.addToggle("ignore nested blobs", "FIND_HOLES", false);
-					
-		guiTypeGroup * optionsGroup = panel.addGroup("options");
-		optionsGroup->setBackgroundColor(148,129,85);
-		optionsGroup->setBackgroundSelectColor(148,129,85);
-		optionsGroup->seBaseColor(58,187,147);
-		optionsGroup->setShowText(false);
-		panel.addToggle("track and send contours", "SEND_OSC_CONTOURS", false);
 	
-		guiTypeGroup * opticalGroup = panel.addGroup("optical flow");
-		opticalGroup->setBackgroundColor(148,129,85);
-		opticalGroup->setBackgroundSelectColor(148,129,85);
-		opticalGroup->seBaseColor(34,151,210);
-		opticalGroup->setShowText(false);
-		//optical flow
-		panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", true);
-		panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
-		panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
-		
-		guiTypeGroup * haarGroup = panel.addGroup("haar tracking");
-		haarGroup->setBackgroundColor(148,129,85);
-		haarGroup->setBackgroundSelectColor(148,129,85);
-		haarGroup->seBaseColor(238,53,35);
-		haarGroup->setShowText(false);
-		
-		// haar
-		panel.addToggle("detect and send features in blobs", "SENSE_HAAR", false);
-		//	ofEnableDataPath();
-		//	ofSetDataPathRoot("data/");
-		haarFiles = new simpleFileLister();	
-		int numHaar = haarFiles->listDir(ofToDataPath("haar", true));
-		ofLog(OF_LOG_VERBOSE, "haar files found " + numHaar);
-		panel.addFileLister("types of features:", haarFiles, 240, 100);
-		panel.addSlider("expand detection area:", "HAAR_PADDING", 0.0f, 0.0f, 200.0f, false);
-		
-		//JG GUI-REDUX: removing this feature
-		//gui.addToggle("send haar center as blob center", &p_Settings->bUseHaarAsCenter);
-		//JG 1/21/10 disabled this feature to simplify the interface
-		//	panel.addSlider("min. checkable haar size (%)", "MIN_HAAR", .1f, 0.0001f, 1.0f, false);
-		//	panel.addSlider("max. checkable haar size (%)", "MAX_HAAR", .5f, 0.0001f, 1.0f, false);
-		
+	panel.setWhichPanel("sensing");
+	//TODO optionally disable people?
+	
+	guiTypeGroup * blobGroup = panel.addGroup("blobs");
+	blobGroup->setBackgroundColor(148,129,85);
+	blobGroup->setBackgroundSelectColor(148,129,85);
+	blobGroup->seBaseColor(238,218,0);
+	blobGroup->setShowText(false);
+	blobGroup->setActive(true);
+	
+	//JG 12/8/09 GUI-REDUX Removing this feature
+	panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 2.0f, false);
+	panel.addSlider("maximum blob size (% of view):", "MAX_BLOB", .50f, 0.1f, 100.f, false);
+	panel.addToggle("ignore nested blobs", "FIND_HOLES", false);
+	
+	guiTypeGroup * optionsGroup = panel.addGroup("options");
+	optionsGroup->setBackgroundColor(148,129,85);
+	optionsGroup->setBackgroundSelectColor(148,129,85);
+	optionsGroup->seBaseColor(58,187,147);
+	optionsGroup->setShowText(false);
+	panel.addToggle("track and send contours", "SEND_OSC_CONTOURS", false);
+	
+	guiTypeGroup * opticalGroup = panel.addGroup("optical flow");
+	opticalGroup->setBackgroundColor(148,129,85);
+	opticalGroup->setBackgroundSelectColor(148,129,85);
+	opticalGroup->seBaseColor(34,151,210);
+	opticalGroup->setShowText(false);
+	//optical flow
+	panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", true);
+	panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
+	panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
+	
+	guiTypeGroup * haarGroup = panel.addGroup("haar tracking");
+	haarGroup->setBackgroundColor(148,129,85);
+	haarGroup->setBackgroundSelectColor(148,129,85);
+	haarGroup->seBaseColor(238,53,35);
+	haarGroup->setShowText(false);
+	
+	// haar
+	panel.addToggle("detect and send features in blobs", "SENSE_HAAR", false);
+	//	ofEnableDataPath();
+	//	ofSetDataPathRoot("data/");
+	haarFiles = new simpleFileLister();	
+	int numHaar = haarFiles->listDir(ofToDataPath("haar", true));
+	ofLog(OF_LOG_VERBOSE, "haar files found " + numHaar);
+	panel.addFileLister("types of features:", haarFiles, 240, 100);
+	panel.addSlider("expand detection area:", "HAAR_PADDING", 0.0f, 0.0f, 200.0f, false);
+	
+	//JG GUI-REDUX: removing this feature
+	//gui.addToggle("send haar center as blob center", &p_Settings->bUseHaarAsCenter);
+	//JG 1/21/10 disabled this feature to simplify the interface
+	//	panel.addSlider("min. checkable haar size (%)", "MIN_HAAR", .1f, 0.0001f, 1.0f, false);
+	//	panel.addSlider("max. checkable haar size (%)", "MAX_HAAR", .5f, 0.0001f, 1.0f, false);
+	
 	//communication
-		
-		panel.setWhichPanel("communication");
-		panel.setWhichColumn(0);
-		
-		guiTypeGroup * oscGroup = panel.addGroup("OSC");
-		oscGroup->setBackgroundColor(148,129,85);
-		oscGroup->setBackgroundSelectColor(148,129,85);
-		oscGroup->seBaseColor(238,53,35);
-		oscGroup->setShowText(false);
-		panel.addToggle("send OSC", "SEND_OSC", false);
-		panel.addTextField("receiver IP address (OSC host) :", "OSC_HOST", "127.0.0.1", 200, 20);
-		panel.addTextField("receiver port (OSC port) :", "OSC_PORT", "12000", 200, 20);
-		
-		guiTypeGroup * tuioGroup = panel.addGroup("TUIO");
-		tuioGroup->setBackgroundColor(148,129,85);
-		tuioGroup->setBackgroundSelectColor(148,129,85);
-		tuioGroup->seBaseColor(207,202,65);
-		tuioGroup->setShowText(false);
-		panel.addToggle("send TUIO", "SEND_TUIO", false);
-		panel.addTextField("receiver IP address (TUIO host):", "TUIO_HOST", "127.0.0.1", 200, 20);
-		panel.addTextField("receiver port (TUIO port):", "TUIO_PORT", "3333", 200, 20);
-		
-		guiTypeGroup * tcpGroup = panel.addGroup("TCP");
-		tcpGroup->setBackgroundColor(148,129,85);
-		tcpGroup->setBackgroundSelectColor(148,129,85);
-		tcpGroup->seBaseColor(238,53,35);
-		tcpGroup->setShowText(false);
-		panel.addToggle("send TCP", "SEND_TCP", false);
-		panel.addTextField("broadcast port (TCP port):", "TCP_PORT", "8888", 200, 20);
-		
+	
+	panel.setWhichPanel("communication");
+	panel.setWhichColumn(0);
+	
+	guiTypeGroup * oscGroup = panel.addGroup("OSC");
+	oscGroup->setBackgroundColor(148,129,85);
+	oscGroup->setBackgroundSelectColor(148,129,85);
+	oscGroup->seBaseColor(238,53,35);
+	oscGroup->setShowText(false);
+	panel.addToggle("send OSC", "SEND_OSC", false);
+	panel.addTextField("receiver IP address (OSC host) :", "OSC_HOST", "127.0.0.1", 200, 20);
+	panel.addTextField("receiver port (OSC port) :", "OSC_PORT", "12000", 200, 20);
+	
+	guiTypeGroup * tuioGroup = panel.addGroup("TUIO");
+	tuioGroup->setBackgroundColor(148,129,85);
+	tuioGroup->setBackgroundSelectColor(148,129,85);
+	tuioGroup->seBaseColor(207,202,65);
+	tuioGroup->setShowText(false);
+	panel.addToggle("send TUIO", "SEND_TUIO", false);
+	panel.addTextField("receiver IP address (TUIO host):", "TUIO_HOST", "127.0.0.1", 200, 20);
+	panel.addTextField("receiver port (TUIO port):", "TUIO_PORT", "3333", 200, 20);
+	
+	guiTypeGroup * tcpGroup = panel.addGroup("TCP");
+	tcpGroup->setBackgroundColor(148,129,85);
+	tcpGroup->setBackgroundSelectColor(148,129,85);
+	tcpGroup->seBaseColor(238,53,35);
+	tcpGroup->setShowText(false);
+	panel.addToggle("send TCP", "SEND_TCP", false);
+	panel.addTextField("broadcast port (TCP port):", "TCP_PORT", "8888", 200, 20);
+	
 	//JG TODO: Optionally change config file through the UI
 	//this would be a big help for setting up multiple install sites and having those setting
 	//included in repositories
@@ -270,9 +272,11 @@ ofxTSPSGuiManager::ofxTSPSGuiManager() {
 	ofAddListener(panel.getRestoreButton()->buttonPressed, this, &ofxTSPSGuiManager::reloadEventCatcher);
 	ofAddListener(panel.getLoadButton()->buttonPressed, this, &ofxTSPSGuiManager::loadEventCatcher);
 	ofAddListener(panel.getSaveAsButton()->buttonPressed, this, &ofxTSPSGuiManager::saveAsEventCatcher);
-		
+	
 	//set active panel to be differencing
 	panel.setSelectedPanel("differencing");
+	ofEventArgs nullArgs;
+	update(nullArgs);
 }
 
 void ofxTSPSGuiManager::addSlider(string name, int* value, int min, int max)

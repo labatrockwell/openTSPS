@@ -31,7 +31,8 @@
 
 void ofxTSPSTCPSender::setup( int _port ){
 	port = _port;
-	if (TCP.getNumClients() > 0) TCP.disconnectClient(0);
+	if (TCP.getNumClients() > 0)
+		TCP.disconnectClient(0);
 	bool bSetup = TCP.setup( port );
 	oldport = port;
 };

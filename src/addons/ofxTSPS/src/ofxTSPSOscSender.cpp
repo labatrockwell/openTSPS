@@ -94,7 +94,6 @@ void ofxTSPSOscSender::personEntered ( ofxTSPSPerson * p, ofPoint centroid, int 
 };
 
 void ofxTSPSOscSender::personMoved ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-	cout<<"MOVED!"<<endl;
 	ofxOscMessage m;
 	m.setAddress("TSPS/personMoved/");
 	m.addIntArg(p->pid);

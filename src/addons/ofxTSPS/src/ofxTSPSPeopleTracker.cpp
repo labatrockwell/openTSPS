@@ -36,6 +36,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	//gui.setDraw(true);		
 	
 	//setup gui quad in manager
+	gui.setup();
 	gui.setupQuadGui( width, height );
 	gui.loadSettings("settings/settings.xml");
 	activeHeight = ofGetHeight();
@@ -75,6 +76,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	setActiveView(PROCESSED_VIEW);
 	
     persistentTracker.setListener( this );
+	//updateSettings();
 }
 
 void ofxTSPSPeopleTracker::setHaarXMLFile(string haarFile)
@@ -109,6 +111,7 @@ void ofxTSPSPeopleTracker::setupOsc(string ip, int port)
 
 void ofxTSPSPeopleTracker::setupTcp(int port)
 {
+	cout << "setup tcp at "<<port<<endl;
 	bTcpEnabled = true;
 	ofLog(OF_LOG_VERBOSE, "SEND TCP");
 	p_Settings->tcpPort = port;

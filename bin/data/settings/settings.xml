@@ -91,5 +91,5 @@
     <val_0>1.000000</val_0>
 </SEND_TCP>
 <TCP_PORT>
-    <val_0>3334&#x03;</val_0>
+    <val_0>3335</val_0>
 </TCP_PORT>
