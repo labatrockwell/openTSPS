@@ -20,7 +20,6 @@
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/tinyxmlerror.o
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/tinyxmlparser.o
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/ofxXmlSettings.o
-/Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/del_impl.o
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/ofxCvHaarFinder.o
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/ofxCvHaarTracker.o
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/ofxCvHaarTrackerItem.o
@@ -46,3 +45,4 @@
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/ofxTuioClient.o
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/ofxTuioServer.o
 /Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/TuioTcpXmlServer.o
+/Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/build/openTSPS.build/ReleaseUniversal/openTSPS.build/Objects-normal/i386/del_impl.o

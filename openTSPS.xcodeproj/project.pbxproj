@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E29259B120352E000074368 /* del_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E292596120352E000074368 /* del_impl.cpp */; };
 		2EF1B1521152C650005C4028 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1B1511152C650005C4028 /* icon.icns */; };
-		A658D7E011518839008B1830 /* del_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A658D75A11518839008B1830 /* del_impl.cpp */; };
 		A658D7E111518839008B1830 /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A658D76011518839008B1830 /* ofxCvHaarFinder.cpp */; };
 		A658D7E211518839008B1830 /* ofxCvHaarTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A658D76211518839008B1830 /* ofxCvHaarTracker.cpp */; };
 		A658D7E311518839008B1830 /* ofxCvHaarTrackerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A658D76411518839008B1830 /* ofxCvHaarTrackerItem.cpp */; };
@@ -134,17 +134,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E292590120352E000074368 /* convexHull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convexHull.h; sourceTree = "<group>"; };
+		2E292591120352E000074368 /* ofxContourAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxContourAnalysis.h; sourceTree = "<group>"; };
+		2E292592120352E000074368 /* ofxContourAnalysisConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxContourAnalysisConstants.h; sourceTree = "<group>"; };
+		2E292593120352E000074368 /* polylineSimplify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polylineSimplify.h; sourceTree = "<group>"; };
+		2E292595120352E000074368 /* assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = assert.hpp; sourceTree = "<group>"; };
+		2E292596120352E000074368 /* del_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = del_impl.cpp; sourceTree = "<group>"; };
+		2E292597120352E000074368 /* del_interface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = del_interface.hpp; sourceTree = "<group>"; };
+		2E292598120352E000074368 /* dpoint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dpoint.hpp; sourceTree = "<group>"; };
+		2E292599120352E000074368 /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle.h; sourceTree = "<group>"; };
+		2E29259A120352E000074368 /* triangle_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = triangle_impl.hpp; sourceTree = "<group>"; };
 		2EF1B1511152C650005C4028 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
-		A658D75411518839008B1830 /* convexHull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convexHull.h; sourceTree = "<group>"; };
-		A658D75511518839008B1830 /* ofxContourAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxContourAnalysis.h; sourceTree = "<group>"; };
-		A658D75611518839008B1830 /* ofxContourAnalysisConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxContourAnalysisConstants.h; sourceTree = "<group>"; };
-		A658D75711518839008B1830 /* polylineSimplify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polylineSimplify.h; sourceTree = "<group>"; };
-		A658D75911518839008B1830 /* assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = assert.hpp; sourceTree = "<group>"; };
-		A658D75A11518839008B1830 /* del_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = del_impl.cpp; sourceTree = "<group>"; };
-		A658D75B11518839008B1830 /* del_interface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = del_interface.hpp; sourceTree = "<group>"; };
-		A658D75C11518839008B1830 /* dpoint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dpoint.hpp; sourceTree = "<group>"; };
-		A658D75D11518839008B1830 /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle.h; sourceTree = "<group>"; };
-		A658D75E11518839008B1830 /* triangle_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = triangle_impl.hpp; sourceTree = "<group>"; };
 		A658D76011518839008B1830 /* ofxCvHaarFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvHaarFinder.cpp; sourceTree = "<group>"; };
 		A658D76111518839008B1830 /* ofxCvHaarFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvHaarFinder.h; sourceTree = "<group>"; };
 		A658D76211518839008B1830 /* ofxCvHaarTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvHaarTracker.cpp; sourceTree = "<group>"; };
@@ -410,28 +410,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A658D75311518839008B1830 /* ofxContourAnalysis */ = {
+		2E29258F120352E000074368 /* ofxContourAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				A658D75411518839008B1830 /* convexHull.h */,
-				A658D75511518839008B1830 /* ofxContourAnalysis.h */,
-				A658D75611518839008B1830 /* ofxContourAnalysisConstants.h */,
-				A658D75711518839008B1830 /* polylineSimplify.h */,
-				A658D75811518839008B1830 /* triangle */,
+				2E292590120352E000074368 /* convexHull.h */,
+				2E292591120352E000074368 /* ofxContourAnalysis.h */,
+				2E292592120352E000074368 /* ofxContourAnalysisConstants.h */,
+				2E292593120352E000074368 /* polylineSimplify.h */,
+				2E292594120352E000074368 /* triangle */,
 			);
 			name = ofxContourAnalysis;
-			path = ../apps/release/tsps_src_mac/src/addons/ofxContourAnalysis;
-			sourceTree = "<group>";
+			path = src/addons/ofxContourAnalysis;
+			sourceTree = SOURCE_ROOT;
 		};
-		A658D75811518839008B1830 /* triangle */ = {
+		2E292594120352E000074368 /* triangle */ = {
 			isa = PBXGroup;
 			children = (
-				A658D75911518839008B1830 /* assert.hpp */,
-				A658D75A11518839008B1830 /* del_impl.cpp */,
-				A658D75B11518839008B1830 /* del_interface.hpp */,
-				A658D75C11518839008B1830 /* dpoint.hpp */,
-				A658D75D11518839008B1830 /* triangle.h */,
-				A658D75E11518839008B1830 /* triangle_impl.hpp */,
+				2E292595120352E000074368 /* assert.hpp */,
+				2E292596120352E000074368 /* del_impl.cpp */,
+				2E292597120352E000074368 /* del_interface.hpp */,
+				2E292598120352E000074368 /* dpoint.hpp */,
+				2E292599120352E000074368 /* triangle.h */,
+				2E29259A120352E000074368 /* triangle_impl.hpp */,
 			);
 			path = triangle;
 			sourceTree = "<group>";
@@ -722,7 +722,7 @@
 		E44665C70F5B3E03005D0BF0 /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				A658D75311518839008B1830 /* ofxContourAnalysis */,
+				2E29258F120352E000074368 /* ofxContourAnalysis */,
 				A658D75F11518839008B1830 /* ofxCvHaarTracker */,
 				A658D76611518839008B1830 /* ofxFileDialog */,
 				A658D76B11518839008B1830 /* ofxLabGui */,
@@ -1416,7 +1416,6 @@
 				E7B52A1311122B1F00033B6F /* tinyxmlerror.cpp in Sources */,
 				E7B52A1411122B1F00033B6F /* tinyxmlparser.cpp in Sources */,
 				E7B52A1511122B1F00033B6F /* ofxXmlSettings.cpp in Sources */,
-				A658D7E011518839008B1830 /* del_impl.cpp in Sources */,
 				A658D7E111518839008B1830 /* ofxCvHaarFinder.cpp in Sources */,
 				A658D7E211518839008B1830 /* ofxCvHaarTracker.cpp in Sources */,
 				A658D7E311518839008B1830 /* ofxCvHaarTrackerItem.cpp in Sources */,
@@ -1442,6 +1441,7 @@
 				A658D7FD11518839008B1830 /* ofxTuioClient.cpp in Sources */,
 				A658D7FE11518839008B1830 /* ofxTuioServer.cpp in Sources */,
 				A658D80411518839008B1830 /* TuioTcpXmlServer.cpp in Sources */,
+				2E29259B120352E000074368 /* del_impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

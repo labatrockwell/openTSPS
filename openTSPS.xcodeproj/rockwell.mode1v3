@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>2E7CA95C11F8EE67001F1AA9</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>ofxTSPSPeopleTracker.cpp</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>2E7CA95D11F8EE67001F1AA9</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>ofxTSPSPeopleTracker.cpp</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>2E7CA98D11F8EF3F001F1AA9</string>
-						<key>history</key>
-						<array>
-							<string>2E7CA94C11F8ED84001F1AA9</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {1217, 900}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>1680 109 1217 941 1680 0 1680 1050 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -307,24 +266,45 @@
 								<string>E4B69B4A0A3A1720003C02F2</string>
 								<string>E4B69E1C0A3A1BDC003C02F2</string>
 								<string>E44665C70F5B3E03005D0BF0</string>
-								<string>A658D79E11518839008B1830</string>
-								<string>A658D79F11518839008B1830</string>
-								<string>E7B5297B11122AD500033B6F</string>
-								<string>E7B5297F11122AD500033B6F</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
-									<integer>17</integer>
-									<integer>16</integer>
+									<integer>4</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>5</integer>
+									<integer>4</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>6</integer>
+									<integer>4</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>7</integer>
+									<integer>4</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>8</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>9</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>10</integer>
 									<integer>9</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 12}, {186, 883}}</string>
+							<string>{{0, 0}, {186, 883}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -373,7 +353,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2E7CA98C11F8EF3F001F1AA9</string>
+										<string>2E29259E1203531B00074368</string>
 										<key>history</key>
 										<array>
 											<string>2E12C3A11152D2410087ABE9</string>
@@ -395,7 +375,7 @@
 											<string>2E7CA95711F8EE67001F1AA9</string>
 											<string>2E7CA98511F8EF34001F1AA9</string>
 											<string>2E7CA98611F8EF34001F1AA9</string>
-											<string>2E7CA96711F8EE99001F1AA9</string>
+											<string>2E7CA98C11F8EF3F001F1AA9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -453,9 +433,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2E7CA91011F8EC28001F1AA9</string>
+				<string>2E29258B120352B500074368</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2E7CA91111F8EC28001F1AA9</string>
+				<string>2E29258C120352B500074368</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -591,13 +571,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>2E7CA91A11F8EC28001F1AA9</string>
-		<string>2E7CA91B11F8EC28001F1AA9</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>2EF1B0BD1152B9BA005C4028</string>
-		<string>2E7CA95C11F8EE67001F1AA9</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/rockwell/Documents/CYA/OF_0061_LAB/core/apps/release/openTSPS/openTSPS.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -678,7 +652,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2EF1B0BD1152B9BA005C4028</string>
-				<string>2E7CA90111F8EBA5001F1AA9</string>
+				<string>2E29258E120352B500074368</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
