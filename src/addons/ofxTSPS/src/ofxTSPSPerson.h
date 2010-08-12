@@ -80,6 +80,7 @@ class ofxTSPSPerson
 		
 		//normalized accessors for use in TUIO communication
 		ofRectangle getBoundingRectNormalized(float videoWidth, float videoHeight);
+		ofRectangle getHaarRectNormalized(float videoWidth, float videoHeight);
 		ofPoint getCentroidNormalized(float videoWidth, float videoHeight);
 		ofPoint getHaarCentroidNormalized(float videoWidth, float videoHeight);
 	

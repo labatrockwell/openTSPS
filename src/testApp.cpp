@@ -33,7 +33,8 @@ void testApp::setup(){
 	camHeight = 480;
 
 	#ifdef _USE_LIVE_VIDEO
-        vidGrabber.setVerbose(false);
+		vidGrabber.setVerbose(false);
+		vidGrabber.videoSettings();
         vidGrabber.initGrabber(camWidth,camHeight);
 	#else
         vidPlayer.loadMovie("testmovie/twoPeopleStand.mov");
@@ -181,6 +182,10 @@ void testApp::keyPressed  (int key){
 		case 'f':{
 			ofToggleFullscreen();
 		}break;
+		case 's':
+			vidGrabber.videoSettings();
+		break;
+
 	}
 }
 

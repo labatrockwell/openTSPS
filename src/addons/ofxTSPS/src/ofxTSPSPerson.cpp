@@ -93,6 +93,14 @@ ofRectangle ofxTSPSPerson::getBoundingRectNormalized(float videoWidth, float vid
 						   boundingRect.height/videoHeight);
 }
 
+
+ofRectangle ofxTSPSPerson::getHaarRectNormalized(float videoWidth, float videoHeight){
+	return ofRectangle(haarRect.x/videoWidth,
+					   haarRect.y/videoHeight,
+					   haarRect.width/videoWidth,
+					   haarRect.height/videoHeight);
+};
+
 ofPoint ofxTSPSPerson::getCentroidNormalized(float videoWidth, float videoHeight)
 {
 	return ofPoint(centroid.x / videoWidth, centroid.y / videoHeight);

@@ -127,6 +127,8 @@ string ofxTSPSTCPSender::getPersonString( ofxTSPSPerson * p, ofPoint centroid, i
 	message<<"boundingrect/"<<"x>"<<boundingRect.x<<":"<<"y>"<<boundingRect.y<<":"<<"width>"<<boundingRect.width<<":"<<"height>"<<boundingRect.height<<";";
 	
 	message<<"opticalflow/"<<"x>"<<p->opticalFlowVectorAccumulation.x<<":"<<"y>"<<p->opticalFlowVectorAccumulation.y<<";";
+	ofRectangle haarRect = p->getHaarRectNormalized(cameraWidth,cameraHeight);
+	message<<"boundingrect/"<<"x>"<<haarRect.x<<":"<<"y>"<<haarRect.y<<":"<<"width>"<<haarRect.width<<":"<<"height>"<<haarRect.height<<";";	
 	
 	if (bSendContours){
 		message<<"contours/";
