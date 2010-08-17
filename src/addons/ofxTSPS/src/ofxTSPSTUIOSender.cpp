@@ -20,6 +20,7 @@ void ofxTSPSTUIOSender::cursorDragged(float x, float y, int cursorId) {
 	myCursor[cursorId].x      = x;
 	myCursor[cursorId].y      = y;
 	myCursor[cursorId].moved   = true;
+    myCursor[cursorId].isAlive = true;
 }
 
 void ofxTSPSTUIOSender::cursorReleased(float x, float y, int cursorId) {

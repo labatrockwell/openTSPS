@@ -190,11 +190,14 @@ static int poly_simplify( float tol, ofPoint* V, int n, ofPoint* sV ){
             sV[m++] = vt[i];
     }
 	
-	vt = NULL;
-	delete vt;
+	free(vt);
+	free(mk);
+	
+	//	vt = NULL;
+	//	delete vt;
     
-	mk = NULL;
-	delete mk;
+	//	mk = NULL;
+	//	delete mk;
 	
     return m;         // m vertices in simplified polyline
 }
