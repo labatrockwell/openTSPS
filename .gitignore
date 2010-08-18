@@ -43,3 +43,6 @@ apps/*/*/Debug Linux
 apps/*/*/Release Linux
 apps/*/*/Debug Linux64
 apps/*/*/Release Linux64
+
+openTSPS.xcodeproj/rockwell.mode1v3
+openTSPS.xcodeproj/rockwell.pbxuser
