@@ -74,7 +74,7 @@ int ofxCvHaarFinder::findHaarObjects(ofImage& input,
 	gray.allocate(input.width, input.height);
 	color = input.getPixels();
 	gray = color;
-	findHaarObjects(gray, minWidth, minHeight);
+	return findHaarObjects(gray, minWidth, minHeight);
 }
 
 int ofxCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage&  input,

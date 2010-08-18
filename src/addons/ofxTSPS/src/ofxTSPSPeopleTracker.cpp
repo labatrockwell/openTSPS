@@ -5,6 +5,14 @@
 //scales down tracking images for improved performance
 #define TRACKING_SCALE_FACTOR .5
 
+//Fix for FMAX not in Visual Studio C++
+#if defined _MSC_VER
+#define fmax max
+#define fmin min
+#pragma warning (disable:4996)
+#define snprintf sprintf_s
+#endif
+
 #pragma mark Setup
 void ofxTSPSPeopleTracker::setup(int w, int h)
 {	

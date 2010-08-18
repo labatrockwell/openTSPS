@@ -11,6 +11,14 @@
 
 #include "ofxCvOpticalFlowLK.h"
 
+//Fix for FMAX not in Visual Studio C++
+#if defined _MSC_VER
+#define fmax max
+#define fmin min
+#pragma warning (disable:4996)
+#define snprintf sprintf_s
+#endif
+
 ofxCvOpticalFlowLK::ofxCvOpticalFlowLK(void)
 {
 	captureWidth = DEFAULT_CAPTURE_WIDTH;

@@ -77,10 +77,10 @@ public:
 		
 		int length = contourIn.size();
 		
-		//the polyLine simplify class needs data as a vector of ofPoint 
-		ofPoint  polyLineIn[length];
-		ofPoint  polyLineOut[length];
-		
+		//the polyLine simplify class needs data as a vector of ofPoint
+		ofPoint * polyLineIn = new ofPoint[length];
+		ofPoint * polyLineOut = new ofPoint[length];
+
 		//first we copy over the data to a 3d point array
 		for(int i = 0; i < length; i++){
 			polyLineIn[i].x = contourIn[i].x;
@@ -96,7 +96,9 @@ public:
 			contourOut[i].x = polyLineOut[i].x;
 			contourOut[i].y = polyLineOut[i].y;
 		}
-		
+
+		delete[] polyLineIn;
+		delete[] polyLineOut;
 	}
 	
 	//------------------------------------------------------------------------ convexhull 

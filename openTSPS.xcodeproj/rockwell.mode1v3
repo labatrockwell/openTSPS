@@ -329,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2E02AAFB121AC8ED0093DCE7</string>
+										<string>2E02AAFC121ACC110093DCE7</string>
 										<key>history</key>
 										<array>
 											<string>2E12C3A11152D2410087ABE9</string>
@@ -549,6 +549,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>2E02AB04121ACC110093DCE7</string>
+		<string>2E02AB05121ACC110093DCE7</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>2EF1B0BD1152B9BA005C4028</string>
 		<string>/Users/rockwell/Documents/TSPS/OF_0061_LAB/core/apps/release/openTSPS/openTSPS.xcodeproj</string>
 	</array>
@@ -750,13 +754,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>2E4EB4041219B9AE00DC0DE2</string>
+				<string>2E02AAFD121ACC110093DCE7</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>2E4EB4051219B9AE00DC0DE2</string>
-				<string>2E4EB4061219B9AE00DC0DE2</string>
-				<string>2E4EB4071219B9AE00DC0DE2</string>
-				<string>2E4EB4081219B9AE00DC0DE2</string>
-				<string>2E4EB4091219B9AE00DC0DE2</string>
+				<string>2E02AAFE121ACC110093DCE7</string>
+				<string>2E02AAFF121ACC110093DCE7</string>
+				<string>2E02AB00121ACC110093DCE7</string>
+				<string>2E02AB01121ACC110093DCE7</string>
+				<string>2E02AB02121ACC110093DCE7</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -910,7 +914,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>2E4EB40A1219B9AE00DC0DE2</string>
+				<string>2E02AB03121ACC110093DCE7</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
