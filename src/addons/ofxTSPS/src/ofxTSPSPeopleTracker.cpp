@@ -283,6 +283,13 @@ void ofxTSPSPeopleTracker::trackPeople()
 	scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
 	scene.percentCovered = 0; 
 	
+	// ZACK BOKA: By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
+	//            before optical flow can begin working.
+	if(p_Settings->bTrackOpticalFlow) {
+		opticalFlow.maxVector = p_Settings->maxOpticalFlow;
+		opticalFlow.minVector = p_Settings->minOpticalFlow;
+	}
+	
 	for(int i = 0; i < persistentTracker.blobs.size(); i++){
 		ofxCvTrackedBlob blob = persistentTracker.blobs[i];
 		ofxTSPSPerson* p = getTrackedPerson(blob.id);
@@ -317,8 +324,6 @@ void ofxTSPSPeopleTracker::trackPeople()
 		
 		//sum optical flow for the person
 		if(p_Settings->bTrackOpticalFlow){
-			opticalFlow.maxVector = p_Settings->maxOpticalFlow;
-			opticalFlow.minVector = p_Settings->minOpticalFlow;
 			p->opticalFlowVectorAccumulation = opticalFlow.flowInRegion(roi);
 		}
 		
