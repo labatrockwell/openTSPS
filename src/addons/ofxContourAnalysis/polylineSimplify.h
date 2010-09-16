@@ -190,8 +190,15 @@ static int poly_simplify( float tol, ofPoint* V, int n, ofPoint* sV ){
             sV[m++] = vt[i];
     }
 	
-	free(vt);
-	free(mk);
+	// ZACK BOKA (LAB at Rockwell Group)
+	// My fix here correctly frees the allocated memory so there is no longer a leak,
+	//   and so non-allocated pointers do not get freed.
+	delete[] vt;
+	delete[] mk;
+	
+	
+//	free(vt);
+//	free(mk);
 	
 	//	vt = NULL;
 	//	delete vt;
