@@ -38,6 +38,7 @@ ofxCvCoordWarpingGui::ofxCvCoordWarpingGui(){
 //----------------------------------------------------
 void ofxCvCoordWarpingGui::setup(string _quadName){
 	quadName = _quadName;
+	bCameraView = false;	
 }
 
 //----------------------------------------------------
@@ -291,7 +292,7 @@ void ofxCvCoordWarpingGui::draw(){
 
 //----------------------------------------------------
 void ofxCvCoordWarpingGui::_mousePressed(ofMouseEventArgs &e){
-	selectPoint(e.x, e.y, x, y, width*scale.y, height*scale.y, 40);
+	if (bCameraView) selectPoint(e.x, e.y, x, y, width*scale.y, height*scale.y, 40);
 }
 
 //----------------------------------------------------
@@ -306,12 +307,12 @@ void ofxCvCoordWarpingGui::setAutoSave( bool autoSave){
 
 //----------------------------------------------------
 void ofxCvCoordWarpingGui::_mouseDragged(ofMouseEventArgs &e){
-	updatePoint(e.x, e.y, x, y, width*scale.x, height*scale.y);
+	if (bCameraView) updatePoint(e.x, e.y, x, y, width*scale.x, height*scale.y);
 }
 
 //----------------------------------------------------
 void ofxCvCoordWarpingGui::_mouseReleased(ofMouseEventArgs &e){
-	if (bAutoSave){
+	if (bAutoSave && bCameraView){
 		if (xmlFile != "") saveToFile(xmlFile);
 		else saveToFile("guiquad-settings.xml");
 	}

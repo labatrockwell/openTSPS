@@ -22,7 +22,9 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	height = h;
 	
 	grayImage.allocate(width, height);
+	colorImage.allocate(width,height);
 	grayImageWarped.allocate(width, height);
+	colorImageWarped.allocate(width,height);
 	grayBg.allocate(width, height);
 	grayDiff.allocate(width, height);
 	floatBgImg.allocate(width, height);
@@ -62,7 +64,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	
 	updateViewRectangles();
 	
-	cameraView.setImage(grayImage);
+	cameraView.setImage(colorImage);
 	cameraView.setTitle("Camera Source View", "Camera");
 	cameraView.setColor(218,173,90);
 	
@@ -135,6 +137,7 @@ void ofxTSPSPeopleTracker::setListener(ofxPersonListener* listener)
 void ofxTSPSPeopleTracker::update(ofxCvColorImage image)
 {
 	grayImage = image;
+	colorImage = image;
 	updateSettings();
 	trackPeople();
 	
@@ -166,6 +169,13 @@ void ofxTSPSPeopleTracker::updateSettings()
 	
 	//switch camera view if new panel is selected
 	if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
+
+	// ZACK BOKA: Set the current view within the gui so the image can only be warped when in Camera View
+	if (cameraView.isActive()) {
+		gui.changeGuiCameraView(true);
+	} else {
+		gui.changeGuiCameraView(false);
+	}
 }
 
 /**
@@ -183,6 +193,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 		
 	//warp background
 	grayImageWarped.warpIntoMe(grayImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);
+	colorImageWarped.warpIntoMe(colorImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);	
 	
 	graySmallImage.scaleIntoMe(grayImageWarped);
 	grayBabyImage.scaleIntoMe(grayImageWarped);
@@ -447,8 +458,11 @@ void ofxTSPSPeopleTracker::trackPeople()
 	
 	//update views
 	
-	cameraView.update(grayImage);
-	adjustedView.update(grayImageWarped);
+	cameraView.update(colorImage);
+	if (p_Settings->bAdjustedViewInColor)
+		adjustedView.update(colorImageWarped);
+	else
+		adjustedView.update(grayImageWarped);
 	bgView.update(grayBg);
 	processedView.update(grayDiff);
 }
@@ -729,7 +743,8 @@ void ofxTSPSPeopleTracker::mousePressed( ofMouseEventArgs &e )
 		dataView.setActive(false);
 	} else if (isInsideRect(e.x, e.y, processedView)){
 		activeViewIndex = PROCESSED_VIEW;
-		processedView.setActive();		cameraView.setActive(false);
+		processedView.setActive();
+		cameraView.setActive(false);
 		adjustedView.setActive(false);
 		bgView.setActive(false);
 		dataView.setActive(false);
@@ -1005,3 +1020,45 @@ void ofxTSPSPeopleTracker::updateViewRectangles(){
 	gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
 }
 
+
+// ZACK: for accessing Optical Flow within a specific region
+ofPoint ofxTSPSPeopleTracker::getOpticalFlowInRegion(float x, float y, float w, float h) {
+	return opticalFlow.flowInRegion(x,y,w,h);
+}
+
+
+// ZACK BOKA: for accessing which view is the current view
+bool ofxTSPSPeopleTracker::inCameraView() {
+	return cameraView.isActive();
+}
+
+bool ofxTSPSPeopleTracker::inBackgroundView() {
+	return bgView.isActive();
+}
+
+bool ofxTSPSPeopleTracker::inDifferencingView() {
+	return processedView.isActive();
+}
+
+bool ofxTSPSPeopleTracker::inDataView() {
+	return dataView.isActive();
+}
+
+bool ofxTSPSPeopleTracker::inAdjustedView() {
+	return adjustedView.isActive();
+}
+
+
+// ZACK BOKA: for getting a color version of the adjusted view image
+// NOTE:  only works if the adjusted view is currently in color
+//        (this parameter can be set in the GUI under the 'views' tab)
+ofxCvColorImage ofxTSPSPeopleTracker::getAdjustedImageInColor() {
+	if (p_Settings->bAdjustedViewInColor)
+		return adjustedView.getColorImage();
+}
+
+
+// ZACK BOKA: for accessing the OSC sender whose parameters are adjusted in the GUI
+ofxTSPSOscSender* ofxTSPSPeopleTracker::getOSCsender() {
+	return &oscClient;
+}

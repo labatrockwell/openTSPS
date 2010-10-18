@@ -120,6 +120,15 @@ void ofxTSPSGuiManager::setup(){
 	panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
 	panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
 	
+	// ZACK BOKA: choose whether or not to display the Adjusted View in color
+	guiTypeGroup* adjustedViewColorGroup = panel.addGroup("adjustedViewColor");
+	adjustedViewColorGroup->setBackgroundColor(148,129,85);
+	adjustedViewColorGroup->setBackgroundSelectColor(148,129,85);
+	adjustedViewColorGroup->seBaseColor(244,136,136);
+	adjustedViewColorGroup->setShowText(false);
+	panel.addToggle("show Adjusted View in color", "ADJUSTED_VIEW_COLOR", false);
+	
+	
 	//background settings
 	
 	panel.setWhichPanel("background");
@@ -371,6 +380,9 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	p_Settings->highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");
 	panel.setGroupActive("video", "amplification", p_Settings->bAmplify);
 	
+	p_Settings->bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
+	panel.setGroupActive("video", "adjustedViewColor", p_Settings->bAdjustedViewInColor);
+	
 	p_Settings->bLearnBackground = panel.getValueB("LEARN_BACKGROUND");
 	if(p_Settings->bLearnBackground){ 
 		panel.setValueB("LEARN_BACKGROUND", false);
@@ -500,6 +512,13 @@ void ofxTSPSGuiManager::drawQuadGui( int x, int y, int width, int height ){
 	quadGui.y = y;
 	quadGui.setScale((float) width/quadGui.width, (float) height/quadGui.height );
 	drawQuadGui();
+};
+
+
+// ZACK BOKA: Added so the quadGui instance can know when image warping is allowed to occur
+//            (i.e., the image can only get warped when in Camera View).
+void ofxTSPSGuiManager::changeGuiCameraView(bool bCameraView) {
+	quadGui.bCameraView = bCameraView;
 };
 
 /***************************************************************

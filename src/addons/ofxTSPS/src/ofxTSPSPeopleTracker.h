@@ -187,6 +187,29 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void setActiveDimensions ( int actWidth, int actHeight);	
 		void loadFont(string fontName, int fontSize);
 	
+
+
+		// ZACK BOKA: for accessing Optical Flow in specific regions
+		//			  and accessing the threshold set in the GUI
+		ofPoint getOpticalFlowInRegion(float x, float y, float w, float h);
+		
+		// ZACK BOKA: for accessing the OSC sender whose parameters are adjusted in the GUI
+		ofxTSPSOscSender* getOSCsender(); 
+		
+		// ZACK BOKA: for getting a color version of the adjusted view image
+		// NOTE:  only works if the adjusted view is currently in color	and not grayscale
+		//        (this parameter can be set in the GUI under the 'views' tab)
+		ofxCvColorImage getAdjustedImageInColor();	
+		
+		// ZACK BOKA: for accessing which view is the current view
+		bool inCameraView();
+		bool inAdjustedView();
+		bool inBackgroundView();
+		bool inDifferencingView();
+		bool inDataView();
+	
+	
+	
 	protected:
 	
 		void trackPeople();
@@ -206,6 +229,11 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		ofxCvGrayscaleImage graySmallImage;
 		ofxCvGrayscaleImage grayBabyImage;
 		
+		// ZACK BOKA: Adding color to TSPS
+		ofxCvColorImage colorImage;
+		ofxCvColorImage colorImageWarped;
+	
+	
 		//more specific CV images for processing
 		
 		CPUImageFilter		grayDiff;

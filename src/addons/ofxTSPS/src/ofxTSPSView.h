@@ -26,12 +26,21 @@ public:
 		ofAddListener(ofEvents.mouseMoved, this, &ofxTSPSView::mouseMoved);
 		bFontLoaded = bActive = bRolled = false;
 		image.allocate(_width, _height);
+		colorImage.allocate(_width, _height);
+		bGray = true;
 	};
 	
 	//-------------------------------------------------
 	void setImage(ofxCvGrayscaleImage _image){
 		bImage = true;
+		bGray = true;
 		image = _image;
+	}
+	
+	void setImage(ofxCvColorImage _image){
+		bImage = true;
+		bGray = false;
+		colorImage = _image;
 	}
 	
 	//-------------------------------------------------
@@ -69,7 +78,14 @@ public:
 	//-------------------------------------------------
 	void update(ofxCvGrayscaleImage _image){
 		bImage = true;
+		bGray = true;
 		image = _image;
+	}
+	
+	void update(ofxCvColorImage _image){
+		bImage = true;
+		bGray = false;
+		colorImage = _image;
 	}
 	
 	//-------------------------------------------------
@@ -106,8 +122,10 @@ public:
 		}
 		
 		if (bRolled || bActive) ofSetColor(color.r, color.g, color.b);
-		if( image.bAllocated && bImage ) image.draw( 0,0, width, height );
-		else if (!image.bAllocated) ofLog(OF_LOG_WARNING, title+" image not allocated!");
+		// ZACK BOKA: draw the correct image, either color or grayscale
+		if( image.bAllocated && bImage && bGray ) image.draw( 0,0, width, height );
+		else if ( colorImage.bAllocated && bImage && !bGray ) colorImage.draw(0,0,width,height);
+		else if (!image.bAllocated || !colorImage.bAllocated) ofLog(OF_LOG_WARNING, title+" image not allocated!");
 		
 		ofPopMatrix();
 		ofPopStyle();
@@ -116,7 +134,9 @@ public:
 	
 	//-------------------------------------------------
 	void drawLarge( float _x, float _y, float _width, float _height){		
-		if( image.bAllocated && bImage ) image.draw( _x, _y, _width, _height);
+		// ZACK BOKA: draw the correct image, either color or grayscale		
+		if( image.bAllocated && bImage && bGray) image.draw( _x, _y, _width, _height);
+		else if (colorImage.bAllocated && bImage && !bGray) colorImage.draw(_x,_y,_width,_height);
 		else if (!image.bAllocated) ofLog(OF_LOG_WARNING, title+" image not allocated!");
 		
 		ofPushStyle();
@@ -144,13 +164,26 @@ public:
 		return ( _x >= x && _x <= x + width && _y >= y && _y <= y + height );
 	}
 	
+	// ZACK BOKA: for accessing if the current view is active
+	bool isActive() {
+		return bActive;
+	}
+	
+	// ZACK BOKA: for accessing the color image for this view
+	ofxCvColorImage getColorImage() {
+		return colorImage;
+	}
+	
 protected:
 	string title, shortTitle;
 	ofColor color;
 	ofxCvGrayscaleImage image;
+	// ZACK BOKA: added color image as a possible image for the view
+	ofxCvColorImage colorImage;
 	
 	ofTrueTypeFont * p_font;
 	
+	bool bGray; // ZACK BOKA: keep track of whether we are using a color or grayscale image
 	bool bActive;
 	bool bRolled;
 	bool bFontLoaded;

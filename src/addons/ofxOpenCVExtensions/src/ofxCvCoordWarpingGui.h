@@ -74,6 +74,9 @@ public:
 	void setScale( float scaleX, float scaleY );
 	ofPoint scale;
 	
+	// ZACK BOKA: Keep track of current OpenTSPS view so that image warping only occurs when in camera view.
+	bool bCameraView;
+	
 protected:
 	ofxXmlSettings	xml;
 	string xmlFile;
