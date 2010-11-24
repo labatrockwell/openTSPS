@@ -120,7 +120,7 @@ string ofxTSPSTCPSender::getPersonString( ofxTSPSPerson * p, ofPoint centroid, i
 	stringstream message;
 	message<<"id/"<<p->pid<<";";
 	message<<"age/"<<p->age<<";";
-	message<<"centroid/"<<"x>"<<p->centroid.x<<":"<<"y>"<<p->centroid.y<<";";
+	message<<"centroid/"<<"x>"<<centroid.x<<":"<<"y>"<<centroid.y<<";"; //pass in normalized centroid
 	message<<"velocity/"<<"x>"<<p->velocity.x<<":"<<"y>"<<p->velocity.y<<";";
 	
 	ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);

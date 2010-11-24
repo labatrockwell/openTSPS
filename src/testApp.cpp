@@ -48,7 +48,7 @@ void testApp::setup(){
 	peopleTracker.setup(camWidth, camHeight);
 	peopleTracker.loadFont("fonts/times.ttf", 10);
 	peopleTracker.setListener( this );
-
+	
 	/*
 	//THIS IS HOW YOU CAN ADD CUSTOM PARAMETERS TO THE GUI
 	peopleTracker.addSlider("custom INTEGER", &itestValue, 0, ofGetWidth());
