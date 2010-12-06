@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/6/trunk/OF_0061_LAB/processing/SimpleCyaCatcher_UI/data/triggers
+END
+PersonLeft_Active.png
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/6/trunk/OF_0061_LAB/processing/SimpleCyaCatcher_UI/data/triggers/PersonLeft_Active.png
+END
+PersonEntered_Inactive.png
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/6/trunk/OF_0061_LAB/processing/SimpleCyaCatcher_UI/data/triggers/PersonEntered_Inactive.png
+END
+PersonUpdated_Inactive.png
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/6/trunk/OF_0061_LAB/processing/SimpleCyaCatcher_UI/data/triggers/PersonUpdated_Inactive.png
+END
+PersonLeft_Inactive.png
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/6/trunk/OF_0061_LAB/processing/SimpleCyaCatcher_UI/data/triggers/PersonLeft_Inactive.png
+END
+PersonEntered_Active.png
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/6/trunk/OF_0061_LAB/processing/SimpleCyaCatcher_UI/data/triggers/PersonEntered_Active.png
+END
+PersonUpdated_Active.png
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/6/trunk/OF_0061_LAB/processing/SimpleCyaCatcher_UI/data/triggers/PersonUpdated_Active.png
+END

@@ -1,0 +1,9 @@
+#Tue Jul 07 16:05:23 EDT 2009
+problem_properties=ignore
+useAnnotationsPrefPage=true
+eclipse.preferences.version=1
+problem_tasks=ignore
+problem_imports=warning
+problem_classpath=warning
+problem_security=warning
+useQuickDiffPrefPage=true

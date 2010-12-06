@@ -1,0 +1,6 @@
+package cya;
+
+public class Rectangle
+{
+	float x, y, width, height;
+};

@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externaltools",1291657189743
+error,log,,,"Could not create action delegate for id: org.eclipse.debug.ui.actions.RemoveAllBreakpoints",1291657190191
+error,log,,,"Internal plug-in action delegate error on creation.",1291657190192
+started,bundle,org.eclipse.wst.sse.core,1.1.400.v200905141750,"org.eclipse.wst.sse.core",1291657190198
+started,bundle,org.eclipse.ant.core,3.2.100.v20090520,"org.eclipse.ant.core",1291657190416
+started,bundle,org.eclipse.jdt.debug,3.5.0.v20090526,"org.eclipse.jdt.debug",1291657190810
+started,bundle,org.eclipse.jdt.debug.ui,3.4.0.v20090527,"org.eclipse.jdt.debug.ui",1291657192770
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657199084
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657200827
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1291657202914
+started,bundle,org.eclipse.wst.xml.core,1.1.400.v200904300540,"org.eclipse.wst.xml.core",1291657203657
+opened,editor,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.internal.editor.AntEditor",1291657204239
+activated,editor,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.internal.editor.AntEditor",1291657204365
+activated,editor,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.CompilationUnitEditor",1291657209199
+closed,editor,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.internal.editor.AntEditor",1291657209200
+opened,view,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.SourceView",1291657210856
+activated,view,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.SourceView",1291657210873
+opened,view,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.JavadocView",1291657211461
+activated,view,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.JavadocView",1291657211468
+opened,view,org.eclipse.ui.ide,3.5.0.I20090525-2000,"org.eclipse.ui.views.ProblemView",1291657211985
+activated,view,org.eclipse.ui.ide,3.5.0.I20090525-2000,"org.eclipse.ui.views.ProblemView",1291657212039
+error,log,,,"An internal error occurred during: ""Process resource updates"".",1291657212116
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657212234
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657215704
+opened,view,org.eclipse.search,3.5.0.v20090526-2000,"org.eclipse.search.ui.views.SearchView",1291657216831

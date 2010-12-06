@@ -1,0 +1,12 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,editor,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.CompilationUnitEditor",1264603224885
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264603225849
+activated,view,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.PackageExplorer",1264603809056
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264603809169
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264603810959
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264605525364
+closed,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264605526281
+stopped,bundle,org.eclipse.mylyn.ide.ant,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.ide.ant",1264605526612
+stopped,bundle,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui",1264605526646
+stopped,bundle,org.eclipse.mylyn.java.tasks,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.java.tasks",1264605526661
+stopped,bundle,org.eclipse.mylyn.java.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.java.ui",1264605526662

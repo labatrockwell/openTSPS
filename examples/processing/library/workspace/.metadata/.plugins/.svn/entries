@@ -1,0 +1,79 @@
+10
+
+dir
+34
+https://robotconscience@cya-alpha.googlecode.com/svn/trunk/OF_0061_LAB/processing/library/workspace/.metadata/.plugins
+https://robotconscience@cya-alpha.googlecode.com/svn
+
+
+
+2010-03-19T15:03:15.849348Z
+33
+robotconscience
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3618dc3e-0c63-11df-8158-cd644e702c08
+
+org.eclipse.ui.intro
+dir
+
+org.eclipse.team.cvs.core
+dir
+
+org.eclipse.mylyn.bugzilla.core
+dir
+
+org.eclipse.ltk.ui.refactoring
+dir
+
+org.eclipse.jdt.core
+dir
+
+org.eclipse.jdt.junit
+dir
+
+org.eclipse.core.runtime
+dir
+
+org.eclipse.debug.core
+dir
+
+org.eclipse.ltk.core.refactoring
+dir
+
+org.eclipse.jdt.launching
+dir
+
+org.eclipse.ui.workbench.texteditor
+dir
+
+org.eclipse.epp.usagedata.recording
+dir
+
+org.eclipse.jdt.ui
+dir
+
+org.eclipse.ui.workbench
+dir
+
+org.eclipse.core.resources
+dir
+
+org.eclipse.debug.ui
+dir
+
+org.eclipse.search
+dir
+

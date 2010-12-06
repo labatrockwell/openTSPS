@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1047"/>
+		<item key="DIALOG_HEIGHT" value="389"/>
+		<item key="DIALOG_FONT_NAME" value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande"/>
+		<item key="DIALOG_Y_ORIGIN" value="262"/>
+		<item key="DIALOG_WIDTH" value="259"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="TSPS"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<list key="findhistory">
+			<item value="cya"/>
+			<item value="println"/>
+			<item value="LABOSCListener"/>
+			<item value="destroy"/>
+			<item value="parent.parent.println"/>
+			<item value="LABOSClistener"/>
+			<item value="void"/>
+			<item value="public void"/>
+		</list>
+		<list key="replacehistory">
+			<item value="TSPS"/>
+			<item value="parent.println"/>
+			<item value="LABOSCListener"/>
+		</list>
+	</section>
+</section>

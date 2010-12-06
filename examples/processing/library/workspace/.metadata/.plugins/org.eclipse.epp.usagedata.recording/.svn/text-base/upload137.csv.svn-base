@@ -1,0 +1,11 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui",1268947712893
+stopped,bundle,org.eclipse.mylyn.java.tasks,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.java.tasks",1268947712893
+stopped,bundle,org.eclipse.mylyn.java.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.java.ui",1268947712894
+stopped,bundle,org.eclipse.jdt.junit,3.5.0.v20090526-2000,"org.eclipse.jdt.junit",1268947712894
+stopped,bundle,org.eclipse.jdt.apt.ui,3.3.200.v20090528-1135,"org.eclipse.jdt.apt.ui",1268947712925
+stopped,bundle,org.eclipse.jdt.debug.ui,3.4.0.v20090527,"org.eclipse.jdt.debug.ui",1268947712925
+stopped,bundle,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui",1268947712925
+stopped,bundle,org.eclipse.mylyn.bugzilla.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.bugzilla.ui",1268947712925
+stopped,bundle,org.eclipse.mylyn.ide.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.ide.ui",1268947712926
+stopped,bundle,org.eclipse.mylyn.team.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.team.ui",1268947712926

@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"org.eclipse.ui.workbench",1264191020734
+started,bundle,org.eclipse.ui.workbench.texteditor,3.5.0.v20090603,"org.eclipse.ui.workbench.texteditor",1264191020735
+started,bundle,org.eclipse.update.configurator,3.3.0.v20090312,"org.eclipse.update.configurator",1264191020735
+started,bundle,org.eclipse.update.core,3.2.300.v20090525,"org.eclipse.update.core",1264191020735
+started,bundle,org.eclipse.update.scheduler,3.2.200.v20081127,"org.eclipse.update.scheduler",1264191020736
+os,sysinfo,,,"macosx",1264191020742
+arch,sysinfo,,,"x86",1264191020742
+ws,sysinfo,,,"cocoa",1264191020742
+locale,sysinfo,,,"en_US",1264191020742
+processors,sysinfo,,,"8",1264191020742
+java.runtime.name,sysinfo,,,"Java(TM) 2 Runtime Environment, Standard Edition",1264191020742
+java.runtime.version,sysinfo,,,"1.5.0_22-b03-333-9M3125",1264191020742
+java.specification.name,sysinfo,,,"Java Platform API Specification",1264191020742
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264191020742
+java.specification.version,sysinfo,,,"1.5",1264191020742
+java.vendor,sysinfo,,,"Apple Inc.",1264191020742
+java.version,sysinfo,,,"1.5.0_22",1264191020742
+java.vm.info,sysinfo,,,"mixed mode",1264191020742
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1264191020742
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1264191020742
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264191020742
+java.vm.specification.version,sysinfo,,,"1.0",1264191020742
+java.vm.vendor,sysinfo,,,"Apple Inc.",1264191020742
+java.vm.version,sysinfo,,,"1.5.0_22-147",1264191020742
+activated,view,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.PackageExplorer",1264191022089

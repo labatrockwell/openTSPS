@@ -1,0 +1,7 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.mylyn.wikitext.tasks.ui,1.1.0.v20090617-0100-e3x,"org.eclipse.mylyn.wikitext.tasks.ui",1291659867181
+stopped,bundle,org.eclipse.mylyn.context.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.context.ui",1291659867181
+stopped,bundle,org.eclipse.mylyn.help.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.help.ui",1291659867653
+stopped,bundle,org.eclipse.mylyn.tasks.bugs,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.tasks.bugs",1291659867704
+stopped,bundle,org.eclipse.mylyn.tasks.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.tasks.ui",1291659867704
+stopped,bundle,org.eclipse.wst.dtd.ui,1.0.400.v200904300717,"org.eclipse.wst.dtd.ui",1291659867801

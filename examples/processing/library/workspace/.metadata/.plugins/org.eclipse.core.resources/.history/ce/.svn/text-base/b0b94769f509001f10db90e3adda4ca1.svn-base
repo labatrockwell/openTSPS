@@ -1,0 +1,34 @@
+package cya;
+
+import processing.core.PVector;
+import java.util.ArrayList;
+
+public class CYAPerson
+{
+	
+	public int id; 
+	public int age; 
+	public PVector centroid;  
+	public PVector velocity; 
+	public Rectangle boundingRect;
+	public boolean dead;
+	
+	public ArrayList contours;
+	
+	public CYAPerson(){
+		boundingRect = new Rectangle();
+		centroid = new PVector();
+		velocity = new PVector();
+		dead = false;
+		contours = new ArrayList();
+	}
+	
+	public void update ( CYAPerson p )
+	{
+		age = p.age;
+		boundingRect = p.boundingRect;
+		centroid = p.centroid;
+		velocity = p.velocity;
+	}
+	
+};

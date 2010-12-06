@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryInfos>
+<libraryInfo home="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home" version="1.4.2_18">
+<bootpath>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/classes.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/ui.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/laf.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/sunrsasign.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/jsse.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/jce.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/charsets.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/System/Library/Frameworks/JavaVM.framework/Versions/1.4/Home" version="1.4.2_18">
+<bootpath>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/classes.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/ui.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/laf.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/sunrsasign.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/jsse.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/jce.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/charsets.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home" version="1.6.0_07">
+<bootpath>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/ui.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/laf.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/sunrsasign.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jsse.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jce.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/charsets.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/System/Library/Frameworks/JavaVM.framework/Versions/1.5/Home" version="1.5.0_16">
+<bootpath>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/classes.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/ui.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/laf.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/sunrsasign.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/jsse.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/jce.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/charsets.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.1/Home" version="1.4.2_18">
+<bootpath>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/classes.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/ui.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/laf.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/sunrsasign.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/jsse.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/jce.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Classes/charsets.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home" version="1.6.0_07">
+<bootpath>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/ui.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/laf.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/sunrsasign.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jsse.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jce.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/charsets.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home" version="1.5.0_16">
+<bootpath>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/classes.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/ui.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/laf.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/sunrsasign.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/jsse.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/jce.jar"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/charsets.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

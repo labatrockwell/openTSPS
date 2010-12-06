@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947662147
+no handler,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947663149
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947663781
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947664368
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.save",1268947666167
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947668956
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947670093
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947671106
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947673520
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947674147
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947675437
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947676080
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947676939
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947677724
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947677988
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947678499
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947679086
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947679642
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947680043
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947681442
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947682121
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947683123
+no handler,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947684108
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1268947684596
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1268947684905

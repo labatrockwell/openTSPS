@@ -1,0 +1,1129 @@
+!SESSION 2009-07-07 15:23:23.729 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_16
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-07 15:23:33.127
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-01-21 16:14:54.043 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-21 16:15:11.805
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-01-22 11:05:30.817 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-22 11:06:01.732
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jdt.core 4 4 2010-01-22 14:12:19.200
+!MESSAGE JavaBuilder handling ImageBuilderInternalException while building: CYA
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource already exists on disk: '/CYA/bin/oscp5/.DS_Store'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.copy(FileSystemResourceManager.java:211)
+	at org.eclipse.core.internal.resources.Resource.copy(Resource.java:495)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.copyResource(AbstractImageBuilder.java:379)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:658)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:537)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:488)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:96)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:265)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:193)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2010-01-22 14:12:19.201
+!MESSAGE Resource already exists on disk: '/CYA/bin/oscp5/.DS_Store'.
+
+!ENTRY org.eclipse.jdt.core 4 4 2010-01-22 14:13:42.212
+!MESSAGE JavaBuilder handling ImageBuilderInternalException while building: CYA
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource already exists on disk: '/CYA/bin/oscP5/oscP5.jar'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.copy(FileSystemResourceManager.java:211)
+	at org.eclipse.core.internal.resources.Resource.copy(Resource.java:495)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.copyResource(AbstractImageBuilder.java:379)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:658)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:537)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:488)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:96)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:265)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:193)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2010-01-22 14:13:42.212
+!MESSAGE Resource already exists on disk: '/CYA/bin/oscP5/oscP5.jar'.
+
+!ENTRY org.eclipse.jdt.core 4 4 2010-01-22 14:24:53.341
+!MESSAGE Invalid ZIP archive: /Users/rockwell/Documents/workspace/libs/oscP5.jar
+!STACK 1
+org.eclipse.core.runtime.CoreException: I/O exception
+	at org.eclipse.jdt.internal.core.JavaModelManager.getZipFile(JavaModelManager.java:2425)
+	at org.eclipse.jdt.internal.core.JarPackageFragmentRoot.getJar(JarPackageFragmentRoot.java:152)
+	at org.eclipse.jdt.internal.core.JarPackageFragmentRoot.computeChildren(JarPackageFragmentRoot.java:78)
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.buildStructure(PackageFragmentRoot.java:154)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:258)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:515)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:252)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:238)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:193)
+	at org.eclipse.jdt.ui.StandardJavaElementContentProvider.getPackageFragmentRootContent(StandardJavaElementContentProvider.java:264)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider.getPackageFragmentRootContent(PackageExplorerContentProvider.java:228)
+	at org.eclipse.jdt.ui.StandardJavaElementContentProvider.getChildren(StandardJavaElementContentProvider.java:186)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider.getChildren(PackageExplorerContentProvider.java:301)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getRawChildren(AbstractTreeViewer.java:1352)
+	at org.eclipse.jface.viewers.TreeViewer.getRawChildren(TreeViewer.java:390)
+	at org.eclipse.jdt.internal.ui.viewsupport.ProblemTreeViewer.getFilteredChildren(ProblemTreeViewer.java:263)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getSortedChildren(AbstractTreeViewer.java:602)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$1.run(AbstractTreeViewer.java:799)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:776)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:639)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleTreeExpand(AbstractTreeViewer.java:1442)
+	at org.eclipse.jface.viewers.TreeViewer.handleTreeExpand(TreeViewer.java:937)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$4.treeExpanded(AbstractTreeViewer.java:1453)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:126)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.TreeItem.sendExpand(TreeItem.java:994)
+	at org.eclipse.swt.widgets.Tree.expandItem_expandChildren(Tree.java:1160)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4829)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:202)
+	at org.eclipse.swt.widgets.Widget.mouseDown(Widget.java:917)
+	at org.eclipse.swt.widgets.Control.mouseDown(Control.java:2151)
+	at org.eclipse.swt.widgets.Tree.mouseDown(Tree.java:1894)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4652)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:202)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:1750)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:1821)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4712)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:4284)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:4351)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:101)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3096)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+Caused by: java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:234)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getZipFile(JavaModelManager.java:2419)
+	... 69 more
+!SUBENTRY 1 org.eclipse.jdt.core 4 -1 2010-01-22 14:24:53.342
+!MESSAGE I/O exception
+!STACK 0
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:234)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getZipFile(JavaModelManager.java:2419)
+	at org.eclipse.jdt.internal.core.JarPackageFragmentRoot.getJar(JarPackageFragmentRoot.java:152)
+	at org.eclipse.jdt.internal.core.JarPackageFragmentRoot.computeChildren(JarPackageFragmentRoot.java:78)
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.buildStructure(PackageFragmentRoot.java:154)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:258)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:515)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:252)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:238)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:193)
+	at org.eclipse.jdt.ui.StandardJavaElementContentProvider.getPackageFragmentRootContent(StandardJavaElementContentProvider.java:264)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider.getPackageFragmentRootContent(PackageExplorerContentProvider.java:228)
+	at org.eclipse.jdt.ui.StandardJavaElementContentProvider.getChildren(StandardJavaElementContentProvider.java:186)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider.getChildren(PackageExplorerContentProvider.java:301)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getRawChildren(AbstractTreeViewer.java:1352)
+	at org.eclipse.jface.viewers.TreeViewer.getRawChildren(TreeViewer.java:390)
+	at org.eclipse.jdt.internal.ui.viewsupport.ProblemTreeViewer.getFilteredChildren(ProblemTreeViewer.java:263)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getSortedChildren(AbstractTreeViewer.java:602)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$1.run(AbstractTreeViewer.java:799)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:776)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:639)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleTreeExpand(AbstractTreeViewer.java:1442)
+	at org.eclipse.jface.viewers.TreeViewer.handleTreeExpand(TreeViewer.java:937)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$4.treeExpanded(AbstractTreeViewer.java:1453)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:126)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.TreeItem.sendExpand(TreeItem.java:994)
+	at org.eclipse.swt.widgets.Tree.expandItem_expandChildren(Tree.java:1160)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4829)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:202)
+	at org.eclipse.swt.widgets.Widget.mouseDown(Widget.java:917)
+	at org.eclipse.swt.widgets.Control.mouseDown(Control.java:2151)
+	at org.eclipse.swt.widgets.Tree.mouseDown(Tree.java:1894)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4652)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:202)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:1750)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:1821)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4712)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:4284)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:4351)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:101)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3096)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SESSION 2010-01-22 15:09:46.040 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 4 567 2010-01-22 15:10:07.581
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2010-01-22 15:10:07.581
+!MESSAGE Could not read metadata for 'LABNet'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: The project description file (.project) for 'LABNet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:714)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:797)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:777)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:663)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1353)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:1957)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:1716)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:379)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:782)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:773)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:754)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:352)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:280)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:376)
+	at org.eclipse.osgi.internal.loader.SingleSourcePackage.loadClass(SingleSourcePackage.java:33)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:449)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:405)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:393)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:375)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:114)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2010-01-22 15:10:07.582
+!MESSAGE The project description file (.project) for 'LABNet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-22 15:10:17.022
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-01-25 09:16:39.627 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-01-25 09:16:56.856
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-25 09:17:10.956
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-01-25 15:11:01.044 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-01-25 15:11:09.333
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-25 15:11:22.576
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 4 0 2010-01-25 16:26:21.513
+!MESSAGE Unable to create editor ID org.eclipse.ui.DefaultTextEditor: Factory org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory returned null from createElement for editor id=org.eclipse.ui.DefaultTextEditor name=MANIFEST.MF
+!STACK 1
+org.eclipse.ui.PartInitException: Factory org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory returned null from createElement for editor id=org.eclipse.ui.DefaultTextEditor name=MANIFEST.MF
+	at org.eclipse.ui.internal.EditorReference.getRestoredInput(EditorReference.java:401)
+	at org.eclipse.ui.internal.EditorReference.getEditorInput(EditorReference.java:362)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:591)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.presentationSelectionChanged(PartStack.java:843)
+	at org.eclipse.ui.internal.PartStack.access$1(PartStack.java:829)
+	at org.eclipse.ui.internal.PartStack$1.selectPart(PartStack.java:139)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:133)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:279)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$2.handleEvent(DefaultTabFolder.java:87)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3256)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:2045)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:323)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3440)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3099)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SUBENTRY 1 org.eclipse.ui 4 0 2010-01-25 16:26:21.514
+!MESSAGE Factory org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory returned null from createElement for editor id=org.eclipse.ui.DefaultTextEditor name=MANIFEST.MF
+
+!ENTRY org.eclipse.ui 2 2 2010-01-25 16:26:21.592
+!MESSAGE Ignored attempt to add saveable that was already registered
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse.ui.internal.DefaultSaveable@22ad9f from part: org.eclipse.ui.internal.ErrorEditorPart@22ad9f
+	at org.eclipse.ui.internal.SaveablesList.logWarning(SaveablesList.java:187)
+	at org.eclipse.ui.internal.SaveablesList.addModel(SaveablesList.java:117)
+	at org.eclipse.ui.internal.SaveablesList.addModels(SaveablesList.java:289)
+	at org.eclipse.ui.internal.SaveablesList.postOpen(SaveablesList.java:684)
+	at org.eclipse.ui.internal.PartList.partOpened(PartList.java:234)
+	at org.eclipse.ui.internal.PartList.access$0(PartList.java:210)
+	at org.eclipse.ui.internal.PartList$1.propertyChanged(PartList.java:40)
+	at org.eclipse.ui.internal.WorkbenchPartReference.fireInternalPropertyChange(WorkbenchPartReference.java:375)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:610)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.presentationSelectionChanged(PartStack.java:843)
+	at org.eclipse.ui.internal.PartStack.access$1(PartStack.java:829)
+	at org.eclipse.ui.internal.PartStack$1.selectPart(PartStack.java:139)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:133)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:279)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$2.handleEvent(DefaultTabFolder.java:87)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3256)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:2045)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:323)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3440)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3099)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SESSION 2010-01-26 12:49:55.337 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-01-26 12:50:02.171
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-26 12:50:12.277
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-01-26 17:28:05.537 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-01-26 17:28:11.914
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-26 17:28:23.494
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-01-27 09:40:01.711 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-01-27 09:40:10.115
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2010-01-27 09:40:19.035
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-03-18 17:20:27.208 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-03-18 17:20:38.327
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2010-03-18 17:20:47.389
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 4 0 2010-03-18 17:21:19.372
+!MESSAGE Unable to create editor ID org.eclipse.jdt.ui.CompilationUnitEditor: The file does not exist.
+!STACK 1
+org.eclipse.core.runtime.CoreException: The file does not exist.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:237)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:113)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:559)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitDocumentProvider.createFileInfo(CompilationUnitDocumentProvider.java:962)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitDocumentProvider.connect(CompilationUnitDocumentProvider.java:1198)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4134)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:203)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1413)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.internalDoSetInput(JavaEditor.java:2552)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.doSetInput(JavaEditor.java:2525)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor.doSetInput(CompilationUnitEditor.java:1371)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3115)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:464)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:372)
+	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:759)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:756)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2578)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3133)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3160)
+	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:798)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:644)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.presentationSelectionChanged(PartStack.java:843)
+	at org.eclipse.ui.internal.PartStack.access$1(PartStack.java:829)
+	at org.eclipse.ui.internal.PartStack$1.selectPart(PartStack.java:139)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:133)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:279)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$2.handleEvent(DefaultTabFolder.java:87)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3256)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:2045)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:323)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3440)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3099)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2010-03-18 17:21:19.373
+!MESSAGE The file does not exist.
+
+!ENTRY org.eclipse.ui 2 2 2010-03-18 17:21:19.471
+!MESSAGE Ignored attempt to add saveable that was already registered
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse.ui.internal.DefaultSaveable@5d7cff from part: org.eclipse.ui.internal.ErrorEditorPart@5d7cff
+	at org.eclipse.ui.internal.SaveablesList.logWarning(SaveablesList.java:187)
+	at org.eclipse.ui.internal.SaveablesList.addModel(SaveablesList.java:117)
+	at org.eclipse.ui.internal.SaveablesList.addModels(SaveablesList.java:289)
+	at org.eclipse.ui.internal.SaveablesList.postOpen(SaveablesList.java:684)
+	at org.eclipse.ui.internal.PartList.partOpened(PartList.java:234)
+	at org.eclipse.ui.internal.PartList.access$0(PartList.java:210)
+	at org.eclipse.ui.internal.PartList$1.propertyChanged(PartList.java:40)
+	at org.eclipse.ui.internal.WorkbenchPartReference.fireInternalPropertyChange(WorkbenchPartReference.java:375)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:610)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.presentationSelectionChanged(PartStack.java:843)
+	at org.eclipse.ui.internal.PartStack.access$1(PartStack.java:829)
+	at org.eclipse.ui.internal.PartStack$1.selectPart(PartStack.java:139)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:133)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:279)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$2.handleEvent(DefaultTabFolder.java:87)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3256)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:2045)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:323)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3440)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3099)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.195
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.195
+!MESSAGE Conflict for 'org.eclipse.ui.edit.text.toggleShowSelectedElementOnly':
+HandlerActivation(commandId=org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,
+	handler=ActionHandler(org.eclipse.jdt.internal.ui.javaeditor.TogglePresentationAction@87634a),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,
+	handler=ActionHandler(org.eclipse.jdt.internal.ui.javaeditor.TogglePresentationAction@87cc11),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.195
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.196
+!MESSAGE Conflict for 'org.eclipse.jdt.ui.edit.text.java.toggleMarkOccurrences':
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.toggleMarkOccurrences,
+	handler=ActionHandler(org.eclipse.jdt.internal.ui.javaeditor.ToggleMarkOccurrencesAction@a4815),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.toggleMarkOccurrences,
+	handler=ActionHandler(org.eclipse.jdt.internal.ui.javaeditor.ToggleMarkOccurrencesAction@28c78),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.196
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.196
+!MESSAGE Conflict for 'org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb':
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb,
+	handler=ActionHandler(org.eclipse.jdt.internal.ui.javaeditor.ToggleBreadcrumbAction@77c504),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb,
+	handler=ActionHandler(org.eclipse.jdt.internal.ui.javaeditor.ToggleBreadcrumbAction@27a485),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.259
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.259
+!MESSAGE Conflict for 'org.eclipse.jdt.ui.edit.text.java.search.read.access.in.workspace':
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.search.read.access.in.workspace,
+	handler=ActionHandler(org.eclipse.jdt.ui.actions.FindReadReferencesAction@4ccaff),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.search.read.access.in.workspace,
+	handler=ActionHandler(org.eclipse.jdt.ui.actions.FindReadReferencesAction@a32d8d),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.259
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.259
+!MESSAGE Conflict for 'org.eclipse.jdt.ui.edit.text.java.search.read.access.in.hierarchy':
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.search.read.access.in.hierarchy,
+	handler=ActionHandler(org.eclipse.jdt.ui.actions.FindReadReferencesInHierarchyAction@5aaa1e),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.search.read.access.in.hierarchy,
+	handler=ActionHandler(org.eclipse.jdt.ui.actions.FindReadReferencesInHierarchyAction@56b580),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.260
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.260
+!MESSAGE Conflict for 'org.eclipse.jdt.ui.edit.text.java.search.read.access.in.working.set':
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.search.read.access.in.working.set,
+	handler=ActionHandler(org.eclipse.jdt.ui.actions.FindReadReferencesInWorkingSetAction@7aa9fa),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.search.read.access.in.working.set,
+	handler=ActionHandler(org.eclipse.jdt.ui.actions.FindReadReferencesInWorkingSetAction@2d68a4),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.261
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.261
+!MESSAGE Conflict for 'org.eclipse.ui.navigate.next':
+HandlerActivation(commandId=org.eclipse.ui.navigate.next,
+	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@411aa8),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.ui.navigate.next,
+	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@3d0c3c),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.262
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.262
+!MESSAGE Conflict for 'org.eclipse.ui.navigate.previous':
+HandlerActivation(commandId=org.eclipse.ui.navigate.previous,
+	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@f0b431),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.ui.navigate.previous,
+	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@c63246),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.262
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-03-18 17:21:23.263
+!MESSAGE Conflict for 'org.eclipse.ui.file.refresh':
+HandlerActivation(commandId=org.eclipse.ui.file.refresh,
+	handler=ActionHandler(org.eclipse.ui.internal.editors.text.RefreshEditorAction@5eaecb),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+HandlerActivation(commandId=org.eclipse.ui.file.refresh,
+	handler=ActionHandler(org.eclipse.ui.internal.editors.text.RefreshEditorAction@25c6f5),
+	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.jdt.ui.CompilationUnitEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@27df44)),sourcePriority=4210689)
+
+!ENTRY org.eclipse.ui 4 0 2010-03-18 17:21:23.905
+!MESSAGE Unable to create editor ID org.eclipse.ui.DefaultTextEditor: Factory org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory returned null from createElement for editor id=org.eclipse.ui.DefaultTextEditor name=MANIFEST.MF
+!STACK 1
+org.eclipse.ui.PartInitException: Factory org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory returned null from createElement for editor id=org.eclipse.ui.DefaultTextEditor name=MANIFEST.MF
+	at org.eclipse.ui.internal.EditorReference.getRestoredInput(EditorReference.java:401)
+	at org.eclipse.ui.internal.EditorReference.getEditorInput(EditorReference.java:362)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:591)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.presentationSelectionChanged(PartStack.java:843)
+	at org.eclipse.ui.internal.PartStack.access$1(PartStack.java:829)
+	at org.eclipse.ui.internal.PartStack$1.selectPart(PartStack.java:139)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:133)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:279)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$2.handleEvent(DefaultTabFolder.java:87)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3256)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:2045)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:323)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3440)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3099)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SUBENTRY 1 org.eclipse.ui 4 0 2010-03-18 17:21:23.906
+!MESSAGE Factory org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory returned null from createElement for editor id=org.eclipse.ui.DefaultTextEditor name=MANIFEST.MF
+
+!ENTRY org.eclipse.ui 2 2 2010-03-18 17:21:23.911
+!MESSAGE Ignored attempt to add saveable that was already registered
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse.ui.internal.DefaultSaveable@cb740d from part: org.eclipse.ui.internal.ErrorEditorPart@cb740d
+	at org.eclipse.ui.internal.SaveablesList.logWarning(SaveablesList.java:187)
+	at org.eclipse.ui.internal.SaveablesList.addModel(SaveablesList.java:117)
+	at org.eclipse.ui.internal.SaveablesList.addModels(SaveablesList.java:289)
+	at org.eclipse.ui.internal.SaveablesList.postOpen(SaveablesList.java:684)
+	at org.eclipse.ui.internal.PartList.partOpened(PartList.java:234)
+	at org.eclipse.ui.internal.PartList.access$0(PartList.java:210)
+	at org.eclipse.ui.internal.PartList$1.propertyChanged(PartList.java:40)
+	at org.eclipse.ui.internal.WorkbenchPartReference.fireInternalPropertyChange(WorkbenchPartReference.java:375)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:610)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.presentationSelectionChanged(PartStack.java:843)
+	at org.eclipse.ui.internal.PartStack.access$1(PartStack.java:829)
+	at org.eclipse.ui.internal.PartStack$1.selectPart(PartStack.java:139)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:133)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:279)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$2.handleEvent(DefaultTabFolder.java:87)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3256)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:2045)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:323)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3542)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1247)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1255)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1076)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3440)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3099)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SESSION 2010-03-18 17:29:14.854 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.5.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2010-03-18 17:29:21.920
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-12-06 12:09:56.801 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/rockwell/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-12-06 12:32:49.229
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.resources 4 2 2010-12-06 12:32:51.215
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/CYA/src/oscP5' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:257)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.getData(DeltaDataTree.java:585)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:761)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.forwardDeltaWith(DeltaDataTree.java:456)
+	at org.eclipse.core.internal.events.BuildManager.needsBuild(BuildManager.java:856)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:153)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 75 2010-12-06 12:32:51.468
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.core.resources 2 566 2010-12-06 12:32:51.468
+!MESSAGE Tree element '/CYA/src/oscP5' not found.
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/CYA/src/oscP5' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:257)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.getData(DeltaDataTree.java:585)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:761)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.forwardDeltaWith(DeltaDataTree.java:456)
+	at org.eclipse.core.internal.events.BuildManager.needsBuild(BuildManager.java:856)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:153)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.net 1 0 2010-12-06 12:32:56.468
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.resources 4 2 2010-12-06 12:32:58.711
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/CYA/src/oscP5' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:257)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.getData(DeltaDataTree.java:585)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:761)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.forwardDeltaWith(DeltaDataTree.java:456)
+	at org.eclipse.core.internal.events.BuildManager.needsBuild(BuildManager.java:856)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:153)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 75 2010-12-06 12:32:58.790
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.core.resources 2 566 2010-12-06 12:32:58.790
+!MESSAGE Tree element '/CYA/src/oscP5' not found.
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/CYA/src/oscP5' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:257)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.getData(DeltaDataTree.java:585)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:761)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:758)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:312)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.forwardDeltaWith(DeltaDataTree.java:456)
+	at org.eclipse.core.internal.events.BuildManager.needsBuild(BuildManager.java:856)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:153)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 566 2010-12-06 12:39:49.699
+!MESSAGE An error occurred while traversing resources.
+!STACK 0
+java.lang.ClassCastException: org.eclipse.core.internal.dtree.NoDataDeltaNode cannot be cast to org.eclipse.core.internal.dtree.DataTreeNode
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:120)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:70)
+	at org.eclipse.debug.internal.core.LaunchManager.findLaunchConfigurations(LaunchManager.java:930)
+	at org.eclipse.debug.internal.core.LaunchManager.getAllLaunchConfigurations(LaunchManager.java:1081)
+	at org.eclipse.debug.internal.core.LaunchManager.getLaunchConfigurations(LaunchManager.java:1374)
+	at org.eclipse.ant.internal.ui.launchConfigurations.AntLaunchShortcut.collectConfigurations(AntLaunchShortcut.java:172)
+	at org.eclipse.ant.internal.ui.launchConfigurations.AntLaunchShortcut.launch(AntLaunchShortcut.java:247)
+	at org.eclipse.ant.internal.ui.launchConfigurations.AntLaunchShortcut.launch(AntLaunchShortcut.java:131)
+	at org.eclipse.ant.internal.ui.views.actions.RunTargetAction.launch(RunTargetAction.java:85)
+	at org.eclipse.ant.internal.ui.views.actions.RunTargetAction$1.runInUIThread(RunTargetAction.java:70)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3404)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3101)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+
+!ENTRY org.eclipse.ui 4 4 2010-12-06 12:39:50.191
+!MESSAGE Could not create action delegate for id: org.eclipse.debug.ui.actions.RemoveAllBreakpoints
+
+!ENTRY org.eclipse.ui 4 4 2010-12-06 12:39:50.191
+!MESSAGE Internal plug-in action delegate error on creation.
+!STACK 0
+java.lang.ClassCastException: org.eclipse.core.internal.dtree.NoDataDeltaNode cannot be cast to org.eclipse.core.internal.dtree.DataTreeNode
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:120)
+	at org.eclipse.core.internal.resources.MarkerManager.visitorFindMarkers(MarkerManager.java:606)
+	at org.eclipse.core.internal.resources.MarkerManager.doFindMarkers(MarkerManager.java:277)
+	at org.eclipse.core.internal.resources.MarkerManager.findMarkers(MarkerManager.java:262)
+	at org.eclipse.core.internal.resources.Resource.findMarkers(Resource.java:907)
+	at org.eclipse.debug.internal.core.BreakpointManager.getPersistedMarkers(BreakpointManager.java:295)
+	at org.eclipse.debug.internal.core.BreakpointManager.loadBreakpoints(BreakpointManager.java:262)
+	at org.eclipse.debug.internal.core.BreakpointManager.initializeBreakpoints(BreakpointManager.java:434)
+	at org.eclipse.debug.internal.core.BreakpointManager.getBreakpoints0(BreakpointManager.java:403)
+	at org.eclipse.debug.internal.core.BreakpointManager.hasBreakpoints(BreakpointManager.java:879)
+	at org.eclipse.debug.internal.ui.actions.breakpoints.RemoveAllBreakpointsAction.isEnabled(RemoveAllBreakpointsAction.java:44)
+	at org.eclipse.debug.internal.ui.actions.AbstractRemoveAllActionDelegate.update(AbstractRemoveAllActionDelegate.java:100)
+	at org.eclipse.debug.internal.ui.actions.AbstractRemoveAllActionDelegate.init(AbstractRemoveAllActionDelegate.java:86)
+	at org.eclipse.ui.internal.WWinPluginAction.initDelegate(WWinPluginAction.java:189)
+	at org.eclipse.ui.internal.PluginAction.createDelegate(PluginAction.java:125)
+	at org.eclipse.ui.internal.WWinPluginAction.refreshActionList(WWinPluginAction.java:165)
+	at org.eclipse.ui.plugin.AbstractUIPlugin$1.run(AbstractUIPlugin.java:486)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3404)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3101)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+
+!ENTRY org.eclipse.core.jobs 4 2 2010-12-06 12:40:12.088
+!MESSAGE An internal error occurred during: "Process resource updates".
+!STACK 0
+java.lang.ClassCastException: org.eclipse.core.internal.dtree.NoDataDeltaNode cannot be cast to org.eclipse.core.internal.dtree.DataTreeNode
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:120)
+	at org.eclipse.core.internal.resources.MarkerManager.visitorFindMarkers(MarkerManager.java:606)
+	at org.eclipse.core.internal.resources.MarkerManager.doFindMarkers(MarkerManager.java:277)
+	at org.eclipse.core.internal.resources.MarkerManager.findMarkers(MarkerManager.java:262)
+	at org.eclipse.core.internal.resources.Resource.findMarkers(Resource.java:907)
+	at org.eclipse.ui.internal.views.markers.MarkerContentGenerator.findMarkers(MarkerContentGenerator.java:334)
+	at org.eclipse.ui.internal.views.markers.MarkerContentGenerator.computeAllMarkers(MarkerContentGenerator.java:137)
+	at org.eclipse.ui.internal.views.markers.MarkerContentGenerator.generateFilteredMarkers(MarkerContentGenerator.java:395)
+	at org.eclipse.ui.internal.views.markers.CachedMarkerBuilder.buildAllMarkers(CachedMarkerBuilder.java:232)
+	at org.eclipse.ui.internal.views.markers.CachedMarkerBuilder$1.run(CachedMarkerBuilder.java:293)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

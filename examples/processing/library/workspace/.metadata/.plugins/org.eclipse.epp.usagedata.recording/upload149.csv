@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291656781377
+activated,editor,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.CompilationUnitEditor",1291656781400
+started,bundle,org.eclipse.mylyn.java.tasks,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.java.tasks",1291656781572
+started,bundle,org.eclipse.epp.usagedata.ui,1.1.0.R200906100410,"org.eclipse.epp.usagedata.ui",1291656781695
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291656782202
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291656787009
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291656794155
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657038863
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657040569
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.findReplace",1291657040616
+started,bundle,org.eclipse.help.base,3.4.0.v200906111540,"org.eclipse.help.base",1291657041763
+executed,command,org.eclipse.help.ui,,"org.eclipse.help.ui.closeTray",1291657041802
+started,bundle,org.eclipse.help.ui,3.4.0.v20090528,"org.eclipse.help.ui",1291657041803
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657043193
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657045953
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657175599
+executed,command,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.edit.text.java.format",1291657176313
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657177486
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.findReplace",1291657177509
+executed,command,org.eclipse.help.ui,3.4.0.v20090528,"org.eclipse.help.ui.closeTray",1291657179474
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1291657180743
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.save",1291657183534
+activated,view,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.views.AntView",1291657186393
+started,bundle,org.eclipse.debug.ui,3.5.0.v20090603,"org.eclipse.debug.ui",1291657189643
+error,log,,,"An error occurred while traversing resources.",1291657189722

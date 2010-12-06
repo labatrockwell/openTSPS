@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,view,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.views.AntView",1264188189478
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1264188195114
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264188198290
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264188276898
+activated,editor,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.internal.editor.AntEditor",1264188278220
+activated,view,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.views.AntView",1264188281064
+activated,view,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.PackageExplorer",1264188293033
+error,log,,,"Invalid ZIP archive: /Users/rockwell/Documents/workspace/libs/oscP5.jar",1264188293343
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264188298745
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264188311157
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.properties",1264188311209
+activated,view,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.views.AntView",1264188315784
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264188334663
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1264188422965
+activated,editor,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.CompilationUnitEditor",1264188425348
+opened,view,org.eclipse.ui.ide,3.5.0.I20090525-2000,"org.eclipse.ui.views.ProblemView",1264188429531
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.cut",1264188429570
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1264188430061
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.save",1264188430546
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.save",1264188431991
+activated,view,org.eclipse.ant.ui,3.4.0.v20090520,"org.eclipse.ant.ui.views.AntView",1264188435639
+activated,editor,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.CompilationUnitEditor",1264188447663
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.copy",1264188448319
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1264188451947
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.save",1264188453775

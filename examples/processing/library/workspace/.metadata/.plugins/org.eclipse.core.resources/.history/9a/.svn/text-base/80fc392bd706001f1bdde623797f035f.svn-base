@@ -1,0 +1,33 @@
+package lab;
+
+import processing.core.PVector;
+
+class Rectangle
+{
+	float x, y, width, height;
+}
+class CYAPerson
+{
+	
+	int id; 
+	int age; 
+ 	PVector centroid;  
+	PVector velocity; 
+	Rectangle boundingRect;
+	boolean dead;
+	
+	CYAPerson(){
+		boundingRect = new Rectangle();
+		centroid = new PVector();
+		velocity = new PVector();
+		dead = false;
+	}
+	
+	public void update ( CYAPerson p )
+	{
+		boundingRect = p.boundingRect;
+		centroid = p.centroid;
+		
+	}
+	
+};
