@@ -63,7 +63,7 @@ void ofxCvOpticalFlowLK::calc( ofxCvGrayscaleImage & pastImage,
 void ofxCvOpticalFlowLK::draw(void){
 
 	ofEnableAlphaBlending();
-	//ofSetColor(0xffffff);
+	//ofSetHexColor(0xffffff);
 	ofNoFill();
 
 	int x, y, dx, dy;
@@ -85,7 +85,7 @@ void ofxCvOpticalFlowLK::draw(void){
 void ofxCvOpticalFlowLK::draw(int width, int height){
 	
 	ofEnableAlphaBlending();
-	//ofSetColor(0xffffff);
+	//ofSetHexColor(0xffffff);
 	ofNoFill();
 	
 	float scalex = (float) width/captureWidth;

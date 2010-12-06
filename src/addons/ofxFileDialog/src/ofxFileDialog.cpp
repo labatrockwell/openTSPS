@@ -27,6 +27,8 @@ CFURLRef GetOpenDialogForUser(kDialogType type, char* title, char* message)
 	CFURLRef fileAsCFURLRef = NULL;
 	FSRef fileAsFSRef;
 	OSStatus status;
+	
+	CFAllocatorRef alloc_default = kCFAllocatorDefault;  // = NULL;
 
 	// Get the standard set of defaults
 	status = NavGetDefaultDialogCreationOptions(&dialogOptions);
@@ -34,7 +36,6 @@ CFURLRef GetOpenDialogForUser(kDialogType type, char* title, char* message)
 
 	dialogOptions.optionFlags = kNavNoTypePopup + kNavSupportPackages + kNavAllowOpenPackages;
 
-	CFAllocatorRef alloc_default = kCFAllocatorDefault;  // = NULL;
 
 	if (title != NULL) {
 		CFStringRef cftitle = CFStringCreateWithCString(alloc_default,title,kCFStringEncodingMacRoman);
@@ -94,6 +95,15 @@ CFURLRef GetSaveDialogForUser(char* title, char* message)
 	FSRef output_file;
 	CFURLRef fileAsCFURLRef = NULL;
 	OSStatus status;
+	CFAllocatorRef alloc_default = kCFAllocatorDefault;
+	
+	
+	AEKeyword keyword;
+	DescType actual_type;
+	Size actual_size;
+	FSRef output_dir;
+	NavReplyRecord reply;
+	CFIndex len;
 
 	// Get the standard set of defaults
 	status = NavGetDefaultDialogCreationOptions( &dialogOptions );
@@ -101,7 +111,7 @@ CFURLRef GetSaveDialogForUser(char* title, char* message)
 
 	dialogOptions.optionFlags = kNavNoTypePopup + kNavSupportPackages + kNavAllowOpenPackages;
 
-	CFAllocatorRef alloc_default = kCFAllocatorDefault;  // = NULL;
+	  // = NULL;
 
 	if (title != NULL) {
 		CFStringRef cftitle = CFStringCreateWithCString(alloc_default,title,kCFStringEncodingMacRoman);
@@ -123,15 +133,10 @@ CFURLRef GetSaveDialogForUser(char* title, char* message)
 	require_noerr( status, CantRunDialog );
 
 	// get dialog reply
-	NavReplyRecord reply;
 	status = NavDialogGetReply(dialog, &reply);
 	require( ((status == noErr) || (status == userCanceledErr)), CantGetReply );
 
 	//get file directory
-	AEKeyword keyword;
-	DescType actual_type;
-	Size actual_size;
-	FSRef output_dir;
 	status = AEGetNthPtr(&(reply.selection), 1, typeFSRef, &keyword, &actual_type,
 						 &output_dir, sizeof(output_file), &actual_size);
 	require_noerr( status, CantExtractFSRef );
@@ -140,7 +145,7 @@ CFURLRef GetSaveDialogForUser(char* title, char* message)
 	FSRefMakePath(&output_dir, output_dir_name, 1024 );
 
 	// now get filename
-	CFIndex len = CFStringGetLength(reply.saveFileName);
+	len = CFStringGetLength(reply.saveFileName);
 	if (len > 255)
 		len = 255;
 	UniChar output_filename[255];

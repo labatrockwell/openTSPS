@@ -59,7 +59,7 @@ void ofxCvBlobTracker::draw( float x, float y ) {
 	}
 	ofDisableAlphaBlending();
 
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	for( int i=0; i<blobs.size(); i++ ) {
 		glBegin(GL_LINE_LOOP);
 		for( int j=0; j<blobs[i].pts.size(); j++ ) {

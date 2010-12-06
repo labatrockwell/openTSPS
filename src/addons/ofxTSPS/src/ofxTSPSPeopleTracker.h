@@ -85,7 +85,7 @@
 #define spacing 10
 #define GUI_WIDTH 340
 
-#define TSPS_HOME_PAGE "http://lab.rockwellgroup.com/work/TSPS"
+//#define TSPS_HOME_PAGE "http://lab.rockwellgroup.com/work/TSPS"
 #define TSPS_GOOGLE_PAGE "http://code.google.com/p/TSPS-alpha/"
 
 //interface for listener of people events

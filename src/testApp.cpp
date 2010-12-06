@@ -139,7 +139,7 @@ void testApp::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene )
 //--------------------------------------------------------------
 void testApp::draw(){
 	ofEnableAlphaBlending();
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	ofPushStyle();
 	background.draw(0,0);
 	peopleTracker.draw();
@@ -199,9 +199,9 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-	//launch urls
+	//launch urls	
 	if ( x >= 812 && x <= 995 && y >= 723 && y <= 733 ) ofLaunchBrowser(TSPS_HOME_PAGE);
-	else if ( x >= 812 && x <= 995 && y >= 733 && y <= 743 ) ofLaunchBrowser(TSPS_GOOGLE_PAGE);
+	else if ( x >= 812 && x <= 995 && y >= 733 && y <= 743 ) ofLaunchBrowser("http://github.com/labatrockwell/openTSPS");
 }
 
 //--------------------------------------------------------------

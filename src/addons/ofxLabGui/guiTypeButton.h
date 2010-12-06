@@ -70,7 +70,7 @@ public:
 		
 		ofFill();
 		//glColor4fv(fgColor.getColorF());
-		ofSetColor(0xffffff);
+		ofSetHexColor(0xffffff);
 		guiBaseObject::renderText((int)(hitArea.x + hitArea.width/2 - (displayText.getTextWidth()/2)), hitArea.y);
 		
 		glPopMatrix();

@@ -558,7 +558,7 @@ void ofxTSPSPeopleTracker::draw(int x, int y, int mode)
 	ofPushMatrix();
 		ofTranslate(x, y, 0);
 		// draw the incoming, the grayscale, the bg and the thresholded difference
-		ofSetColor(0xffffff);
+		ofSetHexColor(0xffffff);
 	
 		//draw large image
 		if (activeViewIndex ==  CAMERA_SOURCE_VIEW){
@@ -612,9 +612,9 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 	float scaleVar = (float) drawWidth/width;
 	
 	ofFill();
-	ofSetColor(0x333333);
+	ofSetHexColor(0x333333);
 	ofRect(0,0,drawWidth,drawHeight);
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	
 	ofNoFill();
 	
@@ -638,9 +638,9 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 		ofPushStyle();
 		ofNoFill();
 		if (p_Settings->bSendOscContours){
-			ofSetColor(0x3abb93);
+			ofSetHexColor(0x3abb93);
 		} else {
-			ofSetColor(0xc4b68e);
+			ofSetHexColor(0xc4b68e);
 		}
 		ofBeginShape();
 		for( int j=0; j<p->contour.size(); j++ ) {
@@ -651,7 +651,7 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 		
 		if(p_Settings->bTrackOpticalFlow){
 			//purple optical flow arrow
-			ofSetColor(0xff00ff);
+			ofSetHexColor(0xff00ff);
 			//JG Doesn't really provide any helpful information since its so scattered
 //			ofLine(p->centroid.x, 
 //				   p->centroid.y, 
@@ -659,9 +659,9 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 //				   p->centroid.y + p->opticalFlowVectorAccumulation.y);
 		}
 		
-		ofSetColor(0xffffff);							
+		ofSetHexColor(0xffffff);							
 		if(p_Settings->bDetectHaar){
-			ofSetColor(0xee3523);
+			ofSetHexColor(0xee3523);
 			//draw haar search area expanded 
 			//limit to within data box so it's not confusing
 			/*ofRect(p->boundingRect.x - p_Settings->haarAreaPadding, 
@@ -688,31 +688,31 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 		
 		if(p->hasHaarRect()){
 			//draw the haar rect
-			ofSetColor(0xee3523);
+			ofSetHexColor(0xee3523);
 			ofRect(p->getHaarRect().x, p->getHaarRect().y, p->getHaarRect().width, p->getHaarRect().height);
 			//haar-detected people get a red square
-			ofSetColor(0xfd5f4f);
+			ofSetHexColor(0xfd5f4f);
 		}
 		else {
 			//no haar gets a yellow square
-			ofSetColor(0xeeda00);
+			ofSetHexColor(0xeeda00);
 		}
 		
 		//draw person
 		ofRect(p->boundingRect.x, p->boundingRect.y, p->boundingRect.width, p->boundingRect.height);
 		
 		//draw centroid
-		ofSetColor(0xff0000);
+		ofSetHexColor(0xff0000);
 		ofCircle(p->centroid.x, p->centroid.y, 3);
 		
 		//draw id
-		ofSetColor(0xffffff);
+		ofSetHexColor(0xffffff);
 		char idstr[1024];
 		sprintf(idstr, "pid: %d\noid: %d\nage: %d", p->pid, p->oid, p->age );
 		ofDrawBitmapString(idstr, p->centroid.x+8, p->centroid.y);													
 	}
 	ofPopMatrix();
-	ofSetColor(0xffffff);				
+	ofSetHexColor(0xffffff);				
 	//ofDrawBitmapString("blobs and optical flow", 5, height - 5 );
 }
 	

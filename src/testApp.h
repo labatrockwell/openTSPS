@@ -8,6 +8,7 @@
 								// otherwise, we'll use a movie file
 //#define USE_CUSTOM_GUI		// uncomment to add a "custom" panel to the gui
 								// for adding your own parameters
+#define TSPS_HOME_PAGE "http://opentsps.com"
 
 class testApp : public ofBaseApp, public ofxPersonListener {
 

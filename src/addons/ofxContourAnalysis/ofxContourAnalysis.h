@@ -35,7 +35,7 @@ public:
 		
 		ofBeginShape();
 		for(int i=0; i<contour.size(); i++) {
-			ofSetColor(0xff4400);
+			ofSetHexColor(0xff4400);
 			ofNoFill();
 			ofVertex(ofMap(contour[i].x, 0.0, width, 0.0, w),
 					 ofMap(contour[i].y, 0.0, height, 0.0, h));
@@ -45,7 +45,7 @@ public:
 		if(drawDots) {
 			for(int i=0; i<contour.size(); i++) {
 				ofFill();
-				ofSetColor(0x33ff00);
+				ofSetHexColor(0x33ff00);
 				ofCircle(ofMap(contour[i].x, 0.0, width, 0.0, w),
 						 ofMap(contour[i].y, 0.0, height, 0.0, h),
 						 3);
