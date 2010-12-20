@@ -139,7 +139,7 @@ void testApp::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene )
 //--------------------------------------------------------------
 void testApp::draw(){
 	ofEnableAlphaBlending();
-	ofSetHexColor(0xffffff);
+	ofSetColor(0xffffff);
 	ofPushStyle();
 	background.draw(0,0);
 	peopleTracker.draw();

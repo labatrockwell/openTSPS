@@ -30,14 +30,14 @@ class drawableStacker : public ofBaseDraws{
     }
 
     void draw(float x, float y, float w, float h){
-        ofSetHexColor(0xFFFFFF);
+        ofSetColor(0xFFFFFF);
         for(int i = 0; i < drawers.size(); i++){
             drawers[i]->draw(x, y, w, h);
         }
     }
 
     void draw(float x, float y){
-        ofSetHexColor(0xFFFFFF);
+        ofSetColor(0xFFFFFF);
         for(int i = 0; i < drawers.size(); i++){
             drawers[i]->draw(x, y, width, height);
         }
@@ -88,7 +88,7 @@ class guiTypeDrawable : public guiBaseObject{
 
                     ofDisableAlphaBlending();
 
-                    ofSetHexColor(0xFFFFFF);
+                    ofSetColor(0xFFFFFF);
                     vid->draw(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
                 glPopMatrix();

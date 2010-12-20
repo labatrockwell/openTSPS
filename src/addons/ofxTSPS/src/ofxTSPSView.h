@@ -113,7 +113,7 @@ public:
 		};
 		
 		ofFill(); 
-		ofSetHexColor(0xffffff);
+		ofSetColor(0xffffff);
 		
 		if (bFontLoaded){
 			p_font->drawString(shortTitle, (int)view_smallBorder,(int)height + view_smallBorder*3 + 2 + p_font->stringHeight("A"));
@@ -146,7 +146,7 @@ public:
 			ofRect(_x, _y, _width, _height);
 		ofPopStyle();	
 				
-		ofSetHexColor(0xffffff);
+		ofSetColor(0xffffff);
 		if (bFontLoaded){
 			p_font->drawString(title, _x + view_largeBorder, _y + view_largeBorder + p_font->stringHeight("A"));
 		} else {

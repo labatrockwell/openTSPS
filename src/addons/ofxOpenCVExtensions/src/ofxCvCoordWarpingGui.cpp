@@ -270,7 +270,7 @@ void ofxCvCoordWarpingGui::draw(float passedX, float passedY, float scaleWidth, 
 			ofVertex(srcScaled[0].x+1, srcScaled[0].y+1);
 		ofEndShape();	
 	
-		ofSetHexColor(0xffffff);
+		ofSetColor(0xffffff);
 	
 	ofPopStyle();
 	ofPopMatrix();

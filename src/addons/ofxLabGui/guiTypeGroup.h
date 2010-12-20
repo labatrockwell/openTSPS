@@ -192,7 +192,7 @@ public:
 	//-----------------------------------------------.
 	void render(){
 		ofPushStyle();
-		ofSetHexColor(0xffffff);
+		ofSetColor(0xffffff);
 		glPushMatrix();
 			glTranslatef(boundingBox.x, boundingBox.y, 0);
 			//draw the background
