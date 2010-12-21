@@ -71,6 +71,10 @@ THE SOFTWARE.
 #define buttonWidth	 55.f
 #define buttonHeight 20.f
 
+//JG added for putting buttons into the main gui
+#define guiButtonWidth 220.f
+#define guiButtonHeight 20.f
+
 #include "ofxFileDialog.h"
 
 class xmlAssociation{
@@ -124,14 +128,20 @@ class ofxLabGui: public guiBaseObject{
         guiTypeLogger * addLogger(string name, simpleLogger * logger, int drawW, int drawH);
         guiTypeFileLister * addFileLister(string name, simpleFileLister * lister, int drawW, int drawH);
 		guiTypeText * addTextField(string name, string xmlName, string defaultValue, int drawW, int drawH);
-	
+		
+		//JG now you can add buttons
+		guiTypeButton* addButton(string buttonName);
+
         void setValueB(string xmlName, bool value,  int whichParam = 0);
         void setValueI(string xmlName, int value,  int whichParam = 0);
         void setValueF(string xmlName, float value,  int whichParam = 0);
         bool getValueB(string xmlName, int whichParam = 0);
+	
         float getValueF(string xmlName, int whichParam = 0);
 		int getValueI(string xmlName, int whichParam = 0);
 		string getValueS(string xmlName, int whichParam = 0, string defaultString = "");
+		//JG returns a bang if button pressed
+		bool getButtonPressed(string buttonName);
 	
 		void setSaveColor( int r, int g, int b );
 		void setSaveSelectedColor( int r, int g, int b );
@@ -182,10 +192,11 @@ class ofxLabGui: public guiBaseObject{
 	protected:
 	
 		ofTrueTypeFont guiTTFFont;
-
+		
         vector <xmlAssociation> xmlObjects;
         vector <guiBaseObject *> guiObjects;
 		vector <guiTypePanel *> panels;
+		
 
 		ofxXmlSettings settings;
 		string currentXmlFile;
@@ -197,6 +208,13 @@ class ofxLabGui: public guiBaseObject{
 		guiTypeButton * restoreButton;
 		guiTypeButton * loadButton;
 		guiTypeButton * saveAsButton;
+		
+		//JG internal callback that receives all button presses and
+		//sets bools in the map below
+		void buttonPressed(string& buttonName);
+		//JG simple map structure for pressing buttons
+		map<string, bool> pressedButtons;
+
 		ofRectangle topBar;
 		ofRectangle minimizeButton;
 

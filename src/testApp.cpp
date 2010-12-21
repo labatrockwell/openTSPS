@@ -8,7 +8,7 @@ public:
 	}
 
 	float height;
-	bool hasBeard;
+	bool hasBeard; //this is a joke
 };
 
 /*--------------------------------------------------------------
@@ -49,6 +49,11 @@ void testApp::setup(){
 	peopleTracker.loadFont("fonts/times.ttf", 10);
 	peopleTracker.setListener( this );
 	
+	#ifdef _USE_LIVE_VIDEO
+	//JG set this so we can access video settings through the interface
+	peopleTracker.setVideoGrabber(&vidGrabber);
+	#endif
+
 	/*
 	//THIS IS HOW YOU CAN ADD CUSTOM PARAMETERS TO THE GUI
 	peopleTracker.addSlider("custom INTEGER", &itestValue, 0, ofGetWidth());
@@ -70,6 +75,8 @@ void testApp::setup(){
 	drawStatus[0] = 0;
 	drawStatus[1] = 0;
 	drawStatus[2] = 0;
+	
+	
 }
 
 //--------------------------------------------------------------
@@ -182,9 +189,9 @@ void testApp::keyPressed  (int key){
 		case 'f':{
 			ofToggleFullscreen();
 		}break;
-		case 's':
-			vidGrabber.videoSettings();
-		break;
+//		case 's':
+//			vidGrabber.videoSettings();
+//		break;
 
 	}
 }

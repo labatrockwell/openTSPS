@@ -103,11 +103,16 @@ public:
 	vector <string> xmlFiles;
 	string currentXmlFile;
 	
+	//JG added the video grabber so we can access settings
+	//may be NULL so please do check
+	ofVideoGrabber* videoGrabber;
+	
 private:
 	
 	static bool instanceFlag;
 	static ofxTSPSSettings *single;
 	ofxTSPSSettings() {
+		videoGrabber = NULL;
 		//private constructor
 	}
 };

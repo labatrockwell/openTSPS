@@ -982,6 +982,11 @@ void ofxTSPSPeopleTracker::loadFont( string fontName, int fontSize){
 	bFontLoaded = true;
 }
 
+void ofxTSPSPeopleTracker::setVideoGrabber(ofVideoGrabber* grabber)
+{
+	p_Settings->videoGrabber = grabber;
+}
+
 void ofxTSPSPeopleTracker::updateViewRectangles(){
 	//build all rectangles for drawing views
 	ofPoint smallView;

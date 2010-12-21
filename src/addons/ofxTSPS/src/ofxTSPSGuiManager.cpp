@@ -112,6 +112,14 @@ void ofxTSPSGuiManager::setup(){
 	
 	// video settings		
 	panel.setWhichPanel("video");	
+	//James G: Added video settings
+	guiTypeGroup * videoSettingsGroup = panel.addGroup("video settings");
+	videoSettingsGroup->setBackgroundColor(148,129,85);
+	videoSettingsGroup->setBackgroundSelectColor(148,129,85);
+	videoSettingsGroup->seBaseColor(244,136,136);
+	videoSettingsGroup->setShowText(false);
+	panel.addButton("select video input");
+
 	guiTypeGroup * amplificationGroup = panel.addGroup("amplification");
 	amplificationGroup->setBackgroundColor(148,129,85);
 	amplificationGroup->setBackgroundSelectColor(148,129,85);
@@ -119,6 +127,7 @@ void ofxTSPSGuiManager::setup(){
 	amplificationGroup->setShowText(false);
 	panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
 	panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
+	
 	
 	// ZACK BOKA: choose whether or not to display the Adjusted View in color
 	guiTypeGroup* adjustedViewColorGroup = panel.addGroup("adjustedViewColor");
@@ -379,6 +388,10 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	p_Settings->bAmplify = panel.getValueB("USE_AMPLIFICATION");
 	p_Settings->highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");
 	panel.setGroupActive("video", "amplification", p_Settings->bAmplify);
+	
+	if(panel.getButtonPressed("select video input") && p_Settings->videoGrabber != NULL){
+		p_Settings->videoGrabber->videoSettings();
+	}
 	
 	p_Settings->bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
 	panel.setGroupActive("video", "adjustedViewColor", p_Settings->bAdjustedViewInColor);

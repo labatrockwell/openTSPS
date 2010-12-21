@@ -258,6 +258,43 @@ guiTypeToggle * ofxLabGui::addToggle(string name, string xmlName, bool defaultVa
     return tmp;
 }
 
+//---------------------------------------------
+guiTypeButton* ofxLabGui::addButton(string buttonName){
+    if( currentPanel < 0 || currentPanel >= panels.size() )return NULL;
+	
+    //add a new slider to our list
+    guiTypeButton* tmp = new guiTypeButton();
+	
+	tmp->setup(buttonName, guiButtonWidth, guiButtonHeight);
+	tmp->setPosition(0, 0);
+	ofAddListener(tmp->buttonPressed, this, &ofxLabGui::buttonPressed);
+	
+    //setup and dimensions
+ //   tmp->setup(name, (bool)defaultValue);
+  //  tmp->setDimensions(14, 200);
+//    tmp->setPosition(0,0);
+   // tmp->setTypeBool();
+  //  tmp->xmlName = xmlName;
+	
+    //xmlObjects.push_back( xmlAssociation(tmp, xmlName, 1) );
+	
+	//either add to panel or group (if there are groups)
+	if (panels[currentPanel]->groups.size() > 0){
+		guiTypeGroup * group = panels[currentPanel]->groups[currentGroup];
+		tmp->fgColor = group->fgColor;
+		tmp->bgColor = group->bgColor;
+		group->addElement( tmp );
+	} else {
+		panels[currentPanel]->addElement( tmp );
+	}
+    guiObjects.push_back(tmp);
+    if( bUseTTFFont ){
+        tmp->setFont(&guiTTFFont);
+    }
+	
+    return tmp;
+}
+
 
 //---------------------------------------------
 guiTypeMultiToggle * ofxLabGui::addMultiToggle(string name, string xmlName, int defaultBox, vector <string> boxNames){
@@ -816,6 +853,19 @@ void ofxLabGui::saveAsSettingsEvent( string & buttonName){
 	if (found == string::npos) test += ".xml";
 	saveSettings(test);
 	cout<<"OR HERE?"<<endl;
+}
+
+//JG 12/21/10 now you can add buttons.  This will get called for every button so switch based on the button name
+void ofxLabGui::buttonPressed( string & buttonName){
+	cout << "BUTTON!" << endl;
+	pressedButtons[buttonName] = true;
+}
+
+bool ofxLabGui::getButtonPressed(string buttonName)
+{
+	bool hasBeenPressed = pressedButtons[buttonName];
+	pressedButtons[buttonName] = false;
+	return hasBeenPressed;
 }
 
 
