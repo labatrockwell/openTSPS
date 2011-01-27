@@ -4,20 +4,25 @@
 #include "ofMain.h"
 
 #include "ofxTSPS.h"
-#define _USE_LIVE_VIDEO		// uncomment this to use a live camera
+//#define USE_KINECT true			// uncomment this to use Kinect
+#define _USE_LIVE_VIDEO		// uncomment this to use a normal OF camera
 								// otherwise, we'll use a movie file
 //#define USE_CUSTOM_GUI		// uncomment to add a "custom" panel to the gui
 								// for adding your own parameters
 #define TSPS_HOME_PAGE "http://opentsps.com"
 
+#ifdef USE_KINECT
+#include "ofxKinect.h"
+#endif 
+
 class testApp : public ofBaseApp, public ofxPersonListener {
 
 	public:
-
+		
 		void setup();
 		void update();
 		void draw();
-
+		
 		void keyPressed  (int key);
 		void mouseMoved(int x, int y );
 		void mouseDragged(int x, int y, int button);
@@ -32,12 +37,16 @@ class testApp : public ofBaseApp, public ofxPersonListener {
 	
         #ifdef _USE_LIVE_VIDEO
 		  ofVideoGrabber 		vidGrabber;
+		#elif USE_KINECT
+			ofxKinect kinect;
 		#else
 		  ofVideoPlayer 		vidPlayer;
 		#endif
+	
 		int camWidth, camHeight;
 
-		ofxCvColorImage		colorImg;	
+		ofxCvColorImage		colorImg;
+		ofxCvGrayscaleImage	grayImg;	
 	
 	//status bar stuff
 		ofImage statusBar;

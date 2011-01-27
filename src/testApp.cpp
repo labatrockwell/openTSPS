@@ -36,6 +36,11 @@ void testApp::setup(){
 		vidGrabber.setVerbose(false);
 		vidGrabber.videoSettings();
         vidGrabber.initGrabber(camWidth,camHeight);
+	#elif USE_KINECT
+		kinect.init();
+		kinect.setVerbose(true);
+		kinect.open();
+		grayImg.allocate(kinect.getWidth(), kinect.getHeight());
 	#else
         vidPlayer.loadMovie("testmovie/twoPeopleStand.mov");
         vidPlayer.play();
@@ -85,8 +90,11 @@ void testApp::update(){
     bool bNewFrame = false;
 
 	#ifdef _USE_LIVE_VIDEO
-       vidGrabber.grabFrame();
-	   bNewFrame = vidGrabber.isFrameNew();
+		vidGrabber.grabFrame();
+		bNewFrame = vidGrabber.isFrameNew();
+	#elif USE_KINECT
+		kinect.update();
+		bNewFrame = true;
     #else
         vidPlayer.idleMovie();
         bNewFrame = vidPlayer.isFrameNew();
@@ -96,6 +104,9 @@ void testApp::update(){
 
 		#ifdef _USE_LIVE_VIDEO
             colorImg.setFromPixels(vidGrabber.getPixels(), camWidth,camHeight);
+		#elif USE_KINECT
+			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
+			colorImg = grayImg;
 	    #else
             colorImg.setFromPixels(vidPlayer.getPixels(), camWidth,camHeight);
         #endif
