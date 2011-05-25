@@ -19,13 +19,13 @@ http://www.openframeworks.cc/forum/viewtopic.php?f=10&t=2006
 #define CV_HAAR_FIND_MODE CV_HAAR_DO_CANNY_PRUNING
 #endif
 
-class ofxCvHaarFinder {
+class ofxLABCvHaarFinder {
 public:
 	vector<ofxCvBlob> blobs;
 
-	ofxCvHaarFinder();
-	ofxCvHaarFinder(const ofxCvHaarFinder& finder);
-	~ofxCvHaarFinder();
+	ofxLABCvHaarFinder();
+	ofxLABCvHaarFinder(const ofxLABCvHaarFinder& finder);
+	~ofxLABCvHaarFinder();
 
 	int findHaarObjects(ofImage& input,
 		int minWidth = HAAR_DEFAULT_MIN_SIZE, int minHeight = HAAR_DEFAULT_MIN_SIZE);

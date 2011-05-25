@@ -1,32 +1,32 @@
-#include "ofxCvHaarFinder.h"
+#include "ofxLABCvHaarFinder.h"
 
-ofxCvHaarFinder::ofxCvHaarFinder() {
+ofxLABCvHaarFinder::ofxLABCvHaarFinder() {
 	cascade = NULL;
 	scaleHaar = 1.2;
 	neighbors = 2;
 }
 
-ofxCvHaarFinder::ofxCvHaarFinder(const ofxCvHaarFinder& finder) {
+ofxLABCvHaarFinder::ofxLABCvHaarFinder(const ofxLABCvHaarFinder& finder) {
 	cascade = NULL;
 	scaleHaar = finder.scaleHaar;
 	neighbors = finder.neighbors;
 	setup(finder.haarFile);
 }
 
-ofxCvHaarFinder::~ofxCvHaarFinder() {
+ofxLABCvHaarFinder::~ofxLABCvHaarFinder() {
 	if(cascade != NULL)
 		cvReleaseHaarClassifierCascade(&cascade);
 }
 
-void ofxCvHaarFinder::setScaleHaar(float scaleHaar) {
+void ofxLABCvHaarFinder::setScaleHaar(float scaleHaar) {
 	this->scaleHaar = scaleHaar;
 }
 
-void ofxCvHaarFinder::setNeighbors(unsigned neighbors) {
+void ofxLABCvHaarFinder::setNeighbors(unsigned neighbors) {
 	this->neighbors = neighbors;
 }
 
-void ofxCvHaarFinder::setup(string haarFile) {
+void ofxLABCvHaarFinder::setup(string haarFile) {
 	if(cascade != NULL)
 		cvReleaseHaarClassifierCascade(&cascade);
 
@@ -49,24 +49,24 @@ void ofxCvHaarFinder::setup(string haarFile) {
 		printf("Could not load Haar cascade: %s\n", haarFile.c_str());
 }
 
-string ofxCvHaarFinder::getHaarFile() {
+string ofxLABCvHaarFinder::getHaarFile() {
 	return haarFile;
 }
 
-float ofxCvHaarFinder::getWidth() {
+float ofxLABCvHaarFinder::getWidth() {
 	return img.width;
 }
 
-float ofxCvHaarFinder::getHeight() {
+float ofxLABCvHaarFinder::getHeight() {
 	return img.height;
 }
 
-bool ofxCvHaarFinder::ready() {
+bool ofxLABCvHaarFinder::ready() {
 	return cascade != NULL;
 }
 
 
-int ofxCvHaarFinder::findHaarObjects(ofImage& input,
+int ofxLABCvHaarFinder::findHaarObjects(ofImage& input,
 	int minWidth, int minHeight) {
 	ofxCvColorImage color;
 	ofxCvGrayscaleImage gray;
@@ -77,14 +77,14 @@ int ofxCvHaarFinder::findHaarObjects(ofImage& input,
 	return findHaarObjects(gray, minWidth, minHeight);
 }
 
-int ofxCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage&  input,
+int ofxLABCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage&  input,
 	int minWidth, int minHeight) {
 	return findHaarObjects(
 		input, 0, 0, input.width, input.height,
 		minWidth, minHeight);
 }
 
-int ofxCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage&  input,
+int ofxLABCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage&  input,
 	ofRectangle& roi,
 	int minWidth, int minHeight) {
 	return findHaarObjects(
@@ -92,7 +92,7 @@ int ofxCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage&  input,
 		minWidth, minHeight);
 }
 
-int ofxCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage& input,
+int ofxLABCvHaarFinder::findHaarObjects(ofxCvGrayscaleImage& input,
 	int x, int y, int w, int h,
 	int minWidth, int minHeight) {
 

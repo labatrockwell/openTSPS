@@ -10,7 +10,7 @@
 #pragma once
 
 #include "ofxCvMain.h"
-#include "ofxCvHaarFinder.h"
+#include "ofxLABCvHaarFinder.h"
 #include "ofxCvHaarTrackerItem.h"
 
 class ofxCvHaarTracker
@@ -21,8 +21,8 @@ public :
 	ofxCvHaarTracker();
 	~ofxCvHaarTracker();
 	
-	ofxCvHaarFinder*	setup( string haarFile );
-	ofxCvHaarFinder*	setup( ofxCvHaarFinder* hf );
+	ofxLABCvHaarFinder*	setup( string haarFile );
+	ofxLABCvHaarFinder*	setup( ofxLABCvHaarFinder* hf );
 	
 	
 	void		findHaarObjects( ofxCvGrayscaleImage &image );
@@ -34,7 +34,7 @@ public :
 	void		getHaarItemPropertiesEased( float *x, float *y, float *w, float *h );
 	void		clearHaarItems();
 	
-	ofxCvHaarFinder		*haarFinder;
+	ofxLABCvHaarFinder		*haarFinder;
 	
 private :	
 	

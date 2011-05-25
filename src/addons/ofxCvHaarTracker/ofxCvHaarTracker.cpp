@@ -23,14 +23,14 @@ ofxCvHaarTracker :: ~ofxCvHaarTracker()
 	
 }
 
-ofxCvHaarFinder* ofxCvHaarTracker :: setup( string haarFile )
+ofxLABCvHaarFinder* ofxCvHaarTracker :: setup( string haarFile )
 {
-	haarFinder = new ofxCvHaarFinder();
+	haarFinder = new ofxLABCvHaarFinder();
 	haarFinder->setup( haarFile );
 	return haarFinder;
 }
 
-ofxCvHaarFinder* ofxCvHaarTracker :: setup( ofxCvHaarFinder* hf )
+ofxLABCvHaarFinder* ofxCvHaarTracker :: setup( ofxLABCvHaarFinder* hf )
 {
 	haarFinder = hf;
 	return haarFinder;

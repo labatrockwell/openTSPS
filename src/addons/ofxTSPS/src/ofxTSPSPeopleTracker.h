@@ -259,7 +259,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		
 		// haar
 
-		ofxCvHaarFinder	 haarFinder;
+		ofxLABCvHaarFinder	 haarFinder;
 		ofxCvHaarTracker haarTracker;
 		
 		// optical flow
