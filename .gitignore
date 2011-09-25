@@ -1,0 +1,14 @@
+Debug*/
+Release*/
+build/
+obj/
+*.app/
+.svn/
+*.perspectivev3
+*.pbxuser
+*.mode*
+*.xcworkspace
+xcuserdata/
+
+.DS_Store
+

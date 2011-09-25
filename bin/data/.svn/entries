@@ -1,94 +1,0 @@
-8
-
-dir
-32
-https://backsmith@cya-alpha.googlecode.com/svn/trunk/OF_0061_LAB/core/apps/LAB/openTSPS/bin/data
-https://backsmith@cya-alpha.googlecode.com/svn
-
-
-
-2010-03-17T15:44:09.950891Z
-30
-backsmith
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-3618dc3e-0c63-11df-8158-cd644e702c08
-
-testmovie
-dir
-
-settings
-dir
-
-icon.icns
-file
-
-
-
-
-2010-03-13T20:18:40.000000Z
-a72a45145e8851b9451601671bc705e3
-2010-03-17T15:24:32.134757Z
-29
-backsmith
-has-props
-
-fonts
-dir
-
-haar
-dir
-
-guiquad-settings.xml
-file
-
-
-
-
-2010-02-05T23:03:45.000000Z
-c600a51072438ebe469ff17c4b5f13d6
-2010-03-17T15:24:32.134757Z
-29
-backsmith
-
-LiberationMono-Regular.ttf
-file
-
-
-
-
-2010-01-29T03:58:47.000000Z
-51b7a96dcc46285ab098bcf7f1038a07
-2010-03-17T15:24:32.134757Z
-29
-backsmith
-has-props
-
-verdana.ttf
-file
-
-
-
-
-2010-01-29T03:58:47.000000Z
-562fa31bba08b3f71cb71257ddb880d5
-2010-03-17T15:24:32.134757Z
-29
-backsmith
-has-props
-
-graphic
-dir
-
