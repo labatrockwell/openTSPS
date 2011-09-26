@@ -71,15 +71,11 @@ THE SOFTWARE.
 #define buttonWidth	 55.f
 #define buttonHeight 20.f
 
-<<<<<<< HEAD:src/addons/ofxLabGui/ofxLabGui.h
-//JG added for putting buttons into the main gui
 #define guiButtonWidth 220.f
 #define guiButtonHeight 20.f
 
 #include "ofxFileDialog.h"
 
-=======
->>>>>>> e649345c49c8cfd5067e19bdb3fc0914ff12b5bd:openTSPSStandalone/addons/ofxLabGui/ofxLabGui.h
 class xmlAssociation{
     public:
         xmlAssociation(guiBaseObject * objPtr, string xmlNameIn, int numParamsIn){

@@ -258,13 +258,8 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		float width, height;
 		
 		// haar
-<<<<<<< HEAD:src/addons/ofxTSPS/src/ofxTSPSPeopleTracker.h
-
-		ofxLABCvHaarFinder	 haarFinder;
-=======
 		string lastHaarFile;
 		ofxCvHaarFinder	 haarFinder;
->>>>>>> e649345c49c8cfd5067e19bdb3fc0914ff12b5bd:openTSPSStandalone/addons/ofxTSPS/src/ofxTSPSPeopleTracker.h
 		ofxCvHaarTracker haarTracker;
 		
 		// optical flow
