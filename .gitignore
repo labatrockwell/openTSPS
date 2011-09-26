@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.mode1v3
 *.pbxuser
 build/
@@ -46,3 +47,19 @@ apps/*/*/Release Linux64
 
 openTSPS.xcodeproj/rockwell.mode1v3
 openTSPS.xcodeproj/rockwell.pbxuser
+=======
+Debug*/
+Release*/
+build/
+obj/
+*.app/
+.svn/
+*.perspectivev3
+*.pbxuser
+*.mode*
+*.xcworkspace
+xcuserdata/
+
+.DS_Store
+
+>>>>>>> e649345c49c8cfd5067e19bdb3fc0914ff12b5bd
