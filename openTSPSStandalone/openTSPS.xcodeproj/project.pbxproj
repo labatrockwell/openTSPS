@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E6785CF1430B7980083AE30 /* ofxLABCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6785CD1430B7980083AE30 /* ofxLABCvHaarFinder.cpp */; };
+		2E6785D51430B7E30083AE30 /* ofxFileDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6785D31430B7E30083AE30 /* ofxFileDialog.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -103,6 +105,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E6785CD1430B7980083AE30 /* ofxLABCvHaarFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxLABCvHaarFinder.cpp; path = addons/ofxCvHaarTracker/ofxLABCvHaarFinder.cpp; sourceTree = "<group>"; };
+		2E6785CE1430B7980083AE30 /* ofxLABCvHaarFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxLABCvHaarFinder.h; path = addons/ofxCvHaarTracker/ofxLABCvHaarFinder.h; sourceTree = "<group>"; };
+		2E6785D31430B7E30083AE30 /* ofxFileDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFileDialog.cpp; sourceTree = "<group>"; };
+		2E6785D41430B7E30083AE30 /* ofxFileDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFileDialog.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -387,6 +393,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E6785D01430B79C0083AE30 /* ofxLABCvHaarFinder */ = {
+			isa = PBXGroup;
+			children = (
+				2E6785CD1430B7980083AE30 /* ofxLABCvHaarFinder.cpp */,
+				2E6785CE1430B7980083AE30 /* ofxLABCvHaarFinder.h */,
+			);
+			name = ofxLABCvHaarFinder;
+			sourceTree = "<group>";
+		};
+		2E6785D11430B7E30083AE30 /* ofxFileDialog */ = {
+			isa = PBXGroup;
+			children = (
+				2E6785D21430B7E30083AE30 /* src */,
+			);
+			name = ofxFileDialog;
+			path = addons/ofxFileDialog;
+			sourceTree = "<group>";
+		};
+		2E6785D21430B7E30083AE30 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2E6785D31430B7E30083AE30 /* ofxFileDialog.cpp */,
+				2E6785D41430B7E30083AE30 /* ofxFileDialog.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +508,8 @@
 		E741C0E7142F6F560040D77D /* third party */ = {
 			isa = PBXGroup;
 			children = (
+				2E6785D11430B7E30083AE30 /* ofxFileDialog */,
+				2E6785D01430B79C0083AE30 /* ofxLABCvHaarFinder */,
 				E741C0EA142F6FBF0040D77D /* ofxContourAnalysis */,
 				E741C102142F6FBF0040D77D /* ofxLabGui */,
 				E741C11B142F6FBF0040D77D /* ofxMSAInteractiveObject */,
@@ -1283,6 +1318,8 @@
 				E741C259142F70780040D77D /* ofxCvShortImage.cpp in Sources */,
 				E741C299142F72C10040D77D /* ofxCvHaarTracker.cpp in Sources */,
 				E741C2A0142F72D80040D77D /* ofxCvHaarTrackerItem.cpp in Sources */,
+				2E6785CF1430B7980083AE30 /* ofxLABCvHaarFinder.cpp in Sources */,
+				2E6785D51430B7E30083AE30 /* ofxFileDialog.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

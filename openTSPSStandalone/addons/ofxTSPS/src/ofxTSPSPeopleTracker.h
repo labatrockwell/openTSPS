@@ -185,7 +185,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		// layout functions
 		void setActiveView( int activeIndex );
 		void setActiveDimensions ( int actWidth, int actHeight);	
-		void loadFont(string fontName, int fontSize);
+		bool loadFont(string fontName, int fontSize);
 	
 		//JG this is so we can access video grabber settings through the default interface
 		void setVideoGrabber(ofVideoGrabber* grabber);
@@ -259,8 +259,8 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		
 		// haar
 		string lastHaarFile;
-		ofxCvHaarFinder	 haarFinder;
-		ofxCvHaarTracker haarTracker;
+		ofxLABCvHaarFinder	 haarFinder;
+		ofxCvHaarTracker    haarTracker;
 		
 		// optical flow
 		

@@ -76,7 +76,7 @@ void testApp::setup(){
 	background.loadImage("graphic/background.png");
 
 	timesBoldItalic.loadFont("fonts/timesbi.ttf", 16);
-
+    
 	drawStatus[0] = 0;
 	drawStatus[1] = 0;
 	drawStatus[2] = 0;

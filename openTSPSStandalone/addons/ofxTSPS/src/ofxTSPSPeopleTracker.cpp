@@ -974,14 +974,16 @@ void ofxTSPSPeopleTracker::setActiveDimensions ( int actWidth, int actHeight){
 	updateViewRectangles();
 }
 
-void ofxTSPSPeopleTracker::loadFont( string fontName, int fontSize){
-	font.loadFont(fontName, fontSize);
-	cameraView.setFont(&font);
-	adjustedView.setFont(&font);
-	bgView.setFont(&font);
-	processedView.setFont(&font);
-	dataView.setFont(&font);
-	bFontLoaded = true;
+bool ofxTSPSPeopleTracker::loadFont( string fontName, int fontSize){
+	bFontLoaded = font.loadFont(fontName, fontSize);
+    if (bFontLoaded){
+        cameraView.setFont(&font);
+        adjustedView.setFont(&font);
+        bgView.setFont(&font);
+        processedView.setFont(&font);
+        dataView.setFont(&font);
+    }
+    return bFontLoaded;
 }
 
 void ofxTSPSPeopleTracker::setVideoGrabber(ofVideoGrabber* grabber)
