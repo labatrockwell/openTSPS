@@ -277,6 +277,15 @@ void ofxTSPSGuiManager::setup(){
 	tcpGroup->setShowText(false);
 	panel.addToggle("send TCP", "SEND_TCP", false);
 	panel.addTextField("broadcast port (TCP port):", "TCP_PORT", "8888", 200, 20);
+    
+    
+	guiTypeGroup * wsGroup = panel.addGroup("WebSockets");
+	wsGroup->setBackgroundColor(148,129,85);
+	wsGroup->setBackgroundSelectColor(148,129,85);
+	wsGroup->seBaseColor(238,53,35);
+	wsGroup->setShowText(false);
+	panel.addToggle("send via WebSockets", "SEND_WS", false);
+	panel.addTextField("webSocket port:", "WS_PORT", "7681", 200, 20);
 	
 	//JG TODO: Optionally change config file through the UI
 	//this would be a big help for setting up multiple install sites and having those setting
@@ -436,11 +445,14 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	p_Settings->bSendOsc = panel.getValueB("SEND_OSC");
 	p_Settings->bSendTuio = panel.getValueB("SEND_TUIO");
 	p_Settings->bSendTcp = panel.getValueB("SEND_TCP");
+    p_Settings->bSendWebSockets = panel.getValueB("SEND_WS");
+    
 	p_Settings->oscHost = panel.getValueS("OSC_HOST", 0, "localhost");
 	p_Settings->oscPort = (int) atoi(panel.getValueS("OSC_PORT", 0, "12000").c_str());
 	p_Settings->tuioHost = panel.getValueS("TUIO_HOST", 0, "localhost");
 	p_Settings->tuioPort = (int) atoi(panel.getValueS("TUIO_PORT", 0, "3333").c_str());
 	p_Settings->tcpPort = (int) atoi(panel.getValueS("TCP_PORT", 0, "8888").c_str());
+    p_Settings->webSocketPort = (int) atoi(panel.getValueS("WS_PORT", 0, "7681").c_str());
 	p_Settings->bSendOscContours = panel.getValueB("SEND_OSC_CONTOURS");
 	panel.setGroupActive("sensing", "options", p_Settings->bSendOscContours);
 	

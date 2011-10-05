@@ -1,4 +1,4 @@
-#include "testApp.h"
+#include "tspsApp.h"
 
 class TSPSPersonAttributes {
 public:
@@ -11,20 +11,8 @@ public:
 	bool hasBeard; //this is a joke
 };
 
-/*--------------------------------------------------------------
- NOTE: IF YOU'RE HAVING TROUBLE COMPILING, TRY SETTING
- dataPathRoot to "../../../data" in the OF static library:
-
- #if defined TARGET_OSX
-	static string dataPathRoot = "../../../data/";
- #else
-	static string dataPathRoot = "data/";
- #endif
--------------------------------------------------------------*/
-
-
 //--------------------------------------------------------------
-void testApp::setup(){
+void tspsApp::setup(){
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofBackground(223, 212, 190);
@@ -80,12 +68,10 @@ void testApp::setup(){
 	drawStatus[0] = 0;
 	drawStatus[1] = 0;
 	drawStatus[2] = 0;
-	
-	
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void tspsApp::update(){
 
     bool bNewFrame = false;
 
@@ -94,7 +80,7 @@ void testApp::update(){
 		bNewFrame = vidGrabber.isFrameNew();
 	#elif USE_KINECT
 		kinect.update();
-		bNewFrame = true;
+        bNewFrame = true;// kinect.isFrameNew();
     #else
         vidPlayer.idleMovie();
         bNewFrame = vidPlayer.isFrameNew();
@@ -121,7 +107,7 @@ void testApp::update(){
 }
 
 //delegate methods for people entering and exiting
-void testApp::personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene )
+void tspsApp::personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene )
 {
 	newPerson->customAttributes = new TSPSPersonAttributes();
 
@@ -130,7 +116,7 @@ void testApp::personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene )
 	drawStatus[0] = 10;
 }
 
-void testApp::personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene )
+void tspsApp::personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene )
 {
 
 	//do something with the moving person
@@ -138,14 +124,14 @@ void testApp::personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene )
 	drawStatus[1] = 10;
 }
 
-void testApp::personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene )
+void tspsApp::personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene )
 {
 	//do something to clean up
 	ofLog(OF_LOG_VERBOSE, "person %d left after being %d frames in the system\n", leavingPerson->pid, leavingPerson->age);
 	drawStatus[2] = 10;
 }
 
-void testApp::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene )
+void tspsApp::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene )
 {
 	TSPSPersonAttributes* attrbs = (TSPSPersonAttributes*)updatedPerson->customAttributes;
 	attrbs->hasBeard = true;
@@ -155,16 +141,13 @@ void testApp::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene )
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void tspsApp::draw(){
 	ofEnableAlphaBlending();
 	ofSetHexColor(0xffffff);
 	ofPushStyle();
 	background.draw(0,0);
 	peopleTracker.draw();
 
-	if(btestValue){
-		ofCircle(itestValue, ftestValue, 30);
-	}
 	ofPopStyle();
 
 	//draw status bar stuff
@@ -191,7 +174,7 @@ void testApp::draw(){
 
 
 //--------------------------------------------------------------
-void testApp::keyPressed  (int key){
+void tspsApp::keyPressed  (int key){
 
 	switch (key){
 		case ' ':{
@@ -200,33 +183,20 @@ void testApp::keyPressed  (int key){
 		case 'f':{
 			ofToggleFullscreen();
 		}break;
-//		case 's':
-//			vidGrabber.videoSettings();
-//		break;
-
 	}
 }
 
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
-}
+void tspsApp::mouseMoved(int x, int y ){}
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
-}
+void tspsApp::mouseDragged(int x, int y, int button){}
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
-	//launch urls	
-	if ( x >= 812 && x <= 995 && y >= 723 && y <= 733 ) ofLaunchBrowser(TSPS_HOME_PAGE);
-	else if ( x >= 812 && x <= 995 && y >= 733 && y <= 743 ) ofLaunchBrowser("http://github.com/labatrockwell/openTSPS");
-}
+void tspsApp::mousePressed(int x, int y, int button){}
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
-}
+void tspsApp::mouseReleased(int x, int y, int button){}
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
-}
-
+void tspsApp::windowResized(int w, int h){}

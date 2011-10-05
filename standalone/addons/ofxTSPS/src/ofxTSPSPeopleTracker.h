@@ -67,6 +67,7 @@
 #include "ofxTSPSTUIOSender.h"
 #include "ofxTSPSOscSender.h"
 #include "ofxTSPSTCPSender.h"
+#include "ofxTSPSWebSocketSender.h"
 #include "ofxCvBlobTracker.h"
 #include "ofxTSPSScene.h"
 
@@ -115,6 +116,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void setupTuio(string ip, int port);
 		void setupOsc(string ip, int port);
 		void setupTcp(int port);
+        void setupWebSocket(int port);
 		void setListener(ofxPersonListener* delegate);
 	
 		//tracking metrics
@@ -191,19 +193,22 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void setVideoGrabber(ofVideoGrabber* grabber);
 
 
-		// ZACK BOKA: for accessing Optical Flow in specific regions
+		// for accessing Optical Flow in specific regions
 		//			  and accessing the threshold set in the GUI
 		ofPoint getOpticalFlowInRegion(float x, float y, float w, float h);
 		
-		// ZACK BOKA: for accessing the OSC sender whose parameters are adjusted in the GUI
+		// for accessing the OSC sender whose parameters are adjusted in the GUI
 		ofxTSPSOscSender* getOSCsender(); 
+    
+        // Websockets 
+        ofxTSPSWebSocketSender * getWebSocketServer();
 		
-		// ZACK BOKA: for getting a color version of the adjusted view image
+		// for getting a color version of the adjusted view image
 		// NOTE:  only works if the adjusted view is currently in color	and not grayscale
 		//        (this parameter can be set in the GUI under the 'views' tab)
 		ofxCvColorImage getAdjustedImageInColor();	
 		
-		// ZACK BOKA: for accessing which view is the current view
+		// for accessing which view is the current view
 		bool inCameraView();
 		bool inAdjustedView();
 		bool inBackgroundView();
@@ -231,11 +236,9 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		ofxCvGrayscaleImage graySmallImage;
 		ofxCvGrayscaleImage grayBabyImage;
 		
-		// ZACK BOKA: Adding color to TSPS
 		ofxCvColorImage colorImage;
 		ofxCvColorImage colorImageWarped;
-	
-	
+		
 		//more specific CV images for processing
 		
 		CPUImageFilter		grayDiff;
@@ -278,7 +281,9 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		bool bOscEnabled;
 		ofxTSPSTCPSender tcpClient;
 		bool bTcpEnabled;
-		
+        ofxTSPSWebSocketSender webSocketServer;
+        bool bWebSocketsEnabled;
+    
 		//gui
 
 		ofxTSPSGuiManager gui;

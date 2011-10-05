@@ -3,19 +3,36 @@
 
 #include "ofMain.h"
 
-#include "ofxTSPS.h"
-//#define USE_KINECT true			// uncomment this to use Kinect
-#define _USE_LIVE_VIDEO		// uncomment this to use a normal OF camera
+/*********************************************************
+    INCLUDE ADDONS
+*********************************************************/
+
+    // TSPS core
+    #include "ofxTSPS.h"
+    
+    //#define USE_KINECT true			// uncomment this to use Kinect
+    #define _USE_LIVE_VIDEO		// uncomment this to use a normal OF camera
 								// otherwise, we'll use a movie file
-//#define USE_CUSTOM_GUI		// uncomment to add a "custom" panel to the gui
-								// for adding your own parameters
-#define TSPS_HOME_PAGE "http://opentsps.com"
+    //#define USE_CUSTOM_GUI		// uncomment to add a "custom" panel to the gui
+	
+    // kinect support
+    #ifdef USE_KINECT
+    #include "ofxKinect.h"
+    #endif 
 
-#ifdef USE_KINECT
-#include "ofxKinect.h"
-#endif 
+/*********************************************************
+    DEFINES
+*********************************************************/
 
-class testApp : public ofBaseApp, public ofxPersonListener {
+    // for adding your own parameters
+    #define TSPS_HOME_PAGE "http://opentsps.com"
+
+/*********************************************************
+    APP
+*********************************************************/
+
+
+class tspsApp : public ofBaseApp, public ofxPersonListener {
 
 	public:
 		
@@ -29,12 +46,14 @@ class testApp : public ofBaseApp, public ofxPersonListener {
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
-	
+        
+        // TSPS events
+    
 		void personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene );
 		void personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene );
 		void personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene );
 		void personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene );
-	
+            
         #ifdef _USE_LIVE_VIDEO
 		  ofVideoGrabber 		vidGrabber;
 		#elif USE_KINECT
@@ -61,12 +80,9 @@ class testApp : public ofBaseApp, public ofxPersonListener {
 
 
 	ofxTSPSPeopleTracker peopleTracker;
-	
-	//example test values
-	int itestValue;
-	float ftestValue;
-	bool btestValue;
-	
+	    
+    
+    
 };
 
 #endif

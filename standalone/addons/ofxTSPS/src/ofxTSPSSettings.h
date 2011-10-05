@@ -84,12 +84,14 @@ public:
 	bool bSendOsc;
 	bool bSendTuio;
 	bool bSendTcp;
+	bool bSendWebSockets;
 	bool bSendOscContours;
 	string oscHost;
 	int oscPort;
 	string tuioHost;
 	int tuioPort;
 	int tcpPort;
+    int webSocketPort;
 	
 	//layout vars
 	int lastCurrentPanel;

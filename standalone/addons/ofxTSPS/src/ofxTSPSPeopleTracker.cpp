@@ -39,7 +39,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	grayLastImage = graySmallImage;
 	
 	//set tracker
-	bOscEnabled = bTuioEnabled = bTcpEnabled =  false;
+	bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketsEnabled = false;
 	p_Settings = ofxTSPSSettings::getInstance();
 	
 	//gui.loadFromXML();	
@@ -103,6 +103,8 @@ void ofxTSPSPeopleTracker::setHaarXMLFile(string haarFile)
 	}
 }
 
+#pragma mark Setup Communication
+
 void ofxTSPSPeopleTracker::setupTuio(string ip, int port)
 {
 	ofLog(OF_LOG_VERBOSE, "SEND TUIO");
@@ -123,11 +125,18 @@ void ofxTSPSPeopleTracker::setupOsc(string ip, int port)
 
 void ofxTSPSPeopleTracker::setupTcp(int port)
 {
-	cout << "setup tcp at "<<port<<endl;
 	bTcpEnabled = true;
-	ofLog(OF_LOG_VERBOSE, "SEND TCP");
+	ofLog(OF_LOG_VERBOSE, "SEND TCP TO PORT "+port);
 	p_Settings->tcpPort = port;
 	tcpClient.setup(port);
+}
+
+void ofxTSPSPeopleTracker::setupWebSocket( int port)
+{
+	ofLog(OF_LOG_VERBOSE, "SEND VIA WEBSOCKETS AT PORT "+port);
+    bWebSocketsEnabled = true;
+	p_Settings->webSocketPort = port;
+    webSocketServer.setup(port);
 }
 
 void ofxTSPSPeopleTracker::setListener(ofxPersonListener* listener)
@@ -168,11 +177,15 @@ void ofxTSPSPeopleTracker::updateSettings()
 	//check to enable TCP
 	if (p_Settings->bSendTcp && !bTcpEnabled) setupTcp(p_Settings->tcpPort);
 	else if (!p_Settings->bSendTcp) bTcpEnabled = false;
+        
+    //check to enable websockets
+    if (p_Settings->bSendWebSockets && !bWebSocketsEnabled) setupWebSocket(p_Settings->webSocketPort);
+    else if (!p_Settings->bSendWebSockets) bWebSocketsEnabled = false;
 	
 	//switch camera view if new panel is selected
 	if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
 
-	// ZACK BOKA: Set the current view within the gui so the image can only be warped when in Camera View
+	// Set the current view within the gui so the image can only be warped when in Camera View
 	if (cameraView.isActive()) {
 		gui.changeGuiCameraView(true);
 	} else {
@@ -296,7 +309,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 	scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
 	scene.percentCovered = 0; 
 	
-	// ZACK BOKA: By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
+	// By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
 	//            before optical flow can begin working.
 	if(p_Settings->bTrackOpticalFlow) {
 		opticalFlow.maxVector = p_Settings->maxOpticalFlow;
@@ -320,7 +333,8 @@ void ofxTSPSPeopleTracker::trackPeople()
 		//simplify blob for communication
 		contourAnalysis.simplify(p->contour, p->simpleContour, 2.0f);
 		float simplifyAmount = 2.5f;
-		while (p->simpleContour.size() > 100){
+        // BR: Greatly reduced this for websockets... sorry friends
+		while (p->simpleContour.size() > 25){
 			contourAnalysis.simplify(p->contour, p->simpleContour, simplifyAmount);
 			simplifyAmount += .5f;
 		}
@@ -328,7 +342,8 @@ void ofxTSPSPeopleTracker::trackPeople()
 		for (int i=0; i<p->simpleContour.size(); i++){
 			p->simpleContour[i].x /= width;
 			p->simpleContour[i].y /= height;
-		}\
+		}
+        
 		ofRectangle roi;
 		roi.x		= fmax( (p->boundingRect.x - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
 		roi.y		= fmax( (p->boundingRect.y - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
@@ -400,61 +415,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 	//normalize it
 	scene.percentCovered /= width*height;
 	
-	if(bTuioEnabled){
-		for (int i = 0; i < trackedPeople.size(); i++){
-			ofxTSPSPerson* p = trackedPeople[i];
-//			if(p_Settings->bUseHaarAsCenter && p->hasHaarRect()){
-//				ofPoint tuioCursor = p->getHaarCentroidNormalized(width, height);
-//				tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, p->oid);
-//			}
-//			else{
-			ofPoint tuioCursor = p->getCentroidNormalized(width, height);
-			tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, p->oid);
-//			}
-		}
-		
-		tuioClient.update();		
-	}
-	
-	if (bOscEnabled){
-		for (int i = 0; i < trackedPeople.size(); i++){
-			ofxTSPSPerson* p = trackedPeople[i];
-//			if(p_Settings->bUseHaarAsCenter && p->hasHaarRect()){
-//				ofPoint centroid = p->getHaarCentroidNormalized(width, height);
-//				oscClient.personMoved(p, centroid, width, height);
-//			}
-//			else{
-			ofPoint centroid = p->getCentroidNormalized(width, height);
-			if( p->velocity.x != 0 || p->velocity.y != 0){
-				oscClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
-			}
-			oscClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
-//			}
-		}
-		
-		oscClient.ip = p_Settings->oscHost;
-		oscClient.port = p_Settings->oscPort;
-		oscClient.update();
-	};
-	
-	if (bTcpEnabled){
-		for (int i = 0; i < trackedPeople.size(); i++){
-			ofxTSPSPerson* p = trackedPeople[i];
-			//			if(p_Settings->bUseHaarAsCenter && p->hasHaarRect()){
-			//				ofPoint centroid = p->getHaarCentroidNormalized(width, height);
-			//				oscClient.personMoved(p, centroid, width, height);
-			//			}
-			//			else{
-			ofPoint centroid = p->getCentroidNormalized(width, height);
-			tcpClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
-			//			}
-		}
-		
-		tcpClient.port = p_Settings->oscPort;
-		tcpClient.update();
-		tcpClient.send();
-	}
-	
+	//-----------------------
+	// VIEWS
+	//-----------------------	
+    
 	//store the old image
 	grayLastImage = graySmallImage;
 	
@@ -467,6 +431,56 @@ void ofxTSPSPeopleTracker::trackPeople()
 		adjustedView.update(grayImageWarped);
 	bgView.update(grayBg);
 	processedView.update(grayDiff);
+    
+	//-----------------------
+	// COMMUNICATION
+	//-----------------------	
+
+    for (int i = 0; i < trackedPeople.size(); i++){
+        ofxTSPSPerson* p = trackedPeople[i];
+        ofPoint centroid = p->getCentroidNormalized(width, height);
+//			if(p_Settings->bUseHaarAsCenter && p->hasHaarRect()){
+        
+        if (bTuioEnabled){
+            ofPoint tuioCursor = p->getCentroidNormalized(width, height);
+            tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, p->oid);
+        }
+        
+        if (bOscEnabled){
+            if( p->velocity.x != 0 || p->velocity.y != 0){
+                oscClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
+            }
+            oscClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
+        }
+        
+        if (bTcpEnabled){
+            tcpClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
+        }
+        
+        if (bWebSocketsEnabled){
+            webSocketServer.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
+        }
+    }
+    
+	if(bTuioEnabled){
+		tuioClient.update();		
+	}
+	
+	if (bOscEnabled){
+		oscClient.ip = p_Settings->oscHost;
+		oscClient.port = p_Settings->oscPort;
+		oscClient.update();
+	};
+    
+	if (bTcpEnabled){
+		tcpClient.port = p_Settings->oscPort;
+		tcpClient.update();
+		tcpClient.send();
+	}
+    
+    if (bWebSocketsEnabled){
+        //webSocketServer.send();
+    }
 }
 
 #pragma mark Person Management
@@ -478,16 +492,20 @@ void ofxTSPSPeopleTracker::blobOn( int x, int y, int id, int order )
 	if(eventListener != NULL){
 		eventListener->personEntered(newPerson, &scene);
 	}
+    
+    ofPoint centroid = newPerson->getCentroidNormalized(width, height);
+    
 	if(bTuioEnabled){
 		tuioClient.cursorPressed(1.0*x/width, 1.0*y/height, order);
 	}
 	if(bOscEnabled){
-		ofPoint centroid = newPerson->getCentroidNormalized(width, height);
 		oscClient.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
 	}
 	if(bTcpEnabled){
-		ofPoint centroid = newPerson->getCentroidNormalized(width, height);
 		tcpClient.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
+	}
+	if(bWebSocketsEnabled){
+		webSocketServer.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
 	}
 	
 }
@@ -507,20 +525,23 @@ void ofxTSPSPeopleTracker::blobOff( int x, int y, int id, int order )
 	if(eventListener != NULL){
 		eventListener->personWillLeave(p, &scene);
 	}
+    
+    ofPoint centroid = p->getCentroidNormalized(width, height);
 	if (bTuioEnabled) {
-		ofPoint cursor = p->getCentroidNormalized(width, height);
-		tuioClient.cursorReleased(cursor.x, cursor.y, order);	
+		tuioClient.cursorReleased(centroid.x, centroid.y, order);	
 	}
 	//send osc kill message if enabled
 	if (bOscEnabled){
-		ofPoint centroid = p->getCentroidNormalized(width, height);
 		oscClient.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
 	};
 	
 	//send tcp kill message if enabled
 	if(bTcpEnabled){
-		ofPoint centroid = p->getCentroidNormalized(width, height);
 		tcpClient.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
+	}
+    
+	if(bWebSocketsEnabled){
+		webSocketServer.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
 	}
 	
 	//delete the object and remove it from the vector
@@ -806,6 +827,16 @@ void ofxTSPSPeopleTracker::enableOpticalFlow(bool doOpticalFlow)
 	p_Settings->bTrackOpticalFlow = doOpticalFlow;
 }
 
+// for accessing the OSC sender whose parameters are adjusted in the GUI
+ofxTSPSOscSender* ofxTSPSPeopleTracker::getOSCsender() {
+	return &oscClient;
+}
+
+ofxTSPSWebSocketSender * ofxTSPSPeopleTracker::getWebSocketServer(){
+    return &webSocketServer;
+};
+
+
 #pragma mark background management
 void ofxTSPSPeopleTracker::relearnBackground()
 {
@@ -1030,13 +1061,13 @@ void ofxTSPSPeopleTracker::updateViewRectangles(){
 }
 
 
-// ZACK: for accessing Optical Flow within a specific region
+// for accessing Optical Flow within a specific region
 ofPoint ofxTSPSPeopleTracker::getOpticalFlowInRegion(float x, float y, float w, float h) {
 	return opticalFlow.flowInRegion(x,y,w,h);
 }
 
 
-// ZACK BOKA: for accessing which view is the current view
+// for accessing which view is the current view
 bool ofxTSPSPeopleTracker::inCameraView() {
 	return cameraView.isActive();
 }
@@ -1058,16 +1089,10 @@ bool ofxTSPSPeopleTracker::inAdjustedView() {
 }
 
 
-// ZACK BOKA: for getting a color version of the adjusted view image
+// for getting a color version of the adjusted view image
 // NOTE:  only works if the adjusted view is currently in color
 //        (this parameter can be set in the GUI under the 'views' tab)
 ofxCvColorImage ofxTSPSPeopleTracker::getAdjustedImageInColor() {
 	if (p_Settings->bAdjustedViewInColor)
 		return adjustedView.getColorImage();
-}
-
-
-// ZACK BOKA: for accessing the OSC sender whose parameters are adjusted in the GUI
-ofxTSPSOscSender* ofxTSPSPeopleTracker::getOSCsender() {
-	return &oscClient;
 }
