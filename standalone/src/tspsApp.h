@@ -10,8 +10,8 @@
     // TSPS core
     #include "ofxTSPS.h"
     
-    //#define USE_KINECT true			// uncomment this to use Kinect
-    #define _USE_LIVE_VIDEO		// uncomment this to use a normal OF camera
+    #define USE_KINECT true			// uncomment this to use Kinect
+    //#define _USE_LIVE_VIDEO		// uncomment this to use a normal OF camera
 								// otherwise, we'll use a movie file
     //#define USE_CUSTOM_GUI		// uncomment to add a "custom" panel to the gui
 	

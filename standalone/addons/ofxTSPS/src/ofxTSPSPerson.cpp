@@ -112,3 +112,40 @@ ofPoint ofxTSPSPerson::getHaarCentroidNormalized(float videoWidth, float videoHe
 	return ofPoint( (haarRect.x + haarRect.width/2) / videoWidth, (haarRect.y + haarRect.height/2) / videoHeight );
 }
 
+#pragma mark get as string
+
+/***************************************************************
+ GET PERSON STRING (so we don't have to write this so many times)
+ ***************************************************************/
+
+string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
+	
+	//construct a JSON object
+	
+	stringstream message;
+	message<<"{";
+    message<<"\"type\":\""<<type<<"\",";
+    message<<"\"id\":"<<pid<<",";
+	message<<"\"age\":"<<age<<",";
+	message<<"\"centroid\":{"<<"\"x\":"<<centroid.x<<",\"y\":"<<centroid.y<<"},"; //pass in normalized centroid
+	message<<"\"velocity\":{"<<"\"x\":"<<velocity.x<<",\"y\":"<<velocity.y<<"},";
+	
+	ofRectangle scaledRect = getBoundingRectNormalized(cameraWidth,cameraHeight);
+	message<<"\"boundingrect\":{"<<"\"x\":"<<scaledRect.x<<",\"y\":"<<scaledRect.y<<",\"width\":"<<scaledRect.width<<",\"height\":"<<scaledRect.height<<"},";
+	
+	message<<"\"opticalflow\":{"<<"\"x\":"<<opticalFlowVectorAccumulation.x<<",\"y\":"<<opticalFlowVectorAccumulation.y<<"},";
+	ofRectangle scaledHaar = getHaarRectNormalized(cameraWidth,cameraHeight);
+	message<<"\"haarrect\":{"<<"\"x\":"<<scaledHaar.x<<",\"y\":"<<scaledHaar.y<<",\"width\":"<<scaledHaar.width<<",\"height\":"<<scaledHaar.height<<"},";	
+	
+	if (bSendContours){
+		message<<"\"contours\":[";
+		for (int i=0; i<simpleContour.size(); i++){
+			message<<"{\"x\":"<<ofToString(simpleContour[i].x, 3)<<",\"y\":"<<ofToString(simpleContour[i].y, 3)<<"}";
+			if (i+1 < simpleContour.size()) message<<",";
+		};
+		message<<"]";
+	}	
+	message<<"}";
+	return message.str();
+}
+

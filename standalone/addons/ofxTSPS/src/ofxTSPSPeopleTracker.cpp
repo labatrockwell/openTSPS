@@ -333,8 +333,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 		//simplify blob for communication
 		contourAnalysis.simplify(p->contour, p->simpleContour, 2.0f);
 		float simplifyAmount = 2.5f;
-        // BR: Greatly reduced this for websockets... sorry friends
-		while (p->simpleContour.size() > 25){
+		while (p->simpleContour.size() > 100){
 			contourAnalysis.simplify(p->contour, p->simpleContour, simplifyAmount);
 			simplifyAmount += .5f;
 		}
@@ -479,6 +478,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 	}
     
     if (bWebSocketsEnabled){
+        //sent automagically
         //webSocketServer.send();
     }
 }

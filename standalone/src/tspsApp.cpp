@@ -96,8 +96,8 @@ void tspsApp::update(){
 	    #else
             colorImg.setFromPixels(vidPlayer.getPixels(), camWidth,camHeight);
         #endif
-		peopleTracker.update(colorImg);
-
+        peopleTracker.update(colorImg);
+        
 		//iterate through the people
 		for(int i = 0; i < peopleTracker.totalPeople(); i++){
 			ofxTSPSPerson* p = peopleTracker.personAtIndex(i);

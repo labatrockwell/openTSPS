@@ -3,6 +3,17 @@ TSPS = function(){
 	this.people			= {};
 }
 
+TSPS.prototype.newPerson		= function(json)
+{
+	if (json.type == "TSPS/personEntered") this.onPersonEntered(json);
+	else if (json.type == "TSPS/personMoved") this.onPersonUpdated(json);
+	else if (json.type == "TSPS/personUpdated") this.onPersonMoved(json);
+	else if (json.type == "TSPS/personWillLeave") this.onPersonLeft(json);
+	else console.log(json.type);
+}
+
+// deprecated (already!)
+
 TSPS.prototype.parseMessage		= function(msg)
 {
 	this.latestPeople = [];			

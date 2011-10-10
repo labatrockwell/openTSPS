@@ -84,6 +84,11 @@ class ofxTSPSPerson
 		ofPoint getCentroidNormalized(float videoWidth, float videoHeight);
 		ofPoint getHaarCentroidNormalized(float videoWidth, float videoHeight);
 	
+        // get string
+        
+        string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours );
+        string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours );
+    
 	protected:
 		
 		bool hasHaar;

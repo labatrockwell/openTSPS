@@ -9,6 +9,13 @@
 #include "ofxWebSocket.h"
 #include "ofxTSPSPerson.h"
 
+class ofxTSPSWebSocketMessage
+{
+    public:
+        ofxTSPSWebSocketMessage( string message){ msg = message; };
+        string msg;
+};
+
 class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
 {
     public:
@@ -16,22 +23,20 @@ class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
         
         void setup( int port );  
         void send();
-        
-        string currentString;
-        
+                
         void personEntered ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	
         void personMoved ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	
         void personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	
         void personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );
     
     protected:
+        vector<ofxTSPSWebSocketMessage> toSend;
         bool bSocketOpened;
     
         ofxWebSocketReactor * reactor;
         vector<ofxWebSocketConnection *> sockets;
     
-    
-        string getPersonString( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours );
+        void execute();
     
         void onopen(ofxWebSocketEvent& args);
         void onclose(ofxWebSocketEvent& args);

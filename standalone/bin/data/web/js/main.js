@@ -26,13 +26,14 @@
 	});
 	
 	function render(){
+		canvas.width = canvas.width;
 		// draw contours
 		for (var id in tsps.people){
 			var person = tsps.people[id];
 
 			// draw rect
 			ctx.strokeStyle = 'black';
-			ctx.strokeRect(person.boundingrect.x*vid_width,person.boundingrect.y*vid_height, person.boundingrect.x*vid_width+person.boundingrect.width*vid_width, person.boundingrect.y*vid_height+person.boundingrect.height*vid_height);
+			ctx.strokeRect(person.boundingrect.x*vid_width,person.boundingrect.y*vid_height, person.boundingrect.width*vid_width, person.boundingrect.height*vid_height);
 			ctx.stroke();
 
 			// draw contours
@@ -63,7 +64,8 @@
 			} 
 
 			socket.onmessage =function got_packet(msg) {
-				var TSPSPeople = tsps.parseMessage(msg);
+				var data =  jQuery.parseJSON( msg.data );				
+				var TSPSPeople = tsps.newPerson(data);
 				render();
 			}
 

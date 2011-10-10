@@ -130,13 +130,13 @@ ofxWebSocketReactor::threadedFunction()
 {
   while (isThreadRunning())
   {
-      lock();
     for (int i=0; i<protocols.size(); ++i)
-      if (protocols[i].second != NULL)
-        protocols[i].second->execute();
-      
+        if (protocols[i].second != NULL){
+            lock();
+            protocols[i].second->execute();
+            unlock();
+        }
     libwebsocket_service(context, waitMillis);
-      unlock();
   }
 }
 
