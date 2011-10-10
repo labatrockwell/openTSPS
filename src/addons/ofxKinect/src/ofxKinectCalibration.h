@@ -5,11 +5,9 @@
  *      Author: arturo
  */
 
-#ifndef OFXKINECTCALIBRATION_H_
-#define OFXKINECTCALIBRATION_H_
+#pragma once
 
 #include "ofMain.h"
-#include "ofxVectorMath.h"
 
 class ofxKinectCalibration {
 public:
@@ -23,19 +21,19 @@ public:
 	/**
 		set the near value of the pixels in the greyscale depth image to white?
 
-		bEnabled = true : pixels close to the camera are brighter
-		bEnabled = false: pixels closer to the camera are darker (default)
+		bEnabled = true : pixels close to the camera are brighter (default)
+		bEnabled = false: pixels closer to the camera are darker
 	**/
 	void enableDepthNearValueWhite(bool bEnabled=true);
 	bool isDepthNearValueWhite();
 
 
-	ofxPoint2f getCalibratedColorCoordAt(int x, int y);
-	ofxPoint2f getCalibratedColorCoordAt(const ofPoint & p);
+	ofVec2f getCalibratedColorCoordAt(int x, int y);
+	ofVec2f getCalibratedColorCoordAt(const ofPoint & p);
 
 	/// calculates the coordinate in the world for the pixel (perspective calculation). Center  of image is (0.0)
-	ofxPoint3f getWorldCoordinateFor(int x, int y);
-	ofxPoint3f getWorldCoordinateFor(int x, int y, double z);
+	ofVec3f getWorldCoordinateFor(int x, int y);
+	ofVec3f getWorldCoordinateFor(int x, int y, double z);
 
 
 	float getDistanceAt(int x, int y);
@@ -59,8 +57,8 @@ private:
 	static float distancePixelsLookup[2048];
 	static unsigned char depthPixelsLookupNearWhite[2048];
 	static unsigned char depthPixelsLookupFarWhite[2048];
-	ofxVec3f T_rgb;
-	ofxMatrix4x4 R_rgb;
+	ofVec3f T_rgb;
+	ofMatrix4x4 R_rgb;
 	static double fx_d;
 	static double fy_d;
 	static float cx_d;
@@ -69,14 +67,6 @@ private:
 	static double fy_rgb;
 	static float cx_rgb;
 	static float cy_rgb;
-	
-	// these are for converting centimeters to/from raw values
-	// using equation from http://openkinect.org/wiki/Imaging_Information
-	static const float
-	k1 = 0.1236,
-	k2 = 2842.5,
-	k3 = 1.1863,
-	k4 = 0.0370;
 	
 	static float nearClipping, farClipping;
 	
@@ -91,5 +81,3 @@ private:
 
 	int					bytespp;
 };
-
-#endif /* OFXKINECTCALIBRATION_H_ */

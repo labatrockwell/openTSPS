@@ -51,7 +51,14 @@ struct _freenect_context {
 #define LL_SPEW FREENECT_LOG_SPEW
 #define LL_FLOOD FREENECT_LOG_FLOOD
 
+
+#ifdef _WIN32
+#include <stdarg.h>
+#include <stdio.h>
+void fn_log(freenect_context *ctx, freenect_loglevel level, const char *fmt, ...);
+#else
 void fn_log(freenect_context *ctx, freenect_loglevel level, const char *fmt, ...) __attribute__ ((format (printf, 3, 4)));
+#endif
 
 #define FN_LOG(level, ...) fn_log(ctx, level, __VA_ARGS__)
 
@@ -77,10 +84,6 @@ static inline uint32_t fn_le32(uint32_t d)
 #define fn_le16(x) (x)
 #define fn_le32(x) (x)
 #endif
-
-#define FRAME_H FREENECT_FRAME_H
-#define FRAME_W FREENECT_FRAME_W
-#define FRAME_PIX FREENECT_FRAME_PIX
 
 #define DEPTH_PKTSIZE 1760
 #define VIDEO_PKTSIZE 1920
@@ -129,6 +132,8 @@ struct _freenect_device {
 	freenect_video_cb video_cb;
 	freenect_video_format video_format;
 	freenect_depth_format depth_format;
+	freenect_resolution video_resolution;
+	freenect_resolution depth_resolution;
 
 	int cam_inited;
 	uint16_t cam_tag;
@@ -140,15 +145,6 @@ struct _freenect_device {
 	// Motor
 	fnusb_dev usb_motor;
 	freenect_raw_tilt_state raw_state;
-};
-
-struct caminit {
-	uint16_t command;
-	uint16_t tag;
-	int cmdlen;
-	int replylen;
-	uint8_t cmddata[1024];
-	uint8_t replydata[1024];
 };
 
 #endif

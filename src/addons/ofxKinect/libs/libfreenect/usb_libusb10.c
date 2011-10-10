@@ -31,6 +31,29 @@
 #include <libusb-1.0/libusb.h>
 #include "freenect_internal.h"
 
+int fnusb_num_devices(fnusb_ctx *ctx)
+{
+	libusb_device **devs; 
+	//pointer to pointer of device, used to retrieve a list of devices	
+	ssize_t cnt = libusb_get_device_list (ctx->ctx, &devs); 
+	//get the list of devices	
+	if (cnt < 0)
+		return (-1);
+	int nr = 0, i = 0;
+	struct libusb_device_descriptor desc;
+	for (i = 0; i < cnt; ++i)
+	{
+		int r = libusb_get_device_descriptor (devs[i], &desc);
+		if (r < 0)
+			continue;
+		if (desc.idVendor == VID_MICROSOFT && desc.idProduct == PID_NUI_CAMERA)
+			nr++;
+	}
+	libusb_free_device_list (devs, 1);
+	// free the list, unref the devices in it
+	return nr;
+}
+
 int fnusb_init(fnusb_ctx *ctx, freenect_usb_context *usb_ctx)
 {
 	int res;
@@ -45,7 +68,8 @@ int fnusb_init(fnusb_ctx *ctx, freenect_usb_context *usb_ctx)
 			return res;
 		}
 	} else {
-		ctx->ctx = usb_ctx;
+    // explicit cast required: in WIN32, freenect_usb_context* maps to void*
+    ctx->ctx = (libusb_context*)usb_ctx;
 		ctx->should_free_ctx = 0;
 		return 0;
 	}
@@ -102,6 +126,19 @@ int fnusb_open_subdevices(freenect_device *dev, int index)
 					dev->usb_cam.dev = NULL;
 					break;
 				}
+#ifndef _WIN32
+				// Detach an existing kernel driver for the device
+				res = libusb_kernel_driver_active(dev->usb_cam.dev, 0);
+				if (res == 1) {
+					res = libusb_detach_kernel_driver(dev->usb_cam.dev, 0);
+					if (res < 0) {
+						FN_ERROR("Could not detach kernel driver for camera: %d\n", res);
+						libusb_close(dev->usb_cam.dev);
+						dev->usb_cam.dev = NULL;
+						break;
+					}
+				}
+#endif
 				res = libusb_claim_interface (dev->usb_cam.dev, 0);
 				if (res < 0) {
 					FN_ERROR("Could not claim interface on camera: %d\n", res);
@@ -158,6 +195,9 @@ int fnusb_close_subdevices(freenect_device *dev)
 {
 	if (dev->usb_cam.dev) {
 		libusb_release_interface(dev->usb_cam.dev, 0);
+#ifndef _WIN32
+		libusb_attach_kernel_driver(dev->usb_cam.dev, 0);
+#endif
 		libusb_close(dev->usb_cam.dev);
 		dev->usb_cam.dev = NULL;
 	}
@@ -172,7 +212,7 @@ int fnusb_close_subdevices(freenect_device *dev)
 static void iso_callback(struct libusb_transfer *xfer)
 {
 	int i;
-	fnusb_isoc_stream *strm = xfer->user_data;
+	fnusb_isoc_stream *strm = (fnusb_isoc_stream*)xfer->user_data;
 
 	if (strm->dead) {
 		freenect_context *ctx = strm->parent->parent->parent;
@@ -182,7 +222,7 @@ static void iso_callback(struct libusb_transfer *xfer)
 	}
 
 	if(xfer->status == LIBUSB_TRANSFER_COMPLETED) {
-		uint8_t *buf = (void*)xfer->buffer;
+		uint8_t *buf = (uint8_t*)xfer->buffer;
 		for (i=0; i<strm->pkts; i++) {
 			strm->cb(strm->parent->parent, buf, xfer->iso_packet_desc[i].actual_length);
 			buf += strm->len;
@@ -191,7 +231,11 @@ static void iso_callback(struct libusb_transfer *xfer)
 	} else {
 		freenect_context *ctx = strm->parent->parent->parent;
 		FN_WARNING("Isochronous transfer error: %d\n", xfer->status);
+#if defined(__APPLE__)
+		libusb_submit_transfer(xfer);
+#else
 		strm->dead_xfers++;
+#endif
 	}
 }
 
@@ -205,8 +249,8 @@ int fnusb_start_iso(fnusb_dev *dev, fnusb_isoc_stream *strm, fnusb_iso_cb cb, in
 	strm->num_xfers = xfers;
 	strm->pkts = pkts;
 	strm->len = len;
-	strm->buffer = malloc(xfers * pkts * len);
-	strm->xfers = malloc(sizeof(struct libusb_transfer*) * xfers);
+	strm->buffer = (uint8_t*)malloc(xfers * pkts * len);
+	strm->xfers = (struct libusb_transfer**)malloc(sizeof(struct libusb_transfer*) * xfers);
 	strm->dead = 0;
 	strm->dead_xfers = 0;
 

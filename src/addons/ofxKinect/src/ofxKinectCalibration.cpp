@@ -7,6 +7,13 @@
 
 #include "ofxKinectCalibration.h"
 
+#ifdef _MSC_VER
+	// round() is C99. MSVC doesn't support C99.
+	float round(float n) {
+	   return n >= 0 ? int(n + 0.5) : int(n - 0.5);
+	}
+#endif
+
 /*
  these values constrain the maximum distance in the depthPixels image to:
  - as near as possible (raw value of 0)
@@ -39,11 +46,19 @@ ofxKinectCalibration::ofxKinectCalibration():
 	depthPixels				= NULL;
 	calibratedRGBPixels		= NULL;
 	distancePixels 			= NULL;
-	bDepthNearValueWhite	= false;
+	bDepthNearValueWhite	= true;
 	calculateLookups();
 	R_rgb.preMultTranslate(-T_rgb);
-	R_rgb = ofxMatrix4x4::getTransposedOf(R_rgb);
+	R_rgb = ofMatrix4x4::getTransposedOf(R_rgb);
 }
+
+// these are for converting centimeters to/from raw values
+// using equation from http://openkinect.org/wiki/Imaging_Information
+const float
+k1 = 0.1236,
+k2 = 2842.5,
+k3 = 1.1863,
+k4 = 0.0370;
 
 inline float ofxKinectCalibration::rawToCentimeters(unsigned short raw) {
 	return 100 * (k1 * tanf((raw / k2) + k3) - k4);
@@ -79,8 +94,8 @@ void ofxKinectCalibration::calculateLookups() {
 				depthPixelsLookupFarWhite[i] = 0;
 			} else {
 				distancePixelsLookup[i] = rawToCentimeters(i);
-				depthPixelsLookupNearWhite[i] = ofMap(distancePixelsLookup[i], nearClipping, farClipping, 0, 255, true);
-				depthPixelsLookupFarWhite[i] = 255 - depthPixelsLookupNearWhite[i];
+				depthPixelsLookupFarWhite[i] = ofMap(distancePixelsLookup[i], nearClipping, farClipping, 0, 255, true);
+				depthPixelsLookupNearWhite[i] = 255 - depthPixelsLookupFarWhite[i];
 			}
 		}
 	}
@@ -136,8 +151,8 @@ bool ofxKinectCalibration::isDepthNearValueWhite(){
 
 unsigned char * ofxKinectCalibration::getCalibratedRGBPixels(unsigned char * rgb){
 	//calibration method from:  http://nicolas.burrus.name/index.php/Research/KinectCalibration
-	static ofxVec3f texcoord3d;
-	static ofxVec2f texcoord2d;
+	static ofVec3f texcoord3d;
+	static ofVec2f texcoord2d;
 	unsigned char * calibratedPixels = calibratedRGBPixels;
 	float * _distancePixels = distancePixels;
 
@@ -172,10 +187,10 @@ float * ofxKinectCalibration::getDistancePixels(){
 	return distancePixels;
 }
 
-ofxPoint2f ofxKinectCalibration::getCalibratedColorCoordAt(int x, int y){
+ofVec2f ofxKinectCalibration::getCalibratedColorCoordAt(int x, int y){
 	//calibration method from:  http://nicolas.burrus.name/index.php/Research/KinectCalibration
-	ofxVec3f texcoord3d;
-	ofxVec2f texcoord2d;
+	ofVec3f texcoord3d;
+	ofVec2f texcoord2d;
 	texcoord3d = getWorldCoordinateFor(x,y);
 	texcoord3d = R_rgb * texcoord3d;
 	const float invZ = 1/ texcoord3d.z;
@@ -194,19 +209,19 @@ float ofxKinectCalibration::getDistanceAt(const ofPoint & p){
 	return getDistanceAt(p.x, p.y);
 }
 
-ofxPoint2f ofxKinectCalibration::getCalibratedColorCoordAt(const ofPoint & p){
+ofVec2f ofxKinectCalibration::getCalibratedColorCoordAt(const ofPoint & p){
 	return getCalibratedColorCoordAt(p.x,p.y);
 }
 
-ofxPoint3f ofxKinectCalibration::getWorldCoordinateFor(int x, int y){
+ofVec3f ofxKinectCalibration::getWorldCoordinateFor(int x, int y){
 	const double depth = getDistanceAt(x,y)/100.0;
 	return getWorldCoordinateFor(x,y,depth);
 }
 
-ofxPoint3f ofxKinectCalibration::getWorldCoordinateFor(int x, int y, double z){
+ofVec3f ofxKinectCalibration::getWorldCoordinateFor(int x, int y, double z){
 	//Based on http://graphics.stanford.edu/~mdfisher/Kinect.html
 
-	ofxVec3f result;
+	ofVec3f result;
 	result.x = float((x - cx_d) * z * fx_d);
 	result.y = float((y - cy_d) * z * fy_d);
 	result.z = z;

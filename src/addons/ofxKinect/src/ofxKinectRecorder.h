@@ -5,8 +5,7 @@
  *      Author: arturo
  */
 
-#ifndef OFXKINECTRECORDER_H_
-#define OFXKINECTRECORDER_H_
+#pragma once
 
 #include "ofMain.h"
 
@@ -16,7 +15,7 @@ public:
 	virtual ~ofxKinectRecorder();
 
 	void init(const string & filename);
-	void newFrame(unsigned char* rgb, unsigned short * raw_depth);
+	void newFrame(unsigned short * raw_depth, unsigned char* rgb=NULL);
 	void close();
 
 	bool isOpened();
@@ -24,5 +23,3 @@ public:
 private:
 	FILE * f;
 };
-
-#endif /* KINECTRECORDER_H_ */

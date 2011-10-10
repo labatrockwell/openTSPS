@@ -7,13 +7,26 @@
 
 #include "ofxBase3DVideo.h"
 
-#include "ofxThread.h"
+#ifndef _MSC_VER
+	#include <libusb.h>
+#endif
 
-#include <libusb.h>
 #include "libfreenect.h"
 #include "ofxKinectCalibration.h"
+#include "ofxKinectPlayer.h"
+#include "ofxKinectRecorder.h"
 
-class ofxKinect : public ofxBase3DVideo, protected ofxThread{
+class ofxKinectContext;
+
+/// \class ofxKinect
+///
+/// wrapper for a freenect kinect device
+///
+/// references:
+///     - http://openkinect.org/wiki/Main_Page
+///     - https://github.com/OpenKinect/libfreenect/blob/master/include/libfreenect.h
+///
+class ofxKinect : public ofxBase3DVideo, protected ofThread {
 
 	public :
 
@@ -24,36 +37,54 @@ class ofxKinect : public ofxBase3DVideo, protected ofxThread{
 		bool isFrameNew();
         
 		/// open the connection and start grabbing images
-		bool open();
+        /// choose the device id or set it to -1 to open the first available device
+		bool open(int id=-1);
         
 		/// close the connection and stop grabbing images
 		void close();
         
 		/// initialize resources, must be called before open()
-		bool init(bool infrared=false, bool bTexture=true);
-		
-		bool setCameraTiltAngle(float angleInDegrees);
+		/// infrared controls whether the video image is rgb or IR
+		/// set vdeo to false to disabel vidoe image grabbing (saves bandwidth)
+		/// set texture to false if you don't need to use the internal textures
+		///
+		/// naturally, if you disable the video image the video pixels and
+		/// RGB color will be 0
+		///
+		bool init(bool infrared=false, bool video=true, bool texture=true);
         
 		/// updates the pixel buffers and textures - make sure to call this to update to the latetst incoming frames
 		void update(); 
 		
-		/// clear resources
+		/// clear resources, do not call this while ofxKinect is running!
 		void clear();
-	
+		
+		/// is the connection currently open?
+		bool isConnected();
+        
+        /// get the device id
+        /// returns -1 if not connected
+        int getDeviceId();
+		
+		/// set tilt angle of the camera in degrees
+		/// 0 is flat, the range is -30 to 30
+		bool setCameraTiltAngle(float angleInDegrees);
+    
+        // get camera angle
+        float getCurrentCameraTiltAngle();
+        float getTargetCameraTiltAngle();
+    
 		float getDistanceAt(int x, int y);
 		float getDistanceAt(const ofPoint & p);
 		
-		/// calculates the coordinate in the world for the pixel (perspective calculation). Center  of image is (0.0)
-		ofxPoint3f getWorldCoordinateFor(int x, int y);
+		/// calculates the coordinate in the world for the pixel (perspective calculation). Center of image is (0.0)
+		ofVec3f getWorldCoordinateFor(int x, int y);
 
 		ofColor	getColorAt(int x, int y);
 		ofColor getColorAt(const ofPoint & p);
 
 		ofColor getCalibratedColorAt(int x, int y);
-		ofColor getCalibratedColorAt(const ofPoint & p);		
-
-		//ofxMatrix4x4 getRGBDepthMatrix();
-		//void setRGBDepthMatrix(const ofxMatrix4x4 & matrix);
+		ofColor getCalibratedColorAt(const ofPoint & p);
 		
 		float 			getHeight();
 		float 			getWidth();
@@ -80,11 +111,14 @@ class ofxKinect : public ofxBase3DVideo, protected ofxThread{
 		/// get the greyscale depth texture
 		ofTexture &		getDepthTextureReference();
 		
+		/// for 007 compatibility
+		ofPixels & getPixelsRef();
+		
 		/**
 			set the near value of the pixels in the greyscale depth image to white?
 			
-			bEnabled = true : pixels close to the camera are brighter
-			bEnabled = false: pixels closer to the camera are darker (default)
+			bEnabled = true : pixels close to the camera are brighter (default)
+			bEnabled = false: pixels closer to the camera are darker
 		**/
 		void enableDepthNearValueWhite(bool bEnabled=true);
 		bool isDepthNearValueWhite();
@@ -101,18 +135,39 @@ class ofxKinect : public ofxBase3DVideo, protected ofxThread{
 		void 			drawDepth(float x, float y);
 		void			drawDepth(const ofPoint & point);
 		void			drawDepth(const ofRectangle & rect);
-
-		const static int	width = 640;
+		
+		ofxKinectCalibration& getCalibration();
+        
+        const static int	width = 640;
 		const static int	height = 480;
+        
+        /// \section Static global kinect context functions
+        
+        /// get the total number of devices
+        static int numTotalDevices();
+        
+        /// get the number of available devices (not connected)
+        static int numAvailableDevices();
+        
+        /// get the number of currently connected devices
+        static int numConnectedDevices();
+        
+        /// is the an id already connected?
+        static bool isDeviceConnected(int id);
+        
+        /// get the id of the next available device,
+        /// returns -1 if nothing found
+        static int nextAvailableId();
 
 	protected:
 
 		bool					bUseTexture;
 		ofTexture				depthTex;			// the depth texture
-		ofTexture 				videoTex;				// the RGB texture
+		ofTexture 				videoTex;			// the RGB texture
 		bool 					bVerbose;
 		bool 					bGrabberInited;
 		
+		ofPixels pixels;
 		unsigned char *			videoPixels;
 		unsigned short *		depthPixelsRaw;
 		
@@ -120,19 +175,25 @@ class ofxKinect : public ofxBase3DVideo, protected ofxThread{
 		ofPoint mksAccel;
         
 		float targetTiltAngleDeg;
+        float currentTiltAngleDeg;
 		bool bTiltNeedsApplying;
-		
 
     private:
 
-		freenect_context *	kinectContext;	// kinect context handle
-		freenect_device * 	kinectDevice;	// kinect device handle
+        friend class ofxKinectContext;
+
+        // global statics shared between kinect instances
+		static ofxKinectContext kinectContext;
+        
+        freenect_device * 	kinectDevice;	// kinect device handle
 		
 		unsigned short *	depthPixelsBack;	// depth back
-		unsigned char *		videoPixelsBack;		// rgb back
+		unsigned char *		videoPixelsBack;	// rgb back
 		
+		bool bIsFrameNew;
 		bool bNeedsUpdate;
 		bool bUpdateTex;
+		bool bGrabVideo;
 
 		bool				bInfrared;
 		int					bytespp;
@@ -147,3 +208,72 @@ class ofxKinect : public ofxBase3DVideo, protected ofxThread{
 		ofxKinectCalibration calibration;
 };
 
+/// \class ofxKinect
+///
+/// wrapper for the freenect context
+///
+/// do not use this directly
+///
+class ofxKinectContext {
+
+    public:
+        
+        ofxKinectContext();
+        ~ofxKinectContext();
+        
+        /// \section Main
+        
+        /// init the freenect context
+        bool init();
+        
+        /// clear the freenect context
+        /// closes all currently connected devices
+        void clear();
+        
+        /// is the context inited?
+        bool isInited();
+        
+        /// open a kinect device
+        /// an id of -1 will open the first available
+        bool open(ofxKinect& kinect, int id=-1);
+        
+        /// close a kinect device
+        void close(ofxKinect& kinect);
+        
+        /// closes all currently connected kinects
+        void closeAll();
+        
+        /// \section Util
+        
+        /// get the total number of devices
+        int numTotal();
+        
+        /// get the number of available devices (not connected)
+        int numAvailable();
+        
+        /// get the number of currently connected devices
+        int numConnected();
+        
+        /// get the device id of a kinect object
+        /// returns index or -1 if not connected
+        int getId(ofxKinect& kinect);
+        
+        /// get the kinect object from a device pointer
+        /// returns NULL if not found
+        ofxKinect* getKinect(freenect_device* dev);
+        
+        /// is the an id already connected?
+        bool isConnected(int id);
+        
+        /// get the id of the next available device,
+        /// returns -1 if nothing found
+        int nextAvailableId();
+        
+        /// get the raw pointer
+        freenect_context* getContext() {return kinectContext;}
+        
+    private:
+    
+        freenect_context *	kinectContext;  // kinect context handle
+        std::map<int,ofxKinect*> kinects;   // the connected kinects
+};
