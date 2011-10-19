@@ -333,10 +333,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 		//simplify blob for communication
 		contourAnalysis.simplify(p->contour, p->simpleContour, 2.0f);
 		float simplifyAmount = 2.5f;
-		while (p->simpleContour.size() > 100){
+		/*while (p->simpleContour.size() > 100){
 			contourAnalysis.simplify(p->contour, p->simpleContour, simplifyAmount);
 			simplifyAmount += .5f;
-		}
+		}*/
 		//normalize simple contour
 		for (int i=0; i<p->simpleContour.size(); i++){
 			p->simpleContour[i].x /= width;
@@ -479,7 +479,7 @@ void ofxTSPSPeopleTracker::trackPeople()
     
     if (bWebSocketsEnabled){
         //sent automagically
-        //webSocketServer.send();
+        webSocketServer.send();
     }
 }
 

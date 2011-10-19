@@ -13,6 +13,7 @@
 *********************************************************/
 
     ofxTSPSWebSocketSender::ofxTSPSWebSocketSender(){
+        binary = false;
     }
 
 /*********************************************************
@@ -41,10 +42,6 @@
         }
         toSend.clear();
     };
-
-    void ofxTSPSWebSocketSender::execute(){
-        send();
-    }
 
 /***************************************************************
  SEND

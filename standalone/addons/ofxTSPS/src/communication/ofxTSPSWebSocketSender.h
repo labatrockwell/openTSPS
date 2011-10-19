@@ -35,9 +35,7 @@ class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
     
         ofxWebSocketReactor * reactor;
         vector<ofxWebSocketConnection *> sockets;
-    
-        void execute();
-    
+        
         void onopen(ofxWebSocketEvent& args);
         void onclose(ofxWebSocketEvent& args);
         void onmessage(ofxWebSocketEvent& args);

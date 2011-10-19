@@ -10,6 +10,7 @@ ofxWebSocketProtocol::ofxWebSocketProtocol()
   ofAddListener(onidleEvent,         this, &ofxWebSocketProtocol::_onidle);
   ofAddListener(onmessageEvent,      this, &ofxWebSocketProtocol::_onmessage);
   ofAddListener(onbroadcastEvent,    this, &ofxWebSocketProtocol::_onbroadcast);
+    binary = false;
 }
 
 //--------------------------------------------------------------
@@ -20,7 +21,8 @@ ofxWebSocketProtocol::~ofxWebSocketProtocol()
   ofRemoveListener(oncloseEvent,     this, &ofxWebSocketProtocol::_onclose);
   ofRemoveListener(onidleEvent,      this, &ofxWebSocketProtocol::_onidle);
   ofRemoveListener(onmessageEvent,   this, &ofxWebSocketProtocol::_onmessage);
-  ofRemoveListener(onbroadcastEvent, this, &ofxWebSocketProtocol::_onbroadcast);
+    ofRemoveListener(onbroadcastEvent, this, &ofxWebSocketProtocol::_onbroadcast);
+    binary = false;
 }
 
 //--------------------------------------------------------------
