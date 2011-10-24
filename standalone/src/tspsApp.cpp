@@ -20,33 +20,41 @@ void tspsApp::setup(){
 	camWidth = 640;
 	camHeight = 480;
 
+    bKinect         = false;
+    cameraState     = CAMERA_NOT_INITED;
+    
 	#ifdef _USE_LIVE_VIDEO
-		vidGrabber.setVerbose(false);
-		vidGrabber.videoSettings();
+    
+    // are there any kinects out there?
+    kinect.init();
+    
+    // no kinects connected, let's just try to set up the device
+    if (kinect.numAvailableDevices() < 1){
+        kinect.clear();        
+        vidGrabber.setVerbose(false);
+        vidGrabber.videoSettings();
         vidGrabber.initGrabber(camWidth,camHeight);
-	#elif USE_KINECT
-		kinect.init();
-		kinect.setVerbose(true);
-		kinect.open();
-		grayImg.allocate(kinect.getWidth(), kinect.getHeight());
-	#else
-        vidPlayer.loadMovie("testmovie/twoPeopleStand.mov");
-        vidPlayer.play();
-		camWidth = vidPlayer.width;
-		camHeight = vidPlayer.height;
+        cameraState     = CAMERA_VIDEOGRABBER;
+    } else {
+        kinect.setVerbose(true);
+        kinect.open();
+        cameraState = CAMERA_KINECT;
+    }
+    
+    #else
+    vidPlayer.loadMovie("testmovie/twoPeopleStand.mov");
+    vidPlayer.play();
+    camWidth = vidPlayer.width;
+    camHeight = vidPlayer.height;
 	#endif
 
 	colorImg.allocate(camWidth, camHeight);
+    grayImg.allocate(camWidth, camHeight);
 	
 	peopleTracker.setup(camWidth, camHeight);
 	peopleTracker.loadFont("fonts/times.ttf", 10);
 	peopleTracker.setListener( this );
 	
-	#ifdef _USE_LIVE_VIDEO
-	//JG set this so we can access video settings through the interface
-	peopleTracker.setVideoGrabber(&vidGrabber);
-	#endif
-
 	/*
 	//THIS IS HOW YOU CAN ADD CUSTOM PARAMETERS TO THE GUI
 	peopleTracker.addSlider("custom INTEGER", &itestValue, 0, ofGetWidth());
@@ -76,25 +84,30 @@ void tspsApp::update(){
     bool bNewFrame = false;
 
 	#ifdef _USE_LIVE_VIDEO
-		vidGrabber.grabFrame();
-		bNewFrame = vidGrabber.isFrameNew();
-	#elif USE_KINECT
-		kinect.update();
-        bNewFrame = true;// kinect.isFrameNew();
+    if ( cameraState != CAMERA_NOT_INITED){
+        if ( cameraState == CAMERA_KINECT ){
+            kinect.update();
+            bNewFrame = true;//kinect.isFrameNew();
+        } else {
+            vidGrabber.grabFrame();
+            bNewFrame = vidGrabber.isFrameNew();
+        }
+    }    
     #else
-        vidPlayer.idleMovie();
-        bNewFrame = vidPlayer.isFrameNew();
+    vidPlayer.idleMovie();
+    bNewFrame = vidPlayer.isFrameNew();
 	#endif
 
-	if (bNewFrame){
-
-		#ifdef _USE_LIVE_VIDEO
-            colorImg.setFromPixels(vidGrabber.getPixels(), camWidth,camHeight);
-		#elif USE_KINECT
+	if (bNewFrame){        
+        #ifdef _USE_LIVE_VIDEO
+        if ( cameraState == CAMERA_KINECT ){   
 			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
 			colorImg = grayImg;
+        } else {
+            colorImg.setFromPixels(vidGrabber.getPixels(), camWidth,camHeight);
+        }
 	    #else
-            colorImg.setFromPixels(vidPlayer.getPixels(), camWidth,camHeight);
+        colorImg.setFromPixels(vidPlayer.getPixels(), camWidth,camHeight);
         #endif
         peopleTracker.update(colorImg);
         
@@ -174,17 +187,70 @@ void tspsApp::draw(){
 
 
 //--------------------------------------------------------------
+void tspsApp::exit(){
+    if ( !cameraState == CAMERA_KINECT){  
+    }
+}
+
+//--------------------------------------------------------------
 void tspsApp::keyPressed  (int key){
 
 	switch (key){
 		case ' ':{
 			peopleTracker.relearnBackground();
-		}break;
+		} break;
 		case 'f':{
 			ofToggleFullscreen();
-		}break;
+		} break;
+        case 'k':{
+            bKinect = true;
+            initVideoInput();
+        } break; 
+        case 'c':{            
+            bKinect = false;
+            initVideoInput();
+        }
 	}
 }
+
+//--------------------------------------------------------------
+void tspsApp::initVideoInput(){
+    
+#ifdef _USE_LIVE_VIDEO
+    if ( bKinect ){
+        if ( cameraState == CAMERA_VIDEOGRABBER ){
+            vidGrabber.close();
+            cameraState = CAMERA_NOT_INITED;
+        }
+        
+        if ( !cameraState == CAMERA_KINECT){            
+            kinect.init();
+            kinect.setVerbose(true);
+            kinect.open();
+            cameraState = CAMERA_KINECT;
+        }        
+    } else {      
+        if ( cameraState == CAMERA_NOT_INITED || cameraState == CAMERA_KINECT){
+            
+            if ( cameraState == CAMERA_KINECT ){
+                kinect.close();
+                kinect.clear();
+                cameraState = CAMERA_NOT_INITED;
+            }
+            
+            vidGrabber.setVerbose(false);
+            vidGrabber.videoSettings();
+            vidGrabber.initGrabber(camWidth,camHeight);
+            cameraState = CAMERA_VIDEOGRABBER;
+        }
+    }
+    
+    
+	//set this so we can access video settings through the interface
+	peopleTracker.setVideoGrabber(&vidGrabber);
+#endif
+    
+};
 
 //--------------------------------------------------------------
 void tspsApp::mouseMoved(int x, int y ){}

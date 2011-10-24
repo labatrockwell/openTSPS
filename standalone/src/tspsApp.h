@@ -4,28 +4,25 @@
 #include "ofMain.h"
 
 /*********************************************************
-    INCLUDE ADDONS
+    INCLUDES + DEFINES
 *********************************************************/
 
     // TSPS core
     #include "ofxTSPS.h"
-    
-    #define USE_KINECT true			// uncomment this to use Kinect
-    //#define _USE_LIVE_VIDEO		// uncomment this to use a normal OF camera
-								// otherwise, we'll use a movie file
+
+    #define _USE_LIVE_VIDEO         // comment out to load a movie file
     //#define USE_CUSTOM_GUI		// uncomment to add a "custom" panel to the gui
 	
     // kinect support
-    #ifdef USE_KINECT
     #include "ofxKinect.h"
-    #endif 
 
-/*********************************************************
-    DEFINES
-*********************************************************/
-
-    // for adding your own parameters
     #define TSPS_HOME_PAGE "http://opentsps.com"
+
+    enum {
+        CAMERA_NOT_INITED,
+        CAMERA_KINECT,
+        CAMERA_VIDEOGRABBER
+    };
 
 /*********************************************************
     APP
@@ -39,6 +36,7 @@ class tspsApp : public ofBaseApp, public ofxPersonListener {
 		void setup();
 		void update();
 		void draw();
+        void exit();
 		
 		void keyPressed  (int key);
 		void mouseMoved(int x, int y );
@@ -55,18 +53,26 @@ class tspsApp : public ofBaseApp, public ofxPersonListener {
 		void personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene );
             
         #ifdef _USE_LIVE_VIDEO
-		  ofVideoGrabber 		vidGrabber;
-		#elif USE_KINECT
-			ofxKinect kinect;
+
+        // ready for either live video or Kinect, will choose in the next step
+        ofVideoGrabber 		vidGrabber;
+        ofxKinect           kinect;
+
+        // kinect or live video?
+        bool bKinect;
+        int cameraState;
+    
 		#else
 		  ofVideoPlayer 		vidPlayer;
 		#endif
 	
+        void initVideoInput();
+    
 		int camWidth, camHeight;
 
 		ofxCvColorImage		colorImg;
 		ofxCvGrayscaleImage	grayImg;	
-	
+    	
 	//status bar stuff
 		ofImage statusBar;
 		int		drawStatus[3];
