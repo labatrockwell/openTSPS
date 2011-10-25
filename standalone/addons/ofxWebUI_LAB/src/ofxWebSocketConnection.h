@@ -21,6 +21,7 @@ public:
                          ofxWebSocketProtocol* const _protocol=NULL,
                          const bool supportsBinary=false);
 
+  ~ofxWebSocketConnection();
   void close();
   void send(const std::string& message);
   const std::string recv(const std::string& message);  
@@ -34,7 +35,9 @@ protected:
 
   bool binary;
   bool supportsBinary;
-
-  std::vector<unsigned char> buf;
+  int buffersize;
+  unsigned char* buf;
+  int bufsize;
+  //std::vector<unsigned char> buf;
 };
 

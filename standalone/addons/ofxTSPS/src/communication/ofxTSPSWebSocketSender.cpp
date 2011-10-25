@@ -86,9 +86,10 @@ void ofxTSPSWebSocketSender::onmessage(ofxWebSocketEvent& args)
 //--------------------------------------------------------------
 void ofxTSPSWebSocketSender::onclose(ofxWebSocketEvent& args)
 {
-    //std::cout << "Connection closed" << std::endl;
+    std::cout << "Connection closed" << std::endl;
     for (int i=0; i<sockets.size(); i++){
         if (sockets[i] == &args.conn){
+			std::cout << "removing connection " << std::endl;
             sockets.erase( sockets.begin() + i);
             break;
         }

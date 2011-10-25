@@ -35,7 +35,7 @@ public:
   void close(ofxWebSocketConnection* const conn);
 
   ofxWebSocketProtocol* const protocol(const unsigned int idx);
-
+	
 	short port;
 
 //private:

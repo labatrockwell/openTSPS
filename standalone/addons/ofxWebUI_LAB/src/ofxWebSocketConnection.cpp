@@ -10,27 +10,43 @@ ofxWebSocketConnection::ofxWebSocketConnection(ofxWebSocketReactor* const _react
 , ws(NULL)
 , session(NULL)
 , supportsBinary(_supportsBinary)
-, buf(LWS_SEND_BUFFER_PRE_PADDING+1024+LWS_SEND_BUFFER_POST_PADDING)
+//, buf(LWS_SEND_BUFFER_PRE_PADDING+1024+LWS_SEND_BUFFER_POST_PADDING)
 {
-  if (_protocol != NULL)
-    binary = _protocol->binary;
+	if (_protocol != NULL){
+		binary = _protocol->binary;
+		bufsize = 1024;
+		buf = (unsigned char*)calloc(LWS_SEND_BUFFER_PRE_PADDING+bufsize+LWS_SEND_BUFFER_POST_PADDING, sizeof(unsigned char));
+	}
+	
 }
 
+ofxWebSocketConnection::~ofxWebSocketConnection(){
+	delete buf;
+}
 //--------------------------------------------------------------
 void
 ofxWebSocketConnection::close()
 {
   if (reactor != NULL)
     reactor->close(this);
+	
 }
 
 //--------------------------------------------------------------
 void
 ofxWebSocketConnection::send(const std::string& message)
 {
-  int n = 0;
-  unsigned char *p = &buf[LWS_SEND_BUFFER_PRE_PADDING];
-
+	int n = 0;
+	if(message.size() > 4096){
+		return;
+	}
+	if(message.size() > bufsize){
+		bufsize = bufsize+1024;
+		buf = (unsigned char*)realloc(buf, bufsize + LWS_SEND_BUFFER_PRE_PADDING + LWS_SEND_BUFFER_POST_PADDING*sizeof(unsigned char));
+		cout << "ofxWebSocketConnection -- received large message, resizing buffer to " << bufsize << endl;
+	}
+	unsigned char *p = &buf[LWS_SEND_BUFFER_PRE_PADDING];
+	
   if (binary)
   {
     //TODO: when libwebsockets has an API supporting something this, we should use it
@@ -41,14 +57,15 @@ ofxWebSocketConnection::send(const std::string& message)
     }
     else {
       int encoded_len;
-      encoded_len = b64_encode_string(message.c_str(), message.size(), (char*)p, buf.size());
+      //encoded_len = b64_encode_string(message.c_str(), message.size(), (char*)p, buf.size());
+	  encoded_len = b64_encode_string(message.c_str(), message.size(), (char*)p, bufsize-LWS_SEND_BUFFER_PRE_PADDING-LWS_SEND_BUFFER_POST_PADDING);
       if (encoded_len > 0)
         n = libwebsocket_write(ws, p, encoded_len, LWS_WRITE_TEXT);
     }
   }
   else {
-    memcpy(p, message.c_str(), message.size());
-    n = libwebsocket_write(ws, p, message.size(), LWS_WRITE_TEXT);
+	  memcpy(p, message.c_str(), message.size());
+	  n = libwebsocket_write(ws, p, message.size(), LWS_WRITE_TEXT);
   }
   
   if (n < 0)
@@ -73,4 +90,6 @@ ofxWebSocketConnection::recv(const std::string& message)
 
   return decoded;
 }
+
+
 
