@@ -67,6 +67,7 @@ class tspsApp : public ofBaseApp, public ofxPersonListener {
 		#endif
 	
         void initVideoInput();
+        void closeVideoInput();
     
 		int camWidth, camHeight;
 

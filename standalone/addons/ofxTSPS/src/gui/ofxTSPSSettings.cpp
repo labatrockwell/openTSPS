@@ -18,6 +18,12 @@ ofxTSPSSettings* ofxTSPSSettings::getInstance()
     {
         single = new ofxTSPSSettings();
         instanceFlag = true;
+        
+        //camera
+        single->bUseKinect  = false;
+        single->cameraIndex = 0;
+        
+        // background
 		single->bLearnBackground = false;
 		single->bTrackOpticalFlow = false;
 		

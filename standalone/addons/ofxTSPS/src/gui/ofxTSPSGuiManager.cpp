@@ -119,6 +119,7 @@ void ofxTSPSGuiManager::setup(){
 	videoSettingsGroup->seBaseColor(244,136,136);
 	videoSettingsGroup->setShowText(false);
 	panel.addButton("select video input");
+    panel.addToggle("use kinect", "USE_KINECT", true);
 
 	guiTypeGroup * amplificationGroup = panel.addGroup("amplification");
 	amplificationGroup->setBackgroundColor(148,129,85);
@@ -382,7 +383,12 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	
 	panel.update();
 	
-	p_Settings->bLearnBackground = panel.getValueB("LEARN_BACKGROUND");
+    // camera
+    
+	//p_Settings->cameraIndex = panel.getValueF("CAMERA_INDEX");
+	p_Settings->bUseKinect  = panel.getValueF("USE_KINECT");    
+        
+    // threshold
 	
 	p_Settings->threshold = panel.getValueF("THRESHOLD");
 	p_Settings->bSmooth = panel.getValueB("USE_SMOOTHING");

@@ -52,6 +52,7 @@
 
 #include "ofxTSPSPerson.h"
 #include "ofxTSPSView.h"
+//#include "ofxCv.h"
 #include "ofxOpenCv.h"
 #include "CPUImageFilter.h"
 #include "ofxCvOpticalFlowLK.h"
@@ -214,8 +215,9 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		bool inBackgroundView();
 		bool inDifferencingView();
 		bool inDataView();
-	
-	
+        
+        // GUI getters
+        bool useKinect();	
 	
 	protected:
 	

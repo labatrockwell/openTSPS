@@ -20,6 +20,14 @@ void tspsApp::setup(){
 	camWidth = 640;
 	camHeight = 480;
 
+    // allocate images + setup people tracker
+	colorImg.allocate(camWidth, camHeight);
+    grayImg.allocate(camWidth, camHeight);
+	
+	peopleTracker.setup(camWidth, camHeight);
+	peopleTracker.loadFont("fonts/times.ttf", 10);
+	peopleTracker.setListener( this );
+    
     bKinect         = false;
     cameraState     = CAMERA_NOT_INITED;
     
@@ -29,7 +37,7 @@ void tspsApp::setup(){
     kinect.init();
     
     // no kinects connected, let's just try to set up the device
-    if (kinect.numAvailableDevices() < 1){
+    if (kinect.numAvailableDevices() < 1 || !peopleTracker.useKinect()){
         kinect.clear();        
         vidGrabber.setVerbose(false);
         vidGrabber.videoSettings();
@@ -48,12 +56,6 @@ void tspsApp::setup(){
     camHeight = vidPlayer.height;
 	#endif
 
-	colorImg.allocate(camWidth, camHeight);
-    grayImg.allocate(camWidth, camHeight);
-	
-	peopleTracker.setup(camWidth, camHeight);
-	peopleTracker.loadFont("fonts/times.ttf", 10);
-	peopleTracker.setListener( this );
 	
 	/*
 	//THIS IS HOW YOU CAN ADD CUSTOM PARAMETERS TO THE GUI
@@ -81,6 +83,14 @@ void tspsApp::setup(){
 //--------------------------------------------------------------
 void tspsApp::update(){
 
+    if (peopleTracker.useKinect() && !bKinect){
+        bKinect = true;
+        initVideoInput();
+    } else if (!peopleTracker.useKinect() && bKinect){
+        bKinect = false;
+        initVideoInput();
+    }
+    
     bool bNewFrame = false;
 
 	#ifdef _USE_LIVE_VIDEO
@@ -97,7 +107,7 @@ void tspsApp::update(){
     vidPlayer.idleMovie();
     bNewFrame = vidPlayer.isFrameNew();
 	#endif
-
+    
 	if (bNewFrame){        
         #ifdef _USE_LIVE_VIDEO
         if ( cameraState == CAMERA_KINECT ){   
@@ -244,13 +254,26 @@ void tspsApp::initVideoInput(){
             cameraState = CAMERA_VIDEOGRABBER;
         }
     }
-    
-    
+        
 	//set this so we can access video settings through the interface
 	peopleTracker.setVideoGrabber(&vidGrabber);
 #endif
     
 };
+
+//--------------------------------------------------------------
+void tspsApp::closeVideoInput(){
+#ifdef _USE_LIVE_VIDEO
+    if ( cameraState == CAMERA_KINECT ){
+        kinect.close();
+        kinect.clear();
+        cameraState = CAMERA_NOT_INITED;
+    } else if ( cameraState == CAMERA_VIDEOGRABBER ){
+        vidGrabber.close();
+        cameraState = CAMERA_NOT_INITED;
+    }
+#endif
+}
 
 //--------------------------------------------------------------
 void tspsApp::mouseMoved(int x, int y ){}
