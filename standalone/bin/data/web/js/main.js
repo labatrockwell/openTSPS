@@ -37,6 +37,11 @@
 			ctx.stroke();
 
 			// draw contours
+			ctx.fillStyle = '#111111';
+			ctx.font	  = "11pt Helvetica";
+			ctx.fillText("id: "+person.id, person.centroid.x*vid_width, person.centroid.y*vid_height);
+			ctx.fillText("age: "+person.age, person.centroid.x*vid_width, person.centroid.y*vid_height+20);
+			ctx.fillText("depth: "+person.depth, person.centroid.x*vid_width, person.centroid.y*vid_height+40);
 			ctx.strokeStyle = '#ff0000';
 			ctx.beginPath();
 			ctx.moveTo(person.contours[0].x*vid_width,person.contours[0].y*vid_height);
@@ -48,6 +53,7 @@
 		}
 	}
 	
+	// setup web socket
 	function setupSocket(){
 		if (BrowserDetect.browser == "Firefox") {
 			socket = new MozWebSocket(get_appropriate_ws_url(),
@@ -57,12 +63,14 @@
 					   "tsps-protocol");
 		}
 		
+		// open
 		try {
 			socket.onopen = function() {
 				document.getElementById("wslm_statustd").style.backgroundColor = "#40ff40";
 				document.getElementById("wslm_statustd").textContent = " websocket connection opened ";
 			} 
 
+			// received JSON object from TSPS
 			socket.onmessage =function got_packet(msg) {
 				var data =  jQuery.parseJSON( msg.data );				
 				var TSPSPeople = tsps.newPerson(data);

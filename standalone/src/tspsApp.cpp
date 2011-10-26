@@ -124,7 +124,7 @@ void tspsApp::update(){
 		//iterate through the people
 		for(int i = 0; i < peopleTracker.totalPeople(); i++){
 			ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
-			//now make sweet interactivity with these people!
+            if (cameraState == CAMERA_KINECT) p->depth = kinect.getDistanceAt( p->centroid );
 		}
 	}
 }
@@ -192,6 +192,7 @@ void tspsApp::draw(){
 	ofSetColor(0, 169, 157);
 	char numPeople[1024];
 	sprintf(numPeople, "%i", peopleTracker.totalPeople());
+    
 	timesBoldItalic.drawString(numPeople,350,740);
 }
 
