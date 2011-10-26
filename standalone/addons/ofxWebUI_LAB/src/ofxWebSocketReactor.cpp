@@ -119,6 +119,7 @@ ofxWebSocketReactor::exit()
 {
   if (context != NULL)
   {
+      stopThread();
     libwebsocket_context_destroy(context);
     context = NULL;
   }

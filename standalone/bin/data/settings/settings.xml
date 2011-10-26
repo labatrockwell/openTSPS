@@ -22,7 +22,7 @@
     <val_0>138.889</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>85</val_0>
+    <val_0>175.667</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
     <val_0>2</val_0>
@@ -49,7 +49,7 @@
     <val_0>78.355</val_0>
 </MAX_BLOB>
 <FIND_HOLES>
-    <val_0>1</val_0>
+    <val_0>0</val_0>
 </FIND_HOLES>
 <SEND_OSC_CONTOURS>
     <val_0>1</val_0>

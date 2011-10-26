@@ -22,6 +22,7 @@ class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
         ofxTSPSWebSocketSender();
         
         void setup( int port );  
+        void close();
         void send();
                 
         void personEntered ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	

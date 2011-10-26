@@ -8,19 +8,15 @@
 
 #include "ofxTSPSWebSocketSender.h"
 
-/*********************************************************
-    CONSTRUCTOR
-*********************************************************/
-
+//---------------------------------------------------------------------------
     ofxTSPSWebSocketSender::ofxTSPSWebSocketSender(){
         binary = false;
     }
 
-/*********************************************************
-    SETUP
-*********************************************************/
 
-    void ofxTSPSWebSocketSender::setup(int port){
+
+//---------------------------------------------------------------------------
+void ofxTSPSWebSocketSender::setup(int port){
         sockets.clear();
         cout<<"setting up web socket server on port "<<port<<endl;
         
@@ -30,10 +26,12 @@
         reactor->setup(port, "", "");
     }
 
-/***************************************************************
- SEND
- ***************************************************************/	
+//---------------------------------------------------------------------------
+    void ofxTSPSWebSocketSender::close(){
+        reactor->exit();
+    }
 
+//---------------------------------------------------------------------------
     void ofxTSPSWebSocketSender::send(){
         for (int i=0; i<toSend.size(); i++){
             for (int j=0; j<sockets.size(); j++){
@@ -43,31 +41,33 @@
         toSend.clear();
     };
 
-/***************************************************************
- SEND
- ***************************************************************/
 
-
+//---------------------------------------------------------------------------
+// TSPS EVENTS
+//---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personEntered ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
     toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("TSPS/personEntered", centroid,cameraWidth,cameraHeight,bSendContours )));
 };
 
+//---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personMoved ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
 	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("TSPS/personMoved",centroid,cameraWidth,cameraHeight,bSendContours )));
 };
 
+//---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){	
 	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("TSPS/personUpdated", centroid,cameraWidth,cameraHeight,bSendContours )));
 };
 
+//---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours )
 {
 	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("TSPS/personWillLeave", centroid,cameraWidth,cameraHeight,bSendContours )));
 };
 
-/*********************************************************
-    WEBSOCKET EVENTS
-*********************************************************/
+
+//---------------------------------------------------------------------------
+// WEBSOCKET EVENTS
 //--------------------------------------------------------------
 void ofxTSPSWebSocketSender::onopen(ofxWebSocketEvent& args)
 {

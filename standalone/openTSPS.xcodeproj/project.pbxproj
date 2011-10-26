@@ -124,7 +124,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2E2C266714584EF60009181A /* ofxCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCv.h; sourceTree = "<group>"; };
 		2E4A144D144341EA0038753B /* ofxTSPSOscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSOscSender.cpp; sourceTree = "<group>"; };
 		2E4A144E144341EA0038753B /* ofxTSPSOscSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSOscSender.h; sourceTree = "<group>"; };
 		2E4A144F144341EA0038753B /* ofxTSPSTCPSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSTCPSender.cpp; sourceTree = "<group>"; };
@@ -513,23 +512,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E2C264F14584EF60009181A /* ofxCv */ = {
-			isa = PBXGroup;
-			children = (
-				2E2C266614584EF60009181A /* src */,
-			);
-			name = ofxCv;
-			path = addons/ofxCv;
-			sourceTree = "<group>";
-		};
-		2E2C266614584EF60009181A /* src */ = {
-			isa = PBXGroup;
-			children = (
-				2E2C266714584EF60009181A /* ofxCv.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		2E4A144C144341EA0038753B /* communication */ = {
 			isa = PBXGroup;
 			children = (
@@ -1148,7 +1130,6 @@
 		E741C0E7142F6F560040D77D /* third party */ = {
 			isa = PBXGroup;
 			children = (
-				2E2C264F14584EF60009181A /* ofxCv */,
 				2E6785D11430B7E30083AE30 /* ofxFileDialog */,
 				2EE789AF1430F83700CFEE9D /* ofxKinect */,
 				2E6785D01430B79C0083AE30 /* ofxLABCvHaarFinder */,

@@ -196,9 +196,12 @@ void ofxTSPSPeopleTracker::updateSettings()
 	else if (!p_Settings->bSendTcp) bTcpEnabled = false;
         
     //check to enable websockets
-    if (p_Settings->bSendWebSockets && !bWebSocketsEnabled) setupWebSocket(p_Settings->webSocketPort);
-    else if (!p_Settings->bSendWebSockets) bWebSocketsEnabled = false;
-	
+    if (p_Settings->bSendWebSockets && !bWebSocketsEnabled){
+        setupWebSocket(p_Settings->webSocketPort);
+    } else if (!p_Settings->bSendWebSockets){
+        bWebSocketsEnabled = false;
+        webSocketServer.close();
+    }
 	//switch camera view if new panel is selected
 	if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
 
@@ -351,10 +354,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 		//simplify blob for communication
 		contourAnalysis.simplify(p->contour, p->simpleContour, 2.0f);
 		float simplifyAmount = 2.5f;
-		/*while (p->simpleContour.size() > 100){
+		while (p->simpleContour.size() > 100){
 			contourAnalysis.simplify(p->contour, p->simpleContour, simplifyAmount);
 			simplifyAmount += .5f;
-		}*/
+		}
 		//normalize simple contour
 		for (int i=0; i<p->simpleContour.size(); i++){
 			p->simpleContour[i].x /= width;
