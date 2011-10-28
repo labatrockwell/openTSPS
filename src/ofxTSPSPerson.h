@@ -77,6 +77,8 @@ class ofxTSPSPerson
 		vector<ofPoint> simpleContour; //simplified shape contour
 		ofPoint velocity; //most recent movement of centroid
 		float area; //area as a scalar size
+    
+        float depth; // depth from kinect
 		
 		//normalized accessors for use in TUIO communication
 		ofRectangle getBoundingRectNormalized(float videoWidth, float videoHeight);

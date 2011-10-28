@@ -82,8 +82,8 @@ class ofxTSPSGuiManager {
 	void setSelectedPanel( string name );
 
 	void loadSettings ( string xml );
-	
-	// ZACK BOKA: Added so the quadGui instance can know when image warping is allowed to occur
+    	
+	// Added so the quadGui instance can know when image warping is allowed to occur
 	//            (i.e., the image can only get warped when in Camera View).
 	void changeGuiCameraView(bool bCameraView);
 	

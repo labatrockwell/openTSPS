@@ -19,7 +19,8 @@ ofxTSPSPerson::ofxTSPSPerson(int pid, int oid, ofxCvBlob blob)
   opticalFlowVectorAccumulation(ofPoint(0,0)),
   centroid(blob.centroid),
   framesWithoutHaar(0),
-  customAttributes(NULL)
+  customAttributes(NULL),
+  depth(0)
 {
 	update(blob, false);
 }
@@ -127,8 +128,9 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
     message<<"\"type\":\""<<type<<"\",";
     message<<"\"id\":"<<pid<<",";
 	message<<"\"age\":"<<age<<",";
+	message<<"\"depth\":"<<depth<<",";
 	message<<"\"centroid\":{"<<"\"x\":"<<centroid.x<<",\"y\":"<<centroid.y<<"},"; //pass in normalized centroid
-	message<<"\"velocity\":{"<<"\"x\":"<<velocity.x<<",\"y\":"<<velocity.y<<"},";
+	message<<"\"velocity\":{"<<"\"x\":"<<ofToString(velocity.x, 3)<<",\"y\":"<<ofToString(velocity.y, 3)<<"},";
 	
 	ofRectangle scaledRect = getBoundingRectNormalized(cameraWidth,cameraHeight);
 	message<<"\"boundingrect\":{"<<"\"x\":"<<scaledRect.x<<",\"y\":"<<scaledRect.y<<",\"width\":"<<scaledRect.width<<",\"height\":"<<scaledRect.height<<"},";

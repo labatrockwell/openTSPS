@@ -50,6 +50,10 @@ public:
 	
 	string haarFile;
 
+    // camera vars
+    bool    bUseKinect;
+    int     cameraIndex;
+    
 	// image vars
 	int smooth;
 	int highpassBlur;
