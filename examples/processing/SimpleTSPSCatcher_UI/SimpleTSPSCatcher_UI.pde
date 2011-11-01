@@ -37,18 +37,19 @@ void draw(){
 	
 	//you can loop through all the people elements in TSPS if you choose
 	/*
-	for (int i=0; i<tspsReceiver.people.size(); i++)
-	{
-		//get person
-		TSPSPerson person = (TSPSPerson) tspsReceiver.people.get(i);
-		
-		//draw rect + centroid scaled by activeWidth + activeHeight
-		fill(120,120,0);
-		rect(person.boundingRect.x*activeWidth, person.boundingRect.y*activeHeight, person.boundingRect.width*activeWidth, person.boundingRect.height*activeHeight);		
-		fill(255,255,255);
-		ellipse(person.centroid.x*activeWidth, person.centroid.y*activeHeight, 10, 10);
-		text("id: "+person.id+" age: "+person.age, person.boundingRect.x*activeWidth, (person.boundingRect.y*activeHeight + person.boundingRect.height*activeHeight) + 2);	
-	};
+        for (Enumeration e = tspsReceiver.people.keys() ; e.hasMoreElements() ;)
+        {
+          //get person
+          int i = (Integer) e.nextElement();
+          TSPSPerson person = (TSPSPerson) tspsReceiver.people.get(i);
+            
+            //draw rect + centroid scaled by activeWidth + activeHeight
+            fill(120,120,0);
+            rect(person.boundingRect.x*width, person.boundingRect.y*height, person.boundingRect.width*width, person.boundingRect.height*height);		
+            fill(255,255,255);
+            ellipse(person.centroid.x*width, person.centroid.y*height, 10, 10);
+            text("id: "+person.id+" age: "+person.age, person.boundingRect.x*width, (person.boundingRect.y*height + person.boundingRect.height*height) + 2);	
+        };
 	*/
 	
 	//loop through custom person objects

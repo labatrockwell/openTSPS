@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *.mode1v3
 *.pbxuser
 build/
@@ -9,7 +8,7 @@ obj/
 openFrameworks.a
 openFrameworksDebug.a
 openFrameworksUniversal.a
-*.app/
+*.app/`
 
 #codeblocks files
 apps/*/*/*.layout
@@ -59,7 +58,6 @@ obj/
 *.mode*
 *.xcworkspace
 xcuserdata/
+releases/*
 
 .DS_Store
-
->>>>>>> e649345c49c8cfd5067e19bdb3fc0914ff12b5bd
