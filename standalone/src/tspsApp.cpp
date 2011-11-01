@@ -35,18 +35,23 @@ void tspsApp::setup(){
     
     // are there any kinects out there?
     kinect.init();
+    bKinectConnected = (kinect.numAvailableDevices() >= 1);
     
     // no kinects connected, let's just try to set up the device
     if (kinect.numAvailableDevices() < 1 || !peopleTracker.useKinect()){
         kinect.clear();        
-        vidGrabber.setVerbose(false);
+        bKinect = false;
+        initVideoInput();        
+        /*vidGrabber.setVerbose(false);
         vidGrabber.videoSettings();
         vidGrabber.initGrabber(camWidth,camHeight);
-        cameraState     = CAMERA_VIDEOGRABBER;
+        cameraState     = CAMERA_VIDEOGRABBER;*/
     } else {
-        kinect.setVerbose(true);
-        kinect.open();
-        cameraState = CAMERA_KINECT;
+        bKinect = true;
+        initVideoInput();
+        //kinect.setVerbose(true);
+        //kinect.open();
+        //cameraState = CAMERA_KINECT;
     }
     
     #else
@@ -228,7 +233,14 @@ void tspsApp::keyPressed  (int key){
 void tspsApp::initVideoInput(){
     
 #ifdef _USE_LIVE_VIDEO
-    if ( bKinect ){
+    if ( bKinect && !cameraState == CAMERA_KINECT ){
+        kinect.init();
+        bKinectConnected = (kinect.numAvailableDevices() >= 1);
+        if (!bKinectConnected){
+            bKinect = false;
+            return;
+        }
+        
         if ( cameraState == CAMERA_VIDEOGRABBER ){
             vidGrabber.close();
             cameraState = CAMERA_NOT_INITED;

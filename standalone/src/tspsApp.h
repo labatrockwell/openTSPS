@@ -59,7 +59,7 @@ class tspsApp : public ofBaseApp, public ofxPersonListener {
         ofxKinect           kinect;
 
         // kinect or live video?
-        bool bKinect;
+        bool bKinect, bKinectConnected;
         int cameraState;
     
 		#else

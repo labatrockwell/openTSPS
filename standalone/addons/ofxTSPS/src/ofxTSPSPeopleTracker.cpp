@@ -228,8 +228,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 	//-------------------
 		
 	//warp background
+    //grayImageWarped = grayImage;
+    colorImageWarped = colorImage;
 	grayImageWarped.warpIntoMe(grayImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);
-	colorImageWarped.warpIntoMe(colorImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);	
+	//colorImageWarped.warpIntoMe(colorImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);	
 	
 	graySmallImage.scaleIntoMe(grayImageWarped);
 	grayBabyImage.scaleIntoMe(grayImageWarped);

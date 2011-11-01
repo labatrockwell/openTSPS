@@ -3,7 +3,7 @@
  *  ofxPerson.h
  *  Rockwell LAB + IDEO LAB peopleVision project
  *
- *  Based on code created by NUI Group Dev Team A on 3/1/09.
+ *  Based in part on code created by NUI Group Dev Team A on 3/1/09.
  *  Copyright 2009 NUI Group/Inc. All rights reserved.       
  *  Version : 1.20
  *
@@ -52,6 +52,7 @@
 
 #include "ofxTSPSPerson.h"
 #include "ofxTSPSView.h"
+//#include "ofxCv.h"
 #include "ofxOpenCv.h"
 #include "CPUImageFilter.h"
 #include "ofxCvOpticalFlowLK.h"
@@ -214,8 +215,9 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		bool inBackgroundView();
 		bool inDifferencingView();
 		bool inDataView();
-	
-	
+        
+        // GUI getters
+        bool useKinect();	
 	
 	protected:
 	
