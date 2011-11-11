@@ -56,7 +56,14 @@ ofxTSPSSettings* ofxTSPSSettings::getInstance()
 		single->tuioPort = 3333;
 		
 		single->tcpPort = 8888;
-
+        
+        single->quadWarpScaled.reserve(4);
+        single->quadWarpOriginal.reserve(4);
+        
+        for (int i=0; i<single->quadWarpScaled.size(); i++){
+            single->quadWarpScaled[i] = ofPoint(0,0);
+            single->quadWarpOriginal[i] = ofPoint(0,0);
+        }
     }
 	return single;
 	

@@ -70,6 +70,7 @@
 #include "ofxTSPSWebSocketSender.h"
 #include "ofxCvBlobTracker.h"
 #include "ofxTSPSScene.h"
+#include "ofxTSPSUtils.h"
 
 #define DRAW_MODE_NORMAL				0
 #define DRAW_MODE_GUI					1

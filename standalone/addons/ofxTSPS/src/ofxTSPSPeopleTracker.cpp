@@ -32,8 +32,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	grayBg.allocate(width, height);
 	grayDiff.allocate(width, height);
 	floatBgImg.allocate(width, height);
-	graySmallImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	
+	graySmallImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );	
 	grayLastImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
 	grayBabyImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
 	
@@ -228,8 +227,11 @@ void ofxTSPSPeopleTracker::trackPeople()
 		
 	//warp background
     //grayImageWarped = grayImage;
+    colorImage = grayImage;
     colorImageWarped = colorImage;
-	grayImageWarped.warpIntoMe(grayImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);
+    //getQuadSubImage(&colorImage, &colorImageWarped, &p_Settings->quadWarpScaled, 3);
+    getQuadSubImage(&grayImage, &grayImageWarped, &p_Settings->quadWarpScaled, 1);
+    //grayImageWarped.warpIntoMe(grayImage, p_Settings->quadWarpScaled,     p_Settings->quadWarpOriginal);
 	//colorImageWarped.warpIntoMe(colorImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);	
 	
 	graySmallImage.scaleIntoMe(grayImageWarped);
@@ -327,14 +329,13 @@ void ofxTSPSPeopleTracker::trackPeople()
 	
 	contourFinder.findContours(grayDiff, p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, 50, p_Settings->bFindHoles);
 	persistentTracker.trackBlobs(contourFinder.blobs);
-	
-	scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
-	scene.percentCovered = 0; 
-	
+		
 	// By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
 	//            before optical flow can begin working.
 	if(p_Settings->bTrackOpticalFlow) {
-		opticalFlow.maxVector = p_Settings->maxOpticalFlow;
+        scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
+        scene.percentCovered = 0; 
+        opticalFlow.maxVector = p_Settings->maxOpticalFlow;
 		opticalFlow.minVector = p_Settings->minOpticalFlow;
 	}
 	

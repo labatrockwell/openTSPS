@@ -23,6 +23,7 @@
 		2E592938144F2BAA00E795EA /* ofxKinect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E59292F144F2BAA00E795EA /* ofxKinect.cpp */; };
 		2E6785CF1430B7980083AE30 /* ofxLABCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6785CD1430B7980083AE30 /* ofxLABCvHaarFinder.cpp */; };
 		2E6785D51430B7E30083AE30 /* ofxFileDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6785D31430B7E30083AE30 /* ofxFileDialog.cpp */; };
+		2EE5A0C3146DD99E00D4B8AE /* ofxTSPSUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5A0C0146DD99E00D4B8AE /* ofxTSPSUtils.cpp */; };
 		A94EB0E31437A5B000B6437B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB0E21437A5B000B6437B /* ApplicationServices.framework */; };
 		A94EB12B1437A68B00B6437B /* cdecode.c in Sources */ = {isa = PBXBuildFile; fileRef = A94EB0F41437A68B00B6437B /* cdecode.c */; };
 		A94EB12C1437A68B00B6437B /* cencode.c in Sources */ = {isa = PBXBuildFile; fileRef = A94EB0F51437A68B00B6437B /* cencode.c */; };
@@ -189,6 +190,9 @@
 		2E6785D31430B7E30083AE30 /* ofxFileDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFileDialog.cpp; sourceTree = "<group>"; };
 		2E6785D41430B7E30083AE30 /* ofxFileDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFileDialog.h; sourceTree = "<group>"; };
 		2ECB4D4914586B5900040AA3 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		2EE5A0C0146DD99E00D4B8AE /* ofxTSPSUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSUtils.cpp; sourceTree = "<group>"; };
+		2EE5A0C1146DD99E00D4B8AE /* ofxTSPSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSUtils.h; sourceTree = "<group>"; };
+		2EE5A0C2146DD99E00D4B8AE /* ofxTSPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSView.h; sourceTree = "<group>"; };
 		A94EB0E21437A5B000B6437B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		A94EB0EE1437A68B00B6437B /* cdecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdecode.h; sourceTree = "<group>"; };
 		A94EB0EF1437A68B00B6437B /* cencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cencode.h; sourceTree = "<group>"; };
@@ -300,7 +304,6 @@
 		E741C13F142F6FBF0040D77D /* ofxTSPSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPerson.h; sourceTree = "<group>"; };
 		E741C140142F6FBF0040D77D /* ofxTSPSScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSScene.cpp; sourceTree = "<group>"; };
 		E741C141142F6FBF0040D77D /* ofxTSPSScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSScene.h; sourceTree = "<group>"; };
-		E741C148142F6FBF0040D77D /* ofxTSPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSView.h; sourceTree = "<group>"; };
 		E741C14B142F6FBF0040D77D /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
 		E741C14C142F6FBF0040D77D /* TuioClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TuioClient.cpp; sourceTree = "<group>"; };
 		E741C14D142F6FBF0040D77D /* TuioClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuioClient.h; sourceTree = "<group>"; };
@@ -842,6 +845,16 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		2EE5A0BF146DD99E00D4B8AE /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5A0C0146DD99E00D4B8AE /* ofxTSPSUtils.cpp */,
+				2EE5A0C1146DD99E00D4B8AE /* ofxTSPSUtils.h */,
+				2EE5A0C2146DD99E00D4B8AE /* ofxTSPSView.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		2EE789AF1430F83700CFEE9D /* ofxKinect */ = {
 			isa = PBXGroup;
 			children = (
@@ -1228,6 +1241,7 @@
 			children = (
 				2E4A144C144341EA0038753B /* communication */,
 				2E4A1455144341EA0038753B /* gui */,
+				2EE5A0BF146DD99E00D4B8AE /* utils */,
 				E741C137142F6FBF0040D77D /* ofxTSPS.h */,
 				E741C13C142F6FBF0040D77D /* ofxTSPSPeopleTracker.cpp */,
 				E741C13D142F6FBF0040D77D /* ofxTSPSPeopleTracker.h */,
@@ -1235,7 +1249,6 @@
 				E741C13F142F6FBF0040D77D /* ofxTSPSPerson.h */,
 				E741C140142F6FBF0040D77D /* ofxTSPSScene.cpp */,
 				E741C141142F6FBF0040D77D /* ofxTSPSScene.h */,
-				E741C148142F6FBF0040D77D /* ofxTSPSView.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1913,6 +1926,7 @@
 				2E592935144F2BAA00E795EA /* tilt.c in Sources */,
 				2E592936144F2BAA00E795EA /* usb_libusb10.c in Sources */,
 				2E592938144F2BAA00E795EA /* ofxKinect.cpp in Sources */,
+				2EE5A0C3146DD99E00D4B8AE /* ofxTSPSUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -102,8 +102,8 @@ public:
 	int currentPanel;
 	
 	//quad warping
-	ofPoint quadWarpScaled[4];
-	ofPoint quadWarpOriginal[4];
+	vector <ofPoint> quadWarpScaled;
+	vector <ofPoint> quadWarpOriginal;
 	
 	//xml file
 	vector <string> xmlFiles;
