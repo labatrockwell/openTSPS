@@ -50,7 +50,6 @@
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
 		E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
-		E741C177142F6FBF0040D77D /* del_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E741C0F1142F6FBF0040D77D /* del_impl.cpp */; };
 		E741C17C142F6FBF0040D77D /* ofxLabGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E741C116142F6FBF0040D77D /* ofxLabGui.cpp */; };
 		E741C17F142F6FBF0040D77D /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E741C125142F6FBF0040D77D /* ofxMSAInteractiveObject.cpp */; };
 		E741C180142F6FBF0040D77D /* CPUImageFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E741C129142F6FBF0040D77D /* CPUImageFilter.cpp */; };
@@ -255,16 +254,6 @@
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		E741C0EB142F6FBF0040D77D /* convexHull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convexHull.h; sourceTree = "<group>"; };
-		E741C0EC142F6FBF0040D77D /* ofxContourAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxContourAnalysis.h; sourceTree = "<group>"; };
-		E741C0ED142F6FBF0040D77D /* ofxContourAnalysisConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxContourAnalysisConstants.h; sourceTree = "<group>"; };
-		E741C0EE142F6FBF0040D77D /* polylineSimplify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polylineSimplify.h; sourceTree = "<group>"; };
-		E741C0F0142F6FBF0040D77D /* assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = assert.hpp; sourceTree = "<group>"; };
-		E741C0F1142F6FBF0040D77D /* del_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = del_impl.cpp; sourceTree = "<group>"; };
-		E741C0F2142F6FBF0040D77D /* del_interface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = del_interface.hpp; sourceTree = "<group>"; };
-		E741C0F3142F6FBF0040D77D /* dpoint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dpoint.hpp; sourceTree = "<group>"; };
-		E741C0F4142F6FBF0040D77D /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle.h; sourceTree = "<group>"; };
-		E741C0F5142F6FBF0040D77D /* triangle_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = triangle_impl.hpp; sourceTree = "<group>"; };
 		E741C103142F6FBF0040D77D /* guiBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiBaseObject.h; sourceTree = "<group>"; };
 		E741C104142F6FBF0040D77D /* guiColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiColor.h; sourceTree = "<group>"; };
 		E741C105142F6FBF0040D77D /* guiCustomImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiCustomImpl.h; sourceTree = "<group>"; };
@@ -1135,7 +1124,6 @@
 				2E6785D11430B7E30083AE30 /* ofxFileDialog */,
 				2EE789AF1430F83700CFEE9D /* ofxKinect */,
 				2E6785D01430B79C0083AE30 /* ofxLABCvHaarFinder */,
-				E741C0EA142F6FBF0040D77D /* ofxContourAnalysis */,
 				E741C102142F6FBF0040D77D /* ofxLabGui */,
 				E741C11B142F6FBF0040D77D /* ofxMSAInteractiveObject */,
 				E741C127142F6FBF0040D77D /* ofxOpenCVExtensions */,
@@ -1144,32 +1132,6 @@
 				A94EB0E41437A68B00B6437B /* ofxWebUI_LAB */,
 			);
 			name = "third party";
-			sourceTree = "<group>";
-		};
-		E741C0EA142F6FBF0040D77D /* ofxContourAnalysis */ = {
-			isa = PBXGroup;
-			children = (
-				E741C0EB142F6FBF0040D77D /* convexHull.h */,
-				E741C0EC142F6FBF0040D77D /* ofxContourAnalysis.h */,
-				E741C0ED142F6FBF0040D77D /* ofxContourAnalysisConstants.h */,
-				E741C0EE142F6FBF0040D77D /* polylineSimplify.h */,
-				E741C0EF142F6FBF0040D77D /* triangle */,
-			);
-			name = ofxContourAnalysis;
-			path = addons/ofxContourAnalysis;
-			sourceTree = "<group>";
-		};
-		E741C0EF142F6FBF0040D77D /* triangle */ = {
-			isa = PBXGroup;
-			children = (
-				E741C0F0142F6FBF0040D77D /* assert.hpp */,
-				E741C0F1142F6FBF0040D77D /* del_impl.cpp */,
-				E741C0F2142F6FBF0040D77D /* del_interface.hpp */,
-				E741C0F3142F6FBF0040D77D /* dpoint.hpp */,
-				E741C0F4142F6FBF0040D77D /* triangle.h */,
-				E741C0F5142F6FBF0040D77D /* triangle_impl.hpp */,
-			);
-			path = triangle;
 			sourceTree = "<group>";
 		};
 		E741C102142F6FBF0040D77D /* ofxLabGui */ = {
@@ -1893,7 +1855,6 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* tspsApp.cpp in Sources */,
-				E741C177142F6FBF0040D77D /* del_impl.cpp in Sources */,
 				E741C17C142F6FBF0040D77D /* ofxLabGui.cpp in Sources */,
 				E741C17F142F6FBF0040D77D /* ofxMSAInteractiveObject.cpp in Sources */,
 				E741C180142F6FBF0040D77D /* CPUImageFilter.cpp in Sources */,

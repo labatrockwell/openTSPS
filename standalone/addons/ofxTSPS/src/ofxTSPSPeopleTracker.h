@@ -62,7 +62,6 @@
 
 //dependent libraries
 #include "ofxCvHaarTracker.h"
-#include "ofxContourAnalysis.h"
 #include "ofxTSPSSettings.h"
 #include "ofxTSPSGuiManager.h"
 #include "ofxTSPSTUIOSender.h"
@@ -254,7 +253,6 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		
 		ofxCvContourFinder 	contourFinder;
 		ofxCvBlobTracker persistentTracker;
-		ofxContourAnalysis contourAnalysis;
 		int drawMode;
 		
 		//filter variables

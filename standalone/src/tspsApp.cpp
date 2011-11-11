@@ -117,14 +117,15 @@ void tspsApp::update(){
         #ifdef _USE_LIVE_VIDEO
         if ( cameraState == CAMERA_KINECT ){   
 			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
-			colorImg = grayImg;
+            peopleTracker.update(grayImg);
         } else {
             colorImg.setFromPixels(vidGrabber.getPixels(), camWidth,camHeight);
+            peopleTracker.update(colorImg);
         }
 	    #else
         colorImg.setFromPixels(vidPlayer.getPixels(), camWidth,camHeight);
-        #endif
         peopleTracker.update(colorImg);
+        #endif
         
 		//iterate through the people
 		for(int i = 0; i < peopleTracker.totalPeople(); i++){

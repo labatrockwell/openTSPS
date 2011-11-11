@@ -221,8 +221,7 @@ void ofxTSPSPeopleTracker::updateSettings()
  */
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::trackPeople()
-{
-	
+{	
 	//-------------------
 	//QUAD WARPING
 	//-------------------
@@ -353,13 +352,6 @@ void ofxTSPSPeopleTracker::trackPeople()
 		//update this person with new blob info
 		p->update(blob, p_Settings->bCentroidDampen);
 
-		//simplify blob for communication
-		contourAnalysis.simplify(p->contour, p->simpleContour, 2.0f);
-		float simplifyAmount = 2.5f;
-		while (p->simpleContour.size() > 100){
-			contourAnalysis.simplify(p->contour, p->simpleContour, simplifyAmount);
-			simplifyAmount += .5f;
-		}
 		//normalize simple contour
 		for (int i=0; i<p->simpleContour.size(); i++){
 			p->simpleContour[i].x /= width;

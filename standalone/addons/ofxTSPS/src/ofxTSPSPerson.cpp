@@ -45,6 +45,13 @@ void ofxTSPSPerson::update(ofxCvBlob blob, bool dampen)
 	area		 = blob.area;
 	boundingRect = blob.boundingRect;
 	contour		 = blob.pts; 
+    simpleContour = contour;
+    simpleContour.simplify(2.0f);
+    float simplifyAmount = 2.5f;
+    while (simpleContour.size() > 100){
+        simpleContour.simplify(simplifyAmount);
+        simplifyAmount += .5f;
+    }
 	age++;
 }
 
