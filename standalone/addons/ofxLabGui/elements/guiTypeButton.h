@@ -54,27 +54,28 @@ public:
 	
 	//-----------------------------------------------.
 	void render(){
-		ofPushStyle();
-		glPushMatrix();
-		
-		//draw the background
-		ofFill();
-		glColor4fv(bgColor.getColorF());
-		ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
-		
-		//draw the outline
-		ofNoFill();
-		glColor4fv(outlineColor.getColorF());
-		ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
-		ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
-		
-		ofFill();
-		//glColor4fv(fgColor.getColorF());
-		ofSetHexColor(0xffffff);
-		guiBaseObject::renderText((int)(hitArea.x + hitArea.width/2 - (displayText.getTextWidth()/2)), hitArea.y);
-		
-		glPopMatrix();
-		ofPopStyle();
+        if (!enabled) return;
+		ofPushStyle();{
+            ofPushMatrix();{
+            
+            //draw the background
+            ofFill();
+            glColor4fv(bgColor.getColorF());
+            ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
+            
+            //draw the outline
+            ofNoFill();
+            glColor4fv(outlineColor.getColorF());
+            ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
+            ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
+            
+            ofFill();
+            //glColor4fv(fgColor.getColorF());
+            ofSetHexColor(0xffffff);
+            guiBaseObject::renderText((int)(hitArea.x + hitArea.width/2 - (displayText.getTextWidth()/2)), hitArea.y);
+            
+            } ofPopMatrix();
+		} ofPopStyle();
 	}
 	
 	

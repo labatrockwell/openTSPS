@@ -55,7 +55,8 @@ class guiTypeText : public guiBaseObject{
 		}
 		
 		//-----------------------------------------------.
-		void render(){
+        void render(){
+            if (!enabled) return;
 			string newValue = value.getValueS();
 			valueText.setText( value.getValueS() );
 			ofPushStyle();

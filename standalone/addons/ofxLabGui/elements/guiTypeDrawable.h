@@ -75,9 +75,9 @@ class guiTypeDrawable : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
-            ofPushStyle();
-
-                glPushMatrix();
+            if (!enabled) return;
+            ofPushStyle();{
+                ofPushMatrix();{
                 //glTranslatef(boundingBox.x, boundingBox.y, 0);
                     guiBaseObject::renderText();
 
@@ -91,9 +91,8 @@ class guiTypeDrawable : public guiBaseObject{
                     ofSetHexColor(0xFFFFFF);
                     vid->draw(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
-                glPopMatrix();
-
-            ofPopStyle();
+                } ofPopMatrix();
+            } ofPopStyle();
         }
 
         ofBaseDraws * vid;

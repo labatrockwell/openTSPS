@@ -185,40 +185,38 @@ public:
 		}
 		
 		//see if we need to resize!
-		//checkResize(element);
-		
+		//checkResize(element);		
 	}
 	
 	//-----------------------------------------------.
 	void render(){
+        if (!enabled) return;
 		ofPushStyle();
-		ofSetHexColor(0xffffff);
-		glPushMatrix();
-			glTranslatef(boundingBox.x, boundingBox.y, 0);
-			//draw the background
-			ofFill();
-			glColor4fv(bgColor.getColorF());
-			ofRect(0, 0, boundingBox.width, boundingBox.height);
-			
-			//draw the outline
-			ofNoFill();
-			glColor4fv(outlineColor.getColorF());
-			ofRect(0, 0, boundingBox.width, boundingBox.height);
-		glPopMatrix();
+            ofSetHexColor(0xffffff);
+            ofPushMatrix();
+                ofTranslate(boundingBox.x, boundingBox.y, 0);
+                //draw the background
+                ofFill();
+                glColor4fv(bgColor.getColorF());
+                ofRect(0, 0, boundingBox.width, boundingBox.height);
+                
+                //draw the outline
+                ofNoFill();
+                glColor4fv(outlineColor.getColorF());
+                ofRect(0, 0, boundingBox.width, boundingBox.height);
+            ofPopMatrix();
 		
-		glPushMatrix();
-			glTranslatef(boundingBox.x, boundingBox.y, 0);
-			renderText(spacingAmntX,spacingAmntY / 2);
-		glPopMatrix();
+            ofPushMatrix();
+                ofTranslate(boundingBox.x, boundingBox.y, 0);
+                renderText(spacingAmntX,spacingAmntY / 2);
+            ofPopMatrix();
 		
-		glPushMatrix();
-		glTranslatef(hitArea.x, hitArea.y, 0);
-		for(int i = 0; i < children.size(); i++){
-			children[i]->render();
-		}
-		glPopMatrix();
-		
-		
+            ofPushMatrix();
+                ofTranslate(hitArea.x, hitArea.y, 0);
+                for(int i = 0; i < children.size(); i++){
+                    children[i]->render();
+                }
+            ofPopMatrix();
 		ofPopStyle();
 	}
 	

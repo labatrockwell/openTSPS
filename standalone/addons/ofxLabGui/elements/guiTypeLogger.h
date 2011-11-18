@@ -62,9 +62,9 @@ class guiTypeLogger : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
-            ofPushStyle();
-
-                glPushMatrix();
+            if (!enabled) return;
+            ofPushStyle();{
+                ofPushMatrix();{
                     //draw the background
                     ofFill();
                     glColor4fv(bgColor.getColorF());
@@ -84,10 +84,8 @@ class guiTypeLogger : public guiBaseObject{
 
                     glColor4fv(textColor.getColorF());
                     if(log != NULL)drawRecords(hitArea.x+hitArea.width + 5, hitArea.y, boundingBox.width-(hitArea.width + 5), boundingBox.height);
-
-                glPopMatrix();
-
-            ofPopStyle();
+                } ofPopMatrix();
+            }ofPopStyle();
         }
 
         float pct;

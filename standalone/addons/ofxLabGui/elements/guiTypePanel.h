@@ -303,10 +303,10 @@ class guiTypePanel : public guiBaseObject{
 		
         //-----------------------------------------------.
         void render(){
-            ofPushStyle();
-
-                glPushMatrix();
-                glTranslatef(boundingBox.x, boundingBox.y, 0);
+            if (!enabled) return;
+            ofPushStyle();{
+                ofPushMatrix();{
+                    ofTranslate(boundingBox.x, boundingBox.y, 0);
                     //draw the background
                     ofFill();
                     glColor4fv(bgColor.getSelectedColorF());
@@ -338,18 +338,15 @@ class guiTypePanel : public guiBaseObject{
 						}
 					}
 
-                glPopMatrix();
+                }ofPopMatrix();
 			
-                glPushMatrix();
-                    glTranslatef(hitArea.x, hitArea.y, 0);
+                ofPushMatrix();{
+                    ofTranslate(hitArea.x, hitArea.y, 0);
 						for(int i = 0; i < children.size(); i++){
                             children[i]->render();
                         }
-                glPopMatrix();
-			
-            ofPopStyle();
-			
-			
+                } glPopMatrix();
+			} ofPopStyle();
 			renderTab();
         }
 	

@@ -81,10 +81,9 @@ class guiTypeCustom : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
-
-            ofPushStyle();
-
-                glPushMatrix();
+            if (!enabled) return;
+            ofPushStyle();{
+                ofPushMatrix();{
                     guiBaseObject::renderText();
 
                     //draw the background
@@ -97,9 +96,9 @@ class guiTypeCustom : public guiBaseObject{
                     ofSetHexColor(0xFFFFFF);
                     if( custom != NULL)custom->draw(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
-                glPopMatrix();
+                }  ofPopMatrix();
 
-            ofPopStyle();
+            } ofPopStyle();
         }
 
         guiCustomImpl * custom;

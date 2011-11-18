@@ -123,9 +123,9 @@ class guiTypeFileLister : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
-            ofPushStyle();
-
-                glPushMatrix();
+            if (!enabled) return;
+            ofPushStyle(); {
+                ofPushMatrix();{
                     //draw the background
                     ofFill();
                     glColor4fv(bgColor.getColorF());
@@ -146,9 +146,8 @@ class guiTypeFileLister : public guiBaseObject{
                     glColor4fv(textColor.getColorF());
                     if(lister != NULL)drawRecords(hitArea.x+sliderWidth + 5, hitArea.y, boundingBox.width-(sliderWidth + 5), boundingBox.height);
 
-                glPopMatrix();
-
-            ofPopStyle();
+                } ofPopMatrix();
+            } ofPopStyle();
         }
 
         int selection;

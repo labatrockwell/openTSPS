@@ -139,9 +139,11 @@ class ofxLabGui: public guiBaseObject{
         float getValueF(string xmlName, int whichParam = 0);
 		int getValueI(string xmlName, int whichParam = 0);
 		string getValueS(string xmlName, int whichParam = 0, string defaultString = "");
-		//JG returns a bang if button pressed
-		bool getButtonPressed(string buttonName);
-	
+            
+        //returns a bang if button pressed
+        bool getButtonPressed(string buttonName);
+        guiBaseObject * getElement( string name );
+    
 		void setSaveColor( int r, int g, int b );
 		void setSaveSelectedColor( int r, int g, int b );
 		void setRestoreColor( int r, int g, int b );
@@ -194,8 +196,7 @@ class ofxLabGui: public guiBaseObject{
 		
         vector <xmlAssociation> xmlObjects;
         vector <guiBaseObject *> guiObjects;
-		vector <guiTypePanel *> panels;
-		
+		vector <guiTypePanel *> panels;		
 
 		ofxXmlSettings settings;
 		string currentXmlFile;

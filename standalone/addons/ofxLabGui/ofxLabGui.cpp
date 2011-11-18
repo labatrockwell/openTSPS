@@ -872,6 +872,7 @@ void ofxLabGui::buttonPressed( string & buttonName){
 	pressedButtons[buttonName] = true;
 }
 
+//---------------------------------------------------------------
 bool ofxLabGui::getButtonPressed(string buttonName)
 {
 	bool hasBeenPressed = pressedButtons[buttonName];
@@ -879,6 +880,16 @@ bool ofxLabGui::getButtonPressed(string buttonName)
 	return hasBeenPressed;
 }
 
+//---------------------------------------------------------------
+guiBaseObject * ofxLabGui::getElement( string name ){
+    int len = guiObjects.size();
+    for (int i=0; i<len; i++){
+        if (guiObjects[i]->name == name){
+            return guiObjects[i];
+        }
+    }
+    return NULL;
+}
 
 // ############################################################## //
 // ##

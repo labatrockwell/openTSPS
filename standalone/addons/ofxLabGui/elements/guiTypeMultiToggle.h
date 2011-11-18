@@ -60,7 +60,8 @@ class guiTypeMultiToggle : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
-            ofPushStyle();
+            if (!enabled) return;
+            ofPushStyle(); {
             guiBaseObject::renderText();
 
                 //draw the background
@@ -89,7 +90,7 @@ class guiTypeMultiToggle : public guiBaseObject{
                     displayText.renderString(bNames[i], bx + boxSize + boxSpacing, by + boxSize -2);
                 }
 
-            ofPopStyle();
+            } ofPopStyle();
         }
 
     vector <string> bNames;

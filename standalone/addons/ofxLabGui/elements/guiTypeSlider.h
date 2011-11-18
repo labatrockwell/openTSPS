@@ -33,6 +33,7 @@ class guiTypeSlider : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
+            if (!enabled) return;
             ofPushStyle();
                 glPushMatrix();
                     guiBaseObject::renderText();

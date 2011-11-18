@@ -29,6 +29,7 @@ class guiBaseObject{
             readOnly    = false;
             bShowText   = true;
             locked      = false;
+            enabled     = true;
             dataType    = SG_TYPE_FLOAT;
 			bTextEnterMode = false;
 
@@ -140,6 +141,14 @@ class guiBaseObject{
         bool isLocked(){
             return locked;
         }
+        
+        virtual void enable(){
+            enabled = true;
+        }
+        
+        virtual void disable(){
+            enabled = false;
+        }
 
         //------------------------------------------------
         virtual void setShowText(bool showText){
@@ -196,12 +205,14 @@ class guiBaseObject{
 
         //------------------------------------------------
         virtual float getWidth(){
+            if (!enabled) return 0;
             return boundingBox.width;
 
         }
 
         //-----------------------------------------------
         virtual float getHeight(){
+            if (!enabled) return 0;
              return boundingBox.height;
         }
 
@@ -288,7 +299,7 @@ class guiBaseObject{
         //this also needs to be specified by the extending class
         //--------------------------------------------
         virtual void render(){
-
+            if (!enabled) return;
         }
 
          //-------------------------------------------
@@ -429,6 +440,7 @@ class guiBaseObject{
         float fontSize;
         bool bShowText;
         bool readOnly;
+        bool enabled;
         int  state;
 		int  dataType;
 		bool bTextEnterMode;

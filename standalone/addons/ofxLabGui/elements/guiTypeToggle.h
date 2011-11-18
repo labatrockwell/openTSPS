@@ -37,6 +37,7 @@ class guiTypeToggle : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
+            if (!enabled) return;
             ofPushStyle();
                 glPushMatrix();
                     guiBaseObject::renderText(hitArea.x + hitArea.width + borderWidth, hitArea.y - 3);

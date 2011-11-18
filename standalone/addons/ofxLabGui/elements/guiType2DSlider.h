@@ -39,9 +39,9 @@ class guiType2DSlider : public guiBaseObject{
 
         //-----------------------------------------------.
         void render(){
-            ofPushStyle();
-
-                glPushMatrix();
+            if (!enabled) return;
+            ofPushStyle(); {
+                ofPushMatrix(); {
                 //glTranslatef(boundingBox.x, boundingBox.y, 0);
                     guiBaseObject::renderText();
 
@@ -69,9 +69,9 @@ class guiType2DSlider : public guiBaseObject{
                     glColor4fv(outlineColor.getColorF());
                     ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
-                glPopMatrix();
+                } ofPopMatrix();
 
-            ofPopStyle();
+            } ofPopStyle();
         }
 
         float knobSize;
