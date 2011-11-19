@@ -2,6 +2,7 @@ Release Notes
 ------------
 
 1.1 (11/18/11 - Mac Only)
+
 * WebSocket communication
 * Kinect support
 * Minimize: run TSPS in lean, mean, mini mode (tiny window, all on-screen drawing skipped)
