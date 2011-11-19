@@ -19,9 +19,13 @@ ofxTSPSSettings* ofxTSPSSettings::getInstance()
         single = new ofxTSPSSettings();
         instanceFlag = true;
         
+        // general
+        single->bMinimized  = false;
+        
         //camera
         single->bUseKinect  = false;
         single->cameraIndex = 0;
+        single->inputType   = TSPS_INPUT_UNDEFINED;
         
         // background
 		single->bLearnBackground = false;
@@ -66,6 +70,31 @@ ofxTSPSSettings* ofxTSPSSettings::getInstance()
         }
     }
 	return single;
-	
 }
+
+
+void ofxTSPSSettings::setVideoGrabber( ofBaseVideo* videoGrabber, tspsInputType type){
+    if (instanceFlag){
+        single->videoGrabber = videoGrabber;
+        single->inputType    = type;
+    } else {
+        ofLog(OF_LOG_ERROR, "settings not initialized?");
+    }
+};
+
+ofBaseVideo* ofxTSPSSettings::getVideoGrabber(){
+    if (instanceFlag){
+        return single->videoGrabber;
+    } else {
+        return NULL;
+    }
+};
+
+tspsInputType ofxTSPSSettings::getInputType(){
+    if (instanceFlag){
+        return single->inputType;
+    } else {
+        return TSPS_INPUT_UNDEFINED;
+    }
+};
 

@@ -80,6 +80,10 @@ class ofxTSPSGuiManager {
 	int getSelectedPanel();
 	void setSelectedPanel( int index );
 	void setSelectedPanel( string name );
+    
+    //disable / enable stuff
+    void enableElement( string name );
+    void disableElement( string name );
 
 	void loadSettings ( string xml );
     	
@@ -87,7 +91,10 @@ class ofxTSPSGuiManager {
 	//            (i.e., the image can only get warped when in Camera View).
 	void changeGuiCameraView(bool bCameraView);
 	
-	
+    // minimize + maximize (should this be here? hmmm)
+    void minimize( string & button );
+    void maximize( string & button );
+    
 protected:
 	//a little goofy way to keep track of custom params. works but i'm open to suggestions
 	ofxLabGui panel;
@@ -103,6 +110,10 @@ protected:
 	void reloadEventCatcher( string & buttonName);
 	void loadEventCatcher( string & buttonName);
 	void saveAsEventCatcher( string & buttonName);
+    
+    // amazing minimize + maximize buttons
+    guiTypeButton * minimizeButton;
+    guiTypeButton * maximizeButton;
 	
 	simpleFileLister* haarFiles;
 };

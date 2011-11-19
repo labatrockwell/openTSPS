@@ -494,6 +494,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 	}
     
     if (bWebSocketsEnabled){
+        if (p_Settings->webSocketPort != webSocketServer.getPort()){
+            webSocketServer.close();
+            webSocketServer.setup( p_Settings->webSocketPort );
+        }
         //sent automagically
         webSocketServer.send();
     }
@@ -605,6 +609,8 @@ void ofxTSPSPeopleTracker::draw(int x, int y)
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::draw(int x, int y, int mode)
 {
+    // run lean + mean if we're minimized
+    if (p_Settings->bMinimized) return;
 	ofPushMatrix();
 		ofTranslate(x, y, 0);
 		// draw the incoming, the grayscale, the bg and the thresholded difference
@@ -1098,9 +1104,16 @@ bool ofxTSPSPeopleTracker::loadFont( string fontName, int fontSize){
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setVideoGrabber(ofVideoGrabber* grabber)
+void ofxTSPSPeopleTracker::setVideoGrabber(ofBaseVideo* grabber, tspsInputType inputType)
 {
-	p_Settings->videoGrabber = grabber;
+	p_Settings->setVideoGrabber( grabber, inputType );
+    if (inputType == TSPS_INPUT_VIDEO){
+        gui.enableElement( "open video settings" );
+        gui.disableElement( "use kinect" );
+    } else if (inputType == TSPS_INPUT_KINECT){
+        gui.disableElement( "open video settings" );
+        gui.enableElement( "use kinect" );
+    }
 }
 
 //---------------------------------------------------------------------------

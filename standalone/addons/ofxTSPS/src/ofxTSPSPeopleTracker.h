@@ -191,8 +191,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		bool loadFont(string fontName, int fontSize);
 	
 		//JG this is so we can access video grabber settings through the default interface
-		void setVideoGrabber(ofVideoGrabber* grabber);
-
+		void setVideoGrabber(ofBaseVideo* grabber, tspsInputType inputType);
 
 		// for accessing Optical Flow in specific regions
 		//			  and accessing the threshold set in the GUI

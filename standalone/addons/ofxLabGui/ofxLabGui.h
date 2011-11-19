@@ -189,10 +189,11 @@ class ofxLabGui: public guiBaseObject{
         void updateBoundingBox();
         void update();
         void draw();
-
+        
+        ofTrueTypeFont guiTTFFont;
+    
 	protected:
 	
-		ofTrueTypeFont guiTTFFont;
 		
         vector <xmlAssociation> xmlObjects;
         vector <guiBaseObject *> guiObjects;

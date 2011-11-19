@@ -41,17 +41,10 @@ void tspsApp::setup(){
     if (kinect.numAvailableDevices() < 1 || !peopleTracker.useKinect()){
         kinect.clear();        
         bKinect = false;
-        initVideoInput();        
-        /*vidGrabber.setVerbose(false);
-        vidGrabber.videoSettings();
-        vidGrabber.initGrabber(camWidth,camHeight);
-        cameraState     = CAMERA_VIDEOGRABBER;*/
+        initVideoInput();
     } else {
         bKinect = true;
         initVideoInput();
-        //kinect.setVerbose(true);
-        //kinect.open();
-        //cameraState = CAMERA_KINECT;
     }
     
     #else
@@ -77,7 +70,6 @@ void tspsApp::setup(){
 	personLeftImage.loadImage("graphic/triggers/PersonLeft_Active.png");
 	statusBar.loadImage("graphic/bottomBar.png");
 	background.loadImage("graphic/background.png");
-
 	timesBoldItalic.loadFont("fonts/timesbi.ttf", 16);
     
 	drawStatus[0] = 0;
@@ -253,6 +245,8 @@ void tspsApp::initVideoInput(){
             kinect.setVerbose(true);
             kinect.open();
             cameraState = CAMERA_KINECT;
+            //set this so we can access video settings through the interface
+            peopleTracker.setVideoGrabber(&kinect, TSPS_INPUT_KINECT);
         }        
     } else {      
         if ( cameraState == CAMERA_NOT_INITED || cameraState == CAMERA_KINECT){
@@ -267,11 +261,10 @@ void tspsApp::initVideoInput(){
             vidGrabber.videoSettings();
             vidGrabber.initGrabber(camWidth,camHeight);
             cameraState = CAMERA_VIDEOGRABBER;
+            //set this so we can access video settings through the interface
+            peopleTracker.setVideoGrabber(&vidGrabber, TSPS_INPUT_VIDEO);
         }
     }
-        
-	//set this so we can access video settings through the interface
-	peopleTracker.setVideoGrabber(&vidGrabber);
 #endif
     
 };

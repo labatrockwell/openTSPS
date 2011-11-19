@@ -54,7 +54,7 @@ class guiTextBase{
         virtual float getTextSingleLineHeight(){
             float textHeight = 0;
 
-            if(bRealFont)textHeight = ourFont->stringHeight("A");
+            if(bRealFont)textHeight = ourFont->getLineHeight();
             else  textHeight = fontSize;
 
             return textHeight;

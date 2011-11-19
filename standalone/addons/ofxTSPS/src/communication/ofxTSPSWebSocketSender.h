@@ -21,10 +21,12 @@ class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
     public:
         ofxTSPSWebSocketSender();
         
-        void setup( int port );  
+        void setup( int port=7777 );  
         void close();
         void send();
-                
+              
+        int getPort();
+    
         void personEntered ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	
         void personMoved ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	
         void personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	
@@ -33,6 +35,8 @@ class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
     protected:
         vector<ofxTSPSWebSocketMessage> toSend;
         bool bSocketOpened;
+    
+        int port;
     
         ofxWebSocketReactor * reactor;
         vector<ofxWebSocketConnection *> sockets;
