@@ -32,8 +32,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	grayBg.allocate(width, height);
 	grayDiff.allocate(width, height);
 	floatBgImg.allocate(width, height);
-	graySmallImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	
+	graySmallImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );	
 	grayLastImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
 	grayBabyImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
 	
@@ -221,15 +220,19 @@ void ofxTSPSPeopleTracker::updateSettings()
  */
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::trackPeople()
-{
-	
+{	
 	//-------------------
 	//QUAD WARPING
 	//-------------------
 		
 	//warp background
-	grayImageWarped.warpIntoMe(grayImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);
-	colorImageWarped.warpIntoMe(colorImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);	
+    //grayImageWarped = grayImage;
+    colorImage = grayImage;
+    colorImageWarped = colorImage;
+    //getQuadSubImage(&colorImage, &colorImageWarped, &p_Settings->quadWarpScaled, 3);
+    getQuadSubImage(&grayImage, &grayImageWarped, &p_Settings->quadWarpScaled, 1);
+    //grayImageWarped.warpIntoMe(grayImage, p_Settings->quadWarpScaled,     p_Settings->quadWarpOriginal);
+	//colorImageWarped.warpIntoMe(colorImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);	
 	
 	graySmallImage.scaleIntoMe(grayImageWarped);
 	grayBabyImage.scaleIntoMe(grayImageWarped);
@@ -326,14 +329,13 @@ void ofxTSPSPeopleTracker::trackPeople()
 	
 	contourFinder.findContours(grayDiff, p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, 50, p_Settings->bFindHoles);
 	persistentTracker.trackBlobs(contourFinder.blobs);
-	
-	scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
-	scene.percentCovered = 0; 
-	
+		
 	// By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
 	//            before optical flow can begin working.
 	if(p_Settings->bTrackOpticalFlow) {
-		opticalFlow.maxVector = p_Settings->maxOpticalFlow;
+        scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
+        scene.percentCovered = 0; 
+        opticalFlow.maxVector = p_Settings->maxOpticalFlow;
 		opticalFlow.minVector = p_Settings->minOpticalFlow;
 	}
 	
@@ -351,13 +353,6 @@ void ofxTSPSPeopleTracker::trackPeople()
 		//update this person with new blob info
 		p->update(blob, p_Settings->bCentroidDampen);
 
-		//simplify blob for communication
-		contourAnalysis.simplify(p->contour, p->simpleContour, 2.0f);
-		float simplifyAmount = 2.5f;
-		while (p->simpleContour.size() > 100){
-			contourAnalysis.simplify(p->contour, p->simpleContour, simplifyAmount);
-			simplifyAmount += .5f;
-		}
 		//normalize simple contour
 		for (int i=0; i<p->simpleContour.size(); i++){
 			p->simpleContour[i].x /= width;
@@ -499,6 +494,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 	}
     
     if (bWebSocketsEnabled){
+        if (p_Settings->webSocketPort != webSocketServer.getPort()){
+            webSocketServer.close();
+            webSocketServer.setup( p_Settings->webSocketPort );
+        }
         //sent automagically
         webSocketServer.send();
     }
@@ -610,6 +609,8 @@ void ofxTSPSPeopleTracker::draw(int x, int y)
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::draw(int x, int y, int mode)
 {
+    // run lean + mean if we're minimized
+    if (p_Settings->bMinimized) return;
 	ofPushMatrix();
 		ofTranslate(x, y, 0);
 		// draw the incoming, the grayscale, the bg and the thresholded difference
@@ -1103,9 +1104,16 @@ bool ofxTSPSPeopleTracker::loadFont( string fontName, int fontSize){
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setVideoGrabber(ofVideoGrabber* grabber)
+void ofxTSPSPeopleTracker::setVideoGrabber(ofBaseVideo* grabber, tspsInputType inputType)
 {
-	p_Settings->videoGrabber = grabber;
+	p_Settings->setVideoGrabber( grabber, inputType );
+    if (inputType == TSPS_INPUT_VIDEO){
+        gui.enableElement( "open video settings" );
+        gui.disableElement( "use kinect" );
+    } else if (inputType == TSPS_INPUT_KINECT){
+        gui.disableElement( "open video settings" );
+        gui.enableElement( "use kinect" );
+    }
 }
 
 //---------------------------------------------------------------------------

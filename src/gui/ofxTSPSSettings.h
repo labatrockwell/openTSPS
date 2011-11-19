@@ -35,8 +35,12 @@
 #include "ofMain.h"
 #include <iostream>
 
-enum {
+enum tspsTrackingType {
 	TRACK_DARK, TRACK_LIGHT, TRACK_ABSOLUTE
+};
+
+enum tspsInputType {
+    TSPS_INPUT_UNDEFINED, TSPS_INPUT_VIDEO, TSPS_INPUT_KINECT
 };
 
 class ofxTSPSSettings {
@@ -49,73 +53,83 @@ public:
 	}
 	
 	string haarFile;
-
+    
+    // TSPS general vars
+    bool    bMinimized;
+    
     // camera vars
     bool    bUseKinect;
     int     cameraIndex;
     
 	// image vars
-	int smooth;
-	int highpassBlur;
-	int highpassNoise;
-	int	highpassAmp;
-	int threshold;	
-	bool bHighpass;
-	bool bAmplify;
-	bool bSmooth;
-	bool bLearnBackground;
-	bool bAdjustedViewInColor;	
+	int     smooth;
+	int     highpassBlur;
+	int     highpassNoise;
+	int     highpassAmp;
+	int     threshold;	
+	bool    bHighpass;
+	bool    bAmplify;
+	bool    bSmooth;
+	bool    bLearnBackground;
+	bool    bAdjustedViewInColor;	
 	
 	// tracking vars
-	bool bLearnBackgroundProgressive;
-	float fLearnRate;
-	int trackType;
-	bool bFindHoles;
-	float minBlob;
-	float maxBlob;
-	bool bCentroidDampen;
+	bool    bLearnBackgroundProgressive;
+	float   fLearnRate;
+	int     trackType;
+	bool    bFindHoles;
+	float   minBlob;
+	float   maxBlob;
+	bool    bCentroidDampen;
 	
 	//sensing vars
-	bool bTrackOpticalFlow;
-	float minOpticalFlow;
-	float maxOpticalFlow;
-	bool bDetectHaar;
-	float haarAreaPadding;
-//	float minHaarArea;
-//	float maxHaarArea;
+	bool    bTrackOpticalFlow;
+	float   minOpticalFlow;
+	float   maxOpticalFlow;
+	bool    bDetectHaar;
+	float   haarAreaPadding;
+//	float   minHaarArea;
+//	float   maxHaarArea;
 	
 	// communication vars
-	bool bSendOsc;
-	bool bSendTuio;
-	bool bSendTcp;
-	bool bSendWebSockets;
-	bool bSendOscContours;
-	string oscHost;
-	int oscPort;
-	string tuioHost;
-	int tuioPort;
-	int tcpPort;
-    int webSocketPort;
+	bool    bSendOsc;
+	bool    bSendTuio;
+	bool    bSendTcp;
+	bool    bSendWebSockets;
+	bool    bSendOscContours;
+	string  oscHost;
+	int     oscPort;
+	string  tuioHost;
+	int     tuioPort;
+	int     tcpPort;
+    int     webSocketPort;
 	
+    // video grabber
+    void setVideoGrabber( ofBaseVideo* videoGrabber, tspsInputType type);
+    ofBaseVideo*    getVideoGrabber();
+    tspsInputType   getInputType();
+    
 	//layout vars
 	int lastCurrentPanel;
 	int currentPanel;
 	
 	//quad warping
-	ofPoint quadWarpScaled[4];
-	ofPoint quadWarpOriginal[4];
+	vector <ofPoint> quadWarpScaled;
+	vector <ofPoint> quadWarpOriginal;
 	
 	//xml file
 	vector <string> xmlFiles;
 	string currentXmlFile;
 	
-	//JG added the video grabber so we can access settings
-	//may be NULL so please do check
-	ofVideoGrabber* videoGrabber;
 	
 private:
 	
-	static bool instanceFlag;
+	//JG added the video grabber so we can access settings
+	//may be NULL so please do check
+	ofBaseVideo*    videoGrabber;
+    tspsInputType   inputType;
+    
+	static bool     instanceFlag;
 	static ofxTSPSSettings *single;
 	ofxTSPSSettings() {
 		videoGrabber = NULL;

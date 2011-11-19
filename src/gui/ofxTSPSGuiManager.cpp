@@ -62,9 +62,9 @@ void ofxTSPSGuiManager::setup(){
 	
 	//panel layout
 	
-	panel.setPosition(10, 10);
+	panel.setPosition(10, 40);
 	panel.setShowText(false);
-	panel.setDimensions(330, 680); //yikes... autospacing is not working so well
+	panel.setDimensions(330, 650); //yikes... autospacing is not working so well
 	panel.setCollapsible(false);
 	panel.setDraggable(false);
 	panel.setBackgroundColor(255,255,255);
@@ -77,7 +77,29 @@ void ofxTSPSGuiManager::setup(){
 	panel.setRestoreColor(34, 151, 210);
 	panel.setRestoreSelectedColor(116, 191, 228);
 	panel.setDrawBarOnTop(false);
-	
+    
+    // yes yes
+    minimizeButton = new guiTypeButton();
+	minimizeButton->setup("minimize", buttonWidth*1.5, buttonHeight);
+    minimizeButton->setPosition(10,10);
+    minimizeButton->setFont(&panel.guiTTFFont);
+    minimizeButton->setBackgroundColor(205,198,63);
+    minimizeButton->setBackgroundSelectColor(205,198,63);
+    
+    maximizeButton = new guiTypeButton();
+	maximizeButton->setup("maximize", buttonWidth*1.5, buttonHeight);
+    maximizeButton->setPosition(10,10);
+    maximizeButton->disable();
+    maximizeButton->setFont(&panel.guiTTFFont);
+    maximizeButton->setBackgroundSelectColor(0,168,156);
+    maximizeButton->setBackgroundColor(0,168,156);
+    
+	ofAddListener(minimizeButton->buttonPressed, this, &ofxTSPSGuiManager::minimize);
+	ofAddListener(maximizeButton->buttonPressed, this, &ofxTSPSGuiManager::maximize);
+    
+    panel.addButton("maximize");
+    disableElement("maximize");
+    
 	guiTypePanel * videoPanel = panel.addPanel("video", 1, false);
 	videoPanel->setDrawLock( false );	
 	videoPanel->setBackgroundColor(174,139,138);
@@ -113,12 +135,12 @@ void ofxTSPSGuiManager::setup(){
 	// video settings		
 	panel.setWhichPanel("video");	
 	//James G: Added video settings
-	guiTypeGroup * videoSettingsGroup = panel.addGroup("video settings");
+	guiTypeGroup * videoSettingsGroup = panel.addGroup("camera settings");
 	videoSettingsGroup->setBackgroundColor(148,129,85);
 	videoSettingsGroup->setBackgroundSelectColor(148,129,85);
 	videoSettingsGroup->seBaseColor(244,136,136);
 	videoSettingsGroup->setShowText(false);
-	panel.addButton("select video input");
+	panel.addButton("open video settings");
     panel.addToggle("use kinect", "USE_KINECT", true);
 
 	guiTypeGroup * amplificationGroup = panel.addGroup("amplification");
@@ -129,15 +151,14 @@ void ofxTSPSGuiManager::setup(){
 	panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
 	panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
 	
-	
 	// ZACK BOKA: choose whether or not to display the Adjusted View in color
-	guiTypeGroup* adjustedViewColorGroup = panel.addGroup("adjustedViewColor");
+    // BR: disabling this for now
+	/*guiTypeGroup* adjustedViewColorGroup = panel.addGroup("adjustedViewColor");
 	adjustedViewColorGroup->setBackgroundColor(148,129,85);
 	adjustedViewColorGroup->setBackgroundSelectColor(148,129,85);
 	adjustedViewColorGroup->seBaseColor(244,136,136);
 	adjustedViewColorGroup->setShowText(false);
-	panel.addToggle("show Adjusted View in color", "ADJUSTED_VIEW_COLOR", false);
-	
+	panel.addToggle("show Adjusted View in color", "ADJUSTED_VIEW_COLOR", false);*/
 	
 	//background settings
 	
@@ -287,6 +308,7 @@ void ofxTSPSGuiManager::setup(){
 	wsGroup->setShowText(false);
 	panel.addToggle("send via WebSockets", "SEND_WS", false);
 	panel.addTextField("webSocket port:", "WS_PORT", "7681", 200, 20);
+    panel.addButton("open debug URL");
 	
 	//JG TODO: Optionally change config file through the UI
 	//this would be a big help for setting up multiple install sites and having those setting
@@ -310,8 +332,7 @@ void ofxTSPSGuiManager::setup(){
 void ofxTSPSGuiManager::addSlider(string name, int* value, int min, int max)
 {
 	ofxTSPSGUICustomParam p;
-	char key[1024];
-	sprintf(key, "CUSTOM%d",params.size());
+	string key = "CUSTOM" + ofToString(params.size());
 	
 	panel.setWhichPanel("custom");
 	panel.setWhichColumn(0);	
@@ -326,9 +347,7 @@ void ofxTSPSGuiManager::addSlider(string name, int* value, int min, int max)
 void ofxTSPSGuiManager::addSlider(string name, float* value, float min, float max)
 {
 	ofxTSPSGUICustomParam p;
-	char key[1024];
-	sprintf(key, "CUSTOM%d",params.size());
-	
+	string key = "CUSTOM" + ofToString(params.size());	
 	panel.setWhichPanel("custom");
 	panel.setWhichColumn(0);
 	panel.addSlider(name, key, *value, min, max, false);
@@ -342,8 +361,7 @@ void ofxTSPSGuiManager::addSlider(string name, float* value, float min, float ma
 void ofxTSPSGuiManager::addToggle(string name, bool* value)
 {
 	ofxTSPSGUICustomParam p;	
-	char key[1024];
-	sprintf(key, "CUSTOM%d",params.size());
+	string key = "CUSTOM" + ofToString(params.size());
 	
 	panel.setWhichPanel("custom");
 	panel.setWhichColumn(0);
@@ -404,12 +422,17 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	p_Settings->highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");
 	panel.setGroupActive("video", "amplification", p_Settings->bAmplify);
 	
-	if(panel.getButtonPressed("select video input") && p_Settings->videoGrabber != NULL){
-		p_Settings->videoGrabber->videoSettings();
+	if(panel.getButtonPressed("open video settings") && p_Settings->getVideoGrabber() != NULL){
+		ofVideoGrabber * grab = dynamic_cast<ofVideoGrabber *>(p_Settings->getVideoGrabber());
+        grab->videoSettings();
 	}
+    
+    if (panel.getButtonPressed("open debug URL")){
+        ofLaunchBrowser( "http://localhost:"+panel.getValueS("WS_PORT"));
+    }
 	
-	p_Settings->bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
-	panel.setGroupActive("video", "adjustedViewColor", p_Settings->bAdjustedViewInColor);
+	//p_Settings->bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
+	//panel.setGroupActive("video", "adjustedViewColor", p_Settings->bAdjustedViewInColor);
 	
 	p_Settings->bLearnBackground = panel.getValueB("LEARN_BACKGROUND");
 	if(p_Settings->bLearnBackground){ 
@@ -552,6 +575,27 @@ void ofxTSPSGuiManager::changeGuiCameraView(bool bCameraView) {
 	quadGui.bCameraView = bCameraView;
 };
 
+
+/***************************************************************
+ ENABLE / DISABLE ELEMENTS
+***************************************************************/
+
+//----------------------------------------------------------
+    void ofxTSPSGuiManager::enableElement( string name ){
+        guiBaseObject * el = panel.getElement( name );
+        if (el != NULL){
+            el->enable();
+        }
+    };
+
+//----------------------------------------------------------
+    void ofxTSPSGuiManager::disableElement( string name ){
+        guiBaseObject * el = panel.getElement( name );
+        if (el != NULL){
+            el->disable();
+        }
+    };
+
 /***************************************************************
  GET EVENTS FROM GUI BUTTONS
  ***************************************************************/
@@ -604,7 +648,11 @@ void ofxTSPSGuiManager::mouseDragged(ofMouseEventArgs &e)
 
 void ofxTSPSGuiManager::mouseReleased(ofMouseEventArgs &e)
 {
-	if(enableGui) panel.mouseReleased();
+	if(enableGui){
+        panel.mouseReleased();
+        if (maximizeButton->enabled) maximizeButton->checkHit(e.x, e.y, e.button);
+        else if (minimizeButton->enabled) minimizeButton->checkHit(e.x, e.y, e.button);        
+    }
 }
 
 void ofxTSPSGuiManager::loadSettings( string xmlFile ){
@@ -625,8 +673,30 @@ void ofxTSPSGuiManager::keyReleased(ofKeyEventArgs &e)
 void ofxTSPSGuiManager::draw(ofEventArgs &e) {
 	if(enableGui){
 		panel.draw();
+        maximizeButton->render();
+        minimizeButton->render();
 	}
 }
+
+/***************************************************************
+    MINIMIZE + MAXIMIZE THE APP
+***************************************************************/
+
+//----------------------------------------------------------
+void ofxTSPSGuiManager::minimize(string & button){
+    ofxTSPSSettings::getInstance()->bMinimized = true;
+    ofSetWindowShape(100,40);
+    minimizeButton->disable();
+    maximizeButton->enable();
+};
+
+//----------------------------------------------------------
+void ofxTSPSGuiManager::maximize(string & button){
+    ofxTSPSSettings::getInstance()->bMinimized = false;  
+    ofSetWindowShape(1024,768); 
+    minimizeButton->enable();
+    maximizeButton->disable();
+};
 
 //JG TODO ADD EVENT UNREGISTER FO CLEAN UP
 
