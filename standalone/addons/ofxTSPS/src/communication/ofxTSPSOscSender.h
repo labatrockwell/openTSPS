@@ -43,7 +43,7 @@
 
 #pragma once
 
-#include "ofxOSC.h"
+#include "ofxOsc.h"
 #include "ofxTSPSPerson.h"
 
 class ofxTSPSOscSender : public ofxOscSender
