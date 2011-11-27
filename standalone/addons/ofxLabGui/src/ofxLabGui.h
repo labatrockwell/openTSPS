@@ -74,7 +74,7 @@ THE SOFTWARE.
 #define guiButtonWidth 220.f
 #define guiButtonHeight 20.f
 
-#include "ofxFileDialog.h"
+//#include "ofxFileDialog.h"
 
 class xmlAssociation{
     public:
