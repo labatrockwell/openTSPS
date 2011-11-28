@@ -1,0 +1,14 @@
+#ofxKinect
+#ofxWebUI_LAB
+ofxNetwork
+ofxOsc
+#ofxTuioWrapper
+#ofxMSAInteractiveObject
+#ofxTSPS
+ofxOpenCv
+#ofxOpenCVExtensions
+#ofxCvHaarTracker
+ofxContourAnalysis
+#ofxLabGui
+ofxXmlSettings
+ofxDirList

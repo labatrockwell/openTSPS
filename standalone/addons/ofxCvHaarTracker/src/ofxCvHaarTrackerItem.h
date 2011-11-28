@@ -44,8 +44,8 @@ public :
 	ofRectangle				rect;
 	ofRectangle				rectEase;
 	
-	Boolean			isMatch;
-	Boolean			isIdle;
+	bool			isMatch;
+	bool			isIdle;
 	int				idleCount;
 	int				idleCountLimit;
 	int				centreDistanceLimit;

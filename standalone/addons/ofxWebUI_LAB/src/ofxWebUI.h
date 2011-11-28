@@ -5,7 +5,7 @@
 #include "ofURLFileLoader.h"
 
 #include "ofxWebSocket.h"
-#include "ui.pb.h"
+//#include "ui.pb.h"
 
 #include "Poco/Net/DNS.h"
 
