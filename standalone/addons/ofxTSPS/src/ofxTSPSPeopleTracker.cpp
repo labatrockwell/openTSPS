@@ -484,6 +484,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 	if (bOscEnabled){
 		oscClient.ip = p_Settings->oscHost;
 		oscClient.port = p_Settings->oscPort;
+		oscClient.useLegacy = p_Settings->bUseLegacyOsc;
 		oscClient.update();
 	};
     

@@ -520,14 +520,14 @@
 		2E4A144C144341EA0038753B /* communication */ = {
 			isa = PBXGroup;
 			children = (
-				2E4A144D144341EA0038753B /* ofxTSPSOscSender.cpp */,
 				2E4A144E144341EA0038753B /* ofxTSPSOscSender.h */,
-				2E4A144F144341EA0038753B /* ofxTSPSTCPSender.cpp */,
+				2E4A144D144341EA0038753B /* ofxTSPSOscSender.cpp */,
 				2E4A1450144341EA0038753B /* ofxTSPSTCPSender.h */,
-				2E4A1451144341EA0038753B /* ofxTSPSTUIOSender.cpp */,
+				2E4A144F144341EA0038753B /* ofxTSPSTCPSender.cpp */,
 				2E4A1452144341EA0038753B /* ofxTSPSTUIOSender.h */,
-				2E4A1453144341EA0038753B /* ofxTSPSWebSocketSender.cpp */,
+				2E4A1451144341EA0038753B /* ofxTSPSTUIOSender.cpp */,
 				2E4A1454144341EA0038753B /* ofxTSPSWebSocketSender.h */,
+				2E4A1453144341EA0038753B /* ofxTSPSWebSocketSender.cpp */,
 			);
 			path = communication;
 			sourceTree = "<group>";
@@ -1214,8 +1214,8 @@
 				2E4A1455144341EA0038753B /* gui */,
 				2EE5A0BF146DD99E00D4B8AE /* utils */,
 				E741C137142F6FBF0040D77D /* ofxTSPS.h */,
-				E741C13C142F6FBF0040D77D /* ofxTSPSPeopleTracker.cpp */,
 				E741C13D142F6FBF0040D77D /* ofxTSPSPeopleTracker.h */,
+				E741C13C142F6FBF0040D77D /* ofxTSPSPeopleTracker.cpp */,
 				E741C13E142F6FBF0040D77D /* ofxTSPSPerson.cpp */,
 				E741C13F142F6FBF0040D77D /* ofxTSPSPerson.h */,
 				E741C140142F6FBF0040D77D /* ofxTSPSScene.cpp */,
