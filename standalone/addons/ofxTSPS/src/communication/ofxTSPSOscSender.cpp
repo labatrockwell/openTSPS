@@ -177,10 +177,10 @@ void ofxTSPSOscSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, in
 	ofxOscMessage m;
 	//m.setAddress("TSPS/personWillLeave/");
 	m.setAddress(useLegacy ? "TSPS/personWillLeave/" : "/TSPS/personWillLeave/");
+	m.addIntArg(p->pid);
 	if(!useLegacy){
 		m.addIntArg(p->oid);
-	}	
-	m.addIntArg(p->pid);
+	}		
 	m.addIntArg(p->age);
 	m.addFloatArg(centroid.x);
 	m.addFloatArg(centroid.y);
