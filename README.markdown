@@ -1,6 +1,7 @@
 Release Notes
 ------------
 1.2 (1/31/12 - Mac Only)
+
 * Updated OSC Message Sending format
 * Added leading slash 
 * Removed "PersonMoved" message, no only PersonUpdated is sent on every frame
