@@ -463,9 +463,10 @@ void ofxTSPSPeopleTracker::trackPeople()
         
         if (bOscEnabled){
             if( p->velocity.x != 0 || p->velocity.y != 0){
+				//DEPRECATED:
                 oscClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
             }
-            oscClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
+            oscClient.personUpdated(p, centroid, width, height, p_Settings->bSendOscContours);
         }
         
         if (bTcpEnabled){
