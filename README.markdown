@@ -12,8 +12,7 @@ Release Notes
 * WebSocket communication
 * Kinect support
 * Minimize: run TSPS in lean, mean, mini mode (tiny window, all on-screen drawing skipped)
-* OF 007 compatible 
-* Misc bug fixes (found more? email feedback@opentsps.com)
+* OF 007 compatible
 
 Troubleshooting
 ------------
