@@ -1,0 +1,4826 @@
+# depslib dependency file v1.0
+1264722635 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxdirlist\src\ofxdirlist.cpp
+	"ofxDirList.h"
+	<algorithm>
+	<string>
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxdirlist\src\ofxdirlist.h
+	"ofMain.h"
+	<stdio.h>
+	<iostream>
+	<string.h>
+	<dirent.h>
+	<windows.h>
+	<tchar.h>
+	<string.h>
+	<assert.h>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\ofmain.h
+	"ofConstants.h"
+	"ofMath.h"
+	"ofUtils.h"
+	"ofTypes.h"
+	"ofSerial.h"
+	"ofArduino.h"
+	"ofTexture.h"
+	"ofTrueTypeFont.h"
+	"ofGraphics.h"
+	"ofImage.h"
+	"ofBaseApp.h"
+	"ofAppRunner.h"
+	"ofSoundStream.h"
+	"ofSoundPlayer.h"
+	"ofVideoGrabber.h"
+	"ofVideoPlayer.h"
+	"ofEvents.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\utils\ofconstants.h
+	<TargetConditionals.h>
+	<windows.h>
+	"GLee.h"
+	"glu.h"
+	<unistd.h>
+	"GLee.h"
+	<OpenGL/glu.h>
+	<ApplicationServices/ApplicationServices.h>
+	<unistd.h>
+	"GLee.h"
+	<GL/glu.h>
+	<stdio.h>
+	<stdarg.h>
+	<math.h>
+	<time.h>
+	<stdlib.h>
+	<string.h>
+	<iostream>
+	<vector>
+	<string>
+	<sstream>
+	<iomanip>
+
+1264722689 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\glee\include\glee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1264612985 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\glu\include\glu.h
+	"glu_mangle.h"
+	<GL/gl.h>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\utils\ofmath.h
+	"ofConstants.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\utils\ofutils.h
+	"ofConstants.h"
+	<shellapi.h>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\utils\oftypes.h
+	"ofConstants.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\communication\ofserial.h
+	"ofConstants.h"
+	<termios.h>
+	<sys/ioctl.h>
+	<getopt.h>
+	<dirent.h>
+	<winbase.h>
+	<tchar.h>
+	<iostream>
+	<string.h>
+	<setupapi.h>
+	<regstr.h>
+	<winioctl.h>
+	<initguid.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<ctype.h>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\communication\ofarduino.h
+	<list>
+	<vector>
+	<string>
+	<iostream>
+	"ofEvents.h"
+	"ofSerial.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\events\ofevents.h
+	"ofConstants.h"
+	"ofEventUtils.h"
+	"ofxEventUtils.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\events\ofeventutils.h
+	"ofConstants.h"
+	"Poco/FIFOEvent.h"
+	"Poco/Delegate.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\fifoevent.h
+	"Poco/AbstractEvent.h"
+	"Poco/FIFOStrategy.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/CompareFunctions.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\abstractevent.h
+	"Poco/Foundation.h"
+	"Poco/SingletonHolder.h"
+	"Poco/SharedPtr.h"
+	"Poco/ActiveResult.h"
+	"Poco/ActiveMethod.h"
+	"Poco/Mutex.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\foundation.h
+	"Poco/Config.h"
+	"Poco/Platform.h"
+	"Poco/Platform_WIN32.h"
+	"Poco/Platform_VMS.h"
+	"Poco/Platform_POSIX.h"
+	"Poco/Bugcheck.h"
+	"Poco/Types.h"
+	<string>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\config.h
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\platform.h
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\platform_win32.h
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\platform_vms.h
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\platform_posix.h
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\bugcheck.h
+	"Poco/Foundation.h"
+	<string>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\types.h
+	"Poco/Foundation.h"
+
+1264722661 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\singletonholder.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\mutex.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/ScopedLock.h"
+	"Poco/Mutex_WIN32.h"
+	"Poco/Mutex_POSIX.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\exception.h
+	"Poco/Foundation.h"
+	<stdexcept>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\scopedlock.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\mutex_win32.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/UnWindows.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\unwindows.h
+	<windows.h>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\mutex_posix.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<pthread.h>
+	<errno.h>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\sharedptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/Mutex.h"
+	<algorithm>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\activeresult.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+	"Poco/Event.h"
+	"Poco/RefCountedObject.h"
+	"Poco/Exception.h"
+	<algorithm>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\event.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/Event_WIN32.h"
+	"Poco/Event_POSIX.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\event_win32.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/UnWindows.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\event_posix.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<pthread.h>
+	<errno.h>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\refcountedobject.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\activemethod.h
+	"Poco/Foundation.h"
+	"Poco/ActiveResult.h"
+	"Poco/ActiveRunnable.h"
+	"Poco/ActiveStarter.h"
+	"Poco/AutoPtr.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\activerunnable.h
+	"Poco/Foundation.h"
+	"Poco/ActiveResult.h"
+	"Poco/Runnable.h"
+	"Poco/RefCountedObject.h"
+	"Poco/AutoPtr.h"
+	"Poco/Exception.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\runnable.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\autoptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<algorithm>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\activestarter.h
+	"Poco/Foundation.h"
+	"Poco/ThreadPool.h"
+	"Poco/ActiveRunnable.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\threadpool.h
+	"Poco/Foundation.h"
+	"Poco/Thread.h"
+	"Poco/Mutex.h"
+	<vector>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\thread.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+	"Poco/Thread_WIN32.h"
+	"Poco/Thread_POSIX.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\thread_win32.h
+	"Poco/Foundation.h"
+	"Poco/Runnable.h"
+	"Poco/UnWindows.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\thread_posix.h
+	"Poco/Foundation.h"
+	"Poco/Runnable.h"
+	"Poco/SignalHandler.h"
+	"Poco/Event.h"
+	"Poco/RefCountedObject.h"
+	"Poco/AutoPtr.h"
+	<pthread.h>
+	<sys/select.h>
+	<errno.h>
+
+1264722661 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\signalhandler.h
+	"Poco/Foundation.h"
+	<vector>
+	<setjmp.h>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\fifostrategy.h
+	"Poco/NotificationStrategy.h"
+	<map>
+	<list>
+	<memory>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\notificationstrategy.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\abstractdelegate.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\comparefunctions.h
+	"Poco/Foundation.h"
+	<functional>
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\delegate.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/FunctionDelegate.h"
+	"Poco/Expire.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\functiondelegate.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\expire.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/Timestamp.h"
+
+1264722662 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\poco\include\poco\timestamp.h
+	"Poco/Foundation.h"
+	<ctime>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\graphics\oftexture.h
+	"ofConstants.h"
+	"ofGraphics.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\graphics\ofgraphics.h
+	"ofConstants.h"
+	"ofTypes.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\graphics\oftruetypefont.h
+	"ofConstants.h"
+	"ofGraphics.h"
+	"ofUtils.h"
+	"ofTypes.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\graphics\ofimage.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGraphics.h"
+	"ofAppRunner.h"
+	"FreeImage.h"
+	"ofUtils.h"
+
+1264722670 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\app\ofapprunner.h
+	"ofMain.h"
+	"ofBaseApp.h"
+	"ofAppBaseWindow.h"
+	"ofAppGlutWindow.h"
+
+1264722670 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\app\ofbaseapp.h
+	"ofTypes.h"
+
+1264722670 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\app\ofappbasewindow.h
+	"ofTypes.h"
+
+1264722670 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\app\ofappglutwindow.h
+	"ofConstants.h"
+	"ofAppBaseWindow.h"
+	"glut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+
+1264722672 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\glut\include\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1264722672 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\freeimage\include\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\sound\ofsoundstream.h
+	"ofConstants.h"
+	"ofBaseApp.h"
+	"ofEvents.h"
+	"ofMath.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\sound\ofsoundplayer.h
+	"ofConstants.h"
+	"fmod.h"
+	"fmod_errors.h"
+
+1264722663 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\fmodex\include\fmod.h
+	"fmod_codec.h"
+	"fmod_dsp.h"
+	"fmod_memoryinfo.h"
+
+1264722663 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\fmodex\include\fmod_codec.h
+
+1264722663 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\fmodex\include\fmod_dsp.h
+
+1264722663 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\fmodex\include\fmod_memoryinfo.h
+
+1264722663 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\fmodex\include\fmod_errors.h
+	"fmod.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\video\ofvideograbber.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGraphics.h"
+	"ofTypes.h"
+	"ofQtUtils.h"
+	"videoInput.h"
+	"ofUCUtils.h"
+	"ofGstUtils.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\video\ofqtutils.h
+	"ofConstants.h"
+	"ofGraphics.h"
+	<QuickTime/QuickTime.h>
+	<CoreServices/CoreServices.h>
+	<ApplicationServices/ApplicationServices.h>
+	<QTML.h>
+	<FixMath.h>
+	<QuickTimeComponents.h>
+	<TextUtils.h>
+	<MediaHandlers.h>
+
+1264612717 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\qtml.h
+	<MacTypes.h>
+	<MacMemory.h>
+	<MacWindows.h>
+	<OSUtils.h>
+	<Files.h>
+
+1264612682 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\mactypes.h
+	<ConditionalMacros.h>
+
+1264612690 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\conditionalmacros.h
+
+1264612733 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\macmemory.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612690 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\mixedmode.h
+	<MacTypes.h>
+
+1264612707 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\macwindows.h
+	<MacTypes.h>
+	<Aliases.h>
+	<AppleEvents.h>
+	<Collections.h>
+	<Drag.h>
+	<Events.h>
+	<Menus.h>
+	<MixedMode.h>
+	<QDOffscreen.h>
+	<Quickdraw.h>
+	<TextCommon.h>
+	<Icons.h>
+	<MacErrors.h>
+
+1264612738 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\aliases.h
+	<MacTypes.h>
+	<AppleTalk.h>
+	<Files.h>
+
+1264612709 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\appletalk.h
+	<MacTypes.h>
+	<OSUtils.h>
+
+1264612739 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\osutils.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<MacMemory.h>
+	<Patches.h>
+	<DateTimeUtils.h>
+	<Endian.h>
+
+1264612740 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\patches.h
+	<MacTypes.h>
+
+1264612723 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\datetimeutils.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+
+1264612681 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\endian.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+
+1264612685 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\files.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<OSUtils.h>
+	<TextCommon.h>
+	<UTCUtils.h>
+	<Finder.h>
+
+1264612752 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\textcommon.h
+	<MacTypes.h>
+
+1264612752 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\utcutils.h
+	<MacTypes.h>
+	<MacErrors.h>
+
+1264612730 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\macerrors.h
+	<ConditionalMacros.h>
+
+1264612683 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\finder.h
+	<MacTypes.h>
+
+1264612714 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\appleevents.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Notification.h>
+	<Events.h>
+	<AEDataModel.h>
+
+1264612701 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\notification.h
+	<MacTypes.h>
+	<OSUtils.h>
+
+1264612712 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\events.h
+	<OSUtils.h>
+	<Quickdraw.h>
+	<MacTypes.h>
+	<Endian.h>
+
+1264612728 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\quickdraw.h
+	<Components.h>
+	<MacTypes.h>
+	<MixedMode.h>
+	<QuickdrawText.h>
+
+1264612731 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\components.h
+	<MacErrors.h>
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612698 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\quickdrawtext.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612706 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\aedatamodel.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612722 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\collections.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612700 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\drag.h
+	<MacTypes.h>
+	<Events.h>
+	<Files.h>
+	<AppleEvents.h>
+	<Quickdraw.h>
+
+1264612701 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\menus.h
+	<MacTypes.h>
+	<Events.h>
+	<Quickdraw.h>
+	<Fonts.h>
+	<TextCommon.h>
+	<Processes.h>
+	<AppleEvents.h>
+	<Collections.h>
+	<MacErrors.h>
+
+1264612752 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\fonts.h
+	<MacTypes.h>
+	<Files.h>
+	<Quickdraw.h>
+	<TextCommon.h>
+	<MacErrors.h>
+
+1264612695 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\processes.h
+	<MacTypes.h>
+	<Events.h>
+	<Files.h>
+
+1264612716 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\qdoffscreen.h
+	<MacErrors.h>
+	<Quickdraw.h>
+
+1264612752 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\icons.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<Files.h>
+	<CodeFragments.h>
+
+1264612705 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\codefragments.h
+	<MacTypes.h>
+	<Files.h>
+
+1264612690 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\fixmath.h
+	<MacTypes.h>
+
+1264612731 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\quicktimecomponents.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Components.h>
+	<ImageCompression.h>
+	<Movies.h>
+	<Quickdraw.h>
+	<Video.h>
+	<Sound.h>
+	<QuickTimeMusic.h>
+
+1264612734 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\imagecompression.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<QDOffscreen.h>
+	<Components.h>
+	<StandardFile.h>
+
+1264612699 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\standardfile.h
+	<MacTypes.h>
+	<Dialogs.h>
+	<Files.h>
+
+1264612686 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\dialogs.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Events.h>
+	<MacWindows.h>
+	<TextEdit.h>
+	<Controls.h>
+	<MacErrors.h>
+
+1264612686 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\textedit.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<MixedMode.h>
+
+1264612748 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\controls.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<Menus.h>
+	<TextEdit.h>
+	<Drag.h>
+	<Icons.h>
+	<Collections.h>
+	<MacErrors.h>
+
+1264612733 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\movies.h
+	<Quickdraw.h>
+	<Aliases.h>
+	<Events.h>
+	<Menus.h>
+	<Components.h>
+	<ImageCompression.h>
+
+1264612740 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\video.h
+	<Quickdraw.h>
+
+1264612736 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\sound.h
+	<MacTypes.h>
+	<Dialogs.h>
+	<Components.h>
+	<MixedMode.h>
+	<Movies.h>
+
+1264612712 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\quicktimemusic.h
+	<Components.h>
+	<ImageCompression.h>
+	<Movies.h>
+	<Quickdraw.h>
+	<Video.h>
+	<MacMemory.h>
+	<Sound.h>
+	<Endian.h>
+
+1264612697 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\textutils.h
+	<MacTypes.h>
+	<NumberFormatting.h>
+	<StringCompare.h>
+	<DateTimeUtils.h>
+
+1264612744 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\numberformatting.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+	<IntlResources.h>
+
+1264612699 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\intlresources.h
+	<MacTypes.h>
+
+1264612676 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\stringcompare.h
+	<MacTypes.h>
+	<TextCommon.h>
+	<Script.h>
+
+1264612677 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\script.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<IntlResources.h>
+	<Events.h>
+
+1264612683 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\quicktime\include\mediahandlers.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+	<Components.h>
+	<Movies.h>
+	<Sound.h>
+
+1264612986 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\videoinput\include\videoinput.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<wchar.h>
+	<windows.h>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\video\ofucutils.h
+	"ofConstants.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<unicap.h>
+	<unistd.h>
+	<string.h>
+	<pthread.h>
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\video\ofgstutils.h
+	<gst/gst.h>
+	<pthread.h>
+	"ofConstants.h"
+
+1264722671 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\libs\openframeworks\video\ofvideoplayer.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGstUtils.h"
+	"ofQtUtils.h"
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcolorimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvgrayscaleimage.h
+	"ofxCvImage.h"
+	"ofxCvBlob.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvimage.h
+	"ofxCvConstants.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvconstants.h
+	"cv.h"
+	<vector>
+	"ofMain.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvblob.h
+	"ofxCvConstants.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcolorimage.h
+	"ofxCvImage.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvfloatimage.h
+	"ofxCvImage.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvshortimage.h
+	"ofxCvImage.h"
+
+1265388246 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcontourfinder.cpp
+	"ofxCvContourFinder.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcontourfinder.h
+	"ofxCvConstants.h"
+	"ofxCvBlob.h"
+	"ofxCvGrayscaleImage.h"
+	<algorithm>
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvfloatimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvgrayscaleimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvimage.cpp
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvBlob.h"
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvshortimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscbundle.cpp
+	"ofxOscBundle.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscbundle.h
+	<vector>
+	"ofxOscMessage.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscmessage.h
+	"ofxOscArg.h"
+	<vector>
+	<string>
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscarg.h
+	"ofConstants.h"
+	<string>
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscmessage.cpp
+	"ofxOscMessage.h"
+	<iostream>
+	<assert.h>
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscreceiver.cpp
+	"ofxOscReceiver.h"
+	<pthread.h>
+	<iostream>
+	<assert.h>
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscreceiver.h
+	<deque>
+	"ofMain.h"
+	<windows.h>
+	<pthread.h>
+	"OscTypes.h"
+	"OscPacketListener.h"
+	"UdpSocket.h"
+	"ofxOscMessage.h"
+
+1264722651 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscsender.cpp
+	"ofxOscSender.h"
+	"UdpSocket.h"
+	<assert.h>
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscsender.h
+	<string>
+	"OscTypes.h"
+	"OscOutboundPacketStream.h"
+	"ofxOscBundle.h"
+	"ofxOscMessage.h"
+
+1264722635 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxthread\src\ofxthread.cpp
+	"ofxThread.h"
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxthread\src\ofxthread.h
+	"ofConstants.h"
+	<process.h>
+	<pthread.h>
+	<semaphore.h>
+
+1264722647 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxxmlsettings\src\ofxxmlsettings.cpp
+	"ofxXmlSettings.h"
+	<vector>
+	<string>
+	<iostream>
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxxmlsettings\src\ofxxmlsettings.h
+	"ofMain.h"
+	<string.h>
+	"tinyxml.h"
+
+1264722588 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\main.cpp
+	"ofMain.h"
+	"testApp.h"
+	"ofAppGlutWindow.h"
+
+1266013113 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\testapp.h
+	"ofMain.h"
+	"ofxCYA.h"
+
+1268065145 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\testapp.cpp
+	"testApp.h"
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\osc\osctypes.h
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\osc\oscpacketlistener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\osc\oscexception.h
+	<exception>
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\ip\packetlistener.h
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\ip\networkingutils.h
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\ip\ipendpointname.h
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\oscpack\include\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1265986356 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcya.h
+	"ofxCYAPeopleTracker.h"
+
+1266004515 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyapeopletracker.h
+	"ofxCYAPerson.h"
+	"ofxCYAView.h"
+	"ofxOpenCv.h"
+	"CPUImageFilter.h"
+	"ofxCvOpticalFlowLK.h"
+	"ofxCvHaarTracker.h"
+	"ofxContourAnalysis.h"
+	"ofxCYASettings.h"
+	"ofxCYAGuiManager.h"
+	"ofxCYATUIOSender.h"
+	"ofxCYAOscSender.h"
+	"ofxCYATCPSender.h"
+	"ofxCvBlobTracker.h"
+	"ofxCYAScene.h"
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyaperson.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1268247110 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyaview.h
+	"ofxOpenCv.h"
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxopencvextensions\src\cpuimagefilter.h
+	"ofxCvGrayscaleImage.h"
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxopencvextensions\src\ofxcvopticalflowlk.h
+	"ofMain.h"
+	"ofxCvConstants.h"
+	"ofxCvGrayscaleImage.h"
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcvhaartracker\ofxcvhaartracker.h
+	"ofxCvMain.h"
+	"ofxCvHaarFinder.h"
+	"ofxCvHaarTrackerItem.h"
+
+1265209758 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcvhaartracker\ofxcvhaarfinder.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcvhaartracker\ofxcvhaartrackeritem.h
+	"ofMain.h"
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcontouranalysis\ofxcontouranalysis.h
+	"ofMain.h"
+	"polylineSimplify.h"
+	"convexHull.h"
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcontouranalysis\polylinesimplify.h
+	"ofMain.h"
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcontouranalysis\convexhull.h
+	"ofMain.h"
+	<algorithm>
+
+1266004705 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyasettings.h
+	"ofMain.h"
+	<iostream>
+
+1266009116 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyaguimanager.h
+	"ofxLabGui.h"
+	"ofxCvCoordWarpingGui.h"
+
+1266012022 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\ofxlabgui.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+	"guiIncludes.h"
+	"ofxFileDialog.h"
+
+1265831748 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guiincludes.h
+	"guiValue.h"
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiTypePanel.h"
+	"guiTypeText.h"
+	"guiTypeButton.h"
+	"guiTypeToggle.h"
+	"guiTypeMultiToggle.h"
+	"guiTypeSlider.h"
+	"guiType2DSlider.h"
+	"guiTypeDrawable.h"
+	"guiTypeLogger.h"
+	"guiTypeFileLister.h"
+	"guiTypeCustom.h"
+	"guiCustomImpl.h"
+	"guiTypeGroup.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guivalue.h
+
+1265996715 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guibaseobject.h
+	"simpleColor.h"
+	"guiColor.h"
+	"guiValue.h"
+	"guiTextBase.h"
+
+1265136407 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\simplecolor.h
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guicolor.h
+	"simpleColor.h"
+
+1265660576 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitextbase.h
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265669041 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypepanel.h
+	"guiBaseObject.h"
+	"guiTypeGroup.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266007921 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypegroup.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266008117 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypetext.h
+	"guiBaseObject.h"
+	"guiTypeText.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266008371 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypebutton.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265321202 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypetoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypemultitoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266008040 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypeslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitype2dslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypedrawable.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypelogger.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleLogger.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\simplelogger.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypefilelister.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleFileLister.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\simplefilelister.h
+	"ofMain.h"
+	"ofxDirList.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guitypecustom.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiCustomImpl.h"
+
+1264722653 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxlabgui\guicustomimpl.h
+
+1266008249 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxopencvextensions\src\ofxcvcoordwarpinggui.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+	"ofxXmlSettings.h"
+	"ofxMSAInteractiveObject.h"
+
+1265402655 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxmsainteractiveobject\src\ofxmsainteractiveobject.h
+	"ofMain.h"
+
+1265986375 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyatuiosender.h
+	"TuioServer.h"
+	"TuioCursor.h"
+	"ofMain.h"
+
+1264778256 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\core\tuioserver.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+	<iostream>
+	<list>
+	<algorithm>
+	"OscOutboundPacketStream.h"
+	"NetworkingUtils.h"
+	"UdpSocket.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1264722650 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\core\tuioobject.h
+	<math.h>
+	"TuioContainer.h"
+
+1264722650 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\core\tuiocontainer.h
+	<list>
+	<math.h>
+	"TuioPoint.h"
+	<iostream>
+
+1264722650 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\core\tuiopoint.h
+	"TuioTime.h"
+	<iostream>
+
+1264722650 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\core\tuiotime.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+
+1264722650 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxtuiowrapper\core\tuiocursor.h
+	<math.h>
+	"TuioContainer.h"
+
+1266004546 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyaoscsender.h
+	"ofxOSC.h"
+	"ofxCYAPerson.h"
+
+1266011437 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyatcpsender.h
+	"ofxNetwork.h"
+	"ofxXmlSettings.h"
+	"ofxCYAPerson.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxnetwork\src\ofxnetwork.h
+	"ofxThread.h"
+	"ofxTCPClient.h"
+	"ofxTCPManager.h"
+	"ofxTCPServer.h"
+	"ofxUDPManager.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxnetwork\src\ofxtcpclient.h
+	"ofConstants.h"
+	"ofxTCPManager.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxnetwork\src\ofxtcpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<time.h>
+	<errno.h>
+	<unistd.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<sys/timeb.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<sys/signal.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxnetwork\src\ofxtcpserver.h
+	"ofConstants.h"
+	"ofxThread.h"
+	"ofxTCPManager.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxnetwork\src\ofxudpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<unistd.h>
+	<arpa/inet.h>
+	<netinet/in.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<netinet/tcp.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxopencvextensions\src\ofxcvblobtracker.h
+	<map>
+	<vector>
+	"ofMain.h"
+	"ofxCvTrackedBlob.h"
+	"ofxCvConstants_Track.h"
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxopencvextensions\src\ofxcvtrackedblob.h
+	"ofxOpenCv.h"
+
+1264722635 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxopencvextensions\src\ofxcvconstants_track.h
+	<iostream>
+	"cv.h"
+	"ofxCvBlob.h"
+	"ofxCvTrackedBlob.h"
+
+1265986380 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxcyapeoplevision\src\ofxcyascene.h
+
+1264722647 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1264722647 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1264722647 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1264722647 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cv.h
+	<chdl.h>
+	"cxcore.h"
+	"cvtypes.h"
+	"cv.hpp"
+	"cvcompat.h"
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxcore.h
+	"ipl.h"
+	"ipl/ipl.h"
+	"cxtypes.h"
+	"cxerror.h"
+	"cvver.h"
+	"cxcore.hpp"
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxtypes.h
+	<assert.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	<emmintrin.h>
+	<fastmath.h>
+	<mathimf.h>
+	<math.h>
+	<ipl.h>
+	<ipl/ipl.h>
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxerror.h
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cvver.h
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxcore.hpp
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cvtypes.h
+	<assert.h>
+	<stdlib.h>
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cv.hpp
+
+1264722652 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cvcompat.h
+	<string.h>
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\osctypes.h
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscpacketlistener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscexception.h
+	<exception>
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\packetlistener.h
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\networkingutils.h
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\ipendpointname.h
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxopencv.h
+	"ofxCvConstants.h"
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+	"ofxCvContourFinder.h"
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvmain.h
+	"ofxCvConstants.h"
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+	"ofxCvContourFinder.h"
+
+1268062916 source:\\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxfiledialog\src\ofxfiledialog.cpp
+	"ofxFileDialog.h"
+
+1265994094 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxfiledialog\src\ofxfiledialog.h
+	<string>
+	<windows.h>
+
+1265994094 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\apps\cya_win_src\tsps\src\ofxfiledialog\src\ofxfiledialog.h
+	<string>
+	<windows.h>
+
+1264722651 \\.host\shared folders\rockwell on my mac\documents\cya\of_0061_lab\core\addons\ofxosc\src\ofxosc.h
+	"ofxOscArg.h"
+	"ofxOscMessage.h"
+	"ofxOscSender.h"
+	"ofxOscReceiver.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxdirlist\src\ofxdirlist.cpp
+	"ofxDirList.h"
+	<algorithm>
+	<string>
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\addons\ofxdirlist\src\ofxdirlist.h
+	"ofMain.h"
+	<stdio.h>
+	<iostream>
+	<string.h>
+	<dirent.h>
+	<windows.h>
+	<tchar.h>
+	<string.h>
+	<assert.h>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\ofmain.h
+	"ofConstants.h"
+	"ofMath.h"
+	"ofUtils.h"
+	"ofTypes.h"
+	"ofSerial.h"
+	"ofArduino.h"
+	"ofTexture.h"
+	"ofTrueTypeFont.h"
+	"ofGraphics.h"
+	"ofImage.h"
+	"ofBaseApp.h"
+	"ofAppRunner.h"
+	"ofSoundStream.h"
+	"ofSoundPlayer.h"
+	"ofVideoGrabber.h"
+	"ofVideoPlayer.h"
+	"ofEvents.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\utils\ofconstants.h
+	<TargetConditionals.h>
+	<windows.h>
+	"GLee.h"
+	"glu.h"
+	<unistd.h>
+	"GLee.h"
+	<OpenGL/glu.h>
+	<ApplicationServices/ApplicationServices.h>
+	<unistd.h>
+	"GLee.h"
+	<GL/glu.h>
+	<stdio.h>
+	<stdarg.h>
+	<math.h>
+	<time.h>
+	<stdlib.h>
+	<string.h>
+	<iostream>
+	<vector>
+	<string>
+	<sstream>
+	<iomanip>
+
+1264722689 c:\documents and settings\administrator\desktop\of_0061\libs\glee\include\glee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1264612985 c:\documents and settings\administrator\desktop\of_0061\libs\glu\include\glu.h
+	"glu_mangle.h"
+	<GL/gl.h>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\utils\ofmath.h
+	"ofConstants.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\utils\ofutils.h
+	"ofConstants.h"
+	<shellapi.h>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\utils\oftypes.h
+	"ofConstants.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\communication\ofserial.h
+	"ofConstants.h"
+	<termios.h>
+	<sys/ioctl.h>
+	<getopt.h>
+	<dirent.h>
+	<winbase.h>
+	<tchar.h>
+	<iostream>
+	<string.h>
+	<setupapi.h>
+	<regstr.h>
+	<winioctl.h>
+	<initguid.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<ctype.h>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\communication\ofarduino.h
+	<list>
+	<vector>
+	<string>
+	<iostream>
+	"ofEvents.h"
+	"ofSerial.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\events\ofevents.h
+	"ofConstants.h"
+	"ofEventUtils.h"
+	"ofxEventUtils.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\events\ofeventutils.h
+	"ofConstants.h"
+	"Poco/FIFOEvent.h"
+	"Poco/Delegate.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\fifoevent.h
+	"Poco/AbstractEvent.h"
+	"Poco/FIFOStrategy.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/CompareFunctions.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\abstractevent.h
+	"Poco/Foundation.h"
+	"Poco/SingletonHolder.h"
+	"Poco/SharedPtr.h"
+	"Poco/ActiveResult.h"
+	"Poco/ActiveMethod.h"
+	"Poco/Mutex.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\foundation.h
+	"Poco/Config.h"
+	"Poco/Platform.h"
+	"Poco/Platform_WIN32.h"
+	"Poco/Platform_VMS.h"
+	"Poco/Platform_POSIX.h"
+	"Poco/Bugcheck.h"
+	"Poco/Types.h"
+	<string>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\config.h
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\platform.h
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\platform_win32.h
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\platform_vms.h
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\platform_posix.h
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\bugcheck.h
+	"Poco/Foundation.h"
+	<string>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\types.h
+	"Poco/Foundation.h"
+
+1264722661 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\singletonholder.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\mutex.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/ScopedLock.h"
+	"Poco/Mutex_WIN32.h"
+	"Poco/Mutex_POSIX.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\exception.h
+	"Poco/Foundation.h"
+	<stdexcept>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\scopedlock.h
+	"Poco/Foundation.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\mutex_win32.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/UnWindows.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\unwindows.h
+	<windows.h>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\mutex_posix.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<pthread.h>
+	<errno.h>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\sharedptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/Mutex.h"
+	<algorithm>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\activeresult.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+	"Poco/Event.h"
+	"Poco/RefCountedObject.h"
+	"Poco/Exception.h"
+	<algorithm>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\event.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/Event_WIN32.h"
+	"Poco/Event_POSIX.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\event_win32.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/UnWindows.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\event_posix.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<pthread.h>
+	<errno.h>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\refcountedobject.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\activemethod.h
+	"Poco/Foundation.h"
+	"Poco/ActiveResult.h"
+	"Poco/ActiveRunnable.h"
+	"Poco/ActiveStarter.h"
+	"Poco/AutoPtr.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\activerunnable.h
+	"Poco/Foundation.h"
+	"Poco/ActiveResult.h"
+	"Poco/Runnable.h"
+	"Poco/RefCountedObject.h"
+	"Poco/AutoPtr.h"
+	"Poco/Exception.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\runnable.h
+	"Poco/Foundation.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\autoptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<algorithm>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\activestarter.h
+	"Poco/Foundation.h"
+	"Poco/ThreadPool.h"
+	"Poco/ActiveRunnable.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\threadpool.h
+	"Poco/Foundation.h"
+	"Poco/Thread.h"
+	"Poco/Mutex.h"
+	<vector>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\thread.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+	"Poco/Thread_WIN32.h"
+	"Poco/Thread_POSIX.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\thread_win32.h
+	"Poco/Foundation.h"
+	"Poco/Runnable.h"
+	"Poco/UnWindows.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\thread_posix.h
+	"Poco/Foundation.h"
+	"Poco/Runnable.h"
+	"Poco/SignalHandler.h"
+	"Poco/Event.h"
+	"Poco/RefCountedObject.h"
+	"Poco/AutoPtr.h"
+	<pthread.h>
+	<sys/select.h>
+	<errno.h>
+
+1264722661 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\signalhandler.h
+	"Poco/Foundation.h"
+	<vector>
+	<setjmp.h>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\fifostrategy.h
+	"Poco/NotificationStrategy.h"
+	<map>
+	<list>
+	<memory>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\notificationstrategy.h
+	"Poco/Foundation.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\abstractdelegate.h
+	"Poco/Foundation.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\comparefunctions.h
+	"Poco/Foundation.h"
+	<functional>
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\delegate.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/FunctionDelegate.h"
+	"Poco/Expire.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\functiondelegate.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\expire.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/Timestamp.h"
+
+1264722662 c:\documents and settings\administrator\desktop\of_0061\libs\poco\include\poco\timestamp.h
+	"Poco/Foundation.h"
+	<ctime>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\graphics\oftexture.h
+	"ofConstants.h"
+	"ofGraphics.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\graphics\ofgraphics.h
+	"ofConstants.h"
+	"ofTypes.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\graphics\oftruetypefont.h
+	"ofConstants.h"
+	"ofGraphics.h"
+	"ofUtils.h"
+	"ofTypes.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\graphics\ofimage.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGraphics.h"
+	"ofAppRunner.h"
+	"FreeImage.h"
+	"ofUtils.h"
+
+1264722670 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\app\ofapprunner.h
+	"ofMain.h"
+	"ofBaseApp.h"
+	"ofAppBaseWindow.h"
+	"ofAppGlutWindow.h"
+
+1264722670 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\app\ofbaseapp.h
+	"ofTypes.h"
+
+1264722670 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\app\ofappbasewindow.h
+	"ofTypes.h"
+
+1264722670 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\app\ofappglutwindow.h
+	"ofConstants.h"
+	"ofAppBaseWindow.h"
+	"glut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+
+1264722672 c:\documents and settings\administrator\desktop\of_0061\libs\glut\include\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1264722672 c:\documents and settings\administrator\desktop\of_0061\libs\freeimage\include\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\sound\ofsoundstream.h
+	"ofConstants.h"
+	"ofBaseApp.h"
+	"ofEvents.h"
+	"ofMath.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\sound\ofsoundplayer.h
+	"ofConstants.h"
+	"fmod.h"
+	"fmod_errors.h"
+
+1264722663 c:\documents and settings\administrator\desktop\of_0061\libs\fmodex\include\fmod.h
+	"fmod_codec.h"
+	"fmod_dsp.h"
+	"fmod_memoryinfo.h"
+
+1264722663 c:\documents and settings\administrator\desktop\of_0061\libs\fmodex\include\fmod_codec.h
+
+1264722663 c:\documents and settings\administrator\desktop\of_0061\libs\fmodex\include\fmod_dsp.h
+
+1264722663 c:\documents and settings\administrator\desktop\of_0061\libs\fmodex\include\fmod_memoryinfo.h
+
+1264722663 c:\documents and settings\administrator\desktop\of_0061\libs\fmodex\include\fmod_errors.h
+	"fmod.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\video\ofvideograbber.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGraphics.h"
+	"ofTypes.h"
+	"ofQtUtils.h"
+	"videoInput.h"
+	"ofUCUtils.h"
+	"ofGstUtils.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\video\ofqtutils.h
+	"ofConstants.h"
+	"ofGraphics.h"
+	<QuickTime/QuickTime.h>
+	<CoreServices/CoreServices.h>
+	<ApplicationServices/ApplicationServices.h>
+	<QTML.h>
+	<FixMath.h>
+	<QuickTimeComponents.h>
+	<TextUtils.h>
+	<MediaHandlers.h>
+
+1264612717 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\qtml.h
+	<MacTypes.h>
+	<MacMemory.h>
+	<MacWindows.h>
+	<OSUtils.h>
+	<Files.h>
+
+1264612682 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\mactypes.h
+	<ConditionalMacros.h>
+
+1264612690 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\conditionalmacros.h
+
+1264612733 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\macmemory.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612690 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\mixedmode.h
+	<MacTypes.h>
+
+1264612707 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\macwindows.h
+	<MacTypes.h>
+	<Aliases.h>
+	<AppleEvents.h>
+	<Collections.h>
+	<Drag.h>
+	<Events.h>
+	<Menus.h>
+	<MixedMode.h>
+	<QDOffscreen.h>
+	<Quickdraw.h>
+	<TextCommon.h>
+	<Icons.h>
+	<MacErrors.h>
+
+1264612738 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\aliases.h
+	<MacTypes.h>
+	<AppleTalk.h>
+	<Files.h>
+
+1264612709 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\appletalk.h
+	<MacTypes.h>
+	<OSUtils.h>
+
+1264612739 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\osutils.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<MacMemory.h>
+	<Patches.h>
+	<DateTimeUtils.h>
+	<Endian.h>
+
+1264612740 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\patches.h
+	<MacTypes.h>
+
+1264612723 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\datetimeutils.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+
+1264612681 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\endian.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+
+1264612685 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\files.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<OSUtils.h>
+	<TextCommon.h>
+	<UTCUtils.h>
+	<Finder.h>
+
+1264612752 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\textcommon.h
+	<MacTypes.h>
+
+1264612752 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\utcutils.h
+	<MacTypes.h>
+	<MacErrors.h>
+
+1264612730 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\macerrors.h
+	<ConditionalMacros.h>
+
+1264612683 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\finder.h
+	<MacTypes.h>
+
+1264612714 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\appleevents.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Notification.h>
+	<Events.h>
+	<AEDataModel.h>
+
+1264612701 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\notification.h
+	<MacTypes.h>
+	<OSUtils.h>
+
+1264612712 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\events.h
+	<OSUtils.h>
+	<Quickdraw.h>
+	<MacTypes.h>
+	<Endian.h>
+
+1264612728 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\quickdraw.h
+	<Components.h>
+	<MacTypes.h>
+	<MixedMode.h>
+	<QuickdrawText.h>
+
+1264612731 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\components.h
+	<MacErrors.h>
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612698 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\quickdrawtext.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612706 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\aedatamodel.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612722 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\collections.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612700 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\drag.h
+	<MacTypes.h>
+	<Events.h>
+	<Files.h>
+	<AppleEvents.h>
+	<Quickdraw.h>
+
+1264612701 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\menus.h
+	<MacTypes.h>
+	<Events.h>
+	<Quickdraw.h>
+	<Fonts.h>
+	<TextCommon.h>
+	<Processes.h>
+	<AppleEvents.h>
+	<Collections.h>
+	<MacErrors.h>
+
+1264612752 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\fonts.h
+	<MacTypes.h>
+	<Files.h>
+	<Quickdraw.h>
+	<TextCommon.h>
+	<MacErrors.h>
+
+1264612695 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\processes.h
+	<MacTypes.h>
+	<Events.h>
+	<Files.h>
+
+1264612716 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\qdoffscreen.h
+	<MacErrors.h>
+	<Quickdraw.h>
+
+1264612752 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\icons.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<Files.h>
+	<CodeFragments.h>
+
+1264612705 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\codefragments.h
+	<MacTypes.h>
+	<Files.h>
+
+1264612690 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\fixmath.h
+	<MacTypes.h>
+
+1264612731 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\quicktimecomponents.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Components.h>
+	<ImageCompression.h>
+	<Movies.h>
+	<Quickdraw.h>
+	<Video.h>
+	<Sound.h>
+	<QuickTimeMusic.h>
+
+1264612734 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\imagecompression.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<QDOffscreen.h>
+	<Components.h>
+	<StandardFile.h>
+
+1264612699 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\standardfile.h
+	<MacTypes.h>
+	<Dialogs.h>
+	<Files.h>
+
+1264612686 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\dialogs.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Events.h>
+	<MacWindows.h>
+	<TextEdit.h>
+	<Controls.h>
+	<MacErrors.h>
+
+1264612686 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\textedit.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<MixedMode.h>
+
+1264612748 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\controls.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<Menus.h>
+	<TextEdit.h>
+	<Drag.h>
+	<Icons.h>
+	<Collections.h>
+	<MacErrors.h>
+
+1264612733 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\movies.h
+	<Quickdraw.h>
+	<Aliases.h>
+	<Events.h>
+	<Menus.h>
+	<Components.h>
+	<ImageCompression.h>
+
+1264612740 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\video.h
+	<Quickdraw.h>
+
+1264612736 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\sound.h
+	<MacTypes.h>
+	<Dialogs.h>
+	<Components.h>
+	<MixedMode.h>
+	<Movies.h>
+
+1264612712 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\quicktimemusic.h
+	<Components.h>
+	<ImageCompression.h>
+	<Movies.h>
+	<Quickdraw.h>
+	<Video.h>
+	<MacMemory.h>
+	<Sound.h>
+	<Endian.h>
+
+1264612697 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\textutils.h
+	<MacTypes.h>
+	<NumberFormatting.h>
+	<StringCompare.h>
+	<DateTimeUtils.h>
+
+1264612744 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\numberformatting.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+	<IntlResources.h>
+
+1264612699 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\intlresources.h
+	<MacTypes.h>
+
+1264612676 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\stringcompare.h
+	<MacTypes.h>
+	<TextCommon.h>
+	<Script.h>
+
+1264612677 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\script.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<IntlResources.h>
+	<Events.h>
+
+1264612683 c:\documents and settings\administrator\desktop\of_0061\libs\quicktime\include\mediahandlers.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+	<Components.h>
+	<Movies.h>
+	<Sound.h>
+
+1264612986 c:\documents and settings\administrator\desktop\of_0061\libs\videoinput\include\videoinput.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<wchar.h>
+	<windows.h>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\video\ofucutils.h
+	"ofConstants.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<unicap.h>
+	<unistd.h>
+	<string.h>
+	<pthread.h>
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\video\ofgstutils.h
+	<gst/gst.h>
+	<pthread.h>
+	"ofConstants.h"
+
+1264722671 c:\documents and settings\administrator\desktop\of_0061\libs\openframeworks\video\ofvideoplayer.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGstUtils.h"
+	"ofQtUtils.h"
+
+1268062916 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxfiledialog\src\ofxfiledialog.cpp
+	"ofxFileDialog.h"
+
+1269005728 c:\documents and settings\administrator\desktop\of_0061\addons\ofxfiledialog\src\ofxfiledialog.h
+	<string>
+	<windows.h>
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvcolorimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvgrayscaleimage.h
+	"ofxCvImage.h"
+	"ofxCvBlob.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvimage.h
+	"ofxCvConstants.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvconstants.h
+	"cv.h"
+	<vector>
+	"ofMain.h"
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cv.h
+	<chdl.h>
+	"cxcore.h"
+	"cvtypes.h"
+	"cv.hpp"
+	"cvcompat.h"
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cxcore.h
+	"ipl.h"
+	"ipl/ipl.h"
+	"cxtypes.h"
+	"cxerror.h"
+	"cvver.h"
+	"cxcore.hpp"
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cxtypes.h
+	<assert.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	<emmintrin.h>
+	<fastmath.h>
+	<mathimf.h>
+	<math.h>
+	<ipl.h>
+	<ipl/ipl.h>
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cxerror.h
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cvver.h
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cxcore.hpp
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cvtypes.h
+	<assert.h>
+	<stdlib.h>
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cv.hpp
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\libs\opencv\include\cvcompat.h
+	<string.h>
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvblob.h
+	"ofxCvConstants.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvcolorimage.h
+	"ofxCvImage.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvfloatimage.h
+	"ofxCvImage.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvshortimage.h
+	"ofxCvImage.h"
+
+1265388246 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvcontourfinder.cpp
+	"ofxCvContourFinder.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvcontourfinder.h
+	"ofxCvConstants.h"
+	"ofxCvBlob.h"
+	"ofxCvGrayscaleImage.h"
+	<algorithm>
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvfloatimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvgrayscaleimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvimage.cpp
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvBlob.h"
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvshortimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscbundle.cpp
+	"ofxOscBundle.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscbundle.h
+	<vector>
+	"ofxOscMessage.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscmessage.h
+	"ofxOscArg.h"
+	<vector>
+	<string>
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscarg.h
+	"ofConstants.h"
+	<string>
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscmessage.cpp
+	"ofxOscMessage.h"
+	<iostream>
+	<assert.h>
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscreceiver.cpp
+	"ofxOscReceiver.h"
+	<pthread.h>
+	<iostream>
+	<assert.h>
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscreceiver.h
+	<deque>
+	"ofMain.h"
+	<windows.h>
+	<pthread.h>
+	"OscTypes.h"
+	"OscPacketListener.h"
+	"UdpSocket.h"
+	"ofxOscMessage.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\osc\osctypes.h
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\osc\oscpacketlistener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\osc\oscexception.h
+	<exception>
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\ip\packetlistener.h
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\ip\networkingutils.h
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\ip\ipendpointname.h
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscsender.cpp
+	"ofxOscSender.h"
+	"UdpSocket.h"
+	<assert.h>
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxoscsender.h
+	<string>
+	"OscTypes.h"
+	"OscOutboundPacketStream.h"
+	"ofxOscBundle.h"
+	"ofxOscMessage.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxthread\src\ofxthread.cpp
+	"ofxThread.h"
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\addons\ofxthread\src\ofxthread.h
+	"ofConstants.h"
+	<process.h>
+	<pthread.h>
+	<semaphore.h>
+
+1264722647 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxxmlsettings\libs\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1264722647 c:\documents and settings\administrator\desktop\of_0061\addons\ofxxmlsettings\libs\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1264722647 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxxmlsettings\libs\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1264722647 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxxmlsettings\libs\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1264722647 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxxmlsettings\src\ofxxmlsettings.cpp
+	"ofxXmlSettings.h"
+	<vector>
+	<string>
+	<iostream>
+
+1264722647 c:\documents and settings\administrator\desktop\of_0061\addons\ofxxmlsettings\src\ofxxmlsettings.h
+	"ofMain.h"
+	<string.h>
+	"tinyxml.h"
+
+1264722588 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\main.cpp
+	"ofMain.h"
+	"testApp.h"
+	"ofAppGlutWindow.h"
+
+1269005716 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\testapp.h
+	"ofMain.h"
+	"ofxTSPS.h"
+
+1265986356 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcya.h
+	"ofxCYAPeopleTracker.h"
+
+1266004515 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyapeopletracker.h
+	"ofxCYAPerson.h"
+	"ofxCYAView.h"
+	"ofxOpenCv.h"
+	"CPUImageFilter.h"
+	"ofxCvOpticalFlowLK.h"
+	"ofxCvHaarTracker.h"
+	"ofxContourAnalysis.h"
+	"ofxCYASettings.h"
+	"ofxCYAGuiManager.h"
+	"ofxCYATUIOSender.h"
+	"ofxCYAOscSender.h"
+	"ofxCYATCPSender.h"
+	"ofxCvBlobTracker.h"
+	"ofxCYAScene.h"
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyaperson.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxopencv.h
+	"ofxCvConstants.h"
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+	"ofxCvContourFinder.h"
+
+1268247110 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyaview.h
+	"ofxOpenCv.h"
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\cpuimagefilter.h
+	"ofxCvGrayscaleImage.h"
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvopticalflowlk.h
+	"ofMain.h"
+	"ofxCvConstants.h"
+	"ofxCvGrayscaleImage.h"
+
+1264722647 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcvhaartracker\ofxcvhaartracker.h
+	"ofxCvMain.h"
+	"ofxCvHaarFinder.h"
+	"ofxCvHaarTrackerItem.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxopencv\src\ofxcvmain.h
+	"ofxCvConstants.h"
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+	"ofxCvContourFinder.h"
+
+1265209758 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcvhaartracker\ofxcvhaarfinder.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1264722647 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcvhaartracker\ofxcvhaartrackeritem.h
+	"ofMain.h"
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\ofxcontouranalysis.h
+	"ofMain.h"
+	"polylineSimplify.h"
+	"convexHull.h"
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\polylinesimplify.h
+	"ofMain.h"
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\convexhull.h
+	"ofMain.h"
+	<algorithm>
+
+1266004705 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyasettings.h
+	"ofMain.h"
+	<iostream>
+
+1266009116 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyaguimanager.h
+	"ofxLabGui.h"
+	"ofxCvCoordWarpingGui.h"
+
+1266012022 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\ofxlabgui.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+	"guiIncludes.h"
+	"ofxFileDialog.h"
+
+1265831748 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guiincludes.h
+	"guiValue.h"
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiTypePanel.h"
+	"guiTypeText.h"
+	"guiTypeButton.h"
+	"guiTypeToggle.h"
+	"guiTypeMultiToggle.h"
+	"guiTypeSlider.h"
+	"guiType2DSlider.h"
+	"guiTypeDrawable.h"
+	"guiTypeLogger.h"
+	"guiTypeFileLister.h"
+	"guiTypeCustom.h"
+	"guiCustomImpl.h"
+	"guiTypeGroup.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guivalue.h
+
+1265996715 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guibaseobject.h
+	"simpleColor.h"
+	"guiColor.h"
+	"guiValue.h"
+	"guiTextBase.h"
+
+1265136407 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\simplecolor.h
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guicolor.h
+	"simpleColor.h"
+
+1265660576 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitextbase.h
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265669041 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypepanel.h
+	"guiBaseObject.h"
+	"guiTypeGroup.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1269005720 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypegroup.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266008117 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypetext.h
+	"guiBaseObject.h"
+	"guiTypeText.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1269005718 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypebutton.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265321202 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypetoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypemultitoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266008040 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypeslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitype2dslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypedrawable.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypelogger.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleLogger.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\simplelogger.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypefilelister.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleFileLister.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\simplefilelister.h
+	"ofMain.h"
+	"ofxDirList.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guitypecustom.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiCustomImpl.h"
+
+1264722653 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\guicustomimpl.h
+
+1265994094 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxfiledialog\src\ofxfiledialog.h
+	<string>
+	<windows.h>
+
+1269005724 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvcoordwarpinggui.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+	"ofxXmlSettings.h"
+	"ofxMSAInteractiveObject.h"
+
+1265402655 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxmsainteractiveobject\src\ofxmsainteractiveobject.h
+	"ofMain.h"
+
+1265986375 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyatuiosender.h
+	"TuioServer.h"
+	"TuioCursor.h"
+	"ofMain.h"
+
+1264778256 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuioserver.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+	<iostream>
+	<list>
+	<algorithm>
+	"OscOutboundPacketStream.h"
+	"NetworkingUtils.h"
+	"UdpSocket.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuioobject.h
+	<math.h>
+	"TuioContainer.h"
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuiocontainer.h
+	<list>
+	<math.h>
+	"TuioPoint.h"
+	<iostream>
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuiopoint.h
+	"TuioTime.h"
+	<iostream>
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuiotime.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuiocursor.h
+	<math.h>
+	"TuioContainer.h"
+
+1266004546 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyaoscsender.h
+	"ofxOSC.h"
+	"ofxCYAPerson.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\src\ofxosc.h
+	"ofxOscArg.h"
+	"ofxOscMessage.h"
+	"ofxOscSender.h"
+	"ofxOscReceiver.h"
+
+1266011437 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyatcpsender.h
+	"ofxNetwork.h"
+	"ofxXmlSettings.h"
+	"ofxCYAPerson.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxnetwork.h
+	"ofxThread.h"
+	"ofxTCPClient.h"
+	"ofxTCPManager.h"
+	"ofxTCPServer.h"
+	"ofxUDPManager.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxtcpclient.h
+	"ofConstants.h"
+	"ofxTCPManager.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxtcpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<time.h>
+	<errno.h>
+	<unistd.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<sys/timeb.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<sys/signal.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxtcpserver.h
+	"ofConstants.h"
+	"ofxThread.h"
+	"ofxTCPManager.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxudpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<unistd.h>
+	<arpa/inet.h>
+	<netinet/in.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<netinet/tcp.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvblobtracker.h
+	<map>
+	<vector>
+	"ofMain.h"
+	"ofxCvTrackedBlob.h"
+	"ofxCvConstants_Track.h"
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvtrackedblob.h
+	"ofxOpenCv.h"
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvconstants_track.h
+	<iostream>
+	"cv.h"
+	"ofxCvBlob.h"
+	"ofxCvTrackedBlob.h"
+
+1265986380 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyascene.h
+
+1266013163 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyaguimanager.cpp
+	"ofxCYAGuiManager.h"
+	"ofxCYASettings.h"
+
+1268414778 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyaoscsender.cpp
+	"ofxCYAOSCSender.h"
+
+1268247019 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyapeopletracker.cpp
+	"ofxCYAPeopleTracker.h"
+	"CPUImageFilter.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyaperson.cpp
+	"ofxCYAPerson.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyascene.cpp
+	"ofMain.h"
+	"ofxCYAScene.h"
+
+1265997525 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyasettings.cpp
+	"ofxCYASettings.h"
+
+1266011709 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyatcpsender.cpp
+	"ofxCYATCPSender.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcyapeoplevision\src\ofxcyatuiosender.cpp
+	"ofxCYATUIOSender.h"
+
+1264722652 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\triangle\del_impl.cpp
+	<iostream>
+	"triangle_impl.hpp"
+	"del_interface.hpp"
+	<new>
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\triangle\triangle_impl.hpp
+	"dpoint.hpp"
+	<iostream>
+	<algorithm>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<sys/time.h>
+	<float.h>
+	<fpu_control.h>
+	"triangle.h"
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\triangle\dpoint.hpp
+	"assert.hpp"
+	<iostream>
+	<valarray>
+	<stdio.h>
+	<limits>
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\triangle\assert.hpp
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\triangle\triangle.h
+
+1264722652 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcontouranalysis\triangle\del_interface.hpp
+	"dpoint.hpp"
+	<vector>
+	<string>
+
+1264722647 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcvhaartracker\ofxcvhaarfinder.cpp
+	"ofxCvHaarFinder.h"
+
+1264722647 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcvhaartracker\ofxcvhaartracker.cpp
+	"ofxCvHaarTracker.h"
+
+1264722647 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxcvhaartracker\ofxcvhaartrackeritem.cpp
+	"ofMain.h"
+	"ofxCvHaarTrackerItem.h"
+
+1268065072 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxlabgui\ofxlabgui.cpp
+	"ofxLabGui.h"
+
+1265402747 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxmsainteractiveobject\src\ofxmsainteractiveobject.cpp
+	"ofxMSAInteractiveObject.h"
+	"ofMain.h"
+
+1266010569 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxtcpclient.cpp
+	"ofxTCPClient.h"
+	"ofAppRunner.h"
+
+1266011045 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxtcpmanager.cpp
+	"ofxTCPManager.h"
+	<stdio.h>
+
+1266011097 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxtcpserver.cpp
+	"ofxTCPServer.h"
+	"ofxTCPClient.h"
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxnetwork\src\ofxudpmanager.cpp
+	"ofxUDPManager.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\cpuimagefilter.cpp
+	"CPUImageFilter.h"
+	"ofxCvColorImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvFloatImage.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvblobtracker.cpp
+	"ofxCvBlobTracker.h"
+
+1264722635 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvcoordwarping.cpp
+	"ofxCvCoordWarping.h"
+
+1264722635 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvcoordwarping.h
+	"ofMain.h"
+	"ofxCvConstants.h"
+	"ofxCvContourFinder.h"
+
+1269005723 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvcoordwarpinggui.cpp
+	"ofxCvCoordWarpingGui.h"
+
+1265666696 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxopencvextensions\src\ofxcvopticalflowlk.cpp
+	"ofxCvOpticalFlowLK.h"
+
+1264722650 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\tuiotcpxmlserver.cpp
+	"TuioTcpXmlServer.h"
+	"TuioTcpXmlServer.h"
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\tuiotcpxmlserver.h
+	"ofMain.h"
+	"TuioCursor.h"
+	"ofxNetwork.h"
+
+1264722650 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuioclient.cpp
+	"TuioClient.h"
+
+1264778945 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuioclient.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+	<iostream>
+	<list>
+	<algorithm>
+	<cstring>
+	"OscReceivedElements.h"
+	"OscPrintReceivedElements.h"
+	"UdpSocket.h"
+	"PacketListener.h"
+	"TuioListener.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxosc\libs\oscpack\include\osc\oscprintreceivedelements.h
+	<iosfwd>
+	"OscReceivedElements.h"
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuiolistener.h
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1265131583 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuioserver.cpp
+	"TuioServer.h"
+
+1264722650 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\core\tuiotime.cpp
+	"TuioTime.h"
+
+1264722650 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\ofxtuioclient.cpp
+	"ofxTuioClient.h"
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\ofxtuioclient.h
+	"ofMain.h"
+	"TuioListener.h"
+	"TuioClient.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+	"TuioPoint.h"
+	<list>
+	<math.h>
+
+1264722650 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\ofxtuioserver.cpp
+	"ofxTuioServer.h"
+
+1264722650 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtuiowrapper\ofxtuioserver.h
+	"ofMain.h"
+	"TuioServer.h"
+	"TuioCursor.h"
+	<list>
+	<math.h>
+
+1269005726 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\testapp.cpp
+	"testApp.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtsps.h
+	"ofxTSPSPeopleTracker.h"
+
+1269005797 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspspeopletracker.h
+	"ofxTSPSPerson.h"
+	"ofxTSPSView.h"
+	"ofxOpenCv.h"
+	"CPUImageFilter.h"
+	"ofxCvOpticalFlowLK.h"
+	"ofxCvHaarTracker.h"
+	"ofxContourAnalysis.h"
+	"ofxTSPSSettings.h"
+	"ofxTSPSGuiManager.h"
+	"ofxTSPSTUIOSender.h"
+	"ofxTSPSOscSender.h"
+	"ofxTSPSTCPSender.h"
+	"ofxCvBlobTracker.h"
+	"ofxTSPSScene.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsperson.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsview.h
+	"ofxOpenCv.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspssettings.h
+	"ofMain.h"
+	<iostream>
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsguimanager.h
+	"ofxLabGui.h"
+	"ofxCvCoordWarpingGui.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspstuiosender.h
+	"TuioServer.h"
+	"TuioCursor.h"
+	"ofMain.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsoscsender.h
+	"ofxOSC.h"
+	"ofxTSPSPerson.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspstcpsender.h
+	"ofxNetwork.h"
+	"ofxXmlSettings.h"
+	"ofxTSPSPerson.h"
+
+1268851265 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsscene.h
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsguimanager.cpp
+	"ofxTSPSGuiManager.h"
+	"ofxTSPSSettings.h"
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsoscsender.cpp
+	"ofxTSPSOSCSender.h"
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspspeopletracker.cpp
+	"ofxTSPSPeopleTracker.h"
+	"CPUImageFilter.h"
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsperson.cpp
+	"ofxTSPSPerson.h"
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspsscene.cpp
+	"ofMain.h"
+	"ofxTSPSScene.h"
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspssettings.cpp
+	"ofxTSPSSettings.h"
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspstcpsender.cpp
+	"ofxTSPSTCPSender.h"
+
+1268851265 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\tsps\src\ofxtsps\src\ofxtspstuiosender.cpp
+	"ofxTSPSTUIOSender.h"
+
+1264722635 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxdirlist\src\ofxdirlist.cpp
+	"ofxDirList.h"
+	<algorithm>
+	<string>
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxdirlist\src\ofxdirlist.h
+	"ofMain.h"
+	<stdio.h>
+	<iostream>
+	<string.h>
+	<dirent.h>
+	<windows.h>
+	<tchar.h>
+	<string.h>
+	<assert.h>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\ofmain.h
+	"ofConstants.h"
+	"ofMath.h"
+	"ofUtils.h"
+	"ofTypes.h"
+	"ofSerial.h"
+	"ofArduino.h"
+	"ofTexture.h"
+	"ofTrueTypeFont.h"
+	"ofGraphics.h"
+	"ofImage.h"
+	"ofBaseApp.h"
+	"ofAppRunner.h"
+	"ofSoundStream.h"
+	"ofSoundPlayer.h"
+	"ofVideoGrabber.h"
+	"ofVideoPlayer.h"
+	"ofEvents.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\utils\ofconstants.h
+	<TargetConditionals.h>
+	<windows.h>
+	"GLee.h"
+	"glu.h"
+	<unistd.h>
+	"GLee.h"
+	<OpenGL/glu.h>
+	<ApplicationServices/ApplicationServices.h>
+	<unistd.h>
+	"GLee.h"
+	<GL/glu.h>
+	<stdio.h>
+	<stdarg.h>
+	<math.h>
+	<time.h>
+	<stdlib.h>
+	<string.h>
+	<iostream>
+	<vector>
+	<string>
+	<sstream>
+	<iomanip>
+
+1264722689 \\.host\shared folders\cya\of_0061_lab\core\libs\glee\include\glee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1264612985 \\.host\shared folders\cya\of_0061_lab\core\libs\glu\include\glu.h
+	"glu_mangle.h"
+	<GL/gl.h>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\utils\ofmath.h
+	"ofConstants.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\utils\ofutils.h
+	"ofConstants.h"
+	<shellapi.h>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\utils\oftypes.h
+	"ofConstants.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\communication\ofserial.h
+	"ofConstants.h"
+	<termios.h>
+	<sys/ioctl.h>
+	<getopt.h>
+	<dirent.h>
+	<winbase.h>
+	<tchar.h>
+	<iostream>
+	<string.h>
+	<setupapi.h>
+	<regstr.h>
+	<winioctl.h>
+	<initguid.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<ctype.h>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\communication\ofarduino.h
+	<list>
+	<vector>
+	<string>
+	<iostream>
+	"ofEvents.h"
+	"ofSerial.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\events\ofevents.h
+	"ofConstants.h"
+	"ofEventUtils.h"
+	"ofxEventUtils.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\events\ofeventutils.h
+	"ofConstants.h"
+	"Poco/FIFOEvent.h"
+	"Poco/Delegate.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\fifoevent.h
+	"Poco/AbstractEvent.h"
+	"Poco/FIFOStrategy.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/CompareFunctions.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\abstractevent.h
+	"Poco/Foundation.h"
+	"Poco/SingletonHolder.h"
+	"Poco/SharedPtr.h"
+	"Poco/ActiveResult.h"
+	"Poco/ActiveMethod.h"
+	"Poco/Mutex.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\foundation.h
+	"Poco/Config.h"
+	"Poco/Platform.h"
+	"Poco/Platform_WIN32.h"
+	"Poco/Platform_VMS.h"
+	"Poco/Platform_POSIX.h"
+	"Poco/Bugcheck.h"
+	"Poco/Types.h"
+	<string>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\config.h
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\platform.h
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\platform_win32.h
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\platform_vms.h
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\platform_posix.h
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\bugcheck.h
+	"Poco/Foundation.h"
+	<string>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\types.h
+	"Poco/Foundation.h"
+
+1264722661 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\singletonholder.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\mutex.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/ScopedLock.h"
+	"Poco/Mutex_WIN32.h"
+	"Poco/Mutex_POSIX.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\exception.h
+	"Poco/Foundation.h"
+	<stdexcept>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\scopedlock.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\mutex_win32.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/UnWindows.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\unwindows.h
+	<windows.h>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\mutex_posix.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<pthread.h>
+	<errno.h>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\sharedptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/Mutex.h"
+	<algorithm>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\activeresult.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+	"Poco/Event.h"
+	"Poco/RefCountedObject.h"
+	"Poco/Exception.h"
+	<algorithm>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\event.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/Event_WIN32.h"
+	"Poco/Event_POSIX.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\event_win32.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/UnWindows.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\event_posix.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<pthread.h>
+	<errno.h>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\refcountedobject.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\activemethod.h
+	"Poco/Foundation.h"
+	"Poco/ActiveResult.h"
+	"Poco/ActiveRunnable.h"
+	"Poco/ActiveStarter.h"
+	"Poco/AutoPtr.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\activerunnable.h
+	"Poco/Foundation.h"
+	"Poco/ActiveResult.h"
+	"Poco/Runnable.h"
+	"Poco/RefCountedObject.h"
+	"Poco/AutoPtr.h"
+	"Poco/Exception.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\runnable.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\autoptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<algorithm>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\activestarter.h
+	"Poco/Foundation.h"
+	"Poco/ThreadPool.h"
+	"Poco/ActiveRunnable.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\threadpool.h
+	"Poco/Foundation.h"
+	"Poco/Thread.h"
+	"Poco/Mutex.h"
+	<vector>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\thread.h
+	"Poco/Foundation.h"
+	"Poco/Mutex.h"
+	"Poco/Thread_WIN32.h"
+	"Poco/Thread_POSIX.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\thread_win32.h
+	"Poco/Foundation.h"
+	"Poco/Runnable.h"
+	"Poco/UnWindows.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\thread_posix.h
+	"Poco/Foundation.h"
+	"Poco/Runnable.h"
+	"Poco/SignalHandler.h"
+	"Poco/Event.h"
+	"Poco/RefCountedObject.h"
+	"Poco/AutoPtr.h"
+	<pthread.h>
+	<sys/select.h>
+	<errno.h>
+
+1264722661 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\signalhandler.h
+	"Poco/Foundation.h"
+	<vector>
+	<setjmp.h>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\fifostrategy.h
+	"Poco/NotificationStrategy.h"
+	<map>
+	<list>
+	<memory>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\notificationstrategy.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\abstractdelegate.h
+	"Poco/Foundation.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\comparefunctions.h
+	"Poco/Foundation.h"
+	<functional>
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\delegate.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/FunctionDelegate.h"
+	"Poco/Expire.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\functiondelegate.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\expire.h
+	"Poco/Foundation.h"
+	"Poco/AbstractDelegate.h"
+	"Poco/Timestamp.h"
+
+1264722662 \\.host\shared folders\cya\of_0061_lab\core\libs\poco\include\poco\timestamp.h
+	"Poco/Foundation.h"
+	<ctime>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\graphics\oftexture.h
+	"ofConstants.h"
+	"ofGraphics.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\graphics\ofgraphics.h
+	"ofConstants.h"
+	"ofTypes.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\graphics\oftruetypefont.h
+	"ofConstants.h"
+	"ofGraphics.h"
+	"ofUtils.h"
+	"ofTypes.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\graphics\ofimage.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGraphics.h"
+	"ofAppRunner.h"
+	"FreeImage.h"
+	"ofUtils.h"
+
+1264722670 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\app\ofapprunner.h
+	"ofMain.h"
+	"ofBaseApp.h"
+	"ofAppBaseWindow.h"
+	"ofAppGlutWindow.h"
+
+1264722670 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\app\ofbaseapp.h
+	"ofTypes.h"
+
+1264722670 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\app\ofappbasewindow.h
+	"ofTypes.h"
+
+1264722670 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\app\ofappglutwindow.h
+	"ofConstants.h"
+	"ofAppBaseWindow.h"
+	"glut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+
+1264722672 \\.host\shared folders\cya\of_0061_lab\core\libs\glut\include\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1264722672 \\.host\shared folders\cya\of_0061_lab\core\libs\freeimage\include\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\sound\ofsoundstream.h
+	"ofConstants.h"
+	"ofBaseApp.h"
+	"ofEvents.h"
+	"ofMath.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\sound\ofsoundplayer.h
+	"ofConstants.h"
+	"fmod.h"
+	"fmod_errors.h"
+
+1264722663 \\.host\shared folders\cya\of_0061_lab\core\libs\fmodex\include\fmod.h
+	"fmod_codec.h"
+	"fmod_dsp.h"
+	"fmod_memoryinfo.h"
+
+1264722663 \\.host\shared folders\cya\of_0061_lab\core\libs\fmodex\include\fmod_codec.h
+
+1264722663 \\.host\shared folders\cya\of_0061_lab\core\libs\fmodex\include\fmod_dsp.h
+
+1264722663 \\.host\shared folders\cya\of_0061_lab\core\libs\fmodex\include\fmod_memoryinfo.h
+
+1264722663 \\.host\shared folders\cya\of_0061_lab\core\libs\fmodex\include\fmod_errors.h
+	"fmod.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\video\ofvideograbber.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGraphics.h"
+	"ofTypes.h"
+	"ofQtUtils.h"
+	"videoInput.h"
+	"ofUCUtils.h"
+	"ofGstUtils.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\video\ofqtutils.h
+	"ofConstants.h"
+	"ofGraphics.h"
+	<QuickTime/QuickTime.h>
+	<CoreServices/CoreServices.h>
+	<ApplicationServices/ApplicationServices.h>
+	<QTML.h>
+	<FixMath.h>
+	<QuickTimeComponents.h>
+	<TextUtils.h>
+	<MediaHandlers.h>
+
+1264612717 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\qtml.h
+	<MacTypes.h>
+	<MacMemory.h>
+	<MacWindows.h>
+	<OSUtils.h>
+	<Files.h>
+
+1264612682 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\mactypes.h
+	<ConditionalMacros.h>
+
+1264612690 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\conditionalmacros.h
+
+1264612733 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\macmemory.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612690 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\mixedmode.h
+	<MacTypes.h>
+
+1264612707 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\macwindows.h
+	<MacTypes.h>
+	<Aliases.h>
+	<AppleEvents.h>
+	<Collections.h>
+	<Drag.h>
+	<Events.h>
+	<Menus.h>
+	<MixedMode.h>
+	<QDOffscreen.h>
+	<Quickdraw.h>
+	<TextCommon.h>
+	<Icons.h>
+	<MacErrors.h>
+
+1264612738 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\aliases.h
+	<MacTypes.h>
+	<AppleTalk.h>
+	<Files.h>
+
+1264612709 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\appletalk.h
+	<MacTypes.h>
+	<OSUtils.h>
+
+1264612739 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\osutils.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<MacMemory.h>
+	<Patches.h>
+	<DateTimeUtils.h>
+	<Endian.h>
+
+1264612740 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\patches.h
+	<MacTypes.h>
+
+1264612723 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\datetimeutils.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+
+1264612681 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\endian.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+
+1264612685 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\files.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<OSUtils.h>
+	<TextCommon.h>
+	<UTCUtils.h>
+	<Finder.h>
+
+1264612752 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\textcommon.h
+	<MacTypes.h>
+
+1264612752 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\utcutils.h
+	<MacTypes.h>
+	<MacErrors.h>
+
+1264612730 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\macerrors.h
+	<ConditionalMacros.h>
+
+1264612683 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\finder.h
+	<MacTypes.h>
+
+1264612714 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\appleevents.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Notification.h>
+	<Events.h>
+	<AEDataModel.h>
+
+1264612701 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\notification.h
+	<MacTypes.h>
+	<OSUtils.h>
+
+1264612712 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\events.h
+	<OSUtils.h>
+	<Quickdraw.h>
+	<MacTypes.h>
+	<Endian.h>
+
+1264612728 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\quickdraw.h
+	<Components.h>
+	<MacTypes.h>
+	<MixedMode.h>
+	<QuickdrawText.h>
+
+1264612731 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\components.h
+	<MacErrors.h>
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612698 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\quickdrawtext.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612706 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\aedatamodel.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612722 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\collections.h
+	<MacTypes.h>
+	<MixedMode.h>
+
+1264612700 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\drag.h
+	<MacTypes.h>
+	<Events.h>
+	<Files.h>
+	<AppleEvents.h>
+	<Quickdraw.h>
+
+1264612701 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\menus.h
+	<MacTypes.h>
+	<Events.h>
+	<Quickdraw.h>
+	<Fonts.h>
+	<TextCommon.h>
+	<Processes.h>
+	<AppleEvents.h>
+	<Collections.h>
+	<MacErrors.h>
+
+1264612752 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\fonts.h
+	<MacTypes.h>
+	<Files.h>
+	<Quickdraw.h>
+	<TextCommon.h>
+	<MacErrors.h>
+
+1264612695 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\processes.h
+	<MacTypes.h>
+	<Events.h>
+	<Files.h>
+
+1264612716 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\qdoffscreen.h
+	<MacErrors.h>
+	<Quickdraw.h>
+
+1264612752 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\icons.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<Files.h>
+	<CodeFragments.h>
+
+1264612705 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\codefragments.h
+	<MacTypes.h>
+	<Files.h>
+
+1264612690 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\fixmath.h
+	<MacTypes.h>
+
+1264612731 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\quicktimecomponents.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Components.h>
+	<ImageCompression.h>
+	<Movies.h>
+	<Quickdraw.h>
+	<Video.h>
+	<Sound.h>
+	<QuickTimeMusic.h>
+
+1264612734 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\imagecompression.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<QDOffscreen.h>
+	<Components.h>
+	<StandardFile.h>
+
+1264612699 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\standardfile.h
+	<MacTypes.h>
+	<Dialogs.h>
+	<Files.h>
+
+1264612686 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\dialogs.h
+	<MacTypes.h>
+	<MixedMode.h>
+	<Events.h>
+	<MacWindows.h>
+	<TextEdit.h>
+	<Controls.h>
+	<MacErrors.h>
+
+1264612686 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\textedit.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<MixedMode.h>
+
+1264612748 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\controls.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<Menus.h>
+	<TextEdit.h>
+	<Drag.h>
+	<Icons.h>
+	<Collections.h>
+	<MacErrors.h>
+
+1264612733 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\movies.h
+	<Quickdraw.h>
+	<Aliases.h>
+	<Events.h>
+	<Menus.h>
+	<Components.h>
+	<ImageCompression.h>
+
+1264612740 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\video.h
+	<Quickdraw.h>
+
+1264612736 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\sound.h
+	<MacTypes.h>
+	<Dialogs.h>
+	<Components.h>
+	<MixedMode.h>
+	<Movies.h>
+
+1264612712 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\quicktimemusic.h
+	<Components.h>
+	<ImageCompression.h>
+	<Movies.h>
+	<Quickdraw.h>
+	<Video.h>
+	<MacMemory.h>
+	<Sound.h>
+	<Endian.h>
+
+1264612697 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\textutils.h
+	<MacTypes.h>
+	<NumberFormatting.h>
+	<StringCompare.h>
+	<DateTimeUtils.h>
+
+1264612744 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\numberformatting.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+	<IntlResources.h>
+
+1264612699 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\intlresources.h
+	<MacTypes.h>
+
+1264612676 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\stringcompare.h
+	<MacTypes.h>
+	<TextCommon.h>
+	<Script.h>
+
+1264612677 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\script.h
+	<MacTypes.h>
+	<Quickdraw.h>
+	<IntlResources.h>
+	<Events.h>
+
+1264612683 \\.host\shared folders\cya\of_0061_lab\core\libs\quicktime\include\mediahandlers.h
+	<ConditionalMacros.h>
+	<MacTypes.h>
+	<Components.h>
+	<Movies.h>
+	<Sound.h>
+
+1264612986 \\.host\shared folders\cya\of_0061_lab\core\libs\videoinput\include\videoinput.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<wchar.h>
+	<windows.h>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\video\ofucutils.h
+	"ofConstants.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<unicap.h>
+	<unistd.h>
+	<string.h>
+	<pthread.h>
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\video\ofgstutils.h
+	<gst/gst.h>
+	<pthread.h>
+	"ofConstants.h"
+
+1264722671 \\.host\shared folders\cya\of_0061_lab\core\libs\openframeworks\video\ofvideoplayer.h
+	"ofConstants.h"
+	"ofTexture.h"
+	"ofGstUtils.h"
+	"ofQtUtils.h"
+
+1268062916 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxfiledialog\src\ofxfiledialog.cpp
+	"ofxFileDialog.h"
+
+1265994094 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxfiledialog\src\ofxfiledialog.h
+	<string>
+	<windows.h>
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcolorimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvgrayscaleimage.h
+	"ofxCvImage.h"
+	"ofxCvBlob.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvimage.h
+	"ofxCvConstants.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvconstants.h
+	"cv.h"
+	<vector>
+	"ofMain.h"
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cv.h
+	<chdl.h>
+	"cxcore.h"
+	"cvtypes.h"
+	"cv.hpp"
+	"cvcompat.h"
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxcore.h
+	"ipl.h"
+	"ipl/ipl.h"
+	"cxtypes.h"
+	"cxerror.h"
+	"cvver.h"
+	"cxcore.hpp"
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxtypes.h
+	<assert.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	<emmintrin.h>
+	<fastmath.h>
+	<mathimf.h>
+	<math.h>
+	<ipl.h>
+	<ipl/ipl.h>
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxerror.h
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cvver.h
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cxcore.hpp
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cvtypes.h
+	<assert.h>
+	<stdlib.h>
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cv.hpp
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\libs\opencv\include\cvcompat.h
+	<string.h>
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvblob.h
+	"ofxCvConstants.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcolorimage.h
+	"ofxCvImage.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvfloatimage.h
+	"ofxCvImage.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvshortimage.h
+	"ofxCvImage.h"
+
+1265388246 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcontourfinder.cpp
+	"ofxCvContourFinder.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvcontourfinder.h
+	"ofxCvConstants.h"
+	"ofxCvBlob.h"
+	"ofxCvGrayscaleImage.h"
+	<algorithm>
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvfloatimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvgrayscaleimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvimage.cpp
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvBlob.h"
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvshortimage.cpp
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscbundle.cpp
+	"ofxOscBundle.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscbundle.h
+	<vector>
+	"ofxOscMessage.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscmessage.h
+	"ofxOscArg.h"
+	<vector>
+	<string>
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscarg.h
+	"ofConstants.h"
+	<string>
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscmessage.cpp
+	"ofxOscMessage.h"
+	<iostream>
+	<assert.h>
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscreceiver.cpp
+	"ofxOscReceiver.h"
+	<pthread.h>
+	<iostream>
+	<assert.h>
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscreceiver.h
+	<deque>
+	"ofMain.h"
+	<windows.h>
+	<pthread.h>
+	"OscTypes.h"
+	"OscPacketListener.h"
+	"UdpSocket.h"
+	"ofxOscMessage.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\osctypes.h
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscpacketlistener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscexception.h
+	<exception>
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\packetlistener.h
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\networkingutils.h
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\ip\ipendpointname.h
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscsender.cpp
+	"ofxOscSender.h"
+	"UdpSocket.h"
+	<assert.h>
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxoscsender.h
+	<string>
+	"OscTypes.h"
+	"OscOutboundPacketStream.h"
+	"ofxOscBundle.h"
+	"ofxOscMessage.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1264722635 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxthread\src\ofxthread.cpp
+	"ofxThread.h"
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxthread\src\ofxthread.h
+	"ofConstants.h"
+	<process.h>
+	<pthread.h>
+	<semaphore.h>
+
+1264722647 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1264722647 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1264722647 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1264722647 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxxmlsettings\libs\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1264722647 source:\\.host\shared folders\cya\of_0061_lab\core\addons\ofxxmlsettings\src\ofxxmlsettings.cpp
+	"ofxXmlSettings.h"
+	<vector>
+	<string>
+	<iostream>
+
+1264722647 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxxmlsettings\src\ofxxmlsettings.h
+	"ofMain.h"
+	<string.h>
+	"tinyxml.h"
+
+1264722588 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\main.cpp
+	"ofMain.h"
+	"testApp.h"
+	"ofAppGlutWindow.h"
+
+1269005716 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\testapp.h
+	"ofMain.h"
+	"ofxTSPS.h"
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtsps.h
+	"ofxTSPSPeopleTracker.h"
+
+1269005797 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspspeopletracker.h
+	"ofxTSPSPerson.h"
+	"ofxTSPSView.h"
+	"ofxOpenCv.h"
+	"CPUImageFilter.h"
+	"ofxCvOpticalFlowLK.h"
+	"ofxCvHaarTracker.h"
+	"ofxContourAnalysis.h"
+	"ofxTSPSSettings.h"
+	"ofxTSPSGuiManager.h"
+	"ofxTSPSTUIOSender.h"
+	"ofxTSPSOscSender.h"
+	"ofxTSPSTCPSender.h"
+	"ofxCvBlobTracker.h"
+	"ofxTSPSScene.h"
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsperson.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxopencv.h
+	"ofxCvConstants.h"
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+	"ofxCvContourFinder.h"
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsview.h
+	"ofxOpenCv.h"
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\cpuimagefilter.h
+	"ofxCvGrayscaleImage.h"
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvopticalflowlk.h
+	"ofMain.h"
+	"ofxCvConstants.h"
+	"ofxCvGrayscaleImage.h"
+
+1264722647 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcvhaartracker\ofxcvhaartracker.h
+	"ofxCvMain.h"
+	"ofxCvHaarFinder.h"
+	"ofxCvHaarTrackerItem.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxopencv\src\ofxcvmain.h
+	"ofxCvConstants.h"
+	"ofxCvImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvColorImage.h"
+	"ofxCvFloatImage.h"
+	"ofxCvShortImage.h"
+	"ofxCvContourFinder.h"
+
+1265209758 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcvhaartracker\ofxcvhaarfinder.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1264722647 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcvhaartracker\ofxcvhaartrackeritem.h
+	"ofMain.h"
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\ofxcontouranalysis.h
+	"ofMain.h"
+	"polylineSimplify.h"
+	"convexHull.h"
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\polylinesimplify.h
+	"ofMain.h"
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\convexhull.h
+	"ofMain.h"
+	<algorithm>
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspssettings.h
+	"ofMain.h"
+	<iostream>
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsguimanager.h
+	"ofxLabGui.h"
+	"ofxCvCoordWarpingGui.h"
+
+1266012022 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\ofxlabgui.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+	"guiIncludes.h"
+	"ofxFileDialog.h"
+
+1265831748 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guiincludes.h
+	"guiValue.h"
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiTypePanel.h"
+	"guiTypeText.h"
+	"guiTypeButton.h"
+	"guiTypeToggle.h"
+	"guiTypeMultiToggle.h"
+	"guiTypeSlider.h"
+	"guiType2DSlider.h"
+	"guiTypeDrawable.h"
+	"guiTypeLogger.h"
+	"guiTypeFileLister.h"
+	"guiTypeCustom.h"
+	"guiCustomImpl.h"
+	"guiTypeGroup.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guivalue.h
+
+1265996715 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guibaseobject.h
+	"simpleColor.h"
+	"guiColor.h"
+	"guiValue.h"
+	"guiTextBase.h"
+
+1265136407 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\simplecolor.h
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guicolor.h
+	"simpleColor.h"
+
+1265660576 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitextbase.h
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265669041 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypepanel.h
+	"guiBaseObject.h"
+	"guiTypeGroup.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1269005720 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypegroup.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266008117 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypetext.h
+	"guiBaseObject.h"
+	"guiTypeText.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1269005718 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypebutton.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265321202 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypetoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypemultitoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1266008040 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypeslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitype2dslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypedrawable.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypelogger.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleLogger.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\simplelogger.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypefilelister.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleFileLister.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\simplefilelister.h
+	"ofMain.h"
+	"ofxDirList.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guitypecustom.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiCustomImpl.h"
+
+1264722653 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\guicustomimpl.h
+
+1265994094 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxfiledialog\src\ofxfiledialog.h
+	<string>
+	<windows.h>
+
+1269005724 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvcoordwarpinggui.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+	"ofxXmlSettings.h"
+	"ofxMSAInteractiveObject.h"
+
+1265402655 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxmsainteractiveobject\src\ofxmsainteractiveobject.h
+	"ofMain.h"
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspstuiosender.h
+	"TuioServer.h"
+	"TuioCursor.h"
+	"ofMain.h"
+
+1264778256 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuioserver.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+	<iostream>
+	<list>
+	<algorithm>
+	"OscOutboundPacketStream.h"
+	"NetworkingUtils.h"
+	"UdpSocket.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuioobject.h
+	<math.h>
+	"TuioContainer.h"
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuiocontainer.h
+	<list>
+	<math.h>
+	"TuioPoint.h"
+	<iostream>
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuiopoint.h
+	"TuioTime.h"
+	<iostream>
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuiotime.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuiocursor.h
+	<math.h>
+	"TuioContainer.h"
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsoscsender.h
+	"ofxOSC.h"
+	"ofxTSPSPerson.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\src\ofxosc.h
+	"ofxOscArg.h"
+	"ofxOscMessage.h"
+	"ofxOscSender.h"
+	"ofxOscReceiver.h"
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspstcpsender.h
+	"ofxNetwork.h"
+	"ofxXmlSettings.h"
+	"ofxTSPSPerson.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxnetwork.h
+	"ofxThread.h"
+	"ofxTCPClient.h"
+	"ofxTCPManager.h"
+	"ofxTCPServer.h"
+	"ofxUDPManager.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxtcpclient.h
+	"ofConstants.h"
+	"ofxTCPManager.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxtcpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<time.h>
+	<errno.h>
+	<unistd.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<sys/timeb.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<sys/signal.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxtcpserver.h
+	"ofConstants.h"
+	"ofxThread.h"
+	"ofxTCPManager.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxudpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<unistd.h>
+	<arpa/inet.h>
+	<netinet/in.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<netinet/tcp.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvblobtracker.h
+	<map>
+	<vector>
+	"ofMain.h"
+	"ofxCvTrackedBlob.h"
+	"ofxCvConstants_Track.h"
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvtrackedblob.h
+	"ofxOpenCv.h"
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvconstants_track.h
+	<iostream>
+	"cv.h"
+	"ofxCvBlob.h"
+	"ofxCvTrackedBlob.h"
+
+1268851265 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsscene.h
+
+1264722652 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\triangle\del_impl.cpp
+	<iostream>
+	"triangle_impl.hpp"
+	"del_interface.hpp"
+	<new>
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\triangle\triangle_impl.hpp
+	"dpoint.hpp"
+	<iostream>
+	<algorithm>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<sys/time.h>
+	<float.h>
+	<fpu_control.h>
+	"triangle.h"
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\triangle\dpoint.hpp
+	"assert.hpp"
+	<iostream>
+	<valarray>
+	<stdio.h>
+	<limits>
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\triangle\assert.hpp
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\triangle\triangle.h
+
+1264722652 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcontouranalysis\triangle\del_interface.hpp
+	"dpoint.hpp"
+	<vector>
+	<string>
+
+1264722647 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcvhaartracker\ofxcvhaarfinder.cpp
+	"ofxCvHaarFinder.h"
+
+1264722647 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcvhaartracker\ofxcvhaartracker.cpp
+	"ofxCvHaarTracker.h"
+
+1264722647 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxcvhaartracker\ofxcvhaartrackeritem.cpp
+	"ofMain.h"
+	"ofxCvHaarTrackerItem.h"
+
+1268065072 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxlabgui\ofxlabgui.cpp
+	"ofxLabGui.h"
+
+1265402747 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxmsainteractiveobject\src\ofxmsainteractiveobject.cpp
+	"ofxMSAInteractiveObject.h"
+	"ofMain.h"
+
+1266010569 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxtcpclient.cpp
+	"ofxTCPClient.h"
+	"ofAppRunner.h"
+
+1266011045 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxtcpmanager.cpp
+	"ofxTCPManager.h"
+	<stdio.h>
+
+1266011097 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxtcpserver.cpp
+	"ofxTCPServer.h"
+	"ofxTCPClient.h"
+
+1264722651 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxnetwork\src\ofxudpmanager.cpp
+	"ofxUDPManager.h"
+
+1264722635 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\cpuimagefilter.cpp
+	"CPUImageFilter.h"
+	"ofxCvColorImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvFloatImage.h"
+
+1264722635 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvblobtracker.cpp
+	"ofxCvBlobTracker.h"
+
+1264722635 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvcoordwarping.cpp
+	"ofxCvCoordWarping.h"
+
+1264722635 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvcoordwarping.h
+	"ofMain.h"
+	"ofxCvConstants.h"
+	"ofxCvContourFinder.h"
+
+1269005723 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvcoordwarpinggui.cpp
+	"ofxCvCoordWarpingGui.h"
+
+1265666696 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxopencvextensions\src\ofxcvopticalflowlk.cpp
+	"ofxCvOpticalFlowLK.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsguimanager.cpp
+	"ofxTSPSGuiManager.h"
+	"ofxTSPSSettings.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsoscsender.cpp
+	"ofxTSPSOSCSender.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspspeopletracker.cpp
+	"ofxTSPSPeopleTracker.h"
+	"CPUImageFilter.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsperson.cpp
+	"ofxTSPSPerson.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspsscene.cpp
+	"ofMain.h"
+	"ofxTSPSScene.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspssettings.cpp
+	"ofxTSPSSettings.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspstcpsender.cpp
+	"ofxTSPSTCPSender.h"
+
+1268851265 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtsps\src\ofxtspstuiosender.cpp
+	"ofxTSPSTUIOSender.h"
+
+1264722650 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\tuiotcpxmlserver.cpp
+	"TuioTcpXmlServer.h"
+	"TuioTcpXmlServer.h"
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\tuiotcpxmlserver.h
+	"ofMain.h"
+	"TuioCursor.h"
+	"ofxNetwork.h"
+
+1264722650 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuioclient.cpp
+	"TuioClient.h"
+
+1264778945 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuioclient.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+	<iostream>
+	<list>
+	<algorithm>
+	<cstring>
+	"OscReceivedElements.h"
+	"OscPrintReceivedElements.h"
+	"UdpSocket.h"
+	"PacketListener.h"
+	"TuioListener.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1264722651 \\.host\shared folders\cya\of_0061_lab\core\addons\ofxosc\libs\oscpack\include\osc\oscprintreceivedelements.h
+	<iosfwd>
+	"OscReceivedElements.h"
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuiolistener.h
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1265131583 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuioserver.cpp
+	"TuioServer.h"
+
+1264722650 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\core\tuiotime.cpp
+	"TuioTime.h"
+
+1264722650 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\ofxtuioclient.cpp
+	"ofxTuioClient.h"
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\ofxtuioclient.h
+	"ofMain.h"
+	"TuioListener.h"
+	"TuioClient.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+	"TuioPoint.h"
+	<list>
+	<math.h>
+
+1264722650 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\ofxtuioserver.cpp
+	"ofxTuioServer.h"
+
+1264722650 \\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\ofxtuiowrapper\ofxtuioserver.h
+	"ofMain.h"
+	"TuioServer.h"
+	"TuioCursor.h"
+	<list>
+	<math.h>
+
+1269005726 source:\\.host\shared folders\cya\of_0061_lab\core\apps\release\tsps_src_win\src\testapp.cpp
+	"testApp.h"
+
+1266010569 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxtcpclient.cpp
+	"ofxTCPClient.h"
+	"ofAppRunner.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxtcpclient.h
+	"ofConstants.h"
+	"ofxTCPManager.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxtcpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<time.h>
+	<errno.h>
+	<unistd.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<sys/timeb.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<sys/signal.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1266011045 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxtcpmanager.cpp
+	"ofxTCPManager.h"
+	<stdio.h>
+
+1266011097 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxtcpserver.cpp
+	"ofxTCPServer.h"
+	"ofxTCPClient.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxtcpserver.h
+	"ofConstants.h"
+	"ofxThread.h"
+	"ofxTCPManager.h"
+
+1264722651 source:c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxudpmanager.cpp
+	"ofxUDPManager.h"
+
+1264722651 c:\documents and settings\administrator\desktop\of_0061\addons\ofxnetwork\src\ofxudpmanager.h
+	"ofConstants.h"
+	<string.h>
+	<wchar.h>
+	<stdio.h>
+	<ctype.h>
+	<netdb.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<unistd.h>
+	<arpa/inet.h>
+	<netinet/in.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/ioctl.h>
+	<netinet/tcp.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+
+1264737570 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcontouranalysis\triangle\del_impl.cpp
+	<iostream>
+	"triangle_impl.hpp"
+	"del_interface.hpp"
+	<new>
+
+1264737570 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcontouranalysis\triangle\triangle_impl.hpp
+	"dpoint.hpp"
+	<iostream>
+	<algorithm>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<sys/time.h>
+	<float.h>
+	<fpu_control.h>
+	"triangle.h"
+
+1264737570 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcontouranalysis\triangle\dpoint.hpp
+	"assert.hpp"
+	<iostream>
+	<valarray>
+	<stdio.h>
+	<limits>
+
+1282140372 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcontouranalysis\triangle\assert.hpp
+
+1264737570 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcontouranalysis\triangle\triangle.h
+
+1264737570 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcontouranalysis\triangle\del_interface.hpp
+	"dpoint.hpp"
+	<vector>
+	<string>
+
+1282140362 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcvhaartracker\ofxcvhaarfinder.cpp
+	"ofxCvHaarFinder.h"
+
+1264737536 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcvhaartracker\ofxcvhaarfinder.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+
+1264737536 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcvhaartracker\ofxcvhaartracker.cpp
+	"ofxCvHaarTracker.h"
+
+1264737536 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcvhaartracker\ofxcvhaartracker.h
+	"ofxCvMain.h"
+	"ofxCvHaarFinder.h"
+	"ofxCvHaarTrackerItem.h"
+
+1264737536 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcvhaartracker\ofxcvhaartrackeritem.h
+	"ofMain.h"
+
+1264737536 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxcvhaartracker\ofxcvhaartrackeritem.cpp
+	"ofMain.h"
+	"ofxCvHaarTrackerItem.h"
+
+1268019214 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxfiledialog\src\ofxfiledialog.cpp
+	"ofxFileDialog.h"
+
+1288621480 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxfiledialog\src\ofxfiledialog.h
+	<string>
+	<windows.h>
+
+1268511520 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\ofxlabgui.cpp
+	"ofxLabGui.h"
+
+1267627983 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\ofxlabgui.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+	"guiIncludes.h"
+	"ofxFileDialog.h"
+
+1267627983 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guiincludes.h
+	"guiValue.h"
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiTypePanel.h"
+	"guiTypeText.h"
+	"guiTypeButton.h"
+	"guiTypeToggle.h"
+	"guiTypeMultiToggle.h"
+	"guiTypeSlider.h"
+	"guiType2DSlider.h"
+	"guiTypeDrawable.h"
+	"guiTypeLogger.h"
+	"guiTypeFileLister.h"
+	"guiTypeCustom.h"
+	"guiCustomImpl.h"
+	"guiTypeGroup.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guivalue.h
+
+1267627983 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guibaseobject.h
+	"simpleColor.h"
+	"guiColor.h"
+	"guiValue.h"
+	"guiTextBase.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\simplecolor.h
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guicolor.h
+	"simpleColor.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitextbase.h
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1267627983 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypepanel.h
+	"guiBaseObject.h"
+	"guiTypeGroup.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1267627983 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypegroup.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1267627983 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypetext.h
+	"guiBaseObject.h"
+	"guiTypeText.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1267627983 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypebutton.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypetoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypemultitoggle.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypeslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitype2dslider.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypedrawable.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypelogger.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleLogger.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\simplelogger.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypefilelister.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"simpleFileLister.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\simplefilelister.h
+	"ofMain.h"
+	"ofxDirList.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guitypecustom.h
+	"guiBaseObject.h"
+	"guiColor.h"
+	"simpleColor.h"
+	"guiValue.h"
+	"guiCustomImpl.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxlabgui\guicustomimpl.h
+
+1264737528 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxmsainteractiveobject\src\ofxmsainteractiveobject.cpp
+	"ofxMSAInteractiveObject.h"
+	"ofMain.h"
+
+1265411028 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxmsainteractiveobject\src\ofxmsainteractiveobject.h
+	"ofMain.h"
+
+1264737528 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\cpuimagefilter.cpp
+	"CPUImageFilter.h"
+	"ofxCvColorImage.h"
+	"ofxCvGrayscaleImage.h"
+	"ofxCvFloatImage.h"
+
+1264737528 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\cpuimagefilter.h
+	"ofxCvGrayscaleImage.h"
+
+1264737528 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvblobtracker.cpp
+	"ofxCvBlobTracker.h"
+
+1264737528 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvblobtracker.h
+	<map>
+	<vector>
+	"ofMain.h"
+	"ofxCvTrackedBlob.h"
+	"ofxCvConstants_Track.h"
+
+1264737528 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvtrackedblob.h
+	"ofxOpenCv.h"
+
+1264737528 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvconstants_track.h
+	<iostream>
+	"cv.h"
+	"ofxCvBlob.h"
+	"ofxCvTrackedBlob.h"
+
+1264737528 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvcoordwarping.cpp
+	"ofxCvCoordWarping.h"
+
+1264737528 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvcoordwarping.h
+	"ofMain.h"
+	"ofxCvConstants.h"
+	"ofxCvContourFinder.h"
+
+1288358297 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvcoordwarpinggui.cpp
+	"ofxCvCoordWarpingGui.h"
+
+1288358297 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvcoordwarpinggui.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+	"ofxXmlSettings.h"
+	"ofxMSAInteractiveObject.h"
+
+1282140372 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvopticalflowlk.cpp
+	"ofxCvOpticalFlowLK.h"
+
+1268840062 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxopencvextensions\src\ofxcvopticalflowlk.h
+	"ofMain.h"
+	"ofxCvConstants.h"
+	"ofxCvGrayscaleImage.h"
+
+1288358297 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxtsps\src\ofxtspsguimanager.cpp
+	"ofxTSPSGuiManager.h"
+	"ofxTSPSSettings.h"
+
+1288358297 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxtsps\src\ofxtspsguimanager.h
+	"ofxLabGui.h"
+	"ofxCvCoordWarpingGui.h"
+
+1288358297 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxtsps\src\ofxtspssettings.h
+	"ofMain.h"
+	<iostream>
+
+1281616538 source:c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxtsps\src\ofxtspsoscsender.cpp
+	"ofxTSPSOSCSender.h"
+
+1281616370 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxtsps\src\ofxtspsoscsender.h
+	"ofxOSC.h"
+	"ofxTSPSPerson.h"
+
+1281616616 c:\documents and settings\administrator\desktop\of_0061\apps\tsps_src_win\opentsps\src\addons\ofxtsps\src\ofxtspsperson.h
+	"ofMain.h"
+	"ofxOpenCv.h"
+

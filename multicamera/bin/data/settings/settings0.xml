@@ -1,0 +1,110 @@
+<QUAD_0_X>0</QUAD_0_X>
+<QUAD_0_Y>0</QUAD_0_Y>
+<QUAD_1_X>1</QUAD_1_X>
+<QUAD_1_Y>0</QUAD_1_Y>
+<QUAD_2_X>1</QUAD_2_X>
+<QUAD_2_Y>1</QUAD_2_Y>
+<QUAD_3_X>0</QUAD_3_X>
+<QUAD_3_Y>1</QUAD_3_Y>
+<USE_AMPLIFICATION>
+    <val_0>0</val_0>
+</USE_AMPLIFICATION>
+<AMPLIFICATION_AMOUNT>
+    <val_0>31.8</val_0>
+</AMPLIFICATION_AMOUNT>
+<LEARN_BACKGROUND>
+    <val_0>0</val_0>
+</LEARN_BACKGROUND>
+<RELEARN>
+    <val_0>0</val_0>
+</RELEARN>
+<RELEARN_BACKGROUND>
+    <val_0>138.889</val_0>
+</RELEARN_BACKGROUND>
+<THRESHOLD>
+    <val_0>14.1667</val_0>
+</THRESHOLD>
+<BLOB_TYPE>
+    <val_0>0</val_0>
+</BLOB_TYPE>
+<USE_HIGHPASS>
+    <val_0>0</val_0>
+</USE_HIGHPASS>
+<HIGHPASS_BLUR>
+    <val_0>101.606</val_0>
+</HIGHPASS_BLUR>
+<HIGHPASS_NOISE>
+    <val_0>15.8222</val_0>
+</HIGHPASS_NOISE>
+<USE_SMOOTHING>
+    <val_0>0</val_0>
+</USE_SMOOTHING>
+<SMOOTH_AMOUNT>
+    <val_0>6.91667</val_0>
+</SMOOTH_AMOUNT>
+<MIN_BLOB>
+    <val_0>1.15978</val_0>
+</MIN_BLOB>
+<MAX_BLOB>
+    <val_0>78.355</val_0>
+</MAX_BLOB>
+<FIND_HOLES>
+    <val_0>0</val_0>
+</FIND_HOLES>
+<SEND_OSC_CONTOURS>
+    <val_0>1</val_0>
+</SEND_OSC_CONTOURS>
+<SENSE_OPTICAL_FLOW>
+    <val_0>0</val_0>
+</SENSE_OPTICAL_FLOW>
+<MIN_OPTICAL_FLOW>
+    <val_0>5</val_0>
+</MIN_OPTICAL_FLOW>
+<MAX_OPTICAL_FLOW>
+    <val_0>106.833</val_0>
+</MAX_OPTICAL_FLOW>
+<SENSE_HAAR>
+    <val_0>0</val_0>
+</SENSE_HAAR>
+<HAAR_PADDING>
+    <val_0>0</val_0>
+</HAAR_PADDING>
+<SEND_OSC>
+    <val_0>1</val_0>
+</SEND_OSC>
+<OSC_HOST>
+    <val_0>localhost</val_0>
+</OSC_HOST>
+<OSC_PORT>
+    <val_0>12001</val_0>
+</OSC_PORT>
+<SEND_TUIO>
+    <val_0>0</val_0>
+</SEND_TUIO>
+<TUIO_HOST>
+    <val_0>127.0.0.1</val_0>
+</TUIO_HOST>
+<TUIO_PORT>
+    <val_0>3334</val_0>
+</TUIO_PORT>
+<SEND_TCP>
+    <val_0>0</val_0>
+</SEND_TCP>
+<TCP_PORT>
+    <val_0>3336</val_0>
+</TCP_PORT>
+<ADJUSTED_VIEW_COLOR>
+    <val_0>0</val_0>
+</ADJUSTED_VIEW_COLOR>
+<SEND_WS>
+    <val_0>1</val_0>
+</SEND_WS>
+<WS_PORT>
+    <val_0>7682</val_0>
+</WS_PORT>
+<USE_KINECT>
+    <val_0>1</val_0>
+</USE_KINECT>
+<LEGACY_OSC>
+    <val_0>0</val_0>
+</LEGACY_OSC>
