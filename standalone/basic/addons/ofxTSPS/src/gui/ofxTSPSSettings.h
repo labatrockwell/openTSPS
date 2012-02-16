@@ -93,6 +93,7 @@ public:
 	
 	// communication vars
 	bool    bSendOsc;
+	bool	bUseLegacyOsc;
 	bool    bSendTuio;
 	bool    bSendTcp;
 	bool    bSendWebSockets;

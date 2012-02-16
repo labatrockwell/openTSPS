@@ -22,13 +22,15 @@
  
  ***********************************************************************/
 
-#include "ofxTSPSOSCSender.h"
+#include "ofxTSPSOscSender.h"
 
 /***************************************************************
  CONSTRUCTOR + SETUP
  ***************************************************************/
 
-ofxTSPSOscSender::ofxTSPSOscSender(){};
+ofxTSPSOscSender::ofxTSPSOscSender(){
+	useLegacy = false;
+};
 
 ofxTSPSOscSender::ofxTSPSOscSender(string _ip, int _port){
 	setupSender(_ip, _port);
@@ -64,8 +66,12 @@ void ofxTSPSOscSender::update(){
 
 void ofxTSPSOscSender::personEntered ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
 	ofxOscMessage m;
-	m.setAddress("TSPS/personEntered/");
+
+	m.setAddress(useLegacy ? "TSPS/personEntered/" : "/TSPS/personEntered/");
 	m.addIntArg(p->pid);
+	if(!useLegacy){
+		m.addIntArg(p->oid);
+	}
 	m.addIntArg(p->age);
 	m.addFloatArg(centroid.x);
 	m.addFloatArg(centroid.y);
@@ -94,40 +100,50 @@ void ofxTSPSOscSender::personEntered ( ofxTSPSPerson * p, ofPoint centroid, int 
 };
 
 void ofxTSPSOscSender::personMoved ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-	ofxOscMessage m;
-	m.setAddress("TSPS/personMoved/");
-	m.addIntArg(p->pid);
-	m.addIntArg(p->age);
-	m.addFloatArg(centroid.x);
-	m.addFloatArg(centroid.y);
-	m.addFloatArg(p->velocity.x);
-	m.addFloatArg(p->velocity.y);
-	
-	ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
-	
-	m.addFloatArg(boundingRect.x);
-	m.addFloatArg(boundingRect.y);
-	m.addFloatArg(boundingRect.width);
-	m.addFloatArg(boundingRect.height);
-	
-	m.addFloatArg(p->opticalFlowVectorAccumulation.x);
-	m.addFloatArg(p->opticalFlowVectorAccumulation.y);
-	
-	if (bSendContours){
-		//any args after 9 will be contours
-		for (int i=0; i<p->simpleContour.size(); i++){
-			m.addFloatArg(p->simpleContour[i].x);
-			m.addFloatArg(p->simpleContour[i].y);
-		};
+	if(useLegacy){ //we just rely on person updated from now on
+		ofxOscMessage m;
+		m.setAddress("TSPS/personMoved/");
+		m.addIntArg(p->pid);
+		if(!useLegacy){
+			m.addIntArg(p->oid);
+		}	
+		m.addIntArg(p->age);
+		m.addFloatArg(centroid.x);
+		m.addFloatArg(centroid.y);
+		m.addFloatArg(p->velocity.x);
+		m.addFloatArg(p->velocity.y);
+		
+		ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
+		
+		m.addFloatArg(boundingRect.x);
+		m.addFloatArg(boundingRect.y);
+		m.addFloatArg(boundingRect.width);
+		m.addFloatArg(boundingRect.height);
+		
+		m.addFloatArg(p->opticalFlowVectorAccumulation.x);
+		m.addFloatArg(p->opticalFlowVectorAccumulation.y);
+		
+		if (bSendContours){
+			//any args after 9 will be contours
+			for (int i=0; i<p->simpleContour.size(); i++){
+				m.addFloatArg(p->simpleContour[i].x);
+				m.addFloatArg(p->simpleContour[i].y);
+			};
+		}
+		
+		send(m);
 	}
-	
-	send(m);
 };
 
 void ofxTSPSOscSender::personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
 	ofxOscMessage m;
-	m.setAddress("TSPS/personUpdated/");
+//	m.setAddress("TSPS/personUpdated/");
+	m.setAddress(useLegacy ? "TSPS/personUpdated/" : "/TSPS/personUpdated/");
 	m.addIntArg(p->pid);
+	if(!useLegacy){
+		m.addIntArg(p->oid);
+
+	}	
 	m.addIntArg(p->age);
 	m.addFloatArg(centroid.x);
 	m.addFloatArg(centroid.y);
@@ -159,8 +175,12 @@ void ofxTSPSOscSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, in
 {
 	ofxOscBundle b;
 	ofxOscMessage m;
-	m.setAddress("TSPS/personWillLeave/");
+	//m.setAddress("TSPS/personWillLeave/");
+	m.setAddress(useLegacy ? "TSPS/personWillLeave/" : "/TSPS/personWillLeave/");
 	m.addIntArg(p->pid);
+	if(!useLegacy){
+		m.addIntArg(p->oid);
+	}		
 	m.addIntArg(p->age);
 	m.addFloatArg(centroid.x);
 	m.addFloatArg(centroid.y);

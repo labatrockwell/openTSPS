@@ -55,6 +55,7 @@ ofxTSPSSettings* ofxTSPSSettings::getInstance()
 		
 		single->oscHost = "localhost";
 		single->oscPort = 12000;
+		single->bUseLegacyOsc = false;
 		
 		single->tuioHost = "localhost";
 		single->tuioPort = 3333;
