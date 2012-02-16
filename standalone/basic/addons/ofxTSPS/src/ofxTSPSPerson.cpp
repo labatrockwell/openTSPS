@@ -144,16 +144,17 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
 	
 	message<<"\"opticalflow\":{"<<"\"x\":"<<opticalFlowVectorAccumulation.x<<",\"y\":"<<opticalFlowVectorAccumulation.y<<"},";
 	ofRectangle scaledHaar = getHaarRectNormalized(cameraWidth,cameraHeight);
-	message<<"\"haarrect\":{"<<"\"x\":"<<scaledHaar.x<<",\"y\":"<<scaledHaar.y<<",\"width\":"<<scaledHaar.width<<",\"height\":"<<scaledHaar.height<<"},";	
+	message<<"\"haarrect\":{"<<"\"x\":"<<scaledHaar.x<<",\"y\":"<<scaledHaar.y<<",\"width\":"<<scaledHaar.width<<",\"height\":"<<scaledHaar.height<<"}";	
 	
 	if (bSendContours){
+        message<<",";
 		message<<"\"contours\":[";
 		for (int i=0; i<simpleContour.size(); i++){
 			message<<"{\"x\":"<<ofToString(simpleContour[i].x, 3)<<",\"y\":"<<ofToString(simpleContour[i].y, 3)<<"}";
 			if (i+1 < simpleContour.size()) message<<",";
 		};
 		message<<"]";
-	}	
+	}
 	message<<"}";
 	return message.str();
 }

@@ -282,6 +282,7 @@ void ofxTSPSGuiManager::setup(){
 	panel.addToggle("send OSC", "SEND_OSC", false);
 	panel.addTextField("receiver IP address (OSC host) :", "OSC_HOST", "127.0.0.1", 200, 20);
 	panel.addTextField("receiver port (OSC port) :", "OSC_PORT", "12000", 200, 20);
+	panel.addToggle("use legacy OSC", "LEGACY_OSC", false);
 	
 	guiTypeGroup * tuioGroup = panel.addGroup("TUIO");
 	tuioGroup->setBackgroundColor(148,129,85);
@@ -478,6 +479,7 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
     
 	p_Settings->oscHost = panel.getValueS("OSC_HOST", 0, "localhost");
 	p_Settings->oscPort = (int) atoi(panel.getValueS("OSC_PORT", 0, "12000").c_str());
+	p_Settings->bUseLegacyOsc = panel.getValueB("LEGACY_OSC");
 	p_Settings->tuioHost = panel.getValueS("TUIO_HOST", 0, "localhost");
 	p_Settings->tuioPort = (int) atoi(panel.getValueS("TUIO_PORT", 0, "3333").c_str());
 	p_Settings->tcpPort = (int) atoi(panel.getValueS("TCP_PORT", 0, "8888").c_str());

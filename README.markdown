@@ -1,3 +1,13 @@
+Compiling: Mac OS X
+------------
+*note:* the TSPS standalone app is Mac-only for now as we work on porting to OF 007. Please feel free to take a 
+crack at the standalone app for other platforms!
+
+1. clone openframeworks from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
+2. clone the TSPS directory into openframeworks/
+3. open the XCode project in openTSPS/standalone/basic
+4. compile and run!
+
 Release Notes
 ------------
 1.2 (1/31/12 - Mac Only)
@@ -27,13 +37,3 @@ WebSockets
 * To have the most fun, open up another computer to http://YOUR_IP_ADDRESS:PORT
 * The html/js/css that is served is in bin/data/web. It's very barebones... Hack away at it, please.
 * Making your own JS TSPS clients is easy (and they don't have to live in the bin/data/web directory); the TSPS WebSocket sender sends JSON, so you don't even have to use our JS files if you don't want to.
-
-Compiling: Mac OS X
-------------
-*note:* the TSPS standalone app is Mac-only for now as we work on porting to OF 007. Please feel free to take a 
-crack at the standalone app for other platforms!
-
-1. clone openframeworks from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
-2. clone the TSPS directory into openframeworks/apps
-3. open the XCode project in openTSPS/openTSPSStandalone
-4. compile and run!
