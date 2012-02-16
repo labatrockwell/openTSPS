@@ -511,6 +511,7 @@ void ofxTSPSPeopleTracker::trackPeople()
     if (bWebSocketsEnabled){
         if (p_Settings->webSocketPort != webSocketServer.getPort()){
             webSocketServer.close();
+            cout<<"OR HERE?"<<endl;
             webSocketServer.setup( p_Settings->webSocketPort );
         }
         //sent automagically

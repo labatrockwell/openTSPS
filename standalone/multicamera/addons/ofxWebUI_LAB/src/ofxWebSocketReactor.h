@@ -16,6 +16,7 @@ class ofxWebSocketReactor
 : public ofThread
 {
   friend class ofxWebSocketProtocol;
+    
 public:
   ofxWebSocketReactor();
   ~ofxWebSocketReactor();
@@ -91,6 +92,8 @@ public:
         }
     }
     
+	struct libwebsocket_context *context;  
+    
     
 protected:
   unsigned int waitMillis;
@@ -100,8 +103,9 @@ private:
   void threadedFunction();  
   
   std::vector<struct libwebsocket_protocols> lws_protocols;
-	struct libwebsocket_context *context;  
 };
+
+static vector<ofxWebSocketReactor *> reactors;
 
 extern "C"
 int

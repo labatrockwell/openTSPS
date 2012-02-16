@@ -17,7 +17,9 @@ public:
 class ofxWebSocketConnection {
   friend class ofxWebSocketReactor;
 public:
-  ofxWebSocketConnection(ofxWebSocketReactor* const _reactor=NULL,
+    ofxWebSocketConnection();
+    
+    ofxWebSocketConnection(ofxWebSocketReactor* const _reactor=NULL,
                          ofxWebSocketProtocol* const _protocol=NULL,
                          const bool supportsBinary=false);
 
@@ -27,9 +29,10 @@ public:
   const std::string recv(const std::string& message);  
 
   libwebsocket* ws;
-
+    
+    ofxWebSocketReactor*  reactor;
+    
 protected:
-  ofxWebSocketReactor*  reactor;
   ofxWebSocketProtocol* protocol;
   ofxWebSocketSession*  session;
 

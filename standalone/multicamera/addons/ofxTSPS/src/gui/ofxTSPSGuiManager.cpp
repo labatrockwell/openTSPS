@@ -41,12 +41,9 @@ enum{
 
 ofxTSPSGuiManager::ofxTSPSGuiManager() {
 	//JG TODO add drawing event
-	ofAddListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
 	//ofAddListener(ofEvents.draw, this, &ofxTSPSGuiManager::draw);
 	
     bEventsEnabled = false;
-    
-    enableEvents();
 }
 
 void ofxTSPSGuiManager::enableEvents(){
@@ -325,6 +322,8 @@ void ofxTSPSGuiManager::setup(){
 	panel.addTextField("webSocket port:", "WS_PORT", "7681", 200, 20);
     panel.addButton("open debug URL");
 	
+    panel.setValueB("SEND_WS", false);
+    
 	//JG TODO: Optionally change config file through the UI
 	//this would be a big help for setting up multiple install sites and having those setting
 	//included in repositories
@@ -342,6 +341,9 @@ void ofxTSPSGuiManager::setup(){
 	panel.setSelectedPanel("differencing");
 	ofEventArgs nullArgs;
 	update(nullArgs);
+    
+	ofAddListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
+    enableEvents();
 }
 
 void ofxTSPSGuiManager::addSlider(string name, int* value, int min, int max)

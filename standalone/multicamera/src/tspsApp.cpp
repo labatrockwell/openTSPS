@@ -1,16 +1,5 @@
 #include "tspsApp.h"
 
-class TSPSPersonAttributes {
-public:
-	TSPSPersonAttributes(){
-		height = 0;
-		hasBeard = false;
-	}
-
-	float height;
-	bool hasBeard; //this is a joke
-};
-
 //--------------------------------------------------------------
 void tspsApp::setup(){
 	ofSetVerticalSync(true);
@@ -40,6 +29,8 @@ void tspsApp::setup(){
         }        
     } else {
         kTester.clear();
+        
+        ofVideoGrabber v; v.listDevices();
         
         // is there a smart way to count avail cameras?
         // for now: trying up to 4

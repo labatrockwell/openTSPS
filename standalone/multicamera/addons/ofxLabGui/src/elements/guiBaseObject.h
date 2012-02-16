@@ -260,7 +260,7 @@ class guiBaseObject{
 					else drawStr += " false";*/
                 } else if( dataType == SG_TYPE_STRING ) drawStr += " "+value.getValueS(i);
             }
-
+            
             displayText.setText(drawStr);
 
             //now update our bounding box

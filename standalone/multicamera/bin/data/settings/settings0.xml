@@ -76,7 +76,7 @@
     <val_0>localhost</val_0>
 </OSC_HOST>
 <OSC_PORT>
-    <val_0>12001</val_0>
+    <val_0>12000</val_0>
 </OSC_PORT>
 <SEND_TUIO>
     <val_0>0</val_0>
@@ -85,22 +85,22 @@
     <val_0>127.0.0.1</val_0>
 </TUIO_HOST>
 <TUIO_PORT>
-    <val_0>3334</val_0>
+    <val_0>3333</val_0>
 </TUIO_PORT>
 <SEND_TCP>
     <val_0>0</val_0>
 </SEND_TCP>
 <TCP_PORT>
-    <val_0>3336</val_0>
+    <val_0>3335</val_0>
 </TCP_PORT>
 <ADJUSTED_VIEW_COLOR>
     <val_0>0</val_0>
 </ADJUSTED_VIEW_COLOR>
 <SEND_WS>
-    <val_0>1</val_0>
+    <val_0>0</val_0>
 </SEND_WS>
 <WS_PORT>
-    <val_0>7682</val_0>
+    <val_0>7683</val_0>
 </WS_PORT>
 <USE_KINECT>
     <val_0>1</val_0>
