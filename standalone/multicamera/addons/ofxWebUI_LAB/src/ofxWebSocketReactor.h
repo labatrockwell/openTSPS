@@ -21,9 +21,6 @@ public:
   ofxWebSocketReactor();
   ~ofxWebSocketReactor();
 
-  static ofxWebSocketReactor& instance();
-  static ofxWebSocketReactor* _instance;  
-
   bool setup(const short _port=7681,
              const std::string sslCertFilename="libwebsockets-test-server.pem",
              const std::string sslKeyFilename="libwebsockets-test-server.key.pem");

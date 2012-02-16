@@ -23,7 +23,8 @@
         cout<<"setting up web socket server on port "<<port<<endl;
         
         // setup web socket server
-        reactor = &ofxWebSocketReactor::instance();
+        reactor = new ofxWebSocketReactor();
+        //reactor = &ofxWebSocketReactor::instance();
         reactor->registerProtocol("tsps-protocol", *this);              
         bSetup = reactor->setup(port, "", "");
         

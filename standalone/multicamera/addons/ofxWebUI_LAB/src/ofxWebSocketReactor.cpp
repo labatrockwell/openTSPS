@@ -3,8 +3,6 @@
 #include "ofEvents.h"
 #include "ofUtils.h"
 
-ofxWebSocketReactor* ofxWebSocketReactor::_instance = NULL;
-
 //--------------------------------------------------------------
 ofxWebSocketReactor::ofxWebSocketReactor()
 : context(NULL)
@@ -17,15 +15,6 @@ ofxWebSocketReactor::ofxWebSocketReactor()
 ofxWebSocketReactor::~ofxWebSocketReactor()
 {
   exit();
-}
-
-//--------------------------------------------------------------
-ofxWebSocketReactor& ofxWebSocketReactor::instance()
-{
-  if (_instance == NULL)
-    _instance = new ofxWebSocketReactor();
-  
-  return *_instance;
 }
 
 //--------------------------------------------------------------
