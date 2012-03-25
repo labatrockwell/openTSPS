@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<exclude-output/>
+	<contentEntry url="file://$TSPS_HOME$/src"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/distribution"/>
+		<excludeFolder url="file://$MODULE_DIR$/resources"/>
+	</contentEntry>
+	<lib name="core.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/workspace/TSPS/libs/core.jar!/"/>
+	</lib>
+	<lib name="oscP5.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/workspace/TSPS/libs/oscP5.jar!/"/>
+	</lib>
+</component>
