@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact name="TSPS:jar">
+    <output-path>$PROJECT_DIR$/workspace/TSPS/bin</output-path>
+    <properties id="ant-postprocessing">
+      <options enabled="true">
+        <file>file://$PROJECT_DIR$/workspace/TSPS/deploy.xml</file>
+        <target>deploy</target>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="TSPS.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/Processing/libraries/TSPS/src/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="TSPS" />
+      </element>
+      <element id="library" level="module" name="oscP5.jar" module-name="TSPS" />
+      <element id="library" level="module" name="core.jar" module-name="TSPS" />
+    </root>
+  </artifact>
+</component>
