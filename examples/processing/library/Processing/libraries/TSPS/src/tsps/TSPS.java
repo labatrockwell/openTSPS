@@ -54,7 +54,7 @@ public class TSPS
 		p.opticalFlow.x = theOscMessage.get(10).floatValue(); 
 		p.opticalFlow.y = theOscMessage.get(11).floatValue(); 
 		p.contours.clear();
-		for (int i=12; i<theOscMessage.arguments().length-13; i+=2){
+		for (int i=12; i<theOscMessage.arguments().length-1; i+=2){
 			PVector point = new PVector();
 			point.x = theOscMessage.get(i).floatValue();
 			point.y = theOscMessage.get(i+1).floatValue();

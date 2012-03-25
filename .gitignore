@@ -61,3 +61,6 @@ xcuserdata/
 releases/*
 
 .DS_Store
+
+examples/processing/library/.idea/workspace.xml
+examples/quartz/OpenTSPS OSC data into QC | Kineme.webloc
