@@ -15,15 +15,11 @@
 		- something else? submit an issue on GitHub or email feedback@tsps.com
 ********************************************************/
 
-// LAB.require includes files for you
-LAB.require(LAB.src+"app/ThreeApp.js");
-LAB.require(LAB.src+"app/TSPSApp.js");
-
 var demoApp;
 
 $(document).ready( function() {
-	// our app uses the THREE.JS base app and the TSPS base app
-	DemoApp.prototype = $.extend(true, LAB.app.TSPSApp.prototype, LAB.app.ThreeApp.prototype, DemoApp.prototype);
+	// our app uses the THREE.JS base app
+	DemoApp.prototype = $.extend(true, LAB.app.ThreeApp.prototype, DemoApp.prototype);
 	demoApp = new DemoApp();
 	demoApp.begin();
 });
@@ -33,12 +29,17 @@ $(document).ready( function() {
 // ===========================================
 DemoApp = function() {
 	// call the constructors of our parent objects
-	LAB.app.ThreeApp.call( this );		
-	LAB.app.TSPSApp.call( this );
+	LAB.app.ThreeApp.call( this );	
    
 	var lines	 = {}; 		// hash of lines
 	var colors	 = {}; 		// hash of colors
 	var maxIndices = 500;	// how complex are our lines?
+
+	// ===========================================
+	// ===== TSPS
+	// ===========================================	
+
+	var TSPSConnection;
 
 	// ===========================================
 	// ===== SETUP
@@ -46,11 +47,26 @@ DemoApp = function() {
 	
 	this.setup = function() {
 		// CONNECT TO TSPS WEBSOCKET SERVER
-		// CHANGE THIS VALUE IF YOU CHANGE WHAT PORT YOU'RE ON!
-		this.connect("7681"); 
+		TSPSConnection = new TSPS.Connection();
+
+		// IF YOU'VE CHANGED THE PORT:
+		// var TSPSConnection = new TSPS.Connection( "localhost", yourport )
+
+		// IF YOU'RE CONNECTING TO ANOTHER MACHINE:
+		// var TSPSConnection = new TSPS.Connection( their IP, their TSPS port )
+
+		TSPSConnection.connect(); 
+
+		// add listeners
+		TSPSConnection.onPersonEntered 	= this.onPersonEntered.bind(this);
+		TSPSConnection.onPersonLeft 	= this.onPersonLeft.bind(this);
 		
 		// so stuff fades out in the distance
-		this.scene.fog = new THREE.FogExp2( 0x000000, 0.0008 );
+		//this.scene.fog = new THREE.FogExp2( 0x000000, 0.0008 );
+
+		this.camera.position.x = window.innerWidth/2;
+		this.camera.position.y = window.innerHeight/2;
+		this.camera.position.z = 1000;
 	}
 	
 	// ===========================================
@@ -68,21 +84,21 @@ DemoApp = function() {
 				
 				if (line.geometry.vertices[ i ].position.z < -2000){
 					// this one is pretty far back,let's delete it
-					this.scene.removeObject(line);
+					this.scene.remove(line);
 					delete line;
 					break;
 				}
 			}
-		}	
-		
+		}
+
 		// now loop through all the current people
-		for (var id in this.people){	
-			var person  = this.people[id];
+		for (var id in TSPSConnection.people){	
+			var person  = TSPSConnection.people[id];
 			var line 	= lines[id] || this.newLine(id);
 			var c 		= colors[person.id];
 			
 			// the person data is 0-1, so we multiply it by the window dimensions
-			var point = new THREE.Vector3(person.centroid.x*window.innerWidth,person.centroid.y*window.innerHeight,person.depth);
+			var point = new THREE.Vector3(window.innerWidth-person.centroid.x*window.innerWidth,window.innerHeight-person.centroid.y*window.innerHeight,person.depth);
 			
 			line.geometry.vertices[0] = new THREE.Vertex( point ) ;
 			line.geometry.colors [0]  = new THREE.Color(c.hex);
@@ -135,7 +151,7 @@ DemoApp = function() {
 		lines[id] = new THREE.Line( lineGeom, material );
 		lines[id].dynamic = true;
 		lines[id].index	  = 0;
-		this.scene.addObject(lines[id]); // TO-DO! this syntax is deprecated in new versions of THREE!
+		this.scene.add(lines[id]); // TO-DO! this syntax is deprecated in new versions of THREE!
 		return lines[id];
 	}
 	
@@ -144,13 +160,12 @@ DemoApp = function() {
 	// ===========================================
 	
 	this.onPersonEntered  	= function(person){
+		console.log("hey")
 		colors[person.id] = {};
 		colors[person.id].h = LAB.random(0,255);
 		colors[person.id].s = LAB.random(0,255);
 		colors[person.id].v = LAB.random(0,255);
 		this.newLine(person.id);
-	};
-	this.onPersonMoved  	= function(person){
 	};
 	this.onPersonLeft  		= function(person){
 		// you can delete stuff here if you want!
