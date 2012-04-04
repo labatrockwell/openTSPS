@@ -109,12 +109,20 @@ TSPS.Dispatcher.prototype.onPersonLeft  = function(person){};
 
 /** 
 	Creates a new TSPS person
-	TO-DO: add template of all the properties this should have
 	@constructor
 */
 
 TSPS.person = function()
 {
+	this.id 			= -1;
+	this.age 			= 0;
+	this.boundingrect 	= {"x":0, "y":0, "width":0, "height":0};
+	this.centroid 		= {"x":0, "y":0};
+	this.contours 		= [];
+	this.depth 			= 0;
+	this.haarrect 		= {"x":0, "y":0, "width":0, "height":0};
+	this.opticalflow 	= {"x":0, "y":0};
+	this.velocity		= {"x":0, "y":0};
 };
 
 /********************************************
