@@ -5,15 +5,10 @@
   Draw rectangles based on people in a scene.
 */
 
-//-----------------------------------------------------------------
-// IMPORT TSPS
-//-----------------------------------------------------------------
+// import TSPS
 import tsps.*;
 TSPS tspsReceiver;
 
-//-----------------------------------------------------------------
-// SETUP
-//-----------------------------------------------------------------
 void setup(){
   size(1024,768);
 	
@@ -21,17 +16,19 @@ void setup(){
   tspsReceiver= new TSPS(this, 12000);
 };
 
-//-----------------------------------------------------------------
-// DRAW
-//-----------------------------------------------------------------
 void draw(){
   background(0);
   
   tspsReceiver.update();
   
   // you can loop through all the people elements in TSPS if you choose
-  // TSPS' "peopple" element is a hashtable ( http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Hashtable.html )
-  for (Enumeration e = tspsReceiver.people.keys() ; e.hasMoreElements() ;)
+  // TSPS' "peopple" element is a EnumMap ( http://docs.oracle.com/javase/6/docs/api/java/util/EnumMap.html )
+  
+  // get enumeration, which helps us loop through tsps.people
+  Enumeration e = tspsReceiver.people.keys();
+  
+  // loop through people
+  while (e.hasMoreElements())
   {
     // get person
     int id = (Integer) e.nextElement();
