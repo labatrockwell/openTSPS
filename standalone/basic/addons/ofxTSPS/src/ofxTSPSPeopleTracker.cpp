@@ -1115,10 +1115,10 @@ void ofxTSPSPeopleTracker::setVideoGrabber(ofBaseVideo* grabber, tspsInputType i
 	p_Settings->setVideoGrabber( grabber, inputType );
     if (inputType == TSPS_INPUT_VIDEO){
         gui.enableElement( "open video settings" );
-        gui.disableElement( "use kinect" );
+        //gui.disableElement( "use kinect" );
     } else if (inputType == TSPS_INPUT_KINECT){
         gui.disableElement( "open video settings" );
-        gui.enableElement( "use kinect" );
+        //gui.enableElement( "use kinect" );
     }
 }
 

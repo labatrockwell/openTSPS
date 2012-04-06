@@ -80,21 +80,24 @@ void tspsApp::setup(){
 //--------------------------------------------------------------
 void tspsApp::update(){
     if (peopleTracker.useKinect() && !bKinect){
+        closeVideoInput();
         bKinect = true;
         initVideoInput();
     } else if (!peopleTracker.useKinect() && bKinect){
+        closeVideoInput();
         bKinect = false;
         initVideoInput();
     }
     
     bool bNewFrame = false;
-
+    
 	#ifdef _USE_LIVE_VIDEO
     if ( cameraState != CAMERA_NOT_INITED){
         if ( cameraState == CAMERA_KINECT ){
             kinect.update();
             bNewFrame = true;//kinect.isFrameNew();
         } else {
+            vidGrabber.update();
             vidGrabber.grabFrame();
             bNewFrame = vidGrabber.isFrameNew();
         }
