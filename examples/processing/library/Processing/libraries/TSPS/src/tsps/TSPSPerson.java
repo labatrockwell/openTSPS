@@ -7,7 +7,9 @@ public class TSPSPerson
 {
 	
 	public int id; 
+	public int oid; 
 	public int age; 
+	public int depth; 
 	public PVector centroid;  
 	public PVector velocity; 
 	public PVector opticalFlow; 
@@ -28,6 +30,7 @@ public class TSPSPerson
 	public void update ( TSPSPerson p )
 	{
 		age = p.age;
+	 	depth = p.depth;
 		boundingRect = p.boundingRect;
 		centroid = p.centroid;
 		velocity = p.velocity;

@@ -24,7 +24,7 @@
 	
 
 <!-- #### (4) set the java version that should be used to compile your library. #### -->	
-	<property name="javaVersion" value="1.5"/>
+	<property name="javaVersion" value="1.6"/>
 		
 		
 		
@@ -36,16 +36,16 @@
 	<property name="author" value="Brett Renfer"/>
 	
 <!-- #### (6) which copyright?  edit value.  #### -->
-	<property name="copyright" value="(c) 2010"/>
+	<property name="copyright" value="(c) 2012"/>
 
 <!-- #### (7) give your library a name. edit value.  #### -->
 	<property name="libraryName"  value="TSPS"/>
 	
 <!-- #### (8) give your library a name. edit value.   #### -->
-	<property name="versionNumber"  value="0.0.1"/>
+	<property name="versionNumber"  value="0.0.2"/>
 	
 <!-- #### (9) your contact url. edit value. #### -->
-	<property name="yourLink"  value="http://lab.rockwellgroup.com" />
+	<property name="yourLink"  value="http://www.rockwellgroup.com/lab" />
 	
 <!-- #### (10) a comma separated list of keywords describing your library. edit value. #### -->
 	<property name="keywords"  value="?" />
@@ -54,15 +54,15 @@
 	<property name="tested:platform"  value="?" />
 	
 <!-- #### (12) the processing version this library has been tested with. edit value. #### -->
-	<property name="tested:processingVersion"  value="?" />
+	<property name="tested:processingVersion"  value="1.5.1" />
 	
 <!-- #### (13) does the library depend on any other library, dll, jnilib, etc. edit value. #### -->
 	<property name="tested:dependencies"  value="oscP5" />
 	
 <!-- #### (14) where can the source code be found? edit value. #### -->
-	<property name="source:host"  value="google code" />
-	<property name="source:url"  value="http://code.google.com/p/peoplevision" />
-	<property name="source:repository"  value="http://code.google.com/p/ypeoplevision/source/browse/" />
+	<property name="source:host"  value="Github" />
+	<property name="source:url"  value="http://github.com/labatrockwell/openTSPS" />
+	<property name="source:repository"  value="http://github.com/labatrockwell/openTSPS" />
 
 
 

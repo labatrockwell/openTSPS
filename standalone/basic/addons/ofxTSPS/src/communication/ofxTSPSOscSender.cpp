@@ -71,12 +71,16 @@ void ofxTSPSOscSender::personEntered ( ofxTSPSPerson * p, ofPoint centroid, int 
 	m.addIntArg(p->pid);
 	if(!useLegacy){
 		m.addIntArg(p->oid);
-	}
+	} 
 	m.addIntArg(p->age);
 	m.addFloatArg(centroid.x);
 	m.addFloatArg(centroid.y);
 	m.addFloatArg(p->velocity.x);
 	m.addFloatArg(p->velocity.y);
+    
+    if(!useLegacy){
+		m.addIntArg(p->depth);
+	}
 	
 	ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
 	
@@ -106,13 +110,17 @@ void ofxTSPSOscSender::personMoved ( ofxTSPSPerson * p, ofPoint centroid, int ca
 		m.addIntArg(p->pid);
 		if(!useLegacy){
 			m.addIntArg(p->oid);
-		}	
+		}
 		m.addIntArg(p->age);
 		m.addFloatArg(centroid.x);
 		m.addFloatArg(centroid.y);
 		m.addFloatArg(p->velocity.x);
 		m.addFloatArg(p->velocity.y);
 		
+        if(!useLegacy){
+            m.addIntArg(p->depth);
+        }
+        
 		ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
 		
 		m.addFloatArg(boundingRect.x);
@@ -142,13 +150,16 @@ void ofxTSPSOscSender::personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int 
 	m.addIntArg(p->pid);
 	if(!useLegacy){
 		m.addIntArg(p->oid);
-
-	}	
+	}
 	m.addIntArg(p->age);
 	m.addFloatArg(centroid.x);
 	m.addFloatArg(centroid.y);
 	m.addFloatArg(p->velocity.x);
 	m.addFloatArg(p->velocity.y);
+    
+    if(!useLegacy){
+		m.addIntArg(p->depth);
+	}
 	
 	ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
 	
@@ -180,13 +191,17 @@ void ofxTSPSOscSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, in
 	m.addIntArg(p->pid);
 	if(!useLegacy){
 		m.addIntArg(p->oid);
-	}		
+	}
 	m.addIntArg(p->age);
 	m.addFloatArg(centroid.x);
 	m.addFloatArg(centroid.y);
 	m.addFloatArg(p->velocity.x);
 	m.addFloatArg(p->velocity.y);
 	
+    if(!useLegacy){
+		m.addIntArg(p->depth);
+	}
+    
 	ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
 	
 	m.addFloatArg(boundingRect.x);
