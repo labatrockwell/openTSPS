@@ -30,7 +30,7 @@ void draw(){
   tspsReceiver.update();
   
   // you can loop through all the people elements in TSPS if you choose
-  // TSPS' "peopple" element is a map (  )
+  // TSPS' "peopple" element is a hashtable ( http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Hashtable.html )
   for (Enumeration e = tspsReceiver.people.keys() ; e.hasMoreElements() ;)
   {
     // get person
