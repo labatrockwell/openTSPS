@@ -29,7 +29,7 @@ void draw(){
   
   fill( 255 );
   
-  // just update TSPS; all of our drawing is in TSPS events
+  // update TSPS
   tspsReceiver.update();
   
   // get enumeration, which helps us loop through tsps.people
