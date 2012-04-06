@@ -262,6 +262,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 		cout << "Learning Background" << endl;
 		grayBg = grayImageWarped;
 	}
+    
+    if (p_Settings->bBlankBackground){
+        grayBg -= grayBg;
+    }
 	
 	//progressive relearn background
 	if (p_Settings->bLearnBackgroundProgressive){

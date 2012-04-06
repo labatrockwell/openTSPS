@@ -29,6 +29,7 @@ ofxTSPSSettings* ofxTSPSSettings::getInstance()
         
         // background
 		single->bLearnBackground = false;
+        single->bBlankBackground = false;
 		single->bTrackOpticalFlow = false;
 		
 		single->bLearnBackgroundProgressive = true;
