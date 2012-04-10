@@ -766,16 +766,18 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 				if (haarRect.x + haarRect.width > width) haarRect.width = width-haarRect.x;
 				if (haarRect.y + haarRect.height > height) haarRect.height = height-haarRect.y;
 				ofRect(haarRect.x, haarRect.y, haarRect.width, haarRect.height);
-		}
-		
-		if(p->hasHaarRect()){
-			//draw the haar rect
-			ofSetHexColor(0xee3523);
-			ofRect(p->getHaarRect().x, p->getHaarRect().y, p->getHaarRect().width, p->getHaarRect().height);
-			//haar-detected people get a red square
-			ofSetHexColor(0xfd5f4f);
-		}
-		else {
+
+				if(p->hasHaarRect()){
+					//draw the haar rect
+					ofSetHexColor(0xee3523);
+					ofRect(p->getHaarRect().x, p->getHaarRect().y, p->getHaarRect().width, p->getHaarRect().height);
+					//haar-detected people get a red square
+					ofSetHexColor(0xfd5f4f);
+				} else {
+					//no haar gets a yellow square
+					ofSetHexColor(0xeeda00);
+				}
+		} else {
 			//no haar gets a yellow square
 			ofSetHexColor(0xeeda00);
 		}
