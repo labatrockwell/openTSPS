@@ -68,6 +68,7 @@ public:
 	bool    bAmplify;
 	bool    bSmooth;
 	bool    bLearnBackground;
+    bool    bBlankBackground;
 	bool    bAdjustedViewInColor;	
 	
 	// tracking vars

@@ -12,18 +12,23 @@
     ofxTSPSWebSocketSender::ofxTSPSWebSocketSender(){
         binary = false;
         port = 8887;
+        bSetup = false;
+        reactor = NULL;
     }
 
 //---------------------------------------------------------------------------
-    void ofxTSPSWebSocketSender::setup(int _port){
+    bool ofxTSPSWebSocketSender::setup(int _port){
         port = _port;
         sockets.clear();
         cout<<"setting up web socket server on port "<<port<<endl;
         
         // setup web socket server
-        reactor = &ofxWebSocketReactor::instance();
+        reactor = new ofxWebSocketReactor();
+        //reactor = &ofxWebSocketReactor::instance();
         reactor->registerProtocol("tsps-protocol", *this);              
-        reactor->setup(port, "", "");
+        bSetup = reactor->setup(port, "", "");
+        
+        return bSetup;
     }
 
 //---------------------------------------------------------------------------
@@ -33,14 +38,14 @@
 
 //---------------------------------------------------------------------------
     void ofxTSPSWebSocketSender::close(){
-        reactor->exit();
+        if (reactor != NULL) reactor->exit();
     }
 
 //---------------------------------------------------------------------------
     void ofxTSPSWebSocketSender::send(){
         for (int i=0; i<toSend.size(); i++){
             for (int j=0; j<sockets.size(); j++){
-               sockets[j]->send(toSend[i].msg); 
+               if (bSetup) sockets[j]->send(toSend[i].msg); 
             }
         }
         toSend.clear();

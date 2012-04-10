@@ -7,10 +7,10 @@
 <QUAD_3_X>0</QUAD_3_X>
 <QUAD_3_Y>1</QUAD_3_Y>
 <USE_AMPLIFICATION>
-    <val_0>0</val_0>
+    <val_0>1</val_0>
 </USE_AMPLIFICATION>
 <AMPLIFICATION_AMOUNT>
-    <val_0>31.8</val_0>
+    <val_0>85.7</val_0>
 </AMPLIFICATION_AMOUNT>
 <LEARN_BACKGROUND>
     <val_0>0</val_0>
@@ -22,7 +22,7 @@
     <val_0>138.889</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>236.583</val_0>
+    <val_0>72.25</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
     <val_0>0</val_0>
@@ -67,7 +67,7 @@
     <val_0>0</val_0>
 </SENSE_HAAR>
 <HAAR_PADDING>
-    <val_0>0</val_0>
+    <val_0>45.5556</val_0>
 </HAAR_PADDING>
 <SEND_OSC>
     <val_0>1</val_0>
@@ -103,7 +103,7 @@
     <val_0>7681</val_0>
 </WS_PORT>
 <USE_KINECT>
-    <val_0>1</val_0>
+    <val_0>0</val_0>
 </USE_KINECT>
 <LEGACY_OSC>
     <val_0>0</val_0>

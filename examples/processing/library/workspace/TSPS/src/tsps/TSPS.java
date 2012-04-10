@@ -7,6 +7,7 @@ import processing.core.PVector;
 
 import java.util.*;
 import java.lang.reflect.Method;
+import java.lang.Integer;
 
 /***********************************************************************
  * OSC Message is structured like this:
@@ -33,22 +34,26 @@ public class TSPS {
 	int port = 12000;
 
 	public static void updatePerson(TSPSPerson p, OscMessage theOscMessage) {
-		p.id = theOscMessage.get(0).intValue();
-		p.oid = theOscMessage.get(1).intValue();
-		p.age = theOscMessage.get(2).intValue();
-		p.centroid.x = theOscMessage.get(3).floatValue();
-		p.centroid.y = theOscMessage.get(4).floatValue();
-		p.velocity.x = theOscMessage.get(5).floatValue();
-		p.velocity.y = theOscMessage.get(6).floatValue();
-		p.depth 	 = theOscMessage.get(7).intValue();
-		p.boundingRect.x = theOscMessage.get(8).floatValue();
-		p.boundingRect.y = theOscMessage.get(9).floatValue();
-		p.boundingRect.width = theOscMessage.get(10).floatValue();
-		p.boundingRect.height = theOscMessage.get(11).floatValue();
-		p.opticalFlow.x = theOscMessage.get(12).floatValue();
-		p.opticalFlow.y = theOscMessage.get(13).floatValue();
+		p.id 					= theOscMessage.get(0).intValue();
+		p.oid 					= theOscMessage.get(1).intValue();
+		p.age 					= theOscMessage.get(2).intValue();
+		p.centroid.x 			= theOscMessage.get(3).floatValue();
+		p.centroid.y 			= theOscMessage.get(4).floatValue();
+		p.velocity.x 			= theOscMessage.get(5).floatValue();
+		p.velocity.y 			= theOscMessage.get(6).floatValue();
+		p.depth 	 			= theOscMessage.get(7).intValue();
+		p.boundingRect.x 		= theOscMessage.get(8).floatValue();
+		p.boundingRect.y 		= theOscMessage.get(9).floatValue();
+		p.boundingRect.width 	= theOscMessage.get(10).floatValue();
+		p.boundingRect.height 	= theOscMessage.get(11).floatValue();
+		p.haarRect.x 			= theOscMessage.get(12).floatValue();
+		p.haarRect.y 			= theOscMessage.get(13).floatValue();
+		p.haarRect.width 		= theOscMessage.get(14).floatValue();
+		p.haarRect.height 		= theOscMessage.get(15).floatValue();
+		p.opticalFlow.x 		= theOscMessage.get(16).floatValue();
+		p.opticalFlow.y 		= theOscMessage.get(17).floatValue();
 		p.contours.clear();
-		for (int i = 14; i < theOscMessage.arguments().length; i += 2) {
+		for (int i = 18; i < theOscMessage.arguments().length; i += 2) {
 			PVector point = new PVector();
 			point.x = theOscMessage.get(i).floatValue();
 			point.y = theOscMessage.get(i + 1).floatValue();
@@ -139,6 +144,10 @@ public class TSPS {
 		}
 	}
 
+	public TSPSPerson[] getPeopleArray(){
+		return (TSPSPerson []) people.values().toArray();
+	}
+
 	private void callPersonEntered(TSPSPerson p) {
 		people.put(p.id, p);
 		if (personEntered != null) {
@@ -165,19 +174,6 @@ public class TSPS {
 			}
 		}
 	}
-
-	// private void callPersonContoursUpdated ( TSPSPerson p )
-	// {
-	// if (personUpdated != null) {
-	// try {
-	// personUpdated.invoke(parent, new Object[] { p });
-	// } catch (Exception e) {
-	// System.err.println("Disabling personUpdated() for TSPS because of an error.");
-	// e.printStackTrace();
-	// personUpdated = null;
-	// }
-	// }
-	// }
 
 	private void callPersonLeft(TSPSPerson p) {
 		if (personLeft != null) {

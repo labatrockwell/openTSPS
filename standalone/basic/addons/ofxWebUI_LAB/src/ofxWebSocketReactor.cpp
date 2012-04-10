@@ -3,27 +3,18 @@
 #include "ofEvents.h"
 #include "ofUtils.h"
 
-ofxWebSocketReactor* ofxWebSocketReactor::_instance = NULL;
-
 //--------------------------------------------------------------
 ofxWebSocketReactor::ofxWebSocketReactor()
 : context(NULL)
 , waitMillis(50)
-{}
+{
+    reactors.push_back(this);
+}
 
 //--------------------------------------------------------------
 ofxWebSocketReactor::~ofxWebSocketReactor()
 {
   exit();
-}
-
-//--------------------------------------------------------------
-ofxWebSocketReactor& ofxWebSocketReactor::instance()
-{
-  if (_instance == NULL)
-    _instance = new ofxWebSocketReactor();
-  
-  return *_instance;
 }
 
 //--------------------------------------------------------------
@@ -52,7 +43,7 @@ ofxWebSocketReactor::close(ofxWebSocketConnection* const conn)
 }
 
 //--------------------------------------------------------------
-void
+bool
 ofxWebSocketReactor::setup(const short _port,
                            const std::string _sslCertFilename,
                            const std::string _sslKeyFilename)
@@ -107,10 +98,13 @@ ofxWebSocketReactor::setup(const short _port,
                                         _sslCertPath, _sslKeyPath,
                                         -1, -1, opts);
 
-	if (context == NULL)
-    std::cerr << "libwebsocket init failed" << std::endl;
-  else
-    startThread(true, false); // blocking, non-verbose
+	if (context == NULL){
+        std::cerr << "libwebsocket init failed" << std::endl;
+        return false;
+    } else {
+        startThread(true, false); // blocking, non-verbose        
+        return true;
+    }
 }
 
 //--------------------------------------------------------------
@@ -239,22 +233,30 @@ lws_callback(struct libwebsocket_context* context,
   const struct libwebsocket_protocols* lws_protocol = libwebsockets_get_protocol(ws);
     int idx = lws_protocol? lws_protocol->protocol_index : 0;
     
-  ofxWebSocketReactor* const reactor = ofxWebSocketReactor::_instance;
-//  ofxWebSocketProtocol* const protocol = reactor->protocols[idx-1].second;
-  ofxWebSocketProtocol* const protocol = reactor->protocol(idx-1);
-  ofxWebSocketConnection** const conn_ptr = (ofxWebSocketConnection**)user;
-  ofxWebSocketConnection* conn;
+    ofxWebSocketConnection* conn;
     
-  if (reactor != NULL)
-  {
-    if (reason == LWS_CALLBACK_ESTABLISHED)
-      *conn_ptr = new ofxWebSocketConnection(reactor, protocol);
-    else if (reason == LWS_CALLBACK_CLOSED)
-      if (*conn_ptr != NULL)
-        delete *conn_ptr;
-
+    ofxWebSocketConnection** conn_ptr = (ofxWebSocketConnection**)user;
+    ofxWebSocketReactor* reactor = NULL;
+    ofxWebSocketProtocol* protocol;
+    
+    if (reason == LWS_CALLBACK_ESTABLISHED){
+        cout<<"here0? "<<reactors.size()<<endl;
+        
+        for (int i=0; i<reactors.size(); i++){
+            if (reactors[i]->context == context){
+                reactor = reactors[i];
+                protocol = reactor->protocol(idx-1);
+                break;
+            }
+        }
+        
+        if ( reactor != NULL ) *conn_ptr = new ofxWebSocketConnection(reactor, protocol);
+    } else if (reason == LWS_CALLBACK_CLOSED)
+        if (*conn_ptr != NULL)
+            delete *conn_ptr;
     switch (reason)
     {
+            cout<<"here2? "<<reactors.size()<<endl;
         case LWS_CALLBACK_FILTER_PROTOCOL_CONNECTION:
         //TODO: what are the use cases for this callback?
         //1:
@@ -262,19 +264,43 @@ lws_callback(struct libwebsocket_context* context,
             //dump_handshake_info((struct lws_tokens *)(long)user);
         return 0;
 
-      case LWS_CALLBACK_FILTER_NETWORK_CONNECTION:
+        case LWS_CALLBACK_FILTER_NETWORK_CONNECTION:
+            for (int i=0; i<reactors.size(); i++){
+                if (reactors[i]->context == context){
+                    reactor = reactors[i];
+                    protocol = reactor->protocol(idx-1);
+                    break;
+                }
+            }
         if (protocol != NULL)
           return reactor->_allow(protocol, (int)(long)user)? 0 : 1;
         else
           return 0;
     case LWS_CALLBACK_HTTP:
+            
+        cout<<"here3? "<<reactors.size()<<endl;
+        for (int i=0; i<reactors.size(); i++){
+            if (reactors[i]->context == context){
+                reactor = reactors[i];
+                protocol = reactor->protocol(idx-1);
+                break;
+            }
+        }
         return reactor->_http(ws, (char*)data);
 
     case LWS_CALLBACK_ESTABLISHED:
     case LWS_CALLBACK_CLOSED:
     case LWS_CALLBACK_SERVER_WRITEABLE:
     case LWS_CALLBACK_RECEIVE:
-    case LWS_CALLBACK_BROADCAST:
+        case LWS_CALLBACK_BROADCAST:
+            
+            for (int i=0; i<reactors.size(); i++){
+                if (reactors[i]->context == context){
+                    reactor = reactors[i];
+                    protocol = reactor->protocol(idx-1);
+                    break;
+                }
+            }
         conn = *(ofxWebSocketConnection**)user;
         if (conn && conn->ws != ws) conn->ws = ws;
         return reactor->_notify(conn, reason, (char*)data, len);
@@ -282,9 +308,6 @@ lws_callback(struct libwebsocket_context* context,
       default:
         return 0;
     }
-  } else {
-      ofLog(OF_LOG_ERROR, "Reactor is null?");
-  }
 
   return 1; // FAIL (e.g. unhandled case/break in switch)
 }

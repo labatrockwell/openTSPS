@@ -1,5 +1,10 @@
 #include "ofxWebSocket.h"
-#include "ofxWebSocketUtil.h"
+
+//--------------------------------------------------------------
+ofxWebSocketConnection::ofxWebSocketConnection(){
+    reactor = NULL;
+    protocol = NULL;
+}
 
 //--------------------------------------------------------------
 ofxWebSocketConnection::ofxWebSocketConnection(ofxWebSocketReactor* const _reactor,
@@ -20,6 +25,7 @@ ofxWebSocketConnection::ofxWebSocketConnection(ofxWebSocketReactor* const _react
 	
 }
 
+//--------------------------------------------------------------
 ofxWebSocketConnection::~ofxWebSocketConnection(){
 	delete buf;
 }
@@ -58,7 +64,7 @@ ofxWebSocketConnection::send(const std::string& message)
     else {
       int encoded_len;
       //encoded_len = b64_encode_string(message.c_str(), message.size(), (char*)p, buf.size());
-	  encoded_len = b64_encode_string(message.c_str(), message.size(), (char*)p, bufsize-LWS_SEND_BUFFER_PRE_PADDING-LWS_SEND_BUFFER_POST_PADDING);
+	  encoded_len = lws_b64_encode_string(message.c_str(), message.size(), (char*)p, bufsize-LWS_SEND_BUFFER_PRE_PADDING-LWS_SEND_BUFFER_POST_PADDING);
       if (encoded_len > 0)
         n = libwebsocket_write(ws, p, encoded_len, LWS_WRITE_TEXT);
     }
@@ -84,7 +90,7 @@ ofxWebSocketConnection::recv(const std::string& message)
   {
     //TODO: libwebsockets base64 decode is broken @2011-06-19
     //len = lws_b64_decode_string(message, decoded, len);
-    int decoded_len = b64_decode_string(message.c_str(), &decoded[0], message.size());
+    int decoded_len = lws_b64_decode_string(message.c_str(), &decoded[0], message.size());
     decoded.resize(decoded_len);
   }
 

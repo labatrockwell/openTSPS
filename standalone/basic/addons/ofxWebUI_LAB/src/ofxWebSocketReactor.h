@@ -16,14 +16,12 @@ class ofxWebSocketReactor
 : public ofThread
 {
   friend class ofxWebSocketProtocol;
+    
 public:
   ofxWebSocketReactor();
   ~ofxWebSocketReactor();
 
-  static ofxWebSocketReactor& instance();
-  static ofxWebSocketReactor* _instance;  
-
-  void setup(const short _port=7681,
+  bool setup(const short _port=7681,
              const std::string sslCertFilename="libwebsockets-test-server.pem",
              const std::string sslKeyFilename="libwebsockets-test-server.key.pem");
 
@@ -91,6 +89,8 @@ public:
         }
     }
     
+	struct libwebsocket_context *context;  
+    
     
 protected:
   unsigned int waitMillis;
@@ -100,8 +100,9 @@ private:
   void threadedFunction();  
   
   std::vector<struct libwebsocket_protocols> lws_protocols;
-	struct libwebsocket_context *context;  
 };
+
+static vector<ofxWebSocketReactor *> reactors;
 
 extern "C"
 int

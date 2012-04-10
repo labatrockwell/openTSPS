@@ -41,20 +41,31 @@ enum{
 
 ofxTSPSGuiManager::ofxTSPSGuiManager() {
 	//JG TODO add drawing event
-	ofAddListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
-	ofAddListener(ofEvents.draw, this, &ofxTSPSGuiManager::draw);
+	//ofAddListener(ofEvents.draw, this, &ofxTSPSGuiManager::draw);
 	
+    bEventsEnabled = false;
+}
+
+void ofxTSPSGuiManager::enableEvents(){
+    if (bEventsEnabled) return;
+    bEventsEnabled = true;
 	ofAddListener(ofEvents.mousePressed, this, &ofxTSPSGuiManager::mousePressed);
 	ofAddListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
 	ofAddListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
 	ofAddListener(ofEvents.keyPressed, this, &ofxTSPSGuiManager::keyPressed);
 }
 
+void ofxTSPSGuiManager::disableEvents(){
+    if (!bEventsEnabled) return;
+    bEventsEnabled = false;
+	ofRemoveListener(ofEvents.mousePressed, this, &ofxTSPSGuiManager::mousePressed);
+	ofRemoveListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
+	ofRemoveListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
+	ofRemoveListener(ofEvents.keyPressed, this, &ofxTSPSGuiManager::keyPressed);
+}
+
 void ofxTSPSGuiManager::setup(){
-	//ofxTSPSSettings *p_Settings;
-	//p_Settings = ofxTSPSSettings::getInstance();
-	
-	enableGui = true;
+    enableGui = true;
 	
 	//create + setup layout of panel
 	panel.setup("settings", 10, 10, 330, 680);
@@ -265,7 +276,7 @@ void ofxTSPSGuiManager::setup(){
 	panel.addSlider("expand detection area:", "HAAR_PADDING", 0.0f, 0.0f, 200.0f, false);
 	
 	//JG GUI-REDUX: removing this feature
-	//gui.addToggle("send haar center as blob center", &p_Settings->bUseHaarAsCenter);
+	//gui.addToggle("send haar center as blob center", &settings.bUseHaarAsCenter);
 	//JG 1/21/10 disabled this feature to simplify the interface
 	//	panel.addSlider("min. checkable haar size (%)", "MIN_HAAR", .1f, 0.0001f, 1.0f, false);
 	//	panel.addSlider("max. checkable haar size (%)", "MAX_HAAR", .5f, 0.0001f, 1.0f, false);
@@ -312,6 +323,8 @@ void ofxTSPSGuiManager::setup(){
 	panel.addTextField("webSocket port:", "WS_PORT", "7681", 200, 20);
     panel.addButton("open debug URL");
 	
+    panel.setValueB("SEND_WS", false);
+    
 	//JG TODO: Optionally change config file through the UI
 	//this would be a big help for setting up multiple install sites and having those setting
 	//included in repositories
@@ -329,6 +342,9 @@ void ofxTSPSGuiManager::setup(){
 	panel.setSelectedPanel("differencing");
 	ofEventArgs nullArgs;
 	update(nullArgs);
+    
+	ofAddListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
+    enableEvents();
 }
 
 void ofxTSPSGuiManager::addSlider(string name, int* value, int min, int max)
@@ -398,34 +414,31 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 		return;
 	}
 	
-	ofxTSPSSettings *p_Settings;
-	p_Settings = ofxTSPSSettings::getInstance();
-	
 	panel.update();
 	
     // camera
     
-	//p_Settings->cameraIndex = panel.getValueF("CAMERA_INDEX");
-	p_Settings->bUseKinect  = panel.getValueF("USE_KINECT");    
+	//settings.cameraIndex = panel.getValueF("CAMERA_INDEX");
+	settings.bUseKinect  = panel.getValueF("USE_KINECT");    
         
     // threshold
 	
-	p_Settings->threshold = panel.getValueF("THRESHOLD");
-	p_Settings->bSmooth = panel.getValueB("USE_SMOOTHING");
-	p_Settings->smooth = panel.getValueF("SMOOTH_AMOUNT");
-	panel.setGroupActive("differencing", "smoothing", p_Settings->bSmooth);
+	settings.threshold = panel.getValueF("THRESHOLD");
+	settings.bSmooth = panel.getValueB("USE_SMOOTHING");
+	settings.smooth = panel.getValueF("SMOOTH_AMOUNT");
+	panel.setGroupActive("differencing", "smoothing", settings.bSmooth);
 	
-	p_Settings->bHighpass = panel.getValueI("USE_HIGHPASS");
-	p_Settings->highpassBlur =  panel.getValueI("HIGHPASS_BLUR");
-	p_Settings->highpassNoise = panel.getValueI("HIGHPASS_NOISE");
-	panel.setGroupActive("differencing", "highpass", p_Settings->bHighpass);
+	settings.bHighpass = panel.getValueI("USE_HIGHPASS");
+	settings.highpassBlur =  panel.getValueI("HIGHPASS_BLUR");
+	settings.highpassNoise = panel.getValueI("HIGHPASS_NOISE");
+	panel.setGroupActive("differencing", "highpass", settings.bHighpass);
 	
-	p_Settings->bAmplify = panel.getValueB("USE_AMPLIFICATION");
-	p_Settings->highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");
-	panel.setGroupActive("video", "amplification", p_Settings->bAmplify);
+	settings.bAmplify = panel.getValueB("USE_AMPLIFICATION");
+	settings.highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");
+	panel.setGroupActive("video", "amplification", settings.bAmplify);
 	
-	if(panel.getButtonPressed("open video settings") && p_Settings->getVideoGrabber() != NULL){
-		ofVideoGrabber * grab = dynamic_cast<ofVideoGrabber *>(p_Settings->getVideoGrabber());
+	if(panel.getButtonPressed("open video settings") && settings.getVideoGrabber() != NULL){
+		ofVideoGrabber * grab = dynamic_cast<ofVideoGrabber *>(settings.getVideoGrabber());
         grab->videoSettings();
 	}
     
@@ -433,76 +446,71 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
         ofLaunchBrowser( "http://localhost:"+panel.getValueS("WS_PORT"));
     }
 	
-	//p_Settings->bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
-	//panel.setGroupActive("video", "adjustedViewColor", p_Settings->bAdjustedViewInColor);
+	//settings.bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
+	//panel.setGroupActive("video", "adjustedViewColor", settings.bAdjustedViewInColor);
 	
-	p_Settings->bLearnBackground = panel.getValueB("LEARN_BACKGROUND");
-	if(p_Settings->bLearnBackground){ 
+	settings.bLearnBackground = panel.getValueB("LEARN_BACKGROUND");
+	if(settings.bLearnBackground){ 
 		panel.setValueB("LEARN_BACKGROUND", false);
 	}
-    
-    p_Settings->bBlankBackground = panel.getValueB("BLACK_BACKGROUND");
-    if (p_Settings->bBlankBackground){
-        panel.setValueB("BLACK_BACKGROUND", false);
-    }
 	
-	//panel.setValueB("LEARN_BACKGROUND", p_Settings->bLearnBackground);
+	//panel.setValueB("LEARN_BACKGROUND", settings.bLearnBackground);
 	//JG 12/8/09 GUI-REDUX Removing this feature
-	//gui.addToggle("smart learn background", &p_Settings->bSmartLearnBackground);
+	//gui.addToggle("smart learn background", &settings.bSmartLearnBackground);
 	
-	p_Settings->minBlob = panel.getValueF("MIN_BLOB")/100.0f; //scale var to be right for tracker
-	p_Settings->maxBlob = panel.getValueF("MAX_BLOB")/100.0f;	//scale var to be right for tracker
-	p_Settings->bLearnBackgroundProgressive = panel.getValueB("RELEARN");
-	p_Settings->fLearnRate = panel.getValueF("RELEARN_BACKGROUND");
-	panel.setGroupActive("background", "background relearn", p_Settings->bLearnBackgroundProgressive);
+	settings.minBlob = panel.getValueF("MIN_BLOB")/100.0f; //scale var to be right for tracker
+	settings.maxBlob = panel.getValueF("MAX_BLOB")/100.0f;	//scale var to be right for tracker
+	settings.bLearnBackgroundProgressive = panel.getValueB("RELEARN");
+	settings.fLearnRate = panel.getValueF("RELEARN_BACKGROUND");
+	panel.setGroupActive("background", "background relearn", settings.bLearnBackgroundProgressive);
 	
-	p_Settings->bFindHoles = !(panel.getValueB("FIND_HOLES"));
-	p_Settings->bTrackOpticalFlow = panel.getValueB("SENSE_OPTICAL_FLOW");
-	panel.setGroupActive("sensing", "optical flow", p_Settings->bTrackOpticalFlow);
+	settings.bFindHoles = !(panel.getValueB("FIND_HOLES"));
+	settings.bTrackOpticalFlow = panel.getValueB("SENSE_OPTICAL_FLOW");
+	panel.setGroupActive("sensing", "optical flow", settings.bTrackOpticalFlow);
 	
 	//JG 12/8/09 GUI-REDUX:
-	p_Settings->minOpticalFlow = panel.getValueF("MIN_OPTICAL_FLOW");
-	p_Settings->maxOpticalFlow = panel.getValueF("MAX_OPTICAL_FLOW");
-	p_Settings->trackType = panel.getValueI("BLOB_TYPE");
-	p_Settings->bDetectHaar = panel.getValueB("SENSE_HAAR");
-	panel.setGroupActive("sensing", "haar tracking", p_Settings->bDetectHaar);
+	settings.minOpticalFlow = panel.getValueF("MIN_OPTICAL_FLOW");
+	settings.maxOpticalFlow = panel.getValueF("MAX_OPTICAL_FLOW");
+	settings.trackType = panel.getValueI("BLOB_TYPE");
+	settings.bDetectHaar = panel.getValueB("SENSE_HAAR");
+	panel.setGroupActive("sensing", "haar tracking", settings.bDetectHaar);
 
 	if(haarFiles->getSelectedName() != ""){
-		p_Settings->haarFile = haarFiles->getSelectedName();
+		settings.haarFile = haarFiles->getSelectedName();
 	}
-	p_Settings->haarAreaPadding = panel.getValueF("HAAR_PADDING");
+	settings.haarAreaPadding = panel.getValueF("HAAR_PADDING");
 	//JG GUI-REDUX: removing this feature
-	//gui.addToggle("send haar center as blob center", &p_Settings->bUseHaarAsCenter);
+	//gui.addToggle("send haar center as blob center", &settings.bUseHaarAsCenter);
 	//JG 1/21/10 disabled this feature to simplify the interface
-//	p_Settings->minHaarArea = panel.getValueF("MIN_HAAR");
-//	p_Settings->maxHaarArea = panel.getValueF("MAX_HAAR");
+//	settings.minHaarArea = panel.getValueF("MIN_HAAR");
+//	settings.maxHaarArea = panel.getValueF("MAX_HAAR");
 	
 	//update osc stuff
-	p_Settings->bSendOsc = panel.getValueB("SEND_OSC");
-	p_Settings->bSendTuio = panel.getValueB("SEND_TUIO");
-	p_Settings->bSendTcp = panel.getValueB("SEND_TCP");
-    p_Settings->bSendWebSockets = panel.getValueB("SEND_WS");
+	settings.bSendOsc = panel.getValueB("SEND_OSC");
+	settings.bSendTuio = panel.getValueB("SEND_TUIO");
+	settings.bSendTcp = panel.getValueB("SEND_TCP");
+    settings.bSendWebSockets = panel.getValueB("SEND_WS");
     
-	p_Settings->oscHost = panel.getValueS("OSC_HOST", 0, "localhost");
-	p_Settings->oscPort = (int) atoi(panel.getValueS("OSC_PORT", 0, "12000").c_str());
-	p_Settings->bUseLegacyOsc = panel.getValueB("LEGACY_OSC");
-	p_Settings->tuioHost = panel.getValueS("TUIO_HOST", 0, "localhost");
-	p_Settings->tuioPort = (int) atoi(panel.getValueS("TUIO_PORT", 0, "3333").c_str());
-	p_Settings->tcpPort = (int) atoi(panel.getValueS("TCP_PORT", 0, "8888").c_str());
-    p_Settings->webSocketPort = (int) atoi(panel.getValueS("WS_PORT", 0, "7681").c_str());
-	p_Settings->bSendOscContours = panel.getValueB("SEND_OSC_CONTOURS");
-	panel.setGroupActive("sensing", "options", p_Settings->bSendOscContours);
+	settings.oscHost = panel.getValueS("OSC_HOST", 0, "localhost");
+	settings.oscPort = (int) atoi(panel.getValueS("OSC_PORT", 0, "12000").c_str());
+	settings.bUseLegacyOsc = panel.getValueB("LEGACY_OSC");
+	settings.tuioHost = panel.getValueS("TUIO_HOST", 0, "localhost");
+	settings.tuioPort = (int) atoi(panel.getValueS("TUIO_PORT", 0, "3333").c_str());
+	settings.tcpPort = (int) atoi(panel.getValueS("TCP_PORT", 0, "8888").c_str());
+    settings.webSocketPort = (int) atoi(panel.getValueS("WS_PORT", 0, "7681").c_str());
+	settings.bSendOscContours = panel.getValueB("SEND_OSC_CONTOURS");
+	panel.setGroupActive("sensing", "options", settings.bSendOscContours);
 	
-	panel.setGroupActive("communication", "OSC", p_Settings->bSendOsc);
-	panel.setGroupActive("communication", "TUIO", p_Settings->bSendTuio);
-	panel.setGroupActive("communication", "TCP", p_Settings->bSendTcp);
+	panel.setGroupActive("communication", "OSC", settings.bSendOsc);
+	panel.setGroupActive("communication", "TUIO", settings.bSendTuio);
+	panel.setGroupActive("communication", "TCP", settings.bSendTcp);
 	
 	// UPDATE GUI QUADS HERE
 	// because this returns a pointer to the actual points that get updated,
 	// you store it in an array so it doesn't get updated when it draws
 	ofPoint * scaledPoints = quadGui.getScaledQuadPoints(cameraWidth,cameraHeight);
 	for (int i=0; i<4; i++){
-		p_Settings->quadWarpScaled[i] = scaledPoints[i];
+		settings.quadWarpScaled[i] = scaledPoints[i];
 	}
 	
 	//modify custom parameters
@@ -526,11 +534,11 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	}
 	
 	//get xml
-	p_Settings->currentXmlFile = panel.getCurrentXMLFile();
+	settings.currentXmlFile = panel.getCurrentXMLFile();
 	
 	//get current panel
-	p_Settings->lastCurrentPanel = p_Settings->currentPanel;
-	p_Settings->currentPanel = panel.getSelectedPanel();
+	settings.lastCurrentPanel = settings.currentPanel;
+	settings.currentPanel = panel.getSelectedPanel();
 }
 
 //BR: Added some messiness here to setup, draw, and update the gui quad...
@@ -539,8 +547,6 @@ void ofxTSPSGuiManager::setupQuadGui ( int _cameraWidth, int _cameraHeight )
 {
 	cameraWidth = _cameraWidth;
 	cameraHeight = _cameraHeight;
-	ofxTSPSSettings *p_Settings;
-	p_Settings = ofxTSPSSettings::getInstance();
 	
 	// give the gui quad a starting setting
 	
@@ -552,10 +558,10 @@ void ofxTSPSGuiManager::setupQuadGui ( int _cameraWidth, int _cameraHeight )
 	quadGui.setQuadPoints(quadSrc);
 	
 	// give the gui quad a default setting
-	p_Settings->quadWarpOriginal[0].set(0, 0);
-	p_Settings->quadWarpOriginal[1].set(cameraWidth, 0);
-	p_Settings->quadWarpOriginal[2].set(cameraWidth, cameraHeight);
-	p_Settings->quadWarpOriginal[3].set(0, cameraHeight);
+	settings.quadWarpOriginal[0].set(0, 0);
+	settings.quadWarpOriginal[1].set(cameraWidth, 0);
+	settings.quadWarpOriginal[2].set(cameraWidth, cameraHeight);
+	settings.quadWarpOriginal[3].set(0, cameraHeight);
 	
 	//BR TO DO: add this into the normal settings file
 	quadGui.width = cameraWidth;
@@ -609,30 +615,22 @@ void ofxTSPSGuiManager::changeGuiCameraView(bool bCameraView) {
  ***************************************************************/
 
 void ofxTSPSGuiManager::saveEventCatcher( string & buttonName){
-	ofxTSPSSettings *p_Settings;
-	p_Settings = ofxTSPSSettings::getInstance();
-	p_Settings->currentXmlFile = panel.getCurrentXMLFile();
-	quadGui.saveToFile(p_Settings->currentXmlFile);
+	settings.currentXmlFile = panel.getCurrentXMLFile();
+	quadGui.saveToFile(settings.currentXmlFile);
 };
 
-void ofxTSPSGuiManager::reloadEventCatcher( string & buttonName){
-	ofxTSPSSettings *p_Settings;
-	p_Settings = ofxTSPSSettings::getInstance();
-	quadGui.readFromFile(p_Settings->currentXmlFile);
+void ofxTSPSGuiManager::reloadEventCatcher( string & buttonName){\
+	quadGui.readFromFile(settings.currentXmlFile);
 };
 
 void ofxTSPSGuiManager::loadEventCatcher( string & buttonName){
-	ofxTSPSSettings *p_Settings;
-	p_Settings = ofxTSPSSettings::getInstance();
-	p_Settings->currentXmlFile = panel.getCurrentXMLFile();
-	quadGui.readFromFile(p_Settings->currentXmlFile);
+	settings.currentXmlFile = panel.getCurrentXMLFile();
+	quadGui.readFromFile(settings.currentXmlFile);
 };
 
 void ofxTSPSGuiManager::saveAsEventCatcher( string & buttonName){
-	ofxTSPSSettings *p_Settings;
-	p_Settings = ofxTSPSSettings::getInstance();
-	p_Settings->currentXmlFile = panel.getCurrentXMLFile();
-	quadGui.readFromFile(p_Settings->currentXmlFile);
+	settings.currentXmlFile = panel.getCurrentXMLFile();
+	quadGui.readFromFile(settings.currentXmlFile);
 };
 
 /***************************************************************
@@ -644,8 +642,6 @@ void ofxTSPSGuiManager::mousePressed(ofMouseEventArgs &e)
 {
 	if(enableGui) panel.mousePressed(e.x, e.y, e.button);
 	if(quadGuiSetup){
-		ofxTSPSSettings *p_Settings;
-		p_Settings = ofxTSPSSettings::getInstance();
 	}
 }
 
@@ -678,7 +674,7 @@ void ofxTSPSGuiManager::keyReleased(ofKeyEventArgs &e)
 	if(enableGui) panel.keyReleased(e.key);
 };
 
-void ofxTSPSGuiManager::draw(ofEventArgs &e) {
+void ofxTSPSGuiManager::draw() {
 	if(enableGui){
 		panel.draw();
         maximizeButton->render();
@@ -692,7 +688,7 @@ void ofxTSPSGuiManager::draw(ofEventArgs &e) {
 
 //----------------------------------------------------------
 void ofxTSPSGuiManager::minimize(string & button){
-    ofxTSPSSettings::getInstance()->bMinimized = true;
+    settings.bMinimized = true;
     ofSetWindowShape(100,40);
     minimizeButton->disable();
     maximizeButton->enable();
@@ -700,11 +696,18 @@ void ofxTSPSGuiManager::minimize(string & button){
 
 //----------------------------------------------------------
 void ofxTSPSGuiManager::maximize(string & button){
-    ofxTSPSSettings::getInstance()->bMinimized = false;  
+    settings.bMinimized = false;  
     ofSetWindowShape(1024,768); 
     minimizeButton->enable();
     maximizeButton->disable();
 };
 
-//JG TODO ADD EVENT UNREGISTER FO CLEAN UP
 
+/***************************************************************
+    GET SETTINGS OBJECT (NO LONGER SINGLETON!)
+ ***************************************************************/
+
+//----------------------------------------------------------
+ofxTSPSSettings * ofxTSPSGuiManager::getSettings(){
+    return &settings;
+};

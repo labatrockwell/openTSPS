@@ -21,7 +21,7 @@ class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
     public:
         ofxTSPSWebSocketSender();
         
-        void setup( int port=7777 );  
+        bool setup( int port=7777 );  
         void close();
         void send();
               
@@ -34,7 +34,7 @@ class ofxTSPSWebSocketSender : public ofxWebSocketProtocol
     
     protected:
         vector<ofxTSPSWebSocketMessage> toSend;
-        bool bSocketOpened;
+        bool bSocketOpened, bSetup;
     
         int port;
     

@@ -182,6 +182,7 @@ void ofxTSPSGuiManager::setup(){
 	backgroundGroup->setActive(true);
 	//TODO: use the button class for this maybe?
 	panel.addToggle("capture background", "LEARN_BACKGROUND", false);
+	panel.addToggle("blank out background", "BLACK_BACKGROUND", false);
 	
 	guiTypeGroup * relearnGroup = panel.addGroup("background relearn");
 	relearnGroup->setBackgroundColor(148,129,85);
@@ -237,7 +238,7 @@ void ofxTSPSGuiManager::setup(){
 	blobGroup->setActive(true);
 	
 	//JG 12/8/09 GUI-REDUX Removing this feature
-	panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 2.0f, false);
+	panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 100.f, false);
 	panel.addSlider("maximum blob size (% of view):", "MAX_BLOB", .50f, 0.1f, 100.f, false);
 	panel.addToggle("ignore nested blobs", "FIND_HOLES", false);
 	

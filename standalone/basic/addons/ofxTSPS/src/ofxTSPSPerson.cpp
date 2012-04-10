@@ -81,6 +81,7 @@ void ofxTSPSPerson::noHaarThisFrame()
 {
 	//temp remove keep haar
 	hasHaar = false;
+    haarRect.set(0,0,0,0);
 	return;
 	
 	//if we had a haar but it vanished move it by the movement of the blob

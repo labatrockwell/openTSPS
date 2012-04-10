@@ -32,6 +32,7 @@
  
  */
 
+#pragma  once
 #include "ofMain.h"
 #include <iostream>
 
@@ -45,13 +46,9 @@ enum tspsInputType {
 
 class ofxTSPSSettings {
 public:
-	static ofxTSPSSettings* getInstance();
-	void method();
-	~ofxTSPSSettings() {
-		delete single;
-		instanceFlag = false;
-	}
-	
+	ofxTSPSSettings();
+    
+    //static ofxTSPSSettings* getInstance();
 	string haarFile;
     
     // TSPS general vars
@@ -93,6 +90,7 @@ public:
 //	float   maxHaarArea;
 	
 	// communication vars
+    string  oscPrefix;
 	bool    bSendOsc;
 	bool	bUseLegacyOsc;
 	bool    bSendTuio;
@@ -133,8 +131,4 @@ private:
     
 	static bool     instanceFlag;
 	static ofxTSPSSettings *single;
-	ofxTSPSSettings() {
-		videoGrabber = NULL;
-		//private constructor
-	}
 };

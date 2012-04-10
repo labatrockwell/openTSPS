@@ -34,6 +34,7 @@
 
 //#include "ofxSimpleGuiToo.h"
 #include "ofxLabGui.h"
+#include "ofxTSPSSettings.h"
 
 // maybe there's a simpler way to integrate this?
 #include "ofxCvCoordWarpingGui.h"
@@ -54,14 +55,17 @@ class ofxTSPSGuiManager {
 	ofxTSPSGuiManager();
 	void setup();
 	//ofxSimpleGuiToo	gui;
-
+    
+    void enableEvents();
+    void disableEvents();
+    
 	bool enableGui;
 	void setupQuadGui ( int cameraWidth, int cameraHeight );
 	void drawQuadGui();
 	void drawQuadGui( int x, int y, int width, int height );
-
-	void update(ofEventArgs &e);
-	void draw(ofEventArgs &e);
+	
+    void update(ofEventArgs &e);
+	void draw();
 
 	//forwarded events
 	void mousePressed(ofMouseEventArgs &e);
@@ -95,7 +99,12 @@ class ofxTSPSGuiManager {
     void minimize( string & button );
     void maximize( string & button );
     
+    // get settings object
+    ofxTSPSSettings * getSettings();
+    
 protected:
+    ofxTSPSSettings settings;
+    
 	//a little goofy way to keep track of custom params. works but i'm open to suggestions
 	ofxLabGui panel;
 	vector<ofxTSPSGUICustomParam> params;
@@ -114,6 +123,9 @@ protected:
     // amazing minimize + maximize buttons
     guiTypeButton * minimizeButton;
     guiTypeButton * maximizeButton;
+    
+    //are we using events?
+    bool bEventsEnabled;
 	
 	simpleFileLister* haarFiles;
 };

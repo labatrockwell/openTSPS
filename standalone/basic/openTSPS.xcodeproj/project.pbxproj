@@ -24,16 +24,11 @@
 		2E6785D51430B7E30083AE30 /* ofxFileDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6785D31430B7E30083AE30 /* ofxFileDialog.cpp */; };
 		2EE5A0C3146DD99E00D4B8AE /* ofxTSPSUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5A0C0146DD99E00D4B8AE /* ofxTSPSUtils.cpp */; };
 		A94EB0E31437A5B000B6437B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB0E21437A5B000B6437B /* ApplicationServices.framework */; };
-		A94EB12B1437A68B00B6437B /* cdecode.c in Sources */ = {isa = PBXBuildFile; fileRef = A94EB0F41437A68B00B6437B /* cdecode.c */; };
-		A94EB12C1437A68B00B6437B /* cencode.c in Sources */ = {isa = PBXBuildFile; fileRef = A94EB0F51437A68B00B6437B /* cencode.c */; };
 		A94EB12D1437A68B00B6437B /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB0FC1437A68B00B6437B /* libwebsockets.a */; };
-		A94EB12E1437A68B00B6437B /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB1191437A68B00B6437B /* libprotobuf-lite.a */; };
-		A94EB12F1437A68B00B6437B /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB11A1437A68B00B6437B /* libprotobuf.a */; };
 		A94EB1301437A68B00B6437B /* ofxWebSocketConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94EB11E1437A68B00B6437B /* ofxWebSocketConnection.cpp */; };
 		A94EB1311437A68B00B6437B /* ofxWebSocketEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94EB1201437A68B00B6437B /* ofxWebSocketEvents.cpp */; };
 		A94EB1321437A68B00B6437B /* ofxWebSocketProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94EB1221437A68B00B6437B /* ofxWebSocketProtocol.cpp */; };
 		A94EB1331437A68B00B6437B /* ofxWebSocketReactor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94EB1241437A68B00B6437B /* ofxWebSocketReactor.cpp */; };
-		A94EB1341437A68B00B6437B /* ofxWebSocketUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94EB1261437A68B00B6437B /* ofxWebSocketUtil.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -196,39 +191,9 @@
 		2EE5A0C1146DD99E00D4B8AE /* ofxTSPSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSUtils.h; sourceTree = "<group>"; };
 		2EE5A0C2146DD99E00D4B8AE /* ofxTSPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSView.h; sourceTree = "<group>"; };
 		A94EB0E21437A5B000B6437B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
-		A94EB0EE1437A68B00B6437B /* cdecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdecode.h; sourceTree = "<group>"; };
-		A94EB0EF1437A68B00B6437B /* cencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cencode.h; sourceTree = "<group>"; };
-		A94EB0F01437A68B00B6437B /* decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decode.h; sourceTree = "<group>"; };
-		A94EB0F11437A68B00B6437B /* encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encode.h; sourceTree = "<group>"; };
-		A94EB0F21437A68B00B6437B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		A94EB0F41437A68B00B6437B /* cdecode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cdecode.c; sourceTree = "<group>"; };
-		A94EB0F51437A68B00B6437B /* cencode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cencode.c; sourceTree = "<group>"; };
 		A94EB0F71437A68B00B6437B /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		A94EB0F91437A68B00B6437B /* libwebsockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libwebsockets.h; sourceTree = "<group>"; };
 		A94EB0FC1437A68B00B6437B /* libwebsockets.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebsockets.a; sourceTree = "<group>"; };
-		A94EB0FE1437A68B00B6437B /* COPYING.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.txt; sourceTree = "<group>"; };
-		A94EB1021437A68B00B6437B /* descriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = descriptor.h; sourceTree = "<group>"; };
-		A94EB1031437A68B00B6437B /* descriptor.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = descriptor.pb.h; sourceTree = "<group>"; };
-		A94EB1041437A68B00B6437B /* descriptor.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptor.proto; sourceTree = "<group>"; };
-		A94EB1051437A68B00B6437B /* descriptor_database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = descriptor_database.h; sourceTree = "<group>"; };
-		A94EB1061437A68B00B6437B /* dynamic_message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamic_message.h; sourceTree = "<group>"; };
-		A94EB1071437A68B00B6437B /* extension_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extension_set.h; sourceTree = "<group>"; };
-		A94EB1081437A68B00B6437B /* generated_message_reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generated_message_reflection.h; sourceTree = "<group>"; };
-		A94EB1091437A68B00B6437B /* generated_message_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generated_message_util.h; sourceTree = "<group>"; };
-		A94EB10A1437A68B00B6437B /* message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = message.h; sourceTree = "<group>"; };
-		A94EB10B1437A68B00B6437B /* message_lite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = message_lite.h; sourceTree = "<group>"; };
-		A94EB10C1437A68B00B6437B /* reflection_ops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reflection_ops.h; sourceTree = "<group>"; };
-		A94EB10D1437A68B00B6437B /* repeated_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = repeated_field.h; sourceTree = "<group>"; };
-		A94EB10E1437A68B00B6437B /* service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = service.h; sourceTree = "<group>"; };
-		A94EB1101437A68B00B6437B /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		A94EB1111437A68B00B6437B /* once.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = once.h; sourceTree = "<group>"; };
-		A94EB1121437A68B00B6437B /* text_format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text_format.h; sourceTree = "<group>"; };
-		A94EB1131437A68B00B6437B /* unknown_field_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unknown_field_set.h; sourceTree = "<group>"; };
-		A94EB1141437A68B00B6437B /* wire_format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wire_format.h; sourceTree = "<group>"; };
-		A94EB1151437A68B00B6437B /* wire_format_lite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wire_format_lite.h; sourceTree = "<group>"; };
-		A94EB1161437A68B00B6437B /* wire_format_lite_inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wire_format_lite_inl.h; sourceTree = "<group>"; };
-		A94EB1191437A68B00B6437B /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libprotobuf-lite.a"; sourceTree = "<group>"; };
-		A94EB11A1437A68B00B6437B /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
 		A94EB11D1437A68B00B6437B /* ofxWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxWebSocket.h; sourceTree = "<group>"; };
 		A94EB11E1437A68B00B6437B /* ofxWebSocketConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxWebSocketConnection.cpp; sourceTree = "<group>"; };
 		A94EB11F1437A68B00B6437B /* ofxWebSocketConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxWebSocketConnection.h; sourceTree = "<group>"; };
@@ -238,8 +203,6 @@
 		A94EB1231437A68B00B6437B /* ofxWebSocketProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxWebSocketProtocol.h; sourceTree = "<group>"; };
 		A94EB1241437A68B00B6437B /* ofxWebSocketReactor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxWebSocketReactor.cpp; sourceTree = "<group>"; };
 		A94EB1251437A68B00B6437B /* ofxWebSocketReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxWebSocketReactor.h; sourceTree = "<group>"; };
-		A94EB1261437A68B00B6437B /* ofxWebSocketUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxWebSocketUtil.cpp; sourceTree = "<group>"; };
-		A94EB1271437A68B00B6437B /* ofxWebSocketUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxWebSocketUtil.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -502,8 +465,6 @@
 				E741C252142F70780040D77D /* opencv.a in Frameworks */,
 				A94EB0E31437A5B000B6437B /* ApplicationServices.framework in Frameworks */,
 				A94EB12D1437A68B00B6437B /* libwebsockets.a in Frameworks */,
-				A94EB12E1437A68B00B6437B /* libprotobuf-lite.a in Frameworks */,
-				A94EB12F1437A68B00B6437B /* libprotobuf.a in Frameworks */,
 				2E592933144F2BAA00E795EA /* freenect.lib in Frameworks */,
 				2E592937144F2BAA00E795EA /* usb-1.0.a in Frameworks */,
 				E765FF85148429C6003CD346 /* liboscpack.a in Frameworks */,
@@ -881,41 +842,9 @@
 		A94EB0EB1437A68B00B6437B /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				A94EB0EC1437A68B00B6437B /* b64 */,
 				A94EB0F61437A68B00B6437B /* libwebsockets */,
-				A94EB0FD1437A68B00B6437B /* protobuf */,
 			);
 			path = libs;
-			sourceTree = "<group>";
-		};
-		A94EB0EC1437A68B00B6437B /* b64 */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB0ED1437A68B00B6437B /* include */,
-				A94EB0F21437A68B00B6437B /* LICENSE */,
-				A94EB0F31437A68B00B6437B /* src */,
-			);
-			path = b64;
-			sourceTree = "<group>";
-		};
-		A94EB0ED1437A68B00B6437B /* include */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB0EE1437A68B00B6437B /* cdecode.h */,
-				A94EB0EF1437A68B00B6437B /* cencode.h */,
-				A94EB0F01437A68B00B6437B /* decode.h */,
-				A94EB0F11437A68B00B6437B /* encode.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		A94EB0F31437A68B00B6437B /* src */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB0F41437A68B00B6437B /* cdecode.c */,
-				A94EB0F51437A68B00B6437B /* cencode.c */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		A94EB0F61437A68B00B6437B /* libwebsockets */ = {
@@ -952,84 +881,6 @@
 			path = osx;
 			sourceTree = "<group>";
 		};
-		A94EB0FD1437A68B00B6437B /* protobuf */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB0FE1437A68B00B6437B /* COPYING.txt */,
-				A94EB0FF1437A68B00B6437B /* include */,
-				A94EB1171437A68B00B6437B /* lib */,
-			);
-			path = protobuf;
-			sourceTree = "<group>";
-		};
-		A94EB0FF1437A68B00B6437B /* include */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB1001437A68B00B6437B /* google */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		A94EB1001437A68B00B6437B /* google */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB1011437A68B00B6437B /* protobuf */,
-			);
-			path = google;
-			sourceTree = "<group>";
-		};
-		A94EB1011437A68B00B6437B /* protobuf */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB1021437A68B00B6437B /* descriptor.h */,
-				A94EB1031437A68B00B6437B /* descriptor.pb.h */,
-				A94EB1041437A68B00B6437B /* descriptor.proto */,
-				A94EB1051437A68B00B6437B /* descriptor_database.h */,
-				A94EB1061437A68B00B6437B /* dynamic_message.h */,
-				A94EB1071437A68B00B6437B /* extension_set.h */,
-				A94EB1081437A68B00B6437B /* generated_message_reflection.h */,
-				A94EB1091437A68B00B6437B /* generated_message_util.h */,
-				A94EB10A1437A68B00B6437B /* message.h */,
-				A94EB10B1437A68B00B6437B /* message_lite.h */,
-				A94EB10C1437A68B00B6437B /* reflection_ops.h */,
-				A94EB10D1437A68B00B6437B /* repeated_field.h */,
-				A94EB10E1437A68B00B6437B /* service.h */,
-				A94EB10F1437A68B00B6437B /* stubs */,
-				A94EB1121437A68B00B6437B /* text_format.h */,
-				A94EB1131437A68B00B6437B /* unknown_field_set.h */,
-				A94EB1141437A68B00B6437B /* wire_format.h */,
-				A94EB1151437A68B00B6437B /* wire_format_lite.h */,
-				A94EB1161437A68B00B6437B /* wire_format_lite_inl.h */,
-			);
-			path = protobuf;
-			sourceTree = "<group>";
-		};
-		A94EB10F1437A68B00B6437B /* stubs */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB1101437A68B00B6437B /* common.h */,
-				A94EB1111437A68B00B6437B /* once.h */,
-			);
-			path = stubs;
-			sourceTree = "<group>";
-		};
-		A94EB1171437A68B00B6437B /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB1181437A68B00B6437B /* osx */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		A94EB1181437A68B00B6437B /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				A94EB1191437A68B00B6437B /* libprotobuf-lite.a */,
-				A94EB11A1437A68B00B6437B /* libprotobuf.a */,
-			);
-			path = osx;
-			sourceTree = "<group>";
-		};
 		A94EB11C1437A68B00B6437B /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,8 +893,6 @@
 				A94EB1231437A68B00B6437B /* ofxWebSocketProtocol.h */,
 				A94EB1241437A68B00B6437B /* ofxWebSocketReactor.cpp */,
 				A94EB1251437A68B00B6437B /* ofxWebSocketReactor.h */,
-				A94EB1261437A68B00B6437B /* ofxWebSocketUtil.cpp */,
-				A94EB1271437A68B00B6437B /* ofxWebSocketUtil.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1970,13 +1819,10 @@
 				E741C258142F70780040D77D /* ofxCvImage.cpp in Sources */,
 				E741C259142F70780040D77D /* ofxCvShortImage.cpp in Sources */,
 				2E6785D51430B7E30083AE30 /* ofxFileDialog.cpp in Sources */,
-				A94EB12B1437A68B00B6437B /* cdecode.c in Sources */,
-				A94EB12C1437A68B00B6437B /* cencode.c in Sources */,
 				A94EB1301437A68B00B6437B /* ofxWebSocketConnection.cpp in Sources */,
 				A94EB1311437A68B00B6437B /* ofxWebSocketEvents.cpp in Sources */,
 				A94EB1321437A68B00B6437B /* ofxWebSocketProtocol.cpp in Sources */,
 				A94EB1331437A68B00B6437B /* ofxWebSocketReactor.cpp in Sources */,
-				A94EB1341437A68B00B6437B /* ofxWebSocketUtil.cpp in Sources */,
 				2E4A145A144341EA0038753B /* ofxTSPSOscSender.cpp in Sources */,
 				2E4A145B144341EA0038753B /* ofxTSPSTCPSender.cpp in Sources */,
 				2E4A145C144341EA0038753B /* ofxTSPSTUIOSender.cpp in Sources */,

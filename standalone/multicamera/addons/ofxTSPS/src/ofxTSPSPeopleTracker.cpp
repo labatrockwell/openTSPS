@@ -274,6 +274,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 		cout << "Learning Background" << endl;
 		grayBg = grayImageWarped;
 	}
+    
+    if (p_Settings->bBlankBackground){
+        grayBg -= grayBg;
+    }
 	
 	//progressive relearn background
 	if (p_Settings->bLearnBackgroundProgressive){
@@ -511,7 +515,6 @@ void ofxTSPSPeopleTracker::trackPeople()
     if (bWebSocketsEnabled){
         if (p_Settings->webSocketPort != webSocketServer.getPort()){
             webSocketServer.close();
-            cout<<"OR HERE?"<<endl;
             webSocketServer.setup( p_Settings->webSocketPort );
         }
         //sent automagically
@@ -1164,10 +1167,10 @@ void ofxTSPSPeopleTracker::setVideoGrabber(ofBaseVideo* grabber, tspsInputType i
 	p_Settings->setVideoGrabber( grabber, inputType );
     if (inputType == TSPS_INPUT_VIDEO){
         gui.enableElement( "open video settings" );
-        gui.disableElement( "use kinect" );
+        //gui.disableElement( "use kinect" );
     } else if (inputType == TSPS_INPUT_KINECT){
         gui.disableElement( "open video settings" );
-        gui.enableElement( "use kinect" );
+        //gui.enableElement( "use kinect" );
     }
 }
 

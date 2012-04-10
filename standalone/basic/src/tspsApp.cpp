@@ -54,13 +54,6 @@ void tspsApp::setup(){
     camHeight = vidPlayer.height;
 	#endif
 
-	
-	/*
-	//THIS IS HOW YOU CAN ADD CUSTOM PARAMETERS TO THE GUI
-	peopleTracker.addSlider("custom INTEGER", &itestValue, 0, ofGetWidth());
-	peopleTracker.addSlider("custom FLOAT", &ftestValue, 0, ofGetHeight());
-	peopleTracker.addToggle("custom BOOL", &btestValue);
-	*/
 	peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
 
 	//load GUI / interface images
@@ -99,7 +92,7 @@ void tspsApp::update(){
         } else {
             vidGrabber.update();
             vidGrabber.grabFrame();
-            bNewFrame = vidGrabber.isFrameNew();
+            bNewFrame = true;//vidGrabber.isFrameNew();
         }
     }    
     #else
