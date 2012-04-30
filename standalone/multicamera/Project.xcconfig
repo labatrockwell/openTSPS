@@ -12,17 +12,17 @@ ADDONS_PATH = $(OF_PATH)/addons
 OFX_OPENCV_HEADERS = "$(ADDONS_PATH)/ofxOpenCv/libs/opencv/include/"
 
 //ofxLibwebsockets
-LIB_SSL = "addons/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a"
-LIB_CRYPTO = "addons/ofxLibwebsockets/libs/openssl/lib/osx/libcrypto.a"
-SSL_INC = "addons/ofxLibwebsockets/libs/openssl/"
-LWS = "addons/ofxLibwebsockets/libs/libwebsockets/lib/osx/libwebsockets.a"
-OFX_LWS_INCLUDE = "addons/ofxLibwebsockets/libs/ofxLibwebsockets/include"
+LIB_SSL = "../../addons/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a"
+LIB_CRYPTO = "../../addons/ofxLibwebsockets/libs/openssl/lib/osx/libcrypto.a"
+SSL_INC = "../../addons/ofxLibwebsockets/libs/openssl/"
+LWS = "../../addons/ofxLibwebsockets/libs/libwebsockets/lib/osx/libwebsockets.a"
+OFX_LWS_INCLUDE = "../../addons/ofxLibwebsockets/libs/ofxLibwebsockets/include"
 LIBWEBSOCKETS_LIBS = $(LIB_CRYPTO) $(LIB_SSL) $(LWS)
 LIBWEBSOCKETS_INCLUDES= $(SSL_INC) $(OFX_LWS_INCLUDE)
 
 // ofxKinect
-OFX_KINECT_HEADERS = "addons/ofxKinect/libs/libusb/osx/include/"
-OFX_KINECT_LIBS = "addons/ofxKinect/libs/libusb/osx/libs/usb-1.0.a"
+OFX_KINECT_HEADERS = "../../addons/ofxKinect/libs/libusb/osx/include/"
+OFX_KINECT_LIBS = "../../addons/ofxKinect/libs/libusb/osx/libs/usb-1.0.a"
 
 
 // all addons
