@@ -107,6 +107,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 	public:
     
         ofxTSPSPeopleTracker();
+        ~ofxTSPSPeopleTracker();
         
 		//set up and update
 	

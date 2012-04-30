@@ -21,6 +21,10 @@ ofxTSPSPeopleTracker::ofxTSPSPeopleTracker(){
     p_Settings = NULL;
 }
 
+ofxTSPSPeopleTracker::~ofxTSPSPeopleTracker(){
+    disableGuiEvents();
+}
+
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 {	
