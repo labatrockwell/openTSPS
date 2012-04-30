@@ -188,7 +188,7 @@ void ofxTSPSPeopleTracker::setupWebSocketServer( int port)
     if (p_Settings == NULL) p_Settings = gui.getSettings();
     bWebSocketServerEnabled = true;
 	p_Settings->webSocketServerPort = port;
-    webSocketServer.setupServer(port);
+    bWebSocketServerEnabled = webSocketServer.setupServer(port);
     p_Settings->bSendWebSocketServer = bWebSocketServerEnabled;
 }
 
@@ -197,9 +197,11 @@ void ofxTSPSPeopleTracker::setupWebSocketClient( string host, int port, bool bUs
 	ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET CLIENT AT ws://"+host+channel+":"+ofToString( port ));
     if (p_Settings == NULL) p_Settings = gui.getSettings();
     bWebSocketClientEnabled = true;
+    p_Settings->webSocketHost = host;
 	p_Settings->webSocketPort = port;
-    // TO DO: SWITCH TO "OFF" IF FAILED!
-    webSocketServer.setupClient( host, port, false, channel);
+	p_Settings->webSocketChannel = channel;
+    p_Settings->webSocketUseSSL = bUseSSL;
+    bWebSocketClientEnabled = webSocketServer.setupClient( host, port, false, channel);
     p_Settings->bSendWebSocketClient = bWebSocketClientEnabled;
 }
 

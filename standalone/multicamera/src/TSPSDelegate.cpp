@@ -29,7 +29,13 @@ TSPSDelegate::TSPSDelegate( int which, bool _bUseVideoFile ){
 
 //------------------------------------------------------------------------
 TSPSDelegate::~TSPSDelegate(){
-};
+    exit();
+}
+
+//------------------------------------------------------------------------
+void TSPSDelegate::exit(){
+    kinect.close();    
+}
 
 //------------------------------------------------------------------------
 bool TSPSDelegate::openCamera( int which, bool _bKinect ){
