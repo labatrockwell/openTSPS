@@ -30,15 +30,17 @@ ofxCvCoordWarpingGui::ofxCvCoordWarpingGui(){
 	quadName = "QUAD_";
 	scale.x = scale.y = 1.0f;
 	bAutoSave = false;
-	ofAddListener(ofEvents.mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
-	ofAddListener(ofEvents.mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
-	ofAddListener(ofEvents.mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);
+    disableAllEvents();
 }
 
 //----------------------------------------------------
 void ofxCvCoordWarpingGui::setup(string _quadName){
+    enableAllEvents();
 	quadName = _quadName;
 	bCameraView = false;	
+	ofAddListener(ofEvents.mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
+	ofAddListener(ofEvents.mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
+	ofAddListener(ofEvents.mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);
 }
 
 //----------------------------------------------------

@@ -46,7 +46,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 	grayLastImage = graySmallImage;
 	
 	//set tracker
-	bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketsEnabled = false;
+	bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketServerEnabled = bWebSocketClientEnabled = false;
 	p_Settings = gui.getSettings();
 	
 	//gui.loadFromXML();	
@@ -148,15 +148,27 @@ void ofxTSPSPeopleTracker::setupTcp(int port)
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setupWebSocket( int port)
+void ofxTSPSPeopleTracker::setupWebSocketServer( int port)
 {
-	ofLog(OF_LOG_VERBOSE, "SEND VIA WEBSOCKETS AT PORT "+port);
+	ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET SERVER ON PORT "+port);
     if (p_Settings == NULL) p_Settings = gui.getSettings();
-    bWebSocketsEnabled = true;
-	p_Settings->webSocketPort = port;
-    bWebSocketsEnabled = webSocketServer.setup(port);
-    p_Settings->bSendWebSockets = bWebSocketsEnabled;
+    bWebSocketServerEnabled = true;
+	p_Settings->webSocketServerPort = port;
+    webSocketServer.setupServer(port);
+    p_Settings->bSendWebSocketServer = bWebSocketServerEnabled;
 }
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::setupWebSocketClient( string host, int port, bool bUseSSL, string channel) {
+	ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET CLIENT AT ws://"+host+channel+":"+ofToString( port ));
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    bWebSocketClientEnabled = true;
+	p_Settings->webSocketPort = port;
+    // TO DO: SWITCH TO "OFF" IF FAILED!
+    webSocketServer.setupClient( host, port, false, channel);
+    p_Settings->bSendWebSocketClient = bWebSocketClientEnabled;
+}
+
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setListener(ofxPersonListener* listener)
@@ -205,12 +217,20 @@ void ofxTSPSPeopleTracker::updateSettings()
 	else if (!p_Settings->bSendTcp) bTcpEnabled = false;
         
     //check to enable websockets
-    if (p_Settings->bSendWebSockets && !bWebSocketsEnabled){
-        setupWebSocket(p_Settings->webSocketPort);
-    } else if (!p_Settings->bSendWebSockets){
-        bWebSocketsEnabled = false;
-        webSocketServer.close();
+    if (p_Settings->bSendWebSocketClient && !bWebSocketClientEnabled){
+        setupWebSocketClient(p_Settings->webSocketHost, p_Settings->webSocketPort, p_Settings->webSocketUseSSL, p_Settings->webSocketChannel);
+    } else if (!p_Settings->bSendWebSocketClient){
+        bWebSocketClientEnabled = false;
+        webSocketServer.closeClient();
     }
+    if (p_Settings->bSendWebSocketServer && !bWebSocketServerEnabled){
+        setupWebSocketServer(p_Settings->webSocketServerPort);
+    } 
+    if (!p_Settings->bSendWebSocketServer){
+        bWebSocketServerEnabled = false;
+        webSocketServer.closeServer();
+    }
+    
 	//switch camera view if new panel is selected
 	if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
 
@@ -490,7 +510,7 @@ void ofxTSPSPeopleTracker::trackPeople()
             tcpClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
         }
         
-        if (bWebSocketsEnabled){
+        if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
             webSocketServer.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
         }
     }
@@ -512,11 +532,18 @@ void ofxTSPSPeopleTracker::trackPeople()
 		tcpClient.send();
 	}
     
-    if (bWebSocketsEnabled){
-        if (p_Settings->webSocketPort != webSocketServer.getPort()){
-            webSocketServer.close();
-            webSocketServer.setup( p_Settings->webSocketPort );
+    if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+        if ( bWebSocketClientEnabled && (p_Settings->webSocketPort != webSocketServer.getPort() || p_Settings->webSocketHost != webSocketServer.getHost()) ){
+            cout<< " close and setup "<<endl;
+            webSocketServer.closeClient();
+            setupWebSocketClient( p_Settings->webSocketHost, p_Settings->webSocketPort );
         }
+        
+        if ( bWebSocketServerEnabled && p_Settings->webSocketServerPort != webSocketServer.getServerPort() ){
+            webSocketServer.closeServer();
+            setupWebSocketServer( p_Settings->webSocketServerPort );
+        }
+        
         //sent automagically
         webSocketServer.send();
     }
@@ -547,7 +574,7 @@ void ofxTSPSPeopleTracker::blobOn( int x, int y, int id, int order )
 	if(bTcpEnabled){
 		tcpClient.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
 	}
-	if(bWebSocketsEnabled){
+	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
 		webSocketServer.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
 	}
 	
@@ -585,7 +612,7 @@ void ofxTSPSPeopleTracker::blobOff( int x, int y, int id, int order )
 		tcpClient.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
 	}
     
-	if(bWebSocketsEnabled){
+	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
 		webSocketServer.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
 	}
 	

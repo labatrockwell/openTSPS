@@ -21,8 +21,8 @@ void tspsApp::setup(){
             bool bConnectedSuccessfully = delegates.back()->openCamera( i, true );
             if ( !bConnectedSuccessfully ){
                 ofLog( OF_LOG_ERROR, "Kinect "+ofToString(i)+" failed, aborting setup!");
-                TSPSDelegate * d = delegates[i];
-                delegates.erase( delegates.begin() + i );
+                TSPSDelegate * d = delegates.back();
+                delegates.erase( delegates.begin() + delegates.size() - 1 );
                 delete d;
                 break;
             }
@@ -36,20 +36,24 @@ void tspsApp::setup(){
         // for now: trying up to 4
         for (int i=0; i<MAX_CAMERAS; i++){            
             delegates.push_back( new TSPSDelegate(i) );
-            bool bConnectedSuccessfully = delegates.back()->openCamera( i, false );
             delegates.back()->disableEvents();
+            bool bConnectedSuccessfully = delegates.back()->openCamera( i, false );
             if ( !bConnectedSuccessfully ){
-                TSPSDelegate * d = delegates[i];
-                delegates.erase( delegates.begin() + i );
+                TSPSDelegate * d = delegates.back();
+                delegates.erase( delegates.begin() + delegates.size() - 1 );
                 delete d;
-                break;
+                //break;
             }
         }
     }
     
+    cout<<delegates.size()<<endl;    
+    
     // which delegate is getting drawn
     currentDelegate = 0;
-    delegates[currentDelegate]->enableEvents();
+    if ( delegates.size() > 0 ){
+        delegates[currentDelegate]->enableEvents();        
+    }
         
 	//load GUI / interface images
 
@@ -96,7 +100,9 @@ void tspsApp::draw(){
 		personLeftImage.draw(666,728);
 	}
     
-    delegates[currentDelegate]->draw();
+    if ( delegates.size() > 0 ){
+        delegates[currentDelegate]->draw();
+    }
 
     /*
 	ofSetColor(0, 169, 157);
@@ -122,20 +128,28 @@ void tspsApp::keyPressed  (int key){
 			ofToggleFullscreen();
 		} break;
         case '+':{
-            delegates[currentDelegate]->disableEvents();
+            if ( delegates.size() > 0 ){
+                delegates[currentDelegate]->disableEvents();
+            }
             currentDelegate++;
             if (currentDelegate >= delegates.size()){
                 currentDelegate = 0;
             }
-            delegates[currentDelegate]->enableEvents();
+            if ( delegates.size() > 0 ){
+                delegates[currentDelegate]->enableEvents();
+            }
         } break;
         case '-':{
-            delegates[currentDelegate]->disableEvents();
+            if ( delegates.size() > 0 ){
+                delegates[currentDelegate]->disableEvents();
+            }
             currentDelegate--;
             if (currentDelegate <= 0){
                 currentDelegate = delegates.size() - 1;
             }
-            delegates[currentDelegate]->enableEvents();
+            if ( delegates.size() > 0 ){
+                delegates[currentDelegate]->enableEvents();
+            }
         }
 	}
 }

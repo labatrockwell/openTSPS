@@ -16,15 +16,9 @@ TSPSDelegate::TSPSDelegate( int which ){
     // allocate images + setup people tracker
 	colorImg.allocate(camWidth, camHeight);
     grayImg.allocate(camWidth, camHeight);
-	
-	peopleTracker.setup(camWidth, camHeight, "settings/settings"+ofToString(which)+".xml");
-	peopleTracker.loadFont("fonts/times.ttf", 10);
-	peopleTracker.setListener( this );
-    
+	    
     bKinect         = false;
     cameraState     = CAMERA_NOT_INITED;
-    
-	peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
 }
 
 //------------------------------------------------------------------------
@@ -34,7 +28,15 @@ TSPSDelegate::~TSPSDelegate(){
 //------------------------------------------------------------------------
 bool TSPSDelegate::openCamera( int which, bool _bKinect ){
     bKinect = _bKinect;
-    return initVideoInput( which );
+    bool inited = initVideoInput( which );
+    if ( inited ){
+        peopleTracker.setup(camWidth, camHeight, "settings/settings"+ofToString(which)+".xml");
+        peopleTracker.loadFont("fonts/times.ttf", 10);
+        peopleTracker.setListener( this );
+        peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
+    }
+    
+    return inited;
 };
 
 //------------------------------------------------------------------------
@@ -123,7 +125,7 @@ bool TSPSDelegate::initVideoInput( int which ){
     if ( cameraIndex != which ) bNewCameraIndex = true;
     cameraIndex = which;
     
-    if ( bKinect && !cameraState == CAMERA_KINECT || bKinect && bNewCameraIndex ){
+    if ( bKinect && !cameraState == CAMERA_KINECT || ( bKinect && bNewCameraIndex) ){
         // not inited yet
         if (cameraState != CAMERA_KINECT){
             kinect.init();

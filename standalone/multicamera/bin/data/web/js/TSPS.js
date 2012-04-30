@@ -4,10 +4,10 @@ TSPS = function(){
 
 TSPS.prototype.newPerson		= function(json)
 {
-	if (json.type == "TSPS/personEntered") this.onPersonEntered(json);
-	else if (json.type == "TSPS/personMoved") this.onPersonUpdated(json);
-	else if (json.type == "TSPS/personUpdated") this.onPersonMoved(json);
-	else if (json.type == "TSPS/personWillLeave") this.onPersonLeft(json);
+	if (json.type == "personEntered") this.onPersonEntered(json);
+	else if (json.type == "personMoved") this.onPersonUpdated(json);
+	else if (json.type == "personUpdated") this.onPersonMoved(json);
+	else if (json.type == "personWillLeave") this.onPersonLeft(json);
 	else console.log(json.type);
 }
 
