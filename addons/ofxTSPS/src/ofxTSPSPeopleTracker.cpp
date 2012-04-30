@@ -17,8 +17,12 @@
 //---------------------------------------------------------------------------
 #pragma mark Setup
 
+ofxTSPSPeopleTracker::ofxTSPSPeopleTracker(){
+    p_Settings = NULL;
+}
+
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setup(int w, int h)
+void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 {	
 	ofAddListener(ofEvents.mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
 	
@@ -42,8 +46,8 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	grayLastImage = graySmallImage;
 	
 	//set tracker
-	bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketsEnabled = false;
-	p_Settings = ofxTSPSSettings::getInstance();
+	bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketServerEnabled = bWebSocketClientEnabled = false;
+	p_Settings = gui.getSettings();
 	
 	//gui.loadFromXML();	
 	//gui.setDraw(true);		
@@ -51,7 +55,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h)
 	//setup gui quad in manager
 	gui.setup();
 	gui.setupQuadGui( width, height );
-	gui.loadSettings("settings/settings.xml");
+	gui.loadSettings( settingsfile );
 	activeHeight = ofGetHeight();
 	activeWidth = ofGetWidth();
 	
@@ -116,6 +120,7 @@ void ofxTSPSPeopleTracker::setupTuio(string ip, int port)
 {
 	ofLog(OF_LOG_VERBOSE, "SEND TUIO");
 	bTuioEnabled = true;
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->oscPort = port;
 	p_Settings->oscHost = ip;
 	tuioClient.setup(ip, port);
@@ -126,7 +131,8 @@ void ofxTSPSPeopleTracker::setupOsc(string ip, int port)
 {
 	ofLog(OF_LOG_VERBOSE, "SEND OSC");
 	bOscEnabled = true;
-	p_Settings->oscPort = port;
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    p_Settings->oscPort = port;
 	p_Settings->oscHost = ip;
 	oscClient.setupSender(ip, port);
 }
@@ -136,18 +142,33 @@ void ofxTSPSPeopleTracker::setupTcp(int port)
 {
 	bTcpEnabled = true;
 	ofLog(OF_LOG_VERBOSE, "SEND TCP TO PORT "+port);
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->tcpPort = port;
 	tcpClient.setup(port);
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setupWebSocket( int port)
+void ofxTSPSPeopleTracker::setupWebSocketServer( int port)
 {
-	ofLog(OF_LOG_VERBOSE, "SEND VIA WEBSOCKETS AT PORT "+port);
-    bWebSocketsEnabled = true;
-	p_Settings->webSocketPort = port;
-    webSocketServer.setup(port);
+	ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET SERVER ON PORT "+port);
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    bWebSocketServerEnabled = true;
+	p_Settings->webSocketServerPort = port;
+    webSocketServer.setupServer(port);
+    p_Settings->bSendWebSocketServer = bWebSocketServerEnabled;
 }
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::setupWebSocketClient( string host, int port, bool bUseSSL, string channel) {
+	ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET CLIENT AT ws://"+host+channel+":"+ofToString( port ));
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    bWebSocketClientEnabled = true;
+	p_Settings->webSocketPort = port;
+    // TO DO: SWITCH TO "OFF" IF FAILED!
+    webSocketServer.setupClient( host, port, false, channel);
+    p_Settings->bSendWebSocketClient = bWebSocketClientEnabled;
+}
+
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setListener(ofxPersonListener* listener)
@@ -180,6 +201,7 @@ void ofxTSPSPeopleTracker::update(ofxCvGrayscaleImage image)
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::updateSettings()
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	setHaarXMLFile(p_Settings->haarFile);
 
 	//check to enable OSC
@@ -195,12 +217,20 @@ void ofxTSPSPeopleTracker::updateSettings()
 	else if (!p_Settings->bSendTcp) bTcpEnabled = false;
         
     //check to enable websockets
-    if (p_Settings->bSendWebSockets && !bWebSocketsEnabled){
-        setupWebSocket(p_Settings->webSocketPort);
-    } else if (!p_Settings->bSendWebSockets){
-        bWebSocketsEnabled = false;
-        webSocketServer.close();
+    if (p_Settings->bSendWebSocketClient && !bWebSocketClientEnabled){
+        setupWebSocketClient(p_Settings->webSocketHost, p_Settings->webSocketPort, p_Settings->webSocketUseSSL, p_Settings->webSocketChannel);
+    } else if (!p_Settings->bSendWebSocketClient){
+        bWebSocketClientEnabled = false;
+        webSocketServer.closeClient();
     }
+    if (p_Settings->bSendWebSocketServer && !bWebSocketServerEnabled){
+        setupWebSocketServer(p_Settings->webSocketServerPort);
+    } 
+    if (!p_Settings->bSendWebSocketServer){
+        bWebSocketServerEnabled = false;
+        webSocketServer.closeServer();
+    }
+    
 	//switch camera view if new panel is selected
 	if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
 
@@ -221,6 +251,8 @@ void ofxTSPSPeopleTracker::updateSettings()
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::trackPeople()
 {	
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    
 	//-------------------
 	//QUAD WARPING
 	//-------------------
@@ -262,6 +294,10 @@ void ofxTSPSPeopleTracker::trackPeople()
 		cout << "Learning Background" << endl;
 		grayBg = grayImageWarped;
 	}
+    
+    if (p_Settings->bBlankBackground){
+        grayBg -= grayBg;
+    }
 	
 	//progressive relearn background
 	if (p_Settings->bLearnBackgroundProgressive){
@@ -329,6 +365,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 	
 	contourFinder.findContours(grayDiff, p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, 50, p_Settings->bFindHoles);
 	persistentTracker.trackBlobs(contourFinder.blobs);
+    
 		
 	// By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
 	//            before optical flow can begin working.
@@ -446,7 +483,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 		adjustedView.update(grayImageWarped);
 	bgView.update(grayBg);
 	processedView.update(grayDiff);
-    
+        
 	//-----------------------
 	// COMMUNICATION
 	//-----------------------	
@@ -473,7 +510,7 @@ void ofxTSPSPeopleTracker::trackPeople()
             tcpClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
         }
         
-        if (bWebSocketsEnabled){
+        if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
             webSocketServer.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
         }
     }
@@ -495,11 +532,18 @@ void ofxTSPSPeopleTracker::trackPeople()
 		tcpClient.send();
 	}
     
-    if (bWebSocketsEnabled){
-        if (p_Settings->webSocketPort != webSocketServer.getPort()){
-            webSocketServer.close();
-            webSocketServer.setup( p_Settings->webSocketPort );
+    if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+        if ( bWebSocketClientEnabled && (p_Settings->webSocketPort != webSocketServer.getPort() || p_Settings->webSocketHost != webSocketServer.getHost()) ){
+            cout<< " close and setup "<<endl;
+            webSocketServer.closeClient();
+            setupWebSocketClient( p_Settings->webSocketHost, p_Settings->webSocketPort );
         }
+        
+        if ( bWebSocketServerEnabled && p_Settings->webSocketServerPort != webSocketServer.getServerPort() ){
+            webSocketServer.closeServer();
+            setupWebSocketServer( p_Settings->webSocketServerPort );
+        }
+        
         //sent automagically
         webSocketServer.send();
     }
@@ -511,6 +555,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::blobOn( int x, int y, int id, int order )
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	ofxCvTrackedBlob blob = persistentTracker.getById( id );
 	ofxTSPSPerson* newPerson = new ofxTSPSPerson(id, order, blob);
 	trackedPeople.push_back( newPerson );
@@ -529,7 +574,7 @@ void ofxTSPSPeopleTracker::blobOn( int x, int y, int id, int order )
 	if(bTcpEnabled){
 		tcpClient.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
 	}
-	if(bWebSocketsEnabled){
+	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
 		webSocketServer.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
 	}
 	
@@ -567,7 +612,7 @@ void ofxTSPSPeopleTracker::blobOff( int x, int y, int id, int order )
 		tcpClient.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
 	}
     
-	if(bWebSocketsEnabled){
+	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
 		webSocketServer.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
 	}
 	
@@ -611,6 +656,7 @@ void ofxTSPSPeopleTracker::draw(int x, int y)
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::draw(int x, int y, int mode)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
     // run lean + mean if we're minimized
     if (p_Settings->bMinimized) return;
 	ofPushMatrix();
@@ -618,6 +664,9 @@ void ofxTSPSPeopleTracker::draw(int x, int y, int mode)
 		// draw the incoming, the grayscale, the bg and the thresholded difference
 		ofSetHexColor(0xffffff);
 	
+        // draw gui
+        gui.draw();
+    
 		//draw large image
 		if (activeViewIndex ==  CAMERA_SOURCE_VIEW){
 			cameraView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);		
@@ -668,6 +717,7 @@ void ofxTSPSPeopleTracker::draw(int x, int y, int mode)
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 	
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	float scaleVar = (float) drawWidth/width;
 	
 	ofFill();
@@ -743,16 +793,18 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 				if (haarRect.x + haarRect.width > width) haarRect.width = width-haarRect.x;
 				if (haarRect.y + haarRect.height > height) haarRect.height = height-haarRect.y;
 				ofRect(haarRect.x, haarRect.y, haarRect.width, haarRect.height);
-		}
-		
-		if(p->hasHaarRect()){
-			//draw the haar rect
-			ofSetHexColor(0xee3523);
-			ofRect(p->getHaarRect().x, p->getHaarRect().y, p->getHaarRect().width, p->getHaarRect().height);
-			//haar-detected people get a red square
-			ofSetHexColor(0xfd5f4f);
-		}
-		else {
+
+				if(p->hasHaarRect()){
+					//draw the haar rect
+					ofSetHexColor(0xee3523);
+					ofRect(p->getHaarRect().x, p->getHaarRect().y, p->getHaarRect().width, p->getHaarRect().height);
+					//haar-detected people get a red square
+					ofSetHexColor(0xfd5f4f);
+				} else {
+					//no haar gets a yellow square
+					ofSetHexColor(0xeeda00);
+				}
+		} else {
 			//no haar gets a yellow square
 			ofSetHexColor(0xeeda00);
 		}
@@ -828,6 +880,18 @@ bool ofxTSPSPeopleTracker::isInsideRect(float x, float y, ofRectangle rect){
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 #pragma mark gui extension
+
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::enableGuiEvents(){
+    gui.enableEvents();
+};
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::disableGuiEvents(){
+    gui.disableEvents();    
+};
+
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::addSlider(string name, int* value, int min, int max)
 {
@@ -869,11 +933,13 @@ int ofxTSPSPeopleTracker::totalPeople()
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableHaarFeatures(bool doHaar)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bDetectHaar = doHaar;
 }
 
 void ofxTSPSPeopleTracker::enableOpticalFlow(bool doOpticalFlow)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bTrackOpticalFlow = doOpticalFlow;
 }
 
@@ -891,6 +957,7 @@ ofxTSPSWebSocketSender * ofxTSPSPeopleTracker::getWebSocketServer(){
 
 //---------------------------------------------------------------------------
 bool ofxTSPSPeopleTracker::useKinect(){
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
     return p_Settings->bUseKinect;
 };	
 
@@ -901,6 +968,7 @@ bool ofxTSPSPeopleTracker::useKinect(){
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::relearnBackground()
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bLearnBackground = true;
 }
 
@@ -913,12 +981,14 @@ void ofxTSPSPeopleTracker::relearnBackground()
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableBackgroundReleaernProgressive(bool doProgressive) //relearns over time using progessive frame averagering
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bLearnBackgroundProgressive = doProgressive;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setRelearnRate(float relearnRate)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->fLearnRate = relearnRate;
 }
 
@@ -929,60 +999,70 @@ void ofxTSPSPeopleTracker::setRelearnRate(float relearnRate)
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setThreshold(float thresholdAmount)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->threshold = thresholdAmount;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setMinBlobSize(float minBlobSize)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->minBlob = minBlobSize; 
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setMaxBlobSize(float maxBlobSize)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->maxBlob = maxBlobSize;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableSmooth(bool doSmooth)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bSmooth = doSmooth;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setSmoothAmount(int smoothAmount)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->smooth = smoothAmount;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableHighpass(bool doHighpass)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bHighpass = doHighpass;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setHighpassBlurAmount(int highpassBlurAmount)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->highpassBlur = highpassBlurAmount;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setHighpassNoiseAmount(int highpassNoiseAmount)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->highpassNoise = highpassNoiseAmount;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableAmplify(bool doAmp)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bAmplify = doAmp;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setAmplifyAmount(int amplifyAmount)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->highpassAmp = amplifyAmount;
 }
 
@@ -993,6 +1073,7 @@ void ofxTSPSPeopleTracker::setAmplifyAmount(int amplifyAmount)
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setHaarExpandArea(float haarExpandAmount) //makes the haar rect +area bigger
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->haarAreaPadding = haarExpandAmount;
 }
 
@@ -1015,18 +1096,21 @@ void ofxTSPSPeopleTracker::setHaarExpandArea(float haarExpandAmount) //makes the
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableFindHoles(bool findHoles)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bFindHoles = findHoles;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::trackDarkBlobs()
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->trackType = TRACK_DARK;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::trackLightBlobs()
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->trackType = TRACK_LIGHT;	
 }
 
@@ -1108,13 +1192,14 @@ bool ofxTSPSPeopleTracker::loadFont( string fontName, int fontSize){
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setVideoGrabber(ofBaseVideo* grabber, tspsInputType inputType)
 {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->setVideoGrabber( grabber, inputType );
     if (inputType == TSPS_INPUT_VIDEO){
         gui.enableElement( "open video settings" );
-        gui.disableElement( "use kinect" );
+        //gui.disableElement( "use kinect" );
     } else if (inputType == TSPS_INPUT_KINECT){
         gui.disableElement( "open video settings" );
-        gui.enableElement( "use kinect" );
+        //gui.enableElement( "use kinect" );
     }
 }
 
@@ -1196,6 +1281,7 @@ bool ofxTSPSPeopleTracker::inAdjustedView() {
 // NOTE:  only works if the adjusted view is currently in color
 //        (this parameter can be set in the GUI under the 'views' tab)
 ofxCvColorImage ofxTSPSPeopleTracker::getAdjustedImageInColor() {
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
 	if (p_Settings->bAdjustedViewInColor)
 		return adjustedView.getColorImage();
 }
