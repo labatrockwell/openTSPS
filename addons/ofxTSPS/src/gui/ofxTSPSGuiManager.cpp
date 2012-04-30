@@ -573,6 +573,7 @@ void ofxTSPSGuiManager::setupQuadGui ( int _cameraWidth, int _cameraHeight )
 	
 	// give the gui quad a starting setting
 	
+    quadGui.setup("QUAD");
 	ofPoint quadSrc[4];
 	quadSrc[0].set(0, 0);
 	quadSrc[1].set(cameraWidth, 0);
