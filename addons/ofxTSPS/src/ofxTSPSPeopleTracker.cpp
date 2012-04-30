@@ -98,6 +98,40 @@ void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 }
 
 //---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::resize( int w, int h ){
+    width  = w;
+	height = h;
+	
+	grayImage.allocate(width, height);
+	colorImage.allocate(width,height);
+	grayImageWarped.allocate(width, height);
+	colorImageWarped.allocate(width,height);
+	grayBg.allocate(width, height);
+	grayDiff.allocate(width, height);
+	floatBgImg.allocate(width, height);
+	graySmallImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );	
+	grayLastImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
+	grayBabyImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
+	
+	//set up optical flow
+	opticalFlow.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
+	opticalFlow.setCalcStep(5,5);
+	grayLastImage = graySmallImage;
+    
+	gui.setupQuadGui( width, height );
+	
+	activeViewIndex = 4;
+	
+	//setup view rectangles 
+	
+	cameraView.setup(width, height);
+	adjustedView.setup(width, height);
+	bgView.setup(width, height);
+	processedView.setup(width, height);
+	dataView.setup(width, height);
+}
+
+//---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setHaarXMLFile(string haarFile)
 {
 	haarFile = "haar/" + haarFile;
@@ -1242,6 +1276,29 @@ void ofxTSPSPeopleTracker::updateViewRectangles(){
 	gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
 }
 
+//---------------------------------------------------------------------------
+bool ofxTSPSPeopleTracker::useVideoFile(){    
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    return p_Settings->bUseVideoFile;
+}
+
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::setUseVideoFile( bool bUseVideoFile ){
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    p_Settings->bUseVideoFile = bUseVideoFile;
+}
+
+//---------------------------------------------------------------------------
+string ofxTSPSPeopleTracker::getVideoFile(){
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    return p_Settings->videoFile;    
+}
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::setVideoFile( string file ){
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    p_Settings->videoFile = file;    
+}
 
 //---------------------------------------------------------------------------
 // for accessing Optical Flow within a specific region

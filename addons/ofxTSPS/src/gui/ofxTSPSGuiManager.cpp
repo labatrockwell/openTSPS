@@ -49,6 +49,7 @@ ofxTSPSGuiManager::ofxTSPSGuiManager() {
 void ofxTSPSGuiManager::enableEvents(){
     if (bEventsEnabled) return;
     bEventsEnabled = true;
+	ofAddListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
 	ofAddListener(ofEvents.mousePressed, this, &ofxTSPSGuiManager::mousePressed);
 	ofAddListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
 	ofAddListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
@@ -58,6 +59,7 @@ void ofxTSPSGuiManager::enableEvents(){
 void ofxTSPSGuiManager::disableEvents(){
     if (!bEventsEnabled) return;
     bEventsEnabled = false;
+	ofRemoveListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
 	ofRemoveListener(ofEvents.mousePressed, this, &ofxTSPSGuiManager::mousePressed);
 	ofRemoveListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
 	ofRemoveListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
@@ -71,8 +73,7 @@ void ofxTSPSGuiManager::setup(){
 	panel.setup("settings", 10, 10, 330, 680);
 	panel.loadFont("fonts/times.ttf", 10);
 	
-	//panel layout
-	
+	//panel layout	
 	panel.setPosition(10, 40);
 	panel.setShowText(false);
 	panel.setDimensions(330, 650); //yikes... autospacing is not working so well
@@ -158,7 +159,24 @@ void ofxTSPSGuiManager::setup(){
 	videoSettingsGroup->setShowText(false);
 	panel.addButton("open video settings");
     panel.addToggle("use kinect", "USE_KINECT", true);
+    
+    // video files    
+	guiTypeGroup * videoFilesGroup = panel.addGroup("videoFiles");
+	videoFilesGroup->setBackgroundColor(148,129,85);
+	videoFilesGroup->setBackgroundSelectColor(148,129,85);
+	videoFilesGroup->seBaseColor(58,187,147);
+	videoFilesGroup->setShowText(false);
+    
+	//TODO: use the button class for this maybe?
+	panel.addToggle("use video file instead of live camera", "USE_VIDEO_FILE", false);
+	panel.addTextField("video directory (inside data folder)", "VIDEO_FILE_DIR", "videos", 200, 20);
+	videoFiles = new simpleFileLister();	
+	int numVideoFiles = videoFiles->listDir(ofToDataPath("videos", true));
+	ofLog(OF_LOG_VERBOSE, "num video files found: " + numVideoFiles);
+	panel.addFileLister("video files:", videoFiles, 240, 100);
+	panel.addToggle("reload directory", "VIDEO_FILE_RELOAD", true);
 
+    // amplification
 	guiTypeGroup * amplificationGroup = panel.addGroup("amplification");
 	amplificationGroup->setBackgroundColor(148,129,85);
 	amplificationGroup->setBackgroundSelectColor(148,129,85);
@@ -359,8 +377,6 @@ void ofxTSPSGuiManager::setup(){
 	panel.setSelectedPanel("differencing");
 	ofEventArgs nullArgs;
 	update(nullArgs);
-    
-	ofAddListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
     enableEvents();
 }
 
@@ -424,8 +440,11 @@ void ofxTSPSGuiManager::setSelectedPanel( string name ){
 	panel.setWhichPanel(name);
 }
 
-void ofxTSPSGuiManager::update(ofEventArgs &e)
-{
+void ofxTSPSGuiManager::update(ofEventArgs &e){
+    update();
+}
+
+void ofxTSPSGuiManager::update(){
 	if(!enableGui){
 		//if the gui is not shown no need to propagate values
 		return;
@@ -438,6 +457,30 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	//settings.cameraIndex = panel.getValueF("CAMERA_INDEX");
 	settings.bUseKinect  = panel.getValueF("USE_KINECT");    
         
+    // video files
+    bool bIsNewDirectory = false;
+    settings.bUseVideoFile = panel.getValueB("USE_VIDEO_FILE");
+    if ( settings.videoDirectory != panel.getValueS("VIDEO_FILE_DIR") ){
+        settings.videoDirectory = panel.getValueS("VIDEO_FILE_DIR");    
+        bIsNewDirectory = true;
+    }
+    if ( panel.getValueB("VIDEO_FILE_RELOAD") || bIsNewDirectory){
+        int numVideos = 0;
+        if ( bIsNewDirectory ) numVideos = videoFiles->listDir(ofToDataPath(settings.videoDirectory, true));
+        else numVideos = videoFiles->refreshDir();
+        panel.setValueB("VIDEO_FILE_RELOAD", false);
+        
+        if ( numVideos == 0 ){
+            panel.setValueB("USE_VIDEO_FILE", false);     
+            ofLog( OF_LOG_WARNING, "No videos found, switching to camera input" );
+        }
+    }
+    if(videoFiles->getSelectedName() != ""){
+		settings.videoFile = videoFiles->getSelectedPath();
+	}
+    
+	panel.setGroupActive("video", "videoFiles", settings.bUseVideoFile);    
+    
     // threshold
 	
 	settings.threshold = panel.getValueF("THRESHOLD");
@@ -686,6 +729,7 @@ void ofxTSPSGuiManager::mouseReleased(ofMouseEventArgs &e)
 void ofxTSPSGuiManager::loadSettings( string xmlFile ){
 	panel.loadSettings(xmlFile);	
 	if (quadGuiSetup) quadGui.readFromFile(xmlFile);	
+    //update();
 };
 
 void ofxTSPSGuiManager::keyPressed(ofKeyEventArgs &e)

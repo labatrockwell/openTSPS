@@ -12,6 +12,10 @@ void tspsApp::setup(){
     
     int numKinects = kTester.numAvailableDevices();
     
+    // do we have 1 or more Kinects? set them up
+    // NOTE: openCamera will first lookif it's supposed to be a live video
+    // feed or a 
+    
     if (numKinects >= 1){
         kTester.clear();
         
@@ -26,7 +30,7 @@ void tspsApp::setup(){
                 delete d;
                 break;
             }
-        }        
+        }
     } else {
         kTester.clear();
         
@@ -46,8 +50,6 @@ void tspsApp::setup(){
             }
         }
     }
-    
-    cout<<delegates.size()<<endl;    
     
     // which delegate is getting drawn
     currentDelegate = 0;

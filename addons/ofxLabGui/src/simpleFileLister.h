@@ -83,7 +83,6 @@ class simpleFileLister : public ofDirectory{
 
         //------------------------------------------------
         void setSelectedFile(int which){
-			cout << "setting selected file " << endl;
             if( which >= 0 && which < entries.size() ){
                 selected    = which;
                 selectedChanged = true;

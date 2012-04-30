@@ -54,7 +54,6 @@ class ofxTSPSGuiManager {
   public:
 	ofxTSPSGuiManager();
 	void setup();
-	//ofxSimpleGuiToo	gui;
     
     void enableEvents();
     void disableEvents();
@@ -65,6 +64,7 @@ class ofxTSPSGuiManager {
 	void drawQuadGui( int x, int y, int width, int height );
 	
     void update(ofEventArgs &e);
+    void update();
 	void draw();
 
 	//forwarded events
@@ -127,5 +127,6 @@ protected:
     //are we using events?
     bool bEventsEnabled;
 	
+	simpleFileLister* videoFiles;
 	simpleFileLister* haarFiles;
 };

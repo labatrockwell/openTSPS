@@ -21,6 +21,11 @@ ofxTSPSSettings::ofxTSPSSettings() {
     cameraIndex = 0;
     inputType   = TSPS_INPUT_UNDEFINED;
     
+    // video files
+    bUseVideoFile = "";
+    videoDirectory = "videos";
+    bReloadVideoFiles = true;
+    
     // background
     bLearnBackground = false;
     bTrackOpticalFlow = false;

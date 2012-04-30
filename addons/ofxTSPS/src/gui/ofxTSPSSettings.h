@@ -58,6 +58,12 @@ public:
     bool    bUseKinect;
     int     cameraIndex;
     
+    // video file vars
+    bool    bUseVideoFile;
+    string  videoDirectory;
+    string  videoFile;
+    bool    bReloadVideoFiles;
+    
 	// image vars
 	int     smooth;
 	int     highpassBlur;

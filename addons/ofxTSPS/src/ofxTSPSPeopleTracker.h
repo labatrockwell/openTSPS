@@ -113,6 +113,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
 		void update(ofxCvColorImage image);		//Call with sequential camera images
 		void update(ofxCvGrayscaleImage image); //Call with sequential camera images
+        void resize( int w, int h );            //If you need to resize the camera width / height
 		void mousePressed(ofMouseEventArgs &e);	
 		
 		//communication
@@ -165,7 +166,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void enableFindHoles(bool findHoles);
 		void trackDarkBlobs();
 		void trackLightBlobs();
-		int getDrawMode();
+		int  getDrawMode();
 	
 		//GUI extension
         void enableGuiEvents();
@@ -173,6 +174,12 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void addSlider(string name, int* value, int min, int max);
 		void addSlider(string name, float* value, float min, float max);
 		void addToggle(string name, bool* value);
+    
+        // video file stuff
+        bool    useVideoFile();
+        string  getVideoFile();
+        void    setUseVideoFile( bool bUseVideoFile = true);
+        void    setVideoFile( string file );
 	
 		//drawing methods
 	

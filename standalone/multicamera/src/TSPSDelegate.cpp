@@ -9,16 +9,22 @@
 #include "TSPSDelegate.h"
 
 //------------------------------------------------------------------------
-TSPSDelegate::TSPSDelegate( int which ){
+TSPSDelegate::TSPSDelegate( int which, bool _bUseVideoFile ){
 	camWidth = 640;
 	camHeight = 480;
+    bUseVideoFile = _bUseVideoFile;
     
     // allocate images + setup people tracker
 	colorImg.allocate(camWidth, camHeight);
     grayImg.allocate(camWidth, camHeight);
-	    
+    
     bKinect         = false;
     cameraState     = CAMERA_NOT_INITED;
+    
+    peopleTracker.setup(camWidth, camHeight, "settings/settings"+ofToString(which)+".xml");
+    peopleTracker.loadFont("fonts/times.ttf", 10);
+    peopleTracker.setListener( this );
+    peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
 }
 
 //------------------------------------------------------------------------
@@ -28,12 +34,22 @@ TSPSDelegate::~TSPSDelegate(){
 //------------------------------------------------------------------------
 bool TSPSDelegate::openCamera( int which, bool _bKinect ){
     bKinect = _bKinect;
-    bool inited = initVideoInput( which );
-    if ( inited ){
-        peopleTracker.setup(camWidth, camHeight, "settings/settings"+ofToString(which)+".xml");
-        peopleTracker.loadFont("fonts/times.ttf", 10);
-        peopleTracker.setListener( this );
-        peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
+    
+    bool inited = false;
+    
+    // are we loading from a video file?
+    if ( peopleTracker.useVideoFile() || bUseVideoFile ){
+        if ( bUseVideoFile && !peopleTracker.useVideoFile()){
+            peopleTracker.setUseVideoFile();            
+        } else if ( !bUseVideoFile && peopleTracker.useVideoFile() ){
+            bUseVideoFile = peopleTracker.useVideoFile();
+        }
+        
+        inited = initVideoFile();
+    
+    // let's load from a camera
+    } else {
+        inited = initVideoInput( which );    
     }
     
     return inited;
@@ -47,6 +63,12 @@ void TSPSDelegate::update(){
     } else if (!peopleTracker.useKinect() && bKinect){
         bKinect = false;
         initVideoInput( cameraIndex );
+    } else if ( ( peopleTracker.useVideoFile() && !bUseVideoFile ) || ( peopleTracker.useVideoFile() &&videoFile != peopleTracker.getVideoFile() ) ){
+        bUseVideoFile = initVideoFile();
+    } else if ( !peopleTracker.useVideoFile() && bUseVideoFile ){
+        bUseVideoFile = false;
+        cameraState = CAMERA_NOT_INITED;
+        initVideoInput();        
     }
     
     bool bNewFrame = false;
@@ -55,23 +77,29 @@ void TSPSDelegate::update(){
         if ( cameraState == CAMERA_KINECT ){
             kinect.update();
             bNewFrame = true;//kinect.isFrameNew();
-        } else {
+        } else if ( cameraState == CAMERA_VIDEOGRABBER ){
             vidGrabber.grabFrame();
             bNewFrame = vidGrabber.isFrameNew();
+        } else if ( cameraState == CAMERA_VIDEOFILE ){
+            vidPlayer.idleMovie();
+            bNewFrame = true; //vidPlayer.isFrameNew();
         }
-    }   
+    }
     
-	if (bNewFrame){     
+	if (bNewFrame){
         if ( cameraState == CAMERA_KINECT ){   
 			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
 			colorImg = grayImg;
             peopleTracker.update(grayImg);
-        } else {
+        } else if ( cameraState == CAMERA_VIDEOGRABBER ){
             colorImg.setFromPixels(vidGrabber.getPixels(), camWidth,camHeight);
+            peopleTracker.update(colorImg);
+        } else if ( cameraState == CAMERA_VIDEOFILE ){     
+            colorImg.setFromPixels(vidPlayer.getPixels(), camWidth, camHeight);
             peopleTracker.update(colorImg);
         }
         
-		//iterate through the people
+		// iterate through the people
 		for(int i = 0; i < peopleTracker.totalPeople(); i++){
 			ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
             if (cameraState == CAMERA_KINECT) p->depth = kinect.getDistanceAt( p->centroid );
@@ -119,13 +147,40 @@ void TSPSDelegate::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* sc
 }
 
 //------------------------------------------------------------------------
+bool TSPSDelegate::initVideoFile(){    
+    videoFile = peopleTracker.getVideoFile();
+    bool loaded = vidPlayer.loadMovie( videoFile );
+    
+    if ( loaded ){
+        vidPlayer.play();
+        if ( camWidth != vidPlayer.width || camHeight != vidPlayer.height ){            
+            camWidth    = vidPlayer.width;
+            camHeight   = vidPlayer.height;
+            peopleTracker.resize( camWidth, camHeight );
+        }
+        
+        // reallocate
+        colorImg.resize(camWidth, camHeight);
+        grayImg.resize(camWidth, camHeight);
+        
+        cameraState = CAMERA_VIDEOFILE;        
+    }
+    
+    return loaded;
+}
+
+//------------------------------------------------------------------------
 bool TSPSDelegate::initVideoInput( int which ){
     bool bNewCameraIndex = false;
+    
+    if ( vidPlayer.isPlaying() ){
+        vidPlayer.close();
+    }
     
     if ( cameraIndex != which ) bNewCameraIndex = true;
     cameraIndex = which;
     
-    if ( bKinect && !cameraState == CAMERA_KINECT || ( bKinect && bNewCameraIndex) ){
+    if ( (bKinect && !cameraState == CAMERA_KINECT ) || ( bKinect && bNewCameraIndex) ){
         // not inited yet
         if (cameraState != CAMERA_KINECT){
             kinect.init();
@@ -157,7 +212,7 @@ bool TSPSDelegate::initVideoInput( int which ){
         
         return bOpened;
     } else {      
-        if ( cameraState == CAMERA_NOT_INITED || cameraState == CAMERA_KINECT || cameraState == CAMERA_VIDEOGRABBER && bNewCameraIndex){
+        if ( cameraState == CAMERA_NOT_INITED || cameraState == CAMERA_KINECT || (cameraState == CAMERA_VIDEOGRABBER && bNewCameraIndex)){
             
             if ( cameraState == CAMERA_KINECT ){
                 kinect.close();
@@ -169,7 +224,7 @@ bool TSPSDelegate::initVideoInput( int which ){
             
             vidGrabber.setVerbose(false);
             vidGrabber.setDeviceID( which );
-            vidGrabber.videoSettings();
+            //vidGrabber.videoSettings();
             bool bAvailable = vidGrabber.initGrabber(camWidth,camHeight);
             if (bAvailable){ 
                 cameraState = CAMERA_VIDEOGRABBER;

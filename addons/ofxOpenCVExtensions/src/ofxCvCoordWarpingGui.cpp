@@ -31,6 +31,7 @@ ofxCvCoordWarpingGui::ofxCvCoordWarpingGui(){
 	scale.x = scale.y = 1.0f;
 	bAutoSave = false;
     disableAllEvents();
+    verbose = false;
 }
 
 //----------------------------------------------------

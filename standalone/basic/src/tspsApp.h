@@ -9,8 +9,6 @@
 
     // TSPS core
     #include "ofxTSPS.h"
-
-    #define _USE_LIVE_VIDEO         // comment out to load a movie file
 	
     // kinect support
     #include "ofxKinect.h"
@@ -20,7 +18,8 @@
     enum {
         CAMERA_NOT_INITED,
         CAMERA_KINECT,
-        CAMERA_VIDEOGRABBER
+        CAMERA_VIDEOGRABBER,
+        CAMERA_VIDEOFILE
     };
 
 /*********************************************************
@@ -50,23 +49,20 @@ class tspsApp : public ofBaseApp, public ofxPersonListener {
 		void personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene );
 		void personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene );
 		void personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene );
-            
-        #ifdef _USE_LIVE_VIDEO
 
         // ready for either live video or Kinect, will choose in the next step
         ofVideoGrabber 		vidGrabber;
         ofxKinect           kinect;
-
-        // kinect or live video?
-        bool bKinect, bKinectConnected;
-        int cameraState;
+        ofVideoPlayer 		vidPlayer;
     
-		#else
-		  ofVideoPlayer 		vidPlayer;
-		#endif
+        // kinect, webcam, or video file?
+        bool bKinect, bKinectConnected, bUseVideoFile;
+        int cameraState;
+        string videoFile;    
 	
-        void initVideoInput();
+        bool initVideoInput();
         void closeVideoInput();
+        bool initVideoFile();
     
 		int camWidth, camHeight;
 

@@ -17,13 +17,15 @@
 enum {
     CAMERA_NOT_INITED,
     CAMERA_KINECT,
-    CAMERA_VIDEOGRABBER
+    CAMERA_VIDEOGRABBER,
+    CAMERA_VIDEOFILE
 };
 
 
 class TSPSDelegate : public ofxPersonListener{
 public:
-    TSPSDelegate( int which = 0 );
+    // setup which delegate + optionally force using a file instead of live input
+    TSPSDelegate( int which = 0, bool bUseVideoFile = false );
     ~TSPSDelegate();
     
     bool openCamera( int which, bool bKinect=false );
@@ -34,13 +36,13 @@ public:
     void disableEvents();
     void enableEvents();
     
-    // kinect or live video?
-    bool bKinect, bKinectConnected;
+    // kinect, webcam, or video file?
+    bool bKinect, bKinectConnected, bUseVideoFile;
     
     ofxCvColorImage		colorImg;
     ofxCvGrayscaleImage	grayImg;	
     
-private:
+protected:
 	ofxTSPSPeopleTracker peopleTracker;    
     
     void personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene );
@@ -50,14 +52,15 @@ private:
     
     int cameraState;
     
+    string videoFile;
+    
     ofVideoGrabber 		vidGrabber;
+    ofVideoPlayer       vidPlayer;
     ofxKinect           kinect;
     
     int     cameraIndex;
     bool    initVideoInput( int which = 0 );
+    bool    initVideoFile();
     void    closeVideoInput();
-    
-    int camWidth, camHeight;
-    
-    
+    int camWidth, camHeight;   
 };
