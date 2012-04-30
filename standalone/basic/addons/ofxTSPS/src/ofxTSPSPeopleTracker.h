@@ -120,7 +120,8 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void setupTuio(string ip, int port);
 		void setupOsc(string ip, int port);
 		void setupTcp(int port);
-        void setupWebSocket(int port);
+        void setupWebSocketServer(int port);
+        void setupWebSocketClient( string host, int port, bool bUseSSL = false, string channel="");
 		void setListener(ofxPersonListener* delegate);
 	
 		//tracking metrics
@@ -287,7 +288,7 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		ofxTSPSTCPSender tcpClient;
 		bool bTcpEnabled;
         ofxTSPSWebSocketSender webSocketServer;
-        bool bWebSocketsEnabled;
+        bool bWebSocketServerEnabled, bWebSocketClientEnabled;
     
 		//gui
 

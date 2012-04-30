@@ -137,7 +137,8 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
     message<<"\"id\":"<<pid<<",";
 	message<<"\"age\":"<<age<<",";
 	message<<"\"depth\":"<<depth<<",";
-	message<<"\"centroid\":{"<<"\"x\":"<<centroid.x<<",\"y\":"<<centroid.y<<"},"; //pass in normalized centroid
+    ofPoint normalizedCentroid = getCentroidNormalized( cameraWidth, cameraHeight );
+	message<<"\"centroid\":{"<<"\"x\":"<<normalizedCentroid.x<<",\"y\":"<<normalizedCentroid.y <<"},"; //pass in normalized centroid
 	message<<"\"velocity\":{"<<"\"x\":"<<ofToString(velocity.x, 3)<<",\"y\":"<<ofToString(velocity.y, 3)<<"},";
 	
 	ofRectangle scaledRect = getBoundingRectNormalized(cameraWidth,cameraHeight);

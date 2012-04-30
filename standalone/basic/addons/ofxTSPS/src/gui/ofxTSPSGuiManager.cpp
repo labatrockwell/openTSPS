@@ -135,6 +135,11 @@ void ofxTSPSGuiManager::setup(){
 	communicationPanel->setDrawLock( false );
 	communicationPanel->setBackgroundColor(180,87,128);
 	communicationPanel->setBackgroundSelectColor(180,87,128);
+    
+    guiTypePanel * websocketPanel = panel.addPanel("ws://", 1, false);
+	websocketPanel->setDrawLock( false );
+	websocketPanel->setBackgroundColor(180,87,128);
+	websocketPanel->setBackgroundSelectColor(180,87,128);
 	
 #ifdef USE_CUSTOM_GUI
 	guiTypePanel * customPanel = panel.addPanel("custom", 1, false);
@@ -313,16 +318,28 @@ void ofxTSPSGuiManager::setup(){
 	panel.addToggle("send TCP", "SEND_TCP", false);
 	panel.addTextField("broadcast port (TCP port):", "TCP_PORT", "8888", 200, 20);
     
+    panel.setWhichPanel("ws://");
+	panel.setWhichColumn(0);
     
-	guiTypeGroup * wsGroup = panel.addGroup("WebSockets");
+	guiTypeGroup * wssGroup = panel.addGroup("WebSocket Server");
+	wssGroup->setBackgroundColor(148,129,85);
+	wssGroup->setBackgroundSelectColor(148,129,85);
+	wssGroup->seBaseColor(238,53,35);
+	panel.addToggle("send over WebSocket server", "SEND_WSS", false);
+	panel.addTextField("webSocket port:", "WSS_PORT", "7681", 200, 20);
+    panel.addButton("open debug URL");
+    
+    guiTypeGroup * wsGroup = panel.addGroup("WebSocket Client");
 	wsGroup->setBackgroundColor(148,129,85);
 	wsGroup->setBackgroundSelectColor(148,129,85);
 	wsGroup->seBaseColor(238,53,35);
-	wsGroup->setShowText(false);
-	panel.addToggle("send via WebSockets", "SEND_WS", false);
+	panel.addToggle("send over WebSocket client", "SEND_WS", false);
+	panel.addTextField("webSocket host:", "WS_HOST", "localhost", 200, 20);
 	panel.addTextField("webSocket port:", "WS_PORT", "7681", 200, 20);
-    panel.addButton("open debug URL");
+	panel.addToggle("use SSL", "WS_USESSL", false);
+	panel.addTextField("webSocket channel (optional):", "WS_CHANNEL", "", 200, 20);
 	
+    panel.setValueB("SEND_WSS", false);
     panel.setValueB("SEND_WS", false);
     
 	//JG TODO: Optionally change config file through the UI
@@ -443,7 +460,7 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	}
     
     if (panel.getButtonPressed("open debug URL")){
-        ofLaunchBrowser( "http://localhost:"+panel.getValueS("WS_PORT"));
+        ofLaunchBrowser( "http://localhost:"+panel.getValueS("WSS_PORT"));
     }
 	
 	//settings.bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
@@ -489,7 +506,8 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	settings.bSendOsc = panel.getValueB("SEND_OSC");
 	settings.bSendTuio = panel.getValueB("SEND_TUIO");
 	settings.bSendTcp = panel.getValueB("SEND_TCP");
-    settings.bSendWebSockets = panel.getValueB("SEND_WS");
+    settings.bSendWebSocketServer = panel.getValueB("SEND_WSS");
+    settings.bSendWebSocketClient = panel.getValueB("SEND_WS");
     
 	settings.oscHost = panel.getValueS("OSC_HOST", 0, "localhost");
 	settings.oscPort = (int) atoi(panel.getValueS("OSC_PORT", 0, "12000").c_str());
@@ -497,7 +515,12 @@ void ofxTSPSGuiManager::update(ofEventArgs &e)
 	settings.tuioHost = panel.getValueS("TUIO_HOST", 0, "localhost");
 	settings.tuioPort = (int) atoi(panel.getValueS("TUIO_PORT", 0, "3333").c_str());
 	settings.tcpPort = (int) atoi(panel.getValueS("TCP_PORT", 0, "8888").c_str());
+    settings.webSocketServerPort = (int) atoi(panel.getValueS("WSS_PORT", 0, "7681").c_str());
     settings.webSocketPort = (int) atoi(panel.getValueS("WS_PORT", 0, "7681").c_str());
+    settings.webSocketHost = panel.getValueS("WS_HOST", 0, "localhost");
+    settings.webSocketUseSSL = panel.getValueB("WS_USESSL");
+    settings.webSocketChannel = panel.getValueS("WS_CHANNEL", 0, "localhost");
+    
 	settings.bSendOscContours = panel.getValueB("SEND_OSC_CONTOURS");
 	panel.setGroupActive("sensing", "options", settings.bSendOscContours);
 	

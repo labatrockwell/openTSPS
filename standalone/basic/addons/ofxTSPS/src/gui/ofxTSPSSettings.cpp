@@ -51,6 +51,8 @@ ofxTSPSSettings::ofxTSPSSettings() {
     oscPort = 12000;
     bUseLegacyOsc = false;
     
+    webSocketUseSSL = false;
+    
     tuioHost = "localhost";
     tuioPort = 3333;
     

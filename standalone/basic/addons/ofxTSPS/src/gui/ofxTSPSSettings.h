@@ -95,14 +95,21 @@ public:
 	bool	bUseLegacyOsc;
 	bool    bSendTuio;
 	bool    bSendTcp;
-	bool    bSendWebSockets;
+    
+	bool    bSendWebSocketServer;
+	bool    bSendWebSocketClient;
+    string  webSocketHost;
+    int     webSocketPort;
+    bool    webSocketUseSSL;
+    string  webSocketChannel;
+    int     webSocketServerPort;
+    
 	bool    bSendOscContours;
 	string  oscHost;
 	int     oscPort;
 	string  tuioHost;
 	int     tuioPort;
 	int     tcpPort;
-    int     webSocketPort;
 	
     // video grabber
     void setVideoGrabber( ofBaseVideo* videoGrabber, tspsInputType type);
