@@ -22,7 +22,7 @@ ofxTSPSPeopleTracker::ofxTSPSPeopleTracker(){
 }
 
 ofxTSPSPeopleTracker::~ofxTSPSPeopleTracker(){
-    disableGuiEvents();
+    //disableGuiEvents();
 }
 
 //---------------------------------------------------------------------------
