@@ -127,7 +127,7 @@ ofPoint ofxTSPSPerson::getHaarCentroidNormalized(float videoWidth, float videoHe
  GET PERSON STRING (so we don't have to write this so many times)
  ***************************************************************/
 
-string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
+string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours, string append ){
 	
 	//construct a JSON object
 	
@@ -157,6 +157,7 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
 		};
 		message<<"]";
 	}
+    message<<append; // trusting you to make good decisions here!
 	message<<"}";
 	return message.str();
 }

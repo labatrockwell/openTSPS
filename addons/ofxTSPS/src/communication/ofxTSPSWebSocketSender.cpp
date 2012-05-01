@@ -100,27 +100,37 @@ void ofxTSPSWebSocketSender::send(){
     toSend.clear();
 };
 
+//---------------------------------------------------------------------------
+// ADVANCED: APPEND DATA TO WS JSON
+//---------------------------------------------------------------------------
+void ofxTSPSWebSocketSender::setAppendData( string data ){
+    appendData = data;
+    if ( appendData[0] != ',' ){
+        ofLog( OF_LOG_WARNING, "You did not add a comma to your appended data. Adding for you, may be invalid JSON!" );
+        appendData = "," + appendData;
+    }
+}
 
 //---------------------------------------------------------------------------
 // TSPS EVENTS
 //---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personEntered ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-    toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personEntered", centroid,cameraWidth,cameraHeight,bSendContours )));
+    toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personEntered", centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personMoved ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personMoved",centroid,cameraWidth,cameraHeight,bSendContours )));
+	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personMoved",centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){	
-	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personUpdated", centroid,cameraWidth,cameraHeight,bSendContours )));
+	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personUpdated", centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personWillLeave", centroid,cameraWidth,cameraHeight,bSendContours )));
+	toSend.push_back(ofxTSPSWebSocketMessage(p->getJSON("personWillLeave", centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
 }
 
 

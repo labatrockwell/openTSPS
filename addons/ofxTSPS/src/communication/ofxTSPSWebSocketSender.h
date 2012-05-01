@@ -28,6 +28,9 @@ public:
     void closeServer();
     void send();
     
+    // append data to message
+    void setAppendData( string append );
+    
     string  getHost();
     int     getPort();
     int     getServerPort();
@@ -40,6 +43,9 @@ public:
 protected:
     vector<ofxTSPSWebSocketMessage> toSend;
     bool bSocketOpened, bSetup;
+    
+    // data to append to the websocket if you choose
+    string appendData;
     
     string host;
     int serverPort, port;

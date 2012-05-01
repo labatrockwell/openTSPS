@@ -88,7 +88,7 @@ class ofxTSPSPerson
 	
         // get string
         
-        string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false );
+        string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false, string append="" );
         string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false );
     
 	protected:
