@@ -37,6 +37,7 @@ class ofxCvCoordWarpingGui : public ofxMSAInteractiveObject {
 	
 public:
 	ofxCvCoordWarpingGui();
+	~ofxCvCoordWarpingGui();
 		
 	void setup(string _quadName);
 	void readFromFile(string filePath);

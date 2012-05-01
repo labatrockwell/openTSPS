@@ -53,6 +53,7 @@ class ofxTSPSGuiManager {
 
   public:
 	ofxTSPSGuiManager();
+	~ofxTSPSGuiManager();
 	void setup();
     
     void enableEvents();
@@ -71,7 +72,6 @@ class ofxTSPSGuiManager {
 	void mousePressed(ofMouseEventArgs &e);
 	void mouseDragged(ofMouseEventArgs &e);
 	void mouseReleased(ofMouseEventArgs &e);
-
 	void keyPressed(ofKeyEventArgs &e);
 	void keyReleased(ofKeyEventArgs &e);
 
@@ -79,6 +79,10 @@ class ofxTSPSGuiManager {
 	void addSlider(string name, int* value, int min, int max);
 	void addSlider(string name, float* value, float min, float max);
 	void addToggle(string name, bool* value);
+    
+    // add elements outside of panels
+    guiTypeButton * addButton( string name, ofRectangle dimensions, ofColor color = NULL, ofColor bgcolor = NULL );
+    guiTypeButton * getButton( string name );
 
 	//get + set panel info
 	int getSelectedPanel();
@@ -88,7 +92,15 @@ class ofxTSPSGuiManager {
     //disable / enable stuff
     void enableElement( string name );
     void disableElement( string name );
-
+    
+    // get values
+    bool getValueB( string name );
+    float getValueF( string name );
+    string getValueS( string name );
+    void setValueB( string name, bool val );
+    void setValueF( string name, float val );
+    
+    // load
 	void loadSettings ( string xml );
     	
 	// Added so the quadGui instance can know when image warping is allowed to occur
@@ -108,6 +120,7 @@ protected:
 	//a little goofy way to keep track of custom params. works but i'm open to suggestions
 	ofxLabGui panel;
 	vector<ofxTSPSGUICustomParam> params;
+    map<std::string, guiTypeButton*> customButtons;
 
 	//an even goofier way to easily add the quad qui
 	bool quadGuiSetup;

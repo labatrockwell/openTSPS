@@ -40,6 +40,10 @@ public:
     // kinect, webcam, or video file?
     bool bKinect, bKinectConnected, bUseVideoFile;
     
+    bool isOpen(){
+        return cameraState != CAMERA_NOT_INITED;
+    }
+    
     ofxCvColorImage		colorImg;
     ofxCvGrayscaleImage	grayImg;	
     

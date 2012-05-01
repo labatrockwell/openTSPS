@@ -20,6 +20,10 @@ public:
 	ofxTSPSView(){
 		bImage = false;
 	}
+    
+    ~ofxTSPSView(){
+		ofRemoveListener(ofEvents.mouseMoved, this, &ofxTSPSView::mouseMoved);
+	}
 	
 	//-------------------------------------------------
 	void setup( int _width, int _height){

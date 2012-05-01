@@ -45,7 +45,7 @@ ofxMSAInteractiveObject::ofxMSAInteractiveObject() {
 }
 
 ofxMSAInteractiveObject::~ofxMSAInteractiveObject() {
-	//disableAllEvents();
+	disableAllEvents();
 }
 
 void ofxMSAInteractiveObject::killMe() {

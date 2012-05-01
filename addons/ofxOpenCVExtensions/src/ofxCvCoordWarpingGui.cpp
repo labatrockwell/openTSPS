@@ -36,12 +36,22 @@ ofxCvCoordWarpingGui::ofxCvCoordWarpingGui(){
 
 //----------------------------------------------------
 void ofxCvCoordWarpingGui::setup(string _quadName){
-    enableAllEvents();
-	quadName = _quadName;
-	bCameraView = false;	
+    //enableAllEvents();
+    enableAppEvents();
 	ofAddListener(ofEvents.mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
 	ofAddListener(ofEvents.mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
 	ofAddListener(ofEvents.mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);
+    
+	quadName = _quadName;
+	bCameraView = false;
+}
+
+//----------------------------------------------------
+ofxCvCoordWarpingGui::~ofxCvCoordWarpingGui(){
+	ofRemoveListener(ofEvents.mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
+	ofRemoveListener(ofEvents.mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
+	ofRemoveListener(ofEvents.mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);
+    disableAppEvents();
 }
 
 //----------------------------------------------------

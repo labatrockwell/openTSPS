@@ -176,6 +176,9 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		void addSlider(string name, float* value, float min, float max);
 		void addToggle(string name, bool* value);
     
+        // add buttons managed by the gui but external to the main interface
+        guiTypeButton * addExternalButton( string name, ofRectangle dimensions );
+    
         // video file stuff
         bool    useVideoFile();
         string  getVideoFile();
@@ -229,8 +232,9 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		bool inDifferencingView();
 		bool inDataView();
         
-        // GUI getters
+        // GUI getters + setters
         bool useKinect();	
+        void setUseKinect( bool bUseKinect=true );
 	
 	protected:
 	

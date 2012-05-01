@@ -21,8 +21,9 @@ ofxTSPSPeopleTracker::ofxTSPSPeopleTracker(){
     p_Settings = NULL;
 }
 
+//---------------------------------------------------------------------------
 ofxTSPSPeopleTracker::~ofxTSPSPeopleTracker(){
-    //disableGuiEvents();
+	ofRemoveListener(ofEvents.mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
 }
 
 //---------------------------------------------------------------------------
@@ -925,30 +926,32 @@ bool ofxTSPSPeopleTracker::isInsideRect(float x, float y, ofRectangle rect){
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableGuiEvents(){
     gui.enableEvents();
-};
+}
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::disableGuiEvents(){
     gui.disableEvents();    
-};
+}
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::addSlider(string name, int* value, int min, int max)
-{
+void ofxTSPSPeopleTracker::addSlider(string name, int* value, int min, int max){
 	//forward to the gui manager
 	gui.addSlider(name, value, min, max);
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::addSlider(string name, float* value, float min, float max)
-{
+void ofxTSPSPeopleTracker::addSlider(string name, float* value, float min, float max){
 	gui.addSlider(name, value, min, max);	
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::addToggle(string name, bool* value)
-{
+void ofxTSPSPeopleTracker::addToggle(string name, bool* value){
 	gui.addToggle(name, value);	
+}
+
+//---------------------------------------------------------------------------
+guiTypeButton * ofxTSPSPeopleTracker::addExternalButton( string name, ofRectangle dimensions){
+	return gui.addButton( name, dimensions );
 }
 
 //---------------------------------------------------------------------------
@@ -971,14 +974,12 @@ int ofxTSPSPeopleTracker::totalPeople()
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::enableHaarFeatures(bool doHaar)
-{
+void ofxTSPSPeopleTracker::enableHaarFeatures(bool doHaar){
     if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bDetectHaar = doHaar;
 }
 
-void ofxTSPSPeopleTracker::enableOpticalFlow(bool doOpticalFlow)
-{
+void ofxTSPSPeopleTracker::enableOpticalFlow(bool doOpticalFlow){
     if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bTrackOpticalFlow = doOpticalFlow;
 }
@@ -992,15 +993,21 @@ ofxTSPSOscSender* ofxTSPSPeopleTracker::getOSCsender() {
 //---------------------------------------------------------------------------
 ofxTSPSWebSocketSender * ofxTSPSPeopleTracker::getWebSocketServer(){
     return &webSocketServer;
-};
+}
 
 
 //---------------------------------------------------------------------------
 bool ofxTSPSPeopleTracker::useKinect(){
     if (p_Settings == NULL) p_Settings = gui.getSettings();
     return p_Settings->bUseKinect;
-};	
+}
 
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::setUseKinect( bool bUseKinect ){
+    gui.setValueB( "USE_KINECT", bUseKinect );
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    p_Settings->bUseKinect = bUseKinect;
+}
 
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------

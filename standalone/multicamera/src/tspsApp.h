@@ -10,6 +10,7 @@
     #define TSPS_HOME_PAGE "http://opentsps.com"
     #include "TSPSDelegate.h"
     #include "ofxKinect.h"
+    #include "ofxLabGui.h"
     #define MAX_CAMERAS 4
 
 /*********************************************************
@@ -28,6 +29,12 @@ class tspsApp : public ofBaseApp {
 		
         int currentDelegate; // which one you are drawing
         vector<TSPSDelegate *> delegates;
+    
+        // buttons for switching between cameras + adding more cameras
+        map<string, guiTypeButton *> buttons;
+        void onButtonPressed( string & button );
+    
+        // normal of events
     
 		void keyPressed  (int key);
 		void mouseMoved(int x, int y );

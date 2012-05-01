@@ -46,6 +46,11 @@ ofxTSPSGuiManager::ofxTSPSGuiManager() {
     bEventsEnabled = false;
 }
 
+
+ofxTSPSGuiManager::~ofxTSPSGuiManager(){
+    disableEvents();
+}
+
 void ofxTSPSGuiManager::enableEvents(){
     if (bEventsEnabled) return;
     bEventsEnabled = true;
@@ -90,7 +95,6 @@ void ofxTSPSGuiManager::setup(){
 	panel.setRestoreSelectedColor(116, 191, 228);
 	panel.setDrawBarOnTop(false);
     
-    // yes yes
     minimizeButton = new guiTypeButton();
 	minimizeButton->setup("minimize", buttonWidth*1.5, buttonHeight);
     minimizeButton->setPosition(10,10);
@@ -109,8 +113,8 @@ void ofxTSPSGuiManager::setup(){
 	ofAddListener(minimizeButton->buttonPressed, this, &ofxTSPSGuiManager::minimize);
 	ofAddListener(maximizeButton->buttonPressed, this, &ofxTSPSGuiManager::maximize);
     
-    panel.addButton("maximize");
-    disableElement("maximize");
+    //panel.addButton("maximize");
+    //disableElement("maximize");
     
 	guiTypePanel * videoPanel = panel.addPanel("video", 1, false);
 	videoPanel->setDrawLock( false );	
@@ -513,6 +517,10 @@ void ofxTSPSGuiManager::update(){
 	if(settings.bLearnBackground){ 
 		panel.setValueB("LEARN_BACKGROUND", false);
 	}
+    settings.bBlankBackground = panel.getValueB("BLACK_BACKGROUND");
+	if(settings.bLearnBackground){ 
+		panel.setValueB("BLACK_BACKGROUND", false);
+	}
 	
 	//panel.setValueB("LEARN_BACKGROUND", settings.bLearnBackground);
 	//JG 12/8/09 GUI-REDUX Removing this feature
@@ -656,6 +664,36 @@ void ofxTSPSGuiManager::changeGuiCameraView(bool bCameraView) {
 	quadGui.bCameraView = bCameraView;
 };
 
+/***************************************************************
+    GET + SET SPECIFIC VALUES FROM THE GUI
+***************************************************************/
+
+//----------------------------------------------------------
+bool ofxTSPSGuiManager::getValueB( string name ){
+    panel.getValueB(name);
+}
+
+//----------------------------------------------------------
+float ofxTSPSGuiManager::getValueF( string name ){
+    panel.getValueF(name);    
+}
+
+//----------------------------------------------------------
+string ofxTSPSGuiManager::getValueS( string name ){
+    panel.getValueS(name);    
+}
+
+//----------------------------------------------------------
+void ofxTSPSGuiManager::setValueB( string name, bool val ){
+    panel.setValueB(name, val);    
+    
+}
+
+//----------------------------------------------------------
+void ofxTSPSGuiManager::setValueF( string name, float val ){
+    panel.setValueF(name, val);    
+    
+}
 
 /***************************************************************
  ENABLE / DISABLE ELEMENTS
@@ -722,7 +760,15 @@ void ofxTSPSGuiManager::mouseReleased(ofMouseEventArgs &e)
 	if(enableGui){
         panel.mouseReleased();
         if (maximizeButton->enabled) maximizeButton->checkHit(e.x, e.y, e.button);
-        else if (minimizeButton->enabled) minimizeButton->checkHit(e.x, e.y, e.button);        
+        else if (minimizeButton->enabled) minimizeButton->checkHit(e.x, e.y, e.button);      
+        else {            
+            map<std::string, guiTypeButton*>::iterator it;
+            for( it=customButtons.begin(); it!=customButtons.end(); it++ ){
+                if ( it->second->enabled){
+                    it->second->checkHit( e.x, e.y, e.button );                    
+                }
+            }
+        }
     }
 }
 
@@ -747,7 +793,54 @@ void ofxTSPSGuiManager::draw() {
 		panel.draw();
         maximizeButton->render();
         minimizeButton->render();
+        
+        // draw custom buttons
+        map<std::string, guiTypeButton*>::iterator it;
+        for( it=customButtons.begin(); it!=customButtons.end(); it++ ){
+            it->second->render();
+        }
 	}
+}
+
+/***************************************************************
+    CUSTOM BUTTONS
+***************************************************************/
+
+//----------------------------------------------------------
+guiTypeButton * ofxTSPSGuiManager::addButton( string name, ofRectangle dimensions, ofColor color, ofColor bgcolor ){
+    guiTypeButton * btn = new guiTypeButton();
+    
+    // if you didn't pass a rectangle, just use the default button settings
+    if ( dimensions.x == dimensions.y == dimensions.width == dimensions.height){
+        btn->setup( name, buttonWidth*1.5, buttonHeight);
+        btn->setPosition(10,10);    
+    } else {
+        btn->setup( name, dimensions.width, dimensions.height);
+        btn->setPosition(dimensions.x, dimensions.y);
+    }
+    btn->setFont(&panel.guiTTFFont);    
+    
+    if ( color != NULL){
+        btn->setBackgroundSelectColor(color.r, color.g, color.b);        
+    } else {
+        btn->setBackgroundSelectColor(0,168,156);        
+    }
+    if ( bgcolor != NULL){
+        btn->setBackgroundSelectColor(bgcolor.r, bgcolor.g, bgcolor.b);        
+    } else {
+        btn->setBackgroundColor(0,168,156); 
+    }
+    customButtons.insert( pair<std::string, guiTypeButton*>( name, btn) );
+    return btn;
+}
+
+//----------------------------------------------------------
+guiTypeButton * ofxTSPSGuiManager::getButton( string name ){
+    if ( customButtons.find( name ) != customButtons.end() ){
+        return customButtons[name];
+    } else {
+        return NULL;
+    }    
 }
 
 /***************************************************************

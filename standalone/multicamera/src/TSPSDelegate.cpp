@@ -65,7 +65,7 @@ bool TSPSDelegate::openCamera( int which, bool _bKinect ){
 void TSPSDelegate::update(){
     if (peopleTracker.useKinect() && !bKinect){
         bKinect = true;
-        initVideoInput( cameraIndex );
+        peopleTracker.setUseKinect( initVideoInput( cameraIndex ) );
     } else if (!peopleTracker.useKinect() && bKinect){
         bKinect = false;
         initVideoInput( cameraIndex );
