@@ -160,7 +160,6 @@ DemoApp = function() {
 	// ===========================================
 	
 	this.onPersonEntered  	= function(person){
-		console.log("hey")
 		colors[person.id] = {};
 		colors[person.id].h = LAB.random(0,255);
 		colors[person.id].s = LAB.random(0,255);

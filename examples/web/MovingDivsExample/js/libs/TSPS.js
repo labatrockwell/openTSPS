@@ -25,10 +25,10 @@ Pass a new JSON object into here to add it into TSPS
 */
 TSPS.Dispatcher.prototype.onTSPSData		= function(json)
 {
-	if (json.type == "TSPS/personEntered") this._onPersonEntered(json);
-	else if (json.type == "TSPS/personMoved") this._onPersonUpdated(json);
-	else if (json.type == "TSPS/personUpdated") this._onPersonMoved(json);
-	else if (json.type == "TSPS/personWillLeave") this._onPersonLeft(json);
+	if (json.type == "personEntered") this._onPersonEntered(json);
+	else if (json.type == "personMoved") this._onPersonUpdated(json);
+	else if (json.type == "personUpdated") this._onPersonMoved(json);
+	else if (json.type == "personWillLeave") this._onPersonLeft(json);
 	else console.log(json.type);
 }
 
