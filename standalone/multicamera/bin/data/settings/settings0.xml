@@ -109,7 +109,7 @@
     <val_0>0</val_0>
 </LEGACY_OSC>
 <USE_VIDEO_FILE>
-    <val_0>1</val_0>
+    <val_0>0</val_0>
 </USE_VIDEO_FILE>
 <VIDEO_FILE_DIR>
     <val_0>videos</val_0>

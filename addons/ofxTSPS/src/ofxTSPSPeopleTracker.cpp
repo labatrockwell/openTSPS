@@ -400,7 +400,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 	}
 	
 	char pringString[1024];
-	sprintf(pringString, "found %i haar items this frame", haarRects.size());
+	sprintf(pringString, "found %i haar items this frame", (int) haarRects.size());
 	ofLog(OF_LOG_VERBOSE, pringString);
 	
 	contourFinder.findContours(grayDiff, p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, 50, p_Settings->bFindHoles);

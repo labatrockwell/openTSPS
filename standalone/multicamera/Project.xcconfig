@@ -5,29 +5,39 @@ OF_PATH = ../../..
 //THIS HAS ALL THE HEADER AND LIBS FOR OF CORE
 #include "../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig"
 
-// path to the addons dir
-ADDONS_PATH = $(OF_PATH)/addons
+// core addons
+ADDONS_PATH         = $(OF_PATH)/addons
 
 //ofxOpenCV
-OFX_OPENCV_HEADERS = "$(ADDONS_PATH)/ofxOpenCv/libs/opencv/include/"
+OFX_OPENCV_HEADERS  = $(ADDONS_PATH)/ofxOpenCv/libs/opencv/include/
+
+//ofxOsc
+OFX_OSC_LIBS        = $(ADDONS_PATH)/ofxOsc/libs/oscpack/lib/osx/osc.a
+OFX_OSC_INC         = $(ADDONS_PATH)/ofxOsc/libs/oscpack/include/ip $(ADDONS_PATH)/ofxOsc/libs/oscpack/include/osc
+
+// TSPS addons
+TSPS_ADDONS_PATH    = ../../addons
 
 //ofxLibwebsockets
-LIB_SSL = "../../addons/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a"
-LIB_CRYPTO = "../../addons/ofxLibwebsockets/libs/openssl/lib/osx/libcrypto.a"
-SSL_INC = "../../addons/ofxLibwebsockets/libs/openssl/"
-LWS = "../../addons/ofxLibwebsockets/libs/libwebsockets/lib/osx/libwebsockets.a"
-OFX_LWS_INCLUDE = "../../addons/ofxLibwebsockets/libs/ofxLibwebsockets/include"
-LIBWEBSOCKETS_LIBS = $(LIB_CRYPTO) $(LIB_SSL) $(LWS)
-LIBWEBSOCKETS_INCLUDES= $(SSL_INC) $(OFX_LWS_INCLUDE)
+LIB_SSL             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a
+LIB_CRYPTO          = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libcrypto.a
+SSL_INC             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/
+LWS                 = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx/libwebsockets.a
+OFX_LWS_INCLUDE     = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/ofxLibwebsockets/include
+OFX_LWS_LIBS        = $(LIB_CRYPTO) $(LIB_SSL) $(LWS)
+OFX_LWS_INCLUDES    = $(SSL_INC) $(OFX_LWS_INCLUDE)
 
 // ofxKinect
-OFX_KINECT_HEADERS = "../../addons/ofxKinect/libs/libusb/osx/include/"
-OFX_KINECT_LIBS = "../../addons/ofxKinect/libs/libusb/osx/libs/usb-1.0.a"
+OFX_KINECT_HEADERS  = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb/osx/include/
+OFX_KINECT_LIBS     = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb/osx/libs/usb-1.0.a
 
+// ofxTuioWrapper
+OFX_TUIO_LIBS       = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx/libOsc.a
+OFX_TUIO_INC        = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/include/ip $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/include/osc
 
 // all addons
-OF_ADDON_HEADERS = $(OFX_KINECT_HEADERS) $(OFX_OPENCV_HEADERS) $(LIBWEBSOCKETS_INCLUDES)
-OF_ADDON_LIBS = $(OFX_KINECT_LIBS) $(LIBWEBSOCKETS_LIBS)
+OF_ADDON_HEADERS = $(OFX_KINECT_HEADERS) $(OFX_OPENCV_HEADERS) $(OFX_LWS_INCLUDES) $(OFX_OSC_INC) $(OFX_TUIO_INC)
+OF_ADDON_LIBS = $(OFX_KINECT_LIBS) $(OFX_LWS_LIBS) $(OFX_TUIO_LIBS) $(OFX_OSC_LIBS)
 
 HEADER_SEARCH_PATHS = $(OF_CORE_HEADERS) $(OF_ADDON_HEADERS)
 OTHER_LDFLAGS = $(OF_CORE_LIBS) $(OF_ADDON_LIBS)

@@ -50,7 +50,6 @@
 		2E7F0ACE154F00FB00DF5456 /* TuioTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0A7A154F00FA00DF5456 /* TuioTime.cpp */; };
 		2E7F0ACF154F00FB00DF5456 /* ofxTuioClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0A7C154F00FA00DF5456 /* ofxTuioClient.cpp */; };
 		2E7F0AD0154F00FB00DF5456 /* ofxTuioServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0A7E154F00FA00DF5456 /* ofxTuioServer.cpp */; };
-		2E7F0AD2154F00FB00DF5456 /* libOsc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7F0A95154F00FA00DF5456 /* libOsc.a */; };
 		2E7F0AD6154F00FB00DF5456 /* TuioTcpXmlServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0A9A154F00FA00DF5456 /* TuioTcpXmlServer.cpp */; };
 		A94EB0E31437A5B000B6437B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB0E21437A5B000B6437B /* ApplicationServices.framework */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
@@ -314,20 +313,6 @@
 		2E7F0A7D154F00FA00DF5456 /* ofxTuioClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTuioClient.h; sourceTree = "<group>"; };
 		2E7F0A7E154F00FA00DF5456 /* ofxTuioServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTuioServer.cpp; sourceTree = "<group>"; };
 		2E7F0A7F154F00FA00DF5456 /* ofxTuioServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTuioServer.h; sourceTree = "<group>"; };
-		2E7F0A83154F00FA00DF5456 /* IpEndpointName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IpEndpointName.h; sourceTree = "<group>"; };
-		2E7F0A84154F00FA00DF5456 /* NetworkingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingUtils.h; sourceTree = "<group>"; };
-		2E7F0A85154F00FA00DF5456 /* PacketListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacketListener.h; sourceTree = "<group>"; };
-		2E7F0A86154F00FA00DF5456 /* TimerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerListener.h; sourceTree = "<group>"; };
-		2E7F0A87154F00FA00DF5456 /* UdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpSocket.h; sourceTree = "<group>"; };
-		2E7F0A89154F00FA00DF5456 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageMappingOscPacketListener.h; sourceTree = "<group>"; };
-		2E7F0A8A154F00FA00DF5456 /* OscException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscException.h; sourceTree = "<group>"; };
-		2E7F0A8B154F00FA00DF5456 /* OscHostEndianness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscHostEndianness.h; sourceTree = "<group>"; };
-		2E7F0A8C154F00FA00DF5456 /* OscOutboundPacketStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscOutboundPacketStream.h; sourceTree = "<group>"; };
-		2E7F0A8D154F00FA00DF5456 /* OscPacketListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscPacketListener.h; sourceTree = "<group>"; };
-		2E7F0A8E154F00FA00DF5456 /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscPrintReceivedElements.h; sourceTree = "<group>"; };
-		2E7F0A8F154F00FA00DF5456 /* OscReceivedElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscReceivedElements.h; sourceTree = "<group>"; };
-		2E7F0A90154F00FA00DF5456 /* OscTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscTypes.h; sourceTree = "<group>"; };
-		2E7F0A95154F00FA00DF5456 /* libOsc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOsc.a; sourceTree = "<group>"; };
 		2E7F0A9A154F00FA00DF5456 /* TuioTcpXmlServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TuioTcpXmlServer.cpp; sourceTree = "<group>"; };
 		2E7F0A9B154F00FA00DF5456 /* TuioTcpXmlServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuioTcpXmlServer.h; sourceTree = "<group>"; };
 		2ECB4D4914586B5900040AA3 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
@@ -508,7 +493,6 @@
 				2E7F0AAE154F00FB00DF5456 /* libwebsockets.a in Frameworks */,
 				2E7F0AB6154F00FB00DF5456 /* libcrypto.a in Frameworks */,
 				2E7F0AB7154F00FB00DF5456 /* libssl.a in Frameworks */,
-				2E7F0AD2154F00FB00DF5456 /* libOsc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,7 +1035,6 @@
 				2E7F0A7D154F00FA00DF5456 /* ofxTuioClient.h */,
 				2E7F0A7E154F00FA00DF5456 /* ofxTuioServer.cpp */,
 				2E7F0A7F154F00FA00DF5456 /* ofxTuioServer.h */,
-				2E7F0A80154F00FA00DF5456 /* oscpack */,
 				2E7F0A9A154F00FA00DF5456 /* TuioTcpXmlServer.cpp */,
 				2E7F0A9B154F00FA00DF5456 /* TuioTcpXmlServer.h */,
 			);
@@ -1075,67 +1058,6 @@
 				2E7F0A7B154F00FA00DF5456 /* TuioTime.h */,
 			);
 			path = core;
-			sourceTree = "<group>";
-		};
-		2E7F0A80154F00FA00DF5456 /* oscpack */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0A81154F00FA00DF5456 /* include */,
-				2E7F0A91154F00FA00DF5456 /* lib */,
-			);
-			path = oscpack;
-			sourceTree = "<group>";
-		};
-		2E7F0A81154F00FA00DF5456 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0A82154F00FA00DF5456 /* ip */,
-				2E7F0A88154F00FA00DF5456 /* osc */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		2E7F0A82154F00FA00DF5456 /* ip */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0A83154F00FA00DF5456 /* IpEndpointName.h */,
-				2E7F0A84154F00FA00DF5456 /* NetworkingUtils.h */,
-				2E7F0A85154F00FA00DF5456 /* PacketListener.h */,
-				2E7F0A86154F00FA00DF5456 /* TimerListener.h */,
-				2E7F0A87154F00FA00DF5456 /* UdpSocket.h */,
-			);
-			path = ip;
-			sourceTree = "<group>";
-		};
-		2E7F0A88154F00FA00DF5456 /* osc */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0A89154F00FA00DF5456 /* MessageMappingOscPacketListener.h */,
-				2E7F0A8A154F00FA00DF5456 /* OscException.h */,
-				2E7F0A8B154F00FA00DF5456 /* OscHostEndianness.h */,
-				2E7F0A8C154F00FA00DF5456 /* OscOutboundPacketStream.h */,
-				2E7F0A8D154F00FA00DF5456 /* OscPacketListener.h */,
-				2E7F0A8E154F00FA00DF5456 /* OscPrintReceivedElements.h */,
-				2E7F0A8F154F00FA00DF5456 /* OscReceivedElements.h */,
-				2E7F0A90154F00FA00DF5456 /* OscTypes.h */,
-			);
-			path = osc;
-			sourceTree = "<group>";
-		};
-		2E7F0A91154F00FA00DF5456 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0A94154F00FA00DF5456 /* osx */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		2E7F0A94154F00FA00DF5456 /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0A95154F00FA00DF5456 /* libOsc.a */,
-			);
-			path = osx;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
@@ -1935,17 +1857,6 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../addons/ofxKinect/libs/libfreenect/lib/vs2010\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10 = "\"$(SRCROOT)/../../addons/ofxTuioWrapper/src/oscpack/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11 = "\"$(SRCROOT)/../../addons/ofxTuioWrapper/src/oscpack/lib/win32\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../addons/ofxKinect/libs/libusb/osx/libs\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/libwebsockets/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../addons/ofxOsc/libs/oscpack/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/libwebsockets/lib/win32\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/openssl/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/openssl/lib/win32\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9 = "\"$(SRCROOT)/../../addons/ofxTuioWrapper/src/oscpack/lib/linux\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -2060,17 +1971,6 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../addons/ofxKinect/libs/libfreenect/lib/vs2010\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10 = "\"$(SRCROOT)/../../addons/ofxTuioWrapper/src/oscpack/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11 = "\"$(SRCROOT)/../../addons/ofxTuioWrapper/src/oscpack/lib/win32\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../addons/ofxKinect/libs/libusb/osx/libs\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/libwebsockets/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../addons/ofxOsc/libs/oscpack/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/libwebsockets/lib/win32\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/openssl/lib/osx\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/../../addons/ofxLibwebsockets/libs/openssl/lib/win32\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9 = "\"$(SRCROOT)/../../addons/ofxTuioWrapper/src/oscpack/lib/linux\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
