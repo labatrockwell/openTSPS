@@ -197,7 +197,6 @@ void tspsApp::onButtonPressed( string & button ){
                     delegates[currentDelegate]->enableEvents();
                 }
             }
-            cout<<"selected "<<button<<endl;
             buttons[ name ]->setSelected();
         } else {
             buttons[ name ]->setNormal();

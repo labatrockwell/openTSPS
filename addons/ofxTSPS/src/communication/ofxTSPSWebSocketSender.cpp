@@ -12,7 +12,7 @@
 ofxTSPSWebSocketSender::ofxTSPSWebSocketSender(){
     binary = false;
     port = 8887;
-    bSetup = false;
+    bServerSetup = bClientSetup = false;
     server = NULL;
     client = NULL;
 }
@@ -22,6 +22,7 @@ ofxTSPSWebSocketSender::~ofxTSPSWebSocketSender(){
     sockets.clear();
     if ( client != NULL ) client->exit();
     if ( server != NULL ) server->exit();
+    bServerSetup = bClientSetup = false;
 }
 
 //---------------------------------------------------------------------------
@@ -40,8 +41,8 @@ bool ofxTSPSWebSocketSender::setupClient( string _host, int _port, bool bUseSSL,
     options.bUseSSL = bUseSSL;
     options.channel = channel;
     
-    bSetup = client->connect( options );
-    return bSetup;        
+    bClientSetup = client->connect( options );
+    return bClientSetup;        
 }
 
 //---------------------------------------------------------------------------
@@ -57,8 +58,8 @@ bool ofxTSPSWebSocketSender::setupServer( int _port ){
     // setup web socket server
     server = new ofxLibwebsockets::Server();
     server->addListener( this ); 
-    bSetup = server->setup(options);
-    return bSetup;        
+    bServerSetup = server->setup(options);
+    return bServerSetup;        
 }
 
 
@@ -83,20 +84,26 @@ void ofxTSPSWebSocketSender::closeClient(){
         client->close();
         client = NULL;
     }
+    bClientSetup = false;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::closeServer(){
     if (server != NULL) server->exit();
+    bServerSetup = false;
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSWebSocketSender::send(){
     for (int i=0; i<toSend.size(); i++){
         for (int j=0; j<sockets.size(); j++){
-            if (bSetup) sockets[j]->send(toSend[i].msg); 
+            if ( bServerSetup && server != NULL )sockets[j]->send(toSend[i].msg); 
+        }
+        if ( bClientSetup && client != NULL ){
+            client->send( toSend[i].msg );
         }
     }
+    
     toSend.clear();
 };
 
@@ -139,12 +146,10 @@ void ofxTSPSWebSocketSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centro
 //--------------------------------------------------------------
 void ofxTSPSWebSocketSender::onConnect(ofxLibwebsockets::Event& args){
     sockets.push_back(&args.conn);
-    bSocketOpened = true;
 }
 
 void ofxTSPSWebSocketSender::onOpen(ofxLibwebsockets::Event& args) {
-    sockets.push_back(&args.conn);
-    bSocketOpened = true;
+    //sockets.push_back(&args.conn);
 }
 
 //--------------------------------------------------------------

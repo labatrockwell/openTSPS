@@ -42,7 +42,7 @@ public:
     
 protected:
     vector<ofxTSPSWebSocketMessage> toSend;
-    bool bSocketOpened, bSetup;
+    bool bClientSetup, bServerSetup;
     
     // data to append to the websocket if you choose
     string appendData;

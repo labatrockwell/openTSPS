@@ -43,6 +43,9 @@ public:
 	void readFromFile(string filePath);
 	void loadSettings();
 	
+    void enableEvents();
+    void disableEvents();
+    
 	void releaseAllPoints();
 	//these should be in the range x(0-maxX) y(0-maxH) 
 	//with 	width  = maxW
@@ -87,6 +90,9 @@ protected:
 	string quadName;
 	bool bAutoSave;
 	int selected;
+    
+private:
+    bool bEventsEnabled;
 };
 
 #endif

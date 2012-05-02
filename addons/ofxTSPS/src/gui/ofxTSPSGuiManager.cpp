@@ -59,6 +59,7 @@ void ofxTSPSGuiManager::enableEvents(){
 	ofAddListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
 	ofAddListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
 	ofAddListener(ofEvents.keyPressed, this, &ofxTSPSGuiManager::keyPressed);
+    quadGui.enableEvents();
 }
 
 void ofxTSPSGuiManager::disableEvents(){
@@ -69,6 +70,7 @@ void ofxTSPSGuiManager::disableEvents(){
 	ofRemoveListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
 	ofRemoveListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
 	ofRemoveListener(ofEvents.keyPressed, this, &ofxTSPSGuiManager::keyPressed);
+    quadGui.disableEvents();
 }
 
 void ofxTSPSGuiManager::setup(){
