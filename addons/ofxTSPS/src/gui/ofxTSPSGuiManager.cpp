@@ -676,6 +676,11 @@ bool ofxTSPSGuiManager::getValueB( string name ){
 }
 
 //----------------------------------------------------------
+int ofxTSPSGuiManager::getValueI( string name ){
+    return panel.getValueI(name);
+}
+
+//----------------------------------------------------------
 float ofxTSPSGuiManager::getValueF( string name ){
     return panel.getValueF(name);    
 }
@@ -691,8 +696,18 @@ void ofxTSPSGuiManager::setValueB( string name, bool val ){
 }
 
 //----------------------------------------------------------
+void ofxTSPSGuiManager::setValueI( string name, int val ){
+    panel.setValueI(name, val);    
+}
+
+//----------------------------------------------------------
 void ofxTSPSGuiManager::setValueF( string name, float val ){
     panel.setValueF(name, val);    
+}
+
+//----------------------------------------------------------
+void ofxTSPSGuiManager::setValueS( string name, string val ){
+    panel.setValueS(name, val);    
 }
 
 /***************************************************************

@@ -134,11 +134,12 @@ class ofxLabGui: public guiBaseObject{
         void setValueB(string xmlName, bool value,  int whichParam = 0);
         void setValueI(string xmlName, int value,  int whichParam = 0);
         void setValueF(string xmlName, float value,  int whichParam = 0);
-        bool getValueB(string xmlName, int whichParam = 0);
-	
-        float getValueF(string xmlName, int whichParam = 0);
-		int getValueI(string xmlName, int whichParam = 0);
-		string getValueS(string xmlName, int whichParam = 0, string defaultString = "");
+        void setValueS(string xmlName, string value,  int whichParam = 0);
+    
+        bool    getValueB(string xmlName, int whichParam = 0);	
+        float   getValueF(string xmlName, int whichParam = 0);
+		int     getValueI(string xmlName, int whichParam = 0);
+		string  getValueS(string xmlName, int whichParam = 0, string defaultString = "");
             
         //returns a bang if button pressed
         bool getButtonPressed(string buttonName);

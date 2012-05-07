@@ -582,6 +582,17 @@ void ofxLabGui::setValueF(string xmlName, float value,  int whichParam){
     }
 }
 
+//---------------------------------------------
+void ofxLabGui::setValueS(string xmlName, string value, int whichParam){
+    for(int i = 0; i < guiObjects.size(); i++){
+        if( guiObjects[i]->xmlName == xmlName){
+            if( whichParam >= 0  ){
+                guiObjects[i]->value.setValueS(value, whichParam);
+                return;
+            }
+        }
+    }
+}
 
 //---------------------------------------------
 bool ofxLabGui::getValueB(string xmlName, int whichParam){
