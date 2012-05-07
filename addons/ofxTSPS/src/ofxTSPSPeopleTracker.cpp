@@ -385,7 +385,7 @@ void ofxTSPSPeopleTracker::trackPeople()
 	// TRACKING
 	//-----------------------	
 	//find the optical flow
-	if (p_Settings->bTrackOpticalFlow){
+	if ( p_Settings->bTrackOpticalFlow ){
 		opticalFlow.calc(grayLastImage, graySmallImage, 11);
 	}
 	
@@ -407,16 +407,15 @@ void ofxTSPSPeopleTracker::trackPeople()
 	contourFinder.findContours(grayDiff, p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, 50, p_Settings->bFindHoles);
 	persistentTracker.trackBlobs(contourFinder.blobs);
     
-		
 	// By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
 	//            before optical flow can begin working.
-	if(p_Settings->bTrackOpticalFlow) {
+	if( p_Settings->bTrackOpticalFlow ) {
         scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
         scene.percentCovered = 0; 
         opticalFlow.maxVector = p_Settings->maxOpticalFlow;
 		opticalFlow.minVector = p_Settings->minOpticalFlow;
 	}
-	
+    	
 	for(int i = 0; i < persistentTracker.blobs.size(); i++){
 		ofxCvTrackedBlob blob = persistentTracker.blobs[i];
 		ofxTSPSPerson* p = getTrackedPerson(blob.id);
@@ -436,25 +435,34 @@ void ofxTSPSPeopleTracker::trackPeople()
 			p->simpleContour[i].x /= width;
 			p->simpleContour[i].y /= height;
 		}
+		
+        //find peak in blob (only useful with Kinect)
+        CvPoint minLoc, maxLoc;
+        double minVal = 0, maxVal = 0;
+        grayImageWarped.setROI( p->boundingRect );
+        cvMinMaxLoc( grayImageWarped.getCvImage(), &minVal, &maxVal, &minLoc, &maxLoc, 0);
         
-		ofRectangle roi;
-		roi.x		= std::max<float>( (p->boundingRect.x - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
-		roi.y		= std::max<float>( (p->boundingRect.y - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
-		roi.width	= std::min<float>( (p->boundingRect.width  + p_Settings->haarAreaPadding*2) * TRACKING_SCALE_FACTOR, grayBabyImage.width - roi.x );
-		roi.height	= std::min<float>( (p->boundingRect.height + p_Settings->haarAreaPadding*2) * TRACKING_SCALE_FACTOR, grayBabyImage.width - roi.y );	
+        // set highest and lowest points: x, y, VALUE stored in .z prop
+        p->highest.set( p->boundingRect.x + maxLoc.x, p->boundingRect.y + maxLoc.y, maxVal );
+        p->lowest.set( p->boundingRect.x + minLoc.x, p->boundingRect.y + minLoc.y, maxVal );
+        
+        // set ROI for opticalflow and haar
+        ofRectangle roi;
+		roi.x		= fmax( (p->boundingRect.x - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
+		roi.y		= fmax( (p->boundingRect.y - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
+		roi.width	= fmin( (p->boundingRect.width  + p_Settings->haarAreaPadding*2) * TRACKING_SCALE_FACTOR, grayBabyImage.width - roi.x );
+		roi.height	= fmin( (p->boundingRect.height + p_Settings->haarAreaPadding*2) * TRACKING_SCALE_FACTOR, grayBabyImage.width - roi.y );	
 		
 		//sum optical flow for the person
 		if(p_Settings->bTrackOpticalFlow){
 			p->opticalFlowVectorAccumulation = opticalFlow.flowInRegion(roi);
 		}
-		
+        
 		//detect haar patterns (faces, eyes, etc)
 		if (p_Settings->bDetectHaar){
 			bool bHaarItemSet = false;
 				
 			//find the region of interest, expanded by haarArea.
-			//bound by the frame edge
-			//cout << "ROI is " << roi.x << "  " << roi.y << " " << roi.width << "  " << roi.height << endl;
 			bool haarThisFrame = false;
 			for(int i = 0; i < haarRects.size(); i++){
 				ofRectangle hr = haarRects[i];
@@ -505,6 +513,9 @@ void ofxTSPSPeopleTracker::trackPeople()
 		}
 	}
 	
+    // reset roi of image
+    grayImageWarped.setROI(0,0,width,height);
+    
 	//normalize it
 	scene.percentCovered /= width*height;
 	
@@ -548,11 +559,11 @@ void ofxTSPSPeopleTracker::trackPeople()
         }
         
         if (bTcpEnabled){
-            tcpClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
+            tcpClient.personUpdated(p, centroid, width, height, p_Settings->bSendOscContours);
         }
         
         if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
+            webSocketServer.personUpdated(p, centroid, width, height, p_Settings->bSendOscContours);
         }
     }
     
@@ -575,7 +586,6 @@ void ofxTSPSPeopleTracker::trackPeople()
     
     if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
         if ( bWebSocketClientEnabled && (p_Settings->webSocketPort != webSocketServer.getPort() || p_Settings->webSocketHost != webSocketServer.getHost()) ){
-            cout<< " close and setup "<<endl;
             webSocketServer.closeClient();
             setupWebSocketClient( p_Settings->webSocketHost, p_Settings->webSocketPort );
         }
@@ -599,7 +609,6 @@ void ofxTSPSPeopleTracker::blobOn( int x, int y, int id, int order )
     if (p_Settings == NULL) p_Settings = gui.getSettings();
 	ofxCvTrackedBlob blob = persistentTracker.getById( id );
 	ofxTSPSPerson* newPerson = new ofxTSPSPerson(id, order, blob);
-	trackedPeople.push_back( newPerson );
 	if(eventListener != NULL){
 		eventListener->personEntered(newPerson, &scene);
 	}
@@ -618,7 +627,7 @@ void ofxTSPSPeopleTracker::blobOn( int x, int y, int id, int order )
 	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
 		webSocketServer.personEntered(newPerson, centroid, width, height, p_Settings->bSendOscContours);
 	}
-	
+	trackedPeople.push_back( newPerson );	
 }
 
 //---------------------------------------------------------------------------
@@ -630,8 +639,17 @@ void ofxTSPSPeopleTracker::blobOff( int x, int y, int id, int order )
 	ofxTSPSPerson* p = getTrackedPerson(id);
 	//ensure we are tracking
 	if(NULL == p){
-		ofLog(OF_LOG_WARNING, "ofxPerson::warning. encountered persistent blob without a person behind them\n");		
+		ofLog(OF_LOG_WARNING, "ofxPerson::warning. encountered persistent blob " + ofToString( id ) +" without a person behind them\n");		
 		return;
+	}
+    
+	//delete the object and remove it from the vector
+	std::vector<ofxTSPSPerson*>::iterator it;
+	for(it = trackedPeople.begin(); it != trackedPeople.end(); it++){
+		if((*it)->pid == p->pid){
+			trackedPeople.erase(it);
+			break;
+		}
 	}
 	
 	//alert the delegate
@@ -656,16 +674,9 @@ void ofxTSPSPeopleTracker::blobOff( int x, int y, int id, int order )
 	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
 		webSocketServer.personWillLeave(p, centroid, width, height, p_Settings->bSendOscContours);
 	}
-	
-	//delete the object and remove it from the vector
-	std::vector<ofxTSPSPerson*>::iterator it;
-	for(it = trackedPeople.begin(); it != trackedPeople.end(); it++){
-		if((*it)->pid == p->pid){
-			trackedPeople.erase(it);
-			delete p;
-			break;
-		}
-	}
+    
+    // delete pointer
+    delete p;
 }
 
 //---------------------------------------------------------------------------
@@ -809,50 +820,51 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 //				   p->centroid.y + p->opticalFlowVectorAccumulation.y);
 		}
 		
+        // draw haar
+        
 		ofSetHexColor(0xffffff);							
 		if(p_Settings->bDetectHaar){
 			ofSetHexColor(0xee3523);
 			//draw haar search area expanded 
-			//limit to within data box so it's not confusing
-			/*ofRect(p->boundingRect.x - p_Settings->haarAreaPadding, 
-				   p->boundingRect.y - p_Settings->haarAreaPadding, 
-				   p->boundingRect.width  + p_Settings->haarAreaPadding*2, 
-				   p->boundingRect.height + p_Settings->haarAreaPadding*2);*/
-				
-				ofRectangle haarRect = ofRectangle(p->boundingRect.x - p_Settings->haarAreaPadding, 
-												   p->boundingRect.y - p_Settings->haarAreaPadding, 
-												   p->boundingRect.width  + p_Settings->haarAreaPadding*2, 
-												   p->boundingRect.height + p_Settings->haarAreaPadding*2);
-				if (haarRect.x < 0){
-					haarRect.width += haarRect.x;
-					haarRect.x = 0;					
-				}
-				if (haarRect.y < 0){
-					haarRect.height += haarRect.y;	
-					haarRect.y = 0;
-				}
-				if (haarRect.x + haarRect.width > width) haarRect.width = width-haarRect.x;
-				if (haarRect.y + haarRect.height > height) haarRect.height = height-haarRect.y;
-				ofRect(haarRect.x, haarRect.y, haarRect.width, haarRect.height);
+			//limit to within data box so it's not confusing				
+            ofRectangle haarRect = ofRectangle(p->boundingRect.x - p_Settings->haarAreaPadding, 
+                                               p->boundingRect.y - p_Settings->haarAreaPadding, 
+                                               p->boundingRect.width  + p_Settings->haarAreaPadding*2, 
+                                               p->boundingRect.height + p_Settings->haarAreaPadding*2);
+            if (haarRect.x < 0){
+                haarRect.width += haarRect.x;
+                haarRect.x = 0;					
+            }
+            if (haarRect.y < 0){
+                haarRect.height += haarRect.y;	
+                haarRect.y = 0;
+            }
+            if (haarRect.x + haarRect.width > width) haarRect.width = width-haarRect.x;
+            if (haarRect.y + haarRect.height > height) haarRect.height = height-haarRect.y;
+            ofRect(haarRect.x, haarRect.y, haarRect.width, haarRect.height);
 
-				if(p->hasHaarRect()){
-					//draw the haar rect
-					ofSetHexColor(0xee3523);
-					ofRect(p->getHaarRect().x, p->getHaarRect().y, p->getHaarRect().width, p->getHaarRect().height);
-					//haar-detected people get a red square
-					ofSetHexColor(0xfd5f4f);
-				} else {
-					//no haar gets a yellow square
-					ofSetHexColor(0xeeda00);
-				}
+            if(p->hasHaarRect()){
+                //draw the haar rect
+                ofSetHexColor(0xee3523);
+                ofRect(p->getHaarRect().x, p->getHaarRect().y, p->getHaarRect().width, p->getHaarRect().height);
+                //haar-detected people get a red square
+                ofSetHexColor(0xfd5f4f);
+            } else {
+                //no haar gets a yellow square
+                ofSetHexColor(0xeeda00);
+            }
 		} else {
 			//no haar gets a yellow square
 			ofSetHexColor(0xeeda00);
 		}
-		
+        		
 		//draw person
 		ofRect(p->boundingRect.x, p->boundingRect.y, p->boundingRect.width, p->boundingRect.height);
 		
+        // draw highest point
+        ofSetHexColor(0xff00ff);	
+        ofCircle(p->highest.x, p->highest.y, 4);
+        
 		//draw centroid
 		ofSetHexColor(0xff0000);
 		ofCircle(p->centroid.x, p->centroid.y, 3);
@@ -962,14 +974,12 @@ guiTypeButton * ofxTSPSPeopleTracker::addExternalButton( string name, ofRectangl
  * simple public getter for external classes
  */
 //---------------------------------------------------------------------------
-ofxTSPSPerson* ofxTSPSPeopleTracker::personAtIndex(int i)
-{
+ofxTSPSPerson* ofxTSPSPeopleTracker::personAtIndex(int i) {
 	return trackedPeople[i];
 }
 
 //---------------------------------------------------------------------------
-int ofxTSPSPeopleTracker::totalPeople()
-{
+int ofxTSPSPeopleTracker::totalPeople() {
 	return trackedPeople.size();
 }
 
@@ -979,6 +989,7 @@ void ofxTSPSPeopleTracker::enableHaarFeatures(bool doHaar){
 	p_Settings->bDetectHaar = doHaar;
 }
 
+//---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableOpticalFlow(bool doOpticalFlow){
     if (p_Settings == NULL) p_Settings = gui.getSettings();
 	p_Settings->bTrackOpticalFlow = doOpticalFlow;
@@ -1355,4 +1366,3 @@ ofxCvColorImage ofxTSPSPeopleTracker::getAdjustedImageInColor() {
 	if (p_Settings->bAdjustedViewInColor)
 		return adjustedView.getColorImage();
 }
-

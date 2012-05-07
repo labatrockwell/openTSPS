@@ -121,7 +121,13 @@ void tspsApp::update(){
 		// iterate through the people
 		for(int i = 0; i < peopleTracker.totalPeople(); i++){
 			ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
-            if (cameraState == CAMERA_KINECT) p->depth = kinect.getDistanceAt( p->centroid );
+            if (cameraState == CAMERA_KINECT){
+                // distance is in mm, with the max val being 10 m
+                // scale it by max to get it in a 0-1 range
+                p->depth = kinect.getDistanceAt( p->highest )/10000.0;
+            } else {
+                p->depth = p->highest.z / 255.0f;
+            }
 		}
 	}
 }
