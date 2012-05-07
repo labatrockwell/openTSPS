@@ -1355,3 +1355,4 @@ ofxCvColorImage ofxTSPSPeopleTracker::getAdjustedImageInColor() {
 	if (p_Settings->bAdjustedViewInColor)
 		return adjustedView.getColorImage();
 }
+
