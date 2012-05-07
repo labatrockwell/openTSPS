@@ -672,29 +672,27 @@ void ofxTSPSGuiManager::changeGuiCameraView(bool bCameraView) {
 
 //----------------------------------------------------------
 bool ofxTSPSGuiManager::getValueB( string name ){
-    panel.getValueB(name);
+    return panel.getValueB(name);
 }
 
 //----------------------------------------------------------
 float ofxTSPSGuiManager::getValueF( string name ){
-    panel.getValueF(name);    
+    return panel.getValueF(name);    
 }
 
 //----------------------------------------------------------
 string ofxTSPSGuiManager::getValueS( string name ){
-    panel.getValueS(name);    
+    return panel.getValueS(name);    
 }
 
 //----------------------------------------------------------
 void ofxTSPSGuiManager::setValueB( string name, bool val ){
     panel.setValueB(name, val);    
-    
 }
 
 //----------------------------------------------------------
 void ofxTSPSGuiManager::setValueF( string name, float val ){
     panel.setValueF(name, val);    
-    
 }
 
 /***************************************************************

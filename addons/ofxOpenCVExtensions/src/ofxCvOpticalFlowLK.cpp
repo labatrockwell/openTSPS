@@ -142,7 +142,7 @@ ofPoint ofxCvOpticalFlowLK::flowInRegion(float x, float y, float w, float h){
 
 void ofxCvOpticalFlowLK::boundsForRect(float x, float y, float w, float h, ofPoint* topLeft, ofPoint* bottomRight)
 {
-	*topLeft     = ofPoint(fmax(0, x), fmax(0, y));
+	*topLeft     = ofPoint(std::max<float>(0, x), std::max<float>(0, y));
 	*bottomRight = ofPoint( (x + w > captureWidth) ? captureWidth :  x + w, 
 						   (y + h > captureHeight) ? captureHeight :  y + h);
 	

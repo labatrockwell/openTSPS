@@ -33,6 +33,10 @@ enum kDialogType {
 };
 #else
 #include <windows.h>
+
+typedef wchar_t WCHAR ;
+typedef CONST WCHAR *LPCWSTR;
+
 #endif
 
 class ofxFileDialog {
