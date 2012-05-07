@@ -284,7 +284,7 @@ void ofxTSPSGuiManager::setup(){
 	opticalGroup->seBaseColor(34,151,210);
 	opticalGroup->setShowText(false);
 	//optical flow
-	panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", true);
+	panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", false);
 	panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
 	panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
 	
