@@ -211,7 +211,7 @@ void ofxTSPSPeopleTracker::setupWebSocketClient( string host, int port, bool bUs
     bWebSocketClientEnabled = webSocketServer.setupClient( host, port, false, channel);
     p_Settings->bSendWebSocketClient = bWebSocketClientEnabled;
     gui.setValueS("WS_HOST", host);
-    gui.setValueI("WS_PORT", port);
+    gui.setValueS("WS_PORT", ofToString( port ));
     gui.setValueS("WS_CHANNEL", channel);
     gui.setValueB("WS_USESSL", bUseSSL);
     gui.setValueB("SEND_WS", p_Settings->bSendWebSocketClient);
