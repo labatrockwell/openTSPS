@@ -7,7 +7,7 @@
 <QUAD_3_X>0</QUAD_3_X>
 <QUAD_3_Y>1</QUAD_3_Y>
 <USE_AMPLIFICATION>
-    <val_0>1</val_0>
+    <val_0>0</val_0>
 </USE_AMPLIFICATION>
 <AMPLIFICATION_AMOUNT>
     <val_0>85.7</val_0>
@@ -22,7 +22,7 @@
     <val_0>138.889</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>72.25</val_0>
+    <val_0>164.333</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
     <val_0>0</val_0>
@@ -43,13 +43,13 @@
     <val_0>6.91667</val_0>
 </SMOOTH_AMOUNT>
 <MIN_BLOB>
-    <val_0>1.15978</val_0>
+    <val_0>1.121</val_0>
 </MIN_BLOB>
 <MAX_BLOB>
     <val_0>78.355</val_0>
 </MAX_BLOB>
 <FIND_HOLES>
-    <val_0>0</val_0>
+    <val_0>1</val_0>
 </FIND_HOLES>
 <SEND_OSC_CONTOURS>
     <val_0>1</val_0>
@@ -103,7 +103,7 @@
     <val_0>7681</val_0>
 </WS_PORT>
 <USE_KINECT>
-    <val_0>0</val_0>
+    <val_0>1</val_0>
 </USE_KINECT>
 <LEGACY_OSC>
     <val_0>0</val_0>
@@ -126,3 +126,20 @@
 <WS_CHANNEL>
     <val_0 />
 </WS_CHANNEL>
+<USE_VIDEO_FILE>
+    <val_0>0</val_0>
+</USE_VIDEO_FILE>
+<VIDEO_FILE_DIR>
+    <val_0>videos</val_0>
+</VIDEO_FILE_DIR>
+<VIDEO_FILE_RELOAD>
+    <val_0>0</val_0>
+</VIDEO_FILE_RELOAD>
+<QUAD0_X>0</QUAD0_X>
+<QUAD0_Y>0</QUAD0_Y>
+<QUAD1_X>1</QUAD1_X>
+<QUAD1_Y>0</QUAD1_Y>
+<QUAD2_X>1</QUAD2_X>
+<QUAD2_Y>1</QUAD2_Y>
+<QUAD3_X>0</QUAD3_X>
+<QUAD3_Y>1</QUAD3_Y>

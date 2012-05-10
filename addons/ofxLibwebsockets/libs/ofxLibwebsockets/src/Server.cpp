@@ -54,6 +54,7 @@ namespace ofxLibwebsockets {
         lws_protocols.clear();
         
         //register main protocol
+        serverProtocol.binary = options.bBinaryProtocol;
         registerProtocol( options.protocol, serverProtocol );
         
         //register any added protocols

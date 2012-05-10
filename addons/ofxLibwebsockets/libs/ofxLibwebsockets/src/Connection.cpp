@@ -83,26 +83,8 @@ namespace ofxLibwebsockets {
         }
         unsigned char *p = &buf[LWS_SEND_BUFFER_PRE_PADDING];
         
-        if (binary)
-        {
-            //TODO: when libwebsockets has an API supporting something this, we should use it
-            if (supportsBinary){
-                memcpy(p, message.c_str(), message.size());
-                n = libwebsocket_write(ws, p, message.size(), LWS_WRITE_BINARY);
-            } else {
-                int encoded_len;
-                //encoded_len = b64_encode_string(message.c_str(), message.size(), (char*)p, buf.size());
-                cout<<"encode "<<message<<endl;
-                cout<<bufsize<<endl;
-                encoded_len = lws_b64_encode_string(message.c_str(), message.size(), (char*)p, bufsize-LWS_SEND_BUFFER_PRE_PADDING-LWS_SEND_BUFFER_POST_PADDING);
-                if (encoded_len > 0){
-                    n = libwebsocket_write(ws, p, encoded_len, LWS_WRITE_TEXT);
-                }
-            }
-        } else {
-            memcpy(p, message.c_str(), message.size());
-            n = libwebsocket_write(ws, p, message.size(), LWS_WRITE_TEXT);
-        }
+        memcpy(p, message.c_str(), message.size());
+        n = libwebsocket_write(ws, p, message.size(), LWS_WRITE_TEXT);
         
         if (n < 0)
             std::cout << "ERROR writing to socket" << std::endl;
@@ -110,17 +92,30 @@ namespace ofxLibwebsockets {
         
     //--------------------------------------------------------------
     void Connection::sendBinary( unsigned char * data, unsigned int size ){
-        if ( binaryBufsize < size ){
-            cout<<"realloc from "<<binaryBufsize<<" to "<<size<<endl;
-            binaryBufsize = size;
-            binaryBuf = (unsigned char*)realloc(binaryBuf, LWS_SEND_BUFFER_PRE_PADDING+binaryBufsize+LWS_SEND_BUFFER_POST_PADDING * sizeof(unsigned char));
-        }
-        
-        memcpy(&binaryBuf[LWS_SEND_BUFFER_PRE_PADDING], data, size );
-        
         int n = -1;
-        if ( ws != NULL && binaryBuf ){  
-            n = libwebsocket_write(ws, &binaryBuf[LWS_SEND_BUFFER_PRE_PADDING], size, LWS_WRITE_BINARY);
+        
+        // TODO: when libwebsockets has an API supporting something this, we should use it
+        // for now we are assuming that if you send binary your client supports it
+        
+        if ( supportsBinary ){
+            if ( binaryBufsize < size ){
+                cout<<"realloc from "<<binaryBufsize<<" to "<<size<<endl;
+                binaryBufsize = size;
+                binaryBuf = (unsigned char*)realloc(binaryBuf, LWS_SEND_BUFFER_PRE_PADDING+binaryBufsize+LWS_SEND_BUFFER_POST_PADDING * sizeof(unsigned char));
+            }
+            
+            memcpy(&binaryBuf[LWS_SEND_BUFFER_PRE_PADDING], data, size );
+            
+            if ( ws != NULL && binaryBuf ){  
+                n = libwebsocket_write(ws, &binaryBuf[LWS_SEND_BUFFER_PRE_PADDING], size, LWS_WRITE_BINARY);
+            }
+        } else {
+            unsigned char *p = &buf[LWS_SEND_BUFFER_PRE_PADDING];
+            int encoded_len = lws_b64_encode_string((char *) data, size, (char*)p, bufsize-LWS_SEND_BUFFER_PRE_PADDING-LWS_SEND_BUFFER_POST_PADDING);
+            
+            if (encoded_len > 0){
+                n = libwebsocket_write(ws, p, encoded_len, LWS_WRITE_TEXT);
+            }
         }
         
         if (n < 0){
@@ -136,13 +131,21 @@ namespace ofxLibwebsockets {
         // to detect binary support, we should use it
         if (binary && !supportsBinary)
         {
-            //TODO: libwebsockets base64 decode is broken @2011-06-19
-            //len = lws_b64_decode_string(message, decoded, len);
             int decoded_len = lws_b64_decode_string(message.c_str(), &decoded[0], message.size());
             decoded.resize(decoded_len);
         }
         
         return decoded;
+    }
+    
+    //--------------------------------------------------------------
+    bool Connection::operator==( const Connection &other ){
+        return other.ws == ws;
+    }
+    
+    //--------------------------------------------------------------
+    bool Connection::operator!=( const Connection &other ){
+        return other.ws != ws;
     }
 }
 

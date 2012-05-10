@@ -27,8 +27,7 @@ namespace ofxLibwebsockets {
         friend class Reactor;
     public:
         Connection();
-        
-        Connection(Reactor* const _reactor=NULL, Protocol* const _protocol=NULL, const bool supportsBinary=false);
+        Connection(Reactor* const _reactor=NULL, Protocol* const _protocol=NULL, const bool supportsBinary=true);
         
         ~Connection();
         void close();
@@ -54,14 +53,18 @@ namespace ofxLibwebsockets {
         Reactor*  reactor;
         Protocol* protocol;
         
+        // operators
+        bool operator==( const Connection &other );
+        bool operator!=( const Connection &other );
+        
     protected:
         Session*  session;
         
         std::string client_ip;
         std::string client_name;
         
-        bool binary;
-        bool supportsBinary;
+        bool binary;            // is this connection sending / receiving binary?
+        bool supportsBinary;    // does this connection support binary?
         int buffersize;
         unsigned char* buf;
         unsigned char* binaryBuf;

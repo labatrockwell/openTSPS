@@ -20,6 +20,7 @@ namespace ofxLibwebsockets {
     class Server;
     
     static string getCallbackReason( int reason );
+    static void dump_handshake_info(struct lws_tokens *lwst);
 
     // CLIENT CALLBACK
 
@@ -143,7 +144,7 @@ namespace ofxLibwebsockets {
             case LWS_CALLBACK_RECEIVE:
             case LWS_CALLBACK_BROADCAST:
                 conn = *(Connection**)user;
-                //conn->setupAddress( (int)(long)user );
+                
                 if (conn && conn->ws != ws){
                     conn->ws = ws;
                     conn->setupAddress();

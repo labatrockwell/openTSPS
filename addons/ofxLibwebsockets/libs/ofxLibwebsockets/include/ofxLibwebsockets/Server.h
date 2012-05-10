@@ -27,13 +27,14 @@ namespace ofxLibwebsockets {
     class Protocol;
     
     struct ServerOptions {
-        int     port;
-        bool    bUseSSL;
-        string  protocol;
-        string  sslCertPath;
-        string  sslKeyPath;
+        int     port;               
+        bool    bUseSSL;            // if you use ssl, you must connect clients to wss:// instead of ws://
+        bool    bBinaryProtocol;    // only matters as far as receiving; if rec. binary & is false will try to base64 decode it
+        string  protocol;           // if you specify this, you must connect with a protocol on the client side
+        string  sslCertPath;        // data path to ssl certificate
+        string  sslKeyPath;         // data path to ssl key
         
-        string  documentRoot;
+        string  documentRoot;       // where your hosted files are (libwebsockets sets up a minimal webserver)
     };
     
     static ServerOptions defaultServerOptions(){
@@ -41,6 +42,7 @@ namespace ofxLibwebsockets {
         opts.port     = 80;
         opts.protocol = "NULL";
         opts.bUseSSL  = false;
+        opts.bBinaryProtocol = false;
         opts.sslCertPath = ofToDataPath("ssl/libwebsockets-test-server.pem", true);
         opts.sslKeyPath = ofToDataPath("ssl/libwebsockets-test-server.key.pem", true);
         opts.documentRoot = ofToDataPath("web", true);
@@ -59,10 +61,11 @@ namespace ofxLibwebsockets {
         // broadcast a message to all connections
         void broadcast( string message );
         
-        // send to all connections
+        // send to all connections 
+        // (sends normal message instead of broadcast)
         void send( string message );
         
-        // send anything that has pixels
+        // send anything that has pixels to all connections
         template <class T> 
         void sendBinary( T& image ){
             lock();
@@ -74,6 +77,7 @@ namespace ofxLibwebsockets {
             unlock();
         }
         
+        // send any binary data to all connections
         void sendBinary( unsigned char * data, int size );
         
         // send to a specific connection
