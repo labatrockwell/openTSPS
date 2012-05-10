@@ -31,6 +31,8 @@ class tspsApp : public ofBaseApp, public ofxPersonListener {
 
 	public:
 		
+        ~tspsApp(){ exit(); };
+    
 		void setup();
 		void update();
 		void draw();

@@ -74,7 +74,7 @@ void tspsApp::setup(){
 }
 
 //--------------------------------------------------------------
-void tspsApp::update(){    
+void tspsApp::update(){
     if (peopleTracker.useKinect() && !bKinect){
         bKinect = true;
         initVideoInput();
@@ -124,7 +124,7 @@ void tspsApp::update(){
             if (cameraState == CAMERA_KINECT){
                 // distance is in mm, with the max val being 10 m
                 // scale it by max to get it in a 0-1 range
-                p->depth = kinect.getDistanceAt( p->highest )/10000.0;
+                p->depth = (kinect.getDistanceAt( p->highest )/10000.0);
             } else {
                 p->depth = p->highest.z / 255.0f;
             }
@@ -202,7 +202,12 @@ void tspsApp::draw(){
 
 //--------------------------------------------------------------
 void tspsApp::exit(){
-    if ( !cameraState == CAMERA_KINECT){  
+    if ( cameraState == CAMERA_KINECT){  
+        cameraState = CAMERA_NOT_INITED;
+        kinect.close();
+    } else if ( cameraState == CAMERA_VIDEOGRABBER ){ 
+        cameraState = CAMERA_NOT_INITED;
+        vidGrabber.close();
     }
 }
 
@@ -221,7 +226,7 @@ void tspsApp::keyPressed  (int key){
 
 //--------------------------------------------------------------
 bool tspsApp::initVideoInput(){
-    if ( bKinect && !cameraState == CAMERA_KINECT ){
+    if ( bKinect && cameraState != CAMERA_KINECT ){
         kinect.init();
         bKinectConnected = (kinect.numAvailableDevices() >= 1);
         if (!bKinectConnected){
@@ -238,7 +243,7 @@ bool tspsApp::initVideoInput(){
             vidPlayer.close();
         }
         
-        if ( !cameraState == CAMERA_KINECT){            
+        if ( cameraState != CAMERA_KINECT){            
             kinect.init();
             kinect.setVerbose(true);
             bool bOpened = kinect.open();
