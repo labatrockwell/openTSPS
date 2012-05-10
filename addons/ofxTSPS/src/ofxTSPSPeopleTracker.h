@@ -326,5 +326,8 @@ class ofxTSPSPeopleTracker : public ofxCvBlobListener {
 		ofxTSPSView bgView;
 		ofxTSPSView processedView;
 		ofxTSPSView dataView;
+    
+    private:
+        bool hasMouseEvents;
 };
 #endif

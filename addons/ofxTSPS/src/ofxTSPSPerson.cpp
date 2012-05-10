@@ -20,7 +20,9 @@ ofxTSPSPerson::ofxTSPSPerson(int pid, int oid, ofxCvBlob blob)
   centroid(blob.centroid),
   framesWithoutHaar(0),
   customAttributes(NULL),
-  depth(0)
+  depth(0),
+  highest(-1,1),
+  lowest(-1,-1)
 {
 	update(blob, false);
 }
@@ -146,7 +148,8 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
 	
 	message<<"\"opticalflow\":{"<<"\"x\":"<<opticalFlowVectorAccumulation.x<<",\"y\":"<<opticalFlowVectorAccumulation.y<<"},";
 	ofRectangle scaledHaar = getHaarRectNormalized(cameraWidth,cameraHeight);
-	message<<"\"haarrect\":{"<<"\"x\":"<<scaledHaar.x<<",\"y\":"<<scaledHaar.y<<",\"width\":"<<scaledHaar.width<<",\"height\":"<<scaledHaar.height<<"}";	
+	message<<"\"haarrect\":{"<<"\"x\":"<<scaledHaar.x<<",\"y\":"<<scaledHaar.y<<",\"width\":"<<scaledHaar.width<<",\"height\":"<<scaledHaar.height<<"}";
+	message<<"\"highest\":{"<<"\"x\":"<<highest.x<<",\"y\":"<<highest.y<<"}";
 	
 	if (bSendContours){
         message<<",";

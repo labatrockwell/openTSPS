@@ -461,7 +461,7 @@ void ofxTSPSGuiManager::update(){
     // camera
     
 	//settings.cameraIndex = panel.getValueF("CAMERA_INDEX");
-	settings.bUseKinect  = panel.getValueF("USE_KINECT");    
+	settings.bUseKinect  = panel.getValueB("USE_KINECT");    
         
     // video files
     bool bIsNewDirectory = false;

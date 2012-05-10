@@ -17,20 +17,26 @@
 //---------------------------------------------------------------------------
 #pragma mark Setup
 
+//---------------------------------------------------------------------------
 ofxTSPSPeopleTracker::ofxTSPSPeopleTracker(){
     p_Settings = NULL;
+    hasMouseEvents = false;
 }
 
 //---------------------------------------------------------------------------
 ofxTSPSPeopleTracker::~ofxTSPSPeopleTracker(){
-	ofRemoveListener(ofEvents.mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
+    if ( hasMouseEvents ){
+        hasMouseEvents = false;
+        ofRemoveListener(ofEvents.mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
+    }
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 {	
 	ofAddListener(ofEvents.mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
-	
+	hasMouseEvents = true;
+    
 	width  = w;
 	height = h;
 	
@@ -450,8 +456,18 @@ void ofxTSPSPeopleTracker::trackPeople()
         cvMinMaxLoc( grayImageWarped.getCvImage(), &minVal, &maxVal, &minLoc, &maxLoc, 0);
         
         // set highest and lowest points: x, y, VALUE stored in .z prop
-        p->highest.set( p->boundingRect.x + maxLoc.x, p->boundingRect.y + maxLoc.y, maxVal );
-        p->lowest.set( p->boundingRect.x + minLoc.x, p->boundingRect.y + minLoc.y, maxVal );
+        // ease vals unless first time you're setting them
+        if ( p->highest.x == -1 ){
+            p->highest.set(  p->boundingRect.x + maxLoc.x,  p->boundingRect.y + maxLoc.y, maxVal);
+            p->lowest.set(  p->boundingRect.x + minLoc.x,  p->boundingRect.y + minLoc.y, minVal);
+        } else {
+            p->highest.x = ( p->highest.x * .7 ) + ( p->boundingRect.x + maxLoc.x ) * .3;
+            p->highest.y = ( p->highest.y * .7 ) + ( p->boundingRect.y + maxLoc.y ) * .3;
+            p->highest.z = ( p->highest.z * .7) + ( maxVal ) * .3;
+            p->lowest.x = ( p->lowest.x * .7 ) + ( p->boundingRect.x + minLoc.x ) * .3;
+            p->lowest.y = ( p->lowest.y * .7 ) + ( p->boundingRect.y + minLoc.y ) * .3;
+            p->lowest.z = ( p->lowest.z * .7) + ( minVal ) * .3;            
+        }
         
         // set ROI for opticalflow and haar
         ofRectangle roi;
