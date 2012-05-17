@@ -4,7 +4,7 @@ TSPS is a toolkit for sensing people in spaces. It uses openCV to analyze a came
 
 Compiling: Mac OS X
 ------------
-*note:* the TSPS standalone app is Mac-only for now as we work on porting to OF 007. Please feel free to take a 
+*note:* the TSPS standalone app is Mac-only for now. Please feel free to take a 
 crack at the standalone app for other platforms!
 
 1. clone openframeworks from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
@@ -14,6 +14,12 @@ crack at the standalone app for other platforms!
 
 Release Notes
 ------------
+1.2.2 (5/10/12 - Mac Only)
+* Added loading + playing video files through the GUI
+* Using the LAB's ofxLibwebsockets addon to function as a WebSocket server and/or client
+* Lots of bug fixes, including camera switching
+* Updates to the standalone multi-camera application, which now isn't quite as terrible to use.
+
 1.2 (1/31/12 - Mac Only)
 
 * Updated OSC Message Sending format
