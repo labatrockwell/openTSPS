@@ -13,12 +13,6 @@
 namespace ofxLibwebsockets {
 
     //--------------------------------------------------------------
-    Connection::Connection(){
-        reactor = NULL;
-        protocol = NULL;
-    }
-
-    //--------------------------------------------------------------
     Connection::Connection(Reactor* const _reactor, Protocol* const _protocol, const bool _supportsBinary)
     : reactor(_reactor)
     , protocol(_protocol)
@@ -140,6 +134,7 @@ namespace ofxLibwebsockets {
     
     //--------------------------------------------------------------
     bool Connection::operator==( const Connection &other ){
+        if ( other.ws == NULL ) return false;
         return other.ws == ws;
     }
     

@@ -26,7 +26,6 @@ namespace ofxLibwebsockets {
     class Connection {
         friend class Reactor;
     public:
-        Connection();
         Connection(Reactor* const _reactor=NULL, Protocol* const _protocol=NULL, const bool supportsBinary=true);
         
         ~Connection();
