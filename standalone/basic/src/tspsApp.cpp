@@ -231,6 +231,7 @@ bool tspsApp::initVideoInput(){
         bKinectConnected = (kinect.numAvailableDevices() >= 1);
         if (!bKinectConnected){
             bKinect = false;
+            peopleTracker.setUseKinect(false);
             return false;
         }
         
@@ -253,6 +254,7 @@ bool tspsApp::initVideoInput(){
                 peopleTracker.setVideoGrabber(&kinect, TSPS_INPUT_KINECT);
                 return true;
             } else {
+                peopleTracker.setUseKinect(false);
                 return false;
             }
         }        

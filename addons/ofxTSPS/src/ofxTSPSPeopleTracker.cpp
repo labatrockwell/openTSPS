@@ -1039,6 +1039,7 @@ bool ofxTSPSPeopleTracker::useKinect(){
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setUseKinect( bool bUseKinect ){
     gui.setValueB( "USE_KINECT", bUseKinect );
+    gui.update();
     if (p_Settings == NULL) p_Settings = gui.getSettings();
     p_Settings->bUseKinect = bUseKinect;
 }

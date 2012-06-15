@@ -149,7 +149,7 @@ void ofxTSPSWebSocketSender::onConnect(ofxLibwebsockets::Event& args){
 }
 
 void ofxTSPSWebSocketSender::onOpen(ofxLibwebsockets::Event& args) {
-    //sockets.push_back(&args.conn);
+    sockets.push_back(&args.conn);
 }
 
 //--------------------------------------------------------------

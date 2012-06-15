@@ -23,9 +23,10 @@ LIB_SSL             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/
 LIB_CRYPTO          = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libcrypto.a
 SSL_INC             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/
 LWS                 = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx/libwebsockets.a
+LWS_INC             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/include
 OFX_LWS_INCLUDE     = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/ofxLibwebsockets/include
 OFX_LWS_LIBS        = $(LIB_CRYPTO) $(LIB_SSL) $(LWS)
-OFX_LWS_INCLUDES    = $(SSL_INC) $(OFX_LWS_INCLUDE)
+OFX_LWS_INCLUDES    = $(SSL_INC) $(OFX_LWS_INCLUDE) $(LWS_INC)
 
 // ofxKinect
 OFX_KINECT_HEADERS  = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb/osx/include/
