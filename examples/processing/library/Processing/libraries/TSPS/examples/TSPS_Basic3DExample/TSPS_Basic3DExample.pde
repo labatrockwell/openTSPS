@@ -15,6 +15,8 @@ TSPS tspsReceiver;
 void setup(){
   size(1024,768, OPENGL);
 	
+  lights();
+
   //all you need to do to start TSPS
   tspsReceiver= new TSPS(this, 12000);
 };
@@ -23,6 +25,8 @@ void draw(){
   background(0);
   
   tspsReceiver.update();
+  
+  fill(255);
   
     // get enumeration, which helps us loop through tsps.people
   Enumeration e = tspsReceiver.people.keys();
@@ -35,8 +39,8 @@ void draw(){
     TSPSPerson person = (TSPSPerson) tspsReceiver.people.get( id );
     
     pushMatrix();
-    translate( person.centroid.x * width, person.centroid.y * height, person.depth );
-    ellipse( 20, 20, 20 );
+    translate( person.centroid.x * width, person.centroid.y * height, person.depth / 2 );
+    sphere( person.boundingRect.width * width / 2 );
     popMatrix();
   };
 };
