@@ -53,9 +53,9 @@ void ofxCvCoordWarpingGui::enableEvents(){
     if ( bEventsEnabled ) return;
     bEventsEnabled = true;
     enableAppEvents();
-	ofAddListener(ofEvents.mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
-	ofAddListener(ofEvents.mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
-	ofAddListener(ofEvents.mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);    
+	ofAddListener(ofEvents().mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
+	ofAddListener(ofEvents().mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
+	ofAddListener(ofEvents().mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);    
 }
 
 //----------------------------------------------------
@@ -63,9 +63,9 @@ void ofxCvCoordWarpingGui::disableEvents(){
     if ( !bEventsEnabled ) return;
     bEventsEnabled = false;
     disableAppEvents();    
-	ofRemoveListener(ofEvents.mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
-	ofRemoveListener(ofEvents.mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
-	ofRemoveListener(ofEvents.mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);
+	ofRemoveListener(ofEvents().mousePressed, this, &ofxCvCoordWarpingGui::_mousePressed);
+	ofRemoveListener(ofEvents().mouseReleased, this, &ofxCvCoordWarpingGui::_mouseReleased);
+	ofRemoveListener(ofEvents().mouseDragged, this, &ofxCvCoordWarpingGui::_mouseDragged);
 }
 
 //----------------------------------------------------

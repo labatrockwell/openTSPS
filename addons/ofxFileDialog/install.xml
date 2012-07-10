@@ -1,0 +1,27 @@
+<install>
+
+	<version></version>
+	<author></author>
+	<url></url>
+
+	<requires>
+	</requires>
+
+	<add>	
+		<src>
+			<folder name="addons/ofxFileDialog/src">			
+				<file>../../../addons/ofxFileDialog/src/ofxFileDialog.h</file>
+				<file>../../../addons/ofxFileDialog/src/ofxFileDialog.cpp</file>
+			</folder>
+		</src>
+
+		<include>
+			<path>../../../addons/ofxFileDialog/src</path>
+		</include>
+		
+		<link>
+		</link>
+
+	</add>
+	
+</install>

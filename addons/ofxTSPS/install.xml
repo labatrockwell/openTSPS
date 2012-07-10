@@ -1,0 +1,55 @@
+<install>
+	<name>ofxTSPS</name>
+	<version>1.2.2</version>
+	<author>Brett Renfer</author>
+	<url>http://github.com/labatrockwell/openTSPS</url>
+
+	<add>	
+		<!-- 	=====================================================================	-->
+		<!--	========================== add per project using this addon =========	-->
+		<!-- 	=====================================================================	-->
+
+		<src>
+			<folder name="addons/ofxTSPS/src">			
+                <file>../../../addons/ofxTSPS/src/ofxTSPS.h</file>
+                <file>../../../addons/ofxTSPS/src/ofxTSPSPeopleTracker.h</file>
+                <file>../../../addons/ofxTSPS/src/ofxTSPSPeopleTracker.cpp</file>
+                <file>../../../addons/ofxTSPS/src/ofxTSPSPerson.h</file>
+                <file>../../../addons/ofxTSPS/src/ofxTSPSPerson.cpp</file>
+                <file>../../../addons/ofxTSPS/src/ofxTSPSScene.h</file>
+                <file>../../../addons/ofxTSPS/src/ofxTSPSScene.cpp</file>
+			</folder>
+			<folder name="addons/ofxTSPS/src/communication">			
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSOscSender.h</file>
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSOscSender.cpp</file>
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSTCPSender.h</file>
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSTCPSender.cpp</file>
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSTUIOSender.h</file>
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSTUIOSender.cpp</file>
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSWebSocketSender.h</file>
+                <file>../../../addons/ofxTSPS/src/communication/ofxTSPSWebSocketSender.cpp</file>
+			</folder>
+			<folder name="addons/ofxTSPS/src/gui">			
+                <file>../../../addons/ofxTSPS/src/gui/ofxTSPSGuiManager.h</file>
+                <file>../../../addons/ofxTSPS/src/gui/ofxTSPSGuiManager.cpp</file>
+                <file>../../../addons/ofxTSPS/src/gui/ofxTSPSSettings.h</file>
+                <file>../../../addons/ofxTSPS/src/gui/ofxTSPSSettings.cpp</file>
+			</folder>
+			<folder name="addons/ofxTSPS/src/utils">			
+                <file>../../../addons/ofxTSPS/src/utils/ofxTSPSUtils.h</file>
+                <file>../../../addons/ofxTSPS/src/utils/ofxTSPSUtils.cpp</file>
+                <file>../../../addons/ofxTSPS/src/utils/ofxTSPSView.h</file>
+			</folder>
+		</src>
+
+		<include> 
+		</include>
+		
+		<link>
+		</link>
+
+	</add>
+	
+	
+</install>
+

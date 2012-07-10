@@ -41,7 +41,7 @@ enum{
 
 ofxTSPSGuiManager::ofxTSPSGuiManager() {
 	//JG TODO add drawing event
-	//ofAddListener(ofEvents.draw, this, &ofxTSPSGuiManager::draw);
+	//ofAddListener(ofEvents().draw, this, &ofxTSPSGuiManager::draw);
 	
     bEventsEnabled = false;
 }
@@ -54,22 +54,22 @@ ofxTSPSGuiManager::~ofxTSPSGuiManager(){
 void ofxTSPSGuiManager::enableEvents(){
     if (bEventsEnabled) return;
     bEventsEnabled = true;
-	ofAddListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
-	ofAddListener(ofEvents.mousePressed, this, &ofxTSPSGuiManager::mousePressed);
-	ofAddListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
-	ofAddListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
-	ofAddListener(ofEvents.keyPressed, this, &ofxTSPSGuiManager::keyPressed);
+	ofAddListener(ofEvents().update, this, &ofxTSPSGuiManager::update);
+	ofAddListener(ofEvents().mousePressed, this, &ofxTSPSGuiManager::mousePressed);
+	ofAddListener(ofEvents().mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
+	ofAddListener(ofEvents().mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
+	ofAddListener(ofEvents().keyPressed, this, &ofxTSPSGuiManager::keyPressed);
     quadGui.enableEvents();
 }
 
 void ofxTSPSGuiManager::disableEvents(){
     if (!bEventsEnabled) return;
     bEventsEnabled = false;
-	ofRemoveListener(ofEvents.update, this, &ofxTSPSGuiManager::update);
-	ofRemoveListener(ofEvents.mousePressed, this, &ofxTSPSGuiManager::mousePressed);
-	ofRemoveListener(ofEvents.mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
-	ofRemoveListener(ofEvents.mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
-	ofRemoveListener(ofEvents.keyPressed, this, &ofxTSPSGuiManager::keyPressed);
+	ofRemoveListener(ofEvents().update, this, &ofxTSPSGuiManager::update);
+	ofRemoveListener(ofEvents().mousePressed, this, &ofxTSPSGuiManager::mousePressed);
+	ofRemoveListener(ofEvents().mouseDragged, this, &ofxTSPSGuiManager::mouseDragged);
+	ofRemoveListener(ofEvents().mouseReleased, this, &ofxTSPSGuiManager::mouseReleased);
+	ofRemoveListener(ofEvents().keyPressed, this, &ofxTSPSGuiManager::keyPressed);
     quadGui.disableEvents();
 }
 

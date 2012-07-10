@@ -66,41 +66,41 @@ void ofxMSAInteractiveObject::disableAllEvents() {
 
 
 void ofxMSAInteractiveObject::enableMouseEvents() {
-	ofAddListener(ofEvents.mousePressed, this, &ofxMSAInteractiveObject::_mousePressed);
-	ofAddListener(ofEvents.mouseMoved, this, &ofxMSAInteractiveObject::_mouseMoved);
-	ofAddListener(ofEvents.mouseDragged, this, &ofxMSAInteractiveObject::_mouseDragged);
-	ofAddListener(ofEvents.mouseReleased, this, &ofxMSAInteractiveObject::_mouseReleased);
+	ofAddListener(ofEvents().mousePressed, this, &ofxMSAInteractiveObject::_mousePressed);
+	ofAddListener(ofEvents().mouseMoved, this, &ofxMSAInteractiveObject::_mouseMoved);
+	ofAddListener(ofEvents().mouseDragged, this, &ofxMSAInteractiveObject::_mouseDragged);
+	ofAddListener(ofEvents().mouseReleased, this, &ofxMSAInteractiveObject::_mouseReleased);
 }
 
 void ofxMSAInteractiveObject::disableMouseEvents() {
-	ofRemoveListener(ofEvents.mousePressed, this, &ofxMSAInteractiveObject::_mousePressed);
-	ofRemoveListener(ofEvents.mouseMoved, this, &ofxMSAInteractiveObject::_mouseMoved);
-	ofRemoveListener(ofEvents.mouseDragged, this, &ofxMSAInteractiveObject::_mouseDragged);
-	ofRemoveListener(ofEvents.mouseReleased, this, &ofxMSAInteractiveObject::_mouseReleased);
+	ofRemoveListener(ofEvents().mousePressed, this, &ofxMSAInteractiveObject::_mousePressed);
+	ofRemoveListener(ofEvents().mouseMoved, this, &ofxMSAInteractiveObject::_mouseMoved);
+	ofRemoveListener(ofEvents().mouseDragged, this, &ofxMSAInteractiveObject::_mouseDragged);
+	ofRemoveListener(ofEvents().mouseReleased, this, &ofxMSAInteractiveObject::_mouseReleased);
 }
 
 void ofxMSAInteractiveObject::enableKeyEvents() {
-	ofAddListener(ofEvents.keyPressed, this, &ofxMSAInteractiveObject::_keyPressed);
-	ofAddListener(ofEvents.keyReleased, this, &ofxMSAInteractiveObject::_keyReleased);
+	ofAddListener(ofEvents().keyPressed, this, &ofxMSAInteractiveObject::_keyPressed);
+	ofAddListener(ofEvents().keyReleased, this, &ofxMSAInteractiveObject::_keyReleased);
 }
 
 void ofxMSAInteractiveObject::disableKeyEvents() {
-	ofRemoveListener(ofEvents.keyPressed, this, &ofxMSAInteractiveObject::_keyPressed);
-	ofRemoveListener(ofEvents.keyReleased, this, &ofxMSAInteractiveObject::_keyReleased);
+	ofRemoveListener(ofEvents().keyPressed, this, &ofxMSAInteractiveObject::_keyPressed);
+	ofRemoveListener(ofEvents().keyReleased, this, &ofxMSAInteractiveObject::_keyReleased);
 }
 
 void ofxMSAInteractiveObject::enableAppEvents() {
-	ofAddListener(ofEvents.setup, this, &ofxMSAInteractiveObject::_setup);
-	ofAddListener(ofEvents.update, this, &ofxMSAInteractiveObject::_update);
-	ofAddListener(ofEvents.draw, this, &ofxMSAInteractiveObject::_draw);
-	ofAddListener(ofEvents.exit, this, &ofxMSAInteractiveObject::_exit);
+	ofAddListener(ofEvents().setup, this, &ofxMSAInteractiveObject::_setup);
+	ofAddListener(ofEvents().update, this, &ofxMSAInteractiveObject::_update);
+	ofAddListener(ofEvents().draw, this, &ofxMSAInteractiveObject::_draw);
+	ofAddListener(ofEvents().exit, this, &ofxMSAInteractiveObject::_exit);
 }
 
 void ofxMSAInteractiveObject::disableAppEvents() {
-	ofRemoveListener(ofEvents.setup, this, &ofxMSAInteractiveObject::_setup);
-	ofRemoveListener(ofEvents.update, this, &ofxMSAInteractiveObject::_update);
-	ofRemoveListener(ofEvents.draw, this, &ofxMSAInteractiveObject::_draw);
-	ofRemoveListener(ofEvents.exit, this, &ofxMSAInteractiveObject::_exit);
+	ofRemoveListener(ofEvents().setup, this, &ofxMSAInteractiveObject::_setup);
+	ofRemoveListener(ofEvents().update, this, &ofxMSAInteractiveObject::_update);
+	ofRemoveListener(ofEvents().draw, this, &ofxMSAInteractiveObject::_draw);
+	ofRemoveListener(ofEvents().exit, this, &ofxMSAInteractiveObject::_exit);
 }
 
 

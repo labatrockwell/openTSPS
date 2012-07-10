@@ -27,14 +27,14 @@ ofxTSPSPeopleTracker::ofxTSPSPeopleTracker(){
 ofxTSPSPeopleTracker::~ofxTSPSPeopleTracker(){
     if ( hasMouseEvents ){
         hasMouseEvents = false;
-        ofRemoveListener(ofEvents.mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
+        ofRemoveListener(ofEvents().mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
     }
 }
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 {	
-	ofAddListener(ofEvents.mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
+	ofAddListener(ofEvents().mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
 	hasMouseEvents = true;
     
 	width  = w;

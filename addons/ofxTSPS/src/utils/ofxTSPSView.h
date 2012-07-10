@@ -22,12 +22,12 @@ public:
 	}
     
     ~ofxTSPSView(){
-		ofRemoveListener(ofEvents.mouseMoved, this, &ofxTSPSView::mouseMoved);
+		ofRemoveListener(ofEvents().mouseMoved, this, &ofxTSPSView::mouseMoved);
 	}
 	
 	//-------------------------------------------------
 	void setup( int _width, int _height){
-		ofAddListener(ofEvents.mouseMoved, this, &ofxTSPSView::mouseMoved);
+		ofAddListener(ofEvents().mouseMoved, this, &ofxTSPSView::mouseMoved);
 		bFontLoaded = bActive = bRolled = false;
 		image.allocate(_width, _height);
 		colorImage.allocate(_width, _height);
