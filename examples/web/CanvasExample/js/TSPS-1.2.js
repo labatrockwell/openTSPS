@@ -1,5 +1,36 @@
+// Verson 1.2
 /** @namespace TSPS */
 var TSPS = TSPS || {};
+TSPS.LogLevel = TSPS.LOG_ERROR;
+
+/********************************************
+	UTILS
+********************************************/
+
+	TSPS.LOG_DEBUG 		 = 0;
+	TSPS.LOG_WARNING	 = 1;
+	TSPS.LOG_ERROR 		 = 2;
+	TSPS.LOG_FATAL_ERROR = 3;
+
+	TSPS.Log = function( message, level ){
+		var _level = ( level == null ? TSPS.LOG_DEBUG : level );
+		if ( _level >= TSPS.LogLevel ){
+			if ( console ){
+				switch ( _level ){
+					case TSPS.LOG_DEBUG:
+						console.log( message );
+						break;
+					case TSPS.LOG_WARNING:
+						console.warn( message );
+						break;
+					case TSPS.LOG_ERROR:
+					case TSPS.LOG_FATAL_ERROR:
+						console.error( message );
+						break;
+				}
+			}
+		}
+	}
 
 /********************************************
 	DISPATCHER
@@ -26,10 +57,10 @@ Pass a new JSON object into here to add it into TSPS
 TSPS.Dispatcher.prototype.onTSPSData		= function(json)
 {
 	if (json.type == "personEntered") this._onPersonEntered(json);
-	else if (json.type == "personMoved") this._onPersonUpdated(json);
-	else if (json.type == "personUpdated") this._onPersonMoved(json);
+	else if (json.type == "personMoved") this._onPersonMoved(json);
+	else if (json.type == "personUpdated") this._onPersonUpdated(json);
 	else if (json.type == "personWillLeave") this._onPersonLeft(json);
-	else console.log(json.type);
+	else TSPS.Log("unknown type? "+json.type);
 }
 
 /**
@@ -37,8 +68,12 @@ TSPS.Dispatcher.prototype.onTSPSData		= function(json)
 @private
 */
 TSPS.Dispatcher.prototype._onPersonEntered	= function(tspsObj){
-	this.people[tspsObj.id] = tspsObj;
-	this.onPersonEntered(tspsObj);
+	// prevent this getting called more than once
+	if ( !this.people[tspsObj.id]){
+		this.people[tspsObj.id] = new TSPS.Person();
+		this.people[tspsObj.id].update( tspsObj );
+		this.onPersonEntered(this.people[tspsObj.id]);		
+	}
 }
 
 /**
@@ -50,8 +85,8 @@ TSPS.Dispatcher.prototype._onPersonUpdated	= function(tspsObj){
 		this._onPersonEntered(tspsObj);
 		return;
 	} 
-	this.people[tspsObj.id] = tspsObj;
-	this.onPersonUpdated(tspsObj);
+	this.people[tspsObj.id].update( tspsObj );
+	this.onPersonUpdated(this.people[tspsObj.id]);
 }
 
 /**
@@ -63,8 +98,8 @@ TSPS.Dispatcher.prototype._onPersonMoved	= function(tspsObj){
 		this._onPersonEntered(tspsObj);
 		return;
 	} 
-	this.people[tspsObj.id] = tspsObj;
-	this.onPersonMoved(tspsObj);
+	this.people[tspsObj.id].update( tspsObj );
+	this.onPersonMoved(this.people[tspsObj.id]);
 }
 
 /**
@@ -72,8 +107,14 @@ TSPS.Dispatcher.prototype._onPersonMoved	= function(tspsObj){
 @private
 */
 TSPS.Dispatcher.prototype._onPersonLeft 	= function(tspsObj){
+	if (!this.people[tspsObj.id]){
+		TSPS.Log( "got weird id "+tspsObj.id);
+		this.onPersonLeft( tspsObj );	
+		return;
+	} 
+	this.people[tspsObj.id].update( tspsObj );
+	this.onPersonLeft(this.people[tspsObj.id]);		
 	delete this.people[tspsObj.id];
-	this.onPersonLeft(tspsObj);		
 }
 
 /**
@@ -112,8 +153,7 @@ TSPS.Dispatcher.prototype.onPersonLeft  = function(person){};
 	@constructor
 */
 
-TSPS.person = function()
-{
+TSPS.Person = function(){
 	this.id 			= -1;
 	this.age 			= 0;
 	this.boundingrect 	= {"x":0, "y":0, "width":0, "height":0};
@@ -127,6 +167,12 @@ TSPS.person = function()
 	this.haarrect 		= {"x":0, "y":0, "width":0, "height":0};
 	this.opticalflow 	= {"x":0, "y":0};
 	this.velocity		= {"x":0, "y":0};
+
+	this.update = function( person ){
+		for ( var prop in person ){
+			this[prop] = person[prop];			
+		}
+	}
 };
 
 /********************************************
