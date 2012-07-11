@@ -149,7 +149,7 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
 	message<<"\"opticalflow\":{"<<"\"x\":"<<opticalFlowVectorAccumulation.x<<",\"y\":"<<opticalFlowVectorAccumulation.y<<"},";
 	ofRectangle scaledHaar = getHaarRectNormalized(cameraWidth,cameraHeight);
 	message<<"\"haarrect\":{"<<"\"x\":"<<scaledHaar.x<<",\"y\":"<<scaledHaar.y<<",\"width\":"<<scaledHaar.width<<",\"height\":"<<scaledHaar.height<<"},";
-	message<<"\"highest\":{"<<"\"x\":"<<highest.x<<",\"y\":"<<highest.y<<"}";
+	message<<"\"highest\":{"<<"\"x\":"<<( (float) highest.x / cameraWidth )<<",\"y\":"<<( (float) highest.y / cameraHeight)<<"}";
 	
 	if (bSendContours){
         message<<",";
