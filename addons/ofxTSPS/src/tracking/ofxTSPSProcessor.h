@@ -10,18 +10,22 @@
 
 #include "ofMain.h"
 
+#include "ofxTSPSPerson.h"
+#include "ofxTSPSSettings.h"
+
 class ofxTSPSProcessor {
 public:
     
     virtual void setup( ofxTSPSSettings * settings, vector<ofxTSPSPerson*> * peopleVector );
     virtual void captureBackground();
-    virtual void update( ofBaseHasPixels & image = NULL );
+    virtual void update( ofBaseHasPixels & image );
+    virtual void draw();
     virtual void process();
     
-    bool canTrackHaar (){ return bCanTrackHaar };
-    bool canTrackContours (){ return bCanTrackContours };
-    bool canTrackSkeleton (){ return bCanTrackSkeleton };
-    bool canTrackOpticalFlow (){ return bCanTrackOpticalFlow };
+    bool canTrackHaar (){ return bCanTrackHaar; };
+    bool canTrackContours (){ return bCanTrackContours; };
+    bool canTrackSkeleton (){ return bCanTrackSkeleton; };
+    bool canTrackOpticalFlow (){ return bCanTrackOpticalFlow; };
     
     virtual bool setTrackHaar ( bool trackHaar );
     virtual bool setTrackContours ( bool trackContours );

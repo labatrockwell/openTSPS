@@ -52,23 +52,22 @@
 
 #include "ofxTSPSPerson.h"
 #include "ofxTSPSView.h"
-//#include "ofxCv.h"
+#include "ofxTSPSScene.h"
+#include "ofxTSPSUtils.h"
+
+//processing
+#include "ofxTSPSofxOpenCvProcessor.h"
 #include "CPUImageFilter.h"
-#include "ofxCvOpticalFlowLK.h"
 
-//haar setting
-#define CV_HAAR_FIND_MODE CV_HAAR_FIND_BIGGEST_OBJECT
-
-//dependent libraries
+// gui + settings
 #include "ofxTSPSSettings.h"
 #include "ofxTSPSGuiManager.h"
+
+// communication
 #include "ofxTSPSTUIOSender.h"
 #include "ofxTSPSOscSender.h"
 #include "ofxTSPSTCPSender.h"
 #include "ofxTSPSWebSocketSender.h"
-#include "ofxCvBlobTracker.h"
-#include "ofxTSPSScene.h"
-#include "ofxTSPSUtils.h"
 
 #define DRAW_MODE_NORMAL				0
 #define DRAW_MODE_GUI					1
@@ -85,8 +84,7 @@
 #define spacing 10
 #define GUI_WIDTH 340
 
-//#define TSPS_HOME_PAGE "http://lab.rockwellgroup.com/work/TSPS"
-#define TSPS_GOOGLE_PAGE "http://code.google.com/p/TSPS-alpha/"
+#define TSPS_GOOGLE_PAGE "http://github.com/labatrockwell/openTSPS"
 
 //interface for listener of people events
 class ofxPersonListener {
@@ -195,11 +193,7 @@ class ofxTSPSPeopleTracker {
 		ofxTSPSPerson* personAtIndex(int i);
 		ofxTSPSPerson* getTrackedPerson(int pid);
 		int totalPeople();
-	
-		void blobOn( int x, int y, int id, int order );
-		void blobMoved( int x, int y, int id, int order );
-		void blobOff( int x, int y, int id, int order );
-	
+		
 		// layout functions
 		void setActiveView( int activeIndex );
 		void setActiveDimensions ( int actWidth, int actHeight);	
@@ -266,9 +260,6 @@ class ofxTSPSPeopleTracker {
 		//ofxCvCoordWarping coordWarp;
 	
 		// blob tracking things
-		
-		ofxCvContourFinder 	contourFinder;
-		ofxCvBlobTracker persistentTracker;
 		int drawMode;
 		
 		//filter variables
@@ -278,8 +269,6 @@ class ofxTSPSPeopleTracker {
 		
 		// haar
 		string lastHaarFile;
-		ofxLABCvHaarFinder	 haarFinder;
-		ofxCvHaarTracker    haarTracker;
 		
 		// optical flow
 		

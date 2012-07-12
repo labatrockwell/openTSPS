@@ -12,23 +12,34 @@
 
 #include "ofxOpenCv.h"
 #include "ofxCvHaarTracker.h"
+#include "ofxCvOpticalFlowLK.h"
+#include "ofxCvBlobTracker.h"
 
 class ofxTSPSofxOpenCvProcessor : public ofxTSPSProcessor, public ofxCvBlobListener {
 public:
     
     void setup( ofxTSPSSettings * settings, vector<ofxTSPSPerson*> * peopleVector );
     void captureBackground();
-    void update( ofBaseHasPixels & image = NULL );
+    
+    //Call with sequential camera images
+    void update( ofxCvColorImage image );
+    void update( ofxCvGrayscaleImage image );
     void process();
-    
-    bool canTrackHaar (){ return bCanTrackHaar };
-    bool canTrackContours (){ return bCanTrackContours };
-    bool canTrackSkeleton (){ return bCanTrackSkeleton };
-    bool canTrackOpticalFlow (){ return bCanTrackOpticalFlow };
-    
+        
     bool setTrackHaar ( bool trackHaar );
     bool setTrackContours ( bool trackContours );
-    bool setTrackSkeleton ( bool trackSkeleton ){ return false };
+    bool setTrackSkeleton ( bool trackSkeleton ){ return false; };
     bool setTrackOpticalFlow ( bool trackOpticalFlow );
     
-}
+    // ofxCvBlobListener functions    
+    void blobOn( int x, int y, int id, int order );
+    void blobMoved( int x, int y, int id, int order );
+    void blobOff( int x, int y, int id, int order );
+    
+private:
+    
+    ofxLABCvHaarFinder	 haarFinder;
+    ofxCvHaarTracker    haarTracker;
+    ofxCvContourFinder 	contourFinder;
+    ofxCvBlobTracker    persistentTracker;
+};
