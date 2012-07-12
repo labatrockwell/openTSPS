@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <RootNamespace>openTSPS</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>openTSPS_vs2010</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\libs\openFrameworks;..\..\..\libs\openFrameworks\graphics;..\..\..\libs\openFrameworks\app;..\..\..\libs\openFrameworks\sound;..\..\..\libs\openFrameworks\utils;..\..\..\libs\openFrameworks\communication;..\..\..\libs\openFrameworks\video;..\..\..\libs\openFrameworks\math;..\..\..\libs\openFrameworks\types;..\..\..\libs\openFrameworks\events;..\..\..\libs\glut\include;..\..\..\libs\rtAudio\include;..\..\..\libs\quicktime\include;..\..\..\libs\freetype\include;..\..\..\libs\freetype\include\freetype2;..\..\..\libs\freeImage\include;..\..\..\libs\fmodex\include;..\..\..\libs\videoInput\include;..\..\..\libs\glew\include\;..\..\..\libs\glu\include;..\..\..\libs\poco\include;..\..\..\libs\cairo\include\cairo;..\..\..\libs\cairo\include;..\..\..\addons;..\..\..\libs\openFrameworks\gl;..\..\..\libs\openFrameworks\3d;..\..\..\libs\tess2\include;..\..\addons\ofxCvHaarTracker\src;..\..\addons\ofxFileDialog\src;..\..\addons\ofxLabGui\src;..\..\addons\ofxLabGui\src\elements;..\..\addons\ofxKinect\src;..\..\addons\ofxKinect\libs\libfreenect;..\..\addons\ofxLibwebsockets\libs\jsoncpp;..\..\addons\ofxLibwebsockets\libs\jsoncpp\json;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\openssl\openssl;..\..\addons\ofxLibwebsockets\src;..\..\addons\ofxMSAInteractiveObject\src;..\..\addons\ofxOpenCVExtensions\src;..\..\addons\ofxTuioWrapper\src\oscpack\include;..\..\addons\ofxTuioWrapper\src;..\..\addons\ofxTuioWrapper\src\core;..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxOpenCv\src;..\..\..\addons\ofxOpenCv\libs\opencv\include;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack\include;..\..\..\addons\ofxOsc\libs\oscpack\include\ip;..\..\..\addons\ofxOsc\libs\oscpack\include\osc;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxXmlSettings\libs;..\..\addons\ofxTSPS\src;..\..\addons\ofxTSPS\src\communication;..\..\addons\ofxTSPS\src\gui;..\..\addons\ofxTSPS\src\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;POCO_STATIC;CAIRO_WIN32_STATIC_BUILD;DISABLE_SOME_FLOATING_POINT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>openframeworksLibDebug.lib;cairo-static.lib;pixman-1.lib;msimg32.lib;OpenGL32.lib;GLu32.lib;kernel32.lib;setupapi.lib;Vfw32.lib;comctl32.lib;glut32.lib;rtAudioD.lib;videoInput.lib;libfreetype.lib;FreeImage.lib;qtmlClient.lib;dsound.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;glew32s.lib;fmodex_vc.lib;glu32.lib;PocoFoundationmdd.lib;PocoNetmdd.lib;PocoUtilmdd.lib;PocoXMLmdd.lib;Ws2_32.lib;tess2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\libs\glut\lib\vs2010;..\..\..\libs\rtAudio\lib\vs2010;..\..\..\libs\FreeImage\lib\vs2010;..\..\..\libs\freetype\lib\vs2010;..\..\..\libs\quicktime\lib\vs2010;..\..\..\libs\fmodex\lib\vs2010;..\..\..\libs\videoInput\lib\vs2010;..\..\..\libs\cairo\lib\vs2010;..\..\..\libs\glew\lib\vs2010;..\..\..\libs\glu\lib\vs2010;..\..\..\libs\Poco\lib\vs2010;..\..\..\libs\openFrameworksCompiled\lib\vs2010;..\..\..\libs\tess2\lib\vs2010;..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010;..\..\addons\ofxLibwebsockets\libs\libwebsockets\lib\win32;..\..\addons\ofxLibwebsockets\libs\openssl\lib\win32;..\..\addons\ofxTuioWrapper\src\oscpack\lib\win32;..\..\..\addons\ofxOsc\libs\oscpack\lib\vs2010;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2010;..\..\..\addons\ofxXmlSettings\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>atlthunk.lib; LIBC.lib; LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)_debugInfo.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Message>adding DLLs and creating data folder</Message>
+      <Command>xcopy /e /i /y "$(ProjectDir)..\..\..\export\vs2010\*.dll" "$(ProjectDir)bin"
+if not exist "$(ProjectDir)bin\data" mkdir  "$(ProjectDir)bin\data"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>..\..\..\libs\openFrameworks;..\..\..\libs\openFrameworks\graphics;..\..\..\libs\openFrameworks\app;..\..\..\libs\openFrameworks\sound;..\..\..\libs\openFrameworks\utils;..\..\..\libs\openFrameworks\communication;..\..\..\libs\openFrameworks\video;..\..\..\libs\openFrameworks\math;..\..\..\libs\openFrameworks\types;..\..\..\libs\openFrameworks\events;..\..\..\libs\glut\include;..\..\..\libs\rtAudio\include;..\..\..\libs\quicktime\include;..\..\..\libs\freetype\include;..\..\..\libs\freetype\include\freetype2;..\..\..\libs\freeImage\include;..\..\..\libs\fmodex\include;..\..\..\libs\videoInput\include;..\..\..\libs\glew\include\;..\..\..\libs\glu\include;..\..\..\libs\poco\include;..\..\..\addons;..\..\..\libs\openFrameworks\gl;..\..\..\libs\openFrameworks\3d;..\..\..\libs\tess2\include;..\..\..\libs\cairo\include\cairo%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;POCO_STATIC;CAIRO_WIN32_STATIC_BUILD;DISABLE_SOME_FLOATING_POINT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>openframeworksLib.lib;cairo-static.lib;pixman-1.lib;msimg32.lib;OpenGL32.lib;GLu32.lib;kernel32.lib;setupapi.lib;glut32.lib;rtAudio.lib;videoInput.lib;libfreetype.lib;FreeImage.lib;qtmlClient.lib;dsound.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;glew32s.lib;fmodex_vc.lib;glu32.lib;PocoFoundationmd.lib;PocoNetmd.lib;PocoUtilmd.lib;PocoXMLmd.lib;tess2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\libs\glut\lib\vs2010;..\..\..\libs\rtAudio\lib\vs2010;..\..\..\libs\FreeImage\lib\vs2010;..\..\..\libs\freetype\lib\vs2010;..\..\..\libs\quicktime\lib\vs2010;..\..\..\libs\fmodex\lib\vs2010;..\..\..\libs\videoInput\lib\vs2010;..\..\..\libs\cairo\lib\vs2010;..\..\..\libs\cairo\lib\vs2010;..\..\..\libs\glew\lib\vs2010;..\..\..\libs\glu\lib\vs2010;..\..\..\libs\Poco\lib\vs2010;..\..\..\libs\openFrameworksCompiled\lib\vs2010;..\..\..\libs\tess2\lib\vs2010;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>atlthunk.lib; LIBC.lib; LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <PostBuildEvent>
+      <Message>adding DLLs and creating data folder</Message>
+      <Command>xcopy /e /i /y "$(ProjectDir)\..\..\..\export\vs2010\*.dll" "$(ProjectDir)\bin"
+if not exist "$(ProjectDir)\bin\data" mkdir  "$(ProjectDir)\bin\data"
+
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+    <ClCompile Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTracker.cpp" />
+    <ClCompile Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTrackerItem.cpp" />
+    <ClCompile Include="..\..\addons\ofxCvHaarTracker\src\ofxLABCvHaarFinder.cpp" />
+    <ClCompile Include="..\..\addons\ofxFileDialog\src\ofxFileDialog.cpp" />
+    <ClCompile Include="..\..\addons\ofxKinect\src\ofxKinect.cpp" />
+    <ClCompile Include="..\..\addons\ofxLabGui\src\ofxLabGui.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\jsoncpp.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Connection.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Protocol.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Reactor.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Server.cpp" />
+    <ClCompile Include="..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp" />
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.cpp" />
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvBlobTracker.cpp" />
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.cpp" />
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.cpp" />
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvOpticalFlowLK.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSOscSender.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTCPSender.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTUIOSender.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSWebSocketSender.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSGuiManager.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSSettings.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\ofxTSPSPeopleTracker.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\ofxTSPSPerson.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\ofxTSPSScene.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\src\utils\ofxTSPSUtils.cpp" />
+    <ClCompile Include="..\..\addons\ofxTuioWrapper\src\ofxTuioClient.cpp" />
+    <ClCompile Include="..\..\addons\ofxTuioWrapper\src\ofxTuioServer.cpp" />
+    <ClCompile Include="..\..\addons\ofxTuioWrapper\src\TuioTcpXmlServer.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\tspsApp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetwork.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetworkUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvMain.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+    <ClInclude Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTracker.h" />
+    <ClInclude Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTrackerItem.h" />
+    <ClInclude Include="..\..\addons\ofxCvHaarTracker\src\ofxLABCvHaarFinder.h" />
+    <ClInclude Include="..\..\addons\ofxFileDialog\src\ofxFileDialog.h" />
+    <ClInclude Include="..\..\addons\ofxKinect\src\ofxBase3DVideo.h" />
+    <ClInclude Include="..\..\addons\ofxKinect\src\ofxKinect.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiBaseObject.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiColor.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiCustomImpl.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTextBase.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiType2DSlider.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeButton.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeCustom.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeDrawable.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeFileLister.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeGroup.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeLogger.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeMultiToggle.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypePanel.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeSlider.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeText.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeToggle.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\guiIncludes.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\guiValue.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\guiXmlValue.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\ofxLabGui.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\simpleColor.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\simpleFileLister.h" />
+    <ClInclude Include="..\..\addons\ofxLabGui\src\simpleLogger.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\json\json-forwards.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\json\json.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\libwebsockets.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Client.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Protocol.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Reactor.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Server.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Util.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\src\ofxLibwebsockets.h" />
+    <ClInclude Include="..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h" />
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.h" />
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvBlobTracker.h" />
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvConstants_Track.h" />
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.h" />
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.h" />
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvOpticalFlowLK.h" />
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvTrackedBlob.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSOscSender.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTCPSender.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTUIOSender.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSWebSocketSender.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSGuiManager.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSSettings.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPS.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPSPeopleTracker.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPSPerson.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPSScene.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\utils\ofxTSPSUtils.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\src\utils\ofxTSPSView.h" />
+    <ClInclude Include="..\..\addons\ofxTuioWrapper\src\ofxTuioClient.h" />
+    <ClInclude Include="..\..\addons\ofxTuioWrapper\src\ofxTuioServer.h" />
+    <ClInclude Include="..\..\addons\ofxTuioWrapper\src\TuioTcpXmlServer.h" />
+    <ClInclude Include="src\tspsApp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs2010\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

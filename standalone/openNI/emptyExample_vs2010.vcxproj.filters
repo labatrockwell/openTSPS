@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\tspsApp.cpp" />
+    <ClCompile Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTracker.cpp">
+      <Filter>addons\ofxCvHaarTracker\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTrackerItem.cpp">
+      <Filter>addons\ofxCvHaarTracker\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxCvHaarTracker\src\ofxLABCvHaarFinder.cpp">
+      <Filter>addons\ofxCvHaarTracker\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxFileDialog\src\ofxFileDialog.cpp">
+      <Filter>addons\ofxFileDialog\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxKinect\src\ofxKinect.cpp">
+      <Filter>addons\ofxKinect\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLabGui\src\ofxLabGui.cpp">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Connection.cpp">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Protocol.cpp">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Reactor.cpp">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Server.cpp">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\jsoncpp.cpp">
+      <Filter>addons\ofxLibwebsockets\libs\jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp">
+      <Filter>addons\ofxMSAInteractiveObject\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.cpp">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvBlobTracker.cpp">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.cpp">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.cpp">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvOpticalFlowLK.cpp">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\ofxTSPSPeopleTracker.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\ofxTSPSPerson.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\ofxTSPSScene.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSOscSender.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTCPSender.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTUIOSender.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSWebSocketSender.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSGuiManager.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSSettings.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\src\utils\ofxTSPSUtils.cpp">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTuioWrapper\src\ofxTuioClient.cpp">
+      <Filter>addons\ofxTUIOWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTuioWrapper\src\ofxTuioServer.cpp">
+      <Filter>addons\ofxTUIOWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTuioWrapper\src\TuioTcpXmlServer.cpp">
+      <Filter>addons\ofxTUIOWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+      <Filter>addons\ofxXmlSettings\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\tspsApp.h" />
+    <ClInclude Include="..\..\addons\ofxCvHaarTracker\src\ofxLABCvHaarFinder.h">
+      <Filter>addons\ofxCvHaarTracker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTracker.h">
+      <Filter>addons\ofxCvHaarTracker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxCvHaarTracker\src\ofxCvHaarTrackerItem.h">
+      <Filter>addons\ofxCvHaarTracker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxFileDialog\src\ofxFileDialog.h">
+      <Filter>addons\ofxFileDialog\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\src\ofxBase3DVideo.h">
+      <Filter>addons\ofxKinect\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\src\ofxKinect.h">
+      <Filter>addons\ofxKinect\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\guiIncludes.h">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\guiValue.h">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\guiXmlValue.h">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\ofxLabGui.h">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\simpleColor.h">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\simpleFileLister.h">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\simpleLogger.h">
+      <Filter>addons\ofxLabGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiBaseObject.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiColor.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiCustomImpl.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTextBase.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiType2DSlider.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeButton.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeCustom.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeDrawable.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeFileLister.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeGroup.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeLogger.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeMultiToggle.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypePanel.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeSlider.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeText.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeToggle.h">
+      <Filter>addons\ofxLabGui\src\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\src\ofxLibwebsockets.h">
+      <Filter>addons\ofxLibwebsockets\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Client.h">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Protocol.h">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Reactor.h">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Server.h">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Util.h">
+      <Filter>addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\json\json.h">
+      <Filter>addons\ofxLibwebsockets\libs\jsoncpp\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\json\json-forwards.h">
+      <Filter>addons\ofxLibwebsockets\libs\jsoncpp\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\libwebsockets.h">
+      <Filter>addons\ofxLibwebsockets\libs\libwebsockets\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h">
+      <Filter>addons\ofxMSAInteractiveObject\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.h">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvBlobTracker.h">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvConstants_Track.h">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.h">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.h">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvOpticalFlowLK.h">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvTrackedBlob.h">
+      <Filter>addons\ofxOpenCvExtensions\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPS.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPSPeopleTracker.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPSPerson.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPSScene.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSOscSender.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTCPSender.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSTUIOSender.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\communication\ofxTSPSWebSocketSender.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSGuiManager.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\gui\ofxTSPSSettings.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\utils\ofxTSPSUtils.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\src\utils\ofxTSPSView.h">
+      <Filter>addons\ofxTSPS\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTuioWrapper\src\ofxTuioClient.h">
+      <Filter>addons\ofxTUIOWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTuioWrapper\src\ofxTuioServer.h">
+      <Filter>addons\ofxTUIOWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTuioWrapper\src\TuioTcpXmlServer.h">
+      <Filter>addons\ofxTUIOWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvMain.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h">
+      <Filter>addons\ofxOpenCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetwork.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetworkUtils.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+      <Filter>addons\ofxXmlSettings\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="addons">
+      <UniqueIdentifier>{b2279872-7bf7-47de-b1a5-c0ef322bbf52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCvHaarTracker">
+      <UniqueIdentifier>{2b013205-655f-4dae-abb2-f848f9a4e222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCvHaarTracker\src">
+      <UniqueIdentifier>{8c04eb17-a37c-40be-a95f-d3767416bb34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFileDialog">
+      <UniqueIdentifier>{c15aaabc-5992-46d5-8db1-3ed37736ff55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFileDialog\src">
+      <UniqueIdentifier>{12bf024a-815a-4283-9988-9e81e9fa5373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinect">
+      <UniqueIdentifier>{5021bb26-6624-49af-b42d-ccb59d9b0774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinect\src">
+      <UniqueIdentifier>{40a7e3a6-2a8d-40c9-91fa-7a6a83d9286b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLabGui">
+      <UniqueIdentifier>{c4eeaf9a-9bd1-44d7-a4ab-a51120521bb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLabGui\src">
+      <UniqueIdentifier>{6b8a3bc5-2c40-4b48-b727-439f23c9bd03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLabGui\src\elements">
+      <UniqueIdentifier>{8ab5de54-d29b-40fe-b22e-755a286f8eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets">
+      <UniqueIdentifier>{fb1887c2-87dc-4f1e-9e3d-a1d636192279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\src">
+      <UniqueIdentifier>{7c58fecd-df74-4261-8fdf-9bcb64d6551e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs">
+      <UniqueIdentifier>{591ac91d-fe86-414d-bdd5-c048a63ee928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\ofxLibwebsockets">
+      <UniqueIdentifier>{ecc732db-65a9-41b4-a46b-7231932bc0e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\ofxLibwebsockets\src">
+      <UniqueIdentifier>{2fb4d707-7fdd-4259-a60e-5a50fc0e9d2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\ofxLibwebsockets\include">
+      <UniqueIdentifier>{12e607c7-bfa7-46cf-ae6c-309a07e3b763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets">
+      <UniqueIdentifier>{6ebafab6-3bf8-4f22-b75f-491fb35503d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\jsoncpp">
+      <UniqueIdentifier>{ab62ff41-31b9-48b9-a691-8f57202e8e9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\jsoncpp\json">
+      <UniqueIdentifier>{7fce46f6-12b3-4ce2-85bc-fa73f35f6acb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\libwebsockets">
+      <UniqueIdentifier>{430547a8-c8c7-4210-a77a-e389ba405445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxLibwebsockets\libs\libwebsockets\include">
+      <UniqueIdentifier>{502a5d57-602a-4d4a-b179-3ce9a031bfe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinect\libs">
+      <UniqueIdentifier>{5d428320-fd6f-48f9-9df3-9a012fcb1832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxMSAInteractiveObject">
+      <UniqueIdentifier>{283f0cee-4b36-4240-8388-09f69e55a697}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxMSAInteractiveObject\src">
+      <UniqueIdentifier>{75ec9e6b-d1ca-4587-a247-a1f880cb86ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOpenCvExtensions">
+      <UniqueIdentifier>{41879786-dfe9-45dc-9ff9-6be207db91fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOpenCvExtensions\src">
+      <UniqueIdentifier>{30b2050c-1183-41a4-a3e0-560f01c972ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTSPS">
+      <UniqueIdentifier>{5b653c02-cbb3-49fe-8ff9-2f98151d1174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTSPS\src">
+      <UniqueIdentifier>{2f584e4e-81a3-49cb-a859-4d4c3955d293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTUIOWrapper">
+      <UniqueIdentifier>{e162d562-d67e-4ee9-936f-76a60aeed04f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTUIOWrapper\src">
+      <UniqueIdentifier>{9dfa9420-cd2e-4543-a7a5-7ee660b5d661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOpenCv">
+      <UniqueIdentifier>{900032f8-7d7a-4611-94c3-d1a8e828a8b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOpenCv\src">
+      <UniqueIdentifier>{033f1801-f652-411d-9f7b-9bdb524d4834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNetwork">
+      <UniqueIdentifier>{5b93fac8-2a77-48f1-a35f-bf57f11b921c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNetwork\src">
+      <UniqueIdentifier>{60ed7fb3-0a17-432b-8963-4409a56e2e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc">
+      <UniqueIdentifier>{a5a4947d-a47b-4342-83d9-d11a9121bbb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\src">
+      <UniqueIdentifier>{38e4d4f7-40a1-4c75-9923-a8abd3b46640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings">
+      <UniqueIdentifier>{55753012-dab8-48b0-87c0-4190e281569d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings\src">
+      <UniqueIdentifier>{9b9087f1-f34c-476a-a2e1-89faf7ccb6ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
