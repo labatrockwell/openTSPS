@@ -53,7 +53,6 @@
 #include "ofxTSPSPerson.h"
 #include "ofxTSPSView.h"
 //#include "ofxCv.h"
-#include "ofxOpenCv.h"
 #include "CPUImageFilter.h"
 #include "ofxCvOpticalFlowLK.h"
 
@@ -61,7 +60,6 @@
 #define CV_HAAR_FIND_MODE CV_HAAR_FIND_BIGGEST_OBJECT
 
 //dependent libraries
-#include "ofxCvHaarTracker.h"
 #include "ofxTSPSSettings.h"
 #include "ofxTSPSGuiManager.h"
 #include "ofxTSPSTUIOSender.h"
@@ -103,7 +101,7 @@ public:
 	virtual void personUpdated(ofxTSPSPerson* person, ofxTSPSScene* scene) = 0;
 };
 
-class ofxTSPSPeopleTracker : public ofxCvBlobListener {
+class ofxTSPSPeopleTracker {
 	public:
     
         ofxTSPSPeopleTracker();
