@@ -44,6 +44,8 @@ apps/*/*/Release Linux
 apps/*/*/Debug Linux64
 apps/*/*/Release Linux64
 
+DerivedData*/
+DerivedData/*
 openTSPS.xcodeproj/rockwell.mode1v3
 openTSPS.xcodeproj/rockwell.pbxuser
 =======
