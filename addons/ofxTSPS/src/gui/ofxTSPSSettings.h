@@ -34,11 +34,8 @@
 
 #pragma  once
 #include "ofMain.h"
+#include "ofxTSPSConstants.h"
 #include <iostream>
-
-enum tspsTrackingType {
-	TRACK_DARK, TRACK_LIGHT, TRACK_ABSOLUTE
-};
 
 enum tspsInputType {
     TSPS_INPUT_UNDEFINED, TSPS_INPUT_VIDEO, TSPS_INPUT_KINECT
@@ -84,7 +81,6 @@ public:
 	bool    bFindHoles;
 	float   minBlob;
 	float   maxBlob;
-	bool    bCentroidDampen;
 	
 	//sensing vars
 	bool    bTrackOpticalFlow;
@@ -92,6 +88,7 @@ public:
 	float   maxOpticalFlow;
 	bool    bDetectHaar;
 	float   haarAreaPadding;
+    bool    bTrackSkeleton;
 //	float   minHaarArea;
 //	float   maxHaarArea;
 	

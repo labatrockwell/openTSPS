@@ -28,12 +28,9 @@ ofxTSPSSettings::ofxTSPSSettings() {
     
     // background
     bLearnBackground = false;
-    bTrackOpticalFlow = false;
-    
     bLearnBackgroundProgressive = true;
-    bAdjustedViewInColor = false;  // ZACK BOKA		
+    bAdjustedViewInColor = false;		
     trackType = TRACK_LIGHT;
-    bLearnBackground = true;
     
     threshold = 80;
     highpassBlur = 0;
@@ -48,9 +45,11 @@ ofxTSPSSettings::ofxTSPSSettings() {
     maxBlob = .05;
     
     haarFile = "HS.xml";
+    bTrackSkeleton      = false;
+    bTrackOpticalFlow   = false;
+    bDetectHaar         = false;
     
-    bLearnBackground = true;	
-    bCentroidDampen = true;		
+    bLearnBackground = true;
     
     oscHost = "localhost";
     oscPort = 12000;

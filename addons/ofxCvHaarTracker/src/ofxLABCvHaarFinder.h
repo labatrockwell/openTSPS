@@ -46,6 +46,8 @@ public:
 	float getHeight();
 
 protected:
+    vector<ofRectangle> haarRects;
+    
 	CvHaarClassifierCascade* cascade;
 	string haarFile;
 	ofxCvGrayscaleImage img;

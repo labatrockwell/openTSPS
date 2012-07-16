@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "ofxTSPSEvents.h"
 #include "ofxTSPSProcessor.h"
 
 #include "ofxOpenCv.h"
@@ -18,28 +19,69 @@
 class ofxTSPSofxOpenCvProcessor : public ofxTSPSProcessor, public ofxCvBlobListener {
 public:
     
-    void setup( ofxTSPSSettings * settings, vector<ofxTSPSPerson*> * peopleVector );
-    void captureBackground();
+    ofxTSPSofxOpenCvProcessor();
     
-    //Call with sequential camera images
-    void update( ofxCvColorImage image );
-    void update( ofxCvGrayscaleImage image );
-    void process();
-        
-    bool setTrackHaar ( bool trackHaar );
-    bool setTrackContours ( bool trackContours );
-    bool setTrackSkeleton ( bool trackSkeleton ){ return false; };
-    bool setTrackOpticalFlow ( bool trackOpticalFlow );
+    void setup( int width, int height, ofxTSPSScene * scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor=.5 );
+    void draw();
+    
+    // step 0: camera
+    void setCameraImage( ofBaseImage & image );
+    
+    // step 1: background
+    void captureBackground( ofBaseImage & image );
+    void progressiveBackground( ofBaseImage & image, float amount );
+    
+    void blankBackground();
+    
+    // step 2: difference
+    ofPixelsRef difference( ofBaseImage & image, TSPSTrackingType trackingType );
+    
+    // step 3: process
+    ofPixelsRef process ( ofBaseImage & image );
+    void processOpticalFlow( ofBaseImage & image );
+    void processHaar( ofBaseImage & image );
+    
+    // methods: utils
+    void resize( int camWidth, int camHeight );
+    
+    // settings
+    void setThreshold( float thresh = 100.0 );
+    void setBlobSettings( float minimumBlob = 0.0, float maximumBlob = 1.0, bool bFindHoles = false );
+    void setOpticalflowMinMax( float min = 0.0, float max = 10.0 );
+    void setHaarXMLFile( string xmlFile );
+    void setHaarPadding( float padding = 0.0 );
     
     // ofxCvBlobListener functions    
+    ofxTSPSPerson* getTrackedPerson(int pid);
     void blobOn( int x, int y, int id, int order );
     void blobMoved( int x, int y, int id, int order );
     void blobOff( int x, int y, int id, int order );
     
 private:
+    ofxCvGrayscaleImage dummyImage;
     
-    ofxLABCvHaarFinder	 haarFinder;
+    // haar tracking
+    ofxLABCvHaarFinder  haarFinder;
     ofxCvHaarTracker    haarTracker;
+    float               haarAreaPadding;
+    ofxCvGrayscaleImage haarImage;
+    
+    // contour tracking 
     ofxCvContourFinder 	contourFinder;
     ofxCvBlobTracker    persistentTracker;
+    float               threshold;
+    float               minBlobArea;
+    float               maxBlobArea;
+    bool                bFindHoles;
+    
+    // optical flow
+    ofxCvOpticalFlowLK	opticalFlow;
+    ofxCvGrayscaleImage opticalFlowImage, opticalFlowLastImage;
+    
+    // cv images
+    ofxCvGrayscaleImage grayImg;            // stores camera image
+    ofxCvGrayscaleImage grayBg;             // bg to subtract
+    ofxCvShortImage		floatBgImg;         // progressive background image
+    
+    ofxCvGrayscaleImage	grayDiff;
 };

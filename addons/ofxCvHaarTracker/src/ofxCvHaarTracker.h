@@ -34,11 +34,14 @@ public :
 	void		getHaarItemPropertiesEased( float *x, float *y, float *w, float *h );
 	void		clearHaarItems();
 	
+    vector<ofRectangle> getCurrentHaarRects(){ return haarRects; };
+    
 	ofxLABCvHaarFinder		*haarFinder;
 	
 private :	
 	
-	vector<ofxCvHaarTrackerItem>		haarItems;
+	vector<ofRectangle> haarRects;
+    vector<ofxCvHaarTrackerItem>		haarItems;
 	int									haarItemIndex;
 	int									haarItemIteratorIndex;
 	

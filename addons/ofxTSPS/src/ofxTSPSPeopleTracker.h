@@ -50,10 +50,17 @@
 #ifndef _OFXPEOPLETRACKER_H
 #define _OFXPEOPLETRACKER_H
 
+// TSPS Core
+#include "ofxTSPSConstants.h"
+#include "ofxTSPSEvents.h"
 #include "ofxTSPSPerson.h"
 #include "ofxTSPSView.h"
 #include "ofxTSPSScene.h"
 #include "ofxTSPSUtils.h"
+
+// TSPS Processors
+#include "ofxTSPSProcessor.h"
+#include "ofxTSPSofxOpenCvProcessor.h"
 
 //processing
 #include "ofxTSPSofxOpenCvProcessor.h"
@@ -69,36 +76,7 @@
 #include "ofxTSPSTCPSender.h"
 #include "ofxTSPSWebSocketSender.h"
 
-#define DRAW_MODE_NORMAL				0
-#define DRAW_MODE_GUI					1
-#define DRAW_MODE_CAMERA_CALIBRATE		2
-#define DRAW_MODE_FULLSCREEN			3
-
-#define CAMERA_SOURCE_VIEW				0
-#define ADJUSTED_CAMERA_VIEW			1
-#define REFERENCE_BACKGROUND_VIEW		2
-#define PROCESSED_VIEW					3
-#define DATA_VIEW						4
-
-//layout vars
-#define spacing 10
-#define GUI_WIDTH 340
-
-#define TSPS_GOOGLE_PAGE "http://github.com/labatrockwell/openTSPS"
-
-//interface for listener of people events
-class ofxPersonListener {
-public:
-	//called when the person enters the system
-    virtual void personEntered( ofxTSPSPerson* person, ofxTSPSScene* scene ) = 0;
-	//called each time the centroid moves (a lot)
-	virtual void personMoved( ofxTSPSPerson* person, ofxTSPSScene* scene ) = 0;
-	//called one frame before the person is removed from the list to let you clean up
-    virtual void personWillLeave( ofxTSPSPerson* person, ofxTSPSScene* scene ) = 0;
-	//called every frame no matter what.
-	virtual void personUpdated(ofxTSPSPerson* person, ofxTSPSScene* scene) = 0;
-};
-
+// TSPS Manager class
 class ofxTSPSPeopleTracker {
 	public:
     
@@ -108,10 +86,24 @@ class ofxTSPSPeopleTracker {
 		//set up and update
 	
 		void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
-		void update(ofxCvColorImage image);		//Call with sequential camera images
-		void update(ofxCvGrayscaleImage image); //Call with sequential camera images
+    
+        template <class Image>
+        void update(Image & image){
+            grayImage = image;
+            updateSettings();
+            trackPeople();
+        }
+    
         void resize( int w, int h );            //If you need to resize the camera width / height
 		void mousePressed(ofMouseEventArgs &e);	
+    
+        // processor
+        void setTSPSProcessor ( ofxTSPSProcessor * _processor );
+    
+        // events called from processor
+        void onPersonEntered( ofxTSPSEventArgs & tspsEvent );
+        void onPersonWillLeave( ofxTSPSEventArgs & tspsEvent );
+        void onPersonUpdated( ofxTSPSEventArgs & tspsEvent );
 		
 		//communication
 		
@@ -119,8 +111,7 @@ class ofxTSPSPeopleTracker {
 		void setupOsc(string ip, int port);
 		void setupTcp(int port);
         void setupWebSocketServer(int port);
-        void setupWebSocketClient( string host, int port, bool bUseSSL = false, string channel="");
-		void setListener(ofxPersonListener* delegate);
+        void setupWebSocketClient( string host, int port, bool bUseSSL = false, string channel="");\
 	
 		//tracking metrics
 		
@@ -149,14 +140,10 @@ class ofxTSPSPeopleTracker {
 
 		void enableAmplify(bool doAmp);
 		void setAmplifyAmount(int amplifyAmount);
-							   
-		// filter controls
 
 		//haar
 		void setHaarXMLFile(string haarFile);
 		void setHaarExpandArea(float haarExpandAmount); //makes the haar rect +area bigger
-//		void setMinHaarArea(float minArea);
-//		void setMaxHaarArea(float maxArea);
 		void useHaarAsCentroid(bool useHaarCenter);
 	
 		//blobs
@@ -182,7 +169,6 @@ class ofxTSPSPeopleTracker {
         void    setVideoFile( string file );
 	
 		//drawing methods
-	
 		void setDrawMode(int mode);
 		void draw();
 		void draw(int x, int y);
@@ -191,7 +177,6 @@ class ofxTSPSPeopleTracker {
 		//callbacks for blob tracking
 	
 		ofxTSPSPerson* personAtIndex(int i);
-		ofxTSPSPerson* getTrackedPerson(int pid);
 		int totalPeople();
 		
 		// layout functions
@@ -201,10 +186,6 @@ class ofxTSPSPeopleTracker {
 	
 		//JG this is so we can access video grabber settings through the default interface
 		void setVideoGrabber(ofBaseVideo* grabber, tspsInputType inputType);
-
-		// for accessing Optical Flow in specific regions
-		//			  and accessing the threshold set in the GUI
-		ofPoint getOpticalFlowInRegion(float x, float y, float w, float h);
 		
 		// for accessing the OSC sender whose parameters are adjusted in the GUI
 		ofxTSPSOscSender* getOSCsender(); 
@@ -229,7 +210,9 @@ class ofxTSPSPeopleTracker {
         void setUseKinect( bool bUseKinect=true );
 	
 	protected:
-	
+        
+        ofxTSPSProcessor * tspsProcessor;
+    
 		void trackPeople();
 		void updateSettings();
 		bool isTrackingPerson(int pid);
@@ -237,28 +220,13 @@ class ofxTSPSPeopleTracker {
 		vector<ofxTSPSPerson*> trackedPeople;
 		ofxTSPSScene scene;
 	
-		ofxCvGrayscaleImage	grayImage;
-		ofxCvGrayscaleImage	grayImageWarped;
-		ofxCvGrayscaleImage	grayLastImage;
-		
-		ofxCvGrayscaleImage grayBg;
-		ofxCvGrayscaleImage subtractBg;
-	
-		ofxCvGrayscaleImage graySmallImage;
-		ofxCvGrayscaleImage grayBabyImage;
-		
-		ofxCvColorImage colorImage;
-		ofxCvColorImage colorImageWarped;
-		
-		//more specific CV images for processing
-		
-		CPUImageFilter		grayDiff;
-		ofxCvShortImage		floatBgImg;
-		
-		//coord warping for cropping the camera image
-	
-		//ofxCvCoordWarping coordWarp;
-	
+        // core images
+        ofxCvGrayscaleImage	grayImage, grayBg, grayImageWarped;
+        ofxCvColorImage     colorImage, colorImageWarped;
+        
+        // filter image
+        CPUImageFilter		grayDiff;
+    
 		// blob tracking things
 		int drawMode;
 		
@@ -270,10 +238,6 @@ class ofxTSPSPeopleTracker {
 		// haar
 		string lastHaarFile;
 		
-		// optical flow
-		
-		ofxCvOpticalFlowLK	opticalFlow;
-		
 		// switches for filters
 		ofxTSPSSettings *p_Settings;
 	
@@ -281,7 +245,6 @@ class ofxTSPSPeopleTracker {
 		
 		ofxTSPSTUIOSender tuioClient;
 		bool bTuioEnabled;
-		ofxPersonListener* eventListener;
 		ofxTSPSOscSender oscClient;
 		bool bOscEnabled;
 		ofxTSPSTCPSender tcpClient;

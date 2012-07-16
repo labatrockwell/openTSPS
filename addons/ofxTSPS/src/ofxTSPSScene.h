@@ -30,6 +30,8 @@
  THE SOFTWARE.
  */
 
+#pragma once
+
 class ofxTSPSScene {
   public:
 

@@ -92,6 +92,14 @@ void ofxCvHaarTracker :: findHaarObjects( ofxCvGrayscaleImage &image )
 			haarItems.erase( haarItems.begin() + j );
 		}
 	}
+    
+    // update vector of current haar rects
+    haarRects.clear();
+    float x, y, w, h;
+    while(hasNextHaarItem()){
+        getHaarItemPropertiesEased( &x, &y, &w, &h );
+        haarRects.push_back( ofRectangle(x,y,w,h) );
+    }
 }
 
 
@@ -151,6 +159,14 @@ void ofxCvHaarTracker :: findHaarObjects( ofxCvGrayscaleImage &image, int width,
 			haarItems.erase( haarItems.begin() + j );
 		}
 	}
+    
+    // update vector of current haar rects
+    haarRects.clear();
+    float x, y, w, h;
+    while(hasNextHaarItem()){
+        getHaarItemPropertiesEased( &x, &y, &w, &h );
+        haarRects.push_back( ofRectangle(x,y,w,h) );
+    }
 }
 
 
@@ -209,6 +225,14 @@ void ofxCvHaarTracker :: findHaarObjects( ofxCvGrayscaleImage &image, ofRectangl
 			haarItems.erase( haarItems.begin() + j );
 		}
 	}
+    
+    // update vector of current haar rects
+    haarRects.clear();
+    float x, y, w, h;
+    while(hasNextHaarItem()){
+        getHaarItemPropertiesEased( &x, &y, &w, &h );
+        haarRects.push_back( ofRectangle(x,y,w,h) );
+    }
 };
 
 bool ofxCvHaarTracker :: hasNextHaarItem ()

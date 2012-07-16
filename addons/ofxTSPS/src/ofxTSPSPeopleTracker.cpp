@@ -21,6 +21,7 @@
 ofxTSPSPeopleTracker::ofxTSPSPeopleTracker(){
     p_Settings = NULL;
     hasMouseEvents = false;
+    tspsProcessor = NULL;
 }
 
 //---------------------------------------------------------------------------
@@ -32,44 +33,32 @@ ofxTSPSPeopleTracker::~ofxTSPSPeopleTracker(){
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
-{	
+void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile){	
+    ofxAddTSPSListeners( this );
 	ofAddListener(ofEvents().mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
 	hasMouseEvents = true;
     
 	width  = w;
 	height = h;
 	
+    grayBg.allocate(width, height);
 	grayImage.allocate(width, height);
 	colorImage.allocate(width,height);
 	grayImageWarped.allocate(width, height);
 	colorImageWarped.allocate(width,height);
-	grayBg.allocate(width, height);
-	grayDiff.allocate(width, height);
-	floatBgImg.allocate(width, height);
-	graySmallImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );	
-	grayLastImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	grayBabyImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	
-	//set up optical flow
-	opticalFlow.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	opticalFlow.setCalcStep(5,5);
-	grayLastImage = graySmallImage;
+    grayDiff.allocate( width,height );
 	
 	//set tracker
 	bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketServerEnabled = bWebSocketClientEnabled = false;
 	p_Settings = gui.getSettings();
 	
-	//gui.loadFromXML();	
-	//gui.setDraw(true);		
-	
-	//setup gui quad in manager
+	//setup gui
 	gui.setup();
 	gui.setupQuadGui( width, height );
 	gui.loadSettings( settingsfile );
+    
 	activeHeight = ofGetHeight();
 	activeWidth = ofGetWidth();
-	
 	activeViewIndex = 4;
 	
 	//setup view rectangles 
@@ -82,19 +71,19 @@ void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 	
 	updateViewRectangles();
 	
-	cameraView.setImage(colorImage);
+	cameraView.setImage(&colorImage);
 	cameraView.setTitle("Camera Source View", "Camera");
 	cameraView.setColor(218,173,90);
 	
-	adjustedView.setImage(grayImageWarped);
+	adjustedView.setImage(&grayImageWarped);
 	adjustedView.setTitle("Adjusted Camera View", "Adjusted");
 	adjustedView.setColor(174,139,138);
 	
-	bgView.setImage(grayBg);
+	bgView.setImage(&grayBg);
 	bgView.setTitle("Background Reference View", "Background");
 	bgView.setColor(213,105,68);
 		
-	processedView.setImage(grayDiff);
+	processedView.setImage(&grayDiff);
 	processedView.setTitle("Differenced View", "Differencing");
 	processedView.setColor(113,171,154);
 	
@@ -103,9 +92,79 @@ void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile)
 	
 	setActiveView(PROCESSED_VIEW);
 	
-    persistentTracker.setListener( this );
-	//updateSettings();
 	lastHaarFile = "";
+    
+    // setup default processor
+    if ( tspsProcessor == NULL ){
+        setTSPSProcessor( new ofxTSPSofxOpenCvProcessor() );
+        tspsProcessor->setup( width, height, &scene, &trackedPeople );
+    }
+}
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::setTSPSProcessor ( ofxTSPSProcessor * _processor ){
+    tspsProcessor = _processor;
+}
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::onPersonEntered( ofxTSPSEventArgs & tspsEvent ){
+    ofPoint centroid = tspsEvent.person->getCentroidNormalized(width, height);
+    
+	if(bTuioEnabled){
+		tuioClient.cursorPressed(1.0*centroid.x/width, 1.0*centroid.y/height, tspsEvent.person->oid );
+	}
+	if(bOscEnabled){
+		oscClient.personEntered(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+	}
+	if(bTcpEnabled){
+		tcpClient.personEntered(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+	}
+	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+		webSocketServer.personEntered(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+	}
+}
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::onPersonUpdated( ofxTSPSEventArgs & tspsEvent ){
+    ofPoint centroid = tspsEvent.person->getCentroidNormalized(width, height);
+    
+    if (bTuioEnabled){
+        ofPoint tuioCursor = tspsEvent.person->getCentroidNormalized(width, height);
+        tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, tspsEvent.person->oid);
+    }
+    
+    if (bOscEnabled){
+        oscClient.personUpdated(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+    }
+    
+    if (bTcpEnabled){
+        tcpClient.personUpdated(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+    }
+    
+    if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+        webSocketServer.personUpdated(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+    }
+}
+
+//---------------------------------------------------------------------------
+void ofxTSPSPeopleTracker::onPersonWillLeave( ofxTSPSEventArgs & tspsEvent ){
+    ofPoint centroid = tspsEvent.person->getCentroidNormalized(width, height);
+	if (bTuioEnabled) {
+		tuioClient.cursorReleased(centroid.x, centroid.y, tspsEvent.person->oid);	
+	}
+	//send osc kill message if enabled
+	if (bOscEnabled){
+		oscClient.personWillLeave(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+	};
+	
+	//send tcp kill message if enabled
+	if(bTcpEnabled){
+		tcpClient.personWillLeave(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+	}
+    
+	if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+		webSocketServer.personWillLeave(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+	}
 }
 
 //---------------------------------------------------------------------------
@@ -117,18 +176,8 @@ void ofxTSPSPeopleTracker::resize( int w, int h ){
 	colorImage.allocate(width,height);
 	grayImageWarped.allocate(width, height);
 	colorImageWarped.allocate(width,height);
-	grayBg.allocate(width, height);
-	grayDiff.allocate(width, height);
-	floatBgImg.allocate(width, height);
-	graySmallImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );	
-	grayLastImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	grayBabyImage.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	
-	//set up optical flow
-	opticalFlow.allocate( width*TRACKING_SCALE_FACTOR, height*TRACKING_SCALE_FACTOR );
-	opticalFlow.setCalcStep(5,5);
-	grayLastImage = graySmallImage;
     
+	grayDiff.allocate(width, height);
 	gui.setupQuadGui( width, height );
 	
 	activeViewIndex = 4;
@@ -143,15 +192,13 @@ void ofxTSPSPeopleTracker::resize( int w, int h ){
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setHaarXMLFile(string haarFile)
-{
+void ofxTSPSPeopleTracker::setHaarXMLFile(string haarFile){
 	haarFile = "haar/" + haarFile;
 	
 	//check if haar file has changed
 	if(lastHaarFile != haarFile){
 		ofLog(OF_LOG_VERBOSE, "changing haar file to " + haarFile);
-		haarFinder.setup(haarFile);
-		haarTracker.setup(&haarFinder);
+		tspsProcessor->setHaarXMLFile(haarFile);
 		lastHaarFile = haarFile;
 	}
 }
@@ -161,8 +208,7 @@ void ofxTSPSPeopleTracker::setHaarXMLFile(string haarFile)
 #pragma mark Setup Communication
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setupTuio(string ip, int port)
-{
+void ofxTSPSPeopleTracker::setupTuio(string ip, int port){
 	ofLog(OF_LOG_VERBOSE, "SEND TUIO");
 	bTuioEnabled = true;
     if (p_Settings == NULL) p_Settings = gui.getSettings();
@@ -223,41 +269,35 @@ void ofxTSPSPeopleTracker::setupWebSocketClient( string host, int port, bool bUs
     gui.setValueB("SEND_WS", p_Settings->bSendWebSocketClient);
 }
 
-
-//---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setListener(ofxPersonListener* listener)
-{
-	eventListener = listener;
-}
-
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 #pragma mark Track People
-//---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::update(ofxCvColorImage image)
-{
-	grayImage = image;
-	colorImage = image;
-	updateSettings();
-	trackPeople();
-	
-}
-
-//---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::update(ofxCvGrayscaleImage image)
-{
-	grayImage = image;
-	
-	updateSettings();
-	trackPeople();
-}
 
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::updateSettings()
 {
     if (p_Settings == NULL) p_Settings = gui.getSettings();
 	setHaarXMLFile(p_Settings->haarFile);
-
+    
+    //----------------------------------------------
+	// Processor
+	//----------------------------------------------
+    
+    // processor settings
+    //processor->setTrackContours ( true );
+    tspsProcessor->setTrackHaar ( p_Settings->bDetectHaar );
+    tspsProcessor->setTrackSkeleton ( p_Settings->bTrackSkeleton );
+    tspsProcessor->setTrackOpticalFlow( p_Settings->bTrackOpticalFlow );
+    
+    tspsProcessor->setThreshold( p_Settings->threshold );
+    tspsProcessor->setBlobSettings( p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, p_Settings->bFindHoles);
+    tspsProcessor->setOpticalflowMinMax( p_Settings->maxOpticalFlow, p_Settings->minOpticalFlow );
+    tspsProcessor->setHaarPadding( p_Settings->haarAreaPadding );
+    
+    //----------------------------------------------
+	// COMMUNICATION : Enable
+	//----------------------------------------------
+    
 	//check to enable OSC
 	if (p_Settings->bSendOsc && !bOscEnabled) setupOsc(p_Settings->oscHost, p_Settings->oscPort);
 	else if (!p_Settings->bSendOsc) bOscEnabled = false;
@@ -284,311 +324,9 @@ void ofxTSPSPeopleTracker::updateSettings()
         bWebSocketServerEnabled = false;
         webSocketServer.closeServer();
     }
-    
-	//switch camera view if new panel is selected
-	if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
-
-	// Set the current view within the gui so the image can only be warped when in Camera View
-	if (cameraView.isActive()) {
-		gui.changeGuiCameraView(true);
-	} else {
-		gui.changeGuiCameraView(false);
-	}
-}
-
-/**
- * Core Method
- * Run every frame to update
- * the system to the current location
- * of people
- */
-//---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::trackPeople()
-{	
-    if (p_Settings == NULL) p_Settings = gui.getSettings();
-    
-	//-------------------
-	//QUAD WARPING
-	//-------------------
-		
-	//warp background
-    //grayImageWarped = grayImage;
-    colorImage = grayImage;
-    colorImageWarped = colorImage;
-    //getQuadSubImage(&colorImage, &colorImageWarped, &p_Settings->quadWarpScaled, 3);
-    getQuadSubImage(&grayImage, &grayImageWarped, &p_Settings->quadWarpScaled, 1);
-    //grayImageWarped.warpIntoMe(grayImage, p_Settings->quadWarpScaled,     p_Settings->quadWarpOriginal);
-	//colorImageWarped.warpIntoMe(colorImage, p_Settings->quadWarpScaled, p_Settings->quadWarpOriginal);	
-	
-	graySmallImage.scaleIntoMe(grayImageWarped);
-	grayBabyImage.scaleIntoMe(grayImageWarped);
-	
-	grayDiff = grayImageWarped;
-	
-	//amplify (see cpuimagefilter class)
-	if(p_Settings->bAmplify){
-		grayDiff.amplify(grayDiff, p_Settings->highpassAmp/15.0f);
-	}
-	
-	grayImageWarped = grayDiff;
-	
-	//-------------------
-	//BACKGROUND
-	//-------------------
-	
-	//force learn background if there are > 5 blobs (off by default)
-	//JG Disabling this feature for now, 
-	//I think it's a great idea but it needs to be better described and "5" needs to be customizable
-//	if (p_Settings->bSmartLearnBackground == true && contourFinder.nBlobs > 5){
-//		p_Settings->bLearnBackground = true;
-	//	}
-	
-	//learn background (either in reset or additive)
-	if (p_Settings->bLearnBackground){
-		cout << "Learning Background" << endl;
-		grayBg = grayImageWarped;
-	}
-    
-    if (p_Settings->bBlankBackground){
-        grayBg -= grayBg;
-    }
-	
-	//progressive relearn background
-	if (p_Settings->bLearnBackgroundProgressive){
-		if (p_Settings->bLearnBackground) floatBgImg = grayBg;
-		floatBgImg.addWeighted( grayImageWarped, p_Settings->fLearnRate * .00001);
-		grayBg = floatBgImg;
-		//cvConvertScale( floatBgImg.getCvImage(), grayBg.getCvImage(), 255.0f/65535.0f, 0 );       
-		//grayBg.flagImageChanged();			
-	}
-	
-	//printf("track type %d from (%d,%d,%d)\n", p_Settings->trackType, TRACK_ABSOLUTE, TRACK_DARK, TRACK_LIGHT);
-	if(p_Settings->trackType == TRACK_ABSOLUTE){
-		grayDiff.absDiff(grayBg, grayImageWarped);
-	}
-	else{
-		grayDiff = grayImageWarped;
-		if(p_Settings->trackType == TRACK_LIGHT){
-			//grayDiff = grayBg - grayImageWarped;
-			cvSub(grayBg.getCvImage(), grayDiff.getCvImage(), grayDiff.getCvImage());
-		}
-		else if(p_Settings->trackType == TRACK_DARK){ 
-			cvSub(grayDiff.getCvImage(), grayBg.getCvImage(), grayDiff.getCvImage());
-			//grayDiff = grayImageWarped - grayBg;
-		}
-		grayDiff.flagImageChanged();
-	}
-	
-	//-----------------------
-	// IMAGE TREATMENT
-	//-----------------------
-	if(p_Settings->bSmooth){
-		grayDiff.blur((p_Settings->smooth * 2) + 1); //needs to be an odd number
-	}
-	
-	//highpass filter (see cpuimagefilter class)	
-	if(p_Settings->bHighpass){
-		grayDiff.highpass(p_Settings->highpassBlur, p_Settings->highpassNoise);
-	}
-	
-	//threshold	
-	grayDiff.threshold(p_Settings->threshold);
-	
-	//-----------------------
-	// TRACKING
-	//-----------------------	
-	//find the optical flow
-	if ( p_Settings->bTrackOpticalFlow ){
-		opticalFlow.calc(grayLastImage, graySmallImage, 11);
-	}
-	
-	//accumulate and store all found haar features.
-	vector<ofRectangle> haarRects;
-	if(p_Settings->bDetectHaar){
-		haarTracker.findHaarObjects( grayBabyImage );
-		float x, y, w, h;
-		while(haarTracker.hasNextHaarItem()){
-			haarTracker.getHaarItemPropertiesEased( &x, &y, &w, &h );
-			haarRects.push_back( ofRectangle(x,y,w,h) );
-		}
-	}
-	
-	char pringString[1024];
-	sprintf(pringString, "found %i haar items this frame", (int) haarRects.size());
-	ofLog(OF_LOG_VERBOSE, pringString);
-	
-	contourFinder.findContours(grayDiff, p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, 50, p_Settings->bFindHoles);
-	persistentTracker.trackBlobs(contourFinder.blobs);
-    
-	// By setting maxVector and minVector outside the following for-loop, blobs do NOT have to be detected first
-	//            before optical flow can begin working.
-	if( p_Settings->bTrackOpticalFlow ) {
-        scene.averageMotion = opticalFlow.flowInRegion(0,0,width,height);
-        scene.percentCovered = 0; 
-        opticalFlow.maxVector = p_Settings->maxOpticalFlow;
-		opticalFlow.minVector = p_Settings->minOpticalFlow;
-	}
-    	
-	for(int i = 0; i < persistentTracker.blobs.size(); i++){
-		ofxCvTrackedBlob blob = persistentTracker.blobs[i];
-		ofxTSPSPerson* p = getTrackedPerson(blob.id);
-		//somehow we are not tracking this person, safeguard (shouldn't happen)
-		if(NULL == p){
-			ofLog(OF_LOG_WARNING, "ofxPerson::warning. encountered persistent blob without a person behind them\n");
-			continue;
-		}
-		
-		scene.percentCovered += blob.area;
-		
-		//update this person with new blob info
-		p->update(blob, p_Settings->bCentroidDampen);
-
-		//normalize simple contour
-		for (int i=0; i<p->simpleContour.size(); i++){
-			p->simpleContour[i].x /= width;
-			p->simpleContour[i].y /= height;
-		}
-		
-        //find peak in blob (only useful with Kinect)
-        CvPoint minLoc, maxLoc;
-        double minVal = 0, maxVal = 0;
-        grayImageWarped.setROI( p->boundingRect );
-        cvMinMaxLoc( grayImageWarped.getCvImage(), &minVal, &maxVal, &minLoc, &maxLoc, 0);
-        
-        // set highest and lowest points: x, y, VALUE stored in .z prop
-        // ease vals unless first time you're setting them
-        if ( p->highest.x == -1 ){
-            p->highest.set(  p->boundingRect.x + maxLoc.x,  p->boundingRect.y + maxLoc.y, maxVal);
-            p->lowest.set(  p->boundingRect.x + minLoc.x,  p->boundingRect.y + minLoc.y, minVal);
-        } else {
-            p->highest.x = ( p->highest.x * .7 ) + ( p->boundingRect.x + maxLoc.x ) * .3;
-            p->highest.y = ( p->highest.y * .7 ) + ( p->boundingRect.y + maxLoc.y ) * .3;
-            p->highest.z = ( p->highest.z * .7) + ( maxVal ) * .3;
-            p->lowest.x = ( p->lowest.x * .7 ) + ( p->boundingRect.x + minLoc.x ) * .3;
-            p->lowest.y = ( p->lowest.y * .7 ) + ( p->boundingRect.y + minLoc.y ) * .3;
-            p->lowest.z = ( p->lowest.z * .7) + ( minVal ) * .3;            
-        }
-        
-        // set ROI for opticalflow and haar
-        ofRectangle roi;
-		roi.x		= fmax( (p->boundingRect.x - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
-		roi.y		= fmax( (p->boundingRect.y - p_Settings->haarAreaPadding) * TRACKING_SCALE_FACTOR, 0.0f );
-		roi.width	= fmin( (p->boundingRect.width  + p_Settings->haarAreaPadding*2) * TRACKING_SCALE_FACTOR, grayBabyImage.width - roi.x );
-		roi.height	= fmin( (p->boundingRect.height + p_Settings->haarAreaPadding*2) * TRACKING_SCALE_FACTOR, grayBabyImage.width - roi.y );	
-		
-		//sum optical flow for the person
-		if(p_Settings->bTrackOpticalFlow){
-			p->opticalFlowVectorAccumulation = opticalFlow.flowInRegion(roi);
-		}
-        
-		//detect haar patterns (faces, eyes, etc)
-		if (p_Settings->bDetectHaar){
-			bool bHaarItemSet = false;
-				
-			//find the region of interest, expanded by haarArea.
-			bool haarThisFrame = false;
-			for(int i = 0; i < haarRects.size(); i++){
-				ofRectangle hr = haarRects[i];
-				//check to see if the haar is contained within the bounding rectangle
-				if(hr.x > roi.x && hr.y > roi.y && hr.x+hr.width < roi.x+roi.width && hr.y+hr.height < roi.y+roi.height){
-					hr.x /= TRACKING_SCALE_FACTOR;
-					hr.y /= TRACKING_SCALE_FACTOR;
-					hr.width /= TRACKING_SCALE_FACTOR;
-					hr.height /= TRACKING_SCALE_FACTOR;
-					p->setHaarRect(hr);
-					haarThisFrame = true;
-					break;
-				}
-			}
-			if(!haarThisFrame){
-				p->noHaarThisFrame();
-			}
-			/*
-			 //JG 1/28/2010
-			 //This is the prper way to do the Haar, checking one person at a time.
-			 //however this discards the robustness of the haarFinder and 
-			 //makes the whole operation really spotty.  
-			 // The solution is to put more energy into finding out how 
-			 // the haar tracker works to get robust/persistent haar items over time.
-			 //for now we just check the whole screen and see if the haar is contained
-			grayBabyImage.setROI(roi.x, roi.y, roi.width, roi.height);
-			int numFound = haarFinder.findHaarObjects(grayBabyImage, roi);
-			//cout << "found " << numFound << " for this object" << endl;
-			if(numFound > 0) {
-				ofRectangle haarRect = haarFinder.blobs[0].boundingRect;
-				haarRect.x /= TRACKING_SCALE_FACTOR;
-				haarRect.y /= TRACKING_SCALE_FACTOR;
-				haarRect.width /= TRACKING_SCALE_FACTOR;
-				haarRect.height /= TRACKING_SCALE_FACTOR;
-				p->setHaarRect(haarRect);
-			}
-			else {
-				p->noHaarThisFrame();
-			}
-			 */
-		}
-		
-		if(eventListener != NULL){
-			if( p->velocity.x != 0 || p->velocity.y != 0){
-				eventListener->personMoved(p, &scene);
-			}
-			eventListener->personUpdated(p, &scene);
-		}
-	}
-	
-    // reset roi of image
-    grayImageWarped.setROI(0,0,width,height);
-    
-	//normalize it
-	scene.percentCovered /= width*height;
-	
-	//-----------------------
-	// VIEWS
-	//-----------------------	
-    
-	//store the old image
-	grayLastImage = graySmallImage;
-	
-	//update views
-	
-	cameraView.update(colorImage);
-	if (p_Settings->bAdjustedViewInColor)
-		adjustedView.update(colorImageWarped);
-	else
-		adjustedView.update(grayImageWarped);
-	bgView.update(grayBg);
-	processedView.update(grayDiff);
-        
-	//-----------------------
-	// COMMUNICATION
-	//-----------------------	
-
-    for (int i = 0; i < trackedPeople.size(); i++){
-        ofxTSPSPerson* p = trackedPeople[i];
-        ofPoint centroid = p->getCentroidNormalized(width, height);
-//			if(p_Settings->bUseHaarAsCenter && p->hasHaarRect()){
-        
-        if (bTuioEnabled){
-            ofPoint tuioCursor = p->getCentroidNormalized(width, height);
-            tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, p->oid);
-        }
-        
-        if (bOscEnabled){
-            if( p->velocity.x != 0 || p->velocity.y != 0){
-				//DEPRECATED:
-                oscClient.personMoved(p, centroid, width, height, p_Settings->bSendOscContours);
-            }
-            oscClient.personUpdated(p, centroid, width, height, p_Settings->bSendOscContours);
-        }
-        
-        if (bTcpEnabled){
-            tcpClient.personUpdated(p, centroid, width, height, p_Settings->bSendOscContours);
-        }
-        
-        if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personUpdated(p, centroid, width, height, p_Settings->bSendOscContours);
-        }
-    }
+    //----------------------------------------------
+	// COMMUNICATION : Send data
+	//----------------------------------------------	
     
 	if(bTuioEnabled){
 		tuioClient.update();		
@@ -621,20 +359,86 @@ void ofxTSPSPeopleTracker::trackPeople()
         //sent automagically
         webSocketServer.send();
     }
+    
+	//switch camera view if new panel is selected
+	if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
+
+	// Set the current view within the gui so the image can only be warped when in Camera View
+	if (cameraView.isActive()) {
+		gui.changeGuiCameraView(true);
+	} else {
+		gui.changeGuiCameraView(false);
+	}
 }
 
+/**
+ * Core Method
+ * Run every frame to update
+ * the system to the current location
+ * of people
+ */
 //---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
-#pragma mark Person Management
-//---------------------------------------------------------------------------
-ofxTSPSPerson* ofxTSPSPeopleTracker::getTrackedPerson( int pid )
-{
-    for( int i = 0; i < trackedPeople.size(); i++ ) {
-        if( trackedPeople[i]->pid == pid ) {
-            return trackedPeople[i];
-        }
+void ofxTSPSPeopleTracker::trackPeople()
+{	
+    if (p_Settings == NULL) p_Settings = gui.getSettings();
+    	
+    //-------------------------------
+    // Camera view
+    //-------------------------------
+    
+	//warp background
+    //colorImage = grayImage;
+    //colorImageWarped = colorImage;
+    getQuadSubImage(&grayImage, &grayImageWarped, &p_Settings->quadWarpScaled, 1);	
+	
+    // update scaled down images
+	grayDiff = grayImageWarped;
+	
+	//amplify
+	if(p_Settings->bAmplify){
+		grayDiff.amplify(grayDiff, p_Settings->highpassAmp/15.0f);
+	}
+	
+	grayImageWarped = grayDiff;
+	
+    //learn background
+	if (p_Settings->bLearnBackground){
+        grayBg = grayImageWarped;
+        tspsProcessor->captureBackground( grayImageWarped );
+	}
+    
+    //progressive relearn background
+	if (p_Settings->bLearnBackgroundProgressive){
+		tspsProcessor->progressiveBackground( grayImageWarped, p_Settings->fLearnRate * .00001 );
+	}
+    
+    // black out background?
+    if (p_Settings->bBlankBackground){
+        tspsProcessor->blankBackground();
     }
-	return NULL;
+    
+	//-----------------------
+	// Difference image
+	//-----------------------
+	grayDiff.setFromPixels( tspsProcessor->difference( grayImageWarped, (TSPSTrackingType) p_Settings->trackType ) );
+    
+	//-----------------------
+	// Post-difference filters
+	//-----------------------
+    
+	if(p_Settings->bSmooth){
+		grayDiff.blur((p_Settings->smooth * 2) + 1); //needs to be an odd number
+	}
+	
+	//highpass filter
+	if(p_Settings->bHighpass){
+		grayDiff.highpass(p_Settings->highpassBlur, p_Settings->highpassNoise);
+	}
+	
+	//-----------------------
+	// Track
+	//-----------------------	
+    grayDiff.setFromPixels( tspsProcessor->process( grayDiff ) );
 }
 
 //---------------------------------------------------------------------------
@@ -679,7 +483,11 @@ void ofxTSPSPeopleTracker::draw(int x, int y, int mode)
 		} else if ( activeViewIndex == DATA_VIEW ){
 			ofPushMatrix();
 				ofTranslate(activeView.x, activeView.y);
-				drawBlobs(activeView.width, activeView.height);
+                drawBlobs(activeView.width, activeView.height);
+                ofPushMatrix();{
+                    ofScale( (float) activeView.width / width , (float) activeView.height / height );
+                    tspsProcessor->draw();
+                } ofPopMatrix();
 			ofPopMatrix();
 			dataView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);
 		}
@@ -726,16 +534,10 @@ void ofxTSPSPeopleTracker::drawBlobs( float drawWidth, float drawHeight){
 	
 	ofNoFill();
 	
-	if (p_Settings->bTrackOpticalFlow){
-		ofSetColor(34,151,210);
-		opticalFlow.draw(drawWidth,drawHeight);
-	}					
-	
 	ofPushMatrix();
 	ofScale(scaleVar, scaleVar);
 	
 	// simpler way to draw contours: contourFinder.draw();
-	
 	for (int i=0; i < trackedPeople.size(); i++){
 		
 		//draw blobs				
@@ -1083,21 +885,6 @@ void ofxTSPSPeopleTracker::setHaarExpandArea(float haarExpandAmount) //makes the
 	p_Settings->haarAreaPadding = haarExpandAmount;
 }
 
-//JG 1/21/10 disabled this feature to simplify the interface
-//void ofxTSPSPeopleTracker::setMinHaarArea(float minArea)
-//{
-//	p_Settings->minHaarArea = minArea;
-//}
-//void ofxTSPSPeopleTracker::setMaxHaarArea(float maxArea)
-//{
-//	p_Settings->maxHaarArea = maxArea;
-//}
-
-//void ofxTSPSPeopleTracker::useHaarAsCentroid(bool useHaarCenter)
-//{
-//	p_Settings->bUseHaarAsCenter = useHaarCenter;
-//}
-
 //blobs
 //---------------------------------------------------------------------------
 void ofxTSPSPeopleTracker::enableFindHoles(bool findHoles)
@@ -1273,13 +1060,6 @@ void ofxTSPSPeopleTracker::setVideoFile( string file ){
 }
 
 //---------------------------------------------------------------------------
-// for accessing Optical Flow within a specific region
-ofPoint ofxTSPSPeopleTracker::getOpticalFlowInRegion(float x, float y, float w, float h) {
-	return opticalFlow.flowInRegion(x,y,w,h);
-}
-
-
-//---------------------------------------------------------------------------
 // for accessing which view is the current view
 bool ofxTSPSPeopleTracker::inCameraView() {
 	return cameraView.isActive();
@@ -1312,5 +1092,5 @@ bool ofxTSPSPeopleTracker::inAdjustedView() {
 ofxCvColorImage ofxTSPSPeopleTracker::getAdjustedImageInColor() {
     if (p_Settings == NULL) p_Settings = gui.getSettings();
 	if (p_Settings->bAdjustedViewInColor)
-		return adjustedView.getColorImage();
+		return *adjustedView.getColorImage();
 }
