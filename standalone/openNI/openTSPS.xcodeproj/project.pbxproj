@@ -61,6 +61,7 @@
 		2E7F0AD0154F00FB00DF5456 /* ofxTuioServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0A7E154F00FA00DF5456 /* ofxTuioServer.cpp */; };
 		2E7F0AD6154F00FB00DF5456 /* TuioTcpXmlServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0A9A154F00FA00DF5456 /* TuioTcpXmlServer.cpp */; };
 		A94EB0E31437A5B000B6437B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB0E21437A5B000B6437B /* ApplicationServices.framework */; };
+		A99DFE9A15B3704900A1CB9D /* ofxTSPSEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A99DFE9815B3704900A1CB9D /* ofxTSPSEvents.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -284,6 +285,9 @@
 		2ECB4D4914586B5900040AA3 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A94EB0E21437A5B000B6437B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		A97C63BA156EB05A00F0D2D3 /* openTSPSDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openTSPSDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99DFE9315B34B5F00A1CB9D /* ofxTSPSConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTSPSConstants.h; sourceTree = "<group>"; };
+		A99DFE9815B3704900A1CB9D /* ofxTSPSEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSEvents.cpp; sourceTree = "<group>"; };
+		A99DFE9915B3704900A1CB9D /* ofxTSPSEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSEvents.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -826,8 +830,10 @@
 			isa = PBXGroup;
 			children = (
 				2E7F0A54154F00F900DF5456 /* communication */,
+				A99DFE9715B3704800A1CB9D /* events */,
 				2E7F0A5D154F00F900DF5456 /* gui */,
 				2E7F0A62154F00F900DF5456 /* ofxTSPS.h */,
+				A99DFE9315B34B5F00A1CB9D /* ofxTSPSConstants.h */,
 				2E7F0A63154F00F900DF5456 /* ofxTSPSPeopleTracker.cpp */,
 				2E7F0A64154F00F900DF5456 /* ofxTSPSPeopleTracker.h */,
 				2E7F0A65154F00F900DF5456 /* ofxTSPSPerson.cpp */,
@@ -916,6 +922,15 @@
 				2E7F0A7B154F00FA00DF5456 /* TuioTime.h */,
 			);
 			path = core;
+			sourceTree = "<group>";
+		};
+		A99DFE9715B3704800A1CB9D /* events */ = {
+			isa = PBXGroup;
+			children = (
+				A99DFE9915B3704900A1CB9D /* ofxTSPSEvents.h */,
+				A99DFE9815B3704900A1CB9D /* ofxTSPSEvents.cpp */,
+			);
+			path = events;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
@@ -1548,6 +1563,7 @@
 				2E3107A715AE077700EADC1E /* ofxOscReceiver.cpp in Sources */,
 				2E3107A815AE077700EADC1E /* ofxOscSender.cpp in Sources */,
 				2E0EF4E515AF32C700DFDF61 /* ofxTSPSofxOpenCvProcessor.cpp in Sources */,
+				A99DFE9A15B3704900A1CB9D /* ofxTSPSEvents.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

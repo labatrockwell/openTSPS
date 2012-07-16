@@ -27,7 +27,7 @@
 *********************************************************/
 
 
-class tspsApp : public ofBaseApp, public ofxPersonListener {
+class tspsApp : public ofBaseApp {
 
 	public:
 		
@@ -47,10 +47,9 @@ class tspsApp : public ofBaseApp, public ofxPersonListener {
         
         // TSPS events
     
-		void personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene );
-		void personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene );
-		void personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene );
-		void personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene );
+        void onPersonEntered( ofxTSPSEventArgs & tspsEvent );
+        void onPersonUpdated( ofxTSPSEventArgs & tspsEvent );
+		void onPersonWillLeave( ofxTSPSEventArgs & tspsEvent );
 
         // ready for either live video or Kinect, will choose in the next step
         ofVideoGrabber 		vidGrabber;

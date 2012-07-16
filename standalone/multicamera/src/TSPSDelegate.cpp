@@ -23,7 +23,6 @@ TSPSDelegate::TSPSDelegate( int which, bool _bUseVideoFile ){
     
     peopleTracker.setup(camWidth, camHeight, "settings/settings"+ofToString(which)+".xml");
     peopleTracker.loadFont("fonts/times.ttf", 10);
-    peopleTracker.setListener( this );
     peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
 }
 
@@ -137,30 +136,6 @@ void TSPSDelegate::disableEvents(){
 void TSPSDelegate::enableEvents(){
     peopleTracker.enableGuiEvents();    
 };
-
-//------------------------------------------------------------------------
-void TSPSDelegate::personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene ){    
-	//do something with them
-	ofLog(OF_LOG_VERBOSE, "person %d of size %f entered!\n", newPerson->pid, newPerson->area);
-}
-
-//------------------------------------------------------------------------
-void TSPSDelegate::personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene ){
-    
-	//do something with the moving person
-	ofLog(OF_LOG_VERBOSE, "person %d of moved to (%f,%f)!\n", activePerson->pid, activePerson->boundingRect.x, activePerson->boundingRect.y);
-}
-
-//------------------------------------------------------------------------
-void TSPSDelegate::personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene ){
-	//do something to clean up
-	ofLog(OF_LOG_VERBOSE, "person %d left after being %d frames in the system\n", leavingPerson->pid, leavingPerson->age);
-}
-
-//------------------------------------------------------------------------
-void TSPSDelegate::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene ){
-	ofLog(OF_LOG_VERBOSE, "updated %d person\n", updatedPerson->pid);
-}
 
 //------------------------------------------------------------------------
 bool TSPSDelegate::initVideoFile(){    

@@ -208,7 +208,7 @@ ofPixelsRef ofxTSPSofxOpenCvProcessor::process( ofBaseImage & trackingImage ){
         args.person = p;
         args.scene  = scene;
         
-        ofNotifyEvent( ofxTSPSEvents().personUpdated, args );
+        ofNotifyEvent( ofxTSPSEvents().personUpdated, args, this );
 	}
 	
     // reset roi of image
@@ -299,7 +299,7 @@ void ofxTSPSofxOpenCvProcessor::blobOn( int x, int y, int id, int order )
     
 	trackedPeople->push_back( newPerson );
     
-    ofNotifyEvent( ofxTSPSEvents().personEntered, args );
+    ofNotifyEvent( ofxTSPSEvents().personEntered, args, this );
 }
 
 //---------------------------------------------------------------------------
@@ -327,7 +327,7 @@ void ofxTSPSofxOpenCvProcessor::blobOff( int x, int y, int id, int order )
     ofxTSPSEventArgs args;
     args.person = p;
     args.scene  = scene;
-    ofNotifyEvent( ofxTSPSEvents().personWillLeave, args );
+    ofNotifyEvent( ofxTSPSEvents().personWillLeave, args, this );
 	
     // delete pointer
     delete p;

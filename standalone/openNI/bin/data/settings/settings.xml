@@ -22,7 +22,7 @@
     <val_0>138.889</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>164.333</val_0>
+    <val_0>96.3333</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
     <val_0>0</val_0>
@@ -34,19 +34,19 @@
     <val_0>101.606</val_0>
 </HIGHPASS_BLUR>
 <HIGHPASS_NOISE>
-    <val_0>15.8222</val_0>
+    <val_0>15.0167</val_0>
 </HIGHPASS_NOISE>
 <USE_SMOOTHING>
-    <val_0>0</val_0>
+    <val_0>1</val_0>
 </USE_SMOOTHING>
 <SMOOTH_AMOUNT>
-    <val_0>6.91667</val_0>
+    <val_0>11</val_0>
 </SMOOTH_AMOUNT>
 <MIN_BLOB>
     <val_0>1.121</val_0>
 </MIN_BLOB>
 <MAX_BLOB>
-    <val_0>78.355</val_0>
+    <val_0>100</val_0>
 </MAX_BLOB>
 <FIND_HOLES>
     <val_0>1</val_0>
@@ -58,10 +58,10 @@
     <val_0>0</val_0>
 </SENSE_OPTICAL_FLOW>
 <MIN_OPTICAL_FLOW>
-    <val_0>5</val_0>
+    <val_0>1.55556</val_0>
 </MIN_OPTICAL_FLOW>
 <MAX_OPTICAL_FLOW>
-    <val_0>106.833</val_0>
+    <val_0>200</val_0>
 </MAX_OPTICAL_FLOW>
 <SENSE_HAAR>
     <val_0>0</val_0>
@@ -103,7 +103,7 @@
     <val_0>7681</val_0>
 </WS_PORT>
 <USE_KINECT>
-    <val_0>1</val_0>
+    <val_0>0</val_0>
 </USE_KINECT>
 <LEGACY_OSC>
     <val_0>0</val_0>

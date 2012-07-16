@@ -26,7 +26,7 @@ void tspsApp::setup(){
 	
 	peopleTracker.setup(camWidth, camHeight);
 	peopleTracker.loadFont("fonts/times.ttf", 10);
-	peopleTracker.setListener( this );
+    ofxAddTSPSListeners(this);
     
     bKinect         = false;
     cameraState     = CAMERA_NOT_INITED;
@@ -132,37 +132,24 @@ void tspsApp::update(){
 	}
 }
 
+//--------------------------------------------------------------
 //delegate methods for people entering and exiting
-void tspsApp::personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene )
-{
-	newPerson->customAttributes = new TSPSPersonAttributes();
-
+void tspsApp::onPersonEntered( ofxTSPSEventArgs & tspsEvent ){
 	//do something with them
-	ofLog(OF_LOG_VERBOSE, "person %d of size %f entered!\n", newPerson->pid, newPerson->area);
+	ofLog(OF_LOG_VERBOSE, "person %d of size %f entered!\n", tspsEvent.person->pid, tspsEvent.person->area);
 	drawStatus[0] = 10;
 }
 
-void tspsApp::personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene )
-{
-
-	//do something with the moving person
-	ofLog(OF_LOG_VERBOSE, "person %d of moved to (%f,%f)!\n", activePerson->pid, activePerson->boundingRect.x, activePerson->boundingRect.y);
-	drawStatus[1] = 10;
-}
-
-void tspsApp::personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene )
-{
+//--------------------------------------------------------------
+void tspsApp::onPersonWillLeave( ofxTSPSEventArgs & tspsEvent ){
 	//do something to clean up
-	ofLog(OF_LOG_VERBOSE, "person %d left after being %d frames in the system\n", leavingPerson->pid, leavingPerson->age);
+	ofLog(OF_LOG_VERBOSE, "person %d left after being %d frames in the system\n", tspsEvent.person->pid, tspsEvent.person->age);
 	drawStatus[2] = 10;
 }
 
-void tspsApp::personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene )
-{
-	TSPSPersonAttributes* attrbs = (TSPSPersonAttributes*)updatedPerson->customAttributes;
-	attrbs->hasBeard = true;
-
-	ofLog(OF_LOG_VERBOSE, "updated %d person\n", updatedPerson->pid);
+//--------------------------------------------------------------
+void tspsApp::onPersonUpdated( ofxTSPSEventArgs & tspsEvent ){
+	ofLog(OF_LOG_VERBOSE, "updated %d person\n", tspsEvent.person->pid);
 	drawStatus[1] = 10;
 }
 

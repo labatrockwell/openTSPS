@@ -22,7 +22,7 @@ enum {
 };
 
 
-class TSPSDelegate : public ofxPersonListener{
+class TSPSDelegate{
 public:
     // setup which delegate + optionally force using a file instead of live input
     TSPSDelegate( int which = 0, bool bUseVideoFile = false );
@@ -48,12 +48,7 @@ public:
     ofxCvGrayscaleImage	grayImg;	
     
 protected:
-	ofxTSPSPeopleTracker peopleTracker;    
-    
-    void personEntered( ofxTSPSPerson* newPerson, ofxTSPSScene* scene );
-    void personMoved( ofxTSPSPerson* activePerson, ofxTSPSScene* scene );
-    void personWillLeave( ofxTSPSPerson* leavingPerson, ofxTSPSScene* scene );
-    void personUpdated( ofxTSPSPerson* updatedPerson, ofxTSPSScene* scene );
+	ofxTSPSPeopleTracker peopleTracker;
     
     int cameraState;
     
