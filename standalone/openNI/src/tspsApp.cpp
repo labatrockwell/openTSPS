@@ -19,44 +19,15 @@ void tspsApp::setup(){
 	
 	camWidth = 640;
 	camHeight = 480;
-
-    // allocate images + setup people tracker
-	colorImg.allocate(camWidth, camHeight);
-    grayImg.allocate(camWidth, camHeight);
-	
+    niPixels.allocate(camWidth, camHeight, 1);
+    grayImg.allocate( camWidth, camHeight );
+    
+    peopleTracker.setProcessor( new ofxTSPSopenNIProcessor() );
 	peopleTracker.setup(camWidth, camHeight);
 	peopleTracker.loadFont("fonts/times.ttf", 10);
     
     ofxAddTSPSListeners(this);
     
-    bKinect         = false;
-    cameraState     = CAMERA_NOT_INITED;
-    
-    // are there any kinects out there?
-    kinect.init();
-    bKinectConnected = (kinect.numAvailableDevices() >= 1);
-    
-    // are we loading from a video file?
-    if ( peopleTracker.useVideoFile() || bUseVideoFile ){
-        if ( bUseVideoFile && !peopleTracker.useVideoFile()){
-            peopleTracker.setUseVideoFile();            
-        } else if ( !bUseVideoFile && peopleTracker.useVideoFile() ){
-            bUseVideoFile = peopleTracker.useVideoFile();
-        }
-        
-        initVideoFile();
-    } else {
-        // no kinects connected, let's just try to set up the device
-        if (kinect.numAvailableDevices() < 1 || !peopleTracker.useKinect()){
-            kinect.clear();        
-            bKinect = false;
-            initVideoInput();
-        } else {
-            bKinect = true;
-            initVideoInput();
-        }
-    }    
-
 	peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
 
 	//load GUI / interface images
@@ -75,61 +46,21 @@ void tspsApp::setup(){
 
 //--------------------------------------------------------------
 void tspsApp::update(){
-    if (peopleTracker.useKinect() && !bKinect){
-        bKinect = true;
-        initVideoInput();
-    } else if (!peopleTracker.useKinect() && bKinect){
-        bKinect = false;
-        initVideoInput();
-    } else if ( ( peopleTracker.useVideoFile() && !bUseVideoFile ) || ( peopleTracker.useVideoFile() && videoFile != peopleTracker.getVideoFile()) ){
-        closeVideoInput();
-        bUseVideoFile = initVideoFile();
-    } else if ( !peopleTracker.useVideoFile() && bUseVideoFile){
-        bUseVideoFile = false;
-        cameraState = CAMERA_NOT_INITED;
-        initVideoInput();        
+    ofPixelsRef pix  = ((ofxTSPSopenNIProcessor* )peopleTracker.getProcessor())->getOpenNI()->getDepthPixels();
+    
+    // for some reason depth pixels are rgba?
+    for ( int i=0; i<pix.getWidth() * pix.getHeight() * pix.getNumChannels(); i+= pix.getNumChannels()){
+        niPixels[i / 4] = pix[i];
     }
+    grayImg.setFromPixels(niPixels);
+    peopleTracker.update( grayImg );
     
-    bool bNewFrame = false;
     
-    if ( cameraState != CAMERA_NOT_INITED){
-        if ( cameraState == CAMERA_KINECT ){
-            kinect.update();
-            bNewFrame = true;//kinect.isFrameNew();
-        } else if ( cameraState == CAMERA_VIDEOGRABBER ){
-            vidGrabber.grabFrame();
-            bNewFrame = vidGrabber.isFrameNew();
-        } else if ( cameraState == CAMERA_VIDEOFILE ){
-            vidPlayer.idleMovie();
-            bNewFrame = true; //vidPlayer.isFrameNew();
-        }
+    // iterate through the people
+    for(int i = 0; i < peopleTracker.totalPeople(); i++){
+        ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
+        //p->depth = p->highest.z / 255.0f;
     }
-    
-	if (bNewFrame){
-        if ( cameraState == CAMERA_KINECT ){   
-			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
-			colorImg = grayImg;
-            peopleTracker.update(grayImg);
-        } else if ( cameraState == CAMERA_VIDEOGRABBER ){
-            colorImg.setFromPixels(vidGrabber.getPixels(), camWidth,camHeight);
-            peopleTracker.update(colorImg);
-        } else if ( cameraState == CAMERA_VIDEOFILE ){     
-            colorImg.setFromPixels(vidPlayer.getPixels(), camWidth, camHeight);
-            peopleTracker.update(colorImg);
-        }
-        
-		// iterate through the people
-		for(int i = 0; i < peopleTracker.totalPeople(); i++){
-			ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
-            if (cameraState == CAMERA_KINECT){
-                // distance is in mm, with the max val being 10 m
-                // scale it by max to get it in a 0-1 range
-                p->depth = (kinect.getDistanceAt( p->highest )/10000.0);
-            } else {
-                p->depth = p->highest.z / 255.0f;
-            }
-		}
-	}
 }
 
 //--------------------------------------------------------------
@@ -189,13 +120,6 @@ void tspsApp::draw(){
 
 //--------------------------------------------------------------
 void tspsApp::exit(){
-    if ( cameraState == CAMERA_KINECT){  
-        cameraState = CAMERA_NOT_INITED;
-        kinect.close();
-    } else if ( cameraState == CAMERA_VIDEOGRABBER ){ 
-        cameraState = CAMERA_NOT_INITED;
-        vidGrabber.close();
-    }
 }
 
 //--------------------------------------------------------------
@@ -209,104 +133,6 @@ void tspsApp::keyPressed  (int key){
 			ofToggleFullscreen();
 		} break;
 	}
-}
-
-//--------------------------------------------------------------
-bool tspsApp::initVideoInput(){
-    if ( bKinect && cameraState != CAMERA_KINECT ){
-        kinect.init();
-        bKinectConnected = (kinect.numAvailableDevices() >= 1);
-        if (!bKinectConnected){
-            bKinect = false;
-            peopleTracker.setUseKinect(false);
-            return false;
-        }
-        
-        if ( cameraState == CAMERA_VIDEOGRABBER ){
-            vidGrabber.close();
-            cameraState = CAMERA_NOT_INITED;
-        } else if ( cameraState == CAMERA_VIDEOFILE ){
-            vidPlayer.stop();
-            vidPlayer.closeMovie();
-            vidPlayer.close();
-        }
-        
-        if ( cameraState != CAMERA_KINECT){            
-            kinect.init();
-            kinect.setVerbose(true);
-            bool bOpened = kinect.open();
-            if (bOpened){
-                cameraState = CAMERA_KINECT;
-                //set this so we can access video settings through the interface
-                peopleTracker.setVideoGrabber(&kinect, TSPS_INPUT_KINECT);
-                return true;
-            } else {
-                peopleTracker.setUseKinect(false);
-                return false;
-            }
-        }        
-    } else {      
-        if ( cameraState != CAMERA_VIDEOGRABBER ){  
-            
-            if ( cameraState == CAMERA_KINECT ){
-                kinect.close();
-                kinect.clear();
-                cameraState = CAMERA_NOT_INITED;
-            } else if (cameraState == CAMERA_VIDEOFILE ){   
-                vidPlayer.stop();
-                vidPlayer.closeMovie();   
-                vidPlayer.close();             
-            }
-            
-            vidGrabber.setVerbose(false);
-            //vidGrabber.videoSettings();
-            bool bAvailable = vidGrabber.initGrabber(camWidth,camHeight);
-            if (bAvailable){ 
-                cameraState = CAMERA_VIDEOGRABBER;
-                //set this so we can access video settings through the interface
-                peopleTracker.setVideoGrabber(&vidGrabber, TSPS_INPUT_VIDEO);
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }    
-}
-
-//--------------------------------------------------------------
-void tspsApp::closeVideoInput(){
-    if ( cameraState == CAMERA_KINECT ){
-        kinect.close();
-        kinect.clear();
-        cameraState = CAMERA_NOT_INITED;
-    } else if ( cameraState == CAMERA_VIDEOGRABBER ){
-        vidGrabber.close();
-        cameraState = CAMERA_NOT_INITED;
-    }
-}
-
-//------------------------------------------------------------------------
-bool tspsApp::initVideoFile(){    
-    videoFile = peopleTracker.getVideoFile();
-    vidPlayer = ofVideoPlayer();
-    bool loaded = vidPlayer.loadMovie( videoFile );
-    
-    if ( loaded ){
-        vidPlayer.play();
-        if ( camWidth != vidPlayer.width || camHeight != vidPlayer.height ){            
-            camWidth    = vidPlayer.width;
-            camHeight   = vidPlayer.height;
-            peopleTracker.resize( camWidth, camHeight );
-        }
-        
-        // reallocate
-        colorImg.resize(camWidth, camHeight);
-        grayImg.resize(camWidth, camHeight);
-        
-        cameraState = CAMERA_VIDEOFILE;        
-    }
-    
-    return loaded;
 }
 
 //--------------------------------------------------------------

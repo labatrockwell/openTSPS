@@ -96,13 +96,13 @@ void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile){
     
     // setup default processor
     if ( tspsProcessor == NULL ){
-        setTSPSProcessor( new ofxTSPSofxOpenCvProcessor() );
-        tspsProcessor->setup( width, height, &scene, &trackedPeople );
+        setProcessor( new ofxTSPSofxOpenCvProcessor() );
     }
+    tspsProcessor->setup( width, height, &scene, &trackedPeople );
 }
 
 //---------------------------------------------------------------------------
-void ofxTSPSPeopleTracker::setTSPSProcessor ( ofxTSPSProcessor * _processor ){
+void ofxTSPSPeopleTracker::setProcessor ( ofxTSPSProcessor * _processor ){
     tspsProcessor = _processor;
 }
 

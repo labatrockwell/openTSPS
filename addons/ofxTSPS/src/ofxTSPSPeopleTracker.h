@@ -61,6 +61,7 @@
 // TSPS Processors
 #include "ofxTSPSProcessor.h"
 #include "ofxTSPSofxOpenCvProcessor.h"
+#include "ofxTSPSopenNIProcessor.h"
 
 //processing
 #include "ofxTSPSofxOpenCvProcessor.h"
@@ -98,7 +99,8 @@ class ofxTSPSPeopleTracker {
 		void mousePressed(ofMouseEventArgs &e);	
     
         // processor
-        void setTSPSProcessor ( ofxTSPSProcessor * _processor );
+        void setProcessor ( ofxTSPSProcessor * _processor );
+        ofxTSPSProcessor * getProcessor(){ return tspsProcessor; };
     
         // events called from processor
         void onPersonEntered( ofxTSPSEventArgs & tspsEvent );
