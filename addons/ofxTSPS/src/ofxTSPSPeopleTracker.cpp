@@ -71,7 +71,7 @@ void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile){
 	
 	updateViewRectangles();
 	
-	cameraView.setImage(&colorImage);
+	cameraView.setImage(&grayImage);
 	cameraView.setTitle("Camera Source View", "Camera");
 	cameraView.setColor(218,173,90);
 	
