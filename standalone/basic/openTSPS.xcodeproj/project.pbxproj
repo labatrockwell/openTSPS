@@ -18,6 +18,8 @@
 		2E3107A615AE077700EADC1E /* ofxOscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E31079F15AE077700EADC1E /* ofxOscMessage.cpp */; };
 		2E3107A715AE077700EADC1E /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E3107A115AE077700EADC1E /* ofxOscReceiver.cpp */; };
 		2E3107A815AE077700EADC1E /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E3107A315AE077700EADC1E /* ofxOscSender.cpp */; };
+		2E427CD315B631060005C102 /* ofxTSPSopenCvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E427CCD15B631060005C102 /* ofxTSPSopenCvPerson.cpp */; };
+		2E427CD515B631060005C102 /* ofxTSPSPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E427CD115B631060005C102 /* ofxTSPSPerson.cpp */; };
 		2E7F0A9C154F00FA00DF5456 /* ofxCvHaarTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0946154F00F800DF5456 /* ofxCvHaarTracker.cpp */; };
 		2E7F0A9D154F00FA00DF5456 /* ofxCvHaarTrackerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0948154F00F800DF5456 /* ofxCvHaarTrackerItem.cpp */; };
 		2E7F0A9E154F00FA00DF5456 /* ofxLABCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F094A154F00F800DF5456 /* ofxLABCvHaarFinder.cpp */; };
@@ -58,7 +60,6 @@
 		A97CCAF715B3B859004A0095 /* ofxTSPSGuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCADE15B3B858004A0095 /* ofxTSPSGuiManager.cpp */; };
 		A97CCAF815B3B859004A0095 /* ofxTSPSSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCAE015B3B858004A0095 /* ofxTSPSSettings.cpp */; };
 		A97CCAF915B3B859004A0095 /* ofxTSPSPeopleTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCAE415B3B858004A0095 /* ofxTSPSPeopleTracker.cpp */; };
-		A97CCAFA15B3B859004A0095 /* ofxTSPSPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCAE615B3B858004A0095 /* ofxTSPSPerson.cpp */; };
 		A97CCAFB15B3B859004A0095 /* ofxTSPSScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCAE815B3B858004A0095 /* ofxTSPSScene.cpp */; };
 		A97CCAFC15B3B859004A0095 /* ofxTSPSofxOpenCvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCAEB15B3B858004A0095 /* ofxTSPSofxOpenCvProcessor.cpp */; };
 		A97CCAFD15B3B859004A0095 /* ofxTSPSUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCAEF15B3B858004A0095 /* ofxTSPSUtils.cpp */; };
@@ -157,6 +158,10 @@
 		2E3107A215AE077700EADC1E /* ofxOscReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOscReceiver.h; sourceTree = "<group>"; };
 		2E3107A315AE077700EADC1E /* ofxOscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOscSender.cpp; sourceTree = "<group>"; };
 		2E3107A415AE077700EADC1E /* ofxOscSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOscSender.h; sourceTree = "<group>"; };
+		2E427CCD15B631060005C102 /* ofxTSPSopenCvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSopenCvPerson.cpp; sourceTree = "<group>"; };
+		2E427CCE15B631060005C102 /* ofxTSPSopenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSopenCvPerson.h; sourceTree = "<group>"; };
+		2E427CD115B631060005C102 /* ofxTSPSPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPerson.cpp; sourceTree = "<group>"; };
+		2E427CD215B631060005C102 /* ofxTSPSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPerson.h; sourceTree = "<group>"; };
 		2E7F0946154F00F800DF5456 /* ofxCvHaarTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvHaarTracker.cpp; sourceTree = "<group>"; };
 		2E7F0947154F00F800DF5456 /* ofxCvHaarTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvHaarTracker.h; sourceTree = "<group>"; };
 		2E7F0948154F00F800DF5456 /* ofxCvHaarTrackerItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvHaarTrackerItem.cpp; sourceTree = "<group>"; };
@@ -279,8 +284,6 @@
 		A97CCAE315B3B858004A0095 /* ofxTSPSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSConstants.h; sourceTree = "<group>"; };
 		A97CCAE415B3B858004A0095 /* ofxTSPSPeopleTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPeopleTracker.cpp; sourceTree = "<group>"; };
 		A97CCAE515B3B858004A0095 /* ofxTSPSPeopleTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPeopleTracker.h; sourceTree = "<group>"; };
-		A97CCAE615B3B858004A0095 /* ofxTSPSPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPerson.cpp; sourceTree = "<group>"; };
-		A97CCAE715B3B858004A0095 /* ofxTSPSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPerson.h; sourceTree = "<group>"; };
 		A97CCAE815B3B858004A0095 /* ofxTSPSScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSScene.cpp; sourceTree = "<group>"; };
 		A97CCAE915B3B858004A0095 /* ofxTSPSScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSScene.h; sourceTree = "<group>"; };
 		A97CCAEB15B3B858004A0095 /* ofxTSPSofxOpenCvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSofxOpenCvProcessor.cpp; sourceTree = "<group>"; };
@@ -492,6 +495,17 @@
 				2E31079115AE076C00EADC1E /* OscTypes.h */,
 			);
 			path = osc;
+			sourceTree = "<group>";
+		};
+		2E427CCC15B631060005C102 /* person */ = {
+			isa = PBXGroup;
+			children = (
+				2E427CCD15B631060005C102 /* ofxTSPSopenCvPerson.cpp */,
+				2E427CCE15B631060005C102 /* ofxTSPSopenCvPerson.h */,
+				2E427CD115B631060005C102 /* ofxTSPSPerson.cpp */,
+				2E427CD215B631060005C102 /* ofxTSPSPerson.h */,
+			);
+			path = person;
 			sourceTree = "<group>";
 		};
 		2E7F0944154F00F800DF5456 /* ofxCvHaarTracker */ = {
@@ -870,10 +884,9 @@
 				A97CCAE315B3B858004A0095 /* ofxTSPSConstants.h */,
 				A97CCAE415B3B858004A0095 /* ofxTSPSPeopleTracker.cpp */,
 				A97CCAE515B3B858004A0095 /* ofxTSPSPeopleTracker.h */,
-				A97CCAE615B3B858004A0095 /* ofxTSPSPerson.cpp */,
-				A97CCAE715B3B858004A0095 /* ofxTSPSPerson.h */,
 				A97CCAE815B3B858004A0095 /* ofxTSPSScene.cpp */,
 				A97CCAE915B3B858004A0095 /* ofxTSPSScene.h */,
+				2E427CCC15B631060005C102 /* person */,
 				A97CCAEA15B3B858004A0095 /* tracking */,
 				A97CCAEE15B3B858004A0095 /* utils */,
 			);
@@ -1562,10 +1575,11 @@
 				A97CCAF715B3B859004A0095 /* ofxTSPSGuiManager.cpp in Sources */,
 				A97CCAF815B3B859004A0095 /* ofxTSPSSettings.cpp in Sources */,
 				A97CCAF915B3B859004A0095 /* ofxTSPSPeopleTracker.cpp in Sources */,
-				A97CCAFA15B3B859004A0095 /* ofxTSPSPerson.cpp in Sources */,
 				A97CCAFB15B3B859004A0095 /* ofxTSPSScene.cpp in Sources */,
 				A97CCAFC15B3B859004A0095 /* ofxTSPSofxOpenCvProcessor.cpp in Sources */,
 				A97CCAFD15B3B859004A0095 /* ofxTSPSUtils.cpp in Sources */,
+				2E427CD315B631060005C102 /* ofxTSPSopenCvPerson.cpp in Sources */,
+				2E427CD515B631060005C102 /* ofxTSPSPerson.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

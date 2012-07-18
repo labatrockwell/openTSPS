@@ -8,6 +8,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxTSPSopenNIPerson.h"
 #include "ofxTSPSProcessor.h"
 #include "ofxOpenNI.h"
 
@@ -17,7 +18,6 @@ public:
     ofxTSPSopenNIProcessor();
     ~ofxTSPSopenNIProcessor();
     
-    void setup( int width, int height, ofxTSPSScene * scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor=.5 );
     void draw();
     
     // step 0: set camera image
@@ -42,7 +42,11 @@ public:
     ofxOpenNI * getOpenNI(){ return &openNIDevice; };
     
 protected:
+    void setupProcessor();
     
     ofPixels    grayPixels;
     ofxOpenNI   openNIDevice;
+    
+    // openNI events
+    void onUserEvent( ofxOpenNIUserEvent & event );
 };

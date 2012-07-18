@@ -10,21 +10,21 @@
 
 #define MAX_HAAR_GHOSTFRAMES 15 //how long before we say it's really gone
 
-ofxTSPSPerson::ofxTSPSPerson(int pid, int oid, ofxCvBlob blob)
+ofxTSPSPerson::ofxTSPSPerson(int pid, int oid )
 : pid(pid),
   oid(oid),
   age(0),
   hasHaar(false),
   haarRect(ofRectangle(0,0,0,0)),
   opticalFlowVectorAccumulation(ofPoint(0,0)),
-  centroid(blob.centroid),
+  centroid(0,0),
   framesWithoutHaar(0),
   customAttributes(NULL),
   depth(0),
   highest(-1,1),
   lowest(-1,-1)
 {
-	update(blob, false);
+	update();
 }
 
 ofxTSPSPerson::~ofxTSPSPerson()
@@ -34,39 +34,116 @@ ofxTSPSPerson::~ofxTSPSPerson()
 	}
 }
 
-void ofxTSPSPerson::update(ofxCvBlob blob, bool dampen)
-{
-	if(dampen){
-		centroid = (centroid * .7) + (blob.centroid * .3);
+void ofxTSPSPerson::update(){
+	age++;
+}
+
+void ofxTSPSPerson::updateBoundingRect(ofRectangle rect ){
+    boundingRect.set(rect);
+    area = boundingRect.width * boundingRect.height;
+}
+
+void ofxTSPSPerson::updateCentroid( ofPoint _centroid, bool dampen ){
+    if(dampen){
+		centroid = (centroid * .7) + (_centroid * .3);
 	}
 	else{
-		centroid = blob.centroid;
+		centroid = _centroid;
 	}
 	
-	velocity	 = blob.centroid - centroid;
-	area		 = blob.area;
-	boundingRect = blob.boundingRect;
-	contour		 = blob.pts; 
-    simpleContour = contour;
+	velocity	 = _centroid - centroid;
+}
+
+void ofxTSPSPerson::draw( int cameraWidth, int cameraHeight, bool bSendContours, bool bSendHaar, float haarPadding ){
+    //draw contours 
+    ofPushStyle();
+    ofNoFill();
+    if (bSendContours){
+        ofSetHexColor(0x3abb93);
+    } else {
+        ofSetHexColor(0xc4b68e);
+    }
+    ofBeginShape();
+    for( int j=0; j<contour.size(); j++ ) {
+        ofVertex( contour[j].x, contour[j].y );
+    }
+    ofEndShape();
+    ofPopStyle();
+    
+    // draw haar    
+    ofSetHexColor(0xffffff);							
+    if(bSendHaar){
+        ofSetHexColor(0xee3523);
+        //draw haar search area expanded 
+        //limit to within data box so it's not confusing				
+        ofRectangle haarRect = ofRectangle(boundingRect.x - haarPadding, 
+                                           boundingRect.y - haarPadding, 
+                                           boundingRect.width  + haarPadding*2, 
+                                           boundingRect.height + haarPadding*2);
+        if (haarRect.x < 0){
+            haarRect.width += haarRect.x;
+            haarRect.x = 0;					
+        }
+        if (haarRect.y < 0){
+            haarRect.height += haarRect.y;	
+            haarRect.y = 0;
+        }
+        if (haarRect.x + haarRect.width > cameraWidth) haarRect.width = cameraWidth-haarRect.x;
+        if (haarRect.y + haarRect.height > cameraHeight) haarRect.height = cameraHeight-haarRect.y;
+        ofRect(haarRect.x, haarRect.y, haarRect.width, haarRect.height);
+        
+        if(hasHaarRect()){
+            //draw the haar rect
+            ofSetHexColor(0xee3523);
+            ofRect(getHaarRect().x, getHaarRect().y, getHaarRect().width, getHaarRect().height);
+            //haar-detected people get a red square
+            ofSetHexColor(0xfd5f4f);
+        } else {
+            //no haar gets a yellow square
+            ofSetHexColor(0xeeda00);
+        }
+    } else {
+        //no haar gets a yellow square
+        ofSetHexColor(0xeeda00);
+    }
+    
+    //draw person
+    ofRect(boundingRect.x, boundingRect.y, boundingRect.width, boundingRect.height);
+    
+    // draw highest point
+    ofSetHexColor(0xff00ff);	
+    ofCircle(highest.x, highest.y, 4);
+    
+    //draw centroid
+    ofSetHexColor(0xff0000);
+    ofCircle(centroid.x, centroid.y, 3);
+    
+    //draw id
+    ofSetHexColor(0xffffff);
+    char idstr[1024];
+    sprintf(idstr, "pid: %d\noid: %d\nage: %d", pid, oid, age );
+    ofDrawBitmapString(idstr, centroid.x+8, centroid.y);
+}
+
+void ofxTSPSPerson::updateContour(ofPolyline _contour){
+	contour		 = _contour; 
+    
+    simpleContour = contour;    
     simpleContour.simplify(2.0f);
     float simplifyAmount = 2.5f;
     while (simpleContour.size() > 100){
         simpleContour.simplify(simplifyAmount);
         simplifyAmount += .5f;
     }
-	age++;
 }
 
-
-void ofxTSPSPerson::setHaarRect(ofRectangle _haarRect)
-{
+void ofxTSPSPerson::setHaarRect(ofRectangle _haarRect){
 	haarRect = _haarRect;
 	hasHaar = true;
 	framesWithoutHaar = 0;
 }
 
-ofRectangle ofxTSPSPerson::getHaarRect()
-{
+ofRectangle ofxTSPSPerson::getHaarRect(){
 	if(!hasHaar){
 		printf("ofxTSPSPerson: accessing Haar rect without Haar!\n");
 		return ofRectangle(0,0,0,0);

@@ -30,14 +30,7 @@ ofxTSPSofxOpenCvProcessor::ofxTSPSofxOpenCvProcessor(){
 }
 
 //--------------------------------------------------------------
-void ofxTSPSofxOpenCvProcessor::setup( int width, int height, ofxTSPSScene * _scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor ){
-    // core objects
-    tspsWidth   = width;
-    tspsHeight  = height;
-    scene       = _scene;
-    trackedPeople = peopleVector;
-    trackingScale = trackingScaleFactor;
-    
+void ofxTSPSofxOpenCvProcessor::setupProcessor(){    
     //allocate images
     resize( tspsWidth, tspsHeight );
     
@@ -122,7 +115,7 @@ ofPixelsRef ofxTSPSofxOpenCvProcessor::process( ofBaseImage & trackingImage ){
     
 	for(int i = 0; i < persistentTracker.blobs.size(); i++){
 		ofxCvTrackedBlob blob = persistentTracker.blobs[i];
-		ofxTSPSPerson* p = getTrackedPerson(blob.id);
+		ofxTSPSopenCvPerson* p = (ofxTSPSopenCvPerson*) getTrackedPerson(blob.id);
 		//somehow we are not tracking this person, safeguard (shouldn't happen)
 		if(NULL == p){
 			ofLog(OF_LOG_WARNING, "ofxPerson::warning. encountered persistent blob without a person behind them\n");
@@ -291,7 +284,7 @@ void ofxTSPSofxOpenCvProcessor::setHaarPadding( float padding ){
 void ofxTSPSofxOpenCvProcessor::blobOn( int x, int y, int id, int order )
 {
 	ofxCvTrackedBlob blob = persistentTracker.getById( id );
-	ofxTSPSPerson* newPerson = new ofxTSPSPerson(id, order, blob);
+	ofxTSPSopenCvPerson* newPerson = new ofxTSPSopenCvPerson(id, order, blob);
 	
     ofxTSPSEventArgs args;
     args.person = newPerson;
@@ -308,7 +301,7 @@ void ofxTSPSofxOpenCvProcessor::blobMoved( int x, int y, int id, int order ){/*n
 //---------------------------------------------------------------------------
 void ofxTSPSofxOpenCvProcessor::blobOff( int x, int y, int id, int order )
 {
-	ofxTSPSPerson* p = getTrackedPerson(id);
+	ofxTSPSopenCvPerson* p = (ofxTSPSopenCvPerson*) getTrackedPerson(id);
 	//ensure we are tracking
 	if(NULL == p){
 		ofLog(OF_LOG_WARNING, "ofxPerson::warning. encountered persistent blob " + ofToString( id ) +" without a person behind them\n");		
@@ -331,15 +324,4 @@ void ofxTSPSofxOpenCvProcessor::blobOff( int x, int y, int id, int order )
 	
     // delete pointer
     delete p;
-}
-
-//---------------------------------------------------------------------------
-ofxTSPSPerson* ofxTSPSofxOpenCvProcessor::getTrackedPerson( int pid )
-{
-    for( int i = 0; i < trackedPeople->size(); i++ ) {
-        if( (*trackedPeople)[i]->pid == pid ) {
-            return (*trackedPeople)[i];
-        }
-    }
-	return NULL;
 }

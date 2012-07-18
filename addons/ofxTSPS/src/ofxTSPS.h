@@ -6,7 +6,7 @@
 * in Openframeworks (http://www.openframeworks.cc) for use in design, prototyping,
 * and installed systems.
 *
-* A collaboration started by LAB at Rockwell Group (http://lab.rockwellgroup.com )
+* A collaboration started by LAB at Rockwell Group (http://www.rockwellgroup.com/lab )
 * and the LABS at IDEO (http://labs.ideo.com). Join Us!
 *
 * This started as an initiative between Dave Vondle and Joshua Walton with many of

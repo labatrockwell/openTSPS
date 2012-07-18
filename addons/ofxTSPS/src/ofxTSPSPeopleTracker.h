@@ -29,7 +29,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  
- * Web: http://code.google.com/p/peoplevision/
+ * Web: http://github.com/labatrockwell/openTSPS
  *
  * (...)
  *
@@ -61,7 +61,7 @@
 // TSPS Processors
 #include "ofxTSPSProcessor.h"
 #include "ofxTSPSofxOpenCvProcessor.h"
-#include "ofxTSPSopenNIProcessor.h"
+//#include "ofxTSPSopenNIProcessor.h"
 
 //processing
 #include "ofxTSPSofxOpenCvProcessor.h"
@@ -84,9 +84,9 @@ class ofxTSPSPeopleTracker {
         ofxTSPSPeopleTracker();
         ~ofxTSPSPeopleTracker();
         
-		//set up and update
+        //set up and update
 	
-		void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
+        void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
     
         template <class Image>
         void update(Image & image){
@@ -96,7 +96,7 @@ class ofxTSPSPeopleTracker {
         }
     
         void resize( int w, int h );            //If you need to resize the camera width / height
-		void mousePressed(ofMouseEventArgs &e);	
+        void mousePressed(ofMouseEventArgs &e);	
     
         // processor
         void setProcessor ( ofxTSPSProcessor * _processor );

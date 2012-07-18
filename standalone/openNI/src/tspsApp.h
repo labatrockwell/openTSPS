@@ -9,9 +9,9 @@
 
     // TSPS core
     #include "ofxTSPS.h"
-	
-    // kinect support
-    #include "ofxKinect.h"
+    
+    //include openNI TSPS Processor
+    #include "ofxTSPSopenNIProcessor.h"
 
     #define TSPS_HOME_PAGE "http://opentsps.com"
 

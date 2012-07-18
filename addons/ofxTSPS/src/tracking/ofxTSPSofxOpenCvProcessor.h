@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include "ofxTSPSEvents.h"
 #include "ofxTSPSProcessor.h"
+#include "ofxTSPSopenCvPerson.h"
 
 #include "ofxOpenCv.h"
 #include "ofxCvHaarTracker.h"
@@ -21,7 +21,6 @@ public:
     
     ofxTSPSofxOpenCvProcessor();
     
-    void setup( int width, int height, ofxTSPSScene * scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor=.5 );
     void draw();
     
     // step 0: camera
@@ -51,11 +50,13 @@ public:
     void setHaarXMLFile( string xmlFile );
     void setHaarPadding( float padding = 0.0 );
     
-    // ofxCvBlobListener functions    
-    ofxTSPSPerson* getTrackedPerson(int pid);
+    // ofxCvBlobListener functions
     void blobOn( int x, int y, int id, int order );
     void blobMoved( int x, int y, int id, int order );
     void blobOff( int x, int y, int id, int order );
+    
+protected:
+    void setupProcessor();
     
 private:
     ofxCvGrayscaleImage dummyImage;

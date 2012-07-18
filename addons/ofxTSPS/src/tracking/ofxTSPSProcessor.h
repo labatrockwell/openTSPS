@@ -11,6 +11,7 @@
 #include "ofMain.h"
 
 #include "ofxTSPSConstants.h"
+#include "ofxTSPSEvents.h"
 #include "ofxTSPSPerson.h"
 #include "ofxTSPSScene.h"
 #include "ofxTSPSSettings.h"
@@ -23,9 +24,18 @@ public:
         bCanTrackContours = bTrackContours = false;
         bCanTrackSkeleton = bTrackSkeleton = false;
         bCanTrackOpticalFlow = bTrackOpticalFlow = false;
+        trackedPeople = NULL;
     };
     
-    virtual void setup( int width, int height, ofxTSPSScene * scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor=.5 ) = 0;
+    virtual void setup( int width, int height, ofxTSPSScene * _scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor=.5 ){
+        // core objects
+        tspsWidth   = width;
+        tspsHeight  = height;
+        scene       = _scene;
+        trackedPeople = peopleVector;
+        trackingScale = trackingScaleFactor;
+        setupProcessor();
+    }
     virtual void draw(){};
     
     // step 0: set camera image
@@ -52,11 +62,12 @@ public:
     virtual void setHaarPadding( float padding = 0.0 ){};
     
     // get capabilities
+    // TO-DO: Capabilites turn on/off parts of GUI
     virtual bool canTrackHaar (){ return bCanTrackHaar; };
     virtual bool canTrackContours (){ return bCanTrackContours; };
     virtual bool canTrackSkeleton (){ return bCanTrackSkeleton; };
     virtual bool canTrackOpticalFlow (){ return bCanTrackOpticalFlow; };
-    
+        
     // methods: settings
     virtual bool setTrackHaar ( bool trackHaar ){
         if ( bCanTrackHaar ){
@@ -89,12 +100,29 @@ public:
     // methods: utils
     virtual void resize( int camWidth, int camHeight ){};
     
+    virtual ofxTSPSPerson* getTrackedPerson(int pid){
+        if ( trackedPeople == NULL ){
+            ofLog( OF_LOG_ERROR, "No people vector?");
+            return NULL;
+        }
+        for( int i = 0; i < trackedPeople->size(); i++ ) {
+            if( (*trackedPeople)[i]->pid == pid ) {
+                return (*trackedPeople)[i];
+            }
+        }
+        return NULL;
+    }
+    
     // methods: views
     //virtual ofBaseImage & getCameraView() = 0;
     //virtual ofBaseImage & getBackgroundView() = 0;
     //virtual ofBaseImage & getProcessedView() = 0;
     
 protected:
+    // called automatically by setup();
+    // use for custom setup of your processor
+    virtual void setupProcessor(){};
+    
     int                         tspsWidth, tspsHeight;
     TSPSCameraType              cameraType;
     

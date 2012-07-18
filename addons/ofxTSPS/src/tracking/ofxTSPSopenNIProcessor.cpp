@@ -11,7 +11,7 @@
 //--------------------------------------------------------------
 ofxTSPSopenNIProcessor::ofxTSPSopenNIProcessor(){
     bCanTrackHaar = bTrackHaar = false;
-    bCanTrackContours = bTrackContours = true;
+    bCanTrackContours = bTrackContours = false;
     bCanTrackSkeleton = bTrackSkeleton = true;
     bCanTrackOpticalFlow = bTrackOpticalFlow = false;
 }
@@ -22,9 +22,9 @@ ofxTSPSopenNIProcessor::~ofxTSPSopenNIProcessor(){
 }
 
 //--------------------------------------------------------------
-void ofxTSPSopenNIProcessor::setup( int width, int height, ofxTSPSScene * scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor ){
+void ofxTSPSopenNIProcessor::setupProcessor(){
     
-    grayPixels.allocate( width, height, 2 );
+    grayPixels.allocate( tspsWidth, tspsHeight, 2 );
     
     openNIDevice.setup();
     //openNIDevice.addImageGenerator();
@@ -33,8 +33,10 @@ void ofxTSPSopenNIProcessor::setup( int width, int height, ofxTSPSScene * scene,
     openNIDevice.setMirror(true);
     openNIDevice.addUserGenerator();
     openNIDevice.setMaxNumUsers(5);
-    
+    //openNIDevice.setUseBackBuffer(true);    
     openNIDevice.setUseBackgroundDepthSubtraction(true);
+    
+    ofAddListener(openNIDevice.userEvent, this, &ofxTSPSopenNIProcessor::onUserEvent);
     
     openNIDevice.start();
 }
@@ -65,21 +67,30 @@ void ofxTSPSopenNIProcessor::blankBackground(){
 
 //--------------------------------------------------------------
 ofPixelsRef ofxTSPSopenNIProcessor::difference( ofBaseImage & image, TSPSTrackingType trackingType ){
-    ofPixelsRef pix = openNIDevice.getDepthPixels();
-    // for some reason depth pixels are rgba?
-    for ( int i=0; i<pix.getWidth() * pix.getHeight() * pix.getNumChannels(); i+= pix.getNumChannels()){
-        grayPixels[i / 4] = pix[i];
-    }
+    
+    grayPixels = openNIDevice.getDepthPixels().getChannel(0);
     return grayPixels;
 };
 
 //--------------------------------------------------------------
 ofPixelsRef ofxTSPSopenNIProcessor::process ( ofBaseImage & image ){
     openNIDevice.update();
-    ofPixelsRef pix = openNIDevice.getDepthPixels();
-    for ( int i=0; i<pix.getWidth() * pix.getHeight() * pix.getNumChannels(); i+= pix.getNumChannels()){
-        grayPixels[i / 4] = pix[i];
-    }
+    
+    openNIDevice.lock();
+    // update TSPS people
+    int nUsers = openNIDevice.getNumTrackedUsers();
+    for (int i=0; i<nUsers; i++){
+        ofxOpenNIUser & user = openNIDevice.getTrackedUser(i);
+        ofxTSPSopenNIPerson * person = (ofxTSPSopenNIPerson *) getTrackedPerson( user.getXnID() );
+        
+        // update person
+        if ( person != NULL ){
+            person->update( user );
+        }
+    }    
+    openNIDevice.unlock();
+    
+    grayPixels = openNIDevice.getDepthPixels().getChannel(0);
     return grayPixels;
 };
 
@@ -96,3 +107,59 @@ void ofxTSPSopenNIProcessor::setThreshold( float thresh ){
 void ofxTSPSopenNIProcessor::setBlobSettings( float minimumBlob, float maximumBlob, bool bFindHoles ){
     
 }
+
+//--------------------------------------------------------------
+void ofxTSPSopenNIProcessor::onUserEvent( ofxOpenNIUserEvent & event ){   
+    ofxTSPSopenNIPerson * person = NULL;
+    
+    switch (event.userStatus) {            
+        case USER_TRACKING_STARTED:            
+            person = new ofxTSPSopenNIPerson( event.id, trackedPeople->size() );
+            trackedPeople->push_back(person);
+            
+            ofxTSPSEventArgs args;
+            args.person = person;
+            args.scene  = scene;
+            ofNotifyEvent( ofxTSPSEvents().personEntered, args, this );            
+            break;
+            
+        case USER_TRACKING_STOPPED:
+            person = (ofxTSPSopenNIPerson*) getTrackedPerson( event.id );
+            if ( person != NULL){
+                //delete the object and remove it from the vector
+                std::vector<ofxTSPSPerson*>::iterator it;
+                for(it = trackedPeople->begin(); it != trackedPeople->end(); it++){
+                    if((*it)->pid == person->pid){
+                        trackedPeople->erase(it);
+                        break;
+                    }
+                }
+                
+                ofxTSPSEventArgs args;
+                args.person = person;
+                args.scene  = scene;
+                ofNotifyEvent( ofxTSPSEvents().personWillLeave, args, this );
+                
+                // delete pointer
+                delete person;
+                return;
+            }
+            break;
+            
+        case USER_CALIBRATION_STARTED:
+            break;
+            
+        case USER_CALIBRATION_STOPPED:
+            break;
+            
+        case USER_SKELETON_LOST:
+            break;    
+            
+        case USER_SKELETON_FOUND:
+            break;
+            
+        default:
+            break;
+    };
+}
+;

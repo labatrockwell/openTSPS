@@ -46,15 +46,9 @@ void tspsApp::setup(){
 
 //--------------------------------------------------------------
 void tspsApp::update(){
-    ofPixelsRef pix  = ((ofxTSPSopenNIProcessor* )peopleTracker.getProcessor())->getOpenNI()->getDepthPixels();
-    
-    // for some reason depth pixels are rgba?
-    for ( int i=0; i<pix.getWidth() * pix.getHeight() * pix.getNumChannels(); i+= pix.getNumChannels()){
-        niPixels[i / 4] = pix[i];
-    }
+    niPixels  = ((ofxTSPSopenNIProcessor* )peopleTracker.getProcessor())->getOpenNI()->getDepthPixels().getChannel(0);
     grayImg.setFromPixels(niPixels);
-    peopleTracker.update( grayImg );
-    
+    peopleTracker.update( grayImg );    
     
     // iterate through the people
     for(int i = 0; i < peopleTracker.totalPeople(); i++){

@@ -48,22 +48,27 @@
 #define OFX_PERSON_OBJECT
 
 #include "ofMain.h"
-#include "ofxOpenCv.h"
 
 class ofxTSPSPerson
 {
 	public: 
-		ofxTSPSPerson(int pid, int oid, ofxCvBlob blob);
+		ofxTSPSPerson( int pid, int oid );
 		~ofxTSPSPerson();
-		void update(ofxCvBlob blob, bool dampen);
+		
+        virtual void update();
+        virtual void updateBoundingRect( ofRectangle _rect );
+        virtual void updateCentroid( ofPoint _centroid, bool dampen );
+        virtual void updateContour( ofPolyline _contour );
+    
+        virtual void draw( int cameraWidth, int cameraHeight, bool bSendContours=false, bool bSendHaar=false, float haarPadding=0 );
 
 		//this can be a pointer to whatever you want to store in this person
 		void* customAttributes;
 	
-		void setHaarRect(ofRectangle _haarRect);
-		bool hasHaarRect();
-		ofRectangle getHaarRect();
-		void noHaarThisFrame();
+		virtual void setHaarRect(ofRectangle _haarRect);
+		virtual bool hasHaarRect();
+		virtual ofRectangle getHaarRect();
+		virtual void noHaarThisFrame();
 	
 		ofPoint opticalFlowVectorAccumulation;
 	
@@ -87,11 +92,11 @@ class ofxTSPSPerson
 		ofRectangle getHaarRectNormalized(float videoWidth, float videoHeight);
 		ofPoint getCentroidNormalized(float videoWidth, float videoHeight);
 		ofPoint getHaarCentroidNormalized(float videoWidth, float videoHeight);
-	
+        
         // get string
         
-        string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false, string append="" );
-        string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false );
+        virtual string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false, string append="" );
+        virtual string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false ){};
     
 	protected:
 		
