@@ -278,17 +278,17 @@ void ofxTSPSGuiManager::setup(){
 	optionsGroup->setShowText(false);
 	panel.addToggle("track and send contours", "SEND_OSC_CONTOURS", false);
 	
-	guiTypeGroup * opticalGroup = panel.addGroup("optical flow");
-	opticalGroup->setBackgroundColor(148,129,85);
-	opticalGroup->setBackgroundSelectColor(148,129,85);
-	opticalGroup->seBaseColor(34,151,210);
-	opticalGroup->setShowText(false);
+	opticalFlowGroup = panel.addGroup("optical flow");
+	opticalFlowGroup->setBackgroundColor(148,129,85);
+	opticalFlowGroup->setBackgroundSelectColor(148,129,85);
+	opticalFlowGroup->seBaseColor(34,151,210);
+	opticalFlowGroup->setShowText(false);
 	//optical flow
 	panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", false);
 	panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
 	panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
 	
-	guiTypeGroup * haarGroup = panel.addGroup("haar tracking");
+    haarGroup = panel.addGroup("haar tracking");
 	haarGroup->setBackgroundColor(148,129,85);
 	haarGroup->setBackgroundSelectColor(148,129,85);
 	haarGroup->seBaseColor(238,53,35);
@@ -429,6 +429,27 @@ void ofxTSPSGuiManager::addToggle(string name, bool* value)
 	p.b = value;
 	params.push_back(p);
 }
+
+/***************************************************************
+ GET + SET PANEL INFO / SELECTED PANEL
+ ***************************************************************/
+
+void ofxTSPSGuiManager::setHaarEnabled( bool bHaar ){
+    if ( bHaar ){
+        haarGroup->enable();         
+    } else {
+        haarGroup->disable();        
+    }    
+}
+
+void ofxTSPSGuiManager::setOpticalFlowEnabled( bool bOpticalFlow ){
+    if ( bOpticalFlow ){
+        opticalFlowGroup->enable();         
+    } else {
+        opticalFlowGroup->disable();        
+    }
+}
+
 
 /***************************************************************
 	GET + SET PANEL INFO / SELECTED PANEL

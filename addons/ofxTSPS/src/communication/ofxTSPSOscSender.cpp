@@ -66,75 +66,36 @@ void ofxTSPSOscSender::update(){
 
 void ofxTSPSOscSender::personEntered ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
 	string message = useLegacy ? "TSPS/personEntered/" : "/TSPS/personEntered/"; 
-    ofxOscMessage m = getOSCMessage( p, message, useLegacy, centroid, cameraWidth, cameraHeight, bSendContours );
-    send(m);
+    vector<ofxOscMessage> messages = p->getOSCMessages(message, useLegacy, cameraWidth, cameraHeight, bSendContours);
+    for ( int i=0; i<messages.size(); i++){
+        send(messages[i]);        
+    }
 };
 
 void ofxTSPSOscSender::personMoved ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
 	if(useLegacy){ //we just rely on person updated from now on
         string message = useLegacy ? "TSPS/personMoved/" : "/TSPS/personMoved/"; 
-        ofxOscMessage m = getOSCMessage( p, message, useLegacy, centroid, cameraWidth, cameraHeight, bSendContours );
-        send(m);
+        vector<ofxOscMessage> messages = p->getOSCMessages(message, useLegacy, cameraWidth, cameraHeight, bSendContours);
+        for ( int i=0; i<messages.size(); i++){
+            send(messages[i]);        
+        }
 	}
 };
 
 void ofxTSPSOscSender::personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
     string message = useLegacy ? "TSPS/personUpdated/" : "/TSPS/personUpdated/"; 
-	ofxOscMessage m = getOSCMessage( p, message, useLegacy, centroid, cameraWidth, cameraHeight, bSendContours );
-	send(m);
+	vector<ofxOscMessage> messages = p->getOSCMessages(message, useLegacy, cameraWidth, cameraHeight, bSendContours);
+    for ( int i=0; i<messages.size(); i++){
+        send(messages[i]);        
+    }
 };
 
-void ofxTSPSOscSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours )
-{
+void ofxTSPSOscSender::personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
     string message = useLegacy ? "TSPS/personWillLeave/" : "/TSPS/personWillLeave/"; 
-	ofxOscMessage m = getOSCMessage( p, message, useLegacy, centroid, cameraWidth, cameraHeight, bSendContours );
-	send(m);	
-}
-
-ofxOscMessage ofxTSPSOscSender::getOSCMessage( ofxTSPSPerson * p, string type, bool bUseLegacy, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours ){
-    ofxOscMessage m;
-	m.setAddress( type );
-	m.addIntArg(p->pid);
-	if(!useLegacy){
-		m.addIntArg(p->oid);
-	}
-	m.addIntArg(p->age);
-	m.addFloatArg(centroid.x);
-	m.addFloatArg(centroid.y);
-	m.addFloatArg(p->velocity.x);
-	m.addFloatArg(p->velocity.y);
-	
-    if(!useLegacy){
-		m.addIntArg(p->depth);
-	}
-    
-	ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
-	
-	m.addFloatArg(boundingRect.x);
-	m.addFloatArg(boundingRect.y);
-	m.addFloatArg(boundingRect.width);
-	m.addFloatArg(boundingRect.height);
-	
-	ofRectangle haarRect = p->getHaarRectNormalized(cameraWidth,cameraHeight);
-    
-    if (!useLegacy){
-        m.addFloatArg(haarRect.x);
-        m.addFloatArg(haarRect.y);
-        m.addFloatArg(haarRect.width);
-        m.addFloatArg(haarRect.height);
-    }
-    
-	m.addFloatArg(p->opticalFlowVectorAccumulation.x);
-	m.addFloatArg(p->opticalFlowVectorAccumulation.y);
-	
-	if (sendContours){
-		//any args after 11 will be contours
-		for (int i=0; i<p->simpleContour.size(); i++){
-			m.addFloatArg(p->simpleContour[i].x);
-			m.addFloatArg(p->simpleContour[i].y);
-		};
-	}
-    return m;
+	vector<ofxOscMessage> messages = p->getOSCMessages(message, useLegacy, cameraWidth, cameraHeight, bSendContours);
+    for ( int i=0; i<messages.size(); i++){
+        send(messages[i]);        
+    }	
 }
 
 /*

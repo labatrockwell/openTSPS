@@ -44,8 +44,6 @@ public:
     void resize( int camWidth, int camHeight );
     
     // settings
-    void setThreshold( float thresh = 100.0 );
-    void setBlobSettings( float minimumBlob = 0.0, float maximumBlob = 1.0, bool bFindHoles = false );
     void setOpticalflowMinMax( float min = 0.0, float max = 10.0 );
     void setHaarXMLFile( string xmlFile );
     void setHaarPadding( float padding = 0.0 );
@@ -70,10 +68,6 @@ private:
     // contour tracking 
     ofxCvContourFinder 	contourFinder;
     ofxCvBlobTracker    persistentTracker;
-    float               threshold;
-    float               minBlobArea;
-    float               maxBlobArea;
-    bool                bFindHoles;
     
     // optical flow
     ofxCvOpticalFlowLK	opticalFlow;

@@ -10,6 +10,7 @@
 
 #define MAX_HAAR_GHOSTFRAMES 15 //how long before we say it's really gone
 
+//--------------------------------------------------------------
 ofxTSPSPerson::ofxTSPSPerson(int pid, int oid )
 : pid(pid),
   oid(oid),
@@ -27,6 +28,7 @@ ofxTSPSPerson::ofxTSPSPerson(int pid, int oid )
 	update();
 }
 
+//--------------------------------------------------------------
 ofxTSPSPerson::~ofxTSPSPerson()
 {
 	if(customAttributes != NULL){
@@ -34,15 +36,18 @@ ofxTSPSPerson::~ofxTSPSPerson()
 	}
 }
 
+//--------------------------------------------------------------
 void ofxTSPSPerson::update(){
 	age++;
 }
 
+//--------------------------------------------------------------
 void ofxTSPSPerson::updateBoundingRect(ofRectangle rect ){
     boundingRect.set(rect);
     area = boundingRect.width * boundingRect.height;
 }
 
+//--------------------------------------------------------------
 void ofxTSPSPerson::updateCentroid( ofPoint _centroid, bool dampen ){
     if(dampen){
 		centroid = (centroid * .7) + (_centroid * .3);
@@ -54,6 +59,7 @@ void ofxTSPSPerson::updateCentroid( ofPoint _centroid, bool dampen ){
 	velocity	 = _centroid - centroid;
 }
 
+//--------------------------------------------------------------
 void ofxTSPSPerson::draw( int cameraWidth, int cameraHeight, bool bSendContours, bool bSendHaar, float haarPadding ){
     //draw contours 
     ofPushStyle();
@@ -125,6 +131,7 @@ void ofxTSPSPerson::draw( int cameraWidth, int cameraHeight, bool bSendContours,
     ofDrawBitmapString(idstr, centroid.x+8, centroid.y);
 }
 
+//--------------------------------------------------------------
 void ofxTSPSPerson::updateContour(ofPolyline _contour){
 	contour		 = _contour; 
     
@@ -137,12 +144,14 @@ void ofxTSPSPerson::updateContour(ofPolyline _contour){
     }
 }
 
+//--------------------------------------------------------------
 void ofxTSPSPerson::setHaarRect(ofRectangle _haarRect){
 	haarRect = _haarRect;
 	hasHaar = true;
 	framesWithoutHaar = 0;
 }
 
+//--------------------------------------------------------------
 ofRectangle ofxTSPSPerson::getHaarRect(){
 	if(!hasHaar){
 		printf("ofxTSPSPerson: accessing Haar rect without Haar!\n");
@@ -151,13 +160,13 @@ ofRectangle ofxTSPSPerson::getHaarRect(){
 	return haarRect;
 }
 
-bool ofxTSPSPerson::hasHaarRect()
-{
+//--------------------------------------------------------------
+bool ofxTSPSPerson::hasHaarRect(){
 	return hasHaar;
 }
 
-void ofxTSPSPerson::noHaarThisFrame()
-{
+//--------------------------------------------------------------
+void ofxTSPSPerson::noHaarThisFrame(){
 	//temp remove keep haar
 	hasHaar = false;
     haarRect.set(0,0,0,0);
@@ -173,8 +182,8 @@ void ofxTSPSPerson::noHaarThisFrame()
 	}
 }
 
-ofRectangle ofxTSPSPerson::getBoundingRectNormalized(float videoWidth, float videoHeight)
-{
+//--------------------------------------------------------------
+ofRectangle ofxTSPSPerson::getBoundingRectNormalized(float videoWidth, float videoHeight){
 		return ofRectangle(boundingRect.x/videoWidth,
 						   boundingRect.y/videoHeight,
 						   boundingRect.width/videoWidth,
@@ -182,6 +191,7 @@ ofRectangle ofxTSPSPerson::getBoundingRectNormalized(float videoWidth, float vid
 }
 
 
+//--------------------------------------------------------------
 ofRectangle ofxTSPSPerson::getHaarRectNormalized(float videoWidth, float videoHeight){
 	return ofRectangle(haarRect.x/videoWidth,
 					   haarRect.y/videoHeight,
@@ -189,13 +199,13 @@ ofRectangle ofxTSPSPerson::getHaarRectNormalized(float videoWidth, float videoHe
 					   haarRect.height/videoHeight);
 };
 
-ofPoint ofxTSPSPerson::getCentroidNormalized(float videoWidth, float videoHeight)
-{
+//--------------------------------------------------------------
+ofPoint ofxTSPSPerson::getCentroidNormalized(float videoWidth, float videoHeight){
 	return ofPoint(centroid.x / videoWidth, centroid.y / videoHeight);
 }
 
-ofPoint ofxTSPSPerson::getHaarCentroidNormalized(float videoWidth, float videoHeight)
-{
+//--------------------------------------------------------------
+ofPoint ofxTSPSPerson::getHaarCentroidNormalized(float videoWidth, float videoHeight){
 	ofRectangle haarRect = getHaarRect();
 	return ofPoint( (haarRect.x + haarRect.width/2) / videoWidth, (haarRect.y + haarRect.height/2) / videoHeight );
 }
@@ -206,6 +216,7 @@ ofPoint ofxTSPSPerson::getHaarCentroidNormalized(float videoWidth, float videoHe
  GET PERSON STRING (so we don't have to write this so many times)
  ***************************************************************/
 
+//--------------------------------------------------------------
 string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours, string append ){
 	
 	//construct a JSON object
@@ -228,6 +239,8 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
 	message<<"\"haarrect\":{"<<"\"x\":"<<scaledHaar.x<<",\"y\":"<<scaledHaar.y<<",\"width\":"<<scaledHaar.width<<",\"height\":"<<scaledHaar.height<<"},";
 	message<<"\"highest\":{"<<"\"x\":"<<( (float) highest.x / cameraWidth )<<",\"y\":"<<( (float) highest.y / cameraHeight)<<"}";
 	
+    // TO-DO: Normalize these!!!
+    
 	if (bSendContours){
         message<<",";
 		message<<"\"contours\":[";
@@ -248,9 +261,8 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
     - so we can send new types of OSC packets for new types of data!
       e.g. /TSPS/personEntered/skeleton
     - this is sort of a bum fix for Processing's lack of bundle support...
- 
  ***************************************************************/
-
+//--------------------------------------------------------------
 vector<ofxOscMessage> ofxTSPSPerson::getOSCMessages( string type, bool bUseLegacy, int cameraWidth, int cameraHeight, bool sendContours ){
     vector<ofxOscMessage> v;
     

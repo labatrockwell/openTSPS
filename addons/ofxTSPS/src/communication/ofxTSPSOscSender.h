@@ -79,8 +79,6 @@ class ofxTSPSOscSender : public ofxOscSender
 	void personUpdated ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );
 	void personWillLeave ( ofxTSPSPerson * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );
     
-    ofxOscMessage getOSCMessage( ofxTSPSPerson * p, string type, bool bUseLegacy, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );
-
 	void send ( ofxOscMessage m );
 	void reroute(string _ip, int _port);
 

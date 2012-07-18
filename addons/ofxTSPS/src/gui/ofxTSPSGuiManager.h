@@ -67,7 +67,12 @@ class ofxTSPSGuiManager {
     void update(ofEventArgs &e);
     void update();
 	void draw();
-
+    
+    // set capabilities
+    void setHaarEnabled( bool bHaar );
+    void setOpticalFlowEnabled( bool bOpticalFlow );
+    //void setImageFiltersEnable( bool bEnableFilters);
+    
 	//forwarded events
 	void mousePressed(ofMouseEventArgs &e);
 	void mouseDragged(ofMouseEventArgs &e);
@@ -146,4 +151,8 @@ protected:
 	
 	simpleFileLister* videoFiles;
 	simpleFileLister* haarFiles;
+    
+private:
+    guiTypeGroup * haarGroup;
+    guiTypeGroup * opticalFlowGroup;
 };

@@ -18,13 +18,20 @@ ofxTSPSopenNIProcessor::ofxTSPSopenNIProcessor(){
 
 //--------------------------------------------------------------
 ofxTSPSopenNIProcessor::~ofxTSPSopenNIProcessor(){
-    openNIDevice.stop();
+    exit();
+}
+
+
+//--------------------------------------------------------------
+void ofxTSPSopenNIProcessor::exit(){
+    openNIDevice.stop();    
 }
 
 //--------------------------------------------------------------
 void ofxTSPSopenNIProcessor::setupProcessor(){
     
     grayPixels.allocate( tspsWidth, tspsHeight, 2 );
+    blobImage.allocate(tspsWidth, tspsHeight);
     
     openNIDevice.setup();
     //openNIDevice.addImageGenerator();
@@ -33,8 +40,13 @@ void ofxTSPSopenNIProcessor::setupProcessor(){
     openNIDevice.setMirror(true);
     openNIDevice.addUserGenerator();
     openNIDevice.setMaxNumUsers(5);
-    //openNIDevice.setUseBackBuffer(true);    
+    openNIDevice.setUsePointCloudsAllUsers(false);
+    openNIDevice.setUseMaskPixelsAllUsers(true);
+    openNIDevice.setUseMaskTextureAllUsers(true);
+    openNIDevice.setMaskPixelFormatAllUsers(OF_PIXELS_MONO);
+    
     openNIDevice.setUseBackgroundDepthSubtraction(true);
+    openNIDevice.setLogLevel(OF_LOG_ERROR);
     
     ofAddListener(openNIDevice.userEvent, this, &ofxTSPSopenNIProcessor::onUserEvent);
     
@@ -43,6 +55,11 @@ void ofxTSPSopenNIProcessor::setupProcessor(){
 
 //--------------------------------------------------------------
 void ofxTSPSopenNIProcessor::draw(){
+    /*ofPushStyle();
+    ofEnableAlphaBlending();
+    ofSetColor(255,100);
+    blobImage.draw(0,0);
+    ofPopStyle();*/
 };
 
 //--------------------------------------------------------------
@@ -67,7 +84,6 @@ void ofxTSPSopenNIProcessor::blankBackground(){
 
 //--------------------------------------------------------------
 ofPixelsRef ofxTSPSopenNIProcessor::difference( ofBaseImage & image, TSPSTrackingType trackingType ){
-    
     grayPixels = openNIDevice.getDepthPixels().getChannel(0);
     return grayPixels;
 };
@@ -76,19 +92,32 @@ ofPixelsRef ofxTSPSopenNIProcessor::difference( ofBaseImage & image, TSPSTrackin
 ofPixelsRef ofxTSPSopenNIProcessor::process ( ofBaseImage & image ){
     openNIDevice.update();
     
-    openNIDevice.lock();
     // update TSPS people
     int nUsers = openNIDevice.getNumTrackedUsers();
     for (int i=0; i<nUsers; i++){
         ofxOpenNIUser & user = openNIDevice.getTrackedUser(i);
         ofxTSPSopenNIPerson * person = (ofxTSPSopenNIPerson *) getTrackedPerson( user.getXnID() );
-        
+                
         // update person
         if ( person != NULL ){
+            // this is weird
+            if ( user.getMaskPixels().size() > 0){ // should prevent weird crash
+                blobImage.setFromPixels(user.getMaskPixels());
+            }
+            int numBlobs = contourFinder.findContours( blobImage, minBlobArea, maxBlobArea, 1, bFindHoles );
+            if (numBlobs > 0 ){
+                person->updateCentroid(contourFinder.blobs[0].centroid, true);
+                person->updateBoundingRect(contourFinder.blobs[0].boundingRect);
+                person->updateContour(contourFinder.blobs[0].pts );            
+            }
             person->update( user );
+            
+            ofxTSPSEventArgs args;
+            args.person = person;
+            args.scene  = scene;
+            ofNotifyEvent( ofxTSPSEvents().personUpdated, args, this );
         }
-    }    
-    openNIDevice.unlock();
+    }
     
     grayPixels = openNIDevice.getDepthPixels().getChannel(0);
     return grayPixels;
@@ -97,23 +126,18 @@ ofPixelsRef ofxTSPSopenNIProcessor::process ( ofBaseImage & image ){
 //--------------------------------------------------------------
 void ofxTSPSopenNIProcessor::setThreshold( float thresh ){
     if ( openNIDevice.getNumDepthThresholds() == 0 ){
-        openNIDevice.addDepthThreshold(255, thresh);
+        //openNIDevice.addDepthThreshold(255, thresh);
     } else {
-        openNIDevice.getDepthThreshold(0).set(255, thresh);
+        //openNIDevice.getDepthThreshold(0).set(255, thresh);
     }
-}
-
-//--------------------------------------------------------------
-void ofxTSPSopenNIProcessor::setBlobSettings( float minimumBlob, float maximumBlob, bool bFindHoles ){
-    
-}
+};
 
 //--------------------------------------------------------------
 void ofxTSPSopenNIProcessor::onUserEvent( ofxOpenNIUserEvent & event ){   
     ofxTSPSopenNIPerson * person = NULL;
     
     switch (event.userStatus) {            
-        case USER_TRACKING_STARTED:            
+        case USER_TRACKING_STARTED:     
             person = new ofxTSPSopenNIPerson( event.id, trackedPeople->size() );
             trackedPeople->push_back(person);
             
@@ -144,6 +168,7 @@ void ofxTSPSopenNIProcessor::onUserEvent( ofxOpenNIUserEvent & event ){
                 delete person;
                 return;
             }
+            openNIDevice.resetUserTracking(event.id);
             break;
             
         case USER_CALIBRATION_STARTED:

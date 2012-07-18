@@ -27,6 +27,8 @@ public:
         trackedPeople = NULL;
     };
     
+    virtual void exit(){};
+    
     virtual void setup( int width, int height, ofxTSPSScene * _scene, vector<ofxTSPSPerson*> * peopleVector, float trackingScaleFactor=.5 ){
         // core objects
         tspsWidth   = width;
@@ -55,8 +57,16 @@ public:
     virtual void processHaar( ofBaseImage & image ){};
     
     // settings
-    virtual void setThreshold( float thresh = 100.0 ){};
-    virtual void setBlobSettings( float minimumBlob = 0.0, float maximumBlob = 1.0, bool bFindHoles = false ){};
+    virtual void setThreshold( float thresh = 100.0 ){
+        threshold = thresh;
+    };
+    
+    virtual void setBlobSettings( float minimumBlob = 0.0, float maximumBlob = 1.0, bool findHoles = false ){
+        minBlobArea = minimumBlob;
+        maxBlobArea = maximumBlob;
+        bFindHoles  = findHoles;
+    };
+    
     virtual void setOpticalflowMinMax( float min = 0.0, float max = 10.0 ){};
     virtual void setHaarXMLFile( string xmlFile ){};
     virtual void setHaarPadding( float padding = 0.0 ){};
@@ -135,6 +145,10 @@ protected:
     bool bCanTrackSkeleton, bTrackSkeleton;
     bool bCanTrackOpticalFlow, bTrackOpticalFlow;
     
-    // amount to scale
-    float trackingScale;
+    float   trackingScale;  // amount to scale
+    
+    float   threshold;
+    float   minBlobArea;
+    float   maxBlobArea;
+    bool    bFindHoles;
 };

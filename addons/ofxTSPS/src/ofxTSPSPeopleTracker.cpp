@@ -30,6 +30,8 @@ ofxTSPSPeopleTracker::~ofxTSPSPeopleTracker(){
         hasMouseEvents = false;
         ofRemoveListener(ofEvents().mousePressed, this, &ofxTSPSPeopleTracker::mousePressed);
     }
+    tspsProcessor->exit();
+    delete tspsProcessor;
 }
 
 //---------------------------------------------------------------------------
@@ -97,8 +99,12 @@ void ofxTSPSPeopleTracker::setup(int w, int h, string settingsfile){
     // setup default processor
     if ( tspsProcessor == NULL ){
         setProcessor( new ofxTSPSofxOpenCvProcessor() );
-    }
+    }    
     tspsProcessor->setup( width, height, &scene, &trackedPeople );
+    
+    // setup gui based on processor capabilities
+    gui.setHaarEnabled( tspsProcessor->canTrackHaar() );
+    gui.setOpticalFlowEnabled( tspsProcessor->canTrackOpticalFlow() );
 }
 
 //---------------------------------------------------------------------------

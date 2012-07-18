@@ -251,19 +251,6 @@ void ofxTSPSofxOpenCvProcessor::resize( int width, int height ){
 }
 
 //--------------------------------------------------------------
-void ofxTSPSofxOpenCvProcessor::setBlobSettings( float minimumBlob, float maximumBlob, bool findHoles ){
-    minBlobArea = minimumBlob;
-    maxBlobArea = maximumBlob;
-    bFindHoles  = findHoles;
-}
-
-
-//--------------------------------------------------------------
-void ofxTSPSofxOpenCvProcessor::setThreshold( float thresh ){
-    threshold = thresh;
-}
-
-//--------------------------------------------------------------
 void ofxTSPSofxOpenCvProcessor::setOpticalflowMinMax( float min, float max ){
     opticalFlow.maxVector = max;
 	opticalFlow.minVector = min;

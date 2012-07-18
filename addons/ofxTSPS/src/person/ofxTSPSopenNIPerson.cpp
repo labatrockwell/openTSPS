@@ -8,10 +8,12 @@
 
 #include "ofxTSPSopenNIPerson.h"
 
+//--------------------------------------------------------------
 ofxTSPSopenNIPerson::ofxTSPSopenNIPerson( int pid, int oid ) : ofxTSPSPerson(pid, oid){
     //
 }
 
+//--------------------------------------------------------------
 void ofxTSPSopenNIPerson::draw( int cameraWidth, int cameraHeight, bool bSendContours, bool bSendHaar, float haarPadding ){
     ofPushStyle();    
     ofSetLineWidth(5);
@@ -24,6 +26,7 @@ void ofxTSPSopenNIPerson::draw( int cameraWidth, int cameraHeight, bool bSendCon
     ofxTSPSPerson::draw( cameraWidth, cameraHeight, false, false, 0 );
 }
 
+//--------------------------------------------------------------
 void ofxTSPSopenNIPerson::update( ofxOpenNIUser & user ){
     updateCentroid(user.getCenter(), true);
     
@@ -38,6 +41,7 @@ void ofxTSPSopenNIPerson::update( ofxOpenNIUser & user ){
 }
 
 
+//--------------------------------------------------------------
 string ofxTSPSopenNIPerson::getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours, string append ){
     string skeletonString = ",\"skeleton\":";
     
@@ -46,16 +50,17 @@ string ofxTSPSopenNIPerson::getJSON( string type, ofPoint centroid, int cameraWi
     for (int i=0; i<skeleton.size(); i++){
         ofPoint start = skeleton[i].getStartJoint().getProjectivePosition();
         ofPoint end = skeleton[i].getEndJoint().getProjectivePosition();
-        skeletonString += "{\"start\":{\"x\":\"" + ofToString(start.x) +"\",\"y\":\"" +ofToString(start.y) + "\"},\"end\":{\"x\":\"" + ofToString(end.x) + "\", \"y\":\"" + ofToString(end.x) + "\"}}";
+        skeletonString += "{\"start\":{\"x\":\"" + ofToString(start.x / cameraWidth, 4) +"\",\"y\":\"" +ofToString(start.y/cameraHeight, 4) + "\"},\"end\":{\"x\":\"" + ofToString(end.x  / cameraWidth, 4) + "\", \"y\":\"" + ofToString(end.y  / cameraHeight, 4) + "\"}}";
         if ( i + 1 < skeleton.size()){
             skeletonString += ",";
         }
     }
     skeletonString += "]";
     
-    return ofxTSPSPerson::getJSON(type, centroid, cameraWidth, cameraHeight, false, skeletonString );
+    return ofxTSPSPerson::getJSON(type, centroid, cameraWidth, cameraHeight, bSendContours, skeletonString );
 }
 
+//--------------------------------------------------------------
 vector<ofxOscMessage> ofxTSPSopenNIPerson::getOSCMessages( string type, bool bUseLegacy, int cameraWidth, int cameraHeight, bool sendContours ){
     vector<ofxOscMessage> messages = ofxTSPSPerson::getOSCMessages( type, bUseLegacy, cameraWidth, cameraHeight, sendContours );
     

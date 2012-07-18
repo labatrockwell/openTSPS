@@ -11,6 +11,7 @@
 #include "ofxTSPSopenNIPerson.h"
 #include "ofxTSPSProcessor.h"
 #include "ofxOpenNI.h"
+#include "ofxCvBlobTracker.h"
 
 class ofxTSPSopenNIProcessor : public ofxTSPSProcessor {
 public:
@@ -18,6 +19,7 @@ public:
     ofxTSPSopenNIProcessor();
     ~ofxTSPSopenNIProcessor();
     
+    void exit();
     void draw();
     
     // step 0: set camera image
@@ -36,7 +38,6 @@ public:
     
     // settings
     void setThreshold( float thresh = 100.0 );
-    void setBlobSettings( float minimumBlob = 0.0, float maximumBlob = 1.0, bool bFindHoles = false );
     
     //openNI methods
     ofxOpenNI * getOpenNI(){ return &openNIDevice; };
@@ -46,6 +47,10 @@ protected:
     
     ofPixels    grayPixels;
     ofxOpenNI   openNIDevice;
+    
+    // contour finding 
+    ofxCvGrayscaleImage blobImage;
+    ofxCvContourFinder  contourFinder;
     
     // openNI events
     void onUserEvent( ofxOpenNIUserEvent & event );
