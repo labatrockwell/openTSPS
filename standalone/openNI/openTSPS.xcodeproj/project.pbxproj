@@ -305,8 +305,8 @@
 		2E7F0A9A154F00FA00DF5456 /* TuioTcpXmlServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TuioTcpXmlServer.cpp; sourceTree = "<group>"; };
 		2E7F0A9B154F00FA00DF5456 /* TuioTcpXmlServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuioTcpXmlServer.h; sourceTree = "<group>"; };
 		2ECB4D4914586B5900040AA3 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		2ED4542815B74A3000FD32CF /* openTSPSDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openTSPSDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94EB0E21437A5B000B6437B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
-		A97C63BA156EB05A00F0D2D3 /* openTSPSDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openTSPSDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97DDD2215B506E00041BBD1 /* libusb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libusb.h; sourceTree = "<group>"; };
 		A97DDD2415B506E00041BBD1 /* XnCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XnCommon.h; sourceTree = "<group>"; };
 		A97DDD2515B506E00041BBD1 /* XnV3DVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XnV3DVector.h; sourceTree = "<group>"; };
@@ -621,11 +621,11 @@
 		2E0EF4E115AF283D00DFDF61 /* tracking */ = {
 			isa = PBXGroup;
 			children = (
-				2E0EF4E215AF287100DFDF61 /* ofxTSPSProcessor.h */,
-				2E0EF4E315AF2CB500DFDF61 /* ofxTSPSofxOpenCvProcessor.h */,
 				2E0EF4E415AF32C700DFDF61 /* ofxTSPSofxOpenCvProcessor.cpp */,
-				A97DDE0115B507210041BBD1 /* ofxTSPSopenNIProcessor.h */,
+				2E0EF4E315AF2CB500DFDF61 /* ofxTSPSofxOpenCvProcessor.h */,
 				A97DDE0215B5079D0041BBD1 /* ofxTSPSopenNIProcessor.cpp */,
+				A97DDE0115B507210041BBD1 /* ofxTSPSopenNIProcessor.h */,
+				2E0EF4E215AF287100DFDF61 /* ofxTSPSProcessor.h */,
 			);
 			path = tracking;
 			sourceTree = "<group>";
@@ -685,12 +685,12 @@
 		2E427CBD15B6112A0005C102 /* person */ = {
 			isa = PBXGroup;
 			children = (
+				2E427CC315B612430005C102 /* ofxTSPSopenCvPerson.cpp */,
+				2E427CC215B611B60005C102 /* ofxTSPSopenCvPerson.h */,
+				2E427CC615B62A480005C102 /* ofxTSPSopenNIPerson.cpp */,
+				2E427CC515B628460005C102 /* ofxTSPSopenNIPerson.h */,
 				2E427CBE15B6112A0005C102 /* ofxTSPSPerson.cpp */,
 				2E427CBF15B6112A0005C102 /* ofxTSPSPerson.h */,
-				2E427CC215B611B60005C102 /* ofxTSPSopenCvPerson.h */,
-				2E427CC315B612430005C102 /* ofxTSPSopenCvPerson.cpp */,
-				2E427CC515B628460005C102 /* ofxTSPSopenNIPerson.h */,
-				2E427CC615B62A480005C102 /* ofxTSPSopenNIPerson.cpp */,
 			);
 			path = person;
 			sourceTree = "<group>";
@@ -1390,7 +1390,7 @@
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				E45BE5980E8CC70C009D7055 /* frameworks */,
-				A97C63BA156EB05A00F0D2D3 /* openTSPSDebug.app */,
+				2ED4542815B74A3000FD32CF /* openTSPSDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1824,7 +1824,7 @@
 			);
 			name = openTSPS;
 			productName = myOFApp;
-			productReference = A97C63BA156EB05A00F0D2D3 /* openTSPSDebug.app */;
+			productReference = 2ED4542815B74A3000FD32CF /* openTSPSDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
