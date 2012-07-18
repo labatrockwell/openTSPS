@@ -56,3 +56,25 @@ string ofxTSPSopenNIPerson::getJSON( string type, ofPoint centroid, int cameraWi
     return ofxTSPSPerson::getJSON(type, centroid, cameraWidth, cameraHeight, false, skeletonString );
 }
 
+vector<ofxOscMessage> ofxTSPSopenNIPerson::getOSCMessages( string type, bool bUseLegacy, int cameraWidth, int cameraHeight, bool sendContours ){
+    vector<ofxOscMessage> messages = ofxTSPSPerson::getOSCMessages( type, bUseLegacy, cameraWidth, cameraHeight, sendContours );
+    
+    // assuming message ends with '/'
+    ofxOscMessage m; 
+    m.setAddress( type +"skeleton/");
+    
+    for (int i=0; i<skeleton.size(); i++){
+        ofPoint start = skeleton[i].getStartJoint().getProjectivePosition();
+        ofPoint end = skeleton[i].getEndJoint().getProjectivePosition();
+        m.addFloatArg(start.x / cameraWidth);
+        m.addFloatArg(start.y / cameraWidth);
+        m.addFloatArg(end.x / cameraHeight);
+        m.addFloatArg(end.y / cameraHeight);
+    }
+    
+    messages.push_back(m);
+    
+    return messages;   
+}
+
+

@@ -48,6 +48,7 @@
 #define OFX_PERSON_OBJECT
 
 #include "ofMain.h"
+#include "ofxOsc.h"
 
 class ofxTSPSPerson
 {
@@ -93,10 +94,12 @@ class ofxTSPSPerson
 		ofPoint getCentroidNormalized(float videoWidth, float videoHeight);
 		ofPoint getHaarCentroidNormalized(float videoWidth, float videoHeight);
         
-        // get string
-        
+        // get JSON        
         virtual string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false, string append="" );
         virtual string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false ){};
+        
+        // get OSC message(s)    
+        virtual vector<ofxOscMessage> getOSCMessages( string type, bool bUseLegacy, int cameraWidth, int cameraHeight, bool sendContours );
     
 	protected:
 		

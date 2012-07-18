@@ -242,3 +242,63 @@ string ofxTSPSPerson::getJSON( string type, ofPoint centroid, int cameraWidth, i
 	return message.str();
 }
 
+/***************************************************************
+ Get OSC Message(s)
+ - why messages plural?
+    - so we can send new types of OSC packets for new types of data!
+      e.g. /TSPS/personEntered/skeleton
+    - this is sort of a bum fix for Processing's lack of bundle support...
+ 
+ ***************************************************************/
+
+vector<ofxOscMessage> ofxTSPSPerson::getOSCMessages( string type, bool bUseLegacy, int cameraWidth, int cameraHeight, bool sendContours ){
+    vector<ofxOscMessage> v;
+    
+    ofxOscMessage m;
+	m.setAddress( type );
+	m.addIntArg( oid);
+	if(!bUseLegacy){
+		m.addIntArg(oid);
+	}
+	m.addIntArg(age);
+	m.addFloatArg(centroid.x);
+	m.addFloatArg(centroid.y);
+	m.addFloatArg(velocity.x);
+	m.addFloatArg(velocity.y);
+	
+    if(!bUseLegacy){
+		m.addIntArg(depth);
+	}
+    
+	ofRectangle boundingRect = getBoundingRectNormalized(cameraWidth,cameraHeight);
+	
+	m.addFloatArg(boundingRect.x);
+	m.addFloatArg(boundingRect.y);
+	m.addFloatArg(boundingRect.width);
+	m.addFloatArg(boundingRect.height);
+	
+	ofRectangle haarRect = getHaarRectNormalized(cameraWidth,cameraHeight);
+    
+    if (!bUseLegacy){
+        m.addFloatArg(haarRect.x);
+        m.addFloatArg(haarRect.y);
+        m.addFloatArg(haarRect.width);
+        m.addFloatArg(haarRect.height);
+    }
+    
+	m.addFloatArg(opticalFlowVectorAccumulation.x);
+	m.addFloatArg(opticalFlowVectorAccumulation.y);
+	
+	if (sendContours){
+		//any args after 11 will be contours
+		for (int i=0; i<simpleContour.size(); i++){
+			m.addFloatArg(simpleContour[i].x);
+			m.addFloatArg(simpleContour[i].y);
+		};
+	}
+    
+    v.push_back(m);
+    
+    return v;
+};
+
