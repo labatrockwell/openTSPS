@@ -400,6 +400,9 @@ void ofxTSPSPeopleTracker::trackPeople()
 	}
 	
 	grayImageWarped = grayDiff;
+    
+    // set base camera image
+    tspsProcessor->setCameraImage( grayImageWarped );
 	
     //learn background
 	if (p_Settings->bLearnBackground){
