@@ -9,7 +9,7 @@ public class TSPSPerson
 	public int id; 
 	public int oid; 
 	public int age; 
-	public int depth; 
+	public float depth; 
 	public PVector centroid;  
 	public PVector velocity; 
 	public PVector opticalFlow; 

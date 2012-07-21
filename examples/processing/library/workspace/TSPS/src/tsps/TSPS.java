@@ -41,7 +41,7 @@ public class TSPS {
 		p.centroid.y 			= theOscMessage.get(4).floatValue();
 		p.velocity.x 			= theOscMessage.get(5).floatValue();
 		p.velocity.y 			= theOscMessage.get(6).floatValue();
-		p.depth 	 			= theOscMessage.get(7).intValue();
+		p.depth 	 			= theOscMessage.get(7).floatValue();
 		p.boundingRect.x 		= theOscMessage.get(8).floatValue();
 		p.boundingRect.y 		= theOscMessage.get(9).floatValue();
 		p.boundingRect.width 	= theOscMessage.get(10).floatValue();
