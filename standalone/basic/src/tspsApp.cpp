@@ -120,7 +120,7 @@ void tspsApp::update(){
         
 		// iterate through the people
 		for(int i = 0; i < peopleTracker.totalPeople(); i++){
-			ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
+            ofxTSPS::Person* p = peopleTracker.personAtIndex(i);
             if (cameraState == CAMERA_KINECT){
                 // distance is in mm, with the max val being 10 m
                 // scale it by max to get it in a 0-1 range
@@ -134,21 +134,21 @@ void tspsApp::update(){
 
 //--------------------------------------------------------------
 //delegate methods for people entering and exiting
-void tspsApp::onPersonEntered( ofxTSPSEventArgs & tspsEvent ){
+void tspsApp::onPersonEntered( ofxTSPS::EventArgs & tspsEvent ){
 	//do something with them
 	ofLog(OF_LOG_VERBOSE, "person %d of size %f entered!\n", tspsEvent.person->pid, tspsEvent.person->area);
 	drawStatus[0] = 10;
 }
 
 //--------------------------------------------------------------
-void tspsApp::onPersonWillLeave( ofxTSPSEventArgs & tspsEvent ){
+void tspsApp::onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent ){
 	//do something to clean up
 	ofLog(OF_LOG_VERBOSE, "person %d left after being %d frames in the system\n", tspsEvent.person->pid, tspsEvent.person->age);
 	drawStatus[2] = 10;
 }
 
 //--------------------------------------------------------------
-void tspsApp::onPersonUpdated( ofxTSPSEventArgs & tspsEvent ){
+void tspsApp::onPersonUpdated( ofxTSPS::EventArgs & tspsEvent ){
 	ofLog(OF_LOG_VERBOSE, "updated %d person\n", tspsEvent.person->pid);
 	drawStatus[1] = 10;
 }
@@ -238,7 +238,7 @@ bool tspsApp::initVideoInput(){
             if (bOpened){
                 cameraState = CAMERA_KINECT;
                 //set this so we can access video settings through the interface
-                peopleTracker.setVideoGrabber(&kinect, TSPS_INPUT_KINECT);
+                peopleTracker.setVideoGrabber(&kinect, ofxTSPS::CAMERA_KINECT);
                 return true;
             } else {
                 peopleTracker.setUseKinect(false);
@@ -264,7 +264,7 @@ bool tspsApp::initVideoInput(){
             if (bAvailable){ 
                 cameraState = CAMERA_VIDEOGRABBER;
                 //set this so we can access video settings through the interface
-                peopleTracker.setVideoGrabber(&vidGrabber, TSPS_INPUT_VIDEO);
+                peopleTracker.setVideoGrabber(&vidGrabber, ofxTSPS::CAMERA_VIDEOGRABBER);
                 return true;
             } else {
                 return false;

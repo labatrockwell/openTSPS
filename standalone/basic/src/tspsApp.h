@@ -47,9 +47,9 @@ class tspsApp : public ofBaseApp {
         
         // TSPS events
         
-        void onPersonEntered( ofxTSPSEventArgs & tspsEvent );
-        void onPersonUpdated( ofxTSPSEventArgs & tspsEvent );
-        void onPersonWillLeave( ofxTSPSEventArgs & tspsEvent );
+        void onPersonEntered( ofxTSPS::EventArgs & tspsEvent );
+        void onPersonUpdated( ofxTSPS::EventArgs & tspsEvent );
+        void onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent );
 
         // ready for either live video or Kinect, will choose in the next step
         ofVideoGrabber 		vidGrabber;
@@ -82,7 +82,7 @@ class tspsApp : public ofBaseApp {
 		ofImage background;
 
 
-	ofxTSPSPeopleTracker peopleTracker;
+    ofxTSPS::PeopleTracker peopleTracker;
 	    
     
     
