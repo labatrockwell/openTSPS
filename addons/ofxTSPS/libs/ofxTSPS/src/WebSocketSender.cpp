@@ -5,7 +5,7 @@
  */
 
 #include "ofxTSPS/communication/WebSocketSender.h"
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 
 namespace ofxTSPS {
     //---------------------------------------------------------------------------

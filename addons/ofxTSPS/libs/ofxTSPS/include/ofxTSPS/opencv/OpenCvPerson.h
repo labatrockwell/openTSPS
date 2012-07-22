@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Rockwell Group. All rights reserved.
 //
 
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 #include "ofxOpenCv.h"
 
 namespace ofxTSPS {

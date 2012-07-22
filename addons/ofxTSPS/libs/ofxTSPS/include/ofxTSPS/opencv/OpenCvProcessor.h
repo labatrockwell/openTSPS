@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include "ofxTSPS/tracking/Processor.h"
-#include "ofxTSPS/person/OpenCvPerson.h"
+#include "ofxTSPS/Processor.h"
+#include "ofxTSPS/opencv/OpenCvPerson.h"
 
 #include "ofxOpenCv.h"
 #include "ofxCvHaarTracker.h"

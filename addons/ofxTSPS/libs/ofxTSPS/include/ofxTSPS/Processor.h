@@ -14,7 +14,7 @@
 #include "ofxTSPS/Events.h"
 #include "ofxTSPS/Scene.h"
 #include "ofxTSPS/gui/Settings.h"
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 
 namespace ofxTSPS {
     class Processor {

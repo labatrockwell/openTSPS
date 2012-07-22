@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 #include "ofxOpenNI.h"
 
 namespace ofxTSPS {

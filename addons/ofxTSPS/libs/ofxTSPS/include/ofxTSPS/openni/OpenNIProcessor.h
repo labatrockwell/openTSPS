@@ -8,8 +8,8 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxTSPS/person/openNIPerson.h"
-#include "ofxTSPS/tracking/Processor.h"
+#include "ofxTSPS/openni/openNIPerson.h"
+#include "ofxTSPS/Processor.h"
 #include "ofxOpenNI.h"
 #include "ofxCvBlobTracker.h"
 

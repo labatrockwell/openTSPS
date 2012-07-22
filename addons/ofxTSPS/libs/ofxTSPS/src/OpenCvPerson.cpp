@@ -3,7 +3,7 @@
  *  openTSPS
  */
 
-#include "ofxTSPS/person/OpenCvPerson.h"
+#include "ofxTSPS/opencv/OpenCvPerson.h"
 
 namespace ofxTSPS {
     OpenCvPerson::OpenCvPerson(int pid, int oid, ofxCvBlob blob) : Person(pid, oid){

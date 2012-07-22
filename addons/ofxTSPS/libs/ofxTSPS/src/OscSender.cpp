@@ -3,7 +3,7 @@
  *  openTSPS
  */
 
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 #include "ofxTSPS/communication/OscSender.h"
 
 namespace ofxTSPS {

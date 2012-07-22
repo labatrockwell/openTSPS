@@ -3,8 +3,7 @@
  *  openTSPS
  */
 
-#include <iostream>
-#include "ofxTSPS/tracking/OpenCvProcessor.h"
+#include "ofxTSPS/opencv/OpenCvProcessor.h"
 
 namespace ofxTSPS {
     //--------------------------------------------------------------

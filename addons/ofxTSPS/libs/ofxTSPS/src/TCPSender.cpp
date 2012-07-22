@@ -4,7 +4,7 @@
  */
 
 #include "ofxTSPS/communication/TCPSender.h"
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 
 namespace ofxTSPS {
     

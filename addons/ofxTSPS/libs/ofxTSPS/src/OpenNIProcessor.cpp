@@ -3,7 +3,7 @@
  *  openTSPS
  */
 
-#include "ofxTSPS/tracking/OpenNIProcessor.h"
+#include "ofxTSPS/openni/OpenNIProcessor.h"
 
 namespace ofxTSPS {
     //--------------------------------------------------------------

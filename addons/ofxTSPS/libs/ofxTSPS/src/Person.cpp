@@ -4,7 +4,7 @@
  *
  */
 
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 #define MAX_HAAR_GHOSTFRAMES 15 //how long before we say it's really gone
 
 namespace ofxTSPS {

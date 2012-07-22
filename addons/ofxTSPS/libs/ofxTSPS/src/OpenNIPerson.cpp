@@ -3,7 +3,7 @@
  *  openTSPS
  */
 
-#include "ofxTSPS/person/OpenNIPerson.h"
+#include "ofxTSPS/openni/OpenNIPerson.h"
 
 namespace ofxTSPS {
     //--------------------------------------------------------------

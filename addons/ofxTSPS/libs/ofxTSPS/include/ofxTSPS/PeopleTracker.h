@@ -42,14 +42,13 @@
 #include "ofxTSPS/Constants.h"
 #include "ofxTSPS/Events.h"
 #include "ofxTSPS/Scene.h"
-#include "ofxTSPS/person/Person.h"
+#include "ofxTSPS/Person.h"
 #include "ofxTSPS/utils/View.h"
 #include "ofxTSPS/utils/Utils.h"
 
 // TSPS Processors
-#include "ofxTSPS/tracking/Processor.h"
-#include "ofxTSPS/tracking/OpenCvProcessor.h"
-//#include "ofxTSPS/tracking/OpenNIProcessor.h"
+#include "ofxTSPS/Processor.h"
+#include "ofxTSPS/opencv/OpenCvProcessor.h"
 
 //processing
 #include "CPUImageFilter.h"
