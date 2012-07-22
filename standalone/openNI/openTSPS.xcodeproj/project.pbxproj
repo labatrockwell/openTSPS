@@ -25,7 +25,6 @@
 		2E7F0A9C154F00FA00DF5456 /* ofxCvHaarTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0946154F00F800DF5456 /* ofxCvHaarTracker.cpp */; };
 		2E7F0A9D154F00FA00DF5456 /* ofxCvHaarTrackerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0948154F00F800DF5456 /* ofxCvHaarTrackerItem.cpp */; };
 		2E7F0A9E154F00FA00DF5456 /* ofxLABCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F094A154F00F800DF5456 /* ofxLABCvHaarFinder.cpp */; };
-		2E7F0A9F154F00FA00DF5456 /* ofxFileDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F094E154F00F800DF5456 /* ofxFileDialog.cpp */; };
 		2E7F0AA0154F00FA00DF5456 /* cameras.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0953154F00F800DF5456 /* cameras.c */; };
 		2E7F0AA1154F00FA00DF5456 /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0955154F00F800DF5456 /* core.c */; };
 		2E7F0AA3154F00FA00DF5456 /* registration.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F095E154F00F800DF5456 /* registration.c */; };
@@ -191,8 +190,6 @@
 		2E7F0949154F00F800DF5456 /* ofxCvHaarTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvHaarTrackerItem.h; sourceTree = "<group>"; };
 		2E7F094A154F00F800DF5456 /* ofxLABCvHaarFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLABCvHaarFinder.cpp; sourceTree = "<group>"; };
 		2E7F094B154F00F800DF5456 /* ofxLABCvHaarFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLABCvHaarFinder.h; sourceTree = "<group>"; };
-		2E7F094E154F00F800DF5456 /* ofxFileDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFileDialog.cpp; sourceTree = "<group>"; };
-		2E7F094F154F00F800DF5456 /* ofxFileDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFileDialog.h; sourceTree = "<group>"; };
 		2E7F0953154F00F800DF5456 /* cameras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cameras.c; sourceTree = "<group>"; };
 		2E7F0954154F00F800DF5456 /* cameras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameras.h; sourceTree = "<group>"; };
 		2E7F0955154F00F800DF5456 /* core.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = core.c; sourceTree = "<group>"; };
@@ -713,24 +710,6 @@
 				2E7F0949154F00F800DF5456 /* ofxCvHaarTrackerItem.h */,
 				2E7F094A154F00F800DF5456 /* ofxLABCvHaarFinder.cpp */,
 				2E7F094B154F00F800DF5456 /* ofxLABCvHaarFinder.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		2E7F094C154F00F800DF5456 /* ofxFileDialog */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F094D154F00F800DF5456 /* src */,
-			);
-			name = ofxFileDialog;
-			path = ../../addons/ofxFileDialog;
-			sourceTree = "<group>";
-		};
-		2E7F094D154F00F800DF5456 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F094E154F00F800DF5456 /* ofxFileDialog.cpp */,
-				2E7F094F154F00F800DF5456 /* ofxFileDialog.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1417,7 +1396,6 @@
 			isa = PBXGroup;
 			children = (
 				2E7F0944154F00F800DF5456 /* ofxCvHaarTracker */,
-				2E7F094C154F00F800DF5456 /* ofxFileDialog */,
 				2E7F0950154F00F800DF5456 /* ofxKinect */,
 				2E7F09A0154F00F900DF5456 /* ofxLabGui */,
 				2E7F09BB154F00F900DF5456 /* ofxLibwebsockets */,
@@ -1909,7 +1887,6 @@
 				2E7F0A9C154F00FA00DF5456 /* ofxCvHaarTracker.cpp in Sources */,
 				2E7F0A9D154F00FA00DF5456 /* ofxCvHaarTrackerItem.cpp in Sources */,
 				2E7F0A9E154F00FA00DF5456 /* ofxLABCvHaarFinder.cpp in Sources */,
-				2E7F0A9F154F00FA00DF5456 /* ofxFileDialog.cpp in Sources */,
 				2E7F0AA0154F00FA00DF5456 /* cameras.c in Sources */,
 				2E7F0AA1154F00FA00DF5456 /* core.c in Sources */,
 				2E7F0AA3154F00FA00DF5456 /* registration.c in Sources */,

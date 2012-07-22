@@ -10,7 +10,6 @@
 		2E7F0C2F154F028000DF5456 /* ofxCvHaarTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0AD9154F028000DF5456 /* ofxCvHaarTracker.cpp */; };
 		2E7F0C30154F028000DF5456 /* ofxCvHaarTrackerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0ADB154F028000DF5456 /* ofxCvHaarTrackerItem.cpp */; };
 		2E7F0C31154F028000DF5456 /* ofxLABCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0ADD154F028000DF5456 /* ofxLABCvHaarFinder.cpp */; };
-		2E7F0C32154F028000DF5456 /* ofxFileDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0AE1154F028000DF5456 /* ofxFileDialog.cpp */; };
 		2E7F0C33154F028000DF5456 /* cameras.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0AE6154F028000DF5456 /* cameras.c */; };
 		2E7F0C34154F028000DF5456 /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0AE8154F028000DF5456 /* core.c */; };
 		2E7F0C36154F028000DF5456 /* registration.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0AF1154F028000DF5456 /* registration.c */; };
@@ -38,6 +37,9 @@
 		2E7F0C63154F028100DF5456 /* ofxTuioServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0C11154F028000DF5456 /* ofxTuioServer.cpp */; };
 		2E7F0C69154F028100DF5456 /* TuioTcpXmlServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0C2D154F028000DF5456 /* TuioTcpXmlServer.cpp */; };
 		2EEB71A014EB1EB200DBC952 /* TSPSDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB719F14EB1EB200DBC952 /* TSPSDelegate.cpp */; };
+		A93BF24815BC87BF00974455 /* ofxTSPSopenCvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93BF24215BC87BF00974455 /* ofxTSPSopenCvPerson.cpp */; };
+		A93BF24915BC87BF00974455 /* ofxTSPSopenNIPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93BF24415BC87BF00974455 /* ofxTSPSopenNIPerson.cpp */; };
+		A93BF24A15BC87BF00974455 /* ofxTSPSPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93BF24615BC87BF00974455 /* ofxTSPSPerson.cpp */; };
 		A94EB0E31437A5B000B6437B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB0E21437A5B000B6437B /* ApplicationServices.framework */; };
 		A97C63B1156EAF9300F0D2D3 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97C63B0156EAF9300F0D2D3 /* jsoncpp.cpp */; };
 		A97CCB2215B3B85E004A0095 /* ofxTSPSOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0215B3B85E004A0095 /* ofxTSPSOscSender.cpp */; };
@@ -48,7 +50,6 @@
 		A97CCB2715B3B85E004A0095 /* ofxTSPSGuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0E15B3B85E004A0095 /* ofxTSPSGuiManager.cpp */; };
 		A97CCB2815B3B85E004A0095 /* ofxTSPSSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1015B3B85E004A0095 /* ofxTSPSSettings.cpp */; };
 		A97CCB2915B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1415B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp */; };
-		A97CCB2A15B3B85E004A0095 /* ofxTSPSPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1615B3B85E004A0095 /* ofxTSPSPerson.cpp */; };
 		A97CCB2B15B3B85E004A0095 /* ofxTSPSScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1815B3B85E004A0095 /* ofxTSPSScene.cpp */; };
 		A97CCB2C15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1B15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp */; };
 		A97CCB2D15B3B85E004A0095 /* ofxTSPSUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1F15B3B85E004A0095 /* ofxTSPSUtils.cpp */; };
@@ -128,8 +129,6 @@
 		2E7F0ADC154F028000DF5456 /* ofxCvHaarTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvHaarTrackerItem.h; sourceTree = "<group>"; };
 		2E7F0ADD154F028000DF5456 /* ofxLABCvHaarFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLABCvHaarFinder.cpp; sourceTree = "<group>"; };
 		2E7F0ADE154F028000DF5456 /* ofxLABCvHaarFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLABCvHaarFinder.h; sourceTree = "<group>"; };
-		2E7F0AE1154F028000DF5456 /* ofxFileDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFileDialog.cpp; sourceTree = "<group>"; };
-		2E7F0AE2154F028000DF5456 /* ofxFileDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFileDialog.h; sourceTree = "<group>"; };
 		2E7F0AE6154F028000DF5456 /* cameras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cameras.c; sourceTree = "<group>"; };
 		2E7F0AE7154F028000DF5456 /* cameras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameras.h; sourceTree = "<group>"; };
 		2E7F0AE8154F028000DF5456 /* core.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = core.c; sourceTree = "<group>"; };
@@ -222,6 +221,12 @@
 		2ECB4D4914586B5900040AA3 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		2EEB719E14EB1D3C00DBC952 /* TSPSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPSDelegate.h; sourceTree = "<group>"; };
 		2EEB719F14EB1EB200DBC952 /* TSPSDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSPSDelegate.cpp; sourceTree = "<group>"; };
+		A93BF24215BC87BF00974455 /* ofxTSPSopenCvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSopenCvPerson.cpp; sourceTree = "<group>"; };
+		A93BF24315BC87BF00974455 /* ofxTSPSopenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSopenCvPerson.h; sourceTree = "<group>"; };
+		A93BF24415BC87BF00974455 /* ofxTSPSopenNIPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSopenNIPerson.cpp; sourceTree = "<group>"; };
+		A93BF24515BC87BF00974455 /* ofxTSPSopenNIPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSopenNIPerson.h; sourceTree = "<group>"; };
+		A93BF24615BC87BF00974455 /* ofxTSPSPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPerson.cpp; sourceTree = "<group>"; };
+		A93BF24715BC87BF00974455 /* ofxTSPSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPerson.h; sourceTree = "<group>"; };
 		A94EB0E21437A5B000B6437B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		A97C63AE156EAF9300F0D2D3 /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		A97C63AF156EAF9300F0D2D3 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
@@ -245,8 +250,6 @@
 		A97CCB1315B3B85E004A0095 /* ofxTSPSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSConstants.h; sourceTree = "<group>"; };
 		A97CCB1415B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPeopleTracker.cpp; sourceTree = "<group>"; };
 		A97CCB1515B3B85E004A0095 /* ofxTSPSPeopleTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPeopleTracker.h; sourceTree = "<group>"; };
-		A97CCB1615B3B85E004A0095 /* ofxTSPSPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPerson.cpp; sourceTree = "<group>"; };
-		A97CCB1715B3B85E004A0095 /* ofxTSPSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPerson.h; sourceTree = "<group>"; };
 		A97CCB1815B3B85E004A0095 /* ofxTSPSScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSScene.cpp; sourceTree = "<group>"; };
 		A97CCB1915B3B85E004A0095 /* ofxTSPSScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSScene.h; sourceTree = "<group>"; };
 		A97CCB1B15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSofxOpenCvProcessor.cpp; sourceTree = "<group>"; };
@@ -452,24 +455,6 @@
 				2E7F0ADC154F028000DF5456 /* ofxCvHaarTrackerItem.h */,
 				2E7F0ADD154F028000DF5456 /* ofxLABCvHaarFinder.cpp */,
 				2E7F0ADE154F028000DF5456 /* ofxLABCvHaarFinder.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		2E7F0ADF154F028000DF5456 /* ofxFileDialog */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0AE0154F028000DF5456 /* src */,
-			);
-			name = ofxFileDialog;
-			path = ../../addons/ofxFileDialog;
-			sourceTree = "<group>";
-		};
-		2E7F0AE0154F028000DF5456 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				2E7F0AE1154F028000DF5456 /* ofxFileDialog.cpp */,
-				2E7F0AE2154F028000DF5456 /* ofxFileDialog.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -772,6 +757,19 @@
 			path = core;
 			sourceTree = "<group>";
 		};
+		A93BF24115BC87BF00974455 /* person */ = {
+			isa = PBXGroup;
+			children = (
+				A93BF24215BC87BF00974455 /* ofxTSPSopenCvPerson.cpp */,
+				A93BF24315BC87BF00974455 /* ofxTSPSopenCvPerson.h */,
+				A93BF24415BC87BF00974455 /* ofxTSPSopenNIPerson.cpp */,
+				A93BF24515BC87BF00974455 /* ofxTSPSopenNIPerson.h */,
+				A93BF24615BC87BF00974455 /* ofxTSPSPerson.cpp */,
+				A93BF24715BC87BF00974455 /* ofxTSPSPerson.h */,
+			);
+			path = person;
+			sourceTree = "<group>";
+		};
 		A97C63AC156EAF9300F0D2D3 /* jsoncpp */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,10 +808,9 @@
 				A97CCB1315B3B85E004A0095 /* ofxTSPSConstants.h */,
 				A97CCB1415B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp */,
 				A97CCB1515B3B85E004A0095 /* ofxTSPSPeopleTracker.h */,
-				A97CCB1615B3B85E004A0095 /* ofxTSPSPerson.cpp */,
-				A97CCB1715B3B85E004A0095 /* ofxTSPSPerson.h */,
 				A97CCB1815B3B85E004A0095 /* ofxTSPSScene.cpp */,
 				A97CCB1915B3B85E004A0095 /* ofxTSPSScene.h */,
+				A93BF24115BC87BF00974455 /* person */,
 				A97CCB1A15B3B85E004A0095 /* tracking */,
 				A97CCB1E15B3B85E004A0095 /* utils */,
 			);
@@ -967,7 +964,6 @@
 			isa = PBXGroup;
 			children = (
 				2E7F0AD7154F028000DF5456 /* ofxCvHaarTracker */,
-				2E7F0ADF154F028000DF5456 /* ofxFileDialog */,
 				2E7F0AE3154F028000DF5456 /* ofxKinect */,
 				2E7F0B33154F028000DF5456 /* ofxLabGui */,
 				2E7F0B4E154F028000DF5456 /* ofxLibwebsockets */,
@@ -1508,7 +1504,6 @@
 				2E7F0C2F154F028000DF5456 /* ofxCvHaarTracker.cpp in Sources */,
 				2E7F0C30154F028000DF5456 /* ofxCvHaarTrackerItem.cpp in Sources */,
 				2E7F0C31154F028000DF5456 /* ofxLABCvHaarFinder.cpp in Sources */,
-				2E7F0C32154F028000DF5456 /* ofxFileDialog.cpp in Sources */,
 				2E7F0C33154F028000DF5456 /* cameras.c in Sources */,
 				2E7F0C34154F028000DF5456 /* core.c in Sources */,
 				2E7F0C36154F028000DF5456 /* registration.c in Sources */,
@@ -1543,10 +1538,12 @@
 				A97CCB2715B3B85E004A0095 /* ofxTSPSGuiManager.cpp in Sources */,
 				A97CCB2815B3B85E004A0095 /* ofxTSPSSettings.cpp in Sources */,
 				A97CCB2915B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp in Sources */,
-				A97CCB2A15B3B85E004A0095 /* ofxTSPSPerson.cpp in Sources */,
 				A97CCB2B15B3B85E004A0095 /* ofxTSPSScene.cpp in Sources */,
 				A97CCB2C15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp in Sources */,
 				A97CCB2D15B3B85E004A0095 /* ofxTSPSUtils.cpp in Sources */,
+				A93BF24815BC87BF00974455 /* ofxTSPSopenCvPerson.cpp in Sources */,
+				A93BF24915BC87BF00974455 /* ofxTSPSopenNIPerson.cpp in Sources */,
+				A93BF24A15BC87BF00974455 /* ofxTSPSPerson.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
