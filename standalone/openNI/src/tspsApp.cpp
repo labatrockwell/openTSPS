@@ -22,7 +22,7 @@ void tspsApp::setup(){
     niPixels.allocate(camWidth, camHeight, 1);
     grayImg.allocate( camWidth, camHeight );
     
-    peopleTracker.setProcessor( new ofxTSPSopenNIProcessor() );
+    peopleTracker.setProcessor( new ofxTSPS::OpenNIProcessor() );
 	peopleTracker.setup(camWidth, camHeight);
 	peopleTracker.loadFont("fonts/times.ttf", 10);
     
@@ -46,34 +46,34 @@ void tspsApp::setup(){
 
 //--------------------------------------------------------------
 void tspsApp::update(){
-    niPixels  = ((ofxTSPSopenNIProcessor* )peopleTracker.getProcessor())->getOpenNI()->getDepthPixels().getChannel(0);
+    niPixels  = ((ofxTSPS::OpenNIProcessor* )peopleTracker.getProcessor())->getOpenNI()->getDepthPixels().getChannel(0);
     grayImg.setFromPixels(niPixels);
     peopleTracker.update( grayImg );    
     
     // iterate through the people
     for(int i = 0; i < peopleTracker.totalPeople(); i++){
-        ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
+        ofxTSPS::Person* p = peopleTracker.personAtIndex(i);
         //p->depth = p->highest.z / 255.0f;
     }
 }
 
 //--------------------------------------------------------------
 //delegate methods for people entering and exiting
-void tspsApp::onPersonEntered( ofxTSPSEventArgs & tspsEvent ){
+void tspsApp::onPersonEntered( ofxTSPS::EventArgs & tspsEvent ){
 	//do something with them
 	ofLog(OF_LOG_VERBOSE, "person %d of size %f entered!\n", tspsEvent.person->pid, tspsEvent.person->area);
 	drawStatus[0] = 10;
 }
 
 //--------------------------------------------------------------
-void tspsApp::onPersonWillLeave( ofxTSPSEventArgs & tspsEvent ){
+void tspsApp::onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent ){
 	//do something to clean up
 	ofLog(OF_LOG_VERBOSE, "person %d left after being %d frames in the system\n", tspsEvent.person->pid, tspsEvent.person->age);
 	drawStatus[2] = 10;
 }
 
 //--------------------------------------------------------------
-void tspsApp::onPersonUpdated( ofxTSPSEventArgs & tspsEvent ){
+void tspsApp::onPersonUpdated( ofxTSPS::EventArgs & tspsEvent ){
 	ofLog(OF_LOG_VERBOSE, "updated %d person\n", tspsEvent.person->pid);
 	drawStatus[1] = 10;
 }

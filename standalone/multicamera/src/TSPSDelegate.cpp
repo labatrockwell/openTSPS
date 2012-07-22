@@ -110,7 +110,7 @@ void TSPSDelegate::update(){
         
 		// iterate through the people
 		for(int i = 0; i < peopleTracker.totalPeople(); i++){
-			ofxTSPSPerson* p = peopleTracker.personAtIndex(i);
+            ofxTSPS::Person* p = peopleTracker.personAtIndex(i);
             if (cameraState == CAMERA_KINECT){
                 // distance is in mm, with the max val being 10 m
                 // scale it by max to get it in a 0-1 range
@@ -192,13 +192,13 @@ bool TSPSDelegate::initVideoInput( int which ){
         }
             
         kinect.init();
-        kinect.setVerbose(true);
+        //kinect.setVerbose(true);
         ofLog(OF_LOG_VERBOSE, "opening Kinect %d", which);
         bool bOpened = kinect.open( which );
         if (bOpened){
             cameraState = CAMERA_KINECT;
             //set this so we can access video settings through the interface
-            peopleTracker.setVideoGrabber(&kinect, TSPS_INPUT_KINECT);
+            peopleTracker.setVideoGrabber(&kinect, ofxTSPS::CAMERA_KINECT);
         }
         
         return bOpened;
@@ -220,7 +220,7 @@ bool TSPSDelegate::initVideoInput( int which ){
             if (bAvailable){ 
                 cameraState = CAMERA_VIDEOGRABBER;
                 //set this so we can access video settings through the interface
-                peopleTracker.setVideoGrabber(&vidGrabber, TSPS_INPUT_VIDEO);
+                peopleTracker.setVideoGrabber(&vidGrabber, ofxTSPS::CAMERA_VIDEOGRABBER);
             }
             return bAvailable;
         }

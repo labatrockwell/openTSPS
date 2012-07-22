@@ -48,7 +48,7 @@ public:
     ofxCvGrayscaleImage	grayImg;	
     
 protected:
-	ofxTSPSPeopleTracker peopleTracker;
+    ofxTSPS::PeopleTracker peopleTracker;
     
     int cameraState;
     

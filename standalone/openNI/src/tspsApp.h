@@ -11,7 +11,7 @@
     #include "ofxTSPS.h"
     
     //include openNI TSPS Processor
-    #include "ofxTSPSopenNIProcessor.h"
+    #include "ofxTSPS/openni/OpenNIProcessor.h"
 
     #define TSPS_HOME_PAGE "http://opentsps.com"
 
@@ -47,9 +47,9 @@ class tspsApp : public ofBaseApp {
         
         // TSPS events
     
-        void onPersonEntered( ofxTSPSEventArgs & tspsEvent );
-        void onPersonUpdated( ofxTSPSEventArgs & tspsEvent );
-		void onPersonWillLeave( ofxTSPSEventArgs & tspsEvent );
+    void onPersonEntered( ofxTSPS::EventArgs & tspsEvent );
+        void onPersonUpdated( ofxTSPS::EventArgs & tspsEvent );
+		void onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent );
 		int camWidth, camHeight;
         
         ofPixels            niPixels;
@@ -67,7 +67,7 @@ class tspsApp : public ofBaseApp {
 		ofImage background;
 
 
-        ofxTSPSPeopleTracker peopleTracker;
+        ofxTSPS::PeopleTracker peopleTracker;
 	    
     
     

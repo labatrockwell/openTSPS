@@ -37,22 +37,23 @@
 		2E7F0C63154F028100DF5456 /* ofxTuioServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0C11154F028000DF5456 /* ofxTuioServer.cpp */; };
 		2E7F0C69154F028100DF5456 /* TuioTcpXmlServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F0C2D154F028000DF5456 /* TuioTcpXmlServer.cpp */; };
 		2EEB71A014EB1EB200DBC952 /* TSPSDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB719F14EB1EB200DBC952 /* TSPSDelegate.cpp */; };
-		A93BF24815BC87BF00974455 /* ofxTSPSopenCvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93BF24215BC87BF00974455 /* ofxTSPSopenCvPerson.cpp */; };
-		A93BF24915BC87BF00974455 /* ofxTSPSopenNIPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93BF24415BC87BF00974455 /* ofxTSPSopenNIPerson.cpp */; };
-		A93BF24A15BC87BF00974455 /* ofxTSPSPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93BF24615BC87BF00974455 /* ofxTSPSPerson.cpp */; };
 		A94EB0E31437A5B000B6437B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94EB0E21437A5B000B6437B /* ApplicationServices.framework */; };
 		A97C63B1156EAF9300F0D2D3 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97C63B0156EAF9300F0D2D3 /* jsoncpp.cpp */; };
-		A97CCB2215B3B85E004A0095 /* ofxTSPSOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0215B3B85E004A0095 /* ofxTSPSOscSender.cpp */; };
-		A97CCB2315B3B85E004A0095 /* ofxTSPSTCPSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0415B3B85E004A0095 /* ofxTSPSTCPSender.cpp */; };
-		A97CCB2415B3B85E004A0095 /* ofxTSPSTUIOSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0615B3B85E004A0095 /* ofxTSPSTUIOSender.cpp */; };
-		A97CCB2515B3B85E004A0095 /* ofxTSPSWebSocketSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0815B3B85E004A0095 /* ofxTSPSWebSocketSender.cpp */; };
-		A97CCB2615B3B85E004A0095 /* ofxTSPSEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0B15B3B85E004A0095 /* ofxTSPSEvents.cpp */; };
-		A97CCB2715B3B85E004A0095 /* ofxTSPSGuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB0E15B3B85E004A0095 /* ofxTSPSGuiManager.cpp */; };
-		A97CCB2815B3B85E004A0095 /* ofxTSPSSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1015B3B85E004A0095 /* ofxTSPSSettings.cpp */; };
-		A97CCB2915B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1415B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp */; };
-		A97CCB2B15B3B85E004A0095 /* ofxTSPSScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1815B3B85E004A0095 /* ofxTSPSScene.cpp */; };
-		A97CCB2C15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1B15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp */; };
-		A97CCB2D15B3B85E004A0095 /* ofxTSPSUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97CCB1F15B3B85E004A0095 /* ofxTSPSUtils.cpp */; };
+		A9AC72A415BCA73B00E9920A /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729315BCA73B00E9920A /* Events.cpp */; };
+		A9AC72A515BCA73B00E9920A /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729415BCA73B00E9920A /* GuiManager.cpp */; };
+		A9AC72A615BCA73B00E9920A /* OpenCvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729515BCA73B00E9920A /* OpenCvPerson.cpp */; };
+		A9AC72A715BCA73B00E9920A /* OpenCvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729615BCA73B00E9920A /* OpenCvProcessor.cpp */; };
+		A9AC72A815BCA73B00E9920A /* OpenNIPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729715BCA73B00E9920A /* OpenNIPerson.cpp */; };
+		A9AC72A915BCA73B00E9920A /* OpenNIProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729815BCA73B00E9920A /* OpenNIProcessor.cpp */; };
+		A9AC72AA15BCA73B00E9920A /* OscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729915BCA73B00E9920A /* OscSender.cpp */; };
+		A9AC72AB15BCA73B00E9920A /* PeopleTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729A15BCA73B00E9920A /* PeopleTracker.cpp */; };
+		A9AC72AC15BCA73B00E9920A /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729B15BCA73B00E9920A /* Person.cpp */; };
+		A9AC72AD15BCA73B00E9920A /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729C15BCA73B00E9920A /* Scene.cpp */; };
+		A9AC72AE15BCA73B00E9920A /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729D15BCA73B00E9920A /* Settings.cpp */; };
+		A9AC72AF15BCA73B00E9920A /* TCPSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729E15BCA73B00E9920A /* TCPSender.cpp */; };
+		A9AC72B015BCA73B00E9920A /* TUIOSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC729F15BCA73B00E9920A /* TUIOSender.cpp */; };
+		A9AC72B115BCA73B00E9920A /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC72A015BCA73B00E9920A /* Utils.cpp */; };
+		A9AC72B215BCA73B00E9920A /* WebSocketSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AC72A115BCA73B00E9920A /* WebSocketSender.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -221,43 +222,43 @@
 		2ECB4D4914586B5900040AA3 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		2EEB719E14EB1D3C00DBC952 /* TSPSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPSDelegate.h; sourceTree = "<group>"; };
 		2EEB719F14EB1EB200DBC952 /* TSPSDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSPSDelegate.cpp; sourceTree = "<group>"; };
-		A93BF24215BC87BF00974455 /* ofxTSPSopenCvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSopenCvPerson.cpp; sourceTree = "<group>"; };
-		A93BF24315BC87BF00974455 /* ofxTSPSopenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSopenCvPerson.h; sourceTree = "<group>"; };
-		A93BF24415BC87BF00974455 /* ofxTSPSopenNIPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSopenNIPerson.cpp; sourceTree = "<group>"; };
-		A93BF24515BC87BF00974455 /* ofxTSPSopenNIPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSopenNIPerson.h; sourceTree = "<group>"; };
-		A93BF24615BC87BF00974455 /* ofxTSPSPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPerson.cpp; sourceTree = "<group>"; };
-		A93BF24715BC87BF00974455 /* ofxTSPSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPerson.h; sourceTree = "<group>"; };
 		A94EB0E21437A5B000B6437B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		A97C63AE156EAF9300F0D2D3 /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		A97C63AF156EAF9300F0D2D3 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		A97C63B0156EAF9300F0D2D3 /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		A97CCAFF15B3B85E004A0095 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		A97CCB0215B3B85E004A0095 /* ofxTSPSOscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSOscSender.cpp; sourceTree = "<group>"; };
-		A97CCB0315B3B85E004A0095 /* ofxTSPSOscSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSOscSender.h; sourceTree = "<group>"; };
-		A97CCB0415B3B85E004A0095 /* ofxTSPSTCPSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSTCPSender.cpp; sourceTree = "<group>"; };
-		A97CCB0515B3B85E004A0095 /* ofxTSPSTCPSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSTCPSender.h; sourceTree = "<group>"; };
-		A97CCB0615B3B85E004A0095 /* ofxTSPSTUIOSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSTUIOSender.cpp; sourceTree = "<group>"; };
-		A97CCB0715B3B85E004A0095 /* ofxTSPSTUIOSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSTUIOSender.h; sourceTree = "<group>"; };
-		A97CCB0815B3B85E004A0095 /* ofxTSPSWebSocketSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSWebSocketSender.cpp; sourceTree = "<group>"; };
-		A97CCB0915B3B85E004A0095 /* ofxTSPSWebSocketSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSWebSocketSender.h; sourceTree = "<group>"; };
-		A97CCB0B15B3B85E004A0095 /* ofxTSPSEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSEvents.cpp; sourceTree = "<group>"; };
-		A97CCB0C15B3B85E004A0095 /* ofxTSPSEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSEvents.h; sourceTree = "<group>"; };
-		A97CCB0E15B3B85E004A0095 /* ofxTSPSGuiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSGuiManager.cpp; sourceTree = "<group>"; };
-		A97CCB0F15B3B85E004A0095 /* ofxTSPSGuiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSGuiManager.h; sourceTree = "<group>"; };
-		A97CCB1015B3B85E004A0095 /* ofxTSPSSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSSettings.cpp; sourceTree = "<group>"; };
-		A97CCB1115B3B85E004A0095 /* ofxTSPSSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSSettings.h; sourceTree = "<group>"; };
-		A97CCB1215B3B85E004A0095 /* ofxTSPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPS.h; sourceTree = "<group>"; };
-		A97CCB1315B3B85E004A0095 /* ofxTSPSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSConstants.h; sourceTree = "<group>"; };
-		A97CCB1415B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSPeopleTracker.cpp; sourceTree = "<group>"; };
-		A97CCB1515B3B85E004A0095 /* ofxTSPSPeopleTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSPeopleTracker.h; sourceTree = "<group>"; };
-		A97CCB1815B3B85E004A0095 /* ofxTSPSScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSScene.cpp; sourceTree = "<group>"; };
-		A97CCB1915B3B85E004A0095 /* ofxTSPSScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSScene.h; sourceTree = "<group>"; };
-		A97CCB1B15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSofxOpenCvProcessor.cpp; sourceTree = "<group>"; };
-		A97CCB1C15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSofxOpenCvProcessor.h; sourceTree = "<group>"; };
-		A97CCB1D15B3B85E004A0095 /* ofxTSPSProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSProcessor.h; sourceTree = "<group>"; };
-		A97CCB1F15B3B85E004A0095 /* ofxTSPSUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTSPSUtils.cpp; sourceTree = "<group>"; };
-		A97CCB2015B3B85E004A0095 /* ofxTSPSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSUtils.h; sourceTree = "<group>"; };
-		A97CCB2115B3B85E004A0095 /* ofxTSPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPSView.h; sourceTree = "<group>"; };
+		A9AC727C15BCA73B00E9920A /* OscSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscSender.h; sourceTree = "<group>"; };
+		A9AC727D15BCA73B00E9920A /* TCPSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSender.h; sourceTree = "<group>"; };
+		A9AC727E15BCA73B00E9920A /* TUIOSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUIOSender.h; sourceTree = "<group>"; };
+		A9AC727F15BCA73B00E9920A /* WebSocketSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketSender.h; sourceTree = "<group>"; };
+		A9AC728015BCA73B00E9920A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A9AC728115BCA73B00E9920A /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		A9AC728315BCA73B00E9920A /* GuiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManager.h; sourceTree = "<group>"; };
+		A9AC728415BCA73B00E9920A /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		A9AC728515BCA73B00E9920A /* PeopleTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTracker.h; sourceTree = "<group>"; };
+		A9AC728715BCA73B00E9920A /* OpenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvPerson.h; sourceTree = "<group>"; };
+		A9AC728915BCA73B00E9920A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		A9AC728A15BCA73B00E9920A /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		A9AC728C15BCA73B00E9920A /* OpenCvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvProcessor.h; sourceTree = "<group>"; };
+		A9AC728E15BCA73B00E9920A /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		A9AC729015BCA73B00E9920A /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		A9AC729115BCA73B00E9920A /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
+		A9AC729315BCA73B00E9920A /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
+		A9AC729415BCA73B00E9920A /* GuiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GuiManager.cpp; sourceTree = "<group>"; };
+		A9AC729515BCA73B00E9920A /* OpenCvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCvPerson.cpp; sourceTree = "<group>"; };
+		A9AC729615BCA73B00E9920A /* OpenCvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCvProcessor.cpp; sourceTree = "<group>"; };
+		A9AC729715BCA73B00E9920A /* OpenNIPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenNIPerson.cpp; sourceTree = "<group>"; };
+		A9AC729815BCA73B00E9920A /* OpenNIProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenNIProcessor.cpp; sourceTree = "<group>"; };
+		A9AC729915BCA73B00E9920A /* OscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscSender.cpp; sourceTree = "<group>"; };
+		A9AC729A15BCA73B00E9920A /* PeopleTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PeopleTracker.cpp; sourceTree = "<group>"; };
+		A9AC729B15BCA73B00E9920A /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
+		A9AC729C15BCA73B00E9920A /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		A9AC729D15BCA73B00E9920A /* Settings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Settings.cpp; sourceTree = "<group>"; };
+		A9AC729E15BCA73B00E9920A /* TCPSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCPSender.cpp; sourceTree = "<group>"; };
+		A9AC729F15BCA73B00E9920A /* TUIOSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TUIOSender.cpp; sourceTree = "<group>"; };
+		A9AC72A015BCA73B00E9920A /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		A9AC72A115BCA73B00E9920A /* WebSocketSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WebSocketSender.cpp; sourceTree = "<group>"; };
+		A9AC72A315BCA73B00E9920A /* ofxTSPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTSPS.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -757,19 +758,6 @@
 			path = core;
 			sourceTree = "<group>";
 		};
-		A93BF24115BC87BF00974455 /* person */ = {
-			isa = PBXGroup;
-			children = (
-				A93BF24215BC87BF00974455 /* ofxTSPSopenCvPerson.cpp */,
-				A93BF24315BC87BF00974455 /* ofxTSPSopenCvPerson.h */,
-				A93BF24415BC87BF00974455 /* ofxTSPSopenNIPerson.cpp */,
-				A93BF24515BC87BF00974455 /* ofxTSPSopenNIPerson.h */,
-				A93BF24615BC87BF00974455 /* ofxTSPSPerson.cpp */,
-				A93BF24715BC87BF00974455 /* ofxTSPSPerson.h */,
-			);
-			path = person;
-			sourceTree = "<group>";
-		};
 		A97C63AC156EAF9300F0D2D3 /* jsoncpp */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,84 +780,129 @@
 			isa = PBXGroup;
 			children = (
 				A97CCAFF15B3B85E004A0095 /* install.xml */,
-				A97CCB0015B3B85E004A0095 /* src */,
+				A9AC727715BCA73A00E9920A /* libs */,
+				A9AC72A215BCA73B00E9920A /* src */,
 			);
 			name = ofxTSPS;
 			path = ../../addons/ofxTSPS;
 			sourceTree = "<group>";
 		};
-		A97CCB0015B3B85E004A0095 /* src */ = {
+		A9AC727715BCA73A00E9920A /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				A97CCB0115B3B85E004A0095 /* communication */,
-				A97CCB0A15B3B85E004A0095 /* events */,
-				A97CCB0D15B3B85E004A0095 /* gui */,
-				A97CCB1215B3B85E004A0095 /* ofxTSPS.h */,
-				A97CCB1315B3B85E004A0095 /* ofxTSPSConstants.h */,
-				A97CCB1415B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp */,
-				A97CCB1515B3B85E004A0095 /* ofxTSPSPeopleTracker.h */,
-				A97CCB1815B3B85E004A0095 /* ofxTSPSScene.cpp */,
-				A97CCB1915B3B85E004A0095 /* ofxTSPSScene.h */,
-				A93BF24115BC87BF00974455 /* person */,
-				A97CCB1A15B3B85E004A0095 /* tracking */,
-				A97CCB1E15B3B85E004A0095 /* utils */,
+				A9AC727815BCA73A00E9920A /* ofxTSPS */,
 			);
-			path = src;
+			path = libs;
 			sourceTree = "<group>";
 		};
-		A97CCB0115B3B85E004A0095 /* communication */ = {
+		A9AC727815BCA73A00E9920A /* ofxTSPS */ = {
 			isa = PBXGroup;
 			children = (
-				A97CCB0215B3B85E004A0095 /* ofxTSPSOscSender.cpp */,
-				A97CCB0315B3B85E004A0095 /* ofxTSPSOscSender.h */,
-				A97CCB0415B3B85E004A0095 /* ofxTSPSTCPSender.cpp */,
-				A97CCB0515B3B85E004A0095 /* ofxTSPSTCPSender.h */,
-				A97CCB0615B3B85E004A0095 /* ofxTSPSTUIOSender.cpp */,
-				A97CCB0715B3B85E004A0095 /* ofxTSPSTUIOSender.h */,
-				A97CCB0815B3B85E004A0095 /* ofxTSPSWebSocketSender.cpp */,
-				A97CCB0915B3B85E004A0095 /* ofxTSPSWebSocketSender.h */,
+				A9AC727915BCA73A00E9920A /* include */,
+				A9AC729215BCA73B00E9920A /* src */,
+			);
+			path = ofxTSPS;
+			sourceTree = "<group>";
+		};
+		A9AC727915BCA73A00E9920A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC727A15BCA73B00E9920A /* ofxTSPS */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A9AC727A15BCA73B00E9920A /* ofxTSPS */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC727B15BCA73B00E9920A /* communication */,
+				A9AC728015BCA73B00E9920A /* Constants.h */,
+				A9AC728115BCA73B00E9920A /* Events.h */,
+				A9AC728215BCA73B00E9920A /* gui */,
+				A9AC728515BCA73B00E9920A /* PeopleTracker.h */,
+				A9AC728615BCA73B00E9920A /* person */,
+				A9AC728A15BCA73B00E9920A /* Scene.h */,
+				A9AC728B15BCA73B00E9920A /* tracking */,
+				A9AC728F15BCA73B00E9920A /* utils */,
+			);
+			path = ofxTSPS;
+			sourceTree = "<group>";
+		};
+		A9AC727B15BCA73B00E9920A /* communication */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC727C15BCA73B00E9920A /* OscSender.h */,
+				A9AC727D15BCA73B00E9920A /* TCPSender.h */,
+				A9AC727E15BCA73B00E9920A /* TUIOSender.h */,
+				A9AC727F15BCA73B00E9920A /* WebSocketSender.h */,
 			);
 			path = communication;
 			sourceTree = "<group>";
 		};
-		A97CCB0A15B3B85E004A0095 /* events */ = {
+		A9AC728215BCA73B00E9920A /* gui */ = {
 			isa = PBXGroup;
 			children = (
-				A97CCB0B15B3B85E004A0095 /* ofxTSPSEvents.cpp */,
-				A97CCB0C15B3B85E004A0095 /* ofxTSPSEvents.h */,
-			);
-			path = events;
-			sourceTree = "<group>";
-		};
-		A97CCB0D15B3B85E004A0095 /* gui */ = {
-			isa = PBXGroup;
-			children = (
-				A97CCB0E15B3B85E004A0095 /* ofxTSPSGuiManager.cpp */,
-				A97CCB0F15B3B85E004A0095 /* ofxTSPSGuiManager.h */,
-				A97CCB1015B3B85E004A0095 /* ofxTSPSSettings.cpp */,
-				A97CCB1115B3B85E004A0095 /* ofxTSPSSettings.h */,
+				A9AC728315BCA73B00E9920A /* GuiManager.h */,
+				A9AC728415BCA73B00E9920A /* Settings.h */,
 			);
 			path = gui;
 			sourceTree = "<group>";
 		};
-		A97CCB1A15B3B85E004A0095 /* tracking */ = {
+		A9AC728615BCA73B00E9920A /* person */ = {
 			isa = PBXGroup;
 			children = (
-				A97CCB1B15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp */,
-				A97CCB1C15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.h */,
-				A97CCB1D15B3B85E004A0095 /* ofxTSPSProcessor.h */,
+				A9AC728715BCA73B00E9920A /* OpenCvPerson.h */,
+				A9AC728915BCA73B00E9920A /* Person.h */,
+			);
+			path = person;
+			sourceTree = "<group>";
+		};
+		A9AC728B15BCA73B00E9920A /* tracking */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC728C15BCA73B00E9920A /* OpenCvProcessor.h */,
+				A9AC728E15BCA73B00E9920A /* Processor.h */,
 			);
 			path = tracking;
 			sourceTree = "<group>";
 		};
-		A97CCB1E15B3B85E004A0095 /* utils */ = {
+		A9AC728F15BCA73B00E9920A /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				A97CCB1F15B3B85E004A0095 /* ofxTSPSUtils.cpp */,
-				A97CCB2015B3B85E004A0095 /* ofxTSPSUtils.h */,
-				A97CCB2115B3B85E004A0095 /* ofxTSPSView.h */,
+				A9AC729015BCA73B00E9920A /* Utils.h */,
+				A9AC729115BCA73B00E9920A /* View.h */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		A9AC729215BCA73B00E9920A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC729315BCA73B00E9920A /* Events.cpp */,
+				A9AC729415BCA73B00E9920A /* GuiManager.cpp */,
+				A9AC729515BCA73B00E9920A /* OpenCvPerson.cpp */,
+				A9AC729615BCA73B00E9920A /* OpenCvProcessor.cpp */,
+				A9AC729715BCA73B00E9920A /* OpenNIPerson.cpp */,
+				A9AC729815BCA73B00E9920A /* OpenNIProcessor.cpp */,
+				A9AC729915BCA73B00E9920A /* OscSender.cpp */,
+				A9AC729A15BCA73B00E9920A /* PeopleTracker.cpp */,
+				A9AC729B15BCA73B00E9920A /* Person.cpp */,
+				A9AC729C15BCA73B00E9920A /* Scene.cpp */,
+				A9AC729D15BCA73B00E9920A /* Settings.cpp */,
+				A9AC729E15BCA73B00E9920A /* TCPSender.cpp */,
+				A9AC729F15BCA73B00E9920A /* TUIOSender.cpp */,
+				A9AC72A015BCA73B00E9920A /* Utils.cpp */,
+				A9AC72A115BCA73B00E9920A /* WebSocketSender.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A9AC72A215BCA73B00E9920A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC72A315BCA73B00E9920A /* ofxTSPS.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
@@ -1530,20 +1563,21 @@
 				2E7F0C63154F028100DF5456 /* ofxTuioServer.cpp in Sources */,
 				2E7F0C69154F028100DF5456 /* TuioTcpXmlServer.cpp in Sources */,
 				A97C63B1156EAF9300F0D2D3 /* jsoncpp.cpp in Sources */,
-				A97CCB2215B3B85E004A0095 /* ofxTSPSOscSender.cpp in Sources */,
-				A97CCB2315B3B85E004A0095 /* ofxTSPSTCPSender.cpp in Sources */,
-				A97CCB2415B3B85E004A0095 /* ofxTSPSTUIOSender.cpp in Sources */,
-				A97CCB2515B3B85E004A0095 /* ofxTSPSWebSocketSender.cpp in Sources */,
-				A97CCB2615B3B85E004A0095 /* ofxTSPSEvents.cpp in Sources */,
-				A97CCB2715B3B85E004A0095 /* ofxTSPSGuiManager.cpp in Sources */,
-				A97CCB2815B3B85E004A0095 /* ofxTSPSSettings.cpp in Sources */,
-				A97CCB2915B3B85E004A0095 /* ofxTSPSPeopleTracker.cpp in Sources */,
-				A97CCB2B15B3B85E004A0095 /* ofxTSPSScene.cpp in Sources */,
-				A97CCB2C15B3B85E004A0095 /* ofxTSPSofxOpenCvProcessor.cpp in Sources */,
-				A97CCB2D15B3B85E004A0095 /* ofxTSPSUtils.cpp in Sources */,
-				A93BF24815BC87BF00974455 /* ofxTSPSopenCvPerson.cpp in Sources */,
-				A93BF24915BC87BF00974455 /* ofxTSPSopenNIPerson.cpp in Sources */,
-				A93BF24A15BC87BF00974455 /* ofxTSPSPerson.cpp in Sources */,
+				A9AC72A415BCA73B00E9920A /* Events.cpp in Sources */,
+				A9AC72A515BCA73B00E9920A /* GuiManager.cpp in Sources */,
+				A9AC72A615BCA73B00E9920A /* OpenCvPerson.cpp in Sources */,
+				A9AC72A715BCA73B00E9920A /* OpenCvProcessor.cpp in Sources */,
+				A9AC72A815BCA73B00E9920A /* OpenNIPerson.cpp in Sources */,
+				A9AC72A915BCA73B00E9920A /* OpenNIProcessor.cpp in Sources */,
+				A9AC72AA15BCA73B00E9920A /* OscSender.cpp in Sources */,
+				A9AC72AB15BCA73B00E9920A /* PeopleTracker.cpp in Sources */,
+				A9AC72AC15BCA73B00E9920A /* Person.cpp in Sources */,
+				A9AC72AD15BCA73B00E9920A /* Scene.cpp in Sources */,
+				A9AC72AE15BCA73B00E9920A /* Settings.cpp in Sources */,
+				A9AC72AF15BCA73B00E9920A /* TCPSender.cpp in Sources */,
+				A9AC72B015BCA73B00E9920A /* TUIOSender.cpp in Sources */,
+				A9AC72B115BCA73B00E9920A /* Utils.cpp in Sources */,
+				A9AC72B215BCA73B00E9920A /* WebSocketSender.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

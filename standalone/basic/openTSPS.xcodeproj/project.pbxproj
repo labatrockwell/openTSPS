@@ -270,12 +270,6 @@
 		A93BF28915BC94ED00974455 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A93BF28A15BC94ED00974455 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		A93BF28B15BC94ED00974455 /* PeopleTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTracker.h; sourceTree = "<group>"; };
-		A93BF28D15BC94ED00974455 /* OpenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvPerson.h; sourceTree = "<group>"; };
-		A93BF28E15BC94ED00974455 /* OpenNIPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNIPerson.h; sourceTree = "<group>"; };
-		A93BF28F15BC94ED00974455 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		A93BF29115BC94ED00974455 /* OpenCvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvProcessor.h; sourceTree = "<group>"; };
-		A93BF29215BC94ED00974455 /* OpenNIProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNIProcessor.h; sourceTree = "<group>"; };
-		A93BF29315BC94ED00974455 /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
 		A93BF29515BC94ED00974455 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A93BF29615BC94ED00974455 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
 		A93BF29815BC94ED00974455 /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
@@ -424,6 +418,10 @@
 		A9AC722F15BCA04700E9920A /* ofxOpenNITypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOpenNITypes.cpp; sourceTree = "<group>"; };
 		A9AC723015BCA04700E9920A /* ofxOpenNITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpenNITypes.h; sourceTree = "<group>"; };
 		A9AC723115BCA04700E9920A /* ofxOpenNIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpenNIUtils.h; sourceTree = "<group>"; };
+		A9AC72BD15BCA8D500E9920A /* OpenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvPerson.h; sourceTree = "<group>"; };
+		A9AC72BE15BCA8D500E9920A /* OpenCvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvProcessor.h; sourceTree = "<group>"; };
+		A9AC72BF15BCA8D500E9920A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		A9AC72C015BCA8D500E9920A /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -1018,8 +1016,9 @@
 				A9AC713815BCA01400E9920A /* Events.h */,
 				A93BF28A15BC94ED00974455 /* Scene.h */,
 				A93BF28B15BC94ED00974455 /* PeopleTracker.h */,
-				A93BF28C15BC94ED00974455 /* person */,
-				A93BF29015BC94ED00974455 /* tracking */,
+				A9AC72BC15BCA8D500E9920A /* opencv */,
+				A9AC72BF15BCA8D500E9920A /* Person.h */,
+				A9AC72C015BCA8D500E9920A /* Processor.h */,
 				A93BF29415BC94ED00974455 /* utils */,
 			);
 			path = ofxTSPS;
@@ -1043,26 +1042,6 @@
 				A93BF28815BC94ED00974455 /* Settings.h */,
 			);
 			path = gui;
-			sourceTree = "<group>";
-		};
-		A93BF28C15BC94ED00974455 /* person */ = {
-			isa = PBXGroup;
-			children = (
-				A93BF28D15BC94ED00974455 /* OpenCvPerson.h */,
-				A93BF28E15BC94ED00974455 /* OpenNIPerson.h */,
-				A93BF28F15BC94ED00974455 /* Person.h */,
-			);
-			path = person;
-			sourceTree = "<group>";
-		};
-		A93BF29015BC94ED00974455 /* tracking */ = {
-			isa = PBXGroup;
-			children = (
-				A93BF29115BC94ED00974455 /* OpenCvProcessor.h */,
-				A93BF29215BC94ED00974455 /* OpenNIProcessor.h */,
-				A93BF29315BC94ED00974455 /* Processor.h */,
-			);
-			path = tracking;
 			sourceTree = "<group>";
 		};
 		A93BF29415BC94ED00974455 /* utils */ = {
@@ -1296,6 +1275,15 @@
 				A9AC723115BCA04700E9920A /* ofxOpenNIUtils.h */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		A9AC72BC15BCA8D500E9920A /* opencv */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC72BD15BCA8D500E9920A /* OpenCvPerson.h */,
+				A9AC72BE15BCA8D500E9920A /* OpenCvProcessor.h */,
+			);
+			path = opencv;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
