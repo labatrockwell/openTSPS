@@ -74,8 +74,6 @@ THE SOFTWARE.
 #define guiButtonWidth 220.f
 #define guiButtonHeight 20.f
 
-//#include "ofxFileDialog.h"
-
 class xmlAssociation{
     public:
         xmlAssociation(guiBaseObject * objPtr, string xmlNameIn, int numParamsIn){
@@ -203,8 +201,6 @@ class ofxLabGui: public guiBaseObject{
 		ofxXmlSettings settings;
 		string currentXmlFile;
 		string settingsDirectory;
-	
-		//ofxFileDialog fileDialog;
 	
 		guiTypeButton * saveButton;
 		guiTypeButton * restoreButton;

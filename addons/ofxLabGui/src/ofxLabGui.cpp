@@ -765,21 +765,10 @@ void ofxLabGui::loadSettings(string xmlFile){
 
 //-----------------------------
 void ofxLabGui::loadSettingsEvent( string & buttonName){
-	/*
-#ifndef WIN32
-	string fileToLoad = fileDialog.getStringFromDialog(kDialogFile, "Load XML File", "select an xml file to load");
-	size_t found = fileToLoad.find(".xml");
-	if (fileToLoad != "" && found != string::npos) loadSettings(fileToLoad);
-#else
-	string fileToLoad = fileDialog.getStringFromDialog("XML file (*.xml)\0*.xml\0", NULL);
-	if (fileToLoad != "") loadSettings(fileToLoad);
-#endif
-	 */
 	ofFileDialogResult r = ofSystemLoadDialog("Load XML File", false);
 	if(r.bSuccess){
 		loadSettings(r.getPath());
 	}
-	//loadSettings();
 }
 
 //-----------------------------
@@ -861,13 +850,6 @@ void ofxLabGui::saveSettingsEvent( string & buttonName){
 
 //-----------------------------
 void ofxLabGui::saveAsSettingsEvent( string & buttonName){
-	/*
-	#ifndef WIN32
-	string test = fileDialog.getStringFromSaveDialog("Save As", NULL);
-#else
-	string test = fileDialog.getStringFromSaveDialog("XML file (*.xml)\0*.xml\0", NULL);
-#endif
-	*/
 	ofFileDialogResult r = ofSystemSaveDialog("Save XML File", "Save XML File");
 	string testPath = r.getPath();
 	if(r.bSuccess){
