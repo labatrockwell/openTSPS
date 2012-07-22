@@ -1,30 +1,15 @@
-/**
-*
-* openTSPS is a tool for sensing people in spaces.
-*
-* openTSPS Software is a cross platform set of video sensing tools developed
-* in Openframeworks (http://www.openframeworks.cc) for use in design, prototyping,
-* and installed systems.
-*
-* A collaboration started by LAB at Rockwell Group (http://www.rockwellgroup.com/lab )
-* and the LABS at IDEO (http://labs.ideo.com). Join Us!
-*
-* This started as an initiative between Dave Vondle and Joshua Walton with many of
-* the key components generated through the hard work of James Tichenor, Brett Renfer,
-* and James George who in turn also used components from the openframeworks community
-* who in turn built upon many open source projects.
-*
-* Dave Vondle - Project Lead
-* Joshua Walton - Project Lead
-* James Tichenor - Interaction Designer
-* Brett Renfer - Interaction Designer, Software Design and Architecture
-* James George - Software Design and Architecture
-
+/*
+ *  ofxTSPS::Scene.h
+ *  TSPSPeopleVision
+ *
+ *  Created by Jim on 12/10/09.
+ *  Copyright 2009 University of Washington. All rights reserved.
+ *
  Portions of this software are distributed under the GPL and the MIT license.
 
  The MIT License
 
- Copyright (c) 2010 Rockwell Group LLC
+ Copyright (c) 2010 James George
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -43,13 +28,19 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
+ */
 
-*/
+#pragma once
 
+#include "ofPoint.h"
 
-#ifndef _TSPS_PEOPLETRACKER
-#define _TSPS_PEOPLETRACKER
-
-#include "ofxTSPS/PeopleTracker.h"
-
-#endif
+namespace ofxTSPS {
+    class Scene {
+    public:
+        
+        Scene();
+        
+        ofPoint averageMotion;
+        float percentCovered;
+    };
+}
