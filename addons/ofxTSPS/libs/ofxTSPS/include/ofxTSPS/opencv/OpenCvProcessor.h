@@ -47,7 +47,6 @@ namespace ofxTSPS {
         // settings
         void setOpticalflowMinMax( float min = 0.0, float max = 10.0 );
         void setHaarXMLFile( string xmlFile );
-        void setHaarPadding( float padding = 0.0 );
         
         // ofxCvBlobListener functions
         void blobOn( int x, int y, int id, int order );
@@ -63,7 +62,6 @@ namespace ofxTSPS {
         // haar tracking
         ofxLABCvHaarFinder  haarFinder;
         ofxCvHaarTracker    haarTracker;
-        float               haarAreaPadding;
         ofxCvGrayscaleImage haarImage;
         
         // contour tracking 

@@ -70,7 +70,9 @@ namespace ofxTSPS {
         
         virtual void setOpticalflowMinMax( float min = 0.0, float max = 10.0 ){};
         virtual void setHaarXMLFile( string xmlFile ){};
-        virtual void setHaarPadding( float padding = 0.0 ){};
+        virtual void setHaarPadding( float padding = 0.0 ){
+            haarAreaPadding = padding;
+        };
         
         // get capabilities
         // TO-DO: Capabilites turn on/off parts of GUI
@@ -146,6 +148,7 @@ namespace ofxTSPS {
         bool bCanTrackSkeleton, bTrackSkeleton;
         bool bCanTrackOpticalFlow, bTrackOpticalFlow;
         
+        float   haarAreaPadding;    // padding around bound rect to look for haar
         float   trackingScale;  // amount to scale
         
         float   threshold;

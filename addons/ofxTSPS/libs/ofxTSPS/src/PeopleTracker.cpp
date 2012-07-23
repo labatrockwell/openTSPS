@@ -43,12 +43,12 @@ namespace ofxTSPS {
         width  = w;
         height = h;
         
-        grayBg.allocate(width, height);
-        grayImage.allocate(width, height);
-        colorImage.allocate(width,height);
-        grayImageWarped.allocate(width, height);
-        colorImageWarped.allocate(width,height);
-        grayDiff.allocate( width,height );
+        cameraImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        warpedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        backgroundImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        
+        grayDiff.allocate(width, height);
         
         //set tracker
         bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketServerEnabled = bWebSocketClientEnabled = false;
@@ -73,19 +73,19 @@ namespace ofxTSPS {
         
         updateViewRectangles();
         
-        cameraView.setImage(&grayImage);
+        cameraView.setImage(&cameraImage);
         cameraView.setTitle("Camera Source View", "Camera");
         cameraView.setColor(218,173,90);
         
-        adjustedView.setImage(&grayImageWarped);
+        adjustedView.setImage(&warpedImage);
         adjustedView.setTitle("Adjusted Camera View", "Adjusted");
         adjustedView.setColor(174,139,138);
         
-        bgView.setImage(&grayBg);
+        bgView.setImage(&backgroundImage);
         bgView.setTitle("Background Reference View", "Background");
         bgView.setColor(213,105,68);
 		
-        processedView.setImage(&grayDiff);
+        processedView.setImage(&differencedImage);
         processedView.setTitle("Differenced View", "Differencing");
         processedView.setColor(113,171,154);
         
@@ -98,7 +98,7 @@ namespace ofxTSPS {
         
         // setup default processor
         if ( tspsProcessor == NULL ){
-            setProcessor( new OpenCvProcessor);
+            setProcessor( new CvProcessor);
         }    
         tspsProcessor->setup( width, height, &scene, &trackedPeople );
         
@@ -178,10 +178,10 @@ namespace ofxTSPS {
         width  = w;
         height = h;
         
-        grayImage.allocate(width, height);
-        colorImage.allocate(width,height);
-        grayImageWarped.allocate(width, height);
-        colorImageWarped.allocate(width,height);
+        cameraImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        warpedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        backgroundImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         
         grayDiff.allocate(width, height);
         gui.setupQuadGui( width, height );
@@ -296,7 +296,7 @@ namespace ofxTSPS {
         tspsProcessor->setTrackOpticalFlow( p_Settings->bTrackOpticalFlow );
         
         tspsProcessor->setThreshold( p_Settings->threshold );
-        tspsProcessor->setBlobSettings( p_Settings->minBlob*width*height, p_Settings->maxBlob*width*height, p_Settings->bFindHoles);
+        tspsProcessor->setBlobSettings( p_Settings->minBlob, p_Settings->maxBlob, p_Settings->bFindHoles);
         tspsProcessor->setOpticalflowMinMax( p_Settings->maxOpticalFlow, p_Settings->minOpticalFlow );
         tspsProcessor->setHaarPadding( p_Settings->haarAreaPadding );
         
@@ -395,30 +395,30 @@ namespace ofxTSPS {
         //warp background
         //colorImage = grayImage;
         //colorImageWarped = colorImage;
-        getQuadSubImage(&grayImage, &grayImageWarped, &p_Settings->quadWarpScaled, 1);	
+        getQuadSubImage(cameraImage, warpedImage, p_Settings->quadWarpScaled, OF_IMAGE_GRAYSCALE);	
         
         // update scaled down images
-        grayDiff = grayImageWarped;
+        grayDiff.setFromPixels(warpedImage.getPixelsRef());
+        //grayDiff = grayImageWarped;
         
         //amplify
         if(p_Settings->bAmplify){
             grayDiff.amplify(grayDiff, p_Settings->highpassAmp/15.0f);
+            warpedImage.setFromPixels(grayDiff.getPixelsRef());
         }
         
-        grayImageWarped = grayDiff;
-        
         // set base camera image
-        tspsProcessor->setCameraImage( grayImageWarped );
+        tspsProcessor->setCameraImage( warpedImage );
         
         //learn background
         if (p_Settings->bLearnBackground){
-            grayBg = grayImageWarped;
-            tspsProcessor->captureBackground( grayImageWarped );
+            backgroundImage = warpedImage;
+            tspsProcessor->captureBackground( warpedImage );
         }
         
         //progressive relearn background
         if (p_Settings->bLearnBackgroundProgressive){
-            tspsProcessor->progressiveBackground( grayImageWarped, p_Settings->fLearnRate * .00001 );
+            tspsProcessor->progressiveBackground( warpedImage, p_Settings->fLearnRate * .00001 );
         }
         
         // black out background?
@@ -429,7 +429,7 @@ namespace ofxTSPS {
         //-----------------------
         // Difference image
         //-----------------------
-        grayDiff.setFromPixels( tspsProcessor->difference( grayImageWarped, (TrackingType) p_Settings->trackType ) );
+        grayDiff.setFromPixels( tspsProcessor->difference( grayDiff, (TrackingType) p_Settings->trackType ) );
         
         //-----------------------
         // Post-difference filters
@@ -447,7 +447,7 @@ namespace ofxTSPS {
         //-----------------------
         // Track
         //-----------------------	
-        grayDiff.setFromPixels( tspsProcessor->process( grayDiff ) );
+        differencedImage.setFromPixels( tspsProcessor->process( grayDiff ) );
     }
     
     //---------------------------------------------------------------------------

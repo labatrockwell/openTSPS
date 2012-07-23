@@ -259,11 +259,6 @@ namespace ofxTSPS {
         haarTracker.setup(&haarFinder);
     }
     
-    //--------------------------------------------------------------
-    void OpenCvProcessor::setHaarPadding( float padding ){
-        haarAreaPadding = padding;
-    }
-    
     //---------------------------------------------------------------------------
     void OpenCvProcessor::blobOn( int x, int y, int id, int order )
     {

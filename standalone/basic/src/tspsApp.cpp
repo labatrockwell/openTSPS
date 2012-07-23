@@ -19,10 +19,11 @@ void tspsApp::setup(){
 	
 	camWidth = 640;
 	camHeight = 480;
+    bUseVideoFile = false;
 
     // allocate images + setup people tracker
-	colorImg.allocate(camWidth, camHeight);
-    grayImg.allocate(camWidth, camHeight);
+	//colorImg.allocate(camWidth, camHeight);
+    grayImg.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
 	
 	peopleTracker.setup(camWidth, camHeight);
 	peopleTracker.loadFont("fonts/times.ttf", 10);
@@ -30,7 +31,6 @@ void tspsApp::setup(){
     
     bKinect         = false;
     cameraState     = CAMERA_NOT_INITED;
-    
     
     // are there any kinects out there?
     kinect.init();
@@ -107,15 +107,16 @@ void tspsApp::update(){
     
 	if (bNewFrame){
         if ( cameraState == CAMERA_KINECT ){   
-			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
-			colorImg = grayImg;
+			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height, OF_IMAGE_GRAYSCALE);
             peopleTracker.update(grayImg);
         } else if ( cameraState == CAMERA_VIDEOGRABBER ){
-            colorImg.setFromPixels(vidGrabber.getPixels(), camWidth,camHeight);
-            peopleTracker.update(colorImg);
+            grayImg.setFromPixels(vidGrabber.getPixelsRef());
+            grayImg.setImageType(OF_IMAGE_GRAYSCALE);
+            peopleTracker.update(grayImg);
         } else if ( cameraState == CAMERA_VIDEOFILE ){     
-            colorImg.setFromPixels(vidPlayer.getPixels(), camWidth, camHeight);
-            peopleTracker.update(colorImg);
+            grayImg.setFromPixels(vidGrabber.getPixelsRef());
+            grayImg.setImageType(OF_IMAGE_GRAYSCALE);
+            peopleTracker.update(grayImg);
         }
         
 		// iterate through the people
@@ -300,7 +301,6 @@ bool tspsApp::initVideoFile(){
         }
         
         // reallocate
-        colorImg.resize(camWidth, camHeight);
         grayImg.resize(camWidth, camHeight);
         
         cameraState = CAMERA_VIDEOFILE;        

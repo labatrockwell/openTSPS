@@ -67,8 +67,7 @@ class tspsApp : public ofBaseApp {
     
 		int camWidth, camHeight;
 
-		ofxCvColorImage		colorImg;
-		ofxCvGrayscaleImage	grayImg;	
+		ofImage		grayImg;
     	
 	//status bar stuff
 		ofImage statusBar;

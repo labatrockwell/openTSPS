@@ -48,7 +48,8 @@
 
 // TSPS Processors
 #include "ofxTSPS/Processor.h"
-#include "ofxTSPS/opencv/OpenCvProcessor.h"
+//#include "ofxTSPS/opencv/OpenCvProcessor.h" // R.I.P.
+#include "ofxTSPS/cv/CvProcessor.h"
 
 //processing
 #include "CPUImageFilter.h"
@@ -78,7 +79,7 @@ namespace ofxTSPS {
         
             template <class Image>
             void update(Image & image){
-                grayImage = image;
+                cameraImage = image;
                 updateSettings();
                 trackPeople();
             }
@@ -101,7 +102,7 @@ namespace ofxTSPS {
             void setupOsc(string ip, int port);
             void setupTcp(int port);
             void setupWebSocketServer(int port);
-            void setupWebSocketClient( string host, int port, bool bUseSSL = false, string channel="");\
+            void setupWebSocketClient( string host, int port, bool bUseSSL = false, string channel="");
         
             //tracking metrics
             
@@ -206,8 +207,7 @@ namespace ofxTSPS {
             Scene scene;
         
             // core images
-            ofxCvGrayscaleImage	grayImage, grayBg, grayImageWarped;
-            ofxCvColorImage     colorImage, colorImageWarped;
+            ofImage cameraImage, warpedImage, backgroundImage, differencedImage;
             
             // filter image
             CPUImageFilter		grayDiff;
