@@ -424,6 +424,7 @@ namespace ofxTSPS {
         // black out background?
         if (p_Settings->bBlankBackground){
             tspsProcessor->blankBackground();
+            ofxCv::subtract(backgroundImage, backgroundImage, backgroundImage);
         }
         
         //-----------------------

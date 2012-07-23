@@ -78,7 +78,7 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     void CvProcessor::blankBackground(){
-        backgroundImage.allocate(tspsWidth, tspsHeight, OF_IMAGE_GRAYSCALE);
+        subtract(backgroundImage, backgroundImage, backgroundImage);
     }
     
     //------------------------------------------------------------------------
