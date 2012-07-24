@@ -11,6 +11,10 @@
 #include "ofMain.h"
 
 static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <ofPoint>& quad, ofImageType imageType) {
+    if ( quad.size() < 4 ){
+        ofLog( OF_LOG_ERROR, "You must pass a vector of four points to this function");
+        return;
+    } // weird thing that could happen...
     unsigned char * inpix;
     unsigned char * outpix;
     inpix   = inputImage.getPixels();
@@ -29,14 +33,22 @@ static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <o
         bpp = 4;
     }
     
+    int xinput =0;
+    int yinput = 0;
+    int inIndex = 0;
+    int outIndex = 0;
+    
+    float xlrp = 0.0;
+    float ylrp = 0.0;
+    
     for(int x=0;x<outW;x++) {
         for(int y=0;y<outH;y++) {
-            float xlrp = x/(float)outW;
-            float ylrp = y/(float)outH;
-            int xinput = ((quad)[0].x*(1-xlrp)+(quad)[1].x*xlrp)*(1-ylrp) + ((quad)[3].x*(1-xlrp)+(quad)[2].x*xlrp)*ylrp;
-            int yinput = ((quad)[0].y*(1-ylrp)+(quad)[3].y*ylrp)*(1-xlrp) + ((quad)[1].y*(1-ylrp)+(quad)[2].y*ylrp)*xlrp;
-            int inIndex = (xinput + yinput*inW)*bpp;
-            int outIndex = (x+y*outW)*bpp;
+            xlrp = x/(float)outW;
+            ylrp = y/(float)outH;
+            xinput = (quad[0].x*(1-xlrp)+quad[1].x*xlrp)*(1-ylrp) + (quad[3].x*(1-xlrp)+quad[2].x*xlrp)*ylrp;
+            yinput = ((quad[0].y*(1-ylrp))+(quad[3].y*ylrp))*(1-xlrp) + (quad[1].y*(1-ylrp)+quad[2].y*ylrp)*xlrp;
+            inIndex = (xinput + (yinput*inW))*bpp;
+            outIndex = (x+y*outW)*bpp;
             memcpy((outpix+outIndex),(inpix+inIndex),sizeof(unsigned char)*bpp);
         }
     }

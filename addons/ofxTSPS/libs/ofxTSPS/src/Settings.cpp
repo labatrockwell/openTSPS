@@ -58,12 +58,9 @@ namespace ofxTSPS {
         
         tcpPort = 8888;
         
-        quadWarpScaled.reserve(4);
-        quadWarpOriginal.reserve(4);
-        
-        for (int i=0; i<quadWarpScaled.size(); i++){
-            quadWarpScaled[i] = ofPoint(0,0);
-            quadWarpOriginal[i] = ofPoint(0,0);
+        for (int i=0; i<4; i++){
+            quadWarpScaled.push_back(ofPoint(0,0));
+            quadWarpOriginal.push_back(ofPoint(0,0));
         }
     }
     

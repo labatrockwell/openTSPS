@@ -381,6 +381,7 @@ namespace ofxTSPS {
         } else {
             gui.changeGuiCameraView(false);
         }
+        gui.update();
     }
     
     /**

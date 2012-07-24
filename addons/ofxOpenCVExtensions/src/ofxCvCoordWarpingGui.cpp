@@ -33,6 +33,12 @@ ofxCvCoordWarpingGui::ofxCvCoordWarpingGui(){
     disableAllEvents();
     verbose = false;
     bEventsEnabled = false;
+    
+    for ( int i=0; i<4; i++ ){
+        srcScaled[i].set(0,0);
+        srcZeroToOne[i].set(0,0);
+        returnScaled[i].set(0,0);
+    }
 }
 
 //----------------------------------------------------
