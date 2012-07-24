@@ -26,6 +26,7 @@ namespace ofxTSPS {
         bTrackContours      = true;
         bTrackSkeleton      = false;
         bTrackOpticalFlow   = false;
+        bFlowTrackedOnce    = false;
         
         setThreshold();
         setBlobSettings();
@@ -36,6 +37,7 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::setupProcessor(){
         resize(tspsWidth, tspsHeight);
+        trackingScale = 1.0;
         
         //setup contour finder
         contourFinder.setThreshold(15);
@@ -59,11 +61,15 @@ namespace ofxTSPS {
     void CvProcessor::exit(){}
     
     //------------------------------------------------------------------------
-    void CvProcessor::draw(){}
+    void CvProcessor::draw(){
+        if ( bTrackOpticalFlow && bFlowTrackedOnce ){
+            flow.draw();
+        }
+    }
     
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
-        
+        cameraImage.setFromPixels(image.getPixelsRef());
     }
     
     //------------------------------------------------------------------------
@@ -103,7 +109,7 @@ namespace ofxTSPS {
         
         //reset scene
         scene->percentCovered = 0;
-        if ( bTrackOpticalFlow ){
+        if ( bTrackOpticalFlow && bFlowTrackedOnce ){
             scene->averageMotion = flow.getAverageFlowInRegion( ofRectangle(0,0,tspsWidth,tspsHeight) );
         } else {
             scene->averageMotion = ofPoint(0,0);
@@ -116,6 +122,7 @@ namespace ofxTSPS {
         
         // update people
         RectTracker& tracker = contourFinder.getTracker();
+        cv::Mat cameraMat = toCv(cameraImage);
         
         for(int i = 0; i < contourFinder.size(); i++){
             unsigned int id = contourFinder.getLabel(i);
@@ -143,10 +150,15 @@ namespace ofxTSPS {
                 
                 //find peak in blob (only useful with Kinect)
                 // TO-DO
-                /*CvPoint minLoc, maxLoc;
+                cv::Point minLoc, maxLoc;
                 double minVal = 0, maxVal = 0;
-                grayImg.setROI( p->boundingRect );
-                cvMinMaxLoc( grayImg.getCvImage(), &minVal, &maxVal, &minLoc, &maxLoc, 0);
+                cv::Rect rect;
+                rect.x      = p->boundingRect.x;
+                rect.y      = p->boundingRect.y;
+                rect.width  = p->boundingRect.width;
+                rect.height = p->boundingRect.height;
+                cv::Mat roiMat(cameraMat, rect);
+                cv::minMaxLoc( roiMat, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
                 
                 // set highest and lowest points: x, y, VALUE stored in .z prop
                 // ease vals unless first time you're setting them
@@ -160,7 +172,7 @@ namespace ofxTSPS {
                     p->lowest.x = ( p->lowest.x * .7 ) + ( p->boundingRect.x + minLoc.x ) * .3;
                     p->lowest.y = ( p->lowest.y * .7 ) + ( p->boundingRect.y + minLoc.y ) * .3;
                     p->lowest.z = ( p->lowest.z * .7) + ( minVal ) * .3;            
-                }*/
+                }
                 
                 // ROI for opticalflow
                 ofRectangle roi = ofRectangle( p->boundingRect );
@@ -170,7 +182,7 @@ namespace ofxTSPS {
                 roi.height *= trackingScale;
                 
                 // sum optical flow for the person
-                if ( bTrackOpticalFlow ){
+                if ( bTrackOpticalFlow && bFlowTrackedOnce ){
                     // TO-DO!
                     p->opticalFlowVectorAccumulation = flow.getAverageFlowInRegion(roi);
                 } else {
@@ -246,6 +258,7 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::processOpticalFlow( ofBaseImage & image ){
         flow.calcOpticalFlow(image);
+        bFlowTrackedOnce = true;
     }
     
     //------------------------------------------------------------------------
