@@ -208,6 +208,7 @@ namespace ofxTSPS {
         
             // core images
             ofImage cameraImage, warpedImage, backgroundImage, differencedImage;
+            ofPixels blackPixels;
             
             // filter image
             CPUImageFilter		grayDiff;

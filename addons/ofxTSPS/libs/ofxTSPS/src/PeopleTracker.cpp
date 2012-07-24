@@ -43,9 +43,15 @@ namespace ofxTSPS {
         width  = w;
         height = h;
         
+        //useful!
+        blackPixels = ofPixels();
+        blackPixels.allocate(width, height, 1);
+        blackPixels.set(0);
+        
         cameraImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         warpedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         backgroundImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        backgroundImage.setFromPixels(blackPixels);
         differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         
         grayDiff.allocate(width, height);
@@ -424,7 +430,7 @@ namespace ofxTSPS {
         // black out background?
         if (p_Settings->bBlankBackground){
             tspsProcessor->blankBackground();
-            ofxCv::subtract(backgroundImage, backgroundImage, backgroundImage);
+            backgroundImage.setFromPixels(blackPixels);
         }
         
         //-----------------------
