@@ -1,8 +1,6 @@
 *.mode1v3
 *.pbxuser
-build/
-build/*
-*.build/
+*/*/build/
 obj/
 *.o
 openFrameworks.a
@@ -51,7 +49,6 @@ openTSPS.xcodeproj/rockwell.pbxuser
 =======
 Debug*/
 Release*/
-build/
 obj/
 *.app/
 .svn/
