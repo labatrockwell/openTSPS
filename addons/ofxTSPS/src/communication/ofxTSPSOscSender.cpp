@@ -105,7 +105,7 @@ ofxOscMessage ofxTSPSOscSender::getOSCMessage( ofxTSPSPerson * p, string type, b
 	m.addFloatArg(p->velocity.y);
 	
     if(!useLegacy){
-		m.addIntArg(p->depth);
+		m.addFloatArg(p->depth);
 	}
     
 	ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
