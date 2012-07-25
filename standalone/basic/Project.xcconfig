@@ -21,7 +21,7 @@ TSPS_ADDONS_PATH    = ../../addons
 OFX_TSPS_INC        = $(TSPS_ADDONS_PATH)/ofxTSPS/libs/ofxTSPS/include
 
 //ofxCv
-OFX_CV_INC          = "../../../addons/ofxOpenCv/libs/opencv/include/" "../../../addons/ofxCv/libs/ofxCv/include/"
+OFX_CV_INC          = "../../../addons/ofxOpenCv/libs/opencv/include/" $(TSPS_ADDONS_PATH)/ofxCv/libs/ofxCv/include/
 
 //ofxLibwebsockets
 LIB_SSL             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a
