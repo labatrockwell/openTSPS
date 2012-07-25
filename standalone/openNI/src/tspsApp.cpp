@@ -20,7 +20,7 @@ void tspsApp::setup(){
 	camWidth = 640;
 	camHeight = 480;
     niPixels.allocate(camWidth, camHeight, 1);
-    grayImg.allocate( camWidth, camHeight );
+    grayImg.allocate( camWidth, camHeight, OF_IMAGE_GRAYSCALE );
     
     peopleTracker.setProcessor( new ofxTSPS::OpenNIProcessor() );
 	peopleTracker.setup(camWidth, camHeight);

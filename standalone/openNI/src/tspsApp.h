@@ -52,8 +52,8 @@ class tspsApp : public ofBaseApp {
 		void onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent );
 		int camWidth, camHeight;
         
-        ofPixels            niPixels;
-        ofxCvGrayscaleImage	grayImg;
+        ofPixels niPixels;
+        ofImage	grayImg;
 
 	//status bar stuff
 		ofImage statusBar;
