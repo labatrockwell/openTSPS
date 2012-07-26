@@ -813,13 +813,12 @@ namespace ofxTSPS {
         p_Settings->highpassAmp = amplifyAmount;
     }
     
-    //---------------------------------------------------------------------------
-    //---------------------------------------------------------------------------
 #pragma mark filter controls
+    //---------------------------------------------------------------------------
     //haar
     //---------------------------------------------------------------------------
-    void PeopleTracker::setHaarExpandArea(float haarExpandAmount) //makes the haar rect +area bigger
-    {
+    //makes the haar rect +area bigger 
+    void PeopleTracker::setHaarExpandArea(float haarExpandAmount) {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->haarAreaPadding = haarExpandAmount;
     }
