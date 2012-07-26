@@ -46,7 +46,7 @@ namespace ofxTSPS {
         
         // step 1: background
         virtual void captureBackground( ofBaseImage & image ) = 0;
-        virtual void progressiveBackground( ofBaseImage & image, float amount ) = 0;
+        virtual ofPixelsRef progressiveBackground( ofBaseImage & image, float amount ) = 0;
         virtual void blankBackground() = 0;
         
         // step 2: difference

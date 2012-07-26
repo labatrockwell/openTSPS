@@ -58,10 +58,11 @@ namespace ofxTSPS {
     }
     
     //--------------------------------------------------------------
-    void OpenCvProcessor::progressiveBackground( ofBaseImage & image, float amount ){
+    ofPixelsRef OpenCvProcessor::progressiveBackground( ofBaseImage & image, float amount ){
         dummyImage.setFromPixels(image.getPixels(), image.getWidth(), image.getHeight());
         floatBgImg.addWeighted( dummyImage, amount);
         grayBg = floatBgImg;
+        return grayBg.getPixelsRef();
     }
     
     //--------------------------------------------------------------

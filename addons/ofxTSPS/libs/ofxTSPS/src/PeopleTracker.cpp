@@ -425,7 +425,7 @@ namespace ofxTSPS {
         
         //progressive relearn background
         if (p_Settings->bLearnBackgroundProgressive){
-            tspsProcessor->progressiveBackground( warpedImage, p_Settings->fLearnRate * .00001 );
+            backgroundImage.setFromPixels( tspsProcessor->progressiveBackground( warpedImage, p_Settings->fLearnRate * .00001 ));
         }
         
         // black out background?

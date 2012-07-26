@@ -25,7 +25,7 @@ namespace ofxTSPS {
         
         // step 1: background
         void captureBackground( ofBaseImage & image );
-        void progressiveBackground( ofBaseImage & image, float amount );
+        ofPixelsRef progressiveBackground( ofBaseImage & image, float amount );
         void blankBackground();
         
         // step 2: difference
@@ -49,7 +49,7 @@ namespace ofxTSPS {
         void setupProcessor();
         
         // images
-        ofImage cameraImage, backgroundImage, differencedImage;
+        ofImage cameraImage, backgroundImage, progressiveBackgroundImage, differencedImage;
         
         // ofxCv stuff
         ofxCv::ContourFinder    contourFinder;

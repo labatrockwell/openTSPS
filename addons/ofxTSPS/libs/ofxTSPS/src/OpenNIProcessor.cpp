@@ -71,7 +71,7 @@ namespace ofxTSPS {
     }
     
     //--------------------------------------------------------------
-    void OpenNIProcessor::progressiveBackground( ofBaseImage & image, float amount ){
+    ofPixelsRef OpenNIProcessor::progressiveBackground( ofBaseImage & image, float amount ){
         //not implemented yet...
     }
     

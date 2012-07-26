@@ -63,6 +63,7 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::draw(){
         if ( bTrackOpticalFlow && bFlowTrackedOnce ){
+            // why isn't this working?
             flow.draw();
         }
     }
@@ -75,11 +76,17 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::captureBackground( ofBaseImage & image ){
         backgroundImage.setFromPixels( image.getPixelsRef() );
+        progressiveBackgroundImage.setFromPixels( image.getPixelsRef() );
     }
     
     //------------------------------------------------------------------------
-    void CvProcessor::progressiveBackground( ofBaseImage & image, float amount ){
+    ofPixelsRef CvProcessor::progressiveBackground( ofBaseImage & image, float amount ){
         // to-do
+        //backgroundImage.setFromPixels( image.getPixelsRef() );
+        ofxCv::lerp(image, progressiveBackgroundImage, progressiveBackgroundImage, amount);
+        //cv::addWeighted( toCv(backgroundImage), amount, toCv(progressiveBackgroundImage), 1.0f-amount,0, toCv(progressiveBackgroundImage) );
+        backgroundImage = progressiveBackgroundImage;
+        return backgroundImage.getPixelsRef();
     }
     
     //------------------------------------------------------------------------
@@ -280,5 +287,6 @@ namespace ofxTSPS {
     void CvProcessor::resize( int camWidth, int camHeight ){
         backgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         differencedImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
+        progressiveBackgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
     }
 }
