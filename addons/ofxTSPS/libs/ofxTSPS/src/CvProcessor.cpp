@@ -45,15 +45,14 @@ namespace ofxTSPS {
 		contourFinder.getTracker().setMaximumDistance(300);
 		contourFinder.setSimplify(false);
         
-        //setup optical flow
-        
+        //setup optical flow        
         flow.setPyramidScale( .5 );
         flow.setNumLevels( 4 );
         flow.setWindowSize( 2 );
         flow.setNumIterations( 2 );
         flow.setPolyN( 7 );
         flow.setPolySigma( 1.5 );
-        flow.setUseGaussian( 0 );
+        flow.setUseGaussian( false );    
     }
     
     //------------------------------------------------------------------------
@@ -63,15 +62,17 @@ namespace ofxTSPS {
     void CvProcessor::draw(){
         if ( bTrackOpticalFlow && bFlowTrackedOnce ){
             // why isn't this working?
-            flow.draw();
+            flow.draw(0,0,tspsWidth, tspsHeight);
         }
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
         cameraImage.setFromPixels(image.getPixelsRef());
-        ofxCv::resize(cameraImage, cameraSmallImage);
-		cameraSmallImage.update();
+        cameraSmallImage.setFromPixels(image.getPixelsRef());
+        cameraSmallImage.resize( tspsWidth * trackingScale, tspsHeight * trackingScale );
+        //ofxCv::resize(cameraImage, cameraSmallImage);   
+        cameraSmallImage.update();
     }
     
     //------------------------------------------------------------------------
@@ -116,17 +117,17 @@ namespace ofxTSPS {
         ofxCv::threshold(differencedImage, threshold);
         
         if ( bTrackHaar ){
-            processHaar( cameraImage );
+            //processHaar( cameraSmallImage );
         }
         
         if ( bTrackOpticalFlow ){
-            processOpticalFlow( differencedImage );
+            processOpticalFlow( cameraSmallImage );
         }
         
         //reset scene
         scene->percentCovered = 0;
         if ( bTrackOpticalFlow && bFlowTrackedOnce ){
-            scene->averageMotion = flow.getAverageFlowInRegion( ofRectangle(0,0,tspsWidth,tspsHeight) );
+            scene->averageMotion = flow.getAverageFlow();
         } else {
             scene->averageMotion = ofPoint(0,0);
         }
@@ -139,6 +140,9 @@ namespace ofxTSPS {
         // update people
         RectTracker& tracker = contourFinder.getTracker();
         cv::Mat cameraMat = toCv(cameraImage);
+        
+        //optical flow scale
+        // float flowROIScale = tspsWidth/flow.getWidth();
         
         for(int i = 0; i < contourFinder.size(); i++){
             unsigned int id = contourFinder.getLabel(i);
@@ -191,11 +195,11 @@ namespace ofxTSPS {
                 }
                 
                 // ROI for opticalflow
-                ofRectangle roi = ofRectangle( p->boundingRect );
-                roi.x *= trackingScale;
-                roi.y *= trackingScale;
-                roi.width *= trackingScale;
-                roi.height *= trackingScale;
+                ofRectangle roi = p->getBoundingRectNormalized(tspsWidth, tspsHeight);
+                roi.x *= flow.getWidth();
+                roi.y *= flow.getHeight();
+                roi.width *= flow.getWidth();
+                roi.height *= flow.getHeight();                
                 
                 // sum optical flow for the person
                 if ( bTrackOpticalFlow && bFlowTrackedOnce ){
@@ -273,14 +277,14 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::processOpticalFlow( ofBaseImage & image ){
         // should this be image or cameraSmallImage
-        flow.calcOpticalFlow(cameraSmallImage);
+        flow.calcOpticalFlow(image);
         bFlowTrackedOnce = true;
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::processHaar( ofBaseImage & image ){
         // don't really need the image here, huh?        
-		Mat graySmallMat = toCv(cameraSmallImage);
+		Mat graySmallMat = toCv(image);
         //equalizeHist(graySmallMat, graySmallMat);
         
 		haarFinder.detectMultiScale(graySmallMat, haarObjects, 1.06, 1,
