@@ -51,8 +51,12 @@ namespace ofxTSPS {
         cameraImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         warpedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         backgroundImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
-        backgroundImage.setFromPixels(blackPixels);
         differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        
+        cameraImage.setFromPixels(blackPixels);
+        warpedImage.setFromPixels(blackPixels);
+        backgroundImage.setFromPixels(blackPixels);
+        differencedImage.setFromPixels(blackPixels);
         
         grayDiff.allocate(width, height);
         

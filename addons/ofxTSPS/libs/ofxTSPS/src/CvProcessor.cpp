@@ -13,6 +13,8 @@ using namespace ofxCv;
 using namespace cv;
 
 namespace ofxTSPS {
+    ofPixels blackPixelsSmall;
+    
     //------------------------------------------------------------------------
     CvProcessor::CvProcessor(){
         // capabilities
@@ -49,7 +51,7 @@ namespace ofxTSPS {
         flow.setPyramidScale( .5 );
         flow.setNumLevels( 4 );
         flow.setWindowSize( 2 );
-        flow.setNumIterations( 2 );
+        flow.setNumIterations( 1 );
         flow.setPolyN( 7 );
         flow.setPolySigma( 1.5 );
         flow.setUseGaussian( false );    
@@ -62,6 +64,7 @@ namespace ofxTSPS {
     void CvProcessor::draw(){
         if ( bTrackOpticalFlow && bFlowTrackedOnce ){
             // why isn't this working?
+            cameraSmallImage.draw(0,0, tspsWidth, tspsHeight);
             flow.draw(0,0,tspsWidth, tspsHeight);
         }
     }
@@ -69,9 +72,14 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
         cameraImage.setFromPixels(image.getPixelsRef());
-        cameraSmallImage.setFromPixels(image.getPixelsRef());
-        cameraSmallImage.resize( tspsWidth * trackingScale, tspsHeight * trackingScale );
-        //ofxCv::resize(cameraImage, cameraSmallImage);   
+        cameraImage.update();
+        //cameraSmallImage.setFromPixels(image.getPixelsRef());
+        //cameraSmallImage.resize( (int) floor(tspsWidth * trackingScale), (int) floor(tspsHeight * trackingScale) );
+        //ofxCv::resize(cameraImage, cameraSmallImage);
+        ofImage cameraSmallImageHolder; cameraSmallImageHolder.setFromPixels(blackPixelsSmall);
+        Mat srcMat = toCv(cameraImage), dstMat = toCv(blackPixelsSmall);
+        cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_LINEAR);
+        toOf(dstMat, cameraSmallImage);
         cameraSmallImage.update();
     }
     
@@ -83,8 +91,6 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     ofPixelsRef CvProcessor::progressiveBackground( ofBaseImage & image, float amount ){
-        // to-do
-        //backgroundImage.setFromPixels( image.getPixelsRef() );
         ofxCv::lerp(image, progressiveBackgroundImage, progressiveBackgroundImage, amount);
         //cv::addWeighted( toCv(backgroundImage), amount, toCv(progressiveBackgroundImage), 1.0f-amount,0, toCv(progressiveBackgroundImage) );
         backgroundImage = progressiveBackgroundImage;
@@ -113,9 +119,6 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     ofPixelsRef CvProcessor::process ( ofBaseImage & image ){
-        differencedImage.setFromPixels(image.getPixelsRef());
-        ofxCv::threshold(differencedImage, threshold);
-        
         if ( bTrackHaar ){
             //processHaar( cameraSmallImage );
         }
@@ -123,6 +126,9 @@ namespace ofxTSPS {
         if ( bTrackOpticalFlow ){
             processOpticalFlow( cameraSmallImage );
         }
+        
+        differencedImage.setFromPixels(image.getPixelsRef());
+        ofxCv::threshold(differencedImage, threshold);
         
         //reset scene
         scene->percentCovered = 0;
@@ -276,7 +282,6 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     void CvProcessor::processOpticalFlow( ofBaseImage & image ){
-        // should this be image or cameraSmallImage
         flow.calcOpticalFlow(image);
         bFlowTrackedOnce = true;
     }
@@ -285,8 +290,7 @@ namespace ofxTSPS {
     void CvProcessor::processHaar( ofBaseImage & image ){
         // don't really need the image here, huh?        
 		Mat graySmallMat = toCv(image);
-        //equalizeHist(graySmallMat, graySmallMat);
-        
+        //equalizeHist(graySmallMat, graySmallMat);        
 		haarFinder.detectMultiScale(graySmallMat, haarObjects, 1.06, 1,
                                     //CascadeClassifier::DO_CANNY_PRUNING |
                                     //CascadeClassifier::FIND_BIGGEST_OBJECT |
@@ -308,7 +312,14 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::resize( int camWidth, int camHeight ){
         cameraImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
-        cameraSmallImage.allocate(camWidth * trackingScale, camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
+        cameraLastImageSmall.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
+        cameraSmallImage.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
+        
+        blackPixelsSmall = ofPixels();
+        blackPixelsSmall.allocate(camWidth * trackingScale, camHeight * trackingScale, 1);
+        blackPixelsSmall.set(0);
+        cameraSmallImage.setFromPixels(blackPixelsSmall);
+        
         backgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         differencedImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         progressiveBackgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
