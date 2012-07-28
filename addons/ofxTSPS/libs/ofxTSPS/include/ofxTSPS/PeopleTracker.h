@@ -76,13 +76,7 @@ namespace ofxTSPS {
             //set up and update
         
             void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
-        
-            template <class Image>
-            void update(Image & image){
-                cameraImage = image;
-                updateSettings();
-                trackPeople();
-            }
+            void update(ofBaseImage & image);
         
             void resize( int w, int h );            //If you need to resize the camera width / height
             void mousePressed(ofMouseEventArgs &e);	

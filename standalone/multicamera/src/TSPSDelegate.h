@@ -44,8 +44,7 @@ public:
         return cameraState != CAMERA_NOT_INITED;
     }
     
-    ofxCvColorImage		colorImg;
-    ofxCvGrayscaleImage	grayImg;	
+    ofImage		grayImg;
     
 protected:
     ofxTSPS::PeopleTracker peopleTracker;

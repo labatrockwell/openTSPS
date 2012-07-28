@@ -114,6 +114,14 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
+    void PeopleTracker::update( ofBaseImage & image ){
+        cameraImage.setFromPixels( image.getPixelsRef() );
+        cameraImage.setImageType( OF_IMAGE_GRAYSCALE );
+        updateSettings();
+        trackPeople();
+    }
+    
+    //---------------------------------------------------------------------------
     void PeopleTracker::setProcessor ( Processor * _processor ){
         tspsProcessor = _processor;
     }

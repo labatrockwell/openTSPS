@@ -21,7 +21,7 @@ TSPS_ADDONS_PATH    = ../../addons
 OFX_TSPS_INC        = $(TSPS_ADDONS_PATH)/ofxTSPS/libs/ofxTSPS/include
 
 //ofxCv
-OFX_CV_INC          = "../../../addons/ofxOpenCv/libs/opencv/include/" $(TSPS_ADDONS_PATH)/ofxCv/libs/ofxCv/include/
+OFX_CV_INC          = $(ADDONS_PATH)/ofxOpenCv/libs/opencv/include/ $(TSPS_ADDONS_PATH)/ofxCv/libs/ofxCv/include/
 
 //ofxLibwebsockets
 LIB_SSL             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a
@@ -34,7 +34,7 @@ OFX_LWS_LIBS        = $(LIB_CRYPTO) $(LIB_SSL) $(LWS)
 OFX_LWS_INCLUDES    = $(SSL_INC) $(OFX_LWS_INCLUDE) $(LWS_INC)
 
 // ofxKinect
-OFX_KINECT_HEADERS  = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb/osx/include/
+OFX_KINECT_HEADERS  = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb/osx/include/ $(TSPS_ADDONS_PATH)/ofxKinect/libs/libfreenect/
 OFX_KINECT_LIBS     = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb/osx/libs/usb-1.0.a
 
 // ofxTuioWrapper

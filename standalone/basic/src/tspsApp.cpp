@@ -13,7 +13,6 @@ public:
 
 //--------------------------------------------------------------
 void tspsApp::setup(){
-	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofBackground(223, 212, 190);
 	
@@ -32,10 +31,6 @@ void tspsApp::setup(){
     bKinect         = false;
     cameraState     = CAMERA_NOT_INITED;
     
-    // are there any kinects out there?
-    kinect.init();
-    bKinectConnected = (kinect.numAvailableDevices() >= 1);
-    
     // are we loading from a video file?
     if ( peopleTracker.useVideoFile() || bUseVideoFile ){
         if ( bUseVideoFile && !peopleTracker.useVideoFile()){
@@ -47,6 +42,11 @@ void tspsApp::setup(){
         initVideoFile();
     } else {
         // no kinects connected, let's just try to set up the device
+        if ( peopleTracker.useKinect() ){
+            // are there any kinects out there?
+            kinect.init();
+            bKinectConnected = (kinect.numAvailableDevices() >= 1);
+        }
         if (kinect.numAvailableDevices() < 1 || !peopleTracker.useKinect()){
             kinect.clear();        
             bKinect = false;
@@ -107,16 +107,12 @@ void tspsApp::update(){
     
 	if (bNewFrame){
         if ( cameraState == CAMERA_KINECT ){   
-			grayImg.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height, OF_IMAGE_GRAYSCALE);
+			grayImg.setFromPixels(kinect.getDepthPixelsRef());
             peopleTracker.update(grayImg);
         } else if ( cameraState == CAMERA_VIDEOGRABBER ){
-            grayImg.setFromPixels(vidGrabber.getPixelsRef());
-            grayImg.setImageType(OF_IMAGE_GRAYSCALE);
-            peopleTracker.update(grayImg);
-        } else if ( cameraState == CAMERA_VIDEOFILE ){     
-            grayImg.setFromPixels(vidGrabber.getPixelsRef());
-            grayImg.setImageType(OF_IMAGE_GRAYSCALE);
-            peopleTracker.update(grayImg);
+            peopleTracker.update(vidGrabber);
+        } else if ( cameraState == CAMERA_VIDEOFILE ){
+            peopleTracker.update(vidGrabber);
         }
         
 		// iterate through the people
