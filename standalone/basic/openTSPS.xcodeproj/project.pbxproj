@@ -78,20 +78,6 @@
 		A9485F3715C4712D00761D1C /* ofxCvCoordWarping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485CFE15C4712900761D1C /* ofxCvCoordWarping.cpp */; };
 		A9485F3815C4712D00761D1C /* ofxCvCoordWarpingGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485D0015C4712900761D1C /* ofxCvCoordWarpingGui.cpp */; };
 		A9485F3915C4712D00761D1C /* ofxCvOpticalFlowLK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485D0215C4712900761D1C /* ofxCvOpticalFlowLK.cpp */; };
-		A9485F4915C4712D00761D1C /* libnimCodecs.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DE915C4712A00761D1C /* libnimCodecs.dylib */; };
-		A9485F4A15C4712D00761D1C /* libnimMockNodes.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DEA15C4712A00761D1C /* libnimMockNodes.dylib */; };
-		A9485F4B15C4712D00761D1C /* libnimRecorder.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DEB15C4712A00761D1C /* libnimRecorder.dylib */; };
-		A9485F4C15C4712D00761D1C /* libOpenNI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DEC15C4712A00761D1C /* libOpenNI.dylib */; };
-		A9485F4D15C4712D00761D1C /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DED15C4712A00761D1C /* libusb-1.0.0.dylib */; };
-		A9485F4E15C4712D00761D1C /* libXnCore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DEE15C4712A00761D1C /* libXnCore.dylib */; };
-		A9485F4F15C4712D00761D1C /* libXnDDK.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DEF15C4712A00761D1C /* libXnDDK.dylib */; };
-		A9485F5015C4712D00761D1C /* libXnDeviceFile.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DF015C4712A00761D1C /* libXnDeviceFile.dylib */; };
-		A9485F5115C4712D00761D1C /* libXnDeviceSensorV2KM.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DF115C4712A00761D1C /* libXnDeviceSensorV2KM.dylib */; };
-		A9485F5215C4712D00761D1C /* libXnFormats.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DF215C4712A00761D1C /* libXnFormats.dylib */; };
-		A9485F5315C4712D00761D1C /* libXnVCNITE_1_5_2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DF315C4712A00761D1C /* libXnVCNITE_1_5_2.dylib */; };
-		A9485F5415C4712D00761D1C /* libXnVFeatures_1_5_2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DF415C4712A00761D1C /* libXnVFeatures_1_5_2.dylib */; };
-		A9485F5515C4712D00761D1C /* libXnVHandGenerator_1_5_2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DF515C4712A00761D1C /* libXnVHandGenerator_1_5_2.dylib */; };
-		A9485F5615C4712D00761D1C /* libXnVNite_1_5_2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485DF615C4712A00761D1C /* libXnVNite_1_5_2.dylib */; };
 		A9485F5715C4712D00761D1C /* ofxOpenNI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485DF915C4712A00761D1C /* ofxOpenNI.cpp */; };
 		A9485F5815C4712D00761D1C /* ofxOpenNITypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485DFB15C4712A00761D1C /* ofxOpenNITypes.cpp */; };
 		A9485F5E15C4712D00761D1C /* CvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E2F15C4712A00761D1C /* CvPerson.cpp */; };
@@ -622,21 +608,6 @@
 		A9485DE215C4712A00761D1C /* XnVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XnVersion.h; sourceTree = "<group>"; };
 		A9485DE315C4712A00761D1C /* LGPL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LGPL.txt; sourceTree = "<group>"; };
 		A9485DE415C4712A00761D1C /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
-		A9485DE815C4712A00761D1C /* change_exec_paths.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = change_exec_paths.sh; sourceTree = "<group>"; };
-		A9485DE915C4712A00761D1C /* libnimCodecs.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libnimCodecs.dylib; sourceTree = "<group>"; };
-		A9485DEA15C4712A00761D1C /* libnimMockNodes.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libnimMockNodes.dylib; sourceTree = "<group>"; };
-		A9485DEB15C4712A00761D1C /* libnimRecorder.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libnimRecorder.dylib; sourceTree = "<group>"; };
-		A9485DEC15C4712A00761D1C /* libOpenNI.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libOpenNI.dylib; sourceTree = "<group>"; };
-		A9485DED15C4712A00761D1C /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libusb-1.0.0.dylib"; sourceTree = "<group>"; };
-		A9485DEE15C4712A00761D1C /* libXnCore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnCore.dylib; sourceTree = "<group>"; };
-		A9485DEF15C4712A00761D1C /* libXnDDK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnDDK.dylib; sourceTree = "<group>"; };
-		A9485DF015C4712A00761D1C /* libXnDeviceFile.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnDeviceFile.dylib; sourceTree = "<group>"; };
-		A9485DF115C4712A00761D1C /* libXnDeviceSensorV2KM.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnDeviceSensorV2KM.dylib; sourceTree = "<group>"; };
-		A9485DF215C4712A00761D1C /* libXnFormats.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnFormats.dylib; sourceTree = "<group>"; };
-		A9485DF315C4712A00761D1C /* libXnVCNITE_1_5_2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnVCNITE_1_5_2.dylib; sourceTree = "<group>"; };
-		A9485DF415C4712A00761D1C /* libXnVFeatures_1_5_2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnVFeatures_1_5_2.dylib; sourceTree = "<group>"; };
-		A9485DF515C4712A00761D1C /* libXnVHandGenerator_1_5_2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnVHandGenerator_1_5_2.dylib; sourceTree = "<group>"; };
-		A9485DF615C4712A00761D1C /* libXnVNite_1_5_2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libXnVNite_1_5_2.dylib; sourceTree = "<group>"; };
 		A9485DF715C4712A00761D1C /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		A9485DF915C4712A00761D1C /* ofxOpenNI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOpenNI.cpp; sourceTree = "<group>"; };
 		A9485DFA15C4712A00761D1C /* ofxOpenNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpenNI.h; sourceTree = "<group>"; };
@@ -778,20 +749,6 @@
 				A9485F2815C4712D00761D1C /* libwebsockets.a in Frameworks */,
 				A9485F3015C4712D00761D1C /* libcrypto.a in Frameworks */,
 				A9485F3115C4712D00761D1C /* libssl.a in Frameworks */,
-				A9485F4915C4712D00761D1C /* libnimCodecs.dylib in Frameworks */,
-				A9485F4A15C4712D00761D1C /* libnimMockNodes.dylib in Frameworks */,
-				A9485F4B15C4712D00761D1C /* libnimRecorder.dylib in Frameworks */,
-				A9485F4C15C4712D00761D1C /* libOpenNI.dylib in Frameworks */,
-				A9485F4D15C4712D00761D1C /* libusb-1.0.0.dylib in Frameworks */,
-				A9485F4E15C4712D00761D1C /* libXnCore.dylib in Frameworks */,
-				A9485F4F15C4712D00761D1C /* libXnDDK.dylib in Frameworks */,
-				A9485F5015C4712D00761D1C /* libXnDeviceFile.dylib in Frameworks */,
-				A9485F5115C4712D00761D1C /* libXnDeviceSensorV2KM.dylib in Frameworks */,
-				A9485F5215C4712D00761D1C /* libXnFormats.dylib in Frameworks */,
-				A9485F5315C4712D00761D1C /* libXnVCNITE_1_5_2.dylib in Frameworks */,
-				A9485F5415C4712D00761D1C /* libXnVFeatures_1_5_2.dylib in Frameworks */,
-				A9485F5515C4712D00761D1C /* libXnVHandGenerator_1_5_2.dylib in Frameworks */,
-				A9485F5615C4712D00761D1C /* libXnVNite_1_5_2.dylib in Frameworks */,
 				A9485F7515C4712D00761D1C /* libOsc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1849,7 +1806,6 @@
 				A9485D5915C4712A00761D1C /* include */,
 				A9485DE315C4712A00761D1C /* LGPL.txt */,
 				A9485DE415C4712A00761D1C /* LICENCE.txt */,
-				A9485DE515C4712A00761D1C /* mac */,
 				A9485DF715C4712A00761D1C /* README.markdown */,
 				A9485DF815C4712A00761D1C /* src */,
 			);
@@ -2013,44 +1969,6 @@
 				A9485DA715C4712A00761D1C /* XnPlatformMacOSX.h */,
 			);
 			path = MacOSX;
-			sourceTree = "<group>";
-		};
-		A9485DE515C4712A00761D1C /* mac */ = {
-			isa = PBXGroup;
-			children = (
-				A9485DE615C4712A00761D1C /* copy_to_data_openni_path */,
-			);
-			path = mac;
-			sourceTree = "<group>";
-		};
-		A9485DE615C4712A00761D1C /* copy_to_data_openni_path */ = {
-			isa = PBXGroup;
-			children = (
-				A9485DE715C4712A00761D1C /* lib */,
-			);
-			path = copy_to_data_openni_path;
-			sourceTree = "<group>";
-		};
-		A9485DE715C4712A00761D1C /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				A9485DE815C4712A00761D1C /* change_exec_paths.sh */,
-				A9485DE915C4712A00761D1C /* libnimCodecs.dylib */,
-				A9485DEA15C4712A00761D1C /* libnimMockNodes.dylib */,
-				A9485DEB15C4712A00761D1C /* libnimRecorder.dylib */,
-				A9485DEC15C4712A00761D1C /* libOpenNI.dylib */,
-				A9485DED15C4712A00761D1C /* libusb-1.0.0.dylib */,
-				A9485DEE15C4712A00761D1C /* libXnCore.dylib */,
-				A9485DEF15C4712A00761D1C /* libXnDDK.dylib */,
-				A9485DF015C4712A00761D1C /* libXnDeviceFile.dylib */,
-				A9485DF115C4712A00761D1C /* libXnDeviceSensorV2KM.dylib */,
-				A9485DF215C4712A00761D1C /* libXnFormats.dylib */,
-				A9485DF315C4712A00761D1C /* libXnVCNITE_1_5_2.dylib */,
-				A9485DF415C4712A00761D1C /* libXnVFeatures_1_5_2.dylib */,
-				A9485DF515C4712A00761D1C /* libXnVHandGenerator_1_5_2.dylib */,
-				A9485DF615C4712A00761D1C /* libXnVNite_1_5_2.dylib */,
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 		A9485DF815C4712A00761D1C /* src */ = {
