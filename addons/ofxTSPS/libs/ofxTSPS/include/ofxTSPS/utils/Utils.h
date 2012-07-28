@@ -54,3 +54,4 @@ static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <o
     }
     outputImage.setFromPixels(outpix, outW, outH, imageType);
 }
+

@@ -13,6 +13,8 @@ using namespace ofxCv;
 using namespace cv;
 
 namespace ofxTSPS {
+    ofPixels blackPixelsSmall;
+    
     //------------------------------------------------------------------------
     CvProcessor::CvProcessor(){
         // capabilities
@@ -37,8 +39,7 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::setupProcessor(){
         resize(tspsWidth, tspsHeight);
-        trackingScale = 1.0;
-        
+                
         //setup contour finder
         contourFinder.setThreshold(15);
         contourFinder.getTracker().setPersistence(5);
@@ -46,15 +47,14 @@ namespace ofxTSPS {
 		contourFinder.getTracker().setMaximumDistance(300);
 		contourFinder.setSimplify(false);
         
-        //setup optical flow
-        
+        //setup optical flow        
         flow.setPyramidScale( .5 );
         flow.setNumLevels( 4 );
         flow.setWindowSize( 2 );
-        flow.setNumIterations( 2 );
+        flow.setNumIterations( 1 );
         flow.setPolyN( 7 );
         flow.setPolySigma( 1.5 );
-        flow.setUseGaussian( 0 );
+        flow.setUseGaussian( false );    
     }
     
     //------------------------------------------------------------------------
@@ -64,13 +64,23 @@ namespace ofxTSPS {
     void CvProcessor::draw(){
         if ( bTrackOpticalFlow && bFlowTrackedOnce ){
             // why isn't this working?
-            flow.draw();
+            cameraSmallImage.draw(0,0, tspsWidth, tspsHeight);
+            flow.draw(0,0,tspsWidth, tspsHeight);
         }
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
         cameraImage.setFromPixels(image.getPixelsRef());
+        cameraImage.update();
+        //cameraSmallImage.setFromPixels(image.getPixelsRef());
+        //cameraSmallImage.resize( (int) floor(tspsWidth * trackingScale), (int) floor(tspsHeight * trackingScale) );
+        //ofxCv::resize(cameraImage, cameraSmallImage);
+        ofImage cameraSmallImageHolder; cameraSmallImageHolder.setFromPixels(blackPixelsSmall);
+        Mat srcMat = toCv(cameraImage), dstMat = toCv(blackPixelsSmall);
+        cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_LINEAR);
+        toOf(dstMat, cameraSmallImage);
+        cameraSmallImage.update();
     }
     
     //------------------------------------------------------------------------
@@ -81,8 +91,6 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     ofPixelsRef CvProcessor::progressiveBackground( ofBaseImage & image, float amount ){
-        // to-do
-        //backgroundImage.setFromPixels( image.getPixelsRef() );
         ofxCv::lerp(image, progressiveBackgroundImage, progressiveBackgroundImage, amount);
         //cv::addWeighted( toCv(backgroundImage), amount, toCv(progressiveBackgroundImage), 1.0f-amount,0, toCv(progressiveBackgroundImage) );
         backgroundImage = progressiveBackgroundImage;
@@ -111,13 +119,21 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     ofPixelsRef CvProcessor::process ( ofBaseImage & image ){
+        if ( bTrackHaar ){
+            //processHaar( cameraSmallImage );
+        }
+        
+        if ( bTrackOpticalFlow ){
+            processOpticalFlow( cameraSmallImage );
+        }
+        
         differencedImage.setFromPixels(image.getPixelsRef());
         ofxCv::threshold(differencedImage, threshold);
         
         //reset scene
         scene->percentCovered = 0;
         if ( bTrackOpticalFlow && bFlowTrackedOnce ){
-            scene->averageMotion = flow.getAverageFlowInRegion( ofRectangle(0,0,tspsWidth,tspsHeight) );
+            scene->averageMotion = flow.getAverageFlow();
         } else {
             scene->averageMotion = ofPoint(0,0);
         }
@@ -130,6 +146,9 @@ namespace ofxTSPS {
         // update people
         RectTracker& tracker = contourFinder.getTracker();
         cv::Mat cameraMat = toCv(cameraImage);
+        
+        //optical flow scale
+        // float flowROIScale = tspsWidth/flow.getWidth();
         
         for(int i = 0; i < contourFinder.size(); i++){
             unsigned int id = contourFinder.getLabel(i);
@@ -182,11 +201,11 @@ namespace ofxTSPS {
                 }
                 
                 // ROI for opticalflow
-                ofRectangle roi = ofRectangle( p->boundingRect );
-                roi.x *= trackingScale;
-                roi.y *= trackingScale;
-                roi.width *= trackingScale;
-                roi.height *= trackingScale;
+                ofRectangle roi = p->getBoundingRectNormalized(tspsWidth, tspsHeight);
+                roi.x *= flow.getWidth();
+                roi.y *= flow.getHeight();
+                roi.width *= flow.getWidth();
+                roi.height *= flow.getHeight();                
                 
                 // sum optical flow for the person
                 if ( bTrackOpticalFlow && bFlowTrackedOnce ){
@@ -198,20 +217,19 @@ namespace ofxTSPS {
                 
                 //detect haar patterns (faces, eyes, etc)
                 if ( bTrackHaar ){
-                    // ROI for haar
-                    ofRectangle roi;
-                    roi.x		= fmax( (p->boundingRect.x - haarAreaPadding) * trackingScale / 2, 0.0f );
-                    roi.y		= fmax( (p->boundingRect.y - haarAreaPadding) * trackingScale / 2, 0.0f );
-                    //roi.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * trackingScale / 2, haarImage.width - roi.x );
-                    //roi.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * trackingScale / 2, haarImage.height - roi.y );	
-                    
                     //find the region of interest, expanded by haarArea.
+                    ofRectangle haarROI;
+                    haarROI.x		= fmax( (p->boundingRect.x - haarAreaPadding) * trackingScale / 2, 0.0f );
+                    haarROI.y		= fmax( (p->boundingRect.y - haarAreaPadding) * trackingScale / 2, 0.0f );
+                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * trackingScale / 2, cameraSmallImage.width - roi.x );
+                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * trackingScale / 2, cameraSmallImage.height - roi.y );	
+                    
                     bool haarThisFrame = false;
-                    /*vector<ofRectangle> haarRects = haarTracker.getCurrentHaarRects();
-                    for(int i = 0; i < haarRects.size(); i++){
-                        ofRectangle hr = haarRects[i];
+                    for(int j = 0; j < haarObjects.size(); j++) {
+                        ofRectangle hr = toOf(haarObjects[j]);
+                        
                         //check to see if the haar is contained within the bounding rectangle
-                        if(hr.x > roi.x && hr.y > roi.y && hr.x+hr.width < roi.x+roi.width && hr.y+hr.height < roi.y+roi.height){
+                        if(hr.x > haarROI.x && hr.y > haarROI.y && hr.x+hr.width < haarROI.x+roi.width && hr.y+hr.height < haarROI.y+haarROI.height){
                             hr.x /= trackingScale / 2;
                             hr.y /= trackingScale / 2;
                             hr.width /= trackingScale / 2;
@@ -220,7 +238,7 @@ namespace ofxTSPS {
                             haarThisFrame = true;
                             break;
                         }
-                    }*/
+                    }
                     if(!haarThisFrame){
                         p->noHaarThisFrame();
                     }
@@ -270,7 +288,15 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     void CvProcessor::processHaar( ofBaseImage & image ){
-        // to-do
+        // don't really need the image here, huh?        
+		Mat graySmallMat = toCv(image);
+        //equalizeHist(graySmallMat, graySmallMat);        
+		haarFinder.detectMultiScale(graySmallMat, haarObjects, 1.06, 1,
+                                    //CascadeClassifier::DO_CANNY_PRUNING |
+                                    //CascadeClassifier::FIND_BIGGEST_OBJECT |
+                                    //CascadeClassifier::DO_ROUGH_SEARCH |
+                                    0);
+        cout<<haarObjects.size()<<endl;
     }
     
     //------------------------------------------------------------------------
@@ -280,11 +306,20 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     void CvProcessor::setHaarXMLFile( string xmlFile ){
-        
+        haarFinder.load(ofToDataPath(xmlFile));        
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::resize( int camWidth, int camHeight ){
+        cameraImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
+        cameraLastImageSmall.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
+        cameraSmallImage.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
+        
+        blackPixelsSmall = ofPixels();
+        blackPixelsSmall.allocate(camWidth * trackingScale, camHeight * trackingScale, 1);
+        blackPixelsSmall.set(0);
+        cameraSmallImage.setFromPixels(blackPixelsSmall);
+        
         backgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         differencedImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         progressiveBackgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);

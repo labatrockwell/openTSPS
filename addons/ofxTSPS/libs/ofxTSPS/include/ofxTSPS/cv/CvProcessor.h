@@ -49,13 +49,15 @@ namespace ofxTSPS {
         void setupProcessor();
         
         // images
-        ofImage cameraImage, backgroundImage, progressiveBackgroundImage, differencedImage;
+        ofImage cameraImage, cameraLastImageSmall, cameraSmallImage, backgroundImage, progressiveBackgroundImage, differencedImage;
         
         // ofxCv stuff
-        ofxCv::ContourFinder    contourFinder;
+        ofxCv::ContourFinder        contourFinder;
+        ofxCv::CascadeClassifier    haarFinder;
+        vector<cv::Rect>            haarObjects;
         
         // opticalflow     
         ofxCv::FlowFarneback    flow;
-        bool bFlowTrackedOnce;
+        bool bFlowTrackedOnce, bFirstImage;
     };
 }

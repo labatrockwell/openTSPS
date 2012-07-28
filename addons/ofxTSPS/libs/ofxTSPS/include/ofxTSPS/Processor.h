@@ -30,7 +30,7 @@ namespace ofxTSPS {
         
         virtual void exit(){};
         
-        virtual void setup( int width, int height, Scene * _scene, vector<Person*> * peopleVector, float trackingScaleFactor=.5 ){
+        virtual void setup( int width, int height, Scene * _scene, vector<Person*> * peopleVector, float trackingScaleFactor=.25 ){
             // core objects
             tspsWidth   = width;
             tspsHeight  = height;
@@ -136,7 +136,7 @@ namespace ofxTSPS {
         // use for custom setup of your processor
         virtual void setupProcessor(){};
         
-        int                         tspsWidth, tspsHeight;
+        int                     tspsWidth, tspsHeight;
         CameraType              cameraType;
         
         Scene *              scene;

@@ -51,8 +51,12 @@ namespace ofxTSPS {
         cameraImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         warpedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         backgroundImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
-        backgroundImage.setFromPixels(blackPixels);
         differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        
+        cameraImage.setFromPixels(blackPixels);
+        warpedImage.setFromPixels(blackPixels);
+        backgroundImage.setFromPixels(blackPixels);
+        differencedImage.setFromPixels(blackPixels);
         
         grayDiff.allocate(width, height);
         
@@ -821,13 +825,12 @@ namespace ofxTSPS {
         p_Settings->highpassAmp = amplifyAmount;
     }
     
-    //---------------------------------------------------------------------------
-    //---------------------------------------------------------------------------
 #pragma mark filter controls
+    //---------------------------------------------------------------------------
     //haar
     //---------------------------------------------------------------------------
-    void PeopleTracker::setHaarExpandArea(float haarExpandAmount) //makes the haar rect +area bigger
-    {
+    //makes the haar rect +area bigger 
+    void PeopleTracker::setHaarExpandArea(float haarExpandAmount) {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->haarAreaPadding = haarExpandAmount;
     }
