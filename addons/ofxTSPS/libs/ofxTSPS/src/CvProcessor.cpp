@@ -67,19 +67,28 @@ namespace ofxTSPS {
             cameraSmallImage.draw(0,0, tspsWidth, tspsHeight);
             flow.draw(0,0,tspsWidth, tspsHeight);
         }
+        
+        /*ofPushMatrix();
+        ofScale( 1.0f/trackingScale, 1.0f/trackingScale);
+        
+        for(int j = 0; j < haarObjects.size(); j++) {
+            ofRectangle hr = toOf(haarObjects[j]);
+            ofRect( hr );
+        }
+        
+        ofPopMatrix();*/
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
         cameraImage.setFromPixels(image.getPixelsRef());
         cameraImage.update();
-        //cameraSmallImage.setFromPixels(image.getPixelsRef());
-        //cameraSmallImage.resize( (int) floor(tspsWidth * trackingScale), (int) floor(tspsHeight * trackingScale) );
-        //ofxCv::resize(cameraImage, cameraSmallImage);
-        ofImage cameraSmallImageHolder; cameraSmallImageHolder.setFromPixels(blackPixelsSmall);
-        Mat srcMat = toCv(cameraImage), dstMat = toCv(blackPixelsSmall);
-        cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_LINEAR);
-        toOf(dstMat, cameraSmallImage);
+		Mat srcMat = toCv(cameraImage), dstMat = toCv(cameraSmallImage);
+		//cvtColor(srcMat, srcMatGray, CV_RGB2GRAY);
+        cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_NEAREST);
+        ofPixels pix;
+        toOf(dstMat, pix);
+        cameraSmallImage.setFromPixels(pix);
         cameraSmallImage.update();
     }
     
@@ -120,7 +129,7 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     ofPixelsRef CvProcessor::process ( ofBaseImage & image ){
         if ( bTrackHaar ){
-            //processHaar( cameraSmallImage );
+            processHaar( cameraSmallImage );
         }
         
         if ( bTrackOpticalFlow ){
@@ -219,21 +228,21 @@ namespace ofxTSPS {
                 if ( bTrackHaar ){
                     //find the region of interest, expanded by haarArea.
                     ofRectangle haarROI;
-                    haarROI.x		= fmax( (p->boundingRect.x - haarAreaPadding) * trackingScale / 2, 0.0f );
-                    haarROI.y		= fmax( (p->boundingRect.y - haarAreaPadding) * trackingScale / 2, 0.0f );
-                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * trackingScale / 2, cameraSmallImage.width - roi.x );
-                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * trackingScale / 2, cameraSmallImage.height - roi.y );	
+                    haarROI.x		= fmax( (p->boundingRect.x - haarAreaPadding/2) * trackingScale, 0.0f );
+                    haarROI.y		= fmax( (p->boundingRect.y - haarAreaPadding/2) * trackingScale, 0.0f );
+                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * trackingScale, cameraSmallImage.width );
+                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * trackingScale, cameraSmallImage.height );
                     
                     bool haarThisFrame = false;
                     for(int j = 0; j < haarObjects.size(); j++) {
                         ofRectangle hr = toOf(haarObjects[j]);
                         
                         //check to see if the haar is contained within the bounding rectangle
-                        if(hr.x > haarROI.x && hr.y > haarROI.y && hr.x+hr.width < haarROI.x+roi.width && hr.y+hr.height < haarROI.y+haarROI.height){
-                            hr.x /= trackingScale / 2;
-                            hr.y /= trackingScale / 2;
-                            hr.width /= trackingScale / 2;
-                            hr.height /= trackingScale / 2;
+                        if(hr.x > haarROI.x && hr.y > haarROI.y && hr.x+hr.width < haarROI.x+haarROI.width && hr.y+hr.height < haarROI.y+haarROI.height){
+                            hr.x /= trackingScale;
+                            hr.y /= trackingScale;
+                            hr.width /= trackingScale;
+                            hr.height /= trackingScale;
                             p->setHaarRect(hr);
                             haarThisFrame = true;
                             break;
@@ -296,7 +305,6 @@ namespace ofxTSPS {
                                     //CascadeClassifier::FIND_BIGGEST_OBJECT |
                                     //CascadeClassifier::DO_ROUGH_SEARCH |
                                     0);
-        cout<<haarObjects.size()<<endl;
     }
     
     //------------------------------------------------------------------------
@@ -315,10 +323,12 @@ namespace ofxTSPS {
         cameraLastImageSmall.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
         cameraSmallImage.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
         
+        cout<<cameraSmallImage.width <<":"<<cameraSmallImage.height<<endl;
+        
         blackPixelsSmall = ofPixels();
         blackPixelsSmall.allocate(camWidth * trackingScale, camHeight * trackingScale, 1);
         blackPixelsSmall.set(0);
-        cameraSmallImage.setFromPixels(blackPixelsSmall);
+        //cameraSmallImage.setFromPixels(blackPixelsSmall);
         
         backgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         differencedImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
