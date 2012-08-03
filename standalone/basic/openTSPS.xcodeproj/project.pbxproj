@@ -20,15 +20,6 @@
 		A94859DA15C470E900761D1C /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A948596015C470E800761D1C /* tinyxmlerror.cpp */; };
 		A94859DB15C470E900761D1C /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A948596115C470E800761D1C /* tinyxmlparser.cpp */; };
 		A94859DC15C470E900761D1C /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A948596315C470E800761D1C /* ofxXmlSettings.cpp */; };
-		A9485A1915C4710C00761D1C /* liboscpack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859E415C4710C00761D1C /* liboscpack.a */; };
-		A9485A1A15C4710C00761D1C /* liboscpack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859E515C4710C00761D1C /* liboscpack.a */; };
-		A9485A1B15C4710C00761D1C /* osc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859E715C4710C00761D1C /* osc.a */; };
-		A9485A1C15C4710C00761D1C /* liboscpack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859E915C4710C00761D1C /* liboscpack.a */; };
-		A9485A1D15C4710C00761D1C /* liboscpack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859EB15C4710C00761D1C /* liboscpack.a */; };
-		A9485A1E15C4710C00761D1C /* osc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859ED15C4710C00761D1C /* osc.a */; };
-		A9485A1F15C4710C00761D1C /* oscpack.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859EF15C4710C00761D1C /* oscpack.lib */; };
-		A9485A2015C4710C00761D1C /* oscpackd.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859F015C4710C00761D1C /* oscpackd.lib */; };
-		A9485A2115C4710C00761D1C /* oscpack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A94859F215C4710C00761D1C /* oscpack.a */; };
 		A9485A2215C4710C00761D1C /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94859F515C4710C00761D1C /* IpEndpointName.cpp */; };
 		A9485A2315C4710C00761D1C /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94859FA15C4710C00761D1C /* NetworkingUtils.cpp */; };
 		A9485A2415C4710C00761D1C /* UdpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94859FB15C4710C00761D1C /* UdpSocket.cpp */; };
@@ -268,15 +259,6 @@
 		A948596315C470E800761D1C /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		A948596415C470E800761D1C /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		A94859DE15C4710C00761D1C /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		A94859E415C4710C00761D1C /* liboscpack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liboscpack.a; sourceTree = "<group>"; };
-		A94859E515C4710C00761D1C /* liboscpack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liboscpack.a; sourceTree = "<group>"; };
-		A94859E715C4710C00761D1C /* osc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = osc.a; sourceTree = "<group>"; };
-		A94859E915C4710C00761D1C /* liboscpack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liboscpack.a; sourceTree = "<group>"; };
-		A94859EB15C4710C00761D1C /* liboscpack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liboscpack.a; sourceTree = "<group>"; };
-		A94859ED15C4710C00761D1C /* osc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = osc.a; sourceTree = "<group>"; };
-		A94859EF15C4710C00761D1C /* oscpack.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = oscpack.lib; sourceTree = "<group>"; };
-		A94859F015C4710C00761D1C /* oscpackd.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = oscpackd.lib; sourceTree = "<group>"; };
-		A94859F215C4710C00761D1C /* oscpack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = oscpack.a; sourceTree = "<group>"; };
 		A94859F515C4710C00761D1C /* IpEndpointName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IpEndpointName.cpp; sourceTree = "<group>"; };
 		A94859F615C4710C00761D1C /* IpEndpointName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IpEndpointName.h; sourceTree = "<group>"; };
 		A94859F715C4710C00761D1C /* NetworkingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingUtils.h; sourceTree = "<group>"; };
@@ -736,15 +718,6 @@
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
 				A94859A615C470E800761D1C /* opencv.a in Frameworks */,
-				A9485A1915C4710C00761D1C /* liboscpack.a in Frameworks */,
-				A9485A1A15C4710C00761D1C /* liboscpack.a in Frameworks */,
-				A9485A1B15C4710C00761D1C /* osc.a in Frameworks */,
-				A9485A1C15C4710C00761D1C /* liboscpack.a in Frameworks */,
-				A9485A1D15C4710C00761D1C /* liboscpack.a in Frameworks */,
-				A9485A1E15C4710C00761D1C /* osc.a in Frameworks */,
-				A9485A1F15C4710C00761D1C /* oscpack.lib in Frameworks */,
-				A9485A2015C4710C00761D1C /* oscpackd.lib in Frameworks */,
-				A9485A2115C4710C00761D1C /* oscpack.a in Frameworks */,
 				A9485F2015C4712D00761D1C /* usb-1.0.a in Frameworks */,
 				A9485F2815C4712D00761D1C /* libwebsockets.a in Frameworks */,
 				A9485F3015C4712D00761D1C /* libcrypto.a in Frameworks */,
@@ -1114,90 +1087,9 @@
 		A94859E015C4710C00761D1C /* oscpack */ = {
 			isa = PBXGroup;
 			children = (
-				A94859E115C4710C00761D1C /* lib */,
 				A94859F315C4710C00761D1C /* src */,
 			);
 			path = oscpack;
-			sourceTree = "<group>";
-		};
-		A94859E115C4710C00761D1C /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				A94859E215C4710C00761D1C /* android */,
-				A94859E615C4710C00761D1C /* iphone */,
-				A94859E815C4710C00761D1C /* linux */,
-				A94859EA15C4710C00761D1C /* linux64 */,
-				A94859EC15C4710C00761D1C /* osx */,
-				A94859EE15C4710C00761D1C /* vs2010 */,
-				A94859F115C4710C00761D1C /* win_cb */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		A94859E215C4710C00761D1C /* android */ = {
-			isa = PBXGroup;
-			children = (
-				A94859E315C4710C00761D1C /* arm7 */,
-				A94859E515C4710C00761D1C /* liboscpack.a */,
-			);
-			path = android;
-			sourceTree = "<group>";
-		};
-		A94859E315C4710C00761D1C /* arm7 */ = {
-			isa = PBXGroup;
-			children = (
-				A94859E415C4710C00761D1C /* liboscpack.a */,
-			);
-			path = arm7;
-			sourceTree = "<group>";
-		};
-		A94859E615C4710C00761D1C /* iphone */ = {
-			isa = PBXGroup;
-			children = (
-				A94859E715C4710C00761D1C /* osc.a */,
-			);
-			path = iphone;
-			sourceTree = "<group>";
-		};
-		A94859E815C4710C00761D1C /* linux */ = {
-			isa = PBXGroup;
-			children = (
-				A94859E915C4710C00761D1C /* liboscpack.a */,
-			);
-			path = linux;
-			sourceTree = "<group>";
-		};
-		A94859EA15C4710C00761D1C /* linux64 */ = {
-			isa = PBXGroup;
-			children = (
-				A94859EB15C4710C00761D1C /* liboscpack.a */,
-			);
-			path = linux64;
-			sourceTree = "<group>";
-		};
-		A94859EC15C4710C00761D1C /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				A94859ED15C4710C00761D1C /* osc.a */,
-			);
-			path = osx;
-			sourceTree = "<group>";
-		};
-		A94859EE15C4710C00761D1C /* vs2010 */ = {
-			isa = PBXGroup;
-			children = (
-				A94859EF15C4710C00761D1C /* oscpack.lib */,
-				A94859F015C4710C00761D1C /* oscpackd.lib */,
-			);
-			path = vs2010;
-			sourceTree = "<group>";
-		};
-		A94859F115C4710C00761D1C /* win_cb */ = {
-			isa = PBXGroup;
-			children = (
-				A94859F215C4710C00761D1C /* oscpack.a */,
-			);
-			path = win_cb;
 			sourceTree = "<group>";
 		};
 		A94859F315C4710C00761D1C /* src */ = {
@@ -2554,7 +2446,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
-				SDKROOT = macosx10.7;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -2587,7 +2479,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
-				SDKROOT = macosx10.7;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Release;
 		};
