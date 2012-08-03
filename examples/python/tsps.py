@@ -11,8 +11,6 @@ class tsps_connection(object):
 		websocket.enableTrace(True)
 		wsstring = "ws://" + address +":"+ str(port)
 
-		print wsstring
-
 		self.ws = websocket.WebSocketApp(wsstring,
 	                                on_message = self.on_message,
 	                                on_error = self.on_error,
@@ -23,17 +21,18 @@ class tsps_connection(object):
 		self.people = {}
 
 	def on_message(self, ws, message):
-		print message
-		obj = json.dumps(message)
+		obj = json.loads(message)
 
-		if obj.type is "personEntered":
+		if obj["type"] == "personEntered":
 			self._onPersonEntered(obj);
-		elif obj.type is "personMoved":
+		elif obj["type"] == "personMoved":
 			self._onPersonMoved(obj);
-		elif obj.type is "personUpdated":
+		elif obj["type"] == "personUpdated":
 			self._onPersonUpdated(obj);
-		elif obj.type is "personWillLeave":
+		elif obj["type"] == "personWillLeave":
 			self._onPersonLeft(obj);
+		else:
+			print "what the what " + obj["type"]
 
 	def on_error(self, ws, error):
 		print error

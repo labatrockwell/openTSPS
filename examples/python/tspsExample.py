@@ -5,12 +5,12 @@ class tspsExample(tsps_connection):
 		self.connect(address, port)
 
 	def onPersonEntered(self, person):
-		pass;
+		print "## PERSON ENTERED ##"
 
 	def onPersonUpdated(self, person):
-		pass;
+		print "## PERSON UPDATED ##"
 
 	def onPersonLeft(self, person):
-		pass;
+		print "## PERSON LEFT ##"
 
-tspsExample("lab-mini-06.local")
+tspsExample()
