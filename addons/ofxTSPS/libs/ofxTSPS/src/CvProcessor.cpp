@@ -13,8 +13,6 @@ using namespace ofxCv;
 using namespace cv;
 
 namespace ofxTSPS {
-    ofPixels blackPixelsSmall;
-    
     //------------------------------------------------------------------------
     CvProcessor::CvProcessor(){
         // capabilities
@@ -48,12 +46,12 @@ namespace ofxTSPS {
 		contourFinder.setSimplify(false);
         
         //setup optical flow        
-        flow.setPyramidScale( .5 );
-        flow.setNumLevels( 4 );
-        flow.setWindowSize( 2 );
+        flow.setPyramidScale( .1 );
+        flow.setNumLevels( 1 );
+        flow.setWindowSize( 8 );
         flow.setNumIterations( 1 );
-        flow.setPolyN( 7 );
-        flow.setPolySigma( 1.5 );
+        flow.setPolyN( 5 );
+        flow.setPolySigma( 1.1 );
         flow.setUseGaussian( false );    
     }
     
@@ -63,33 +61,24 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::draw(){
         if ( bTrackOpticalFlow && bFlowTrackedOnce ){
-            // why isn't this working?
-            cameraSmallImage.draw(0,0, tspsWidth, tspsHeight);
             flow.draw(0,0,tspsWidth, tspsHeight);
         }
-        
-        /*ofPushMatrix();
-        ofScale( 1.0f/trackingScale, 1.0f/trackingScale);
-        
-        for(int j = 0; j < haarObjects.size(); j++) {
-            ofRectangle hr = toOf(haarObjects[j]);
-            ofRect( hr );
-        }
-        
-        ofPopMatrix();*/
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
+        // update camera image
         cameraImage.setFromPixels(image.getPixelsRef());
-        cameraImage.update();
+        cameraImage.setImageType(OF_IMAGE_GRAYSCALE);
+        
+        // update smaller image
+        // pixel copy method is temporary... copying directly to image
+        // via ofxCv crashes
 		Mat srcMat = toCv(cameraImage), dstMat = toCv(cameraSmallImage);
-		//cvtColor(srcMat, srcMatGray, CV_RGB2GRAY);
         cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_NEAREST);
-        ofPixels pix;
-        toOf(dstMat, pix);
-        cameraSmallImage.setFromPixels(pix);
-        cameraSmallImage.update();
+        toOf(dstMat, resizedPixels);
+        cameraSmallImage.setFromPixels(resizedPixels);
+        
     }
     
     //------------------------------------------------------------------------
@@ -133,7 +122,8 @@ namespace ofxTSPS {
         }
         
         if ( bTrackOpticalFlow ){
-            processOpticalFlow( cameraSmallImage );
+            // for now, should be cameraSmallImage but it doesn't work :(
+            processOpticalFlow( image );
         }
         
         differencedImage.setFromPixels(image.getPixelsRef());
@@ -297,10 +287,10 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     void CvProcessor::processHaar( ofBaseImage & image ){
-        // don't really need the image here, huh?        
-		Mat graySmallMat = toCv(image);
+        // don't really need the image here, huh?
+		//Mat graySmallMat = toCv(image);
         //equalizeHist(graySmallMat, graySmallMat);        
-		haarFinder.detectMultiScale(graySmallMat, haarObjects, 1.06, 1,
+		haarFinder.detectMultiScale(toCv(image), haarObjects, 1.06, 1,
                                     //CascadeClassifier::DO_CANNY_PRUNING |
                                     //CascadeClassifier::FIND_BIGGEST_OBJECT |
                                     //CascadeClassifier::DO_ROUGH_SEARCH |
@@ -323,12 +313,12 @@ namespace ofxTSPS {
         cameraLastImageSmall.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
         cameraSmallImage.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
         
-        cout<<cameraSmallImage.width <<":"<<cameraSmallImage.height<<endl;
-        
-        blackPixelsSmall = ofPixels();
         blackPixelsSmall.allocate(camWidth * trackingScale, camHeight * trackingScale, 1);
         blackPixelsSmall.set(0);
-        //cameraSmallImage.setFromPixels(blackPixelsSmall);
+        cameraSmallImage.setFromPixels(blackPixelsSmall);
+        
+        resizedPixels.allocate(camWidth * trackingScale, camHeight * trackingScale, 1);
+        blackPixelsSmall.set(0);
         
         backgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         differencedImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);

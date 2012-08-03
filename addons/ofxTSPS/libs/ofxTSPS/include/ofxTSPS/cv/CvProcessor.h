@@ -51,6 +51,9 @@ namespace ofxTSPS {
         // images
         ofImage cameraImage, cameraLastImageSmall, cameraSmallImage, backgroundImage, progressiveBackgroundImage, differencedImage;
         
+        // pixel utils
+        ofPixels blackPixelsSmall, resizedPixels;
+        
         // ofxCv stuff
         ofxCv::ContourFinder        contourFinder;
         ofxCv::CascadeClassifier    haarFinder;

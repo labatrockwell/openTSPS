@@ -97,7 +97,7 @@ void tspsApp::update(){
             kinect.update();
             bNewFrame = true;//kinect.isFrameNew();
         } else if ( cameraState == CAMERA_VIDEOGRABBER ){
-            vidGrabber.grabFrame();
+            vidGrabber.update();
             bNewFrame = vidGrabber.isFrameNew();
         } else if ( cameraState == CAMERA_VIDEOFILE ){
             vidPlayer.idleMovie();
@@ -112,7 +112,7 @@ void tspsApp::update(){
         } else if ( cameraState == CAMERA_VIDEOGRABBER ){
             peopleTracker.update(vidGrabber);
         } else if ( cameraState == CAMERA_VIDEOFILE ){
-            peopleTracker.update(vidGrabber);
+            peopleTracker.update(vidPlayer);
         }
         
 		// iterate through the people
