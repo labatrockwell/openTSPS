@@ -120,7 +120,11 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void PeopleTracker::update( ofBaseImage & image ){
         //cameraImage.setFromPixels( image.getPixelsRef() );
-        ofxCv::convertColor( image, cameraImage, CV_RGB2GRAY);
+        if ( image.getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
+            ofxCv::convertColor( image, cameraImage, CV_RGB2GRAY);            
+        } else {
+            cameraImage.setFromPixels(image.getPixelsRef());
+        }
         cameraImage.update();
         //cameraImage.setImageType( OF_IMAGE_GRAYSCALE );
         updateSettings();
