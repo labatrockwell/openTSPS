@@ -30,7 +30,7 @@ namespace ofxTSPS {
         
         virtual void exit(){};
         
-        virtual void setup( int width, int height, Scene * _scene, vector<Person*> * peopleVector, float trackingScaleFactor=.25 ){
+        virtual void setup( int width, int height, Scene * _scene, vector<Person*> * peopleVector, float trackingScaleFactor=.125 ){
             // core objects
             tspsWidth   = width;
             tspsHeight  = height;
