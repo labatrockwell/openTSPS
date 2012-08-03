@@ -229,7 +229,7 @@ TSPS.Connection.prototype.constructor = TSPS.Connection;
 */
 TSPS.Connection.prototype.connect = function(){
 	try {
-		this.socket = new WebSocket( "ws://" + this.host+":"+this.port, this.protocol );
+		this.socket = new WebSocket( "ws://" + this.host+":"+this.port );
 		this.socket.onmessage = this._onMessageReceived.bind(this);
 		this.socket.onopen = this._onConnectionOpened.bind(this);
 		this.socket.onclose = this._onConnectionClosed.bind(this);

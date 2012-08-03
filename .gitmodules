@@ -7,6 +7,6 @@
 [submodule "addons/ofxCv"]
 	path = addons/ofxCv
 	url = https://github.com/kylemcdonald/ofxCv
-[submodule "examples/python/websocket-clinet"]
-	path = examples/python/websocket-clinet
+[submodule "examples/python/websocket-client"]
+	path = examples/python/websocket-client
 	url = https://github.com/liris/websocket-client.git

@@ -53,7 +53,7 @@ namespace ofxTSPS {
         
         ofxLibwebsockets::ServerOptions options = ofxLibwebsockets::defaultServerOptions();
         options.port     = _port;
-        options.protocol = "tsps-protocol";
+        //options.protocol = "tsps-protocol";
         
         // setup web socket server
         server = new ofxLibwebsockets::Server();
