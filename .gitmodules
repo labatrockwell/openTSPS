@@ -10,3 +10,6 @@
 [submodule "examples/python/websocket-client"]
 	path = examples/python/websocket-client
 	url = https://github.com/liris/websocket-client.git
+[submodule "addons/ofxLibwebsockets"]
+	path = addons/ofxLibwebsockets
+	url = https://github.com/labatrockwell/ofxLibwebsockets.git
