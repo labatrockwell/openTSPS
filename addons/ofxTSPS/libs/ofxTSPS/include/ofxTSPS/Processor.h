@@ -137,7 +137,7 @@ namespace ofxTSPS {
         virtual void setupProcessor(){};
         
         int                     tspsWidth, tspsHeight;
-        CameraType              cameraType;
+        SourceType              cameraType;
         
         Scene *              scene;
         vector<Person*> *    trackedPeople;

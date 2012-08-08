@@ -110,9 +110,9 @@ namespace ofxTSPS {
         int     tcpPort;
         
         // video grabber
-        void setVideoGrabber( ofBaseVideo* videoGrabber, CameraType type);
+        void setVideoGrabber( ofBaseVideo* videoGrabber, SourceType type);
         ofBaseVideo*    getVideoGrabber();
-        CameraType   getInputType();
+        SourceType   getInputType();
         
         //layout vars
         int lastCurrentPanel;
@@ -132,7 +132,7 @@ namespace ofxTSPS {
         //JG added the video grabber so we can access settings
         //may be NULL so please do check
         ofBaseVideo*    videoGrabber;
-        CameraType   inputType;
+        SourceType   inputType;
         
         static bool     instanceFlag;
         static Settings *single;

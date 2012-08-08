@@ -22,6 +22,7 @@ namespace ofxTSPS {
         p_Settings = NULL;
         hasMouseEvents = false;
         tspsProcessor = NULL;
+        currentSource = NULL;
     }
     
     //---------------------------------------------------------------------------
@@ -29,6 +30,10 @@ namespace ofxTSPS {
         if ( hasMouseEvents ){
             hasMouseEvents = false;
             ofRemoveListener(ofEvents().mousePressed, this, &PeopleTracker::mousePressed);
+        }
+        if ( currentSource != NULL ){
+            currentSource->closeSource();
+            delete currentSource;
         }
         tspsProcessor->exit();
         delete tspsProcessor;
@@ -103,8 +108,34 @@ namespace ofxTSPS {
         dataView.setColor(191,120,0);
         
         setActiveView(PROCESSED_VIEW);
+        setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
         
         lastHaarFile = "";
+        
+        // setup source
+        if ( currentSource == NULL ){
+            // are we loading from a video file?
+            if ( useVideoFile() ){
+                setupSource( CAMERA_VIDEOFILE );
+            
+            // kinect?
+            } else if ( useKinect() ){
+                // are there any kinects out there?
+                Kinect kinectSource;
+                if ( kinectSource.available() ){
+                    setupSource( CAMERA_KINECT );
+                } else {
+                    ofLog(OF_LOG_ERROR, "No Kinects connected!");
+                    //fall back to video grabber
+                    setUseKinect(false);
+                    setupSource( CAMERA_VIDEOGRABBER );
+                }
+            
+            // video grabber
+            } else {
+                setupSource( CAMERA_VIDEOGRABBER );
+            }
+        }
         
         // setup default processor
         if ( tspsProcessor == NULL ){
@@ -115,6 +146,42 @@ namespace ofxTSPS {
         // setup gui based on processor capabilities
         gui.setHaarEnabled( tspsProcessor->canTrackHaar() );
         gui.setOpticalFlowEnabled( tspsProcessor->canTrackOpticalFlow() );
+    }
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::update(){
+        // update settings
+        updateSettings();
+        
+        // change source?
+        // 1: Kinect?
+        if ( useKinect() && currentSource->getType() != CAMERA_KINECT){
+            setupSource( CAMERA_KINECT );
+        
+        // 2: Video Grabber?
+        } else if (!useKinect() && !useVideoFile() && currentSource->getType() != CAMERA_VIDEOGRABBER ){
+            setupSource( CAMERA_VIDEOGRABBER );
+        
+        // 3: Video File?
+        } else if ( useVideoFile() && currentSource->getType() != CAMERA_VIDEOFILE ){
+            setupSource( CAMERA_VIDEOFILE );
+        }
+        
+        // update source
+        bool bNewFrame = false;
+        if ( currentSource != NULL ){
+            currentSource->update();
+            bNewFrame = currentSource->doProcessFrame();
+        }
+        
+        if ( bNewFrame ){
+            if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
+                //ofxCv::convertColor( *currentSource, cameraImage, CV_RGB2GRAY);
+            } else {
+                cameraImage.setFromPixels( currentSource->getPixelsRef() );
+            }
+            trackPeople();
+        }
     }
     
     //---------------------------------------------------------------------------
@@ -196,6 +263,42 @@ namespace ofxTSPS {
             webSocketServer.personWillLeave(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
         }
     }
+    
+#pragma mark source
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::setSource( Source & newSource ){
+        //if ( *currentSource != newSource ){
+            currentSource = &newSource;
+        //}
+    }
+    
+    //---------------------------------------------------------------------------
+    bool PeopleTracker::setupSource( SourceType type ){
+        if ( currentSource != NULL ){
+            currentSource->closeSource();
+        }
+        string etc = "";
+        switch ( type ){
+            case CAMERA_KINECT:
+                currentSource = new Kinect();
+                break;
+            case CAMERA_OPENNI:
+                //
+                break;
+            case CAMERA_VIDEOGRABBER:
+                currentSource = new VideoGrabber();
+                break;
+            case CAMERA_VIDEOFILE:
+                currentSource = new VideoFile();
+                etc = getVideoFile();
+                break;
+        }
+        bSourceSetup = currentSource->openSource( width, height, etc );
+        return bSourceSetup;
+    }
+    
+#pragma mar settings
     
     //---------------------------------------------------------------------------
     void PeopleTracker::resize( int w, int h ){
@@ -939,7 +1042,7 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::setVideoGrabber(ofBaseVideo* grabber, CameraType inputType)
+    void PeopleTracker::setVideoGrabber(ofBaseVideo* grabber, SourceType inputType)
     {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->setVideoGrabber( grabber, inputType );

@@ -46,6 +46,12 @@
 #include "ofxTSPS/utils/View.h"
 #include "ofxTSPS/utils/Utils.h"
 
+// sources
+#include "ofxTSPS/source/Source.h"
+#include "ofxTSPS/source/Kinect.h"
+#include "ofxTSPS/source/VideoFile.h"
+#include "ofxTSPS/source/VideoGrabber.h"
+
 // TSPS Processors
 #include "ofxTSPS/Processor.h"
 //#include "ofxTSPS/opencv/OpenCvProcessor.h" // R.I.P.
@@ -76,10 +82,15 @@ namespace ofxTSPS {
             //set up and update
         
             void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
-            void update(ofBaseImage & image);
+        
+            void update();                          // update + have TSPS manage source
+            void update(ofBaseImage & image);       // update with an image / video / etc?
         
             void resize( int w, int h );            //If you need to resize the camera width / height
             void mousePressed(ofMouseEventArgs &e);	
+            
+            // source
+            void setSource( Source & newSource );
         
             // processor
             void setProcessor ( Processor * _processor );
@@ -170,7 +181,7 @@ namespace ofxTSPS {
             bool loadFont(string fontName, int fontSize);
         
             //JG this is so we can access video grabber settings through the default interface
-            void setVideoGrabber(ofBaseVideo* grabber, CameraType inputType);
+            void setVideoGrabber(ofBaseVideo* grabber, SourceType inputType);
             
             // for accessing the OSC sender whose parameters are adjusted in the GUI
             OscSender* getOSCsender(); 
@@ -190,7 +201,10 @@ namespace ofxTSPS {
             void setUseKinect( bool bUseKinect=true );
         
         protected:
-            
+            bool        bSourceSetup;
+            Source *    currentSource;
+            bool        setupSource( SourceType type );
+        
             Processor * tspsProcessor;
         
             void trackPeople();
@@ -255,6 +269,7 @@ namespace ofxTSPS {
         
         private:
             bool hasMouseEvents;
+            
     };
 }
 #endif

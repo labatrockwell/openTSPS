@@ -64,7 +64,7 @@ namespace ofxTSPS {
         }
     }
     
-    void Settings::setVideoGrabber( ofBaseVideo* videoGrabber, CameraType type){
+    void Settings::setVideoGrabber( ofBaseVideo* videoGrabber, SourceType type){
         videoGrabber = videoGrabber;
         inputType    = type;
     };
@@ -73,7 +73,7 @@ namespace ofxTSPS {
         return videoGrabber;
     };
     
-    CameraType Settings::getInputType(){
+    SourceType Settings::getInputType(){
         return inputType;
     };
 }

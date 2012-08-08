@@ -1,5 +1,5 @@
 //
-//  Camera.h
+//  Source.h
 //  openTSPS
 //
 //  Created by Brett Renfer on 7/26/12.
@@ -8,17 +8,18 @@
 
 #pragma once
 
+#include "ofMain.h"
 #include "ofxTSPS/Constants.h"
 
 namespace ofxTSPS {
-    class Camera {
+    class Source {
     public:
-        Camera(){
+        Source(){
             // init default settings
             bCanTrackContours       = true;
             bCanTrackHaar           = true;
             bCanTrackOpticalFlow    = true;
-            bCanTrackOpticalFlow    = true;
+            bCanTrackSkeleton       = true;
         }
         
         // get capabilities
@@ -26,6 +27,17 @@ namespace ofxTSPS {
         virtual bool canTrackContours (){ return bCanTrackContours; };
         virtual bool canTrackSkeleton (){ return bCanTrackSkeleton; };
         virtual bool canTrackOpticalFlow (){ return bCanTrackOpticalFlow; };
+        virtual SourceType getType(){ return type; };
+        
+        // core
+        virtual bool available(){ return true; };
+        virtual bool openSource( int width, int height, string etc="" ){ return true; };
+        virtual void update(){};
+        virtual bool doProcessFrame(){ return true; };
+        virtual void closeSource(){};;
+        
+        // this part.... fix it up
+		virtual ofPixelsRef	getPixelsRef(){};
         
         // methods: settings
         virtual bool setTrackHaar ( bool trackHaar ){
@@ -44,7 +56,7 @@ namespace ofxTSPS {
         
         virtual bool setTrackSkeleton ( bool trackSkeleton ){
             if ( bCanTrackSkeleton ){
-                bTrackSkeleton = true;
+                bTrackSkeleton = trackSkeleton;
             }
             return bTrackSkeleton;
         };
@@ -57,7 +69,7 @@ namespace ofxTSPS {
         };
         
     protected:
-        CameraType type;
+        SourceType type;
         
         // mirrored by ofxTSPS::Processor
         // capabilities + settings

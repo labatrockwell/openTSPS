@@ -30,13 +30,10 @@
 class tspsApp : public ofBaseApp {
 
 	public:
-		
-        ~tspsApp(){ exit(); };
     
 		void setup();
 		void update();
 		void draw();
-        void exit();
 		
 		void keyPressed  (int key);
 		void mouseMoved(int x, int y );
@@ -51,24 +48,6 @@ class tspsApp : public ofBaseApp {
         void onPersonUpdated( ofxTSPS::EventArgs & tspsEvent );
         void onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent );
 
-        // ready for either live video or Kinect, will choose in the next step
-        ofVideoGrabber 		vidGrabber;
-        ofxKinect           kinect;
-        ofVideoPlayer 		vidPlayer;
-    
-        // kinect, webcam, or video file?
-        bool bKinect, bKinectConnected, bUseVideoFile;
-        int cameraState;
-        string videoFile;    
-	
-        bool initVideoInput();
-        void closeVideoInput();
-        bool initVideoFile();
-    
-		int camWidth, camHeight;
-
-		ofImage		grayImg;
-    	
 	//status bar stuff
 		ofImage statusBar;
 		int		drawStatus[3];
@@ -79,12 +58,9 @@ class tspsApp : public ofBaseApp {
 	
 	//other gui images
 		ofImage background;
-
-
-    ofxTSPS::PeopleTracker peopleTracker;
-	    
     
-    
+    // all-important
+        ofxTSPS::PeopleTracker peopleTracker;
 };
 
 #endif

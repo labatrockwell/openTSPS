@@ -31,7 +31,7 @@ namespace ofxTSPS {
         DATA_VIEW
     };
     
-    enum CameraType {
+    enum SourceType {
         CAMERA_UNDEFINED,
         CAMERA_KINECT,
         CAMERA_OPENNI,
