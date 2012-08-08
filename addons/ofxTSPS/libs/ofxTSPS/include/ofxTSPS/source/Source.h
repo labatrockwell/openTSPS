@@ -12,7 +12,7 @@
 #include "ofxTSPS/Constants.h"
 
 namespace ofxTSPS {
-    class Source {
+    class Source :  virtual public ofBaseHasPixels {
     public:
         Source(){
             // init default settings
@@ -37,7 +37,7 @@ namespace ofxTSPS {
         virtual void closeSource(){};;
         
         // this part.... fix it up
-		virtual ofPixelsRef	getPixelsRef(){};
+		//virtual ofPixelsRef	getPixelsRef(){};
         
         // methods: settings
         virtual bool setTrackHaar ( bool trackHaar ){

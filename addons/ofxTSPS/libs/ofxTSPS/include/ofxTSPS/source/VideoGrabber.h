@@ -12,7 +12,7 @@
 #include "ofxTSPS/source/Source.h"
 
 namespace ofxTSPS {
-    class VideoGrabber : public ofVideoGrabber, public Source {
+    class VideoGrabber : public Source, public ofVideoGrabber {
     public:
         
         VideoGrabber(){

@@ -10,7 +10,7 @@
 #include "ofxTSPS/source/Source.h"
 
 namespace ofxTSPS {
-    class Kinect : public ofxKinect, public Source {
+    class Kinect : public Source, public ofxKinect {
     public:
         
         //Kinect(){}

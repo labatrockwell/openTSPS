@@ -12,7 +12,7 @@
 #include "ofxTSPS/source/Source.h"
 
 namespace ofxTSPS {
-    class VideoFile : public ofVideoPlayer, public Source {
+    class VideoFile : public Source, public ofVideoPlayer {
     public:
         bool openSource( int width, int height, string etc="" ){
             tspsWidth = width;
