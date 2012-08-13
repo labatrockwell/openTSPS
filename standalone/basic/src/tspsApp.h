@@ -10,17 +10,7 @@
     // TSPS core
     #include "ofxTSPS.h"
 	
-    // kinect support
-    #include "ofxKinect.h"
-
     #define TSPS_HOME_PAGE "http://opentsps.com"
-
-    enum {
-        CAMERA_NOT_INITED,
-        CAMERA_KINECT,
-        CAMERA_VIDEOGRABBER,
-        CAMERA_VIDEOFILE
-    };
 
 /*********************************************************
     APP
@@ -42,8 +32,9 @@ class tspsApp : public ofBaseApp {
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
         
-        // TSPS events
+        // TSPS core: PeopleTracker + events
         
+        ofxTSPS::PeopleTracker peopleTracker;
         void onPersonEntered( ofxTSPS::EventArgs & tspsEvent );
         void onPersonUpdated( ofxTSPS::EventArgs & tspsEvent );
         void onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent );
@@ -59,8 +50,6 @@ class tspsApp : public ofBaseApp {
 	//other gui images
 		ofImage background;
     
-    // all-important
-        ofxTSPS::PeopleTracker peopleTracker;
 };
 
 #endif

@@ -33,10 +33,10 @@ namespace ofxTSPS {
             }
         }
         
-        ofPixelsRef	getPixelsRef(){
-            return grayPixels;
-        }
-        
+//        ofPixelsRef	getPixelsRef(){
+//            return grayPixels;
+//        }
+//        
         bool doProcessFrame(){
             return isFrameNew();
         }

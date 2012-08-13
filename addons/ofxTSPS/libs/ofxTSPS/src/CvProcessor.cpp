@@ -123,7 +123,7 @@ namespace ofxTSPS {
         
         if ( bTrackOpticalFlow ){
             // for now, should be cameraSmallImage but it doesn't work :(
-            processOpticalFlow( image );
+            processOpticalFlow( cameraSmallImage );
         }
         
         differencedImage.setFromPixels(image.getPixelsRef());

@@ -1,16 +1,5 @@
 #include "tspsApp.h"
 
-class TSPSPersonAttributes {
-public:
-	TSPSPersonAttributes(){
-		height = 0;
-		hasBeard = false;
-	}
-
-	float height;
-	bool hasBeard; //this is a joke
-};
-
 //--------------------------------------------------------------
 void tspsApp::setup(){
 	ofSetFrameRate(60);
@@ -21,7 +10,6 @@ void tspsApp::setup(){
     ofxAddTSPSListeners(this);
     
 	//load GUI / interface images
-
 	personEnteredImage.loadImage("graphic/triggers/PersonEntered_Active.png");
 	personUpdatedImage.loadImage("graphic/triggers/PersonUpdated_Active.png");
 	personLeftImage.loadImage("graphic/triggers/PersonLeft_Active.png");
@@ -62,17 +50,16 @@ void tspsApp::onPersonUpdated( ofxTSPS::EventArgs & tspsEvent ){
 
 //--------------------------------------------------------------
 void tspsApp::draw(){
+    // bg image
 	ofEnableAlphaBlending();
 	ofSetHexColor(0xffffff);
-	ofPushStyle();
 	background.draw(0,0);
+    
+    // render TSPS interface
 	peopleTracker.draw();
 
-	ofPopStyle();
-
 	//draw status bar stuff
-
-	statusBar.draw(0,700);//ofGetHeight()-statusBar.height);
+	statusBar.draw(0,700);
 	if (drawStatus[0] > 0){
 		drawStatus[0]--;
 		personEnteredImage.draw(397,728);
@@ -89,7 +76,6 @@ void tspsApp::draw(){
 	ofSetColor(0, 169, 157);
 	char numPeople[1024];
 	sprintf(numPeople, "%i", peopleTracker.totalPeople());
-    
 	timesBoldItalic.drawString(numPeople,350,740);
 }
 
