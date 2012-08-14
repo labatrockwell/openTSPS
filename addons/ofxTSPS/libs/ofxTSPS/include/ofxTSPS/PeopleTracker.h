@@ -91,6 +91,7 @@ namespace ofxTSPS {
             
             // source
             void setSource( Source & newSource );
+            bool setupSource( SourceType type );
         
             // processor
             void setProcessor ( Processor * _processor );
@@ -203,7 +204,6 @@ namespace ofxTSPS {
         protected:
             bool        bSourceSetup;
             Source *    currentSource;
-            bool        setupSource( SourceType type );
         
             Processor * tspsProcessor;
         

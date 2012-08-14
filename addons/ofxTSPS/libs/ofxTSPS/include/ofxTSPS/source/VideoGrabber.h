@@ -28,15 +28,8 @@ namespace ofxTSPS {
         
         void update(){
             ofVideoGrabber::update();
-            if (doProcessFrame()){
-                //grayPixels.swap(ofVideoGrabber::getPixelsRef().getChannel(0));
-            }
         }
         
-//        ofPixelsRef	getPixelsRef(){
-//            return grayPixels;
-//        }
-//        
         bool doProcessFrame(){
             return isFrameNew();
         }

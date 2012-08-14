@@ -16,7 +16,6 @@
     APP
 *********************************************************/
 
-
 class tspsApp : public ofBaseApp {
 
 	public:
@@ -26,11 +25,6 @@ class tspsApp : public ofBaseApp {
 		void draw();
 		
 		void keyPressed  (int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void windowResized(int w, int h);
         
         // TSPS core: PeopleTracker + events
         

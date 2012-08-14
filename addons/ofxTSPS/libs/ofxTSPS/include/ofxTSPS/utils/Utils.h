@@ -41,12 +41,18 @@ static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <o
     float xlrp = 0.0;
     float ylrp = 0.0;
     
+    ofPoint p1, p2, p3, p4;
+    p1 = quad[0];
+    p2 = quad[1];
+    p3 = quad[2];
+    p4 = quad[3];
+    
     for(int x=0;x<outW;x++) {
         for(int y=0;y<outH;y++) {
             xlrp = x/(float)outW;
             ylrp = y/(float)outH;
-            xinput = (quad[0].x*(1-xlrp)+quad[1].x*xlrp)*(1-ylrp) + (quad[3].x*(1-xlrp)+quad[2].x*xlrp)*ylrp;
-            yinput = ((quad[0].y*(1-ylrp))+(quad[3].y*ylrp))*(1-xlrp) + (quad[1].y*(1-ylrp)+quad[2].y*ylrp)*xlrp;
+            xinput = (p1.x*(1-xlrp)+p2.x*xlrp)*(1-ylrp) + (p4.x*(1-xlrp)+p3.x*xlrp)*ylrp;
+            yinput = ((p1.y*(1-ylrp))+(p4.y*ylrp))*(1-xlrp) + (p2.y*(1-ylrp)+p3.y*ylrp)*xlrp;
             inIndex = (xinput + (yinput*inW))*bpp;
             outIndex = (x+y*outW)*bpp;
             memcpy((outpix+outIndex),(inpix+inIndex),sizeof(unsigned char)*bpp);

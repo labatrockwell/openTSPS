@@ -36,9 +36,6 @@ namespace ofxTSPS {
         virtual bool doProcessFrame(){ return true; };
         virtual void closeSource(){};;
         
-        // this part.... fix it up
-		//virtual ofPixelsRef	getPixelsRef(){};
-        
         // methods: settings
         virtual bool setTrackHaar ( bool trackHaar ){
             if ( bCanTrackHaar ){

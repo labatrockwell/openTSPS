@@ -177,8 +177,9 @@ namespace ofxTSPS {
         if ( bNewFrame ){
             if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
                 cameraImage.setFromPixels( currentSource->getPixelsRef() );
-                cameraImage.setImageType(OF_IMAGE_GRAYSCALE);
-                //ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+                //cameraImage.setImageType(OF_IMAGE_GRAYSCALE);
+                ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+                cameraImage.update();
             } else {
                 cameraImage.setFromPixels( currentSource->getPixelsRef() );
             }

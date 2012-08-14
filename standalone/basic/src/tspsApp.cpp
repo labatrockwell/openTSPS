@@ -91,18 +91,3 @@ void tspsApp::keyPressed  (int key){
 		} break;
 	}
 }
-
-//--------------------------------------------------------------
-void tspsApp::mouseMoved(int x, int y ){}
-
-//--------------------------------------------------------------
-void tspsApp::mouseDragged(int x, int y, int button){}
-
-//--------------------------------------------------------------
-void tspsApp::mousePressed(int x, int y, int button){}
-
-//--------------------------------------------------------------
-void tspsApp::mouseReleased(int x, int y, int button){}
-
-//--------------------------------------------------------------
-void tspsApp::windowResized(int w, int h){}

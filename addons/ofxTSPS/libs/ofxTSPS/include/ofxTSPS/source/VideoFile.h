@@ -32,10 +32,6 @@ namespace ofxTSPS {
             }
         }
         
-        ofPixelsRef	getPixelsRef(){
-            return ofVideoPlayer::getPixelsRef();
-        }
-        
         void closeSource(){
             stop();
             closeMovie();
