@@ -280,6 +280,7 @@ namespace ofxTSPS {
     bool PeopleTracker::setupSource( SourceType type ){
         if ( currentSource != NULL ){
             currentSource->closeSource();
+            currentSource = NULL;
         }
         string etc = "";
         switch ( type ){
@@ -298,6 +299,7 @@ namespace ofxTSPS {
                 break;
         }
         bSourceSetup = currentSource->openSource( width, height, etc );
+        cout<<"Setup? "<<bSourceSetup<<endl;
         return bSourceSetup;
     }
     

@@ -12,8 +12,10 @@
 namespace ofxTSPS {
     class Kinect : public Source, public ofxKinect {
     public:
-        
-        //Kinect(){}
+                
+        Kinect() : Source(){
+            type = CAMERA_KINECT;
+        }
         
         // core
         bool available(){
@@ -34,8 +36,9 @@ namespace ofxTSPS {
         }
         
         bool openSource( int width, int height, string etc="" ){
+            cout<<"init? "<<bGrabberInited<<endl;
             if (!bGrabberInited) init();
-            open();
+            return open();
         }
         
         //void update();

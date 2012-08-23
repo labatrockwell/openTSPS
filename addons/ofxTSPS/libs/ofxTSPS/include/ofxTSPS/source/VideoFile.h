@@ -14,6 +14,10 @@
 namespace ofxTSPS {
     class VideoFile : public Source, public ofVideoPlayer {
     public:
+        VideoFile(){
+            type = CAMERA_VIDEOFILE;
+        }
+        
         bool openSource( int width, int height, string etc="" ){
             tspsWidth = width;
             tspsHeight = height;
