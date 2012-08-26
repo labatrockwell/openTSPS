@@ -176,9 +176,19 @@ namespace ofxTSPS {
         
         if ( bNewFrame ){
             if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
-                cameraImage.setFromPixels( currentSource->getPixelsRef() );
+                ofImage tempImage;
+                tempImage.setFromPixels( currentSource->getPixelsRef() );
+                
                 //cameraImage.setImageType(OF_IMAGE_GRAYSCALE);
-                ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+                ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, CV_RGB2GRAY);
+                
+                if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                    // is there a better way to do this? probably...
+                    //cameraImage.resize( width, height );
+                    ofxCv::resize(tempImage, cameraImage);
+                } else {
+                    cameraImage = tempImage;
+                }
                 cameraImage.update();
             } else {
                 cameraImage.setFromPixels( currentSource->getPixelsRef() );

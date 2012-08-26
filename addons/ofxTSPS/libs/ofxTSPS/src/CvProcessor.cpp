@@ -69,7 +69,6 @@ namespace ofxTSPS {
     void CvProcessor::setCameraImage( ofBaseImage & image ){
         // update camera image
         cameraImage.setFromPixels(image.getPixelsRef());
-        cameraImage.setImageType(OF_IMAGE_GRAYSCALE);
         
         // update smaller image
         // pixel copy method is temporary... copying directly to image

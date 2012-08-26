@@ -15,6 +15,7 @@ static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <o
         ofLog( OF_LOG_ERROR, "You must pass a vector of four points to this function");
         return;
     } // weird thing that could happen...
+    
     unsigned char * inpix;
     unsigned char * outpix;
     inpix   = inputImage.getPixels();
