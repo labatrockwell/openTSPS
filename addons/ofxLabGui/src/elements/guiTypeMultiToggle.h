@@ -19,8 +19,8 @@ class guiTypeMultiToggle : public guiBaseObject{
             value.addValue( (int)defaultBox, 0, bNames.size()-1);
             name = multiToggleName;
 
-            float lineHeight = 0;
-            for(int i = 0; i < bNames .size(); i++){
+            float lineHeight = displayText.getTextSingleLineHeight() + boxSize+boxSpacing;
+            for(int i = 0; i < bNames.size(); i++){
                 float lineWidth = boxSpacing + boxSize + displayText.stringWidth(bNames[i]);
 
                 if( lineWidth > hitArea.width ){
@@ -28,17 +28,60 @@ class guiTypeMultiToggle : public guiBaseObject{
                     boundingBox.width   += lineWidth-hitArea.width;
                 }
 
-                lineHeight += displayText.stringHeight(bNames[i]);
+                lineHeight += displayText.getTextSingleLineHeight();
             }
 
-            if(lineHeight > hitArea.height){
-                hitArea.height      += lineHeight-hitArea.height;
-                boundingBox.height  += lineHeight-hitArea.height;
+            if(lineHeight > boundingBox.height){
+                hitArea.height      += lineHeight-boundingBox.height  - (displayText.getTextSingleLineHeight() + boxSize+boxSpacing);
+                boundingBox.height  += lineHeight-boundingBox.height;
             }
 
         }
+    
+        //-----------------------------------------------
+        void updateBoundingBox(){
+            if(bShowText){
+                //we need to update out hitArea because the text will have moved the gui down
+                hitArea.y = (int) (boundingBox.y + displayText.getTextSingleLineHeight() + titleSpacing);
+                
+                float lineHeight = displayText.getTextSingleLineHeight() + boxSize+boxSpacing;
+                for(int i = 0; i < bNames.size(); i++){
+                    float lineWidth = boxSpacing + boxSize + displayText.stringWidth(bNames[i]);
+                    
+                    if( lineWidth > hitArea.width ){
+                        hitArea.width       += lineWidth-hitArea.width;
+                        boundingBox.width   += lineWidth-hitArea.width;
+                    }
+                    
+                    lineHeight += displayText.getTextSingleLineHeight();
+                }
+                if(lineHeight > boundingBox.height){
+                    hitArea.height      += lineHeight-boundingBox.height - (displayText.getTextSingleLineHeight() + boxSize+boxSpacing);
+                    boundingBox.height  += lineHeight-boundingBox.height;
+                }
+            }else{
+                //we need to update out hitArea because the text will have moved the gui down
+                hitArea.y = boundingBox.y;
+                boundingBox.height = hitArea.height;
+                float lineHeight = 0;
+                for(int i = 0; i < bNames.size(); i++){
+                    float lineWidth = boxSpacing + boxSize + displayText.stringWidth(bNames[i]);
+                    
+                    if( lineWidth > hitArea.width ){
+                        hitArea.width       += lineWidth-hitArea.width;
+                        boundingBox.width   += lineWidth-hitArea.width;
+                    }
+                    
+                    lineHeight += displayText.getTextSingleLineHeight();
+                }
+                if(lineHeight > boundingBox.height){
+                    hitArea.height      += lineHeight-boundingBox.height;
+                    boundingBox.height  += lineHeight-boundingBox.height;
+                }
+            }
+        }
 
-        //-----------------------------------------------.
+        //-----------------------------------------------
         void updateGui(float x, float y, bool firstHit, bool isRelative){
             if(!firstHit)return;
 

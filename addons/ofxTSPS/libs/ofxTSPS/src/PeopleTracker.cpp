@@ -155,15 +155,15 @@ namespace ofxTSPS {
         
         // change source?
         // 1: Kinect?
-        if ( useKinect() && currentSource->getType() != CAMERA_KINECT){
+        if ( useKinect() && (currentSource == NULL || currentSource->getType() != CAMERA_KINECT)){
             setupSource( CAMERA_KINECT );
         
         // 2: Video Grabber?
-        } else if (!useKinect() && !useVideoFile() && currentSource->getType() != CAMERA_VIDEOGRABBER ){
+        } else if (useVideoGrabber() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOGRABBER)){
             setupSource( CAMERA_VIDEOGRABBER );
         
         // 3: Video File?
-        } else if ( useVideoFile() && currentSource->getType() != CAMERA_VIDEOFILE ){
+        } else if ( useVideoFile() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOFILE) ){
             setupSource( CAMERA_VIDEOFILE );
         }
         
@@ -281,9 +281,36 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::setSource( Source & newSource ){
-        //if ( *currentSource != newSource ){
-            currentSource = &newSource;
-        //}
+        currentSource = &newSource;
+        
+        // make settings so they don't boot what you did
+        switch( currentSource->getType() ){
+            case CAMERA_KINECT:
+                setUseKinect(true);
+                setUseVideoFile(false);
+                setUseVideoGrabber(false);
+                break;
+            case CAMERA_OPENNI:
+                setUseKinect(false);
+                setUseVideoFile(false);
+                setUseVideoGrabber(false);
+                break;
+            case CAMERA_VIDEOFILE:
+                setUseKinect(false);
+                setUseVideoFile(true);
+                setUseVideoGrabber(false);
+                break;
+            case CAMERA_VIDEOGRABBER:
+                setUseVideoGrabber(true);
+                setUseKinect(false);
+                setUseVideoFile(false);
+                break;
+            case CAMERA_CUSTOM:
+                setUseVideoGrabber(false);
+                setUseKinect(false);
+                setUseVideoFile(false);
+                break;
+        }
     }
     
     //---------------------------------------------------------------------------
@@ -304,12 +331,15 @@ namespace ofxTSPS {
                 currentSource = new VideoGrabber();
                 break;
             case CAMERA_VIDEOFILE:
-                currentSource = new VideoFile();
+                // see if there is a valid video file set first
                 etc = getVideoFile();
+                if ( etc == ""){
+                    return false;
+                }
+                currentSource = new VideoFile();
                 break;
         }
         bSourceSetup = currentSource->openSource( width, height, etc );
-        cout<<"Setup? "<<bSourceSetup<<endl;
         return bSourceSetup;
     }
     
@@ -830,21 +860,6 @@ namespace ofxTSPS {
         return &webSocketServer;
     }
     
-    
-    //---------------------------------------------------------------------------
-    bool PeopleTracker::useKinect(){
-        if (p_Settings == NULL) p_Settings = gui.getSettings();
-        return p_Settings->bUseKinect;
-    }
-    
-    //---------------------------------------------------------------------------
-    void PeopleTracker::setUseKinect( bool bUseKinect ){
-        gui.setValueB( "USE_KINECT", bUseKinect );
-        gui.update();
-        if (p_Settings == NULL) p_Settings = gui.getSettings();
-        p_Settings->bUseKinect = bUseKinect;
-    }
-    
     //---------------------------------------------------------------------------
     //---------------------------------------------------------------------------
 #pragma mark background management
@@ -1106,18 +1121,46 @@ namespace ofxTSPS {
         dataView.height = smallView.y;	
         gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
     }
+    //---------------------------------------------------------------------------
+    bool PeopleTracker::useVideoGrabber(){
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        return p_Settings->inputType == CAMERA_VIDEOGRABBER;
+    }
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::setUseVideoGrabber( bool bUseVideoGrabber ){
+        gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOGRABBER );
+        gui.update();
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        p_Settings->inputType = CAMERA_KINECT;
+    }
+    
+    //---------------------------------------------------------------------------
+    bool PeopleTracker::useKinect(){
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        return p_Settings->inputType == CAMERA_KINECT;
+    }
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::setUseKinect( bool bUseKinect ){
+        gui.setValueI( "SOURCE_TYPE", CAMERA_KINECT );
+        gui.update();
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        p_Settings->inputType = CAMERA_KINECT;
+    }
     
     //---------------------------------------------------------------------------
     bool PeopleTracker::useVideoFile(){    
         if (p_Settings == NULL) p_Settings = gui.getSettings();
-        return p_Settings->bUseVideoFile;
+        return p_Settings->inputType == CAMERA_VIDEOFILE;
     }
-    
     
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseVideoFile( bool bUseVideoFile ){
+        gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOFILE );
+        gui.update();
         if (p_Settings == NULL) p_Settings = gui.getSettings();
-        p_Settings->bUseVideoFile = bUseVideoFile;
+        p_Settings->inputType = CAMERA_VIDEOFILE;
     }
     
     //---------------------------------------------------------------------------

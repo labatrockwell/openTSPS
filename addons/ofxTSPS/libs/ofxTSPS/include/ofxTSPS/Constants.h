@@ -32,12 +32,12 @@ namespace ofxTSPS {
     };
     
     enum SourceType {
-        CAMERA_UNDEFINED,
-        CAMERA_KINECT,
-        CAMERA_OPENNI,
         CAMERA_VIDEOGRABBER,
         CAMERA_VIDEOFILE,
-        CAMERA_CUSTOM
+        CAMERA_KINECT,
+        CAMERA_OPENNI,
+        CAMERA_CUSTOM,
+        CAMERA_UNDEFINED
     };
     
     //layout vars

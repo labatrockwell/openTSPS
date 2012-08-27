@@ -13,12 +13,11 @@ namespace ofxTSPS {
         bMinimized  = false;
         
         //camera
-        bUseKinect  = false;
+        //bUseKinect  = false;
         cameraIndex = 0;
         inputType   = CAMERA_UNDEFINED;
         
         // video files
-        bUseVideoFile = "";
         videoDirectory = "videos";
         bReloadVideoFiles = true;
         

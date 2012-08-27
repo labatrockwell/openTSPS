@@ -83,15 +83,21 @@ namespace ofxTSPS {
         
             void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
         
-            void update();                          // update + have TSPS manage source
-            void update(ofBaseImage & image);       // update with an image / video / etc?
+            void update();                              // update + have TSPS manage source
+            void update(ofBaseImage & image);           // update with an image / video / etc?
         
-            void resize( int w, int h );            //If you need to resize the camera width / height
+            void resize( int w, int h );                //If you need to resize the camera width / height
             void mousePressed(ofMouseEventArgs &e);	
             
             // source
-            void setSource( Source & newSource );
-            bool setupSource( SourceType type );
+            void    setSource( Source & newSource );    // Use this to force to a Source or override with your own source
+            bool    setupSource( SourceType type );     // Setup a known source type (CAMERA_CUSTOM + CAMERA_UNDEFINED won't do anything)
+            bool    useKinect();
+            void    setUseKinect( bool bUseKinect=true );
+            bool    useVideoFile();
+            void    setUseVideoFile( bool bUseVideoFile = true);
+            bool    useVideoGrabber();
+            void    setUseVideoGrabber( bool bUseVideoGrabber = true);
         
             // processor
             void setProcessor ( Processor * _processor );
@@ -160,9 +166,7 @@ namespace ofxTSPS {
             guiTypeButton * addExternalButton( string name, ofRectangle dimensions );
         
             // video file stuff
-            bool    useVideoFile();
             string  getVideoFile();
-            void    setUseVideoFile( bool bUseVideoFile = true);
             void    setVideoFile( string file );
         
             //drawing methods
@@ -196,10 +200,6 @@ namespace ofxTSPS {
             bool inBackgroundView();
             bool inDifferencingView();
             bool inDataView();
-            
-            // GUI getters + setters
-            bool useKinect();	
-            void setUseKinect( bool bUseKinect=true );
         
         protected:
             bool        bSourceSetup;

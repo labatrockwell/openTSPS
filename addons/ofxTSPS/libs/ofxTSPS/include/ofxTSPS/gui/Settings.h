@@ -47,11 +47,10 @@ namespace ofxTSPS {
         bool    bMinimized;
         
         // camera vars
-        bool    bUseKinect;
+        //bool    bUseKinect;
         int     cameraIndex;
         
         // video file vars
-        bool    bUseVideoFile;
         string  videoDirectory;
         string  videoFile;
         bool    bReloadVideoFiles;
@@ -112,7 +111,7 @@ namespace ofxTSPS {
         // video grabber
         void setVideoGrabber( ofBaseVideo* videoGrabber, SourceType type);
         ofBaseVideo*    getVideoGrabber();
-        SourceType   getInputType();
+        SourceType      getInputType();
         
         //layout vars
         int lastCurrentPanel;
@@ -125,14 +124,13 @@ namespace ofxTSPS {
         //xml file
         vector <string> xmlFiles;
         string currentXmlFile;
-        
+        SourceType      inputType;
         
     private:
         
         //JG added the video grabber so we can access settings
         //may be NULL so please do check
         ofBaseVideo*    videoGrabber;
-        SourceType   inputType;
         
         static bool     instanceFlag;
         static Settings *single;

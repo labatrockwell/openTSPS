@@ -136,7 +136,16 @@ namespace ofxTSPS {
         videoSettingsGroup->seBaseColor(244,136,136);
         videoSettingsGroup->setShowText(false);
         panel.addButton("open video settings");
-        panel.addToggle("use kinect", "USE_KINECT", true);
+        //panel.addToggle("use kinect", "USE_KINECT", true);
+        
+        vector<string>source_types;
+        source_types.push_back("ofVideoGrabber");
+        source_types.push_back("ofVideoPlayer");
+        source_types.push_back("ofxKinect");
+        source_types.push_back("ofxOpenNI");
+        source_types.push_back("custom");
+        
+        panel.addMultiToggle("source type", "SOURCE_TYPE", 0, source_types);
         
         // video files    
         guiTypeGroup * videoFilesGroup = panel.addGroup("videoFiles");
@@ -145,8 +154,6 @@ namespace ofxTSPS {
         videoFilesGroup->seBaseColor(58,187,147);
         videoFilesGroup->setShowText(false);
         
-        //TODO: use the button class for this maybe?
-        panel.addToggle("use video file instead of live camera", "USE_VIDEO_FILE", false);
         panel.addTextField("video directory (inside data folder)", "VIDEO_FILE_DIR", "videos", 200, 20);
         videoFiles = new simpleFileLister();	
         int numVideoFiles = videoFiles->listDir(ofToDataPath("videos", true));
@@ -454,11 +461,17 @@ namespace ofxTSPS {
         // camera
         
         //settings.cameraIndex = panel.getValueF("CAMERA_INDEX");
-        settings.bUseKinect  = panel.getValueB("USE_KINECT");    
+        //settings.bUseKinect  = panel.getValueB("USE_KINECT");
+        settings.inputType     = (SourceType) panel.getValueI("SOURCE_TYPE");
+        
+        if ( settings.inputType == CAMERA_VIDEOFILE){
+            panel.getElement("videoFiles")->enable();
+        } else {
+            panel.getElement("videoFiles")->disable();
+        }
         
         // video files
         bool bIsNewDirectory = false;
-        settings.bUseVideoFile = panel.getValueB("USE_VIDEO_FILE");
         if ( settings.videoDirectory != panel.getValueS("VIDEO_FILE_DIR") ){
             settings.videoDirectory = panel.getValueS("VIDEO_FILE_DIR");    
             bIsNewDirectory = true;
@@ -469,16 +482,13 @@ namespace ofxTSPS {
             else numVideos = videoFiles->refreshDir();
             panel.setValueB("VIDEO_FILE_RELOAD", false);
             
-            if ( numVideos == 0 ){
-                panel.setValueB("USE_VIDEO_FILE", false);     
+            if ( numVideos == 0 ){     
                 ofLog( OF_LOG_WARNING, "No videos found, switching to camera input" );
             }
         }
         if(videoFiles->getSelectedName() != ""){
             settings.videoFile = videoFiles->getSelectedPath();
         }
-        
-        panel.setGroupActive("video", "videoFiles", settings.bUseVideoFile);    
         
         // threshold
         
