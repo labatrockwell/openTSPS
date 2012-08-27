@@ -176,22 +176,26 @@ namespace ofxTSPS {
         
         if ( bNewFrame ){
             if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
-                ofImage tempImage;
-                tempImage.setFromPixels( currentSource->getPixelsRef() );
-                
-                //cameraImage.setImageType(OF_IMAGE_GRAYSCALE);
-                ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, CV_RGB2GRAY);
-                
+                // TO-DO: this should probably be in the Processor
+                // convert to grayscale and resize
                 if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
-                    // is there a better way to do this? probably...
-                    //cameraImage.resize( width, height );
+                    ofImage tempImage;
+                    tempImage.setFromPixels( currentSource->getPixelsRef() );
+                    ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, CV_RGB2GRAY);
                     ofxCv::resize(tempImage, cameraImage);
                 } else {
-                    cameraImage = tempImage;
+                    ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
                 }
                 cameraImage.update();
             } else {
-                cameraImage.setFromPixels( currentSource->getPixelsRef() );
+                // either resize or just copy pixels
+                if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                    ofImage tempImage;
+                    tempImage.setFromPixels( currentSource->getPixelsRef() );
+                    ofxCv::resize(tempImage, cameraImage);
+                } else {
+                    cameraImage.setFromPixels( currentSource->getPixelsRef() );
+                }
             }
             trackPeople();
         }
