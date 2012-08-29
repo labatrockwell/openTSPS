@@ -48,8 +48,6 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     bool WebSocketSender::setupServer( int _port ){
         serverPort = _port;
-        //sockets.clear();
-        cout<<"setting up web socket server on port "<<port<<endl;
         
         ofxLibwebsockets::ServerOptions options = ofxLibwebsockets::defaultServerOptions();
         options.port     = _port;

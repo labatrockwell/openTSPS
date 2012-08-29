@@ -81,7 +81,9 @@ namespace ofxTSPS {
             
             //set up and update
         
-            void setup(int w, int h, string settings="settings/settings.xml");				//Call during setup with camera width & height
+            void setup(int w=0, int h=0, string settings="");   // Call during setup; defaults to values in settings/defaults.xml
+                                                                // if nothing passsed. If settings is left blank, try
+                                                                // to last loaded settings (found in defaults.xml)
         
             void update();                              // update + have TSPS manage source
             void update(ofBaseImage & image);           // update with an image / video / etc?
@@ -199,13 +201,21 @@ namespace ofxTSPS {
             bool inDataView();
         
         protected:
+            // Default settings
+            ofxXmlSettings defaults;
+        
+            // Source
             bool        bSourceSetup;
             Source *    currentSource;
         
+            // Processor
             Processor * tspsProcessor;
         
+            // Update funtions
             void trackPeople();
             void updateSettings();
+        
+            // Utils
             bool isTrackingPerson(int pid);
                 
             vector<Person*> trackedPeople;

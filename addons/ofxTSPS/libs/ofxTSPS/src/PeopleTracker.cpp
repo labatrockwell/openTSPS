@@ -45,8 +45,25 @@ namespace ofxTSPS {
         ofAddListener(ofEvents().mousePressed, this, &PeopleTracker::mousePressed);
         hasMouseEvents = true;
         
-        width  = w;
-        height = h;
+        // load defaults
+        bool bDefaultsLoaded = defaults.loadFile("settings/defaults.xml");
+        
+        // build defaults + save if not found
+        if ( !bDefaultsLoaded ){
+            defaults.clear();
+            defaults.addTag("defaults");
+            defaults.pushTag("defaults"); {
+                defaults.addValue("width", 640);
+                defaults.addValue("height", 480);
+                defaults.addValue("settings_file", "settings/settings.xml");
+            } defaults.popTag();
+            defaults.saveFile("settings/defaults.xml");
+        }
+        
+        defaults.pushTag("defaults");
+        
+        width  = w == 0 ? defaults.getValue("width", 640)  : w;
+        height = h == 0 ? defaults.getValue("height", 480) : h;
         
         //useful!
         blackPixels = ofPixels();
@@ -72,7 +89,7 @@ namespace ofxTSPS {
         //setup gui
         gui.setup();
         gui.setupQuadGui( width, height );
-        gui.loadSettings( settingsfile );
+        gui.loadSettings( settingsfile == "" ? defaults.getValue("settings_file", "settings/settings.xml") : settingsfile );
         
         activeHeight = ofGetHeight();
         activeWidth = ofGetWidth();
@@ -146,6 +163,8 @@ namespace ofxTSPS {
         // setup gui based on processor capabilities
         gui.setHaarEnabled( tspsProcessor->canTrackHaar() );
         gui.setOpticalFlowEnabled( tspsProcessor->canTrackOpticalFlow() );
+        
+        defaults.popTag();
     }
     
     //---------------------------------------------------------------------------
@@ -467,6 +486,17 @@ namespace ofxTSPS {
     {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         setHaarXMLFile(p_Settings->haarFile);
+        
+        //----------------------------------------------
+        // Check defaults
+        //----------------------------------------------
+        
+        defaults.pushTag("defaults");
+        if ( p_Settings->currentXmlFile != defaults.getValue("settings_file", "")){
+            defaults.setValue("settings_file", p_Settings->currentXmlFile);
+            defaults.saveFile(ofToDataPath("settings/defaults.xml") );
+        }
+        defaults.popTag();
         
         //----------------------------------------------
         // Processor

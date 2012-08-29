@@ -5,7 +5,7 @@ void tspsApp::setup(){
 	ofSetFrameRate(60);
 	ofBackground(223, 212, 190);
 	
-	peopleTracker.setup(640, 480);
+	peopleTracker.setup();
 	peopleTracker.loadFont("fonts/times.ttf", 10);
     ofxAddTSPSListeners(this);
     

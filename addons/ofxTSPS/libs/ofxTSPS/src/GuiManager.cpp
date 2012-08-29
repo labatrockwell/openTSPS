@@ -345,12 +345,6 @@ namespace ofxTSPS {
         panel.setValueB("SEND_WSS", false);
         panel.setValueB("SEND_WS", false);
         
-        //JG TODO: Optionally change config file through the UI
-        //this would be a big help for setting up multiple install sites and having those setting
-        //included in repositories
-        //ofSetDataPathRoot("data");
-        loadSettings("settings/settings.xml");
-        
         //listen for save / load / reload / saveas events from GUI + pass to quadgui
         
         ofAddListener(panel.getSaveButton()->buttonPressed, this, &GuiManager::saveEventCatcher);
