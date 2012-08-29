@@ -65,8 +65,13 @@ namespace ofxTSPS {
         bool    bHighpass;
         bool    bAmplify;
         bool    bSmooth;
+        
+        bool    bLearnBackgroundOnStartup, bStartupBgCaptured;
+        int     captureSeconds;
+        
         bool    bLearnBackground;
         bool    bBlankBackground;
+        
         bool    bAdjustedViewInColor;	
         
         // tracking vars

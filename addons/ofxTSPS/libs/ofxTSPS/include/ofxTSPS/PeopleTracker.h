@@ -124,7 +124,7 @@ namespace ofxTSPS {
             void enableOpticalFlow(bool doOpticalFlow);
         
             // background learning and management
-        
+            
             void relearnBackground(); //one shot relearn trigger
             void enableBackgroundRelearnSmart(bool doSmartLearn);//auto-relearns if there are too many blobs in the scene
             void enableBackgroundReleaernProgressive(bool doProgressive); //relearns over time using progessive frame averagering
@@ -202,7 +202,7 @@ namespace ofxTSPS {
         
         protected:
             // Default settings
-            ofxXmlSettings defaults;
+            ofxXmlSettings  defaults;
         
             // Source
             bool        bSourceSetup;
@@ -237,6 +237,9 @@ namespace ofxTSPS {
             
             // switches for filters
             Settings *p_Settings;
+        
+            // background
+            bool doRelearnBackground;
         
             // communication
             

@@ -23,6 +23,7 @@ namespace ofxTSPS {
         hasMouseEvents = false;
         tspsProcessor = NULL;
         currentSource = NULL;
+        doRelearnBackground = false;
     }
     
     //---------------------------------------------------------------------------
@@ -171,6 +172,12 @@ namespace ofxTSPS {
     void PeopleTracker::update(){
         // update settings
         updateSettings();
+        
+        // learn background on startup?
+        if ( p_Settings->bLearnBackgroundOnStartup && !p_Settings->bStartupBgCaptured && ofGetElapsedTimef() > p_Settings->captureSeconds){
+            p_Settings->bStartupBgCaptured = true;
+            doRelearnBackground = true;
+        }
         
         // change source?
         // 1: Kinect?
@@ -499,6 +506,13 @@ namespace ofxTSPS {
         defaults.popTag();
         
         //----------------------------------------------
+        // Localize vars
+        //----------------------------------------------
+        
+        if ( !doRelearnBackground )
+            doRelearnBackground = p_Settings->bLearnBackground;
+        
+        //----------------------------------------------
         // Processor
         //----------------------------------------------
         
@@ -625,9 +639,10 @@ namespace ofxTSPS {
         tspsProcessor->setCameraImage( warpedImage );
         
         //learn background
-        if (p_Settings->bLearnBackground){
-            backgroundImage = warpedImage;
+        if (doRelearnBackground){
+            backgroundImage.setFromPixels(warpedImage.getPixelsRef());
             tspsProcessor->captureBackground( warpedImage );
+            doRelearnBackground = false;
         }
         
         //progressive relearn background
@@ -908,7 +923,7 @@ namespace ofxTSPS {
     void PeopleTracker::relearnBackground()
     {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
-        p_Settings->bLearnBackground = true;
+        doRelearnBackground = true;
     }
     
     //JG Disabled this feature

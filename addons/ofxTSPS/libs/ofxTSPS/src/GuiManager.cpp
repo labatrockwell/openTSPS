@@ -14,7 +14,7 @@ namespace ofxTSPS {
     GuiManager::GuiManager() {
         //JG TODO add drawing event
         //ofAddListener(ofEvents().draw, this, &GuiManager::draw);
-        
+        bLastBgState   = false;
         bEventsEnabled = false;
     }
     
@@ -191,6 +191,8 @@ namespace ofxTSPS {
         //TODO: use the button class for this maybe?
         panel.addToggle("capture background", "LEARN_BACKGROUND", false);
         panel.addToggle("blank out background", "BLACK_BACKGROUND", false);
+        panel.addToggle("capture background on startup", "LEARN_BG_STARTUP", false);
+        panel.addSlider("capture X seconds after startup", "LEARN_BG_STARTUP_SECONDS", 1.0f, 0.0f, 10.0f, false);
         
         guiTypeGroup * relearnGroup = panel.addGroup("background relearn");
         relearnGroup->setBackgroundColor(148,129,85);
@@ -518,12 +520,17 @@ namespace ofxTSPS {
         //settings.bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
         //panel.setGroupActive("video", "adjustedViewColor", settings.bAdjustedViewInColor);
         
+        settings.bLearnBackgroundOnStartup  = panel.getValueB("LEARN_BG_STARTUP");
+        settings.captureSeconds             = panel.getValueF("LEARN_BG_STARTUP_SECONDS");
+        
         settings.bLearnBackground = panel.getValueB("LEARN_BACKGROUND");
-        if(settings.bLearnBackground){ 
+        if(settings.bLearnBackground == bLastBgState){
             panel.setValueB("LEARN_BACKGROUND", false);
         }
+        bLastBgState = settings.bLearnBackground;
+        
         settings.bBlankBackground = panel.getValueB("BLACK_BACKGROUND");
-        if(settings.bLearnBackground){ 
+        if(settings.bBlankBackground){ 
             panel.setValueB("BLACK_BACKGROUND", false);
         }
         
@@ -793,7 +800,7 @@ namespace ofxTSPS {
     void GuiManager::loadSettings( string xmlFile ){
         panel.loadSettings(xmlFile);	
         if (quadGuiSetup) quadGui.readFromFile(xmlFile);	
-        //update();
+        update();
     };
     
     void GuiManager::keyPressed(ofKeyEventArgs &e)

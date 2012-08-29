@@ -137,6 +137,9 @@ namespace ofxTSPS {
         int cameraWidth, cameraHeight;
         int currentPanel, lastCurrentPanel;
         
+        // switch state of learn BG when we need to
+        bool bLastBgState;
+        
         void saveEventCatcher( string & buttonName);
         void reloadEventCatcher( string & buttonName);
         void loadEventCatcher( string & buttonName);

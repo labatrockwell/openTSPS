@@ -22,9 +22,12 @@ namespace ofxTSPS {
         bReloadVideoFiles = true;
         
         // background
-        bLearnBackground = false;
+        bLearnBackground            = false;
+        captureSeconds              = 1;
+        bLearnBackgroundOnStartup   = false;
+        bStartupBgCaptured          = false;
         bLearnBackgroundProgressive = true;
-        bAdjustedViewInColor = false;		
+        bAdjustedViewInColor        = false;		
         trackType = TRACK_LIGHT;
         
         threshold = 80;
@@ -43,8 +46,6 @@ namespace ofxTSPS {
         bTrackSkeleton      = false;
         bTrackOpticalFlow   = false;
         bDetectHaar         = false;
-        
-        bLearnBackground = true;
         
         oscHost = "localhost";
         oscPort = 12000;
