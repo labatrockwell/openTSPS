@@ -286,8 +286,12 @@ namespace ofxTSPS {
         m.addFloatArg(boundingRect.width);
         m.addFloatArg(boundingRect.height);
         
-        ofRectangle haarRect = getHaarRectNormalized(cameraWidth,cameraHeight);
+        if(!bUseLegacy){
+            m.addFloatArg(highest.x);
+            m.addFloatArg(highest.y);
+        }
         
+        ofRectangle haarRect = getHaarRectNormalized(cameraWidth,cameraHeight);
         if (!bUseLegacy){
             m.addFloatArg(haarRect.x);
             m.addFloatArg(haarRect.y);

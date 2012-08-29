@@ -46,14 +46,16 @@ public class TSPS {
 		p.boundingRect.y 		= theOscMessage.get(9).floatValue();
 		p.boundingRect.width 	= theOscMessage.get(10).floatValue();
 		p.boundingRect.height 	= theOscMessage.get(11).floatValue();
-		p.haarRect.x 			= theOscMessage.get(12).floatValue();
-		p.haarRect.y 			= theOscMessage.get(13).floatValue();
-		p.haarRect.width 		= theOscMessage.get(14).floatValue();
-		p.haarRect.height 		= theOscMessage.get(15).floatValue();
-		p.opticalFlow.x 		= theOscMessage.get(16).floatValue();
-		p.opticalFlow.y 		= theOscMessage.get(17).floatValue();
+		p.highest.x 			= theOscMessage.get(12).floatValue();
+		p.highest.y 			= theOscMessage.get(13).floatValue();
+		p.haarRect.x 			= theOscMessage.get(14).floatValue();
+		p.haarRect.y 			= theOscMessage.get(15).floatValue();
+		p.haarRect.width 		= theOscMessage.get(16).floatValue();
+		p.haarRect.height 		= theOscMessage.get(17).floatValue();
+		p.opticalFlow.x 		= theOscMessage.get(18).floatValue();
+		p.opticalFlow.y 		= theOscMessage.get(19).floatValue();
 		p.contours.clear();
-		for (int i = 18; i < theOscMessage.arguments().length; i += 2) {
+		for (int i = 20; i < theOscMessage.arguments().length; i += 2) {
 			PVector point = new PVector();
 			point.x = theOscMessage.get(i).floatValue();
 			point.y = theOscMessage.get(i + 1).floatValue();

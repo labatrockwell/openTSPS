@@ -104,14 +104,16 @@ namespace ofxTSPS {
         message<<"id/"<<p->pid<<";";
         message<<"age/"<<p->age<<";";
         message<<"centroid/"<<"x>"<<centroid.x<<":"<<"y>"<<centroid.y<<";"; //pass in normalized centroid
-        message<<"velocity/"<<"x>"<<p->velocity.x<<":"<<"y>"<<p->velocity.y<<";";
+        message<<"velocity/"<<"x>"<<ofToString(p->velocity.x, 3)<<":"<<"y>"<<ofToString(p->velocity.y, 3)<<";";
+        message<<"depth/"<<p->depth<<";";
         
         ofRectangle boundingRect = p->getBoundingRectNormalized(cameraWidth,cameraHeight);
         message<<"boundingrect/"<<"x>"<<boundingRect.x<<":"<<"y>"<<boundingRect.y<<":"<<"width>"<<boundingRect.width<<":"<<"height>"<<boundingRect.height<<";";
         
         message<<"opticalflow/"<<"x>"<<p->opticalFlowVectorAccumulation.x<<":"<<"y>"<<p->opticalFlowVectorAccumulation.y<<";";
         ofRectangle haarRect = p->getHaarRectNormalized(cameraWidth,cameraHeight);
-        message<<"haarrect/"<<"x>"<<haarRect.x<<":"<<"y>"<<haarRect.y<<":"<<"width>"<<haarRect.width<<":"<<"height>"<<haarRect.height<<";";	
+        message<<"haarrect/"<<"x>"<<haarRect.x<<":"<<"y>"<<haarRect.y<<":"<<"width>"<<haarRect.width<<":"<<"height>"<<haarRect.height<<";";
+        message<<"highest/"<<"x>"<<( (float) p->highest.x / cameraWidth )<<":y>"<<( (float) p->highest.y / cameraHeight)<<";";
         
         if (bSendContours){
             message<<"contours/";

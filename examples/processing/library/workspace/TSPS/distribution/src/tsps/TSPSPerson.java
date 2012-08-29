@@ -11,7 +11,8 @@ public class TSPSPerson
 	public int age; 
 	public float depth; 
 	public PVector centroid;  
-	public PVector velocity; 
+	public PVector velocity;
+	public PVector highest; 
 	public PVector opticalFlow; 
 	public Rectangle boundingRect;
 	public Rectangle haarRect;
@@ -25,6 +26,7 @@ public class TSPSPerson
 		centroid 		= new PVector();
 		velocity 		= new PVector();
 		opticalFlow 	= new PVector();
+		highest			= new PVector();
 		dead 			= false;
 		contours 		= new ArrayList<PVector>();
 	}
@@ -38,5 +40,6 @@ public class TSPSPerson
 		velocity 	= p.velocity;
 		opticalFlow = p.opticalFlow;
 		contours 	= p.contours;
+		highest		= p.highest;
 	}
 };

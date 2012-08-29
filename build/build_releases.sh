@@ -65,7 +65,7 @@ buildExamples(){
 	# 1 - build P5 library
 	cd $BASEDIR
 	cd ../examples/processing/library/workspace/TSPS/resources/
-	ant 
+	ant -lib ../lib 
 	mkdir "$BASEDIR/../examples/processing/library/Processing/libraries/TSPS" 
 	mv -f "$BASEDIR/../examples/processing/library/workspace/TSPS/distribution/TSPS.zip" "$BASEDIR/../examples/processing/library/Processing/libraries/TSPS/TSPS.zip"
 	cd "$BASEDIR/../examples/processing/library/Processing/libraries/TSPS"
