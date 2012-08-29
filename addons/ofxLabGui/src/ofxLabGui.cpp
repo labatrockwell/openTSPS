@@ -861,7 +861,6 @@ void ofxLabGui::saveAsSettingsEvent( string & buttonName){
 
 //JG 12/21/10 now you can add buttons.  This will get called for every button so switch based on the button name
 void ofxLabGui::buttonPressed( string & buttonName){
-	cout << "BUTTON!" << endl;
 	pressedButtons[buttonName] = true;
 }
 

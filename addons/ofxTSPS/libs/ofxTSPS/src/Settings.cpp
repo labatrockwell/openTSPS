@@ -7,7 +7,7 @@
 
 namespace ofxTSPS {
     Settings::Settings() {
-        videoGrabber = NULL;
+        source = NULL;
         
         // general
         bMinimized  = false;
@@ -63,13 +63,14 @@ namespace ofxTSPS {
         }
     }
     
-    void Settings::setVideoGrabber( ofBaseVideo* videoGrabber, SourceType type){
-        videoGrabber = videoGrabber;
-        inputType    = type;
-    };
     
-    ofBaseVideo* Settings::getVideoGrabber(){
-        return videoGrabber;
+    Source* Settings::getSource(){
+        return source;
+    }
+    
+    void Settings::setSource( Source* _source ){
+        source = _source;
+        inputType = source->getType();
     };
     
     SourceType Settings::getInputType(){

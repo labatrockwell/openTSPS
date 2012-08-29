@@ -184,9 +184,6 @@ namespace ofxTSPS {
             void setActiveView( int activeIndex );
             void setActiveDimensions ( int actWidth, int actHeight);	
             bool loadFont(string fontName, int fontSize);
-        
-            //JG this is so we can access video grabber settings through the default interface
-            void setVideoGrabber(ofBaseVideo* grabber, SourceType inputType);
             
             // for accessing the OSC sender whose parameters are adjusted in the GUI
             OscSender* getOSCsender(); 

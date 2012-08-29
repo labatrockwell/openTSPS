@@ -506,9 +506,15 @@ namespace ofxTSPS {
         settings.highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");
         panel.setGroupActive("video", "amplification", settings.bAmplify);
         
-        if(panel.getButtonPressed("open video settings") && settings.getVideoGrabber() != NULL){
-            ofVideoGrabber * grab = dynamic_cast<ofVideoGrabber *>(settings.getVideoGrabber());
+        if(panel.getButtonPressed("open video settings") && settings.getSource() != NULL && settings.getInputType() == CAMERA_VIDEOGRABBER){
+            ofVideoGrabber * grab = dynamic_cast<ofVideoGrabber *>(settings.getSource());
             grab->videoSettings();
+        }
+        
+        if ( settings.getInputType() == CAMERA_VIDEOGRABBER ){
+            panel.getElement("open video settings")->enable();
+        } else {
+            panel.getElement("open video settings")->disable();
         }
         
         if (panel.getButtonPressed("open debug URL")){

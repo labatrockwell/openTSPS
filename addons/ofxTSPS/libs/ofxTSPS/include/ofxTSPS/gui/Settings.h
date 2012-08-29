@@ -35,6 +35,7 @@
 #pragma  once
 #include "ofMain.h"
 #include "ofxTSPS/Constants.h"
+#include "ofxTSPS/source/Source.h"
 
 namespace ofxTSPS {
     class Settings {
@@ -109,8 +110,8 @@ namespace ofxTSPS {
         int     tcpPort;
         
         // video grabber
-        void setVideoGrabber( ofBaseVideo* videoGrabber, SourceType type);
-        ofBaseVideo*    getVideoGrabber();
+        void setSource( Source * source);
+        Source*         getSource();
         SourceType      getInputType();
         
         //layout vars
@@ -127,10 +128,7 @@ namespace ofxTSPS {
         SourceType      inputType;
         
     private:
-        
-        //JG added the video grabber so we can access settings
-        //may be NULL so please do check
-        ofBaseVideo*    videoGrabber;
+        Source*         source;
         
         static bool     instanceFlag;
         static Settings *single;

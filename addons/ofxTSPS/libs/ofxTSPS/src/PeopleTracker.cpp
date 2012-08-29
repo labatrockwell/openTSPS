@@ -315,6 +315,9 @@ namespace ofxTSPS {
                 setUseVideoFile(false);
                 break;
         }
+        
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        p_Settings->setSource( currentSource );
     }
     
     //---------------------------------------------------------------------------
@@ -344,6 +347,10 @@ namespace ofxTSPS {
                 break;
         }
         bSourceSetup = currentSource->openSource( width, height, etc );
+        
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        p_Settings->setSource( currentSource );
+        
         return bSourceSetup;
     }
     
@@ -1073,18 +1080,6 @@ namespace ofxTSPS {
             dataView.setFont(&font);
         }
         return bFontLoaded;
-    }
-    
-    //---------------------------------------------------------------------------
-    void PeopleTracker::setVideoGrabber(ofBaseVideo* grabber, SourceType inputType)
-    {
-        if (p_Settings == NULL) p_Settings = gui.getSettings();
-        p_Settings->setVideoGrabber( grabber, inputType );
-        if (inputType == CAMERA_VIDEOGRABBER){
-            gui.enableElement( "open video settings" );
-        } else if (inputType == CAMERA_KINECT || inputType == CAMERA_OPENNI || inputType == CAMERA_VIDEOFILE){
-            gui.disableElement( "open video settings" );
-        }
     }
     
     //---------------------------------------------------------------------------
