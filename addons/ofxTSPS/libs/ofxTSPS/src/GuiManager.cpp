@@ -266,8 +266,9 @@ namespace ofxTSPS {
         opticalFlowGroup->setShowText(false);
         //optical flow
         panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", false);
-        panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
-        panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
+        // To-do: implement these in processors + ofxCv
+        //panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
+        //panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
         
         haarGroup = panel.addGroup("haar tracking");
         haarGroup->setBackgroundColor(148,129,85);
@@ -549,8 +550,8 @@ namespace ofxTSPS {
         panel.setGroupActive("sensing", "optical flow", settings.bTrackOpticalFlow);
         
         //JG 12/8/09 GUI-REDUX:
-        settings.minOpticalFlow = panel.getValueF("MIN_OPTICAL_FLOW");
-        settings.maxOpticalFlow = panel.getValueF("MAX_OPTICAL_FLOW");
+        //settings.minOpticalFlow = panel.getValueF("MIN_OPTICAL_FLOW");
+        //settings.maxOpticalFlow = panel.getValueF("MAX_OPTICAL_FLOW");
         settings.trackType = panel.getValueI("BLOB_TYPE");
         settings.bDetectHaar = panel.getValueB("SENSE_HAAR");
         panel.setGroupActive("sensing", "haar tracking", settings.bDetectHaar);

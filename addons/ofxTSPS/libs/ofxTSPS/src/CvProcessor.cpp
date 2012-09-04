@@ -12,6 +12,8 @@
 using namespace ofxCv;
 using namespace cv;
 
+bool bOnce = false;
+
 namespace ofxTSPS {
     //------------------------------------------------------------------------
     CvProcessor::CvProcessor(){
@@ -73,11 +75,15 @@ namespace ofxTSPS {
         // update smaller image
         // pixel copy method is temporary... copying directly to image
         // via ofxCv crashes
-		Mat srcMat = toCv(cameraImage), dstMat = toCv(cameraSmallImage);
+		Mat srcMat = toCv(cameraImage), dstMat = toCv(resizeImage);
         cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_NEAREST);
-        toOf(dstMat, resizedPixels);
-        cameraSmallImage.setFromPixels(resizedPixels);
+        toOf(dstMat, cameraSmallImage);
+        cameraSmallImage.update();
         
+		Mat dstMatBaby = toCv(resizeBabyImage);
+        cv::resize(srcMat, dstMatBaby, dstMatBaby.size(), 0, 0, INTER_NEAREST);
+        toOf(dstMatBaby, cameraBabyImage);
+        cameraBabyImage.update();
     }
     
     //------------------------------------------------------------------------
@@ -104,9 +110,9 @@ namespace ofxTSPS {
         if(trackingType == TRACK_ABSOLUTE){
             absdiff( backgroundImage, (ofImage&) image, differencedImage);
         } else {
-            if(trackingType == TRACK_LIGHT){
+            if(trackingType == TRACK_DARK){
                 subtract( (ofImage&) image, backgroundImage, differencedImage);
-            } else if(trackingType == TRACK_DARK){ 
+            } else if(trackingType == TRACK_LIGHT){ 
                 subtract ( backgroundImage, (ofImage&) image, differencedImage);
             }
         }
@@ -117,11 +123,10 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     ofPixelsRef CvProcessor::process ( ofBaseImage & image ){
         if ( bTrackHaar ){
-            processHaar( cameraSmallImage );
+            processHaar( cameraBabyImage );
         }
         
         if ( bTrackOpticalFlow ){
-            // for now, should be cameraSmallImage but it doesn't work :(
             processOpticalFlow( cameraSmallImage );
         }
         
@@ -237,8 +242,8 @@ namespace ofxTSPS {
                     ofRectangle haarROI;
                     haarROI.x		= fmax( (p->boundingRect.x - haarAreaPadding/2) * trackingScale, 0.0f );
                     haarROI.y		= fmax( (p->boundingRect.y - haarAreaPadding/2) * trackingScale, 0.0f );
-                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * trackingScale, cameraSmallImage.width );
-                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * trackingScale, cameraSmallImage.height );
+                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * trackingScale, cameraBabyImage.width );
+                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * trackingScale, cameraBabyImage.height );
                     
                     bool haarThisFrame = false;
                     for(int j = 0; j < haarObjects.size(); j++) {
@@ -327,15 +332,10 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::resize( int camWidth, int camHeight ){
         cameraImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
-        cameraLastImageSmall.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
+        cameraBabyImage.allocate((int) camWidth * haarTrackingScale, (int) camHeight * haarTrackingScale, OF_IMAGE_GRAYSCALE);
         cameraSmallImage.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
-        
-        blackPixelsSmall.allocate(camWidth * trackingScale, camHeight * trackingScale, 1);
-        blackPixelsSmall.set(0);
-        cameraSmallImage.setFromPixels(blackPixelsSmall);
-        
-        resizedPixels.allocate(camWidth * trackingScale, camHeight * trackingScale, 1);
-        blackPixelsSmall.set(0);
+        resizeImage.allocate((int) camWidth * trackingScale, (int) camHeight * trackingScale, OF_IMAGE_GRAYSCALE);
+        resizeBabyImage.allocate((int) camWidth * haarTrackingScale, (int) camHeight * haarTrackingScale, OF_IMAGE_GRAYSCALE);
         
         backgroundImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);
         differencedImage.allocate(camWidth, camHeight, OF_IMAGE_GRAYSCALE);

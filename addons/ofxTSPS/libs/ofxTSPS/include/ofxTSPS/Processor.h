@@ -30,13 +30,14 @@ namespace ofxTSPS {
         
         virtual void exit(){};
         
-        virtual void setup( int width, int height, Scene * _scene, vector<Person*> * peopleVector, float trackingScaleFactor=.125 ){
+        virtual void setup( int width, int height, Scene * _scene, vector<Person*> * peopleVector, float trackingScaleFactor=.5, float haarTrackingScaleFactor=.125 ){
             // core objects
             tspsWidth   = width;
             tspsHeight  = height;
             scene       = _scene;
             trackedPeople = peopleVector;
             trackingScale = trackingScaleFactor;
+            haarTrackingScale = haarTrackingScaleFactor;
             setupProcessor();
         }
         virtual void draw(){};
@@ -149,7 +150,7 @@ namespace ofxTSPS {
         bool bCanTrackOpticalFlow, bTrackOpticalFlow;
         
         float   haarAreaPadding;    // padding around bound rect to look for haar
-        float   trackingScale;  // amount to scale
+        float   trackingScale, haarTrackingScale;  // amount to scale
         
         float   threshold;
         float   minBlobArea;

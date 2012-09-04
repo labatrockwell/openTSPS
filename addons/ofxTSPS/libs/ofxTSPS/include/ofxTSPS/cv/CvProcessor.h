@@ -49,7 +49,10 @@ namespace ofxTSPS {
         void setupProcessor();
         
         // images
-        ofImage cameraImage, cameraLastImageSmall, cameraSmallImage, backgroundImage, progressiveBackgroundImage, differencedImage;
+        ofImage cameraImage, cameraBabyImage, cameraSmallImage, backgroundImage, progressiveBackgroundImage, differencedImage;
+        
+        // util images
+        ofImage resizeImage, resizeBabyImage;
         
         // pixel utils
         ofPixels blackPixelsSmall, resizedPixels;
