@@ -191,6 +191,8 @@ namespace ofxTSPS {
         // 3: Video File?
         } else if ( useVideoFile() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOFILE) ){
             setupSource( CAMERA_VIDEOFILE );
+        } else if ( !useVideoFile() && !useVideoGrabber() && !useKinect() && (currentSource == NULL || (currentSource->getType() != CAMERA_CUSTOM && currentSource->getType() != CAMERA_KINECT)) ){
+            setupSource(CAMERA_OPENNI);
         }
         
         // update source
@@ -358,7 +360,7 @@ namespace ofxTSPS {
                 currentSource = new Kinect();
                 break;
             case CAMERA_OPENNI:
-                //
+                currentSource = new OpenNI();
                 break;
             case CAMERA_VIDEOGRABBER:
                 currentSource = new VideoGrabber();

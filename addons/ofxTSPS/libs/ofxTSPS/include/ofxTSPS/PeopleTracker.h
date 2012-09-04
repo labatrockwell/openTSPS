@@ -49,6 +49,7 @@
 // sources
 #include "ofxTSPS/source/Source.h"
 #include "ofxTSPS/source/Kinect.h"
+#include "ofxTSPS/source/OpenNI.h"
 #include "ofxTSPS/source/VideoFile.h"
 #include "ofxTSPS/source/VideoGrabber.h"
 
