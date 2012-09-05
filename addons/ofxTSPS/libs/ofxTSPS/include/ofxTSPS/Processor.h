@@ -17,29 +17,16 @@
 #include "ofxTSPS/Person.h"
 
 namespace ofxTSPS {
+    class PeopleTracker;
     class Processor {
+        friend class PeopleTracker;
     public:
         
-        Processor(){
-            bCanTrackHaar = bTrackHaar = false;
-            bCanTrackContours = bTrackContours = false;
-            bCanTrackSkeleton = bTrackSkeleton = false;
-            bCanTrackOpticalFlow = bTrackOpticalFlow = false;
-            trackedPeople = NULL;
-        };
+        Processor();
         
         virtual void exit(){};
         
-        virtual void setup( int width, int height, Scene * _scene, vector<Person*> * peopleVector, float trackingScaleFactor=.5, float haarTrackingScaleFactor=.125 ){
-            // core objects
-            tspsWidth   = width;
-            tspsHeight  = height;
-            scene       = _scene;
-            trackedPeople = peopleVector;
-            trackingScale = trackingScaleFactor;
-            haarTrackingScale = haarTrackingScaleFactor;
-            setupProcessor();
-        }
+        virtual void setup( int width, int height, PeopleTracker * _tracker, float trackingScaleFactor=.5, float haarTrackingScaleFactor=.125 );
         virtual void draw(){};
         
         // step 0: set camera image
@@ -59,21 +46,13 @@ namespace ofxTSPS {
         virtual void processHaar( ofBaseImage & image ){};
         
         // settings
-        virtual void setThreshold( float thresh = 100.0 ){
-            threshold = thresh;
-        };
+        virtual void setThreshold( float thresh = 100.0 );
         
-        virtual void setBlobSettings( float minimumBlob = 0.0, float maximumBlob = 1.0, bool findHoles = false ){
-            minBlobArea = minimumBlob;
-            maxBlobArea = maximumBlob;
-            bFindHoles  = findHoles;
-        };
+        virtual void setBlobSettings( float minimumBlob = 0.0, float maximumBlob = 1.0, bool findHoles = false );
         
         virtual void setOpticalflowMinMax( float min = 0.0, float max = 10.0 ){};
         virtual void setHaarXMLFile( string xmlFile ){};
-        virtual void setHaarPadding( float padding = 0.0 ){
-            haarAreaPadding = padding;
-        };
+        virtual void setHaarPadding( float padding = 0.0 );
         
         // get capabilities
         // TO-DO: Capabilites turn on/off parts of GUI
@@ -83,49 +62,15 @@ namespace ofxTSPS {
         virtual bool canTrackOpticalFlow (){ return bCanTrackOpticalFlow; };
         
         // methods: settings
-        virtual bool setTrackHaar ( bool trackHaar ){
-            if ( bCanTrackHaar ){
-                bTrackHaar = trackHaar;
-            }
-            return bTrackHaar;
-        };
-        
-        virtual bool setTrackContours ( bool trackContours ){
-            if ( bCanTrackContours ){
-                bTrackContours = trackContours;
-            }
-            return bTrackContours;
-        };
-        
-        virtual bool setTrackSkeleton ( bool trackSkeleton ){
-            if ( bCanTrackSkeleton ){
-                bTrackSkeleton = true;
-            }
-            return bTrackSkeleton;
-        };
-        
-        virtual bool setTrackOpticalFlow ( bool trackOpticalFlow ){
-            if ( bCanTrackOpticalFlow ){
-                bTrackOpticalFlow = trackOpticalFlow;
-            }
-            return bTrackOpticalFlow;
-        };
+        virtual bool setTrackHaar ( bool trackHaar );        
+        virtual bool setTrackContours ( bool trackContours );        
+        virtual bool setTrackSkeleton ( bool trackSkeleton );        
+        virtual bool setTrackOpticalFlow ( bool trackOpticalFlow );
         
         // methods: utils
         virtual void resize( int camWidth, int camHeight ){};
         
-        virtual Person* getTrackedPerson(int pid){
-            if ( trackedPeople == NULL ){
-                ofLog( OF_LOG_ERROR, "No people vector?");
-                return NULL;
-            }
-            for( int i = 0; i < trackedPeople->size(); i++ ) {
-                if( (*trackedPeople)[i]->pid == pid ) {
-                    return (*trackedPeople)[i];
-                }
-            }
-            return NULL;
-        }
+        virtual Person* getTrackedPerson(int pid);
         
         // methods: views
         //virtual ofBaseImage & getCameraView() = 0;
@@ -140,6 +85,7 @@ namespace ofxTSPS {
         int                     tspsWidth, tspsHeight;
         SourceType              cameraType;
         
+        PeopleTracker *      tracker;
         Scene *              scene;
         vector<Person*> *    trackedPeople;
         

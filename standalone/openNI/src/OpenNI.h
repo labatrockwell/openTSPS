@@ -8,7 +8,6 @@
 
 #pragma once
 
-
 #include "ofxOpenNI.h"
 #include "ofxTSPS/source/Source.h"
 

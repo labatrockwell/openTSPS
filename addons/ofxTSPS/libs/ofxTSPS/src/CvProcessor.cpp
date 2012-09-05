@@ -291,10 +291,11 @@ namespace ofxTSPS {
             args.scene  = scene;
             
             if (p == NULL){
-                ofNotifyEvent( Events().personWillLeave, args, this );
+                tracker->personWillLeave(p, scene);
+                //ofNotifyEvent( Events().personWillLeave, args, this );
                 trackedPeople->erase(trackedPeople->begin() + i);
             } else if ( !(tracker.existsPrevious( p->pid ) && tracker.existsCurrent(p->pid)) && !tracker.existsCurrent(p->pid) ){
-                ofNotifyEvent( Events().personWillLeave, args, this );
+                //ofNotifyEvent( Events().personWillLeave, args, this );
                 trackedPeople->erase(trackedPeople->begin() + i);
             }
         }
