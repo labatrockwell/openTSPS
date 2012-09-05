@@ -12,13 +12,6 @@
 		</Dumps>
 	</Log>
 	<ProductionNodes>
-        <!-- ofxImageGenerator -->
-        <Node type="Image" name="Image1">
-			<Configuration>
-				<MapOutputMode xRes="640" yRes="480" FPS="30"/>
-				<Mirror on="true"/>
-			</Configuration>
-		</Node>
 		<!-- ofxDepthGenerator -->
 		<Node type="Depth" name="Depth1">
 			<Configuration>
@@ -26,6 +19,5 @@
 				<Mirror on="true"/>
 			</Configuration>
 		</Node>
-		
 	</ProductionNodes>
 </OpenNI>

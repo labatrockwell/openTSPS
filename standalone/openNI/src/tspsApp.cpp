@@ -1,37 +1,23 @@
 #include "tspsApp.h"
 
-class TSPSPersonAttributes {
-public:
-	TSPSPersonAttributes(){
-		height = 0;
-		hasBeard = false;
-	}
-
-	float height;
-	bool hasBeard; //this is a joke
-};
-
 //--------------------------------------------------------------
 void tspsApp::setup(){
-	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofBackground(223, 212, 190);
 	
-	camWidth = 640;
-	camHeight = 480;
-    niPixels.allocate(camWidth, camHeight, 1);
-    grayImg.allocate( camWidth, camHeight, OF_IMAGE_GRAYSCALE );
     
-    peopleTracker.setProcessor( new ofxTSPS::OpenNIProcessor() );
-	peopleTracker.setup(camWidth, camHeight);
+	peopleTracker.setup();
+    // add your custom source
+    peopleTracker.setSource(source);
+    
+    // setup OpenNI source
+    source.openSource(640,480);
+    
+    // setup layout stuff + add this as a TSPS listener
 	peopleTracker.loadFont("fonts/times.ttf", 10);
-    
     ofxAddTSPSListeners(this);
     
-	peopleTracker.setActiveDimensions( ofGetWidth(), ofGetHeight()-68 );
-
 	//load GUI / interface images
-
 	personEnteredImage.loadImage("graphic/triggers/PersonEntered_Active.png");
 	personUpdatedImage.loadImage("graphic/triggers/PersonUpdated_Active.png");
 	personLeftImage.loadImage("graphic/triggers/PersonLeft_Active.png");
@@ -46,15 +32,8 @@ void tspsApp::setup(){
 
 //--------------------------------------------------------------
 void tspsApp::update(){
-    niPixels  = ((ofxTSPS::OpenNIProcessor* )peopleTracker.getProcessor())->getOpenNI()->getDepthPixels().getChannel(0);
-    grayImg.setFromPixels(niPixels);
-    peopleTracker.update( grayImg );    
-    
-    // iterate through the people
-    for(int i = 0; i < peopleTracker.totalPeople(); i++){
-        ofxTSPS::Person* p = peopleTracker.personAtIndex(i);
-        //p->depth = p->highest.z / 255.0f;
-    }
+    source.update();
+    peopleTracker.update();
 }
 
 //--------------------------------------------------------------
@@ -80,17 +59,16 @@ void tspsApp::onPersonUpdated( ofxTSPS::EventArgs & tspsEvent ){
 
 //--------------------------------------------------------------
 void tspsApp::draw(){
+    // bg image
 	ofEnableAlphaBlending();
 	ofSetHexColor(0xffffff);
-	ofPushStyle();
 	background.draw(0,0);
+    
+    // render TSPS interface
 	peopleTracker.draw();
 
-	ofPopStyle();
-
 	//draw status bar stuff
-
-	statusBar.draw(0,700);//ofGetHeight()-statusBar.height);
+	statusBar.draw(0,700);
 	if (drawStatus[0] > 0){
 		drawStatus[0]--;
 		personEnteredImage.draw(397,728);
@@ -107,13 +85,7 @@ void tspsApp::draw(){
 	ofSetColor(0, 169, 157);
 	char numPeople[1024];
 	sprintf(numPeople, "%i", peopleTracker.totalPeople());
-    
 	timesBoldItalic.drawString(numPeople,350,740);
-}
-
-
-//--------------------------------------------------------------
-void tspsApp::exit(){
 }
 
 //--------------------------------------------------------------
@@ -128,18 +100,3 @@ void tspsApp::keyPressed  (int key){
 		} break;
 	}
 }
-
-//--------------------------------------------------------------
-void tspsApp::mouseMoved(int x, int y ){}
-
-//--------------------------------------------------------------
-void tspsApp::mouseDragged(int x, int y, int button){}
-
-//--------------------------------------------------------------
-void tspsApp::mousePressed(int x, int y, int button){}
-
-//--------------------------------------------------------------
-void tspsApp::mouseReleased(int x, int y, int button){}
-
-//--------------------------------------------------------------
-void tspsApp::windowResized(int w, int h){}

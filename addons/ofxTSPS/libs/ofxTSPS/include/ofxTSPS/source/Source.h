@@ -15,6 +15,7 @@ namespace ofxTSPS {
     class Source :  virtual public ofBaseHasPixels {
     public:
         Source(){
+            type = CAMERA_CUSTOM;
             // init default settings
             bCanTrackContours       = true;
             bCanTrackHaar           = true;

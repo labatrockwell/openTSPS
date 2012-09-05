@@ -142,7 +142,6 @@ namespace ofxTSPS {
         source_types.push_back("ofVideoGrabber");
         source_types.push_back("ofVideoPlayer");
         source_types.push_back("ofxKinect");
-        source_types.push_back("ofxOpenNI");
         source_types.push_back("custom");
         
         panel.addMultiToggle("source type", "SOURCE_TYPE", 0, source_types);

@@ -1,0 +1,5 @@
+<defaults>
+    <width>640</width>
+    <height>480</height>
+    <settings_file>settings/settings.xml</settings_file>
+</defaults>

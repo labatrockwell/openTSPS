@@ -144,8 +144,6 @@ namespace ofxTSPS {
                     setupSource( CAMERA_KINECT );
                 } else {
                     ofLog(OF_LOG_ERROR, "No Kinects connected!");
-                    //fall back to video grabber
-                    setUseKinect(false);
                     setupSource( CAMERA_VIDEOGRABBER );
                 }
             
@@ -191,8 +189,6 @@ namespace ofxTSPS {
         // 3: Video File?
         } else if ( useVideoFile() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOFILE) ){
             setupSource( CAMERA_VIDEOFILE );
-        } else if ( !useVideoFile() && !useVideoGrabber() && !useKinect() && (currentSource == NULL || (currentSource->getType() != CAMERA_CUSTOM && currentSource->getType() != CAMERA_KINECT)) ){
-            setupSource(CAMERA_OPENNI);
         }
         
         // update source
@@ -318,29 +314,16 @@ namespace ofxTSPS {
         // make settings so they don't boot what you did
         switch( currentSource->getType() ){
             case CAMERA_KINECT:
-                setUseKinect(true);
-                setUseVideoFile(false);
-                setUseVideoGrabber(false);
-                break;
-            case CAMERA_OPENNI:
-                setUseKinect(false);
-                setUseVideoFile(false);
-                setUseVideoGrabber(false);
+                setUseKinect();
                 break;
             case CAMERA_VIDEOFILE:
-                setUseKinect(false);
-                setUseVideoFile(true);
-                setUseVideoGrabber(false);
+                setUseVideoFile();
                 break;
             case CAMERA_VIDEOGRABBER:
-                setUseVideoGrabber(true);
-                setUseKinect(false);
-                setUseVideoFile(false);
+                setUseVideoGrabber();
                 break;
             case CAMERA_CUSTOM:
-                setUseVideoGrabber(false);
-                setUseKinect(false);
-                setUseVideoFile(false);
+                setUseCustomSource();
                 break;
         }
         
@@ -358,9 +341,6 @@ namespace ofxTSPS {
         switch ( type ){
             case CAMERA_KINECT:
                 currentSource = new Kinect();
-                break;
-            case CAMERA_OPENNI:
-                currentSource = new OpenNI();
                 break;
             case CAMERA_VIDEOGRABBER:
                 currentSource = new VideoGrabber();
@@ -1175,10 +1155,12 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseVideoGrabber( bool bUseVideoGrabber ){
-        gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOGRABBER );
-        gui.update();
-        if (p_Settings == NULL) p_Settings = gui.getSettings();
-        p_Settings->inputType = CAMERA_KINECT;
+        if ( bUseVideoGrabber ){
+            gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOGRABBER );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_VIDEOGRABBER;
+        }
     }
     
     //---------------------------------------------------------------------------
@@ -1189,10 +1171,12 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseKinect( bool bUseKinect ){
-        gui.setValueI( "SOURCE_TYPE", CAMERA_KINECT );
-        gui.update();
-        if (p_Settings == NULL) p_Settings = gui.getSettings();
-        p_Settings->inputType = CAMERA_KINECT;
+        if ( bUseKinect ){
+            gui.setValueI( "SOURCE_TYPE", CAMERA_KINECT );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_KINECT;
+        }
     }
     
     //---------------------------------------------------------------------------
@@ -1203,10 +1187,12 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseVideoFile( bool bUseVideoFile ){
-        gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOFILE );
-        gui.update();
-        if (p_Settings == NULL) p_Settings = gui.getSettings();
-        p_Settings->inputType = CAMERA_VIDEOFILE;
+        if ( bUseVideoFile ){
+            gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOFILE );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_VIDEOFILE;            
+        }
     }
     
     //---------------------------------------------------------------------------
@@ -1218,6 +1204,22 @@ namespace ofxTSPS {
     void PeopleTracker::setVideoFile( string file ){
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->videoFile = file;    
+    }
+    
+    //---------------------------------------------------------------------------
+    bool PeopleTracker::useCustomSource(){
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        return p_Settings->inputType == CAMERA_CUSTOM;
+    }
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::setUseCustomSource( bool bUseCustom ){
+        if ( bUseCustom ){
+            gui.setValueI( "SOURCE_TYPE", CAMERA_CUSTOM );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_CUSTOM;
+        }
     }
     
     //---------------------------------------------------------------------------

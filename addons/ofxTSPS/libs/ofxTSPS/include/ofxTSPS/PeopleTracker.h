@@ -49,7 +49,6 @@
 // sources
 #include "ofxTSPS/source/Source.h"
 #include "ofxTSPS/source/Kinect.h"
-#include "ofxTSPS/source/OpenNI.h"
 #include "ofxTSPS/source/VideoFile.h"
 #include "ofxTSPS/source/VideoGrabber.h"
 
@@ -101,6 +100,8 @@ namespace ofxTSPS {
             void    setUseVideoFile( bool bUseVideoFile = true);
             bool    useVideoGrabber();
             void    setUseVideoGrabber( bool bUseVideoGrabber = true);
+            bool    useCustomSource();
+            void    setUseCustomSource( bool bUseCustomSource = true);
         
             // processor
             void setProcessor ( Processor * _processor );
