@@ -82,9 +82,9 @@ namespace ofxTSPS {
             
             //set up and update
         
-            void setup(int w=0, int h=0, string settings="");   // Call during setup; defaults to values in settings/defaults.xml
-                                                                // if nothing passsed. If settings is left blank, try
-                                                                // to last loaded settings (found in defaults.xml)
+            void setup(int w=0, int h=0, string settings="", int deviceId=-1);   // Call during setup; defaults to values in settings/defaults.xml
+                                                                                 // if nothing passsed. If settings is left blank, try
+                                                                                 // to last loaded settings (found in defaults.xml)
         
             void update();                              // update + have TSPS manage source
             void update(ofBaseImage & image);           // update with an image / video / etc?
@@ -94,7 +94,7 @@ namespace ofxTSPS {
             
             // source
             void    setSource( Source & newSource );    // Use this to force to a Source or override with your own source
-            bool    setupSource( SourceType type );     // Setup a known source type (CAMERA_CUSTOM + CAMERA_UNDEFINED won't do anything)
+            bool    setupSource( SourceType type, int which=-1 );     // Setup a known source type (CAMERA_CUSTOM + CAMERA_UNDEFINED won't do anything)
             bool    useKinect();
             void    setUseKinect( bool bUseKinect=true );
             bool    useVideoFile();

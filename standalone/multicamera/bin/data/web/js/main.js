@@ -9,7 +9,7 @@
 	var vid_width		= 640;
 	var vid_height		= 480;
 	
-	var tsps 			= new TSPS();
+	var tsps;
 	
 	$(document).ready( function() {
 		outputDiv 	= document.getElementById('output');
@@ -18,11 +18,13 @@
 		canvas.height = vid_height;
 		ctx			= canvas.getContext('2d');
 		ctx.fillStyle = 'rgba(0,0,0,0)';
-		setupSocket();
+
+		// connect with default settings
+		tsps = new TSPS.Connection();
+		tsps.connect();
 		
-		document.getElementById("brow").textContent = " " + BrowserDetect.browser + " "
-			+ BrowserDetect.version +" " + BrowserDetect.OS +" ";
-		
+		// render each time we get a message
+		tsps.onMessageReceived = render;
 	});
 	
 	function render(){
@@ -50,38 +52,5 @@
 				ctx.lineTo( person.contours[j].x*vid_width,person.contours[j].y*vid_height );
 			}				
 			ctx.stroke();
-		}
-	}
-	
-	// setup web socket
-	function setupSocket(){
-		if (BrowserDetect.browser == "Firefox") {
-			socket = new MozWebSocket(get_appropriate_ws_url(),
-					   "tsps-protocol");
-		} else {
-			socket = new WebSocket(get_appropriate_ws_url(),
-					   "tsps-protocol");
-		}
-		
-		// open
-		try {
-			socket.onopen = function() {
-				document.getElementById("wslm_statustd").style.backgroundColor = "#40ff40";
-				document.getElementById("wslm_statustd").textContent = " websocket connection opened ";
-			} 
-
-			// received JSON object from TSPS
-			socket.onmessage =function got_packet(msg) {
-				var data =  jQuery.parseJSON( msg.data );				
-				var TSPSPeople = tsps.newPerson(data);
-				render();
-			}
-
-			socket.onclose = function(){
-				document.getElementById("wslm_statustd").style.backgroundColor = "#ff4040";
-				document.getElementById("wslm_statustd").textContent = " websocket connection CLOSED ";
-			}
-		} catch(exception) {
-			alert('<p>Error' + exception);  
 		}
 	}

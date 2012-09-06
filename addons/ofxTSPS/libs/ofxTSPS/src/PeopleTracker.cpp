@@ -41,7 +41,7 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::setup(int w, int h, string settingsfile){
+    void PeopleTracker::setup(int w, int h, string settingsfile, int deviceID){
         ofAddListener(ofEvents().mousePressed, this, &PeopleTracker::mousePressed);
         hasMouseEvents = true;
         
@@ -140,15 +140,14 @@ namespace ofxTSPS {
                 // are there any kinects out there?
                 Kinect kinectSource;
                 if ( kinectSource.available() ){
-                    setupSource( CAMERA_KINECT );
+                    setupSource( CAMERA_KINECT, deviceID );
                 } else {
                     ofLog(OF_LOG_ERROR, "No Kinects connected!");
-                    setupSource( CAMERA_VIDEOGRABBER );
+                    setupSource( CAMERA_VIDEOGRABBER, deviceID );
                 }
-            
             // video grabber
             } else {
-                setupSource( CAMERA_VIDEOGRABBER );
+                setupSource( CAMERA_VIDEOGRABBER, deviceID );
             }
         }
         
@@ -351,7 +350,7 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    bool PeopleTracker::setupSource( SourceType type ){
+    bool PeopleTracker::setupSource( SourceType type, int which ){
         if ( currentSource != NULL ){
             currentSource->closeSource();
             currentSource = NULL;
@@ -373,7 +372,24 @@ namespace ofxTSPS {
                 currentSource = new VideoFile();
                 break;
         }
+        currentSource->setSourceIndex( which );
         bSourceSetup = currentSource->openSource( width, height, etc );
+        
+        // override settings (if necessary)
+        switch( currentSource->getType() ){
+            case CAMERA_KINECT:
+                setUseKinect();
+                break;
+            case CAMERA_VIDEOFILE:
+                setUseVideoFile();
+                break;
+            case CAMERA_VIDEOGRABBER:
+                setUseVideoGrabber();
+                break;
+            case CAMERA_CUSTOM:
+                setUseCustomSource();
+                break;
+        }
         
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->setSource( currentSource );

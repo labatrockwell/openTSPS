@@ -20,15 +20,7 @@ void tspsApp::setup(){
         
         for (int i=0; i<numKinects; i++){
             delegates.push_back( new TSPSDelegate(i) );
-            delegates.back()->disableEvents();            
-            bool bConnectedSuccessfully = delegates.back()->openCamera( i, true );
-            /*if ( !bConnectedSuccessfully ){
-                ofLog( OF_LOG_ERROR, "Kinect "+ofToString(i)+" failed, aborting setup!");
-                TSPSDelegate * d = delegates.back();
-                delegates.erase( delegates.begin() + delegates.size() - 1 );
-                delete d;
-                break;
-            }*/
+            delegates.back()->disableEvents();
         }
         
         // add disabled delegates
@@ -46,13 +38,6 @@ void tspsApp::setup(){
         for (int i=0; i<MAX_CAMERAS; i++){            
             delegates.push_back( new TSPSDelegate(i) );
             delegates.back()->disableEvents();
-            bool bConnectedSuccessfully = delegates.back()->openCamera( i, false );
-            /*if ( !bConnectedSuccessfully ){
-                TSPSDelegate * d = delegates.back();
-                delegates.erase( delegates.begin() + delegates.size() - 1 );
-                delete d;
-                //break;
-            }*/
         }
     }
         
@@ -70,9 +55,6 @@ void tspsApp::setup(){
         guiTypeButton * btn = new guiTypeButton();
         btn->setup( name, dimensions.width, dimensions.height );
         btn->setPosition( dimensions.x, dimensions.y );
-        if ( delegates.size() < i || !delegates[i]->isOpen() ){
-            //btn->disable();
-        }
         btn->setBackgroundSelectColor(0,168,156);
         btn->setBackgroundColor(0,84,78);
         ofAddListener(btn->buttonPressed, this, &tspsApp::onButtonPressed );
@@ -88,17 +70,9 @@ void tspsApp::setup(){
     }
         
 	//load GUI / interface images
-
-	personEnteredImage.loadImage("graphic/triggers/PersonEntered_Active.png");
-	personUpdatedImage.loadImage("graphic/triggers/PersonUpdated_Active.png");
-	personLeftImage.loadImage("graphic/triggers/PersonLeft_Active.png");
 	statusBar.loadImage("graphic/bottomBar.png");
 	background.loadImage("graphic/background.png");
 	timesBoldItalic.loadFont("fonts/timesbi.ttf", 16);
-    
-	drawStatus[0] = 0;
-	drawStatus[1] = 0;
-	drawStatus[2] = 0;
 }
 
 //--------------------------------------------------------------
@@ -119,18 +93,6 @@ void tspsApp::draw(){
 	//draw status bar stuff
 
 	statusBar.draw(0,700);//ofGetHeight()-statusBar.height);
-	if (drawStatus[0] > 0){
-		drawStatus[0]--;
-		personEnteredImage.draw(397,728);
-	}
-	if (drawStatus[1] > 0){
-		drawStatus[1]--;
-		personUpdatedImage.draw(533,728);
-	}
-	if (drawStatus[2] > 0){
-		drawStatus[2]--;
-		personLeftImage.draw(666,728);
-	}
     
     if ( delegates.size() > 0 ){
         delegates[currentDelegate]->draw();
@@ -154,9 +116,6 @@ void tspsApp::exit(){
 void tspsApp::keyPressed  (int key){
 
 	switch (key){
-		case ' ':{
-			//peopleTracker.relearnBackground();
-		} break;
 		case 'f':{
 			ofToggleFullscreen();
 		} break;
@@ -174,11 +133,10 @@ void tspsApp::mousePressed(int x, int y, int button){}
 
 //--------------------------------------------------------------
 void tspsApp::mouseReleased(int x, int y, int button){
+    // check hit of buttons
     map<std::string, guiTypeButton*>::iterator it;
     for( it=buttons.begin(); it!=buttons.end(); it++ ){
-        //if ( it->second->enabled){
-            it->second->checkHit( x, y, button );                    
-        //}
+        it->second->checkHit( x, y, button );
     }
 }
 

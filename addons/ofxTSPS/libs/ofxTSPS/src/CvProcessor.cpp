@@ -265,6 +265,7 @@ namespace ofxTSPS {
                 personWillLeave(p, scene);
                 trackedPeople->erase(trackedPeople->begin() + i);
             } else if ( !(rectTracker.existsPrevious( p->pid ) && rectTracker.existsCurrent(p->pid)) && !rectTracker.existsCurrent(p->pid) ){
+                personWillLeave(p, scene);
                 trackedPeople->erase(trackedPeople->begin() + i);
             }
         }

@@ -36,9 +36,8 @@ namespace ofxTSPS {
         }
         
         bool openSource( int width, int height, string etc="" ){
-            cout<<"init? "<<bGrabberInited<<endl;
             if (!bGrabberInited) init();
-            return open();
+            return open( sourceIndex );
         }
         
         //void update();

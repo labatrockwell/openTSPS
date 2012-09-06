@@ -16,6 +16,8 @@ namespace ofxTSPS {
     public:
         Source(){
             type = CAMERA_CUSTOM;
+            sourceIndex = -1;
+            
             // init default settings
             bCanTrackContours       = true;
             bCanTrackHaar           = true;
@@ -66,8 +68,13 @@ namespace ofxTSPS {
             return bTrackOpticalFlow;
         };
         
+        virtual void setSourceIndex( int which ){
+            sourceIndex = which;
+        };
+        
     protected:
-        SourceType type;
+        SourceType  type;
+        int         sourceIndex;    // which camera are we opening
         
         // mirrored by ofxTSPS::Processor
         // capabilities + settings

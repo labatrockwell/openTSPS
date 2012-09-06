@@ -45,10 +45,6 @@ class tspsApp : public ofBaseApp {
             	
 	//status bar stuff
 		ofImage statusBar;
-		int		drawStatus[3];
-		ofImage personEnteredImage;
-		ofImage personUpdatedImage;
-		ofImage personLeftImage;
 		ofTrueTypeFont timesBoldItalic;
 	
 	//other gui images
