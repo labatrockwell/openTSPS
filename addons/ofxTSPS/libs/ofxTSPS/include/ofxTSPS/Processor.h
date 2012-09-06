@@ -55,7 +55,6 @@ namespace ofxTSPS {
         virtual void setHaarPadding( float padding = 0.0 );
         
         // get capabilities
-        // TO-DO: Capabilites turn on/off parts of GUI
         virtual bool canTrackHaar (){ return bCanTrackHaar; };
         virtual bool canTrackContours (){ return bCanTrackContours; };
         virtual bool canTrackSkeleton (){ return bCanTrackSkeleton; };
@@ -69,7 +68,6 @@ namespace ofxTSPS {
         
         // methods: utils
         virtual void resize( int camWidth, int camHeight ){};
-        
         virtual Person* getTrackedPerson(int pid);
         
         // methods: views
@@ -88,6 +86,11 @@ namespace ofxTSPS {
         PeopleTracker *      tracker;
         Scene *              scene;
         vector<Person*> *    trackedPeople;
+        
+        // call events on tracker
+        virtual void personEntered( Person * p, Scene * s );
+        virtual void personUpdated( Person * p, Scene * s );
+        virtual void personWillLeave( Person * p, Scene * s );
         
         // capabilities + settings
         bool bCanTrackHaar, bTrackHaar;

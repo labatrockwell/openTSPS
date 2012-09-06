@@ -41,8 +41,7 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::setup(int w, int h, string settingsfile){	
-        ofxAddTSPSListeners( this );
+    void PeopleTracker::setup(int w, int h, string settingsfile){
         ofAddListener(ofEvents().mousePressed, this, &PeopleTracker::mousePressed);
         hasMouseEvents = true;
         
@@ -157,7 +156,7 @@ namespace ofxTSPS {
         if ( tspsProcessor == NULL ){
             setProcessor( new CvProcessor);
         }    
-        tspsProcessor->setup( width, height, &scene, &trackedPeople );
+        tspsProcessor->setup( width, height, this );
         
         // setup gui based on processor capabilities
         gui.setHaarEnabled( tspsProcessor->canTrackHaar() );
@@ -227,14 +226,13 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::update( ofBaseImage & image ){
-        //cameraImage.setFromPixels( image.getPixelsRef() );
+        // convert color (if necessary)
         if ( image.getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
             ofxCv::convertColor( image, cameraImage, CV_RGB2GRAY);            
         } else {
             cameraImage.setFromPixels(image.getPixelsRef());
         }
         cameraImage.update();
-        //cameraImage.setImageType( OF_IMAGE_GRAYSCALE );
         updateSettings();
         trackPeople();
     }
@@ -244,65 +242,86 @@ namespace ofxTSPS {
         tspsProcessor = _processor;
     }
     
+    
     //---------------------------------------------------------------------------
-    void PeopleTracker::onPersonEntered( EventArgs & tspsEvent ){
-        ofPoint centroid = tspsEvent.person->getCentroidNormalized(width, height);
+    // events called from processor
+    void PeopleTracker::personEntered( Person * person, Scene * scene ){
+        ofPoint centroid = person->getCentroidNormalized(width, height);
         
         if(bTuioEnabled){
-            tuioClient.cursorPressed(1.0*centroid.x/width, 1.0*centroid.y/height, tspsEvent.person->oid );
+            tuioClient.cursorPressed(1.0*centroid.x/width, 1.0*centroid.y/height, person->oid );
         }
         if(bOscEnabled){
-            oscClient.personEntered(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            oscClient.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         if(bTcpEnabled){
-            tcpClient.personEntered(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            tcpClient.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personEntered(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            webSocketServer.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
         }
+        trackedPeople.push_back( person );
+        
+        // notify listeners
+        EventArgs args;
+        args.person = person;
+        args.scene  = scene;
+        ofNotifyEvent( Events().personEntered, args, this );
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::onPersonUpdated( EventArgs & tspsEvent ){
-        ofPoint centroid = tspsEvent.person->getCentroidNormalized(width, height);
+    void PeopleTracker::personUpdated( Person * person, Scene * scene ){
+        ofPoint centroid = person->getCentroidNormalized(width, height);
         
         if (bTuioEnabled){
-            ofPoint tuioCursor = tspsEvent.person->getCentroidNormalized(width, height);
-            tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, tspsEvent.person->oid);
+            ofPoint tuioCursor = person->getCentroidNormalized(width, height);
+            tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, person->oid);
         }
         
         if (bOscEnabled){
-            oscClient.personUpdated(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            oscClient.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         
         if (bTcpEnabled){
-            tcpClient.personUpdated(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            tcpClient.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         
         if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personUpdated(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            webSocketServer.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
         }
+        
+        // notify listeners
+        EventArgs args;
+        args.person = person;
+        args.scene  = scene;
+        ofNotifyEvent( Events().personUpdated, args, this );
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::onPersonWillLeave( EventArgs & tspsEvent ){
-        ofPoint centroid = tspsEvent.person->getCentroidNormalized(width, height);
+    void PeopleTracker::personWillLeave( Person * person, Scene * scene ){
+        ofPoint centroid = person->getCentroidNormalized(width, height);
         if (bTuioEnabled) {
-            tuioClient.cursorReleased(centroid.x, centroid.y, tspsEvent.person->oid);	
+            tuioClient.cursorReleased(centroid.x, centroid.y, person->oid);
         }
         //send osc kill message if enabled
         if (bOscEnabled){
-            oscClient.personWillLeave(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            oscClient.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
         };
         
         //send tcp kill message if enabled
         if(bTcpEnabled){
-            tcpClient.personWillLeave(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            tcpClient.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         
         if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personWillLeave(tspsEvent.person, centroid, width, height, p_Settings->bSendOscContours);
+            webSocketServer.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
         }
+        
+        // notify listeners
+        EventArgs args;
+        args.person = person;
+        args.scene  = scene;
+        ofNotifyEvent( Events().personWillLeave, args, this );
     }
     
 #pragma mark source
@@ -660,6 +679,22 @@ namespace ofxTSPS {
         // Track
         //-----------------------	
         differencedImage.setFromPixels( tspsProcessor->process( grayDiff ) );
+        
+        //-----------------------
+        // Custom properties
+        //-----------------------
+        
+        // add depth if we've got it
+         for(int i = 0; i < trackedPeople.size(); i++){
+             ofxTSPS::Person* p = trackedPeople[i];
+             if (currentSource->getType() == CAMERA_KINECT){
+                 // distance is in mm, with the max val being 10 m
+                 // scale it by max to get it in a 0-1 range
+                 p->depth = ((ofxKinect*)currentSource)->getDistanceAt( p->highest )/10000.0;
+             } else {
+                 p->depth = p->highest.z / 255.0f;
+             }
+         }
     }
     
     //---------------------------------------------------------------------------

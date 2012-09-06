@@ -6,10 +6,11 @@
 //
 //
 
+#include "ofxTSPS/PeopleTracker.h"
 #include "ofxTSPS/Processor.h"
 
 namespace ofxTSPS {
-
+    
     Processor::Processor(){
         bCanTrackHaar = bTrackHaar = false;
         bCanTrackContours = bTrackContours = false;
@@ -18,63 +19,56 @@ namespace ofxTSPS {
         trackedPeople = NULL;
     };
 
-    virtual void Processor::setup( int width, int height, PeopleTracker * _tracker, float trackingScaleFactor, float haarTrackingScaleFactor ){
+    void Processor::setup( int width, int height, PeopleTracker * _tracker, float trackingScaleFactor, float haarTrackingScaleFactor ){
         // core objects
         tspsWidth   = width;
         tspsHeight  = height;
         tracker     = _tracker;
-        scene       = tracker->scene;
-        trackedPeople = tracker->peopleVector;
+        scene       = &tracker->scene;
+        trackedPeople = &tracker->trackedPeople;
         trackingScale = trackingScaleFactor;
         haarTrackingScale = haarTrackingScaleFactor;
         setupProcessor();
     }
 
     // settings
-    virtual void Processor::setThreshold( float thresh ){
+    void Processor::setThreshold( float thresh ){
         threshold = thresh;
     };
 
-    virtual void Processor::setBlobSettings( float minimumBlob, float maximumBlob, bool findHoles ){
+    void Processor::setBlobSettings( float minimumBlob, float maximumBlob, bool findHoles ){
         minBlobArea = minimumBlob;
         maxBlobArea = maximumBlob;
         bFindHoles  = findHoles;
     };
 
-    virtual void Processor::setHaarPadding( float padding ){
+    void Processor::setHaarPadding( float padding ){
         haarAreaPadding = padding;
     };
 
-    // get capabilities
-    // TO-DO: Capabilites turn on/off parts of GUI
-    virtual bool Processor::canTrackHaar (){ return bCanTrackHaar; };
-    virtual bool Processor::canTrackContours (){ return bCanTrackContours; };
-    virtual bool Processor::canTrackSkeleton (){ return bCanTrackSkeleton; };
-    virtual bool Processor::canTrackOpticalFlow (){ return bCanTrackOpticalFlow; };
-
     // methods: settings
-    virtual bool Processor::setTrackHaar ( bool trackHaar ){
+    bool Processor::setTrackHaar ( bool trackHaar ){
         if ( bCanTrackHaar ){
             bTrackHaar = trackHaar;
         }
         return bTrackHaar;
     };
 
-    virtual bool Processor::setTrackContours ( bool trackContours ){
+    bool Processor::setTrackContours ( bool trackContours ){
         if ( bCanTrackContours ){
             bTrackContours = trackContours;
         }
         return bTrackContours;
     };
 
-    virtual bool Processor::setTrackSkeleton ( bool trackSkeleton ){
+    bool Processor::setTrackSkeleton ( bool trackSkeleton ){
         if ( bCanTrackSkeleton ){
             bTrackSkeleton = true;
         }
         return bTrackSkeleton;
     };
 
-    virtual bool Processor::setTrackOpticalFlow ( bool trackOpticalFlow ){
+    bool Processor::setTrackOpticalFlow ( bool trackOpticalFlow ){
         if ( bCanTrackOpticalFlow ){
             bTrackOpticalFlow = trackOpticalFlow;
         }
@@ -83,7 +77,7 @@ namespace ofxTSPS {
 
     // methods: utils
 
-    virtual Person* Processor::getTrackedPerson(int pid){
+    Person* Processor::getTrackedPerson(int pid){
         if ( trackedPeople == NULL ){
             ofLog( OF_LOG_ERROR, "No people vector?");
             return NULL;
@@ -94,5 +88,18 @@ namespace ofxTSPS {
             }
         }
         return NULL;
+    }
+    
+    // call to update Tracker
+    void Processor::personEntered( Person * p, Scene * s ){
+        tracker->personEntered(p, s);
+    }
+    
+    void Processor::personUpdated( Person * p, Scene * s ){
+        tracker->personUpdated(p, s);
+    }
+    
+    void Processor::personWillLeave( Person * p, Scene * s ){
+        tracker->personWillLeave(p, s);
     }
 }

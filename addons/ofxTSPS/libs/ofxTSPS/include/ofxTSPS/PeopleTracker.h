@@ -74,6 +74,7 @@ namespace ofxTSPS {
 
     // TSPS Manager class
     class PeopleTracker {
+        friend class Processor;
         public:
         
             PeopleTracker();
@@ -106,11 +107,6 @@ namespace ofxTSPS {
             // processor
             void setProcessor ( Processor * _processor );
             Processor * getProcessor(){ return tspsProcessor; };
-        
-            // events called from processor
-            void onPersonEntered( EventArgs & tspsEvent );
-            void onPersonWillLeave( EventArgs & tspsEvent );
-            void onPersonUpdated( EventArgs & tspsEvent );
             
             //communication
             
@@ -212,6 +208,11 @@ namespace ofxTSPS {
         
             // Processor
             Processor * tspsProcessor;
+            
+            // events called from processor
+            void personEntered( Person * p, Scene * s );
+            void personUpdated( Person * p, Scene * s );
+            void personWillLeave( Person * p, Scene * s );
         
             // Update funtions
             void trackPeople();

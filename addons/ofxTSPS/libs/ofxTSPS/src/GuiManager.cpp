@@ -479,7 +479,7 @@ namespace ofxTSPS {
             panel.setValueB("VIDEO_FILE_RELOAD", false);
             
             if ( numVideos == 0 ){     
-                ofLog( OF_LOG_WARNING, "No videos found, switching to camera input" );
+                ofLog( OF_LOG_VERBOSE, "No videos found, switching to camera input" );
             }
         }
         if(videoFiles->getSelectedName() != ""){

@@ -147,15 +147,15 @@ namespace ofxTSPS {
         contourFinder.findContours( differencedImage );
         
         // update people
-        RectTracker& tracker = contourFinder.getTracker();
-        cv::Mat cameraMat = toCv(cameraImage);
+        RectTracker& rectTracker    = contourFinder.getTracker();
+        cv::Mat cameraMat           = toCv(cameraImage);
         
         //optical flow scale
         // float flowROIScale = tspsWidth/flow.getWidth();
         
         for(int i = 0; i < contourFinder.size(); i++){
             unsigned int id = contourFinder.getLabel(i);
-            if(tracker.existsPrevious(id)) {
+            if(rectTracker.existsPrevious(id)) {
                 CvPerson* p = (CvPerson *) getTrackedPerson(id);
                 //somehow we are not tracking this person, safeguard (shouldn't happen)
                 if(NULL == p){
@@ -203,24 +203,6 @@ namespace ofxTSPS {
                     p->lowest.z = ( p->lowest.z * .7) + ( minVal ) * .3;            
                 }
                 
-                /*
-                 
-                 // TO DO
-                 // set depth...
-                 
-                 // iterate through the people
-                 for(int i = 0; i < peopleTracker.totalPeople(); i++){
-                 ofxTSPS::Person* p = peopleTracker.personAtIndex(i);
-                 if (cameraState == CAMERA_KINECT){
-                 // distance is in mm, with the max val being 10 m
-                 // scale it by max to get it in a 0-1 range
-                 p->depth = (kinect.getDistanceAt( p->highest )/10000.0);
-                 } else {
-                 p->depth = p->highest.z / 255.0f;
-                 }
-                 }
-                 */
-                
                 // ROI for opticalflow
                 ofRectangle roi = p->getBoundingRectNormalized(tspsWidth, tspsHeight);
                 roi.x *= flow.getWidth();
@@ -240,10 +222,10 @@ namespace ofxTSPS {
                 if ( bTrackHaar ){
                     //find the region of interest, expanded by haarArea.
                     ofRectangle haarROI;
-                    haarROI.x		= fmax( (p->boundingRect.x - haarAreaPadding/2) * trackingScale, 0.0f );
-                    haarROI.y		= fmax( (p->boundingRect.y - haarAreaPadding/2) * trackingScale, 0.0f );
-                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * trackingScale, cameraBabyImage.width );
-                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * trackingScale, cameraBabyImage.height );
+                    haarROI.x		= fmax( (p->boundingRect.x - haarAreaPadding/2) * haarTrackingScale, 0.0f );
+                    haarROI.y		= fmax( (p->boundingRect.y - haarAreaPadding/2) * haarTrackingScale, 0.0f );
+                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale, cameraBabyImage.width );
+                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale, cameraBabyImage.height );
                     
                     bool haarThisFrame = false;
                     for(int j = 0; j < haarObjects.size(); j++) {
@@ -251,10 +233,10 @@ namespace ofxTSPS {
                         
                         //check to see if the haar is contained within the bounding rectangle
                         if(hr.x > haarROI.x && hr.y > haarROI.y && hr.x+hr.width < haarROI.x+haarROI.width && hr.y+hr.height < haarROI.y+haarROI.height){
-                            hr.x /= trackingScale;
-                            hr.y /= trackingScale;
-                            hr.width /= trackingScale;
-                            hr.height /= trackingScale;
+                            hr.x /= haarTrackingScale;
+                            hr.y /= haarTrackingScale;
+                            hr.width /= haarTrackingScale;
+                            hr.height /= haarTrackingScale;
                             p->setHaarRect(hr);
                             haarThisFrame = true;
                             break;
@@ -264,22 +246,11 @@ namespace ofxTSPS {
                         p->noHaarThisFrame();
                     }
                 }
-                
-                EventArgs args;
-                args.person = p;
-                args.scene  = scene;
-                
-                ofNotifyEvent( Events().personUpdated, args, this );
+                personUpdated(p, scene);
             } else {
                 ofPoint centroid = toOf(contourFinder.getCentroid(i));
                 CvPerson* newPerson = new CvPerson(id, i, contourFinder);
-                
-                EventArgs args;
-                args.person = newPerson;
-                args.scene  = scene;
-                
-                trackedPeople->push_back( newPerson );
-                ofNotifyEvent( Events().personEntered, args, this );
+                personEntered(newPerson, scene);
             }
         }
         
@@ -291,11 +262,9 @@ namespace ofxTSPS {
             args.scene  = scene;
             
             if (p == NULL){
-                tracker->personWillLeave(p, scene);
-                //ofNotifyEvent( Events().personWillLeave, args, this );
+                personWillLeave(p, scene);
                 trackedPeople->erase(trackedPeople->begin() + i);
-            } else if ( !(tracker.existsPrevious( p->pid ) && tracker.existsCurrent(p->pid)) && !tracker.existsCurrent(p->pid) ){
-                //ofNotifyEvent( Events().personWillLeave, args, this );
+            } else if ( !(rectTracker.existsPrevious( p->pid ) && rectTracker.existsCurrent(p->pid)) && !rectTracker.existsCurrent(p->pid) ){
                 trackedPeople->erase(trackedPeople->begin() + i);
             }
         }
