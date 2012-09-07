@@ -3,7 +3,7 @@
 	url = https://github.com/ofTheo/ofxKinect.git
 [submodule "addons/ofxOpenNI"]
 	path = addons/ofxOpenNI
-	url = git@github.com:labatrockwell/ofxOpenNI.git
+	url = https://github.com/gameoverhack/ofxOpenNI
 [submodule "addons/ofxCv"]
 	path = addons/ofxCv
 	url = https://github.com/kylemcdonald/ofxCv
