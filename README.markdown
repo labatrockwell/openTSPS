@@ -2,37 +2,37 @@ About
 ------------
 TSPS is a toolkit for sensing people in spaces. It uses openCV to analyze a camera, kinect, or video data, and sends what it finds via OSC, TCP, TUIO, or Websockets. 
 
-Compiling: Mac OS X
+Installing:
 ------------
-*note:* the TSPS standalone app is Mac-only for now. Please feel free to take a 
-crack at the standalone app for other platforms!
 
+* Mac OS X
+  * web camera, video files, or Kinect: 
+    * download and extract openTSPS_1.3_mac.zip
+    * run openTSPS/openTSPS.app
+  * ASUS Xtion
+    * download and extract openTSPS_1.3_openNI_mac.zip
+    * install drivers (thanks to James George for this tip):
+      * easiest way is to use the package from Sensecast [http://sensecast.com/files/Sensecast.and.Libs.Installer.v.0.02.dmg](http://sensecast.com/files/Sensecast.and.Libs.Installer.v.0.02.dmg)   
+
+* Windows
+  * web camera, video files: 
+    * download and extract openTSPS_1.3_win.zip
+    * run openTSPS.exe
+  * Kinect
+    * download and extract openTSPS_1.3_win.zip
+    * plug in your kinect
+    * manually install drivers from openTSPS/drivers/Kinect
+    * run openTSPS/openTSPS.exe
+
+* All platforms
+  * make sure to keep the "data" folder next to your app if you move it!  
+
+Compiling:
+------------
 1. clone openframeworks from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
 2. clone the TSPS directory into openframeworks/
 3. open the XCode project in openTSPS/standalone/basic
 4. compile and run!
-
-Release Notes
-------------
-1.2.2 (5/10/12 - Mac Only)
-* Added loading + playing video files through the GUI
-* Using the LAB's ofxLibwebsockets addon to function as a WebSocket server and/or client
-* Lots of bug fixes, including camera switching
-* Updates to the standalone multi-camera application, which now isn't quite as terrible to use.
-
-1.2 (1/31/12 - Mac Only)
-
-* Updated OSC Message Sending format
-* Added leading slash 
-* Removed "PersonMoved" message, no only PersonUpdated is sent on every frame
-* Added a "Use Legacy OSC" button to revert to old format for backwards compatability
-
-1.1 (11/18/11 - Mac Only)
-
-* WebSocket communication
-* Kinect support
-* Minimize: run TSPS in lean, mean, mini mode (tiny window, all on-screen drawing skipped)
-* OF 007 compatible
 
 Troubleshooting
 ------------
@@ -40,7 +40,6 @@ Troubleshooting
 
 WebSockets
 ------------
-
 * To turn on WebSocket communication (on by default in 1.1), select the Communication panel in the GUI and edit the WebSockets panel at the very bottom.
 * To test your WebSocket, simply compile/run openTSPS, then navigate your browser to localhost:PORT, where PORT is the port that is specified in the GUI. By default it's localhost:7681.
 * To have extra fun, open that same URL in a bunch of browser windows.
