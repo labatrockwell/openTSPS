@@ -265,7 +265,7 @@ namespace ofxTSPS {
         EventArgs args;
         args.person = person;
         args.scene  = scene;
-        ofNotifyEvent( Events().personEntered, args, this );
+        ofNotifyEvent( ofxTSPS::Events().personEntered, args, this );
     }
     
     //---------------------------------------------------------------------------

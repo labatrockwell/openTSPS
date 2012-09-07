@@ -82,7 +82,7 @@ namespace ofxTSPS {
         
         // get JSON        
         virtual string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false, string append="" );
-        virtual string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false ){};
+        virtual string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false ){ return ""; };
         
         // get OSC message(s)    
         virtual vector<ofxOscMessage> getOSCMessages( string type, bool bUseLegacy, int cameraWidth, int cameraHeight, bool sendContours );

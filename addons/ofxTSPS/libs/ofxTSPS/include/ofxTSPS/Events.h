@@ -17,6 +17,8 @@ namespace ofxTSPS {
     class EventArgs {
     public:
         
+		EventArgs(){};
+
         Person   * person;
         Scene    * scene;
     };
@@ -24,6 +26,8 @@ namespace ofxTSPS {
     class CoreEvents {
     public:
         
+		CoreEvents(){};
+
         //called when the person enters the system
         ofEvent<EventArgs> personEntered;
         

@@ -222,10 +222,10 @@ namespace ofxTSPS {
                 if ( bTrackHaar ){
                     //find the region of interest, expanded by haarArea.
                     ofRectangle haarROI;
-                    haarROI.x		= fmax( (p->boundingRect.x - haarAreaPadding/2) * haarTrackingScale, 0.0f );
-                    haarROI.y		= fmax( (p->boundingRect.y - haarAreaPadding/2) * haarTrackingScale, 0.0f );
-                    haarROI.width	= fmin( (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale, cameraBabyImage.width );
-                    haarROI.height	= fmin( (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale, cameraBabyImage.height );
+                    haarROI.x		= (p->boundingRect.x - haarAreaPadding/2) * haarTrackingScale > 0.0f ? (p->boundingRect.x - haarAreaPadding/2) * haarTrackingScale : 0.0;
+                    haarROI.y		= (p->boundingRect.y - haarAreaPadding/2) * haarTrackingScale > 0.0f ? (p->boundingRect.y - haarAreaPadding/2) : 0.0f;
+                    haarROI.width	= (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale > cameraBabyImage.width ? (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale : cameraBabyImage.width;
+                    haarROI.height	= (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale > cameraBabyImage.height ? (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale : cameraBabyImage.height;
                     
                     bool haarThisFrame = false;
                     for(int j = 0; j < haarObjects.size(); j++) {

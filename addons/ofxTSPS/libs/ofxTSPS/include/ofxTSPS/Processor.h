@@ -38,10 +38,10 @@ namespace ofxTSPS {
         virtual void blankBackground() = 0;
         
         // step 2: difference
-        virtual ofPixelsRef difference( ofBaseImage & image, TrackingType trackingType ){};
+        virtual ofPixelsRef difference( ofBaseImage & image, TrackingType trackingType ) = 0;
         
         // step 3: process
-        virtual ofPixelsRef process ( ofBaseImage & image ){};
+        virtual ofPixelsRef process ( ofBaseImage & image ) = 0;
         virtual void processOpticalFlow( ofBaseImage & image ){};
         virtual void processHaar( ofBaseImage & image ){};
         
