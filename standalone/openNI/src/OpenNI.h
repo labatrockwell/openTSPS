@@ -18,6 +18,7 @@ namespace ofxTSPS {
         OpenNI() : Source(){
             // type defaults to CAMERA_CUSTOM
             bCanTrackHaar = false;
+            invertedPixels.allocate( 640,480, OF_IMAGE_GRAYSCALE);
         }
                 
         // core
@@ -27,25 +28,35 @@ namespace ofxTSPS {
         
         void update(){
             ofxOpenNI::update();
+            if ( isDepthOn() ){
+                //this is pretty annoying, but ofxOpenNI colors are backwards
+                ofPixelsRef pix = getDepthPixels();
+                int channels    = pix.getNumChannels();
+                int dims        = invertedPixels.getWidth() * invertedPixels.getHeight();
+                for ( int i=0; i<dims; i++){
+                    invertedPixels[i] = pix[2+i * channels] == 0 ? 0 : abs(255-pix[2+i * channels]);
+                }
+            }
         }
         
         bool doProcessFrame(){
-            return true;
+            return isNewFrame();
         }
         
         // required bc ofxOpenNI doesn't declare it
         unsigned char*  getPixels(){
-            return getDepthPixels().getPixels();
+            return invertedPixels.getPixels();
         }
         
         ofPixelsRef getPixelsRef(){
-            return getDepthPixels();
+            return invertedPixels;
         }
         
         bool openSource( int width, int height, string etc="" ){
             bool bSetup = isContextReady();
             if(!bSetup) bSetup = setup();
             if ( bSetup ){
+                setDepthColoring(COLORING_BLUES);
                 addDepthGenerator();
                 start();                
             }
@@ -55,6 +66,8 @@ namespace ofxTSPS {
         void closeSource(){
             stop();
         }
+    private:
+        ofPixels invertedPixels;
     };
 }
 

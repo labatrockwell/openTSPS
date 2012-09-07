@@ -34,7 +34,7 @@ namespace ofxTSPS {
         }
         if ( currentSource != NULL ){
             currentSource->closeSource();
-            delete currentSource;
+            //delete currentSource;
         }
         tspsProcessor->exit();
         delete tspsProcessor;
@@ -327,6 +327,9 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::setSource( Source & newSource ){
+        if ( currentSource != NULL ){
+            currentSource->closeSource();
+        }
         currentSource = &newSource;
         
         // make settings so they don't boot what you did
