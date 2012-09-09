@@ -70,12 +70,12 @@ buildLinux(){
 	ls
 }
 
-# EXAMPLES
+# EXAMPLES_DIR
 buildExamples(){
 	# 1 - build P5 library
 	cd $BASEDIR
 	cd "../examples/processing/library/workspace/TSPS/resources/"
-	ant -lib ../lib 
+	ant -lib ../libs 
 	rm -r "$BASEDIR/../examples/processing/library/TSPS" 
 	mkdir "$BASEDIR/../examples/processing/library/TSPS" 
 	mv -f "$BASEDIR/../examples/processing/library/workspace/TSPS/distribution/TSPS.zip" "$BASEDIR/../examples/processing/library/TSPS/TSPS.zip"
