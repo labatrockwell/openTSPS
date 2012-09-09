@@ -7,6 +7,8 @@ Release Notes
  		* now you can have TSPS automatically capture the background on startup
  		* toggle the switch in the "background" tab of the gui
  		* set how many seconds you'd like to wait after startup
+   	* flip horizontal / flip vertical / invert
+    		* simple camera adjustments that should have been there all along... 
  	* Easy source switching
  		* radio buttons to switch sources under the "Camera" tab 
  		* sources include ofVideoGrabber (default), ofVideoPlayer, and Kinect
@@ -23,6 +25,7 @@ Release Notes
 		* now stores last used settings file
 			* can be switched in data/settings/defaults.xml
 	* Examples updated!
+ 		* Processing library simplified, friendlier 
 	* WebSockets 100% supported
 	* new property in WebSockets / OSC: "highest"
  		* represents the brightest point in a blob
