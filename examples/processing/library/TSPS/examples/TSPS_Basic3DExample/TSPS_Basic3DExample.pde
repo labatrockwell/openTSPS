@@ -3,7 +3,8 @@
   by Brett Renfer, 4/3/12
   
   People tracked via Kinect have a depth property! Draw spheres
-  related to their distance.
+  related to their distance. If you're not using a depth camera,
+  this example might act a little weird.
 */
 // get 3D!
 import processing.opengl.*;
@@ -23,20 +24,15 @@ void setup(){
 
 void draw(){
   background(0);
-  
-  tspsReceiver.update();
-  
   fill(255);
   
-    // get enumeration, which helps us loop through tsps.people
-  Enumeration e = tspsReceiver.people.keys();
+  // get array of people
+  TSPSPerson[] people = tspsReceiver.getPeopleArray();
   
   // loop through people
-  while (e.hasMoreElements())
-  {
+  for (int i=0; i<people.length; i++){
     // get person
-    int id = (Integer) e.nextElement();
-    TSPSPerson person = (TSPSPerson) tspsReceiver.people.get( id );
+    TSPSPerson person = people[i];
     
     pushMatrix();
     translate( person.centroid.x * width, person.centroid.y * height, person.depth / 2 );

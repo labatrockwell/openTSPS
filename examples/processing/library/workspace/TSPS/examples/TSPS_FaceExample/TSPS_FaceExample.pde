@@ -3,6 +3,8 @@
   by Brett Renfer, 4/3/12
   
   Draw a face when a haar element is detected! :|
+  Haar tracking must be turned on for this to work! 
+  - check "detect and send features in blobs" under the "sensing" panel
 */
 
 // import TSPS
@@ -20,17 +22,13 @@ void setup(){
 void draw(){
   background(0);
   
-  tspsReceiver.update();
-  
-  // get enumeration, which helps us loop through tsps.people
-  Enumeration e = tspsReceiver.people.keys();
+  // get array of current people
+  TSPSPerson[] people = tspsReceiver.getPeopleArray();
   
   // loop through people
-  while (e.hasMoreElements())
-  {
+  for (int i=0; i<people.length; i++){
     // get person
-    int id = (Integer) e.nextElement();
-    TSPSPerson person = (TSPSPerson) tspsReceiver.people.get( id );
+    TSPSPerson person = people[i];
     
     // if the dimensions of your haar rectangle are not 0,0,0,0, there's something there!
     // note: just like other values, a person's haar rectangle is 0-1, so we need to multiply
@@ -41,8 +39,8 @@ void draw(){
       ellipseMode( CORNER );
       ellipse( person.haarRect.x*width,  person.haarRect.y*height,  person.haarRect.width*width,  person.haarRect.height*height);
       
-      fill(255);
       // face
+      fill(255);
       pushMatrix();
         // translate to center of haar rectangle and scale according to its size
         translate( person.haarRect.x*width + person.haarRect.width*width/2, person.haarRect.y*height + person.haarRect.height*height/2);

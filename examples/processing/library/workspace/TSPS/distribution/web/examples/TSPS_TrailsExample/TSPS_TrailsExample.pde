@@ -12,9 +12,7 @@ TSPS tspsReceiver;
 void setup(){
   frameRate( 60 );
   size(1024,768);
-  
   background( 0 );
-	
   noStroke();
   smooth();
 
@@ -29,18 +27,13 @@ void draw(){
   
   fill( 255 );
   
-  // update TSPS
-  tspsReceiver.update();
-  
-  // get enumeration, which helps us loop through tsps.people
-  Enumeration e = tspsReceiver.people.keys();
+  // get array of people
+  TSPSPerson[] people = tspsReceiver.getPeopleArray();
   
   // loop through people
-  while (e.hasMoreElements())
-  {
+  for (int i=0; i<people.length; i++){
     // get person
-    int id = (Integer) e.nextElement();
-    TSPSPerson person = (TSPSPerson) tspsReceiver.people.get( id );
+    TSPSPerson person = people[i];
     
     ellipse( person.centroid.x * width, person.centroid.y * height, 5, 5 );
     

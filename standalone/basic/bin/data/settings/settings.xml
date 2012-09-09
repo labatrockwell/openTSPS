@@ -22,7 +22,7 @@
     <val_0>138.889</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>80.75</val_0>
+    <val_0>110.5</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
     <val_0>0</val_0>
@@ -43,7 +43,7 @@
     <val_0>6.91667</val_0>
 </SMOOTH_AMOUNT>
 <MIN_BLOB>
-    <val_0>4.454</val_0>
+    <val_0>5.565</val_0>
 </MIN_BLOB>
 <MAX_BLOB>
     <val_0>100</val_0>
@@ -144,7 +144,7 @@
 <QUAD3_X>0</QUAD3_X>
 <QUAD3_Y>1</QUAD3_Y>
 <SOURCE_TYPE>
-    <val_0>0</val_0>
+    <val_0>2</val_0>
 </SOURCE_TYPE>
 <LEARN_BG_STARTUP>
     <val_0>0</val_0>
@@ -152,3 +152,12 @@
 <LEARN_BG_STARTUP_SECONDS>
     <val_0>1</val_0>
 </LEARN_BG_STARTUP_SECONDS>
+<FLIP_X>
+    <val_0>0</val_0>
+</FLIP_X>
+<FLIP_Y>
+    <val_0>0</val_0>
+</FLIP_Y>
+<INVERT>
+    <val_0>0</val_0>
+</INVERT>

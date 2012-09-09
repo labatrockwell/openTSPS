@@ -33,10 +33,12 @@ void draw(){
     textAlign( CENTER );
     text( "I'm all alone in this cruel world :(", width / 2, height / 2 );
   };  
-  
-  // just update TSPS; all of our drawing is in TSPS events
-  tspsReceiver.update();
 };
+
+/* TSPS EVENTS:*/
+
+/* Add these functions to your app to catch events when people enter a scene,
+move around, or leave */
 
 void personEntered( TSPSPerson p ){
   background( 0 );
@@ -46,8 +48,7 @@ void personEntered( TSPSPerson p ){
   text( "Hello new person!", width / 2, height / 2 );
 }
 
-void personUpdated( TSPSPerson p ){
-}
+void personUpdated( TSPSPerson p ){}
 
 void personLeft( TSPSPerson p ){
   background( 0 );
