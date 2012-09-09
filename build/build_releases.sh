@@ -2,7 +2,7 @@
 
 # this should be a cmd line option
 VERSION_NUMBER='1.2.4'
-BASEDIR=$(dirname $0)
+BASEDIR=$(cd "$(dirname "$0")"; pwd)
 BASIC_DIR='../standalone/basic'
 MULTICAM_DIR='../standalone/multicamera'
 OPENNI_DIR='../standalone/openNI'
@@ -13,14 +13,18 @@ MULTICAM="$BASEDIR/$MULTICAM_DIR"
 OPENNI="$BASEDIR/$OPENNI_DIR"
 
 # Make build dir
-cd $BASEDIR
-mkdir '../releases'
-cd '../releases'
-mkdir $VERSION_NUMBER
+makeInstallDir(){
+	echo $VERSION_NUMBER
+	cd $BASEDIR
+	mkdir '../releases'
+	cd '../releases'
+	mkdir $VERSION_NUMBER
+}
 
 printUsage() {
     # Print the usage string and exit with $1.
     echo "usage:"
+    echo "	-v set version number"
     echo "	-m build + zip up all mac binaries"
     echo "	-w build + zip up all windows binaries"
     echo "	-l build + zip up all linux binaries"
@@ -33,7 +37,7 @@ printUsage() {
 buildOSX(){
 	echo 'building '$BASIC
 	cd $BASIC
-	xcodebuild 
+	xcodebuild
 	cd $BASIC
 	zip -r "$BASEDIR/../releases/$VERSION_NUMBER/tsps_mac_$VERSION_NUMBER.zip" "bin"
 
@@ -64,7 +68,7 @@ buildLinux(){
 buildExamples(){
 	# 1 - build P5 library
 	cd $BASEDIR
-	cd ../examples/processing/library/workspace/TSPS/resources/
+	cd "../examples/processing/library/workspace/TSPS/resources/"
 	ant -lib ../lib 
 	mkdir "$BASEDIR/../examples/processing/library/Processing/libraries/TSPS" 
 	mv -f "$BASEDIR/../examples/processing/library/workspace/TSPS/distribution/TSPS.zip" "$BASEDIR/../examples/processing/library/Processing/libraries/TSPS/TSPS.zip"
@@ -82,25 +86,66 @@ buildExamples(){
 
 #BUILD ALL (aka build all osx for now...)
 buildAll(){
+	makeInstallDir
 	buildOSX
 	buildLinux
 	buildExamples
 }
 
+BALL='1'
+BOSX='0'
+BWIN='0'
+BLINUX='0'
+BEXAMPLES='0'
+
 # Parse options
-if [ ${#} == 0  ] ; then
+if [ ${#} == 1  ] ; then
+	VERSION_NUMBER=$1
 	buildAll
-else
-	while [ $# -gt 0 ]
-	do
-	   case $1 in
-	       -h ) printUsage;;
-	       -m ) buildOSX;;
-	       -w ) buildWin;;
-	       -l ) buildLinux;;
-	       -e ) buildExamples;;
-	       * ) echo "Invalid option.";;
-	   esac
-	   shift
-	done
+elif [ ${#} == 0  ] ; then
+	buildAll
 fi
+# TO-DO: Fix this...
+# else
+
+# 	while [ $# -gt 0 ]
+# 	do
+# 	   case $1 in
+# 	   		-v) set $VERSION_NUMBER='$1';;
+# 			-h ) printUsage;;
+# 			-m ) set $BOSX='1' 	
+# 				set $BALL='0';;
+# 			-w ) set $BLINUX='1' 
+# 				set $BALL='0';;
+# 			-l ) set $BWIN='1' 
+# 				set $BALL='0';;
+# 			-e ) set $BEXAMPLES='1' 
+# 				set $BALL='0';;
+# 	       	[?] ) echo 'Invalid option.';;
+# 	   esac
+# 	   shift
+# 	done
+
+# 	makeInstallDir
+
+# 	if [[ $BALL == '1' ]]; then
+# 		buildAll
+# 	else
+
+# 		if [[ $BOSX == '1' ]]; then
+# 			buildOSX
+# 		fi
+
+# 		if [[ $BWIN == '1' ]]; then
+# 			buildWin
+# 		fi
+
+# 		if [[ $BLINUX == '1' ]]; then
+# 			buildLinux
+# 		fi
+
+# 		if [[ $BEXAMPLES == '1' ]]; then
+# 			buildExamples
+# 		fi
+# 	fi
+# fi
