@@ -304,6 +304,8 @@ namespace ofxTSPS {
         }
         //send osc kill message if enabled
         if (bOscEnabled){
+            cout<<"outchea"<<endl;
+            cout<<trackedPeople.size()<<endl;
             oscClient.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
         };
         

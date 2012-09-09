@@ -270,8 +270,11 @@ namespace ofxTSPS {
             m.addIntArg(oid);
         }
         m.addIntArg(age);
-        m.addFloatArg(centroid.x);
-        m.addFloatArg(centroid.y);
+        
+        ofPoint centroidNormalized = getCentroidNormalized(cameraWidth, cameraHeight);
+        
+        m.addFloatArg(centroidNormalized.x);
+        m.addFloatArg(centroidNormalized.y);
         m.addFloatArg(velocity.x);
         m.addFloatArg(velocity.y);
         
