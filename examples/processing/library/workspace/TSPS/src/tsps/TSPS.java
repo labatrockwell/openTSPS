@@ -23,17 +23,67 @@ import java.lang.Integer;
 
 public class TSPS {
 
-	PApplet parent;
-	OscP5 receiver;
+	private final PApplet parent;
+	private OscP5 receiver;
 	public Hashtable<Integer, TSPSPerson> people;
 
-	Method personEntered;
-	Method personUpdated;
-	Method personLeft;
+	private Method personEntered;
+	private Method personUpdated;
+	private Method personLeft;
 
-	int port = 12000;
+	private int defaultPort = 12000;
 
-	public static void updatePerson(TSPSPerson p, OscMessage theOscMessage) {
+	/** Starts up TSPS with the default port (12000) */
+	public TSPS(PApplet _parent) {
+		parent = _parent;
+		receiver = new OscP5(this, defaultPort);
+		people = new Hashtable<Integer, TSPSPerson>();
+		registerEvents();
+		parent.registerPre(this);
+	}
+
+	/** Starts up TSPS. The port must match what is specified in the TSPS GUI! */
+	public TSPS(PApplet _parent, int port) {
+		parent = _parent;
+		receiver = new OscP5(this, port);
+		people = new Hashtable<Integer, TSPSPerson>();
+
+		registerEvents();
+		parent.registerPre(this);
+	}	
+
+	public void pre(){
+		// get enumeration, which helps us loop through tsps.people
+		Enumeration e = people.keys();
+		  
+		// loop through people
+		while (e.hasMoreElements())
+		{
+		    // get person
+		    int id = (Integer) e.nextElement();
+		    TSPSPerson person = (TSPSPerson) people.get( id );
+		    person.age -= 10;
+		    // haven't gotten an update in ~2 seconds
+		    if ( person.age < -120 ){
+		    	callPersonLeft(person);
+				people.remove(person.id);
+		    }
+		}
+	}
+
+	/**
+	* This function allows you to access the people Hashtable as an array
+	* to make things more familiar to most Processing users.
+	*/
+	public TSPSPerson[] getPeopleArray(){
+		return (TSPSPerson [])(people.values().toArray(new TSPSPerson [people.values().size()]));
+	}
+
+	public int getNumPeople(){
+		return people.size();
+	}
+
+	private static void updatePerson(TSPSPerson p, OscMessage theOscMessage) {
 		p.id 					= theOscMessage.get(0).intValue();
 		p.oid 					= theOscMessage.get(1).intValue();
 		p.age 					= theOscMessage.get(2).intValue();
@@ -63,21 +113,6 @@ public class TSPS {
 		}
 	}
 
-	public TSPS(PApplet _parent) {
-		parent = _parent;
-		receiver = new OscP5(this, port);
-		people = new Hashtable<Integer, TSPSPerson>();
-		registerEvents();
-	}
-
-	public TSPS(PApplet _parent, int port) {
-		parent = _parent;
-		receiver = new OscP5(this, port);
-		people = new Hashtable<Integer, TSPSPerson>();
-
-		registerEvents();
-	}
-
 	private void registerEvents() {
 		// check to see if the host applet implements methods:
 		// public void personEntered(TSPSPerson p)
@@ -95,23 +130,10 @@ public class TSPS {
 		}
 	}
 
-	public void update() {
-		// Enumeration elements = people.elements();
-
-		// for (int i=people.size()-1; i>=0; i--)
-		// for (Enumeration elements = v.elements() ; e.hasMoreElements() ;) {
-		// {
-		// TSPSPerson checkPerson = (TSPSPerson) people.get(i);
-		// if (checkPerson.dead == true){
-		// people.remove(i);
-		// }
-		// }
-	}
-
-	public void oscEvent(OscMessage theOscMessage) {
+	protected void oscEvent(OscMessage theOscMessage) {
 		// adding a person
 		if (theOscMessage.checkAddrPattern("/TSPS/personEntered/")) {
-			TSPSPerson p = new TSPSPerson();
+			TSPSPerson p = new TSPSPerson( parent );
 			updatePerson(p, theOscMessage);
 			callPersonEntered(p);
 			// updating a person (or adding them if they don't exist in the
@@ -121,7 +143,7 @@ public class TSPS {
 			TSPSPerson p = people.get(theOscMessage.get(0).intValue());
 			boolean personExists = (p != null);
 			if (!personExists) {
-				p = new TSPSPerson();
+				p = new TSPSPerson( parent );
 			}
 
 			updatePerson(p, theOscMessage);
@@ -144,10 +166,6 @@ public class TSPS {
 
 			people.remove(p.id);
 		}
-	}
-
-	public TSPSPerson[] getPeopleArray(){
-		return (TSPSPerson []) people.values().toArray();
 	}
 
 	private void callPersonEntered(TSPSPerson p) {
