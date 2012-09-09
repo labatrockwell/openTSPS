@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E12CFF515F8168B00D5BC05 /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E12CFF315F8168B00D5BC05 /* Processor.cpp */; };
+		A92EE0CA15FD289900C0A11B /* TSPSEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92EE0C915FD289900C0A11B /* TSPSEvents.cpp */; };
 		A948586415C470BD00761D1C /* tspsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A948586215C470BC00761D1C /* tspsApp.cpp */; };
 		A94859A615C470E800761D1C /* opencv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A948591A15C470E700761D1C /* opencv.a */; };
 		A94859D215C470E900761D1C /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A948594B15C470E800761D1C /* ofxCvColorImage.cpp */; };
@@ -72,7 +73,6 @@
 		A9485F3915C4712D00761D1C /* ofxCvOpticalFlowLK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485D0215C4712900761D1C /* ofxCvOpticalFlowLK.cpp */; };
 		A9485F5E15C4712D00761D1C /* CvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E2F15C4712A00761D1C /* CvPerson.cpp */; };
 		A9485F5F15C4712D00761D1C /* CvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3015C4712A00761D1C /* CvProcessor.cpp */; };
-		A9485F6015C4712D00761D1C /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3115C4712A00761D1C /* Events.cpp */; };
 		A9485F6115C4712D00761D1C /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3215C4712A00761D1C /* GuiManager.cpp */; };
 		A9485F6215C4712D00761D1C /* OpenCvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3315C4712A00761D1C /* OpenCvPerson.cpp */; };
 		A9485F6315C4712D00761D1C /* OpenCvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3415C4712A00761D1C /* OpenCvProcessor.cpp */; };
@@ -146,6 +146,8 @@
 
 /* Begin PBXFileReference section */
 		2E12CFF315F8168B00D5BC05 /* Processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Processor.cpp; sourceTree = "<group>"; };
+		A92EE0C915FD289900C0A11B /* TSPSEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSPSEvents.cpp; sourceTree = "<group>"; };
+		A92EE0CB15FD289F00C0A11B /* TSPSEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPSEvents.h; sourceTree = "<group>"; };
 		A948586215C470BC00761D1C /* tspsApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tspsApp.cpp; sourceTree = "<group>"; };
 		A948586315C470BC00761D1C /* tspsApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tspsApp.h; sourceTree = "<group>"; };
 		A948586815C470E700761D1C /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
@@ -475,7 +477,6 @@
 		A9485E1915C4712A00761D1C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A9485E1B15C4712A00761D1C /* CvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CvPerson.h; sourceTree = "<group>"; };
 		A9485E1C15C4712A00761D1C /* CvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CvProcessor.h; sourceTree = "<group>"; };
-		A9485E1D15C4712A00761D1C /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		A9485E1F15C4712A00761D1C /* GuiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManager.h; sourceTree = "<group>"; };
 		A9485E2015C4712A00761D1C /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		A9485E2215C4712A00761D1C /* OpenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvPerson.h; sourceTree = "<group>"; };
@@ -488,7 +489,6 @@
 		A9485E2D15C4712A00761D1C /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
 		A9485E2F15C4712A00761D1C /* CvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CvPerson.cpp; sourceTree = "<group>"; };
 		A9485E3015C4712A00761D1C /* CvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CvProcessor.cpp; sourceTree = "<group>"; };
-		A9485E3115C4712A00761D1C /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
 		A9485E3215C4712A00761D1C /* GuiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GuiManager.cpp; sourceTree = "<group>"; };
 		A9485E3315C4712A00761D1C /* OpenCvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCvPerson.cpp; sourceTree = "<group>"; };
 		A9485E3415C4712A00761D1C /* OpenCvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCvProcessor.cpp; sourceTree = "<group>"; };
@@ -1604,13 +1604,13 @@
 				A9485E1415C4712A00761D1C /* communication */,
 				A9485E1915C4712A00761D1C /* Constants.h */,
 				A9485E1A15C4712A00761D1C /* cv */,
-				A9485E1D15C4712A00761D1C /* Events.h */,
 				A9485E1E15C4712A00761D1C /* gui */,
 				A9485E2115C4712A00761D1C /* opencv */,
 				A9485E2715C4712A00761D1C /* PeopleTracker.h */,
 				A9485E2815C4712A00761D1C /* Person.h */,
 				A9485E2915C4712A00761D1C /* Processor.h */,
 				A9485E2A15C4712A00761D1C /* Scene.h */,
+				A92EE0CB15FD289F00C0A11B /* TSPSEvents.h */,
 				A95D3FEC15D2077F00EBDAA9 /* source */,
 				A9485E2B15C4712A00761D1C /* utils */,
 			);
@@ -1669,7 +1669,6 @@
 			children = (
 				A9485E2F15C4712A00761D1C /* CvPerson.cpp */,
 				A9485E3015C4712A00761D1C /* CvProcessor.cpp */,
-				A9485E3115C4712A00761D1C /* Events.cpp */,
 				A9485E3215C4712A00761D1C /* GuiManager.cpp */,
 				A9485E3315C4712A00761D1C /* OpenCvPerson.cpp */,
 				A9485E3415C4712A00761D1C /* OpenCvProcessor.cpp */,
@@ -1680,6 +1679,7 @@
 				A9485E3A15C4712A00761D1C /* Scene.cpp */,
 				A9485E3B15C4712A00761D1C /* Settings.cpp */,
 				A9485E3C15C4712A00761D1C /* TCPSender.cpp */,
+				A92EE0C915FD289900C0A11B /* TSPSEvents.cpp */,
 				A9485E3D15C4712A00761D1C /* TUIOSender.cpp */,
 				A9485E3E15C4712A00761D1C /* Utils.cpp */,
 				A9485E3F15C4712A00761D1C /* WebSocketSender.cpp */,
@@ -2065,7 +2065,6 @@
 				A9485F3915C4712D00761D1C /* ofxCvOpticalFlowLK.cpp in Sources */,
 				A9485F5E15C4712D00761D1C /* CvPerson.cpp in Sources */,
 				A9485F5F15C4712D00761D1C /* CvProcessor.cpp in Sources */,
-				A9485F6015C4712D00761D1C /* Events.cpp in Sources */,
 				A9485F6115C4712D00761D1C /* GuiManager.cpp in Sources */,
 				A9485F6215C4712D00761D1C /* OpenCvPerson.cpp in Sources */,
 				A9485F6315C4712D00761D1C /* OpenCvProcessor.cpp in Sources */,
@@ -2089,6 +2088,7 @@
 				A9485FE915C4764D00761D1C /* ofxTCPServer.cpp in Sources */,
 				A9485FEA15C4764D00761D1C /* ofxUDPManager.cpp in Sources */,
 				2E12CFF515F8168B00D5BC05 /* Processor.cpp in Sources */,
+				A92EE0CA15FD289900C0A11B /* TSPSEvents.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
