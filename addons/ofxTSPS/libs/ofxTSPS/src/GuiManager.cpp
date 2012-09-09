@@ -342,7 +342,13 @@ namespace ofxTSPS {
         wssGroup->seBaseColor(238,53,35);
         panel.addToggle("send over WebSocket server", "SEND_WSS", false);
         panel.addTextField("webSocket port:", "WSS_PORT", "7681", 200, 20);
-        panel.addButton("open debug URL");
+
+		#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32) || defined(__MINGW32__)
+			// this doesn't work on libwebsockets for windows.
+#else
+		panel.addButton("open debug URL");
+
+#endif
         
         guiTypeGroup * wsGroup = panel.addGroup("WebSocket Client");
         wsGroup->setBackgroundColor(148,129,85);
@@ -527,9 +533,14 @@ namespace ofxTSPS {
             panel.getElement("open video settings")->disable();
         }
         
-        if (panel.getButtonPressed("open debug URL")){
+		#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32) || defined(__MINGW32__)
+			// no websever on windows
+#else
+		if (panel.getButtonPressed("open debug URL")){
             ofLaunchBrowser( "http://localhost:"+panel.getValueS("WSS_PORT"));
         }
+#endif
+        
         
         //settings.bAdjustedViewInColor = panel.getValueB("ADJUSTED_VIEW_COLOR");
         //panel.setGroupActive("video", "adjustedViewColor", settings.bAdjustedViewInColor);

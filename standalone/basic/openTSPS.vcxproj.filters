@@ -453,6 +453,12 @@
     <Filter Include="addons\third-party\ofxTuioWrapper\src\oscpack\include\osc">
       <UniqueIdentifier>{92a51fd0-2ebf-4755-b7fd-aa6a8d107b10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs">
+      <UniqueIdentifier>{5708aeb3-b98a-41c0-93f1-0f445f454d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs\libfreenect">
+      <UniqueIdentifier>{0d7e792a-6ddc-41ca-b0c5-96c3929ed0d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tspsApp.h">
@@ -1316,5 +1322,15 @@
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\TSPSEvents.h">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010\freenect.dll">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010\freenect.lib">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect</Filter>
+    </Library>
   </ItemGroup>
 </Project>
