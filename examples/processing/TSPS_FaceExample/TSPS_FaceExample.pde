@@ -2,6 +2,8 @@
   TSPS Haar Example
   by Brett Renfer, 4/3/12
   
+  Note: this will NOT work with Kinects or other depth cameras!
+  
   Draw a face when a haar element is detected! :|
   Haar tracking must be turned on for this to work! 
   - check "detect and send features in blobs" under the "sensing" panel
