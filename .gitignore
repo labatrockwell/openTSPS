@@ -1,4 +1,4 @@
-*.mode1v3
+*.exe*.exp*.sdf*.mode1v3
 *.pbxuser
 */*/build/
 obj/
