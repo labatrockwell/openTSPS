@@ -94,7 +94,7 @@
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <AdditionalDependencies>.opencv_calib3d231.lib;opencv_contrib231.lib;opencv_core231.lib;opencv_features2d231.lib;opencv_flann231.lib;opencv_gpu231.lib;opencv_haartraining_engine.lib;opencv_highgui231.lib;opencv_imgproc231.lib;opencv_legacy231.lib;opencv_ml231.lib;opencv_objdetect231.lib;opencv_video231.lib;zlib.lib;freenect.lib;libwebsocketswin32.lib;libeay32.lib;ssleay32.lib;oscpack.lib;openNI.lib;XnVCNITE_1_5_2.lib;XnVFeatures_1_5_2.lib;XnVHandGenerator_1_5_2.lib;XnVNITE_1_5_2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_calib3d231.lib;opencv_contrib231.lib;opencv_core231.lib;opencv_features2d231.lib;opencv_flann231.lib;opencv_gpu231.lib;opencv_haartraining_engine.lib;opencv_highgui231.lib;opencv_imgproc231.lib;opencv_legacy231.lib;opencv_ml231.lib;opencv_objdetect231.lib;opencv_video231.lib;zlib.lib;freenect.lib;libwebsocketswin32.lib;libeay32.lib;ssleay32.lib;oscpack.lib;openNI.lib;XnVCNITE_1_5_2.lib;XnVFeatures_1_5_2.lib;XnVHandGenerator_1_5_2.lib;XnVNITE_1_5_2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2010;..\..\addons\ofxTuioWrapper\src\oscpack\lib\win32;..\..\addons\ofxOpenNI\win\copy_to_data_openni_path\lib;..\..\addons\ofxLibwebsockets\libs\openssl\lib\win32;..\..\addons\ofxLibwebsockets\libs\libwebsockets\lib\win32;..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
@@ -146,7 +146,7 @@
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.c" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Connection.cpp" />
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\LWSEvents.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Protocol.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Reactor.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Server.cpp" />
@@ -156,7 +156,7 @@
     <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\CvPerson.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\CvProcessor.cpp" />
-    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Events.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TSPSEvents.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Processor.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\GuiManager.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\OscSender.cpp" />
@@ -350,7 +350,7 @@
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Client.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\LWSEvents.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Protocol.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Reactor.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Server.h" />
@@ -431,7 +431,7 @@
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\Constants.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv\CvPerson.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv\CvProcessor.h" />
-    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\Events.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\TSPSEvents.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui\GuiManager.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui\Settings.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\PeopleTracker.h" />

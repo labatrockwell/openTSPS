@@ -40,7 +40,7 @@
 
 // TSPS Core
 #include "ofxTSPS/Constants.h"
-#include "ofxTSPS/Events.h"
+#include "ofxTSPS/TSPSEvents.h"
 #include "ofxTSPS/Scene.h"
 #include "ofxTSPS/Person.h"
 #include "ofxTSPS/utils/View.h"

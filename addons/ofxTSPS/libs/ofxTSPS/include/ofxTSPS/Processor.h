@@ -11,7 +11,7 @@
 #include "ofMain.h"
 
 #include "ofxTSPS/Constants.h"
-#include "ofxTSPS/Events.h"
+#include "ofxTSPS/TSPSEvents.h"
 #include "ofxTSPS/Scene.h"
 #include "ofxTSPS/gui/Settings.h"
 #include "ofxTSPS/Person.h"
