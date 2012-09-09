@@ -160,6 +160,16 @@ namespace ofxTSPS {
         panel.addFileLister("video files:", videoFiles, 240, 100);
         panel.addToggle("reload directory", "VIDEO_FILE_RELOAD", true);
         
+        // flip + invert
+        guiTypeGroup * adjustGroup = panel.addGroup("adjust camera");
+        adjustGroup->setBackgroundColor(148,129,85);
+        adjustGroup->setBackgroundSelectColor(148,129,85);
+        adjustGroup->seBaseColor(244,136,136);
+        adjustGroup->setShowText(false);
+        panel.addToggle("flip horizontal", "FLIP_X", false);
+        panel.addToggle("flip vertical", "FLIP_Y", false);
+        panel.addToggle("invert", "INVERT", false);
+        
         // amplification
         guiTypeGroup * amplificationGroup = panel.addGroup("amplification");
         amplificationGroup->setBackgroundColor(148,129,85);
@@ -497,6 +507,10 @@ namespace ofxTSPS {
         settings.highpassBlur =  panel.getValueI("HIGHPASS_BLUR");
         settings.highpassNoise = panel.getValueI("HIGHPASS_NOISE");
         panel.setGroupActive("differencing", "highpass", settings.bHighpass);
+        
+        settings.bFlipX = panel.getValueB("FLIP_X");
+        settings.bFlipY = panel.getValueB("FLIP_Y");
+        settings.bInvert = panel.getValueB("INVERT");
         
         settings.bAmplify = panel.getValueB("USE_AMPLIFICATION");
         settings.highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");

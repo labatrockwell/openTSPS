@@ -219,19 +219,77 @@ namespace ofxTSPS {
                     cameraImage.setFromPixels( currentSource->getPixelsRef() );
                 }
             }
+            
+            // mirror?
+            if ( p_Settings->bFlipX || p_Settings->bFlipY ){
+                int mode = 1;
+                if ( p_Settings->bFlipX && p_Settings->bFlipY ) mode = -1;
+                else if ( p_Settings->bFlipY ) mode = 0;
+                
+                cv::Mat src = ofxCv::toCv( cameraImage ), dst = ofxCv::toCv( cameraImage );
+                cv::flip( src, dst, mode );
+                ofxCv::toOf( dst, cameraImage );
+                cameraImage.update();
+            }
+            
+            // invert
+            if ( p_Settings->bInvert ){
+                ofPixelsRef pix = cameraImage.getPixelsRef();
+                for (int i=0, len=pix.getWidth()*pix.getHeight()*pix.getNumChannels();i<len;i++){
+                    pix[i]=255-pix[i];
+                }
+                cameraImage.update();
+            }
+            
             trackPeople();
         }
     }
     
     //---------------------------------------------------------------------------
     void PeopleTracker::update( ofBaseImage & image ){
-        // convert color (if necessary)
-        if ( image.getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
-            ofxCv::convertColor( image, cameraImage, CV_RGB2GRAY);            
+        if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
+            // TO-DO: this should probably be in the Processor
+            // convert to grayscale and resize
+            if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                ofImage tempImage;
+                tempImage.setFromPixels( currentSource->getPixelsRef() );
+                ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, CV_RGB2GRAY);
+                ofxCv::resize(tempImage, cameraImage);
+            } else {
+                ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+            }
+            cameraImage.update();
         } else {
-            cameraImage.setFromPixels(image.getPixelsRef());
+            // either resize or just copy pixels
+            if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                ofImage tempImage;
+                tempImage.setFromPixels( currentSource->getPixelsRef() );
+                ofxCv::resize(tempImage, cameraImage);
+            } else {
+                cameraImage.setFromPixels( currentSource->getPixelsRef() );
+            }
         }
-        cameraImage.update();
+        
+        // mirror?
+        if ( p_Settings->bFlipX || p_Settings->bFlipY ){
+            int mode = 1;
+            if ( p_Settings->bFlipX && p_Settings->bFlipY ) mode = -1;
+            else if ( p_Settings->bFlipY ) mode = 0;
+            
+            cv::Mat src = ofxCv::toCv( cameraImage ), dst = ofxCv::toCv( cameraImage );
+            cv::flip( src, dst, mode );
+            ofxCv::toOf( dst, cameraImage );
+            cameraImage.update();
+        }
+        
+        // invert
+        if ( p_Settings->bInvert ){
+            cv::Mat src = ofxCv::toCv( cameraImage ), dst = ofxCv::toCv( cameraImage );
+            cv::invert( src, dst );
+            ofxCv::toOf( dst, cameraImage );
+            cameraImage.update();
+        }
+        
         updateSettings();
         trackPeople();
     }
@@ -304,8 +362,6 @@ namespace ofxTSPS {
         }
         //send osc kill message if enabled
         if (bOscEnabled){
-            cout<<"outchea"<<endl;
-            cout<<trackedPeople.size()<<endl;
             oscClient.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
         };
         

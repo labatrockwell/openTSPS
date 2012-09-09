@@ -21,6 +21,9 @@ namespace ofxTSPS {
         videoDirectory = "videos";
         bReloadVideoFiles = true;
         
+        // image vars
+        bFlipX = bFlipY = bInvert = false;
+        
         // background
         bLearnBackground            = false;
         captureSeconds              = 1;

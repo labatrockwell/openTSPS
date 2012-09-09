@@ -57,6 +57,8 @@ namespace ofxTSPS {
         bool    bReloadVideoFiles;
         
         // image vars
+        bool    bFlipX, bFlipY;
+        bool    bInvert;
         int     smooth;
         int     highpassBlur;
         int     highpassNoise;
