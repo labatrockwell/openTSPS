@@ -223,11 +223,14 @@
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Processor.cpp">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Events.cpp">
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\LWSEvents.cpp">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TSPSEvents.cpp">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    <ClCompile Include="src\TSPSDelegate.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -452,6 +455,12 @@
     </Filter>
     <Filter Include="addons\third-party\ofxTuioWrapper\src\oscpack\include\osc">
       <UniqueIdentifier>{92a51fd0-2ebf-4755-b7fd-aa6a8d107b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs">
+      <UniqueIdentifier>{5708aeb3-b98a-41c0-93f1-0f445f454d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs\libfreenect">
+      <UniqueIdentifier>{0d7e792a-6ddc-41ca-b0c5-96c3929ed0d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1310,11 +1319,24 @@
     <ClInclude Include="..\..\addons\ofxTuioWrapper\src\core\TuioTime.h">
       <Filter>addons\third-party\ofxTuioWrapper\src\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\Events.h">
-      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h">
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\LWSEvents.h">
       <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\TSPSEvents.h">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TSPSDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010\freenect.dll">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010\freenect.lib">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect</Filter>
+    </Library>
   </ItemGroup>
 </Project>
