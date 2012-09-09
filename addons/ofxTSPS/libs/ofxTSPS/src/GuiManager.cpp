@@ -139,9 +139,9 @@ namespace ofxTSPS {
         //panel.addToggle("use kinect", "USE_KINECT", true);
         
         vector<string>source_types;
-        source_types.push_back("ofVideoGrabber");
-        source_types.push_back("ofVideoPlayer");
-        source_types.push_back("ofxKinect");
+        source_types.push_back("Web Camera");
+        source_types.push_back("Video File");
+        source_types.push_back("Kinect");
         source_types.push_back("custom");
         
         panel.addMultiToggle("source type", "SOURCE_TYPE", 0, source_types);

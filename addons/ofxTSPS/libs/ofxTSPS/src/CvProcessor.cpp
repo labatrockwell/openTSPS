@@ -203,6 +203,17 @@ namespace ofxTSPS {
                     p->lowest.z = ( p->lowest.z * .7) + ( minVal ) * .3;            
                 }
                 
+                // cap highest + lowest
+                p->highest.x = (p->highest.x > tspsWidth ? tspsWidth : p->highest.x);
+                p->highest.x = (p->highest.x < 0 ? 0 : p->highest.x);
+                p->highest.y = (p->highest.y > tspsHeight ? tspsHeight : p->highest.y);
+                p->highest.y = (p->highest.y < 0 ? 0 : p->highest.y);
+                
+                p->lowest.x = (p->lowest.x > tspsWidth ? tspsWidth : p->lowest.x);
+                p->lowest.x = (p->lowest.x < 0 ? 0 : p->highest.x);
+                p->lowest.y = (p->lowest.y > tspsHeight ? tspsHeight : p->lowest.y);
+                p->lowest.y = (p->lowest.y < 0 ? 0 : p->highest.y);
+                
                 // ROI for opticalflow
                 ofRectangle roi = p->getBoundingRectNormalized(tspsWidth, tspsHeight);
                 roi.x *= flow.getWidth();
@@ -255,7 +266,7 @@ namespace ofxTSPS {
         }
         
         // delete old blobs
-        for (int i=0; i<trackedPeople->size(); i++){
+        for (int i=trackedPeople->size()-1; i>=0; i--){
             Person* p = (*trackedPeople)[i];
             EventArgs args;
             args.person = p;
