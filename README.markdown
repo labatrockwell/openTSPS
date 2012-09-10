@@ -35,6 +35,14 @@ Compiling:
 3. open the project for your platform (Xcode of vs2010) in openTSPS/standalone/basic
 4. compile and run!
 
+Build Script
+------------
+* (OS X) - You can alternately build all of the binaries, the Processing library, and zip up all examples by running the build script
+   * cd /Directory/of/openTSPS/build
+   * bash build.sh VERSION_NUMBER (e.g. 1.3)
+   * this will place 4 zip files in openTSPS/releases
+   * note: you must have Xcode installed for this to work!
+
 Troubleshooting
 ------------
 * If you have trouble compiling, experience crashes, or need any general help, please visit the [TSPS Forum] (http://opentsps.com/forum)
