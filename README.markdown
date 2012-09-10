@@ -1,6 +1,10 @@
 About
 ------------
-TSPS is a toolkit for sensing people in spaces. It uses openCV to analyze a camera, kinect, or video data, and sends what it finds via OSC, TCP, TUIO, or Websockets. 
+TSPS is a toolkit for sensing people in spaces meant for both prototyping and permanent installations. 
+It uses openCV to analyze a camera, kinect, or video data, and sends what it finds via OSC, TCP, TUIO, or Websockets.
+There are example TSPS clients in Processing, Javascript, Flash, Quartz composer, and many others! 
+
+[http://openTSPS.com](http://openTSPS.com)
 
 Installing:
 ------------
