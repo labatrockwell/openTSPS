@@ -5,7 +5,7 @@ TSPS is a toolkit for sensing people in spaces. It uses openCV to analyze a came
 Installing:
 ------------
 
-* Mac OS X
+* Mac OS X - 10.6+
   * web camera, video files, or Kinect: 
     * download and extract openTSPS_1.3_mac.zip
     * run openTSPS/openTSPS.app
@@ -15,6 +15,7 @@ Installing:
       * easiest way is to use the package from Sensecast [http://sensecast.com/files/Sensecast.and.Libs.Installer.v.0.02.dmg](http://sensecast.com/files/Sensecast.and.Libs.Installer.v.0.02.dmg)   
 
 * Windows
+  * Tested with Windows 7 
   * web camera, video files: 
     * download and extract openTSPS_1.3_win.zip
     * run openTSPS.exe
