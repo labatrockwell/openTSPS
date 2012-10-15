@@ -3,6 +3,7 @@ package tsps;
 import processing.core.PApplet;
 import processing.core.PVector;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TSPSPerson
 {
@@ -42,14 +43,15 @@ public class TSPSPerson
 		centroid 	= p.centroid;
 		velocity 	= p.velocity;
 		opticalFlow = p.opticalFlow;
-		contours 	= p.contours;
+		contours    = p.contours;
 		highest		= p.highest;
 	}
 
 	public void draw(){
 		// draw rect based on person's detected size
     	// dimensions from TSPS are 0-1, so we multiply by window width and height
-      	app.fill(120,120,0);
+      	app.noFill();
+		app.stroke(255,100);
       	app.rect(boundingRect.x*app.width, boundingRect.y*app.height, boundingRect.width*app.width, boundingRect.height*app.height);		
       
     	// draw circle based on person's centroid (also from 0-1)
