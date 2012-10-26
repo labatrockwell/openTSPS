@@ -40,6 +40,7 @@
 		2EDF65F91639F7A000329C79 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDF65EA1639F7A000329C79 /* CoreVideo.framework */; };
 		2EDF65FA1639F7A000329C79 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDF65EB1639F7A000329C79 /* QTKit.framework */; };
 		2EF4183D163B20D300E13227 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2EDF65DB1639F78A00329C79 /* GLUT.framework */; };
+		2EF41841163B348100E13227 /* SwipeDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4183F163B348100E13227 /* SwipeDetector.cpp */; };
 		A92EE0C715FD288900C0A11B /* TSPSEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92EE0C615FD288900C0A11B /* TSPSEvents.cpp */; };
 		A948586415C470BD00761D1C /* tspsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A948586215C470BC00761D1C /* tspsApp.cpp */; };
 		A94859A615C470E800761D1C /* opencv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A948591A15C470E700761D1C /* opencv.a */; };
@@ -199,6 +200,8 @@
 		2EDF65EB1639F7A000329C79 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = ../../../../../../../../System/Library/Frameworks/QTKit.framework; sourceTree = "<group>"; };
 		2EF41836163AE44400E13227 /* ofParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofParameter.h; path = ../../../addons/ofxGui/src/ofParameter.h; sourceTree = "<group>"; };
 		2EF4183E163B257300E13227 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		2EF4183F163B348100E13227 /* SwipeDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwipeDetector.cpp; sourceTree = "<group>"; };
+		2EF41840163B348100E13227 /* SwipeDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeDetector.h; sourceTree = "<group>"; };
 		A92EE0C515FD287400C0A11B /* TSPSEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPSEvents.h; sourceTree = "<group>"; };
 		A92EE0C615FD288900C0A11B /* TSPSEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSPSEvents.cpp; sourceTree = "<group>"; };
 		A948586215C470BC00761D1C /* tspsApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tspsApp.cpp; sourceTree = "<group>"; };
@@ -2316,6 +2319,8 @@
 				A948586315C470BC00761D1C /* tspsApp.h */,
 				A948586215C470BC00761D1C /* tspsApp.cpp */,
 				A98609F215F9874800B70F26 /* OpenNI.h */,
+				2EF4183F163B348100E13227 /* SwipeDetector.cpp */,
+				2EF41840163B348100E13227 /* SwipeDetector.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -2499,6 +2504,7 @@
 				A9860C6F15F989D400B70F26 /* ofxOpenNI.cpp in Sources */,
 				A9860C7015F989D400B70F26 /* ofxOpenNITypes.cpp in Sources */,
 				A92EE0C715FD288900C0A11B /* TSPSEvents.cpp in Sources */,
+				2EF41841163B348100E13227 /* SwipeDetector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

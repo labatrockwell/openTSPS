@@ -11,11 +11,19 @@ void tspsApp::setup(){
     
     // setup OpenNI source
     source.openSource(640,480);
-    
+        
     // add gestures + hands, which we will send as custom data
     source.addGestureGenerator();
     source.addHandsGenerator();
     source.addAllGestures();
+    
+    // setup swipe detector
+    swipeDetector.setup( source );
+    ofAddListener(swipeDetector.onSwipeUpEvent, this, &tspsApp::onSwipeUp);
+    ofAddListener(swipeDetector.onSwipeDownEvent, this, &tspsApp::onSwipeDown);
+    ofAddListener(swipeDetector.onSwipeLeftEvent, this, &tspsApp::onSwipeLeft);
+    ofAddListener(swipeDetector.onSwipeRightEvent, this, &tspsApp::onSwipeRight);
+    
     ofAddListener(source.gestureEvent, this, &tspsApp::onOpenNIGesture);
     ofAddListener(source.handEvent, this, &tspsApp::onOpenNIHand);
     
@@ -40,6 +48,7 @@ void tspsApp::setup(){
 void tspsApp::update(){
     source.update();
     peopleTracker.update();
+    swipeDetector.update();
 }
 
 //--------------------------------------------------------------
@@ -113,6 +122,46 @@ void tspsApp::onOpenNIHand( ofxOpenNIHandEvent & e ){
         // trigger custom event!
         peopleTracker.triggerCustomEvent( "openNIHandStopped", params );
     }
+}
+
+
+//--------------------------------------------------------------
+void tspsApp::onSwipeUp( ofxSwipeEvent & e ){
+    map<string,string> params;
+    params["velocityX"] = ofToString(e.velocity.x);
+    params["velocityY"] = ofToString(e.velocity.y);
+    params["angle"]     = ofToString(e.angle);
+    peopleTracker.triggerCustomEvent( "openNIHandStopped", params );
+    
+}
+
+//--------------------------------------------------------------
+void tspsApp::onSwipeDown( ofxSwipeEvent & e ){
+    map<string,string> params;
+    params["velocityX"] = ofToString(e.velocity.x);
+    params["velocityY"] = ofToString(e.velocity.y);
+    params["angle"]     = ofToString(e.angle);
+    peopleTracker.triggerCustomEvent( "openNIHandStopped", params );
+    
+}
+
+//--------------------------------------------------------------
+void tspsApp::onSwipeLeft( ofxSwipeEvent & e ){
+    map<string,string> params;
+    params["velocityX"] = ofToString(e.velocity.x);
+    params["velocityY"] = ofToString(e.velocity.y);
+    params["angle"]     = ofToString(e.angle);
+    peopleTracker.triggerCustomEvent( "openNIHandStopped", params );
+    
+}
+
+//--------------------------------------------------------------
+void tspsApp::onSwipeRight( ofxSwipeEvent & e ){
+    map<string,string> params;
+    params["velocityX"] = ofToString(e.velocity.x);
+    params["velocityY"] = ofToString(e.velocity.y);
+    params["angle"]     = ofToString(e.angle);
+    peopleTracker.triggerCustomEvent( "openNIHandStopped", params );    
 }
 
 //--------------------------------------------------------------
