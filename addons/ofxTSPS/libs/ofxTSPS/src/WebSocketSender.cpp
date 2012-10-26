@@ -95,7 +95,7 @@ namespace ofxTSPS {
     void WebSocketSender::send(){
         for (int i=0; i<toSend.size(); i++){
             for (int j=0; j<sockets.size(); j++){
-                if ( bServerSetup && server != NULL )sockets[j]->send(toSend[i].msg); 
+                if ( bServerSetup && server != NULL ) sockets[j]->send(toSend[i].msg); 
             }
             if ( bClientSetup && client != NULL ){
                 client->send( toSend[i].msg );
@@ -138,6 +138,40 @@ namespace ofxTSPS {
         toSend.push_back(WebSocketMessage(p->getJSON("personWillLeave", centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
     }
     
+    //---------------------------------------------------------------------------
+    void WebSocketSender::customEvent( string eventName, string eventData ){
+        toSend.push_back(WebSocketMessage("{\"type\":\"customEvent\",\"name\":\"" + eventName + "\", \"data\":\" " + eventData + " \"}"));
+    }
+    
+    //---------------------------------------------------------------------------
+    void WebSocketSender::customEvent( string eventName, vector<string>params ){
+        string jsonString = "{\"type\":\"customEvent\",\"name\":\"" + eventName + "\", \"data\":{ \"params\":[";
+        for ( int i=0; i<params.size(); i++){
+            jsonString += "\"" + params[i] + "\"";
+            if ( i + 1 < params.size() ){
+                jsonString += ",";
+            }
+        }
+        jsonString += "]}}";
+        toSend.push_back(WebSocketMessage(jsonString));
+    }
+    
+    //--------------------------------------------------------------
+    void WebSocketSender::customEvent( string eventName, map<string,string>params ){
+        string jsonString = "{\"type\":\"customEvent\",\"name\":\"" + eventName + "\", \"data\":{";
+                
+        map<string,string>::iterator it;
+        int index = 0;
+        for ( it = params.begin(); it != params.end(); it){
+            
+            jsonString += "\"" + (*it).first + "\":\" " + (*it).second + "\"";
+            if ( ++it != params.end() ){
+                jsonString += ",";
+            }
+        }
+        jsonString += "}}";
+        toSend.push_back(WebSocketMessage(jsonString));
+    }
     
     //---------------------------------------------------------------------------
     // WEBSOCKET EVENTS

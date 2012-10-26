@@ -299,6 +299,52 @@ namespace ofxTSPS {
         tspsProcessor = _processor;
     }
     
+#pragma mark events
+    
+    void PeopleTracker::triggerCustomEvent( string eventName, string param ){
+        if(bTuioEnabled){
+            // TUIO doesn't care about custom events
+        }
+        if(bOscEnabled){
+            oscClient.customEvent( eventName, param );
+        }
+        if(bTcpEnabled){
+            tcpClient.customEvent( eventName, param );
+        }
+        if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+            webSocketServer.customEvent( eventName, param );
+        }
+    }
+    
+    void PeopleTracker::triggerCustomEvent( string eventName, vector<string>params ){
+        if(bTuioEnabled){
+            // TUIO doesn't care about custom events
+        }
+        if(bOscEnabled){
+            oscClient.customEvent( eventName, params );
+        }
+        if(bTcpEnabled){
+            tcpClient.customEvent( eventName, params );
+        }
+        if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+            webSocketServer.customEvent( eventName, params );
+        }
+    }
+    
+    void PeopleTracker::triggerCustomEvent( string eventName, map<string,string>params ){
+        if(bTuioEnabled){
+            // TUIO doesn't care about custom events
+        }
+        if(bOscEnabled){
+            oscClient.customEvent( eventName, params );
+        }
+        if(bTcpEnabled){
+            tcpClient.customEvent( eventName, params );
+        }
+        if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+            webSocketServer.customEvent( eventName, params );
+        }
+    }
     
     //---------------------------------------------------------------------------
     // events called from processor
@@ -432,6 +478,8 @@ namespace ofxTSPS {
                 }
                 currentSource = new VideoFile();
                 break;
+            default:
+                break;
         }
         currentSource->setSourceIndex( which );
         bSourceSetup = currentSource->openSource( width, height, etc );
@@ -449,6 +497,8 @@ namespace ofxTSPS {
                 break;
             case CAMERA_CUSTOM:
                 setUseCustomSource();
+                break;
+            default:
                 break;
         }
         

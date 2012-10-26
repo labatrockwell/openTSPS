@@ -34,6 +34,8 @@
 
 #include "ofPoint.h"
 
+class ofxOscMessage;
+
 namespace ofxTSPS {
     class Scene {
     public:
@@ -42,5 +44,7 @@ namespace ofxTSPS {
         
         ofPoint averageMotion;
         float percentCovered;
+        
+        ofxOscMessage getOscMessage( string address );
     };
 }

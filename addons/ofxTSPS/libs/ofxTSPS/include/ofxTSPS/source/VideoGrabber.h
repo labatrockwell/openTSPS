@@ -23,7 +23,7 @@ namespace ofxTSPS {
         
         bool openSource( int width, int height, string etc="" ){
             setDeviceID(sourceIndex);
-            bool setup = initGrabber(width,height);
+            bool setup = false;//initGrabber(width,height);
             return setup;
         }
         

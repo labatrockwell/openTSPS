@@ -87,6 +87,47 @@ namespace ofxTSPS {
         currentString += message.str();
     };
     
+    
+    //--------------------------------------------------------------
+    void TCPSender::customEvent( string eventName, string eventData ){
+        stringstream message;
+        message<<"TSPS/customEvent/"<<";";
+        message<<"name/"<<eventName<<";data/"<<eventData<<";";
+        message<<"\\";
+        
+        currentString += message.str();
+    }
+    
+    //--------------------------------------------------------------
+    void TCPSender::customEvent( string eventName, vector<string>params ){
+        stringstream message;
+        message<<"TSPS/customEvent/"<<";";
+        message<<"name/"<<eventName<<";data/";
+        for ( int i=0, len=params.size(); i<len; i++ ){
+            message<<params[i];
+            if ( i +1 < len ) message<<",";
+        }
+        message<<";\\";
+        
+        currentString += message.str();
+    }
+    
+    //--------------------------------------------------------------
+    void TCPSender::customEvent( string eventName, map<string,string>params ){
+        stringstream message;
+        message<<"TSPS/customEvent/"<<";";
+        message<<"name/"<<eventName<<";data/";
+        
+        map<string,string>::iterator it;
+        
+        for ( it = params.begin(); it != params.end(); it++){
+            message<<(*it).first<<"/"<<(*it).second<<";";
+        }
+        message<<"\\";
+        
+        currentString += message.str();
+    }
+    
     /***************************************************************
      GET PERSON STRING (so we don't have to write this so many times)
      ***************************************************************/

@@ -185,6 +185,11 @@ namespace ofxTSPS {
             void setActiveDimensions ( int actWidth, int actHeight);	
             bool loadFont(string fontName, int fontSize);
             
+            // trigger custom event(s)
+            void triggerCustomEvent( string eventName, string param );
+            void triggerCustomEvent( string eventName, vector<string>params );
+            void triggerCustomEvent( string eventName, map<string,string>params );
+        
             // for accessing the OSC sender whose parameters are adjusted in the GUI
             OscSender* getOSCsender(); 
         

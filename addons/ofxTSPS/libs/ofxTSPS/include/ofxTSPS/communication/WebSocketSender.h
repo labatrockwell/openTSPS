@@ -42,6 +42,11 @@ namespace ofxTSPS {
         void personUpdated ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );	
         void personWillLeave ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );
         
+        // custom data: comes across as /TSPS/CustomEvent/
+        void customEvent( string eventName, string eventData );
+        void customEvent( string eventName, vector<string>params );
+        void customEvent( string eventName, map<string,string>params );
+        
     protected:
         vector<WebSocketMessage> toSend;
         bool bClientSetup, bServerSetup;

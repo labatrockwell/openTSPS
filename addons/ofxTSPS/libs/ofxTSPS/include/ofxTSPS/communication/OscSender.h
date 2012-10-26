@@ -50,8 +50,18 @@
  argument 13: opticalFlowVectorAccumulation.y;
  argument 14+ : contours (if enabled)
  
- //
+ // TSPS 1.3.2: Scene + CustomEvent
  
+ address: /TSPS/scene
+ argument 0: currentTime
+ argument 1: percentCovered
+ argument 2: numPeople
+ argument 3: averageMotion.x
+ argument 4: averageMotion.y
+ 
+ address: /TSPS/customEvent
+ argument 0: {string} eventName
+ argument 1: {string} eventData 
  
  ***********************************************************************/
 
@@ -61,6 +71,7 @@
 
 namespace ofxTSPS {
     class Person;
+    class Scene;
     class OscSender : public ofxOscSender
     {
         public :
@@ -80,8 +91,15 @@ namespace ofxTSPS {
         void personUpdated ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );
         void personWillLeave ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours = false );
         
+        // custom data: comes across as /TSPS/CustomEvent/
+        void customEvent( string eventName, string eventData );
+        void customEvent( string eventName, vector<string>params );
+        void customEvent( string eventName, map<string,string>params );
+        
+        // scene data
+        void sceneUpdated( Scene s );
+        
         void send ( ofxOscMessage m );
         void reroute(string _ip, int _port);
-        
     };
 };
