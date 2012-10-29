@@ -26,6 +26,7 @@ public class TSPS {
 	private final PApplet parent;
 	private OscP5 receiver;
 	public Hashtable<Integer, TSPSPerson> people;
+	private Hashtable<Integer, TSPSPerson> _currentPeople;
 
 	private Method personEntered;
 	private Method personUpdated;
@@ -38,6 +39,7 @@ public class TSPS {
 		parent = _parent;
 		receiver = new OscP5(this, defaultPort);
 		people = new Hashtable<Integer, TSPSPerson>();
+		_currentPeople = new Hashtable<Integer, TSPSPerson>();
 		registerEvents();
 		parent.registerPre(this);
 	}
@@ -47,28 +49,34 @@ public class TSPS {
 		parent = _parent;
 		receiver = new OscP5(this, port);
 		people = new Hashtable<Integer, TSPSPerson>();
+		_currentPeople = new Hashtable<Integer, TSPSPerson>();
 
 		registerEvents();
 		parent.registerPre(this);
 	}	
 
 	public void pre(){
+
 		// get enumeration, which helps us loop through tsps.people
-		Enumeration e = people.keys();
+		Enumeration e = _currentPeople.keys();
 		  
 		// loop through people
 		while (e.hasMoreElements())
 		{
 		    // get person
 		    int id = (Integer) e.nextElement();
-		    TSPSPerson person = (TSPSPerson) people.get( id );
+		    TSPSPerson person = (TSPSPerson) _currentPeople.get( id );
+
 		    person.age -= 10;
 		    // haven't gotten an update in ~2 seconds
 		    if ( person.age < -120 ){
 		    	callPersonLeft(person);
-				people.remove(person.id);
+				_currentPeople.remove(person.id);
 		    }
 		}
+		// copy all to public hashtable
+		people.clear();
+		people.putAll(_currentPeople);
 	}
 
 	/**
@@ -111,6 +119,8 @@ public class TSPS {
 			point.y = theOscMessage.get(i + 1).floatValue();
 			p.contours.add(point);
 		}
+	    // remove all null contours (where are these coming from?!)
+	    p.contours.removeAll(Collections.singleton(null));
 	}
 
 	private void registerEvents() {
@@ -140,7 +150,7 @@ public class TSPS {
 			// system yet)
 		} else if (theOscMessage.checkAddrPattern("/TSPS/personUpdated/")) {
 
-			TSPSPerson p = people.get(theOscMessage.get(0).intValue());
+			TSPSPerson p = _currentPeople.get(theOscMessage.get(0).intValue());
 			boolean personExists = (p != null);
 			if (!personExists) {
 				p = new TSPSPerson( parent );
@@ -156,20 +166,20 @@ public class TSPS {
 
 		// killing an object
 		else if (theOscMessage.checkAddrPattern("/TSPS/personWillLeave/")) {
-			TSPSPerson p = people.get(theOscMessage.get(0).intValue());
+			TSPSPerson p = 
+			_currentPeople.get(theOscMessage.get(0).intValue());
 			if (p == null) {
 				return;
 			}
 			updatePerson(p, theOscMessage);
 
 			callPersonLeft(p);
-
-			people.remove(p.id);
+			_currentPeople.remove(p.id);
 		}
 	}
 
 	private void callPersonEntered(TSPSPerson p) {
-		people.put(p.id, p);
+		_currentPeople.put(p.id, p);
 		if (personEntered != null) {
 			try {
 				personEntered.invoke(parent, new Object[] { p });

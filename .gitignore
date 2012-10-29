@@ -10,6 +10,8 @@ openFrameworks.a
 openFrameworksDebug.a
 openFrameworksUniversal.a
 *.app/`
+stand
+standalone/*/bin/data/videos/*
 
 #codeblocks files
 apps/*/*/*.layout
