@@ -1,6 +1,9 @@
 # keep just one copy of openNI stuff (see readme for individual apps)
 standalone/*/bin/data/openni/*
 
+#ignore non-standard standalone apps see standalone/.gitignore
+standalone/*
+
 *.exe*.exp*.sdf*.mode1v3
 *.pbxuser
 */*/build/
