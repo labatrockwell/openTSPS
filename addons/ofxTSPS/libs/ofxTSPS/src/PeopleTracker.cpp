@@ -223,27 +223,6 @@ namespace ofxTSPS {
                 }
             }
             
-            // mirror?
-            if ( p_Settings->bFlipX || p_Settings->bFlipY ){
-                int mode = 1;
-                if ( p_Settings->bFlipX && p_Settings->bFlipY ) mode = -1;
-                else if ( p_Settings->bFlipY ) mode = 0;
-                
-                cv::Mat src = ofxCv::toCv( cameraImage ), dst = ofxCv::toCv( cameraImage );
-                cv::flip( src, dst, mode );
-                ofxCv::toOf( dst, cameraImage );
-                cameraImage.update();
-            }
-            
-            // invert
-            if ( p_Settings->bInvert ){
-                ofPixelsRef pix = cameraImage.getPixelsRef();
-                for (int i=0, len=pix.getWidth()*pix.getHeight()*pix.getNumChannels();i<len;i++){
-                    pix[i]=255-pix[i];
-                }
-                cameraImage.update();
-            }
-            
             trackPeople();
         }
     }
@@ -271,26 +250,6 @@ namespace ofxTSPS {
             } else {
                 cameraImage.setFromPixels( currentSource->getPixelsRef() );
             }
-        }
-        
-        // mirror?
-        if ( p_Settings->bFlipX || p_Settings->bFlipY ){
-            int mode = 1;
-            if ( p_Settings->bFlipX && p_Settings->bFlipY ) mode = -1;
-            else if ( p_Settings->bFlipY ) mode = 0;
-            
-            cv::Mat src = ofxCv::toCv( cameraImage ), dst = ofxCv::toCv( cameraImage );
-            cv::flip( src, dst, mode );
-            ofxCv::toOf( dst, cameraImage );
-            cameraImage.update();
-        }
-        
-        // invert
-        if ( p_Settings->bInvert ){
-            cv::Mat src = ofxCv::toCv( cameraImage ), dst = ofxCv::toCv( cameraImage );
-            cv::invert( src, dst );
-            ofxCv::toOf( dst, cameraImage );
-            cameraImage.update();
         }
         
         updateSettings();
@@ -758,6 +717,27 @@ namespace ofxTSPS {
         //colorImage = grayImage;
         //colorImageWarped = colorImage;
         getQuadSubImage(cameraImage, warpedImage, p_Settings->quadWarpScaled, OF_IMAGE_GRAYSCALE);	
+        
+        // mirror?
+        if ( p_Settings->bFlipX || p_Settings->bFlipY ){
+            int mode = 1;
+            if ( p_Settings->bFlipX && p_Settings->bFlipY ) mode = -1;
+            else if ( p_Settings->bFlipY ) mode = 0;
+            
+            cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
+            cv::flip( src, dst, mode );
+            ofxCv::toOf( dst, warpedImage );
+            warpedImage.update();
+        }
+        
+        // invert
+        if ( p_Settings->bInvert ){
+            ofPixelsRef pix = warpedImage.getPixelsRef();
+            for (int i=0, len=pix.getWidth()*pix.getHeight()*pix.getNumChannels();i<len;i++){
+                pix[i]=255-pix[i];
+            }
+            warpedImage.update();
+        }
         
         // update scaled down images
         grayDiff.setFromPixels(warpedImage.getPixelsRef());
