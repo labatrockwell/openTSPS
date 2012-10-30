@@ -1201,6 +1201,8 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void PeopleTracker::setActiveView( int viewIndex ){
         int oldActiveView = activeViewIndex;
+        if ( viewIndex < CAMERA_SOURCE_VIEW ) viewIndex = CAMERA_SOURCE_VIEW;
+        else if ( viewIndex > DATA_VIEW ) viewIndex = DATA_VIEW;
         activeViewIndex = viewIndex;
         
         if (activeViewIndex == CAMERA_SOURCE_VIEW){
