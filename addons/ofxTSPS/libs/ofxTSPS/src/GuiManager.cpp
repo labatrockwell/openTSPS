@@ -648,7 +648,7 @@ namespace ofxTSPS {
         settings.currentXmlFile = panel.getCurrentXMLFile();
         
         //get current panel
-        settings.lastCurrentPanel = settings.currentPanel;
+        //settings.lastCurrentPanel = settings.currentPanel;
         settings.currentPanel = panel.getSelectedPanel();
     }
     

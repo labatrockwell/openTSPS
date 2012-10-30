@@ -725,7 +725,10 @@ namespace ofxTSPS {
         }
         
         //switch camera view if new panel is selected
-        if (p_Settings->currentPanel != p_Settings->lastCurrentPanel) setActiveView(p_Settings->currentPanel + 1);
+        if (p_Settings->currentPanel != p_Settings->lastCurrentPanel){
+            setActiveView(p_Settings->currentPanel + 1);
+            p_Settings->lastCurrentPanel = p_Settings->currentPanel;
+        }
         
         // Set the current view within the gui so the image can only be warped when in Camera View
         if (cameraView.isActive()) {
