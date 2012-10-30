@@ -12,7 +12,7 @@ ADDONS_PATH         = $(OF_PATH)/addons
 OFX_OPENCV_HEADERS  = $(ADDONS_PATH)/ofxOpenCv/libs/opencv/include/
 
 //ofxOsc
-OFX_OSC_INC         = $(ADDONS_PATH)ofxOsc/libs  $(ADDONS_PATH)/ofxOsc/libs/oscpack  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip/posix  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip/win32  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src/osc  $(ADDONS_PATH)/ofxOsc/src
+OFX_OSC_INC         = $(ADDONS_PATH)/ofxOsc/libs  $(ADDONS_PATH)/ofxOsc/libs/oscpack  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip/posix  $(ADDONS_PATH)/ofxOsc/libs/oscpack/src/osc  $(ADDONS_PATH)/ofxOsc/src
 
 // TSPS addons
 TSPS_ADDONS_PATH    = ../../addons

@@ -72,9 +72,14 @@ namespace ofxTSPS {
             sourceIndex = which;
         };
         
+        virtual string getCustomData(){
+            return customData;
+        }
+        
     protected:
         SourceType  type;
         int         sourceIndex;    // which camera are we opening
+        string      customData;     // storage like video file location, etc
         
         // mirrored by ofxTSPS::Processor
         // capabilities + settings

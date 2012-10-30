@@ -21,7 +21,8 @@ namespace ofxTSPS {
         bool openSource( int width, int height, string etc="" ){
             tspsWidth = width;
             tspsHeight = height;
-            bool loaded = loadMovie( etc );
+            customData = etc;
+            bool loaded = loadMovie( customData );
             if ( loaded ){
                 play();
             }

@@ -187,6 +187,9 @@ namespace ofxTSPS {
         // 3: Video File?
         } else if ( useVideoFile() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOFILE) ){
             setupSource( CAMERA_VIDEOFILE );
+        // 3.5: New video file?
+        } else if ( useVideoFile() && currentSource->getType() == CAMERA_VIDEOFILE && getVideoFile() != currentSource->getCustomData() ){
+            setupSource( CAMERA_VIDEOFILE );
         }
         
         // update source
