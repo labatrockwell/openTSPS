@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['max_5fhaar_5fghostframes',['MAX_HAAR_GHOSTFRAMES',['../_person_8cpp.html#a490387fc5a81e6361008a43a7886e18e',1,'Person.cpp']]],
+  ['maxblob',['maxBlob',['../classofx_t_s_p_s_1_1_settings.html#ae0f0635414e5903659fff8417e592ed3',1,'ofxTSPS::Settings']]],
+  ['maxblobarea',['maxBlobArea',['../classofx_t_s_p_s_1_1_processor.html#a43edb2910eec720052890166274ee6fb',1,'ofxTSPS::Processor']]],
+  ['maximize',['maximize',['../classofx_t_s_p_s_1_1_gui_manager.html#a288963a1f8fee32ac14536c366b73a5d',1,'ofxTSPS::GuiManager']]],
+  ['maximizebutton',['maximizeButton',['../classofx_t_s_p_s_1_1_gui_manager.html#a65a2a2ec7d7e45aad4460893a0957172',1,'ofxTSPS::GuiManager']]],
+  ['maxopticalflow',['maxOpticalFlow',['../classofx_t_s_p_s_1_1_settings.html#a1b38d12affb7d91866ba18ba2f47b490',1,'ofxTSPS::Settings']]],
+  ['minblob',['minBlob',['../classofx_t_s_p_s_1_1_settings.html#af13cd405618f86c51716b46ccc213926',1,'ofxTSPS::Settings']]],
+  ['minblobarea',['minBlobArea',['../classofx_t_s_p_s_1_1_processor.html#af13c8cd498108765ace7d861fb0c9d52',1,'ofxTSPS::Processor']]],
+  ['minimize',['minimize',['../classofx_t_s_p_s_1_1_gui_manager.html#a822fbf3a7bca770d472d70f8a68fa9c5',1,'ofxTSPS::GuiManager']]],
+  ['minimizebutton',['minimizeButton',['../classofx_t_s_p_s_1_1_gui_manager.html#a0e84007c3dd1e28383147b974ed85217',1,'ofxTSPS::GuiManager']]],
+  ['minopticalflow',['minOpticalFlow',['../classofx_t_s_p_s_1_1_settings.html#a88504a8945ce2c6a4db28dc4163807d3',1,'ofxTSPS::Settings']]],
+  ['mousedragged',['mouseDragged',['../classofx_t_s_p_s_1_1_gui_manager.html#a298c679d352338086475a67627dc1494',1,'ofxTSPS::GuiManager']]],
+  ['mousemoved',['mouseMoved',['../classofx_t_s_p_s_1_1_view.html#a1452b1d6d9da5822bf1da41d74e3021d',1,'ofxTSPS::View']]],
+  ['mousepressed',['mousePressed',['../classofx_t_s_p_s_1_1_gui_manager.html#a2480bc6d37d86ee61808190d4d85f499',1,'ofxTSPS::GuiManager::mousePressed()'],['../classofx_t_s_p_s_1_1_people_tracker.html#a2c0885b4b0e6c65ba5525e8e0ce0b555',1,'ofxTSPS::PeopleTracker::mousePressed()']]],
+  ['mousereleased',['mouseReleased',['../classofx_t_s_p_s_1_1_gui_manager.html#a5b2ba4f9a2be36cf6ff0083e79c8a109',1,'ofxTSPS::GuiManager']]],
+  ['moved',['moved',['../class_tuio_person_cursor.html#a00942f6ea910911be3bcbf03c7f8f2d5',1,'TuioPersonCursor']]],
+  ['msg',['msg',['../classofx_t_s_p_s_1_1_web_socket_message.html#a1e2d119af7006c31d0fc87f48b548d23',1,'ofxTSPS::WebSocketMessage']]],
+  ['mycursor',['myCursor',['../classofx_t_s_p_s_1_1_t_u_i_o_sender.html#ae849fb74dc4a0e002a1f916950cefb59',1,'ofxTSPS::TUIOSender']]]
+];

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['camerababyimage',['cameraBabyImage',['../classofx_t_s_p_s_1_1_cv_processor.html#acb62882d6ce16c1b30ebcef95acd876a',1,'ofxTSPS::CvProcessor']]],
+  ['cameraheight',['cameraHeight',['../classofx_t_s_p_s_1_1_gui_manager.html#a9e6465563702da1249eb700eaa3a1167',1,'ofxTSPS::GuiManager']]],
+  ['cameraimage',['cameraImage',['../classofx_t_s_p_s_1_1_cv_processor.html#adbbac6c0c4a19274d29a42816cb3b017',1,'ofxTSPS::CvProcessor::cameraImage()'],['../classofx_t_s_p_s_1_1_people_tracker.html#a6d10d2c1adaa6d71e5765451e4cd1782',1,'ofxTSPS::PeopleTracker::cameraImage()']]],
+  ['cameraindex',['cameraIndex',['../classofx_t_s_p_s_1_1_settings.html#af760eca5901667ccf758620052169d8e',1,'ofxTSPS::Settings']]],
+  ['camerasmallimage',['cameraSmallImage',['../classofx_t_s_p_s_1_1_cv_processor.html#ae47632f096afd726d267118b12f7c190',1,'ofxTSPS::CvProcessor']]],
+  ['cameratype',['cameraType',['../classofx_t_s_p_s_1_1_processor.html#aa16553ba8577c566e900ad713aa7d11a',1,'ofxTSPS::Processor']]],
+  ['cameraview',['cameraView',['../classofx_t_s_p_s_1_1_people_tracker.html#adc8a5494b4fb913f3cdfbcada5ec9f99',1,'ofxTSPS::PeopleTracker']]],
+  ['camerawidth',['cameraWidth',['../classofx_t_s_p_s_1_1_gui_manager.html#a6eb399bdebfce7a6a42cf1ae1855d174',1,'ofxTSPS::GuiManager']]],
+  ['captureseconds',['captureSeconds',['../classofx_t_s_p_s_1_1_settings.html#a6551cb733a0fa23199e512583c4bb313',1,'ofxTSPS::Settings']]],
+  ['centroid',['centroid',['../classofx_t_s_p_s_1_1_person.html#a61bb1b67906594bd7067fbaf5ff439ec',1,'ofxTSPS::Person']]],
+  ['client',['client',['../classofx_t_s_p_s_1_1_web_socket_sender.html#adf59d37d5e0f1617197ffbb7b2db83b9',1,'ofxTSPS::WebSocketSender']]],
+  ['color',['color',['../classofx_t_s_p_s_1_1_view.html#a231cc1b9e643be150ee28471c8d0365b',1,'ofxTSPS::View']]],
+  ['contour',['contour',['../classofx_t_s_p_s_1_1_person.html#a65247ef1096299e111a108d13a64f444',1,'ofxTSPS::Person']]],
+  ['contourfinder',['contourFinder',['../classofx_t_s_p_s_1_1_cv_processor.html#ae4c34f775983b2f3a415e502b7bafa2d',1,'ofxTSPS::CvProcessor::contourFinder()'],['../classofx_t_s_p_s_1_1_open_n_i_processor.html#a616c49c61643009b3faffcf5bd66df67',1,'ofxTSPS::OpenNIProcessor::contourFinder()']]],
+  ['currentpanel',['currentPanel',['../classofx_t_s_p_s_1_1_gui_manager.html#a3e1fbb811e47a26b98d10f6919352811',1,'ofxTSPS::GuiManager::currentPanel()'],['../classofx_t_s_p_s_1_1_settings.html#a26aa56cb94cb14f9788b87a894bcacf9',1,'ofxTSPS::Settings::currentPanel()']]],
+  ['currentsource',['currentSource',['../classofx_t_s_p_s_1_1_people_tracker.html#a735314bd5c0c006c4d935a4963e01a10',1,'ofxTSPS::PeopleTracker']]],
+  ['currentstring',['currentString',['../classofx_t_s_p_s_1_1_t_c_p_sender.html#af58abe21259dadab6574478e60cde7d5',1,'ofxTSPS::TCPSender']]],
+  ['currenttime',['currentTime',['../classofx_t_s_p_s_1_1_t_u_i_o_sender.html#a43165606cd963d79eb92d093a9a76d8b',1,'ofxTSPS::TUIOSender']]],
+  ['currentxmlfile',['currentXmlFile',['../classofx_t_s_p_s_1_1_settings.html#a138f3d3e333fdf8b60e4286e0e5dc679',1,'ofxTSPS::Settings']]],
+  ['customattributes',['customAttributes',['../classofx_t_s_p_s_1_1_person.html#ae3040c8a0586b19147f855a642c323c0',1,'ofxTSPS::Person']]],
+  ['custombuttons',['customButtons',['../classofx_t_s_p_s_1_1_gui_manager.html#aea30eda31bdc93258b2da2e96681f2c1',1,'ofxTSPS::GuiManager']]],
+  ['customdata',['customData',['../classofx_t_s_p_s_1_1_source.html#a5eeb168d404195d31c4a0bad870b89a0',1,'ofxTSPS::Source']]]
+];

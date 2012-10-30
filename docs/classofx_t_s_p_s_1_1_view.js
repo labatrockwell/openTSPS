@@ -1,0 +1,27 @@
+var classofx_t_s_p_s_1_1_view =
+[
+    [ "View", "classofx_t_s_p_s_1_1_view.html#a785a11df7cfcae0fa1ce5209dcdb945c", null ],
+    [ "~View", "classofx_t_s_p_s_1_1_view.html#a4adcc362e9b383f6e449db7adab1b2e2", null ],
+    [ "draw", "classofx_t_s_p_s_1_1_view.html#a77ef89f7f525edf445519e6f9f0789d7", null ],
+    [ "drawLarge", "classofx_t_s_p_s_1_1_view.html#ab79b70abc3520ed2a903cdbd64518994", null ],
+    [ "isActive", "classofx_t_s_p_s_1_1_view.html#a3a7ab09e60bcc60892084329c14a6ac6", null ],
+    [ "isInsideRect", "classofx_t_s_p_s_1_1_view.html#ae6488ef3e9d6239f8f3cfe5487c459ee", null ],
+    [ "loadFont", "classofx_t_s_p_s_1_1_view.html#a4c8cf5cf0fd106f7c549131df1822bc8", null ],
+    [ "mouseMoved", "classofx_t_s_p_s_1_1_view.html#a1452b1d6d9da5822bf1da41d74e3021d", null ],
+    [ "setActive", "classofx_t_s_p_s_1_1_view.html#a905080202bebb485850d58a907451a97", null ],
+    [ "setColor", "classofx_t_s_p_s_1_1_view.html#a353ac2eaa57e34a5c6dd26090237aed5", null ],
+    [ "setFont", "classofx_t_s_p_s_1_1_view.html#ac2566b9b73a1b995daf57ccde6dd279f", null ],
+    [ "setImage", "classofx_t_s_p_s_1_1_view.html#a85d4aad7816ce2a3d4057cfc03f9f996", null ],
+    [ "setTitle", "classofx_t_s_p_s_1_1_view.html#a28e97929dba66ea3a76fb5517f37d403", null ],
+    [ "setup", "classofx_t_s_p_s_1_1_view.html#af5028ec602379a107e381f6bb4effeae", null ],
+    [ "bActive", "classofx_t_s_p_s_1_1_view.html#a2c61be4d3bdb28a54ab0d85f3d276152", null ],
+    [ "bFontLoaded", "classofx_t_s_p_s_1_1_view.html#a556e4b63b568a1049c34160f74d5675a", null ],
+    [ "bGray", "classofx_t_s_p_s_1_1_view.html#afe5778718414e2de6a7add8bc345ad0b", null ],
+    [ "bImage", "classofx_t_s_p_s_1_1_view.html#a4985833a3bc1e9a32e98d8b5d56f99ec", null ],
+    [ "bRolled", "classofx_t_s_p_s_1_1_view.html#affa7e4310176671244be1da5804aeedd", null ],
+    [ "color", "classofx_t_s_p_s_1_1_view.html#a231cc1b9e643be150ee28471c8d0365b", null ],
+    [ "image", "classofx_t_s_p_s_1_1_view.html#a15c09856ccfa05013b882cf735d1a9a6", null ],
+    [ "p_font", "classofx_t_s_p_s_1_1_view.html#a0e41c44829271f339d20842f7c2ec7e9", null ],
+    [ "shortTitle", "classofx_t_s_p_s_1_1_view.html#adaab4ed309d35cb7dd9cb296b618fc6a", null ],
+    [ "title", "classofx_t_s_p_s_1_1_view.html#af0878bcc450d431983e1935eb70ec405", null ]
+];
