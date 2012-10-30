@@ -567,6 +567,7 @@ namespace ofxTSPS {
         p_Settings->webSocketUseSSL = bUseSSL;
         bWebSocketClientEnabled = webSocketServer.setupClient( host, port, false, channel);
         p_Settings->bSendWebSocketClient = bWebSocketClientEnabled;
+        
         gui.setValueS("WS_HOST", host);
         gui.setValueS("WS_PORT", ofToString( port ));
         gui.setValueS("WS_CHANNEL", channel);

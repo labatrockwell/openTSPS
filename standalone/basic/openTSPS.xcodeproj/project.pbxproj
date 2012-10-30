@@ -44,9 +44,6 @@
 		A9485F1115C4712C00761D1C /* Tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485BD515C4712900761D1C /* Tracker.cpp */; };
 		A9485F1215C4712C00761D1C /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485BD615C4712900761D1C /* Utilities.cpp */; };
 		A9485F1315C4712C00761D1C /* Wrappers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485BD715C4712900761D1C /* Wrappers.cpp */; };
-		A9485F1415C4712C00761D1C /* ofxCvHaarTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485BE015C4712900761D1C /* ofxCvHaarTracker.cpp */; };
-		A9485F1515C4712C00761D1C /* ofxCvHaarTrackerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485BE215C4712900761D1C /* ofxCvHaarTrackerItem.cpp */; };
-		A9485F1615C4712C00761D1C /* ofxLABCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485BE415C4712900761D1C /* ofxLABCvHaarFinder.cpp */; };
 		A9485F1A15C4712C00761D1C /* cameras.c in Sources */ = {isa = PBXBuildFile; fileRef = A9485C0415C4712900761D1C /* cameras.c */; };
 		A9485F1B15C4712C00761D1C /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = A9485C0715C4712900761D1C /* core.c */; };
 		A9485F1D15C4712D00761D1C /* registration.c in Sources */ = {isa = PBXBuildFile; fileRef = A9485C1115C4712900761D1C /* registration.c */; };
@@ -315,13 +312,6 @@
 		A9485BD815C4712900761D1C /* license.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.md; sourceTree = "<group>"; };
 		A9485BD915C4712900761D1C /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		A9485BDB15C4712900761D1C /* ofxCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCv.h; sourceTree = "<group>"; };
-		A9485BDE15C4712900761D1C /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		A9485BE015C4712900761D1C /* ofxCvHaarTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvHaarTracker.cpp; sourceTree = "<group>"; };
-		A9485BE115C4712900761D1C /* ofxCvHaarTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvHaarTracker.h; sourceTree = "<group>"; };
-		A9485BE215C4712900761D1C /* ofxCvHaarTrackerItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvHaarTrackerItem.cpp; sourceTree = "<group>"; };
-		A9485BE315C4712900761D1C /* ofxCvHaarTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvHaarTrackerItem.h; sourceTree = "<group>"; };
-		A9485BE415C4712900761D1C /* ofxLABCvHaarFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLABCvHaarFinder.cpp; sourceTree = "<group>"; };
-		A9485BE515C4712900761D1C /* ofxLABCvHaarFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLABCvHaarFinder.h; sourceTree = "<group>"; };
 		A9485C0315C4712900761D1C /* APACHE20 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = APACHE20; sourceTree = "<group>"; };
 		A9485C0415C4712900761D1C /* cameras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cameras.c; sourceTree = "<group>"; };
 		A9485C0515C4712900761D1C /* cameras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameras.h; sourceTree = "<group>"; };
@@ -624,7 +614,6 @@
 			isa = PBXGroup;
 			children = (
 				A9485A2F15C4712800761D1C /* ofxCv */,
-				A9485BDD15C4712900761D1C /* ofxCvHaarTracker */,
 				A9485BE615C4712900761D1C /* ofxKinect */,
 				A9485C5515C4712900761D1C /* ofxLabGui */,
 				A9485C7015C4712900761D1C /* ofxLibwebsockets */,
@@ -1122,29 +1111,6 @@
 			isa = PBXGroup;
 			children = (
 				A9485BDB15C4712900761D1C /* ofxCv.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		A9485BDD15C4712900761D1C /* ofxCvHaarTracker */ = {
-			isa = PBXGroup;
-			children = (
-				A9485BDE15C4712900761D1C /* install.xml */,
-				A9485BDF15C4712900761D1C /* src */,
-			);
-			name = ofxCvHaarTracker;
-			path = ../../addons/ofxCvHaarTracker;
-			sourceTree = "<group>";
-		};
-		A9485BDF15C4712900761D1C /* src */ = {
-			isa = PBXGroup;
-			children = (
-				A9485BE015C4712900761D1C /* ofxCvHaarTracker.cpp */,
-				A9485BE115C4712900761D1C /* ofxCvHaarTracker.h */,
-				A9485BE215C4712900761D1C /* ofxCvHaarTrackerItem.cpp */,
-				A9485BE315C4712900761D1C /* ofxCvHaarTrackerItem.h */,
-				A9485BE415C4712900761D1C /* ofxLABCvHaarFinder.cpp */,
-				A9485BE515C4712900761D1C /* ofxLABCvHaarFinder.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -2052,9 +2018,6 @@
 				A9485F1115C4712C00761D1C /* Tracker.cpp in Sources */,
 				A9485F1215C4712C00761D1C /* Utilities.cpp in Sources */,
 				A9485F1315C4712C00761D1C /* Wrappers.cpp in Sources */,
-				A9485F1415C4712C00761D1C /* ofxCvHaarTracker.cpp in Sources */,
-				A9485F1515C4712C00761D1C /* ofxCvHaarTrackerItem.cpp in Sources */,
-				A9485F1615C4712C00761D1C /* ofxLABCvHaarFinder.cpp in Sources */,
 				A9485F1A15C4712C00761D1C /* cameras.c in Sources */,
 				A9485F1B15C4712C00761D1C /* core.c in Sources */,
 				A9485F1D15C4712D00761D1C /* registration.c in Sources */,

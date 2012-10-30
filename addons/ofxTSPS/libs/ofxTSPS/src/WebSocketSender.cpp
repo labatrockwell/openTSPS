@@ -30,7 +30,6 @@ namespace ofxTSPS {
         port = _port;
         host = _host;
         //sockets.clear();
-        cout<<"setting up web socket client on port "<<port<<endl;
         
         // setup web socket server
         client = new ofxLibwebsockets::Client();
