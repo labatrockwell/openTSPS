@@ -233,8 +233,8 @@ namespace ofxTSPS {
         highpassGroup->seBaseColor(58,187,147);
         highpassGroup->setShowText(false);
         panel.addToggle("use highpass", "USE_HIGHPASS", true);
-        panel.addSlider("highpass blur:", "HIGHPASS_BLUR", 1, 1, 200, true);
-        panel.addSlider("highpass noise:", "HIGHPASS_NOISE", 1, 1, 30, true);
+        panel.addSlider("highpass filter:", "HIGHPASS_BLUR", 1, 1, 255, true);
+        panel.addSlider("highpass post-blur:", "HIGHPASS_NOISE", 1, 1, 30, true);
         
         guiTypeGroup * smoothingGroup = panel.addGroup("smoothing");		
         smoothingGroup->setBackgroundColor(148,129,85);
