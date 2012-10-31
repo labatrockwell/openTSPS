@@ -4,6 +4,9 @@ standalone/*/bin/data/openni/*
 #ignore non-standard standalone apps see standalone/.gitignore
 standalone/*
 
+#ignore auto-generated docs (see docs/readme)
+docs/html/*
+
 *.exe*.exp*.sdf*.mode1v3
 *.pbxuser
 */*/build/
