@@ -151,7 +151,17 @@ TSPS.Dispatcher.prototype.onPersonLeft  = function(person){};
 /** 
 	Creates a new TSPS person
 	@constructor
-*/
+	@property {integer} id persistent id from frame to frame
+	@property {integer} age how many frames has this person been in the system
+	@property {object} 	boundingrect {x,y,width,height} enclosing area 
+	@property {object} 	centroid center of mass of the person
+	@property {array} 	contours array of points {x,y} of contour shape
+	@property {number} 	depth raw depth from kinect
+	@property {object} 	haarrect bounding rectangle of detected feature
+	@property {object} 	opticalflow total optical flow in blob
+	@property {object} 	velocity most recent movement of centroid
+	@property {highest} highest point in a blob (brightest pixel, will really only work correctly with kinect)
+*/               
 
 TSPS.Person = function(){
 	this.id 			= -1;
@@ -167,6 +177,7 @@ TSPS.Person = function(){
 	this.haarrect 		= {"x":0, "y":0, "width":0, "height":0};
 	this.opticalflow 	= {"x":0, "y":0};
 	this.velocity		= {"x":0, "y":0};
+	this.highest		= {"x":0, "y":0};
 
 	this.update = function( person ){
 		for ( var prop in person ){

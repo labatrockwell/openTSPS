@@ -13,3 +13,6 @@
 [submodule "addons/ofxLibwebsockets"]
 	path = addons/ofxLibwebsockets
 	url = https://github.com/labatrockwell/ofxLibwebsockets.git
+[submodule "addons/ofxTSPSReceiver"]
+	path = addons/ofxTSPSReceiver
+	url = https://github.com/labatrockwell/ofxTSPSReceiver

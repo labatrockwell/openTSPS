@@ -42,13 +42,15 @@
  argument 9: boundingRect.y;
  argument 10: boundingRect.width;
  argument 11: boundingRect.height;
- argument 12: haarRect.x;           - will be 0 if hasHaar == false
- argument 13: haarRect.y;           - will be 0 if hasHaar == false
- argument 14: haarRect.width;       - will be 0 if hasHaar == false
- argument 15: haarRect.height;      - will be 0 if hasHaar == false
- argument 12: opticalFlowVectorAccumulation.x;
- argument 13: opticalFlowVectorAccumulation.y;
- argument 14+ : contours (if enabled)
+ argument 12: highest.x
+ argument 13: highest.y
+ argument 14: haarRect.x;           - will be 0 if hasHaar == false
+ argument 15: haarRect.y;           - will be 0 if hasHaar == false
+ argument 16: haarRect.width;       - will be 0 if hasHaar == false
+ argument 17: haarRect.height;      - will be 0 if hasHaar == false
+ argument 18: opticalFlowVectorAccumulation.x;
+ argument 19: opticalFlowVectorAccumulation.y;
+ argument 20+ : contours (if enabled)
  
  // TSPS 1.3.2: Scene + CustomEvent
  
