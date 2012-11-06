@@ -71,8 +71,6 @@
 		A9485F5E15C4712D00761D1C /* CvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E2F15C4712A00761D1C /* CvPerson.cpp */; };
 		A9485F5F15C4712D00761D1C /* CvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3015C4712A00761D1C /* CvProcessor.cpp */; };
 		A9485F6115C4712D00761D1C /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3215C4712A00761D1C /* GuiManager.cpp */; };
-		A9485F6215C4712D00761D1C /* OpenCvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3315C4712A00761D1C /* OpenCvPerson.cpp */; };
-		A9485F6315C4712D00761D1C /* OpenCvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3415C4712A00761D1C /* OpenCvProcessor.cpp */; };
 		A9485F6615C4712D00761D1C /* OscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3715C4712A00761D1C /* OscSender.cpp */; };
 		A9485F6715C4712D00761D1C /* PeopleTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3815C4712A00761D1C /* PeopleTracker.cpp */; };
 		A9485F6815C4712D00761D1C /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3915C4712A00761D1C /* Person.cpp */; };
@@ -472,8 +470,6 @@
 		A9485E1C15C4712A00761D1C /* CvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CvProcessor.h; sourceTree = "<group>"; };
 		A9485E1F15C4712A00761D1C /* GuiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManager.h; sourceTree = "<group>"; };
 		A9485E2015C4712A00761D1C /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		A9485E2215C4712A00761D1C /* OpenCvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvPerson.h; sourceTree = "<group>"; };
-		A9485E2315C4712A00761D1C /* OpenCvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCvProcessor.h; sourceTree = "<group>"; };
 		A9485E2715C4712A00761D1C /* PeopleTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTracker.h; sourceTree = "<group>"; };
 		A9485E2815C4712A00761D1C /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		A9485E2915C4712A00761D1C /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
@@ -483,8 +479,6 @@
 		A9485E2F15C4712A00761D1C /* CvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CvPerson.cpp; sourceTree = "<group>"; };
 		A9485E3015C4712A00761D1C /* CvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CvProcessor.cpp; sourceTree = "<group>"; };
 		A9485E3215C4712A00761D1C /* GuiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GuiManager.cpp; sourceTree = "<group>"; };
-		A9485E3315C4712A00761D1C /* OpenCvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCvPerson.cpp; sourceTree = "<group>"; };
-		A9485E3415C4712A00761D1C /* OpenCvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCvProcessor.cpp; sourceTree = "<group>"; };
 		A9485E3715C4712A00761D1C /* OscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscSender.cpp; sourceTree = "<group>"; };
 		A9485E3815C4712A00761D1C /* PeopleTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PeopleTracker.cpp; sourceTree = "<group>"; };
 		A9485E3915C4712A00761D1C /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
@@ -1580,7 +1574,6 @@
 				A9485E1915C4712A00761D1C /* Constants.h */,
 				A9485E1A15C4712A00761D1C /* cv */,
 				A9485E1E15C4712A00761D1C /* gui */,
-				A9485E2115C4712A00761D1C /* opencv */,
 				A9485E2715C4712A00761D1C /* PeopleTracker.h */,
 				A9485E2815C4712A00761D1C /* Person.h */,
 				A9485E2915C4712A00761D1C /* Processor.h */,
@@ -1621,15 +1614,6 @@
 			path = gui;
 			sourceTree = "<group>";
 		};
-		A9485E2115C4712A00761D1C /* opencv */ = {
-			isa = PBXGroup;
-			children = (
-				A9485E2215C4712A00761D1C /* OpenCvPerson.h */,
-				A9485E2315C4712A00761D1C /* OpenCvProcessor.h */,
-			);
-			path = opencv;
-			sourceTree = "<group>";
-		};
 		A9485E2B15C4712A00761D1C /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1645,8 +1629,6 @@
 				A9485E2F15C4712A00761D1C /* CvPerson.cpp */,
 				A9485E3015C4712A00761D1C /* CvProcessor.cpp */,
 				A9485E3215C4712A00761D1C /* GuiManager.cpp */,
-				A9485E3315C4712A00761D1C /* OpenCvPerson.cpp */,
-				A9485E3415C4712A00761D1C /* OpenCvProcessor.cpp */,
 				A9485E3715C4712A00761D1C /* OscSender.cpp */,
 				A9485E3815C4712A00761D1C /* PeopleTracker.cpp */,
 				A9485E3915C4712A00761D1C /* Person.cpp */,
@@ -2041,8 +2023,6 @@
 				A9485F5E15C4712D00761D1C /* CvPerson.cpp in Sources */,
 				A9485F5F15C4712D00761D1C /* CvProcessor.cpp in Sources */,
 				A9485F6115C4712D00761D1C /* GuiManager.cpp in Sources */,
-				A9485F6215C4712D00761D1C /* OpenCvPerson.cpp in Sources */,
-				A9485F6315C4712D00761D1C /* OpenCvProcessor.cpp in Sources */,
 				A9485F6615C4712D00761D1C /* OscSender.cpp in Sources */,
 				A9485F6715C4712D00761D1C /* PeopleTracker.cpp in Sources */,
 				A9485F6815C4712D00761D1C /* Person.cpp in Sources */,
