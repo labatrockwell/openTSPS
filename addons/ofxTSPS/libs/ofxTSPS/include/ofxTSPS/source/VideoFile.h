@@ -22,11 +22,11 @@ namespace ofxTSPS {
             tspsWidth = width;
             tspsHeight = height;
             customData = etc;
-            bool loaded = loadMovie( customData );
-            if ( loaded ){
+            bIsOpen = loadMovie( customData );
+            if ( bIsOpen ){
                 play();
             }
-            return loaded;
+            return bIsOpen;
         }
         
         void update(){

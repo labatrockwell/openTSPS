@@ -37,7 +37,8 @@ namespace ofxTSPS {
         
         bool openSource( int width, int height, string etc="" ){
             if (!bGrabberInited) init();
-            return open( sourceIndex );
+            bIsOpen = open( sourceIndex );
+            return bIsOpen;
         }
         
         //void update();

@@ -23,6 +23,7 @@ namespace ofxTSPS {
             bCanTrackHaar           = true;
             bCanTrackOpticalFlow    = true;
             bCanTrackSkeleton       = true;
+            bIsOpen                  = false;
         }
         
         // get capabilities
@@ -76,10 +77,16 @@ namespace ofxTSPS {
             return customData;
         }
         
+        virtual bool isOpen(){
+            return bIsOpen;
+        }
+        
     protected:
         SourceType  type;
         int         sourceIndex;    // which camera are we opening
         string      customData;     // storage like video file location, etc
+        
+        bool        bIsOpen;         // is source open yet?
         
         // mirrored by ofxTSPS::Processor
         // capabilities + settings

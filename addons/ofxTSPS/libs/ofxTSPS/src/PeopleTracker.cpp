@@ -194,7 +194,7 @@ namespace ofxTSPS {
         
         // update source
         bool bNewFrame = false;
-        if ( currentSource != NULL ){
+        if ( currentSource != NULL && currentSource->isOpen() ){
             currentSource->update();
             bNewFrame = currentSource->doProcessFrame();
         }
@@ -799,12 +799,22 @@ namespace ofxTSPS {
         //-----------------------
         
         // add depth if we've got it
-         for(int i = 0; i < trackedPeople.size(); i++){
+        ofShortPixels distancePixels;
+        if (currentSource->getType() == CAMERA_KINECT){
+            distancePixels = ((ofxKinect*)currentSource)->getRawDepthPixelsRef();
+        }
+        for(int i = 0; i < trackedPeople.size(); i++){
              ofxTSPS::Person* p = trackedPeople[i];
-             if (currentSource->getType() == CAMERA_KINECT){
+             if (currentSource->getType() == CAMERA_KINECT && currentSource->isOpen() && (p->highest.x > 0 && p->highest.y > 0)){
                  // distance is in mm, with the max val being 10 m
                  // scale it by max to get it in a 0-1 range
-                 p->depth = ((ofxKinect*)currentSource)->getDistanceAt( p->highest )/10000.0;
+                 ofPoint rounded(p->highest);
+                 rounded.x = (int) round(rounded.x);
+                 rounded.y = (int) round(rounded.y);
+                 // since ofxKinect seems to crash at getDistanceAt...
+                 if ( distancePixels.getWidth() > rounded.x && distancePixels.getHeight() > rounded.y){
+                     p->depth = ((ofxKinect*)currentSource)->getDistanceAt( rounded )/10000.0;
+                 }
              } else {
                  p->depth = p->highest.z / 255.0f;
              }
