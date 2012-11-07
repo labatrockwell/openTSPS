@@ -809,8 +809,8 @@ namespace ofxTSPS {
                  // distance is in mm, with the max val being 10 m
                  // scale it by max to get it in a 0-1 range
                  ofPoint rounded(p->highest);
-                 rounded.x = (int) round(rounded.x);
-                 rounded.y = (int) round(rounded.y);
+                 rounded.x = (int) (rounded.x);
+                 rounded.y = (int) (rounded.y);
                  // since ofxKinect seems to crash at getDistanceAt...
                  if ( distancePixels.getWidth() > rounded.x && distancePixels.getHeight() > rounded.y){
                      p->depth = ((ofxKinect*)currentSource)->getDistanceAt( rounded )/10000.0;
