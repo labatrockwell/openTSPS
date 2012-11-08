@@ -73,8 +73,11 @@ public class TSPSPerson
 		contours.clear();
 		for (int i=0; i<p.contours.size(); i++){
 			PVector pt = (PVector) p.contours.get(i);
-			PVector co = new PVector(pt.x, pt.y);
-			contours.add(co);
+			// why is this happening??
+			if ( pt != null ){
+				PVector co = new PVector(pt.x, pt.y);
+				contours.add(co);
+			}
 		}
 		dead 			= p.dead;
 	}
