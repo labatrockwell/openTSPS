@@ -75,16 +75,14 @@ buildExamples(){
 	# 1 - build P5 library
 	cd $BASEDIR
 	cd "../examples/processing/library/workspace/TSPS/resources/"
-	ant -lib ../libs 
+	ant
 	rm -r "$BASEDIR/../examples/processing/library/TSPS" 
 	mkdir "$BASEDIR/../examples/processing/library/TSPS" 
-	mv -f "$BASEDIR/../examples/processing/library/workspace/TSPS/distribution/TSPS.zip" "$BASEDIR/../examples/processing/library/TSPS/TSPS.zip"
+	mv -f "$BASEDIR/../examples/processing/library/workspace/TSPS/distribution/TSPS-1/download/TSPS.zip" "$BASEDIR/../examples/processing/library/TSPS/TSPS.zip"
 	cd "$BASEDIR/../examples/processing/library/TSPS"
 	unzip TSPS.zip
 	rm TSPS.zip
-	cp "$BASEDIR/../examples/processing/library/workspace/libs/oscP5/oscP5.jar" "$BASEDIR/../examples/processing/library/TSPS/library/oscP5.jar"
-	rm -r "$BASEDIR/../examples/processing/library/Processing" 
-
+	
 	# 2 - zip everybody up
 	cd $BASEDIR
 	cd '../'

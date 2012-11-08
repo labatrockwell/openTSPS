@@ -9,32 +9,40 @@ import java.util.*;
 import java.lang.reflect.Method;
 import java.lang.Integer;
 
-/***********************************************************************
- * OSC Message is structured like this:
- * 
- * address: /TSPS/person/ + ordered id (i.e. TSPS/person/0)
- * 
- * argument 1: pid; argument 2: age; argument 3: centroid.x; argument 4:
- * centroid.y; argument 5: velocity.x; argument 6: velocity.y; argument 7: depth
- * argument 8: boundingRect.x; argument 8: boundingRect.y; argument 9: boundingRect.width;
- * argument 10: boundingRect.height; argument 11: opticalflow.x; argument 12: opticalflow.y
- * argument 13-14+: contour[i].x, countour[i].y
- ***********************************************************************/
+/**
+ * TSPS Connection: Connects to TSPS app and provides your applet with TSPS People objects as they arrive.
+ */
 
 public class TSPS {
 
 	private final PApplet parent;
 	private OscP5 receiver;
+
+	/**
+	 * Hashtable of current People objects. Accessibly by unique id, e.g. people.get( 0 )
+	 */
 	public Hashtable<Integer, TSPSPerson> people;
+
+	/**
+	 * Current active list of People, copied to public list before every call to draw()
+	 */
 	private Hashtable<Integer, TSPSPerson> _currentPeople;
 
 	private Method personEntered;
 	private Method personUpdated;
 	private Method personLeft;
+	private Method customEvent;
 
 	private int defaultPort = 12000;
 
-	/** Starts up TSPS with the default port (12000) */
+	/**
+	 * Starts up TSPS with the default port (12000).
+	 * Will also attempt to set up default TSPS events, so will look for three methods implemented in your app:
+	 * void personEntered( TSPSPerson p);
+	 * void personUpdated( TSPSPerson p);
+	 * void personLeft( TSPSPerson p);
+	 * @param PApplet _parent Your app (pass in as "this")
+	 */
 	public TSPS(PApplet _parent) {
 		parent = _parent;
 		receiver = new OscP5(this, defaultPort);
@@ -44,7 +52,15 @@ public class TSPS {
 		parent.registerPre(this);
 	}
 
-	/** Starts up TSPS. The port must match what is specified in the TSPS GUI! */
+	/**
+	 * Starts up TSPS with a specific port. The port must match what is specified in the TSPS GUI.
+	 * Will also attempt to set up default TSPS events, so will look for three methods implemented in your app:
+	 * void personEntered( TSPSPerson p);
+	 * void personUpdated( TSPSPerson p);
+	 * void personLeft( TSPSPerson p);
+	 * @param PApplet	_parent Your app (pass in as "this")
+	 * @param int  		Port set in TSPS app
+	 */
 	public TSPS(PApplet _parent, int port) {
 		parent = _parent;
 		receiver = new OscP5(this, port);
@@ -60,37 +76,43 @@ public class TSPS {
 		// get enumeration, which helps us loop through tsps.people
 		Enumeration e = _currentPeople.keys();
 		  
-		// loop through people
+		// loop through people + copy all to public hashtable
+		people.clear();
 		while (e.hasMoreElements())
 		{
 		    // get person
 		    int id = (Integer) e.nextElement();
 		    TSPSPerson person = (TSPSPerson) _currentPeople.get( id );
 
-		    person.age -= 10;
+		    person.lastUpdated --;
 		    // haven't gotten an update in ~2 seconds
-		    if ( person.age < -120 ){
+		    if ( person.lastUpdated < -120 ){
 		    	callPersonLeft(person);
 				_currentPeople.remove(person.id);
+		    } else {
+		    	TSPSPerson p = new TSPSPerson(parent);
+		    	p.copy(person);
+		    	people.put(p.id, p);
 		    }
 		}
-		// copy all to public hashtable
-		people.clear();
-		people.putAll(_currentPeople);
 	}
 
 	/**
-	* This function allows you to access the people Hashtable as an array
-	* to make things more familiar to most Processing users.
+	 * Access the current People objects as an array instead of a Hashmap
+	 * @return Array of TSPSPerson objects
 	*/
 	public TSPSPerson[] getPeopleArray(){
 		return (TSPSPerson [])(people.values().toArray(new TSPSPerson [people.values().size()]));
 	}
 
+	/**
+	 * @return Current number of people
+	 */
 	public int getNumPeople(){
 		return people.size();
 	}
 
+	// Update a person
 	private static void updatePerson(TSPSPerson p, OscMessage theOscMessage) {
 		p.id 					= theOscMessage.get(0).intValue();
 		p.oid 					= theOscMessage.get(1).intValue();
@@ -119,15 +141,16 @@ public class TSPS {
 			point.y = theOscMessage.get(i + 1).floatValue();
 			p.contours.add(point);
 		}
-	    // remove all null contours (where are these coming from?!)
-	    p.contours.removeAll(Collections.singleton(null));
+		p.lastUpdated++;
 	}
 
+	// Set up (optional) TSPS Events
 	private void registerEvents() {
 		// check to see if the host applet implements methods:
 		// public void personEntered(TSPSPerson p)
 		// public void personEntered(TSPSPerson p)
 		// public void personEntered(TSPSPerson p)
+		// public void customEvent(ArrayList<String> args)
 		try {
 			personEntered = parent.getClass().getMethod("personEntered",
 					new Class[] { TSPSPerson.class });
@@ -135,19 +158,22 @@ public class TSPS {
 					new Class[] { TSPSPerson.class });
 			personLeft = parent.getClass().getMethod("personLeft",
 					new Class[] { TSPSPerson.class });
+			customEvent = parent.getClass().getMethod("customEvent",
+					new Class[] { ArrayList.class });
 		} catch (Exception e) {
 			// no such method, or an error.. which is fine, just ignore
 		}
 	}
 
+	// Parse incoming OSC Message
 	protected void oscEvent(OscMessage theOscMessage) {
 		// adding a person
 		if (theOscMessage.checkAddrPattern("/TSPS/personEntered/")) {
 			TSPSPerson p = new TSPSPerson( parent );
 			updatePerson(p, theOscMessage);
 			callPersonEntered(p);
-			// updating a person (or adding them if they don't exist in the
-			// system yet)
+
+		// updating a person (or adding them if they don't exist in the system yet)
 		} else if (theOscMessage.checkAddrPattern("/TSPS/personUpdated/")) {
 
 			TSPSPerson p = _currentPeople.get(theOscMessage.get(0).intValue());
@@ -164,10 +190,9 @@ public class TSPS {
 			}
 		}
 
-		// killing an object
+		// person is about to leave
 		else if (theOscMessage.checkAddrPattern("/TSPS/personWillLeave/")) {
-			TSPSPerson p = 
-			_currentPeople.get(theOscMessage.get(0).intValue());
+			TSPSPerson p = _currentPeople.get(theOscMessage.get(0).intValue());
 			if (p == null) {
 				return;
 			}
@@ -175,6 +200,20 @@ public class TSPS {
 
 			callPersonLeft(p);
 			_currentPeople.remove(p.id);
+		}
+
+		// scene
+		else if (theOscMessage.checkAddrPattern("/TSPS/scene")){
+			
+		}
+
+		// custom event
+		else if (theOscMessage.checkAddrPattern("/TSPS/customEvent")){
+			ArrayList<String> args = new ArrayList<String>();
+			for (int i=0; i<theOscMessage.arguments().length; i++){
+				args.add( theOscMessage.get(i).stringValue());
+			}
+			callCustomEvent(args);
 		}
 	}
 
@@ -184,8 +223,7 @@ public class TSPS {
 			try {
 				personEntered.invoke(parent, new Object[] { p });
 			} catch (Exception e) {
-				System.err
-						.println("Disabling personEntered() for TSPS because of an error.");
+				System.err.println("Disabling personEntered() for TSPS because of an error.");
 				e.printStackTrace();
 				personEntered = null;
 			}
@@ -197,8 +235,7 @@ public class TSPS {
 			try {
 				personUpdated.invoke(parent, new Object[] { p });
 			} catch (Exception e) {
-				System.err
-						.println("Disabling personUpdated() for TSPS because of an error.");
+				System.err.println("Disabling personUpdated() for TSPS because of an error.");
 				e.printStackTrace();
 				personUpdated = null;
 			}
@@ -210,10 +247,21 @@ public class TSPS {
 			try {
 				personLeft.invoke(parent, new Object[] { p });
 			} catch (Exception e) {
-				System.err
-						.println("Disabling personLeft() for TSPS because of an error.");
+				System.err.println("Disabling personLeft() for TSPS because of an error.");
 				e.printStackTrace();
 				personLeft = null;
+			}
+		}
+	}
+
+	private void callCustomEvent(ArrayList<String> strings) {
+		if (customEvent != null) {
+			try {
+				customEvent.invoke(parent, new Object[] { strings });
+			} catch (Exception e) {
+				System.err.println("Disabling customEvent() for TSPS because of an error.");
+				e.printStackTrace();
+				customEvent = null;
 			}
 		}
 	}

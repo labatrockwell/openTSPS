@@ -265,7 +265,7 @@ namespace ofxTSPS {
         
         ofxOscMessage m;
         m.setAddress( type );
-        m.addIntArg( oid);
+        m.addIntArg( pid );
         if(!bUseLegacy){
             m.addIntArg(oid);
         }
