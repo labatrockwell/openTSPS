@@ -1,0 +1,9 @@
+examples/processing/library/workspace/*
+*xcuserdata*
+*DerivedData*
+*.idea*
+*.app*
+*.git*
+*.svn*
+*.DS_Store*
+exclude.lst

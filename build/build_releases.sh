@@ -82,11 +82,18 @@ buildExamples(){
 	cd "$BASEDIR/../examples/processing/library/TSPS"
 	unzip TSPS.zip
 	rm TSPS.zip
-	
-	# 2 - zip everybody up
+
+	# 2 - copy OF stuff
+	cd $BASEDIR
+	cd "../"
+	cp -r "addons/ofxTSPSReceiver" "examples/openframeworks/ofxTSPSReceiver"
+	rm -r "examples/openframeworks/ofxTSPSReceiver/.git"
+
+	# 4 - zip everybody up
 	cd $BASEDIR
 	cd '../'
-	zip -x "examples/processing/library/workspace/*" -r "$BASEDIR/../releases/$VERSION_NUMBER/examples_$VERSION_NUMBER.zip" "examples"
+	zip -x@"build/exclude.lst" -r "$BASEDIR/../releases/$VERSION_NUMBER/examples_$VERSION_NUMBER.zip" "examples"
+	rm -r "examples/openframeworks/ofxTSPSReceiver"
 } 
 
 #BUILD ALL (aka build all osx for now...)
