@@ -1,4 +1,0 @@
-class Rectangle
-{
-	float x, y, width, height;
-}
