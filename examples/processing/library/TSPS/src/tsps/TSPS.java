@@ -27,7 +27,7 @@ public class TSPS {
 	 * Current active list of People, copied to public list before every call to draw()
 	 */
 	private Hashtable<Integer, TSPSPerson> _currentPeople;
-
+	
 	private Method personEntered;
 	private Method personUpdated;
 	private Method personLeft;
