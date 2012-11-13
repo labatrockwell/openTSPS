@@ -75,20 +75,25 @@ buildExamples(){
 	# 1 - build P5 library
 	cd $BASEDIR
 	cd "../examples/processing/library/workspace/TSPS/resources/"
-	ant -lib ../libs 
+	ant
 	rm -r "$BASEDIR/../examples/processing/library/TSPS" 
 	mkdir "$BASEDIR/../examples/processing/library/TSPS" 
-	mv -f "$BASEDIR/../examples/processing/library/workspace/TSPS/distribution/TSPS.zip" "$BASEDIR/../examples/processing/library/TSPS/TSPS.zip"
+	mv -f "$BASEDIR/../examples/processing/library/workspace/TSPS/distribution/TSPS-1/download/TSPS.zip" "$BASEDIR/../examples/processing/library/TSPS/TSPS.zip"
 	cd "$BASEDIR/../examples/processing/library/TSPS"
 	unzip TSPS.zip
 	rm TSPS.zip
-	cp "$BASEDIR/../examples/processing/library/workspace/libs/oscP5/oscP5.jar" "$BASEDIR/../examples/processing/library/TSPS/library/oscP5.jar"
-	rm -r "$BASEDIR/../examples/processing/library/Processing" 
 
-	# 2 - zip everybody up
+	# 2 - copy OF stuff
+	cd $BASEDIR
+	cd "../"
+	cp -r "addons/ofxTSPSReceiver" "examples/openframeworks/ofxTSPSReceiver"
+	rm -r "examples/openframeworks/ofxTSPSReceiver/.git"
+
+	# 4 - zip everybody up
 	cd $BASEDIR
 	cd '../'
-	zip -x "examples/processing/library/workspace/*" -r "$BASEDIR/../releases/$VERSION_NUMBER/examples_$VERSION_NUMBER.zip" "examples"
+	zip -x@"build/exclude.lst" -r "$BASEDIR/../releases/$VERSION_NUMBER/examples_$VERSION_NUMBER.zip" "examples"
+	rm -r "examples/openframeworks/ofxTSPSReceiver"
 } 
 
 #BUILD ALL (aka build all osx for now...)

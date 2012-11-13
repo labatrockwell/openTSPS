@@ -4,6 +4,9 @@ standalone/*/bin/data/openni/*
 #ignore non-standard standalone apps see standalone/.gitignore
 standalone/*
 
+#ignore processing library distribution
+examples/processing/library/workspace/TSPS/distribution/*
+
 #ignore auto-generated docs (see docs/readme)
 docs/html/*
 

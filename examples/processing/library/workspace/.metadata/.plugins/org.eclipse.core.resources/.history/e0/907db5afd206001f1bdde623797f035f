@@ -1,8 +1,0 @@
-package lab;
-
-import processing.core.PApplet;
-
-public class CYA
-{
-
-};
