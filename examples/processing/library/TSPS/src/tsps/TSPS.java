@@ -154,10 +154,23 @@ public class TSPS {
 		try {
 			personEntered = parent.getClass().getMethod("personEntered",
 					new Class[] { TSPSPerson.class });
+		} catch (Exception e) {
+			// no such method, or an error.. which is fine, just ignore
+		}
+		try {
 			personUpdated = parent.getClass().getMethod("personUpdated",
 					new Class[] { TSPSPerson.class });
+		} catch (Exception e) {
+			// no such method, or an error.. which is fine, just ignore
+		}
+		try {
 			personLeft = parent.getClass().getMethod("personLeft",
 					new Class[] { TSPSPerson.class });
+		} catch (Exception e) {
+			// no such method, or an error.. which is fine, just ignore
+		}
+		try {
+			System.err.println("Set up custom event");
 			customEvent = parent.getClass().getMethod("customEvent",
 					new Class[] { ArrayList.class });
 		} catch (Exception e) {
@@ -209,6 +222,7 @@ public class TSPS {
 
 		// custom event
 		else if (theOscMessage.checkAddrPattern("/TSPS/customEvent")){
+			System.err.println("custom");
 			ArrayList<String> args = new ArrayList<String>();
 			for (int i=0; i<theOscMessage.arguments().length; i++){
 				args.add( theOscMessage.get(i).stringValue());

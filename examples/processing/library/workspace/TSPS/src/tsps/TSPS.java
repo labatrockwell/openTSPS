@@ -8,8 +8,6 @@ import processing.core.PVector;
 import java.util.*;
 import java.lang.reflect.Method;
 import java.lang.Integer;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * TSPS Connection: Connects to TSPS app and provides your applet with TSPS People objects as they arrive.
@@ -29,15 +27,13 @@ public class TSPS {
 	 * Current active list of People, copied to public list before every call to draw()
 	 */
 	private Hashtable<Integer, TSPSPerson> _currentPeople;
-
+	
 	private Method personEntered;
 	private Method personUpdated;
 	private Method personLeft;
 	private Method customEvent;
 
 	private int defaultPort = 12000;
-
-    private static final Lock lock = new ReentrantLock();
 
 	/**
 	 * Starts up TSPS with the default port (12000).
@@ -82,9 +78,6 @@ public class TSPS {
 		  
 		// loop through people + copy all to public hashtable
 		people.clear();
-
-		lock.lock();
-
 		while (e.hasMoreElements())
 		{
 		    // get person
@@ -102,8 +95,6 @@ public class TSPS {
 		    	people.put(p.id, p);
 		    }
 		}
-
-		lock.unlock();
 	}
 
 	/**
@@ -123,7 +114,6 @@ public class TSPS {
 
 	// Update a person
 	private static void updatePerson(TSPSPerson p, OscMessage theOscMessage) {
-		lock.lock();
 		p.id 					= theOscMessage.get(0).intValue();
 		p.oid 					= theOscMessage.get(1).intValue();
 		p.age 					= theOscMessage.get(2).intValue();
@@ -152,7 +142,6 @@ public class TSPS {
 			p.contours.add(point);
 		}
 		p.lastUpdated++;
-		lock.unlock();
 	}
 
 	// Set up (optional) TSPS Events
@@ -165,10 +154,23 @@ public class TSPS {
 		try {
 			personEntered = parent.getClass().getMethod("personEntered",
 					new Class[] { TSPSPerson.class });
+		} catch (Exception e) {
+			// no such method, or an error.. which is fine, just ignore
+		}
+		try {
 			personUpdated = parent.getClass().getMethod("personUpdated",
 					new Class[] { TSPSPerson.class });
+		} catch (Exception e) {
+			// no such method, or an error.. which is fine, just ignore
+		}
+		try {
 			personLeft = parent.getClass().getMethod("personLeft",
 					new Class[] { TSPSPerson.class });
+		} catch (Exception e) {
+			// no such method, or an error.. which is fine, just ignore
+		}
+		try {
+			System.err.println("Set up custom event");
 			customEvent = parent.getClass().getMethod("customEvent",
 					new Class[] { ArrayList.class });
 		} catch (Exception e) {
