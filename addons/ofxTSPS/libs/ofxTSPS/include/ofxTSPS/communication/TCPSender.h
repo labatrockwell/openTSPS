@@ -21,6 +21,7 @@ namespace ofxTSPS {
         ofxTCPServer TCP;
         int port, oldport;
         bool bSendContours;
+        TCPSender();
         ~TCPSender();
         void setup( int port );	
         void update();
@@ -39,5 +40,9 @@ namespace ofxTSPS {
         void customEvent( string eventName, map<string,string>params );
         
         string getPersonString( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours );
+        
+    private:
+        
+        bool bConnected;
     };
 };

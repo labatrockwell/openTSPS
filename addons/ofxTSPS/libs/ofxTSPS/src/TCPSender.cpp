@@ -8,16 +8,31 @@
 
 namespace ofxTSPS {
     
+    TCPSender::TCPSender(){
+        bConnected = false;
+    }
+    
     /***************************************************************
      SETUP + CONNECT
      ***************************************************************/	
     
     void TCPSender::setup( int _port ){
-        port = _port;
-        if (TCP.getNumClients() > 0)
-            TCP.disconnectClient(0);
-        bool bSetup = TCP.setup( port );
-        oldport = port;
+        if ( port != _port || !bConnected ){
+            port = _port;
+            
+            // disconnect old clients + close
+            while (TCP.getNumClients() > 0){
+                TCP.disconnectClient(0);
+            }
+            if ( bConnected ){
+                TCP.close();
+            }
+            bConnected = TCP.setup( port );
+            if ( !bConnected ){
+                TCP.close();
+            }
+            oldport = port;
+        }
     };
     
     /***************************************************************
@@ -39,8 +54,11 @@ namespace ofxTSPS {
      ***************************************************************/	
     
     void TCPSender::send(){
-        for(int i = 0; i < TCP.getNumClients(); i++){
-            TCP.send(i,currentString);
+        
+        map<int,ofxTCPClient>::iterator it;
+        for(it=TCP.TCPConnections.begin(); it!=TCP.TCPConnections.end(); it++){
+            int err = 0;
+            if(it->second.isConnected()) err = it->second.send(currentString);
         }
         currentString = "";
     };
@@ -49,7 +67,7 @@ namespace ofxTSPS {
      SEND
      ***************************************************************/
     
-    
+    //--------------------------------------------------------------
     void TCPSender::personEntered ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
         stringstream message;
         message<<"TSPS/personEntered/"<<";";
@@ -59,6 +77,7 @@ namespace ofxTSPS {
         currentString += message.str();
     };
     
+    //--------------------------------------------------------------
     void TCPSender::personMoved ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
         stringstream message;
         message<<"TSPS/personMoved/"<<";";
@@ -68,6 +87,7 @@ namespace ofxTSPS {
         currentString += message.str();
     };
     
+    //--------------------------------------------------------------
     void TCPSender::personUpdated ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
         stringstream message;
         message<<"TSPS/personUpdated/"<<";";
@@ -77,6 +97,7 @@ namespace ofxTSPS {
         currentString += message.str();
     };
     
+    //--------------------------------------------------------------
     void TCPSender::personWillLeave ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours )
     {
         stringstream message;
