@@ -119,14 +119,7 @@ namespace ofxTSPS {
         websocketPanel->setDrawLock( false );
         websocketPanel->setBackgroundColor(180,87,128);
         websocketPanel->setBackgroundSelectColor(180,87,128);
-        
-#ifdef USE_CUSTOM_GUI
-        guiTypePanel * customPanel = panel.addPanel("custom", 1, false);
-        customPanel->setDrawLock( false );
-        customPanel->setBackgroundColor(218,173,90);
-        customPanel->setBackgroundSelectColor(191,120,0);
-#endif		
-        
+                
         // video settings		
         panel.setWhichPanel("video");	
         //James G: Added video settings
@@ -343,12 +336,13 @@ namespace ofxTSPS {
         panel.addToggle("send over WebSocket server", "SEND_WSS", false);
         panel.addTextField("webSocket port:", "WSS_PORT", "7681", 200, 20);
 
-		#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32) || defined(__MINGW32__)
+#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32) || defined(__MINGW32__)
 			// this doesn't work on libwebsockets for windows.
 #else
 		panel.addButton("open debug URL");
 
 #endif
+        bHasCustomPanel = false;
         
         guiTypeGroup * wsGroup = panel.addGroup("WebSocket Client");
         wsGroup->setBackgroundColor(148,129,85);
@@ -377,8 +371,17 @@ namespace ofxTSPS {
         enableEvents();
     }
     
-    void GuiManager::addSlider(string name, int* value, int min, int max)
-    {
+    
+    void GuiManager::addCustomGui(){
+        if ( bHasCustomPanel ) return;
+        guiTypePanel * customPanel = panel.addPanel("custom", 1, false);
+        customPanel->setDrawLock( false );
+        customPanel->setBackgroundColor(218,173,90);
+        customPanel->setBackgroundSelectColor(191,120,0);
+    }
+    
+    void GuiManager::addSlider(string name, int* value, int min, int max){
+        addCustomGui();
         GUICustomParam p;
         string key = "CUSTOM" + ofToString(params.size());
         
@@ -394,6 +397,7 @@ namespace ofxTSPS {
     
     void GuiManager::addSlider(string name, float* value, float min, float max)
     {
+        addCustomGui();
         GUICustomParam p;
         string key = "CUSTOM" + ofToString(params.size());	
         panel.setWhichPanel("custom");
@@ -408,6 +412,7 @@ namespace ofxTSPS {
     
     void GuiManager::addToggle(string name, bool* value)
     {
+        addCustomGui();
         GUICustomParam p;	
         string key = "CUSTOM" + ofToString(params.size());
         

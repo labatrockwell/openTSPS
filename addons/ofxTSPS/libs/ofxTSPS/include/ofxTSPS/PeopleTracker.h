@@ -203,6 +203,12 @@ namespace ofxTSPS {
             bool inDifferencingView();
             bool inDataView();
         
+            // advanced: accessors for current images
+            ofImage * getCameraImage();
+            ofImage * getWarpedImage();
+            ofImage * getBackgroundImage();
+            ofImage * getDifferencedImage();        
+        
         protected:
             // Default settings
             ofxXmlSettings  defaults;

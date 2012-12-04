@@ -1096,6 +1096,7 @@ namespace ofxTSPS {
     {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->threshold = thresholdAmount;
+        gui.setValueF( "THRESHOLD", thresholdAmount );
     }
     
     //---------------------------------------------------------------------------
@@ -1407,6 +1408,26 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     bool PeopleTracker::inAdjustedView() {
         return adjustedView.isActive();
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getCameraImage(){
+        return &cameraImage;
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getWarpedImage(){
+        return &warpedImage;
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getBackgroundImage(){
+        return &backgroundImage;
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getDifferencedImage(){
+        return &differencedImage;
     }
     
 }

@@ -155,6 +155,10 @@ namespace ofxTSPS {
         simpleFileLister* videoFiles;
         simpleFileLister* haarFiles;
         
+        // add custom panel if a user calls any of the add() functions
+        bool bHasCustomPanel;
+        void addCustomGui();
+        
     private:
         guiTypeGroup * haarGroup;
         guiTypeGroup * opticalFlowGroup;
