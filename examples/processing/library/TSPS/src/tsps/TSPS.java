@@ -222,7 +222,6 @@ public class TSPS {
 
 		// custom event
 		else if (theOscMessage.checkAddrPattern("/TSPS/customEvent")){
-			System.err.println("custom");
 			ArrayList<String> args = new ArrayList<String>();
 			for (int i=0; i<theOscMessage.arguments().length; i++){
 				args.add( theOscMessage.get(i).stringValue());
