@@ -378,6 +378,7 @@ namespace ofxTSPS {
         customPanel->setDrawLock( false );
         customPanel->setBackgroundColor(218,173,90);
         customPanel->setBackgroundSelectColor(191,120,0);
+        bHasCustomPanel = true;
     }
     
     void GuiManager::addSlider(string name, int* value, int min, int max){
@@ -393,6 +394,7 @@ namespace ofxTSPS {
         p.type = PARAM_INT;
         p.i = value;
         params.push_back(p);
+        panel.loadSettings( panel.getCurrentXMLFile() );
     }
     
     void GuiManager::addSlider(string name, float* value, float min, float max)
@@ -452,7 +454,7 @@ namespace ofxTSPS {
      ***************************************************************/
     
     int GuiManager::getSelectedPanel(){
-        return panel.getSelectedPanel();
+        return panel.getSelectedPanelIndex();
     }
     
     void GuiManager::setSelectedPanel( int index ){
@@ -654,7 +656,7 @@ namespace ofxTSPS {
         
         //get current panel
         //settings.lastCurrentPanel = settings.currentPanel;
-        settings.currentPanel = panel.getSelectedPanel();
+        settings.currentPanel = panel.getSelectedPanelIndex();
     }
     
     //BR: Added some messiness here to setup, draw, and update the gui quad...

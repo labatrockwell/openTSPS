@@ -104,8 +104,9 @@ class ofxLabGui: public guiBaseObject{
 		void setWhichPanel(string panelName);
 		void setWhichGroup(int whichGroup);
         void setWhichColumn(int column);
-	
-		int getSelectedPanel(){  return selectedPanel; };
+    
+        int getSelectedPanelIndex();
+        guiTypePanel * getSelectedPanel();
 		string getSelectedPanelName(){	
 			if (panels.size() > 0 && selectedPanel < panels.size()) return panels[selectedPanel]->name;
 			else return "";

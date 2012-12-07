@@ -95,14 +95,11 @@ guiTypePanel * ofxLabGui::addPanel(string panelName, int numColumns, bool locked
     }
 
     panelPtr->setup(panelName);
-    //panelPtr->setDimensions(boundingBox.width - borderWidth*2, boundingBox.height - topSpacing*3);
 	panelPtr->setDimensions(boundingBox.width, boundingBox.height - boundingBox.y - topBarHeight - borderWidth*2 );
 	if (panels.size() > 0){
 		ofRectangle tabRect = panels[panels.size()-1]->getTabRect();
 		panelPtr->setTabPosition(tabRect.x + tabRect.width, tabRect.y);
 	} else {
-		ofRectangle tabRect = panelPtr->getTabRect();
-		//panelPtr->setTabPosition(borderWidth, topSpacing/2);
 		panelPtr->setTabPosition(0,0);
 		panelPtr->bSelected = true;
 	}
@@ -111,16 +108,37 @@ guiTypePanel * ofxLabGui::addPanel(string panelName, int numColumns, bool locked
 
     if( locked )panelPtr->lock();
     else panelPtr->unlock();
-
+    
     if( numColumns > 1 ){
         for(int i = 1; i < numColumns; i++){
             panelPtr->addColumn(30);
         }
     }
-
+    
     panels.push_back(panelPtr);
     guiObjects.push_back(panelPtr);
 
+    
+    // recalc all positions if we have to
+    if ( tabRect.x + tabRect.width > boundingBox.width ){
+        float diff = (tabRect.x + tabRect.width) - boundingBox.width;
+		panelPtr->setTabPosition(tabRect.x - diff, tabRect.y);
+        //diff /= (float) panels.size();
+        float w = boundingBox.width - diff;
+        w /= panels.size()-1;
+        for ( int i=0; i<panels.size()-1; i++){
+            ofRectangle tabRect = panels[i]->getTabRect();
+            float dest = w * i;
+            if ( i > 0 ){
+                dest = min( (float) panels[i-1]->getTabRect().x + panels[i-1]->getTabRect().width, (float) w * i );
+                if ( dest + tabRect.width < panels[i-1]->getTabRect().x + panels[i-1]->getTabRect().width ){
+                    dest = panels[i-1]->getTabRect().x + panels[i-1]->getTabRect().width;
+                }
+            }
+            panels[i]->setTabPosition(dest,  tabRect.y);
+        }
+    }
+    
     return panelPtr;
 }
 
@@ -881,6 +899,17 @@ guiBaseObject * ofxLabGui::getElement( string name ){
         }
     }
     return NULL;
+}
+
+//---------------------------------------------------------------
+guiTypePanel * ofxLabGui::getSelectedPanel(){
+    if ( selectedPanel >= panels.size() ) return NULL;
+    return panels[selectedPanel];
+}
+
+//---------------------------------------------------------------
+int ofxLabGui::getSelectedPanelIndex(){
+    return selectedPanel;
 }
 
 // ############################################################## //
