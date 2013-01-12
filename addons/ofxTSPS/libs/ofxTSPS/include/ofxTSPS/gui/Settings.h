@@ -101,6 +101,9 @@ namespace ofxTSPS {
         bool    bSendTuio;
         bool    bSendTcp;
         
+        string  spacebrewHost;
+        bool    bSendSpacebrew;
+        
         bool    bSendWebSocketServer;
         bool    bSendWebSocketClient;
         string  webSocketHost;

@@ -214,7 +214,7 @@ namespace ofxTSPS {
      ***************************************************************/
     
     //--------------------------------------------------------------
-    string Person::getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours, string append ){
+    string Person::getJSON( string type, int cameraWidth, int cameraHeight, bool bSendContours, string append ){
         
         //construct a JSON object
         

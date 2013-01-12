@@ -56,6 +56,9 @@ namespace ofxTSPS {
         
         webSocketUseSSL = false;
         
+        spacebrewHost   = "localhost";
+        bSendSpacebrew  = false;
+        
         tuioHost = "localhost";
         tuioPort = 3333;
         

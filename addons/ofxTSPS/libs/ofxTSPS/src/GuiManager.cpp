@@ -357,6 +357,13 @@ namespace ofxTSPS {
         panel.setValueB("SEND_WSS", false);
         panel.setValueB("SEND_WS", false);
         
+        guiTypeGroup * sbGroup = panel.addGroup("Spacebrew");
+        sbGroup->setBackgroundColor(148,129,85);
+        sbGroup->setBackgroundSelectColor(148,129,85);
+        sbGroup->seBaseColor(238,53,35);
+        panel.addToggle("Send to Spacebrew", "SEND_SB", false);
+        panel.addTextField("Spacebrew host:", "SB_HOST", "localhost", 200, 20);
+        
         //listen for save / load / reload / saveas events from GUI + pass to quadgui
         
         ofAddListener(panel.getSaveButton()->buttonPressed, this, &GuiManager::saveEventCatcher);
@@ -607,9 +614,15 @@ namespace ofxTSPS {
         settings.oscHost = panel.getValueS("OSC_HOST", 0, "localhost");
         settings.oscPort = (int) atoi(panel.getValueS("OSC_PORT", 0, "12000").c_str());
         settings.bUseLegacyOsc = panel.getValueB("LEGACY_OSC");
+        
         settings.tuioHost = panel.getValueS("TUIO_HOST", 0, "localhost");
         settings.tuioPort = (int) atoi(panel.getValueS("TUIO_PORT", 0, "3333").c_str());
+        
         settings.tcpPort = (int) atoi(panel.getValueS("TCP_PORT", 0, "8888").c_str());
+        
+        settings.spacebrewHost = panel.getValueS("SB_HOST", 0, "localhost");
+        settings.bSendSpacebrew = panel.getValueB("SEND_SB");
+        
         settings.webSocketServerPort = (int) atoi(panel.getValueS("WSS_PORT", 0, "7681").c_str());
         settings.webSocketPort = (int) atoi(panel.getValueS("WS_PORT", 0, "7681").c_str());
         settings.webSocketHost = panel.getValueS("WS_HOST", 0, "localhost");

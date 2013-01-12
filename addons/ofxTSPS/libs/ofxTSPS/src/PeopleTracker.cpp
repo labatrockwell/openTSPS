@@ -325,6 +325,11 @@ namespace ofxTSPS {
         if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
             webSocketServer.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
         }
+        
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
+        }
+        
         trackedPeople.push_back( person );
         
         // notify listeners
@@ -355,6 +360,9 @@ namespace ofxTSPS {
             webSocketServer.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
+        }
         // notify listeners
         EventArgs args;
         args.person = person;
@@ -382,6 +390,9 @@ namespace ofxTSPS {
             webSocketServer.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
+        }
         // notify listeners
         EventArgs args;
         args.person = person;
@@ -544,6 +555,12 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
+    void PeopleTracker::setupSpacebrew( string host )
+    {
+        spacebrewSender.setHost(host);
+    }
+    
+    //---------------------------------------------------------------------------
     void PeopleTracker::setupWebSocketServer( int port)
     {
         ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET SERVER ON PORT "+port);
@@ -648,6 +665,20 @@ namespace ofxTSPS {
             bWebSocketServerEnabled = false;
             webSocketServer.closeServer();
         }
+        
+        // check to enable spacebrew
+        if (p_Settings->bSendSpacebrew && !bSpacebrewEnabled ){
+            bSpacebrewEnabled = true;
+            spacebrewSender.enable();
+        } else if (!p_Settings->bSendSpacebrew){
+            bSpacebrewEnabled = false;
+            spacebrewSender.disable();
+        }
+        
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.setHost(p_Settings->spacebrewHost);
+        }
+        
         //----------------------------------------------
         // COMMUNICATION : Send data
         //----------------------------------------------	

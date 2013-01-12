@@ -81,7 +81,7 @@ namespace ofxTSPS {
 		ofPoint getHaarCentroidNormalized(float videoWidth, float videoHeight);
         
         // get JSON        
-        virtual string getJSON( string type, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false, string append="" );
+        virtual string getJSON( string type, int cameraWidth, int cameraHeight, bool bSendContours=false, string append="" );
         virtual string getString( ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours=false ){ return ""; };
         
         // get OSC message(s)    
