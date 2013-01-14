@@ -3,53 +3,28 @@
 
 #include "ofMain.h"
 
-/*********************************************************
-    INCLUDES + DEFINES
-*********************************************************/
-	
-    #define TSPS_HOME_PAGE "http://opentsps.com"
-    #include "TSPSDelegate.h"
-    #include "ofxKinect.h"
-    #include "ofxLabGui.h"
-    #define MAX_CAMERAS 4
-
-/*********************************************************
-    APP
-*********************************************************/
-
+#include "TSPSDelegate.h"
+#include "ofxLabGui.h"
+#define MAX_CAMERAS 4
 
 class tspsApp : public ofBaseApp {
 
 	public:
 		
+        tspsApp( int numCameras = MAX_CAMERAS );
 		void setup();
 		void update();
 		void draw();
-        void exit();
 		
         int currentDelegate; // which one you are drawing
-        vector<TSPSDelegate *> delegates;
+        vector<ofxTSPS::Delegate *> delegates;
     
         // buttons for switching between cameras + adding more cameras
         map<string, guiTypeButton *> buttons;
         void onButtonPressed( string & button );
     
         // normal of events
-    
-		void keyPressed  (int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
-		void windowResized(int w, int h);
-            	
-	//status bar stuff
-		ofImage statusBar;
-		ofTrueTypeFont timesBoldItalic;
-	
-	//other gui images
-		ofImage background;   
-    
 };
 
 #endif

@@ -9,9 +9,15 @@
 #include "TSPSDelegate.h"
 
 namespace ofxTSPS {
+    
+    //--------------------------------------------------------------
+    Delegate::Delegate( int _id ){
+        id = _id;
+    }
+    
     //--------------------------------------------------------------
     void Delegate::setup(){
-        peopleTracker.setup();
+        peopleTracker.setup(0,0,"settings/settings"+ofToString(id)+".xml",id);
         peopleTracker.loadFont("fonts/times.ttf", 10);
         ofxAddTSPSListeners(this);
         
@@ -39,6 +45,16 @@ namespace ofxTSPS {
         return &peopleTracker;
     }
 
+    //------------------------------------------------------------------------
+    void Delegate::disableEvents(){
+        peopleTracker.disableGuiEvents();
+    }
+    
+    //------------------------------------------------------------------------
+    void Delegate::enableEvents(){
+        peopleTracker.enableGuiEvents();
+    }
+    
     //--------------------------------------------------------------
     //delegate methods for people entering and exiting
     void Delegate::onPersonEntered( const void * p_peopleTracker, ofxTSPS::EventArgs & tspsEvent ){

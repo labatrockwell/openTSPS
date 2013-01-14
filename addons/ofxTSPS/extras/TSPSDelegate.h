@@ -18,9 +18,13 @@ namespace ofxTSPS {
     {
     public:
         
+        Delegate( int myId );
         void setup();
         void update();
         void draw();
+        
+        void disableEvents();
+        void enableEvents();
         
         // accessors
         ofxTSPS::PeopleTracker * getPeopleTracker();
@@ -49,6 +53,8 @@ namespace ofxTSPS {
     protected:
         
         ofxTSPS::PeopleTracker peopleTracker;
+        
+        int id;
         
     private:
         
