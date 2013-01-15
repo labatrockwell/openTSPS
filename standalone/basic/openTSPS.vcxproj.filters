@@ -235,6 +235,9 @@
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\SpacebrewSender.cpp">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\extras\TSPSDelegate.cpp">
+      <Filter>addons\third-party\ofxTSPS\extra</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -461,6 +464,9 @@
     </Filter>
     <Filter Include="addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets">
       <UniqueIdentifier>{0dd271c9-8e80-4465-b796-5ff4e976367d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxTSPS\extra">
+      <UniqueIdentifier>{d57ecba9-f912-44d7-b325-b59e7bbb8658}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1327,6 +1333,9 @@
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication\SpacebrewSender.h">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\extras\TSPSDelegate.h">
+      <Filter>addons\third-party\ofxTSPS\extra</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
