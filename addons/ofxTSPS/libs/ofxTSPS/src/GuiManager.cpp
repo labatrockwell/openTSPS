@@ -250,7 +250,7 @@ namespace ofxTSPS {
         blobGroup->setActive(true);
         
         //JG 12/8/09 GUI-REDUX Removing this feature
-        panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 100.f, false);
+        panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 50.0f, false);
         panel.addSlider("maximum blob size (% of view):", "MAX_BLOB", .50f, 0.1f, 100.f, false);
         panel.addToggle("ignore nested blobs", "FIND_HOLES", false);
         
