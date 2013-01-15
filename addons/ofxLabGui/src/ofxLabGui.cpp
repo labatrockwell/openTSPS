@@ -358,7 +358,7 @@ guiTypeSlider * ofxLabGui::addSlider(string sliderName, string xmlName, float va
 
     //setup and dimensions
     tmp->setup(sliderName, value, min, max);
-    tmp->setDimensions(180, 10);
+    tmp->setDimensions(270, 10);
     tmp->xmlName = xmlName;
 
     //we can say we want to an int or a float!
