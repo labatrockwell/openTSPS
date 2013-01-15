@@ -18,13 +18,13 @@ namespace ofxTSPS {
     {
     public:
         
-        Delegate( int myId );
+        Delegate( int myId = 0 );
         void setup();
         void update();
         void draw();
         
-        void disableEvents();
-        void enableEvents();
+        virtual void disableEvents();
+        virtual void enableEvents();
         
         // accessors
         ofxTSPS::PeopleTracker * getPeopleTracker();
