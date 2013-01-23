@@ -87,12 +87,14 @@ buildExamples(){
 	cd $BASEDIR
 	cd "../"
 	cp -r "addons/ofxTSPSReceiver" "examples/openframeworks/ofxTSPSReceiver"
+	chmod -R 755 "examples/openframeworks/ofxTSPSReceiver/"
 	rm -r "examples/openframeworks/ofxTSPSReceiver/.git"
 
 	# 4 - zip everybody up
 	cd $BASEDIR
 	cd '../'
 	zip -x@"build/exclude.lst" -r "$BASEDIR/../releases/$VERSION_NUMBER/examples_$VERSION_NUMBER.zip" "examples"
+	chmod -R 755 "examples/openframeworks/ofxTSPSReceiver"
 	rm -r "examples/openframeworks/ofxTSPSReceiver"
 } 
 
