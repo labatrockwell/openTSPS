@@ -213,7 +213,7 @@ namespace ofxTSPS {
         thresholdGroup->seBaseColor(255,136,37);
         thresholdGroup->setShowText(false);
         thresholdGroup->setActive(true);
-        panel.addSlider("threshold:", "THRESHOLD", 40, 0, 255, false);
+        panel.addSlider("threshold:", "THRESHOLD", 100, 0, 255, false);
         vector<string> multi;
         multi.push_back("light on dark");
         multi.push_back("dark on light");
@@ -225,7 +225,7 @@ namespace ofxTSPS {
         highpassGroup->setBackgroundSelectColor(148,129,85);
         highpassGroup->seBaseColor(58,187,147);
         highpassGroup->setShowText(false);
-        panel.addToggle("use highpass", "USE_HIGHPASS", true);
+        panel.addToggle("use highpass", "USE_HIGHPASS", false);
         panel.addSlider("highpass filter:", "HIGHPASS_BLUR", 1, 1, 255, true);
         panel.addSlider("highpass post-blur:", "HIGHPASS_NOISE", 1, 1, 30, true);
         
@@ -251,7 +251,7 @@ namespace ofxTSPS {
         
         //JG 12/8/09 GUI-REDUX Removing this feature
         panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 50.0f, false);
-        panel.addSlider("maximum blob size (% of view):", "MAX_BLOB", .50f, 0.1f, 100.f, false);
+        panel.addSlider("maximum blob size (% of view):", "MAX_BLOB", 100.f, 0.1f, 100.f, false);
         panel.addToggle("ignore nested blobs", "FIND_HOLES", false);
         
         guiTypeGroup * optionsGroup = panel.addGroup("options");
