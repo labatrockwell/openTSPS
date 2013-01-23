@@ -6,6 +6,10 @@ There are example TSPS clients in Processing, Javascript, Flash, Quartz composer
 
 [http://openTSPS.com](http://openTSPS.com)
 
+Downloads
+------------
+Because of the now defunct Github downloads, TSPS downloads are not hosted at [Sourceforge](https://sourceforge.net/projects/tsps/files/)
+
 Installing:
 ------------
 
