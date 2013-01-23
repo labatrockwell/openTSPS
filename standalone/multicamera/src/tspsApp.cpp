@@ -25,6 +25,8 @@ void tspsApp::setup(){
     ofRectangle dimensions = ofRectangle( 105, 10, 50, buttonHeight);
     
     for ( int i=0; i<delegates.size(); i++){
+        delegates[i]->setup();
+        
         string name = "C:"+ofToString( i+1 );
         guiTypeButton * btn = new guiTypeButton();
         btn->setup( name, dimensions.width, dimensions.height );
