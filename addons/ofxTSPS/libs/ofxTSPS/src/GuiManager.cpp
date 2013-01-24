@@ -48,14 +48,22 @@ namespace ofxTSPS {
     void GuiManager::setup(){
         enableGui = true;
         
-        //create + setup layout of panel
-        panel.setup("settings", 10, 10, 330, 680);
-        panel.loadFont("fonts/times.ttf", 10);
+        // setup each panel group
+        panelGroups["source"];
+        panelGroups["sensing"];
+        panelGroups["communication"];
+        panelGroups["data"];
+        panelGroups["custom"];
         
-        //panel layout	
-        panel.setPosition(10, 40);
+        panel.setup("custom", 10, 10, 330, 640);
+        
+        buttonPosition.set(10,70);
+        
+        //panel layout
+        panel.loadFont("fonts/times.ttf", 10);
+        panel.setPosition(10, 100);
         panel.setShowText(false);
-        panel.setDimensions(330, 650); //yikes... autospacing is not working so well
+        panel.setDimensions(330, 590); //yikes... autospacing is not working so well
         panel.setCollapsible(false);
         panel.setDraggable(false);
         panel.setBackgroundColor(255,255,255);
@@ -68,6 +76,56 @@ namespace ofxTSPS {
         panel.setRestoreColor(34, 151, 210);
         panel.setRestoreSelectedColor(116, 191, 228);
         panel.setDrawBarOnTop(false);
+        
+        // setup panel switch buttons
+        
+        guiTypeButton * sourceButton = new guiTypeButton();
+        sourceButton->setup("source", buttonWidth*1.5, buttonHeight);
+        sourceButton->setPosition(buttonPosition.x, buttonPosition.y);
+        sourceButton->setDimensions(50, 20);
+        sourceButton->setFont(&panel.guiTTFFont);
+        sourceButton->setBackgroundColor(174,139,138,75);
+        sourceButton->setBackgroundSelectColor(174,139,138);
+        buttonPosition.x += 60;
+        
+        guiTypeButton * sensingButton = new guiTypeButton();
+        sensingButton->setup("sensing", buttonWidth*1.5, buttonHeight);
+        sensingButton->setPosition(buttonPosition.x, buttonPosition.y);
+        sensingButton->setDimensions(60, 20);
+        sensingButton->setFont(&panel.guiTTFFont);
+        sensingButton->setBackgroundColor(113,171,154,75);
+        sensingButton->setBackgroundSelectColor(113,171,154);
+        buttonPosition.x += 70;
+        
+        guiTypeButton * communicationButton = new guiTypeButton();
+        communicationButton->setup("communication", buttonWidth*1.5, buttonHeight);
+        communicationButton->setDimensions(90, 20);
+        communicationButton->setPosition(buttonPosition.x, buttonPosition.y);
+        communicationButton->setFont(&panel.guiTTFFont);
+        communicationButton->setBackgroundColor(180,87,128,75);
+        communicationButton->setBackgroundSelectColor(180,87,128);
+        buttonPosition.x += 100;
+        
+        guiTypeButton * dataButton = new guiTypeButton();
+        dataButton->setup("data", buttonWidth*1.5, buttonHeight);
+        dataButton->setDimensions(40, 20);
+        dataButton->setPosition(buttonPosition.x, buttonPosition.y);
+        dataButton->setFont(&panel.guiTTFFont);
+        dataButton->setBackgroundColor(178,101,0,75);
+        dataButton->setBackgroundSelectColor(178,101,0);
+        buttonPosition.x += 50;
+        
+        buttons["source"] = sourceButton;
+        buttons["sensing"] = sensingButton;
+        buttons["communication"] = communicationButton;
+        buttons["data"] = dataButton;
+        
+        ofAddListener(sourceButton->buttonPressed, this, &GuiManager::enableGroup);
+        ofAddListener(sensingButton->buttonPressed, this, &GuiManager::enableGroup);
+        ofAddListener(communicationButton->buttonPressed, this, &GuiManager::enableGroup);
+        ofAddListener(dataButton->buttonPressed, this, &GuiManager::enableGroup);
+        
+        // setup min + max button
         
         minimizeButton = new guiTypeButton();
         minimizeButton->setup("minimize", buttonWidth*1.5, buttonHeight);
@@ -84,52 +142,31 @@ namespace ofxTSPS {
         maximizeButton->setBackgroundSelectColor(0,168,156);
         maximizeButton->setBackgroundColor(0,168,156);
         
+        buttons["minimize"] = (minimizeButton);
+        buttons["maximize"] = (maximizeButton);
+        
         ofAddListener(minimizeButton->buttonPressed, this, &GuiManager::minimize);
         ofAddListener(maximizeButton->buttonPressed, this, &GuiManager::maximize);
         
-        //panel.addButton("maximize");
-        //disableElement("maximize");
+        // setup source panel
         
         guiTypePanel * videoPanel = panel.addPanel("video", 1, false);
         videoPanel->setDrawLock( false );	
         videoPanel->setBackgroundColor(174,139,138);
         videoPanel->setBackgroundSelectColor(174,139,138);
         
-        guiTypePanel * backgroundPanel = panel.addPanel("background", 1, false);
-        backgroundPanel->setDrawLock( false );	
-        backgroundPanel->setBackgroundColor(213,105,68);
-        backgroundPanel->setBackgroundSelectColor(213,105,68);
+        panelGroups["source"].push_back( videoPanel );
         
-        guiTypePanel * differencingPanel = panel.addPanel("differencing", 1, false);
-        differencingPanel->setDrawLock( false );	
-        differencingPanel->setBackgroundColor(113,171,154);
-        differencingPanel->setBackgroundSelectColor(113,171,154);
-        
-        guiTypePanel * sensingPanel = panel.addPanel("sensing", 1, false);
-        sensingPanel->setDrawLock( false );
-        sensingPanel->setBackgroundColor(191,120,0);
-        sensingPanel->setBackgroundSelectColor(191,120,0);
-        
-        guiTypePanel * communicationPanel = panel.addPanel("communication", 1, false);
-        communicationPanel->setDrawLock( false );
-        communicationPanel->setBackgroundColor(180,87,128);
-        communicationPanel->setBackgroundSelectColor(180,87,128);
-        
-        guiTypePanel * websocketPanel = panel.addPanel("ws://", 1, false);
-        websocketPanel->setDrawLock( false );
-        websocketPanel->setBackgroundColor(180,87,128);
-        websocketPanel->setBackgroundSelectColor(180,87,128);
-                
-        // video settings		
-        panel.setWhichPanel("video");	
+        // video settings
+        panel.setWhichPanel("video");
         //James G: Added video settings
+        // BR: Miss U guys ;(
         guiTypeGroup * videoSettingsGroup = panel.addGroup("camera settings");
         videoSettingsGroup->setBackgroundColor(148,129,85);
         videoSettingsGroup->setBackgroundSelectColor(148,129,85);
         videoSettingsGroup->seBaseColor(244,136,136);
         videoSettingsGroup->setShowText(false);
-        panel.addButton("open video settings");
-        //panel.addToggle("use kinect", "USE_KINECT", true);
+        /*panel.addButton("open video settings");*/
         
         vector<string>source_types;
         source_types.push_back("Web Camera");
@@ -139,7 +176,7 @@ namespace ofxTSPS {
         
         panel.addMultiToggle("source type", "SOURCE_TYPE", 0, source_types);
         
-        // video files    
+        // video files
         guiTypeGroup * videoFilesGroup = panel.addGroup("videoFiles");
         videoFilesGroup->setBackgroundColor(148,129,85);
         videoFilesGroup->setBackgroundSelectColor(148,129,85);
@@ -147,7 +184,7 @@ namespace ofxTSPS {
         videoFilesGroup->setShowText(false);
         
         panel.addTextField("video directory (inside data folder)", "VIDEO_FILE_DIR", "videos", 200, 20);
-        videoFiles = new simpleFileLister();	
+        videoFiles = new simpleFileLister();
         int numVideoFiles = videoFiles->listDir(ofToDataPath("videos", true));
         ofLog(OF_LOG_VERBOSE, "num video files found: " + numVideoFiles);
         panel.addFileLister("video files:", videoFiles, 240, 100);
@@ -172,17 +209,30 @@ namespace ofxTSPS {
         panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
         panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
         
-        // ZACK BOKA: choose whether or not to display the Adjusted View in color
-        // BR: disabling this for now
-        /*guiTypeGroup* adjustedViewColorGroup = panel.addGroup("adjustedViewColor");
-         adjustedViewColorGroup->setBackgroundColor(148,129,85);
-         adjustedViewColorGroup->setBackgroundSelectColor(148,129,85);
-         adjustedViewColorGroup->seBaseColor(244,136,136);
-         adjustedViewColorGroup->setShowText(false);
-         panel.addToggle("show Adjusted View in color", "ADJUSTED_VIEW_COLOR", false);*/
+        // end setup source panel
+        
+        // setup sensing panel
+        
+        guiTypePanel * backgroundPanel = panel.addPanel("background", 1, false);
+        backgroundPanel->setDrawLock( false );	
+        backgroundPanel->setBackgroundColor(213,105,68);
+        backgroundPanel->setBackgroundSelectColor(213,105,68);
+        
+        guiTypePanel * differencingPanel = panel.addPanel("differencing", 1, false);
+        differencingPanel->setDrawLock( false );
+        differencingPanel->setBackgroundColor(113,171,154);
+        differencingPanel->setBackgroundSelectColor(113,171,154);
+        
+        guiTypePanel * sensingPanel = panel.addPanel("tracking", 1, false);
+        sensingPanel->setDrawLock( false );
+        sensingPanel->setBackgroundColor(191,120,0);
+        sensingPanel->setBackgroundSelectColor(191,120,0);
+        
+        panelGroups["sensing"].push_back( backgroundPanel );
+        panelGroups["sensing"].push_back( differencingPanel );
+        panelGroups["sensing"].push_back( sensingPanel );
         
         //background settings
-        
         panel.setWhichPanel("background");
         guiTypeGroup * backgroundGroup = panel.addGroup("background");
         backgroundGroup->setBackgroundColor(148,129,85);
@@ -207,7 +257,7 @@ namespace ofxTSPS {
         //differencing settings
         
         panel.setWhichPanel("differencing");
-        guiTypeGroup * thresholdGroup = panel.addGroup("threshold group");	
+        guiTypeGroup * thresholdGroup = panel.addGroup("threshold group");
         thresholdGroup->setBackgroundColor(148,129,85);
         thresholdGroup->setBackgroundSelectColor(148,129,85);
         thresholdGroup->seBaseColor(255,136,37);
@@ -229,17 +279,17 @@ namespace ofxTSPS {
         panel.addSlider("highpass filter:", "HIGHPASS_BLUR", 1, 1, 255, true);
         panel.addSlider("highpass post-blur:", "HIGHPASS_NOISE", 1, 1, 30, true);
         
-        guiTypeGroup * smoothingGroup = panel.addGroup("smoothing");		
+        guiTypeGroup * smoothingGroup = panel.addGroup("smoothing");
         smoothingGroup->setBackgroundColor(148,129,85);
         smoothingGroup->setBackgroundSelectColor(148,129,85);
         smoothingGroup->seBaseColor(34,151,210);
         smoothingGroup->setShowText(false);
         panel.addToggle("use shape smoothing", "USE_SMOOTHING", false);
-        panel.addSlider("smooth amount:", "SMOOTH_AMOUNT", 0, 0, 15, false);		
+        panel.addSlider("smooth amount:", "SMOOTH_AMOUNT", 0, 0, 15, false);
         
         //sensing
         
-        panel.setWhichPanel("sensing");
+        panel.setWhichPanel("tracking");
         //TODO optionally disable people?
         
         guiTypeGroup * blobGroup = panel.addGroup("blobs");
@@ -249,28 +299,9 @@ namespace ofxTSPS {
         blobGroup->setShowText(false);
         blobGroup->setActive(true);
         
-        //JG 12/8/09 GUI-REDUX Removing this feature
         panel.addSlider("minimum blob size (% of view):", "MIN_BLOB", 1.f, 0.01f, 50.0f, false);
         panel.addSlider("maximum blob size (% of view):", "MAX_BLOB", 100.f, 0.1f, 100.f, false);
         panel.addToggle("ignore nested blobs", "FIND_HOLES", false);
-        
-        guiTypeGroup * optionsGroup = panel.addGroup("options");
-        optionsGroup->setBackgroundColor(148,129,85);
-        optionsGroup->setBackgroundSelectColor(148,129,85);
-        optionsGroup->seBaseColor(58,187,147);
-        optionsGroup->setShowText(false);
-        panel.addToggle("track and send contours", "SEND_OSC_CONTOURS", false);
-        
-        opticalFlowGroup = panel.addGroup("optical flow");
-        opticalFlowGroup->setBackgroundColor(148,129,85);
-        opticalFlowGroup->setBackgroundSelectColor(148,129,85);
-        opticalFlowGroup->seBaseColor(34,151,210);
-        opticalFlowGroup->setShowText(false);
-        //optical flow
-        panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", false);
-        // To-do: implement these in processors + ofxCv
-        //panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
-        //panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
         
         haarGroup = panel.addGroup("haar tracking");
         haarGroup->setBackgroundColor(148,129,85);
@@ -282,22 +313,51 @@ namespace ofxTSPS {
         panel.addToggle("detect and send features in blobs", "SENSE_HAAR", false);
         //	ofEnableDataPath();
         //	ofSetDataPathRoot("data/");
-        haarFiles = new simpleFileLister();	
+        haarFiles = new simpleFileLister();
         int numHaar = haarFiles->listDir(ofToDataPath("haar", true));
         ofLog(OF_LOG_VERBOSE, "haar files found " + numHaar);
         panel.addFileLister("types of features:", haarFiles, 240, 100);
         panel.addSlider("expand detection area:", "HAAR_PADDING", 0.0f, 0.0f, 200.0f, false);
         
-        //JG GUI-REDUX: removing this feature
-        //gui.addToggle("send haar center as blob center", &settings.bUseHaarAsCenter);
-        //JG 1/21/10 disabled this feature to simplify the interface
-        //	panel.addSlider("min. checkable haar size (%)", "MIN_HAAR", .1f, 0.0001f, 1.0f, false);
-        //	panel.addSlider("max. checkable haar size (%)", "MAX_HAAR", .5f, 0.0001f, 1.0f, false);
+        // end setup sensing panel
+        
+        // setup communication panel
+        
+        guiTypePanel * oscPanel = panel.addPanel("OSC", 1, false);
+        oscPanel->setDrawLock( false );
+        oscPanel->setBackgroundColor(180,87,128);
+        oscPanel->setBackgroundSelectColor(180,87,128);
+        
+        guiTypePanel * websocketPanel = panel.addPanel("WebSockets", 1, false);
+        websocketPanel->setDrawLock( false );
+        websocketPanel->setBackgroundColor(180,87,128);
+        websocketPanel->setBackgroundSelectColor(180,87,128);
+        
+        guiTypePanel * spacebrewPanel = panel.addPanel("Spacebrew", 1, false);
+        spacebrewPanel->setDrawLock( false );
+        spacebrewPanel->setBackgroundColor(180,87,128);
+        spacebrewPanel->setBackgroundSelectColor(180,87,128);
+        
+        guiTypePanel * tuioPanel = panel.addPanel("TUIO", 1, false);
+        tuioPanel->setDrawLock( false );
+        tuioPanel->setBackgroundColor(180,87,128);
+        tuioPanel->setBackgroundSelectColor(180,87,128);
+        
+        guiTypePanel * tcpPanel = panel.addPanel("TCP", 1, false);
+        tcpPanel->setDrawLock( false );
+        tcpPanel->setBackgroundColor(180,87,128);
+        tcpPanel->setBackgroundSelectColor(180,87,128);
+        
+        
+        panelGroups["communication"].push_back( oscPanel );
+        panelGroups["communication"].push_back( websocketPanel );
+        panelGroups["communication"].push_back( spacebrewPanel );
+        panelGroups["communication"].push_back( tuioPanel );
+        panelGroups["communication"].push_back( tcpPanel );
         
         //communication
         
-        panel.setWhichPanel("communication");
-        panel.setWhichColumn(0);
+        panel.setWhichPanel("OSC");
         
         guiTypeGroup * oscGroup = panel.addGroup("OSC");
         oscGroup->setBackgroundColor(148,129,85);
@@ -309,6 +369,8 @@ namespace ofxTSPS {
         panel.addTextField("receiver port (OSC port) :", "OSC_PORT", "12000", 200, 20);
         panel.addToggle("use legacy OSC", "LEGACY_OSC", false);
         
+        panel.setWhichPanel("TUIO");
+        
         guiTypeGroup * tuioGroup = panel.addGroup("TUIO");
         tuioGroup->setBackgroundColor(148,129,85);
         tuioGroup->setBackgroundSelectColor(148,129,85);
@@ -318,6 +380,8 @@ namespace ofxTSPS {
         panel.addTextField("receiver IP address (TUIO host):", "TUIO_HOST", "127.0.0.1", 200, 20);
         panel.addTextField("receiver port (TUIO port):", "TUIO_PORT", "3333", 200, 20);
         
+        panel.setWhichPanel("TCP");
+        
         guiTypeGroup * tcpGroup = panel.addGroup("TCP");
         tcpGroup->setBackgroundColor(148,129,85);
         tcpGroup->setBackgroundSelectColor(148,129,85);
@@ -326,8 +390,7 @@ namespace ofxTSPS {
         panel.addToggle("send TCP", "SEND_TCP", false);
         panel.addTextField("broadcast port (TCP port):", "TCP_PORT", "8888", 200, 20);
         
-        panel.setWhichPanel("ws://");
-        panel.setWhichColumn(0);
+        panel.setWhichPanel("WebSockets");
         
         guiTypeGroup * wssGroup = panel.addGroup("WebSocket Server");
         wssGroup->setBackgroundColor(148,129,85);
@@ -335,14 +398,13 @@ namespace ofxTSPS {
         wssGroup->seBaseColor(238,53,35);
         panel.addToggle("send over WebSocket server", "SEND_WSS", false);
         panel.addTextField("webSocket port:", "WSS_PORT", "7681", 200, 20);
-
+        
 #if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32) || defined(__MINGW32__)
-			// this doesn't work on libwebsockets for windows.
+        // this doesn't work on libwebsockets for windows.
 #else
 		panel.addButton("open debug URL");
-
+        
 #endif
-        bHasCustomPanel = false;
         
         guiTypeGroup * wsGroup = panel.addGroup("WebSocket Client");
         wsGroup->setBackgroundColor(148,129,85);
@@ -357,12 +419,48 @@ namespace ofxTSPS {
         panel.setValueB("SEND_WSS", false);
         panel.setValueB("SEND_WS", false);
         
+        panel.setWhichPanel("Spacebrew");
+        
         guiTypeGroup * sbGroup = panel.addGroup("Spacebrew");
         sbGroup->setBackgroundColor(148,129,85);
         sbGroup->setBackgroundSelectColor(148,129,85);
         sbGroup->seBaseColor(238,53,35);
         panel.addToggle("Send to Spacebrew", "SEND_SB", false);
         panel.addTextField("Spacebrew host:", "SB_HOST", "localhost", 200, 20);
+        
+        // end setup comm panel
+        
+        // setup data panel
+        
+        guiTypePanel * peoplePanel = panel.addPanel("people", 1, false);
+        peoplePanel->setDrawLock( false );
+        peoplePanel->setBackgroundColor(178,101,0);
+        peoplePanel->setBackgroundSelectColor(178,101,0);
+        
+        panelGroups["data"].push_back( peoplePanel );
+        
+        panel.setWhichPanel("people");
+        
+        guiTypeGroup * optionsGroup = panel.addGroup("options");
+        optionsGroup->setBackgroundColor(148,129,85);
+        optionsGroup->setBackgroundSelectColor(148,129,85);
+        optionsGroup->seBaseColor(58,187,147);
+        optionsGroup->setShowText(false);
+        
+        panel.addToggle("track and send contours", "SEND_OSC_CONTOURS", false);
+        
+        opticalFlowGroup = panel.addGroup("optical flow");
+        opticalFlowGroup->setBackgroundColor(148,129,85);
+        opticalFlowGroup->setBackgroundSelectColor(148,129,85);
+        opticalFlowGroup->seBaseColor(34,151,210);
+        opticalFlowGroup->setShowText(false);
+        //optical flow
+        // To-do: implement these in processors + ofxCv
+        //panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
+        //panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
+        panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", false);
+        
+        // end setup data panel
         
         //listen for save / load / reload / saveas events from GUI + pass to quadgui
         
@@ -373,9 +471,14 @@ namespace ofxTSPS {
         
         //set active panel to be differencing
         panel.setSelectedPanel("differencing");
+        
+        bHasCustomPanel = false;
+        
         ofEventArgs nullArgs;
         update(nullArgs);
         enableEvents();
+        
+        enableGroup("sensing");
     }
     
     
@@ -383,9 +486,80 @@ namespace ofxTSPS {
         if ( bHasCustomPanel ) return;
         guiTypePanel * customPanel = panel.addPanel("custom", 1, false);
         customPanel->setDrawLock( false );
-        customPanel->setBackgroundColor(218,173,90);
-        customPanel->setBackgroundSelectColor(191,120,0);
+        customPanel->setBackgroundColor(11,119,108);
+        customPanel->setBackgroundSelectColor(11,119,108);
         bHasCustomPanel = true;
+        
+        panelGroups["custom"].push_back( customPanel );
+        
+        if ( enabledPanelGroup != "custom"){
+            disableGroup("custom");
+        }
+        
+        panel.setWhichPanel("custom");
+        guiTypeGroup * customSettingsGroup = panel.addGroup("custom settings");
+        customSettingsGroup->setBackgroundColor(148,129,85);
+        customSettingsGroup->setBackgroundSelectColor(148,129,85);
+        customSettingsGroup->seBaseColor(58,187,147);
+        customSettingsGroup->setShowText(false);
+        
+        guiTypeButton * customButton = new guiTypeButton();
+        customButton->setup("custom", buttonWidth*1.5, buttonHeight);
+        customButton->setDimensions(50, 20);
+        customButton->setPosition( buttonPosition.x, buttonPosition.y );
+        customButton->setFont(&panel.guiTTFFont);
+        customButton->setBackgroundColor(11,119,108,75);
+        customButton->setBackgroundSelectColor(11,119,108);
+        buttons["custom"] = (customButton);
+        
+        ofAddListener(customButton->buttonPressed, this, &GuiManager::enableGroup);
+    }
+    
+    void GuiManager::enableGroup( string & groupName ){
+        enableGroup(groupName.c_str());
+    }
+    
+    void GuiManager::enableGroup( string groupName ){
+        if ( panelGroups.count( groupName ) == 0 ){
+            ofLogWarning("No group of name "+groupName );
+            return;
+        }
+        
+        map<string, vector<guiTypePanel*> >::iterator it = panelGroups.begin();
+        for (it; it != panelGroups.end(); it++){
+            disableGroup( it->first );
+        }
+        
+        if (buttons.count(groupName)) buttons[ groupName ]->setSelected();
+        enabledPanelGroup = groupName;
+        
+        for (int i=0; i<panelGroups[groupName].size(); i++){
+            panelGroups[groupName][i]->enable();
+        }
+        if ( panelGroups[groupName].size() == 0) return;
+        panel.setSelectedPanel(panelGroups[groupName][0]->name);
+    }
+    
+    void GuiManager::disableGroup( string groupName ){
+        if ( panelGroups.count( groupName ) == 0 ){
+            ofLogWarning("No group of name "+groupName );
+            return;
+        }
+        
+        if (buttons.count(groupName)) buttons[ groupName ]->setNormal();
+        
+        for (int i=0; i<panelGroups[groupName].size(); i++){
+            panelGroups[groupName][i]->disable();
+        }
+    }
+    
+    vector<string> GuiManager::getGroupNames(){
+        vector<string> ret;
+        map<string, vector<guiTypePanel*> >::iterator it = panelGroups.begin();
+        for (it; it != panelGroups.end(); it++){
+            ret.push_back( it->first );
+        }
+        return ret;
     }
     
     void GuiManager::addSlider(string name, int* value, int min, int max){
@@ -541,11 +715,11 @@ namespace ofxTSPS {
             grab->videoSettings();
         }
         
-        if ( settings.getInputType() == CAMERA_VIDEOGRABBER ){
+        /*if ( settings.getInputType() == CAMERA_VIDEOGRABBER && ){
             panel.getElement("open video settings")->enable();
         } else {
             panel.getElement("open video settings")->disable();
-        }
+        }*/
         
 		#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32) || defined(__MINGW32__)
 			// no websever on windows
@@ -794,7 +968,7 @@ namespace ofxTSPS {
         quadGui.saveToFile(settings.currentXmlFile);
     };
     
-    void GuiManager::reloadEventCatcher( string & buttonName){\
+    void GuiManager::reloadEventCatcher( string & buttonName){
         quadGui.readFromFile(settings.currentXmlFile);
     };
     
@@ -829,14 +1003,19 @@ namespace ofxTSPS {
     {
         if(enableGui){
             panel.mouseReleased();
-            if (maximizeButton->enabled) maximizeButton->checkHit(e.x, e.y, e.button);
-            else if (minimizeButton->enabled) minimizeButton->checkHit(e.x, e.y, e.button);      
-            else {            
-                map<std::string, guiTypeButton*>::iterator it;
-                for( it=customButtons.begin(); it!=customButtons.end(); it++ ){
-                    if ( it->second->enabled){
-                        it->second->checkHit( e.x, e.y, e.button );                    
+            map<string,guiTypeButton*>::iterator it = buttons.begin();
+            
+            for (it; it != buttons.end(); it++){
+                if (it->second->enabled){
+                    if ( it->second->checkHit(e.x, e.y, e.button) ){
+                        return;
                     }
+                }
+            }
+            
+            for( it=customButtons.begin(); it!=customButtons.end(); it++ ){
+                if ( it->second->enabled){
+                    it->second->checkHit( e.x, e.y, e.button );                    
                 }
             }
         }
@@ -861,11 +1040,19 @@ namespace ofxTSPS {
     void GuiManager::draw() {
         if(enableGui){
             panel.draw();
-            maximizeButton->render();
-            minimizeButton->render();
+            
+            ofSetColor(184,169,121);
+            ofFill();
+            ofRect(10,40,panel.getWidth(),20);
+            ofSetColor(255);
+            panel.guiTTFFont.drawString("CONFIGURE TSPS: "+ ofToUpper(enabledPanelGroup), 15, 45 + panel.guiTTFFont.getSize() );
+            
+            map<std::string, guiTypeButton*>::iterator it;
+            for( it=buttons.begin(); it!=buttons.end(); it++ ){
+                it->second->render();
+            }
             
             // draw custom buttons
-            map<std::string, guiTypeButton*>::iterator it;
             for( it=customButtons.begin(); it!=customButtons.end(); it++ ){
                 it->second->render();
             }
