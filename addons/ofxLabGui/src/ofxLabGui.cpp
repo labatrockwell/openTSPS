@@ -95,7 +95,7 @@ guiTypePanel * ofxLabGui::addPanel(string panelName, int numColumns, bool locked
     }
 
     panelPtr->setup(panelName);
-	panelPtr->setDimensions(boundingBox.width, boundingBox.height - boundingBox.y - topBarHeight - borderWidth*2 );
+	panelPtr->setDimensions(boundingBox.width, boundingBox.height - topBarHeight - borderWidth*3 );
 	if (panels.size() > 0){
 		ofRectangle tabRect = panels[panels.size()-1]->getTabRect();
 		panelPtr->setTabPosition(tabRect.x + tabRect.width, tabRect.y);
@@ -998,6 +998,7 @@ void ofxLabGui::mousePressed(float x, float y, int button){
 		bool bTextEnterSet = false;
 		//check panel tabs
         for(int i = 0; i < panels.size(); i++){
+            if ( !panels[i]->enabled ) continue;
 			ofRectangle scaledTabRect = panels[i]->getTabRect();
 			scaledTabRect.x += panels[i]->getPosX();
 			scaledTabRect.y += getPosY();
@@ -1230,13 +1231,43 @@ void ofxLabGui::draw(){
 					//ofRect(panelTabs[i].x, panelTabs[i].y, panelTabs[i].width, panelTabs[i].height);
                 }*/
 
-                glPushMatrix();
-                    glTranslatef(hitArea.x, hitArea.y, 0);
-                    for(int i = 0; i < panels.size(); i++){
-                        if( i == selectedPanel )panels[i]->render();
-						else panels[i]->renderTab();
+            ofPushMatrix();{
+                ofTranslate( hitArea.x, hitArea.y );
+                
+                int numEnabled = 0;
+                for(int i = 0; i < panels.size(); i++){
+                    if ( !panels[i]->enabled ) continue;
+                    numEnabled++;
+                }
+                
+                if ( numEnabled == 0 ) return;
+                
+                float w = boundingBox.width;
+                w /= numEnabled;
+                
+                int index = 0;
+                int lastfound = 0;
+                
+                for(int i = 0; i < panels.size(); i++){
+                    if ( !panels[i]->enabled ) continue;
+                    
+                    ofRectangle tabRect = panels[i]->getTabRect();
+                    float dest = w * index;
+                    if ( lastfound > 0 ){
+                        dest = min( (float) panels[lastfound]->getTabRect().x + panels[lastfound]->getTabRect().width, dest );
+                        if ( dest + tabRect.width < panels[lastfound]->getTabRect().x + panels[lastfound]->getTabRect().width ){
+                            dest = panels[lastfound]->getTabRect().x + panels[lastfound]->getTabRect().width;
+                        }
                     }
-                glPopMatrix();
+                    index++;
+                    lastfound = i;
+                    panels[i]->setTabPosition(dest,  tabRect.y);
+                    
+                    if( i == selectedPanel ) panels[i]->render();
+                    else panels[i]->renderTab();
+
+                }
+            } ofPopMatrix();
 
             //glDisable(GL_SCISSOR_TEST);
         }
