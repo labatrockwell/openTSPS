@@ -15,6 +15,8 @@
 
 namespace ofxTSPS {
     class Person;
+    class Scene;
+    
     class TCPSender {
     public:
         
@@ -38,6 +40,9 @@ namespace ofxTSPS {
         void customEvent( string eventName, string eventData );
         void customEvent( string eventName, vector<string>params );
         void customEvent( string eventName, map<string,string>params );
+        
+        // scene data
+        void sceneUpdated( Scene & s );
         
         string getPersonString( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours );
         

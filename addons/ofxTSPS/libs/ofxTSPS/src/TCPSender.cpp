@@ -5,6 +5,7 @@
 
 #include "ofxTSPS/communication/TCPSender.h"
 #include "ofxTSPS/Person.h"
+#include "ofxTSPS/Scene.h"
 
 namespace ofxTSPS {
     
@@ -147,6 +148,11 @@ namespace ofxTSPS {
         message<<"\\";
         
         currentString += message.str();
+    }
+    //---------------------------------------------------------------------------
+    void TCPSender::sceneUpdated( Scene & s ){
+        string message = s.getTCPMessage();
+        currentString += message;
     }
     
     /***************************************************************

@@ -119,6 +119,10 @@ namespace ofxTSPS {
         int     tuioPort;
         int     tcpPort;
         
+        // scene vars
+        bool    bSendScene;
+        int     sceneGridX, sceneGridY;
+        
         // video grabber
         void setSource( Source * source);
         Source*         getSource();

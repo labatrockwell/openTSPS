@@ -10,6 +10,7 @@
 
 namespace ofxTSPS {
     class Person;
+    class Scene;
     
     class WebSocketMessage {
     public:
@@ -46,6 +47,9 @@ namespace ofxTSPS {
         void customEvent( string eventName, string eventData );
         void customEvent( string eventName, vector<string>params );
         void customEvent( string eventName, map<string,string>params );
+        
+        // scene data
+        void sceneUpdated( Scene & s );
         
     protected:
         vector<WebSocketMessage> toSend;

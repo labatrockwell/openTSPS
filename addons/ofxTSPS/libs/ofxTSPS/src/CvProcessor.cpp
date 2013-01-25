@@ -133,14 +133,6 @@ namespace ofxTSPS {
         differencedImage.setFromPixels(image.getPixelsRef());
         ofxCv::threshold(differencedImage, threshold);
         
-        //reset scene
-        scene->percentCovered = 0;
-        if ( bTrackOpticalFlow && bFlowTrackedOnce ){
-            scene->averageMotion = flow.getAverageFlow();
-        } else {
-            scene->averageMotion = ofPoint(0,0);
-        }
-        
         // find contours
         contourFinder.setMinArea( minBlobArea * tspsWidth * tspsHeight );
         contourFinder.setMaxArea( maxBlobArea * tspsWidth * tspsHeight );
@@ -163,8 +155,6 @@ namespace ofxTSPS {
                     continue;
                 }
                 p->oid = i; //hack ;(
-                
-                scene->percentCovered += p->area;
                 
                 //update this person with new blob info
                 // to-do: make centroid dampening dynamic
@@ -264,6 +254,14 @@ namespace ofxTSPS {
                 personEntered(newPerson, scene);
             }
         }
+        
+        //reset scene
+        if ( bTrackOpticalFlow && bFlowTrackedOnce ){
+            scene->averageMotion = flow.getAverageFlow();
+        } else {
+            scene->averageMotion = ofPoint(0,0);
+        }
+        scene->update( trackedPeople, tspsWidth, tspsHeight );
         
         // delete old blobs
         for (int i=trackedPeople->size()-1; i>=0; i--){

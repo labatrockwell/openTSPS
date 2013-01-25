@@ -6,6 +6,7 @@
 
 #include "ofxTSPS/communication/WebSocketSender.h"
 #include "ofxTSPS/Person.h"
+#include "ofxTSPS/Scene.h"
 
 namespace ofxTSPS {
     //---------------------------------------------------------------------------
@@ -170,6 +171,11 @@ namespace ofxTSPS {
         }
         jsonString += "}}";
         toSend.push_back(WebSocketMessage(jsonString));
+    }
+    
+    //--------------------------------------------------------------
+    void WebSocketSender::sceneUpdated( Scene & s ){
+        toSend.push_back(WebSocketMessage(s.getJSONMessge()));
     }
     
     //---------------------------------------------------------------------------

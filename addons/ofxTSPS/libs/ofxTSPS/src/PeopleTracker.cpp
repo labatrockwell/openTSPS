@@ -224,6 +224,29 @@ namespace ofxTSPS {
             }
             
             trackPeople();
+            
+            if ( p_Settings->bSendScene ){
+                // send scene
+                if (bTuioEnabled){
+                    // no scene for tuio?
+                }
+                
+                if (bOscEnabled){
+                    oscClient.sceneUpdated(scene);
+                }
+                
+                if (bTcpEnabled){
+                    tcpClient.sceneUpdated(scene);
+                }
+                
+                if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+                    webSocketServer.sceneUpdated(scene);
+                }
+                
+                if ( bSpacebrewEnabled ){
+                    spacebrewSender.sceneUpdated(scene);
+                }
+            }
         }
     }
     
@@ -621,6 +644,14 @@ namespace ofxTSPS {
             doRelearnBackground = p_Settings->bLearnBackground;
         
         //----------------------------------------------
+        // Scene
+        //----------------------------------------------
+        
+        if ( scene.getGridX() != p_Settings->sceneGridX || scene.getGridY() != p_Settings->sceneGridY ){
+            scene.buildGrid(p_Settings->sceneGridX, p_Settings->sceneGridY);
+        }
+        
+        //----------------------------------------------
         // Processor
         //----------------------------------------------
         
@@ -901,6 +932,7 @@ namespace ofxTSPS {
             } ofPopMatrix();
 			ofPopMatrix();
 			dataView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);
+            scene.draw( activeView.width, activeView.height );
 		}
 		
 		//draw all images small

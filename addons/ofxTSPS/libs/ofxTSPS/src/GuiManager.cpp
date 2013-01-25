@@ -437,7 +437,13 @@ namespace ofxTSPS {
         peoplePanel->setBackgroundColor(178,101,0);
         peoplePanel->setBackgroundSelectColor(178,101,0);
         
+        guiTypePanel * scenePanel = panel.addPanel("scene", 1, false);
+        peoplePanel->setDrawLock( false );
+        peoplePanel->setBackgroundColor(178,101,0);
+        peoplePanel->setBackgroundSelectColor(178,101,0);
+        
         panelGroups["data"].push_back( peoplePanel );
+        panelGroups["data"].push_back( scenePanel );
         
         panel.setWhichPanel("people");
         
@@ -459,6 +465,18 @@ namespace ofxTSPS {
         //panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
         //panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
         panel.addToggle("track and send optical flow in blobs", "SENSE_OPTICAL_FLOW", false);
+        
+        panel.setWhichPanel("scene");
+        
+        guiTypeGroup * sceneGroup = panel.addGroup("options");
+        sceneGroup->setBackgroundColor(148,129,85);
+        sceneGroup->setBackgroundSelectColor(148,129,85);
+        sceneGroup->seBaseColor(58,187,147);
+        sceneGroup->setShowText(false);
+        
+        panel.addToggle("send scene data", "SEND_SCENE_DATA", settings.bSendScene );
+        panel.addSlider("scene grid horizontal", "SCENE_GRID_X", 0, 0, 10, true);
+        panel.addSlider("scene grid vertical", "SCENE_GRID_Y", 0, 0, 10, true);
         
         // end setup data panel
         
@@ -777,6 +795,11 @@ namespace ofxTSPS {
         //JG 1/21/10 disabled this feature to simplify the interface
         //	settings.minHaarArea = panel.getValueF("MIN_HAAR");
         //	settings.maxHaarArea = panel.getValueF("MAX_HAAR");
+        
+        //update scene
+        settings.bSendScene = panel.getValueB("SEND_SCENE_DATA");
+        settings.sceneGridX = panel.getValueI("SCENE_GRID_X");
+        settings.sceneGridY = panel.getValueI("SCENE_GRID_Y");
         
         //update osc stuff
         settings.bSendOsc = panel.getValueB("SEND_OSC");

@@ -16,7 +16,8 @@ namespace ofxTSPS {
     SpacebrewSender::SpacebrewSender( string host ) :    
     personEnteredMessage("personEntered", "tspsperson"),
     personUpdatedMessage("personUpdated", "tspsperson"),
-    personWillLeaveMessage("personLeft", "tspsperson")
+    personWillLeaveMessage("personLeft", "tspsperson"),
+    sceneMessage("scene","tspsscene")
     {
         connection = new Spacebrew::Connection();
         setupConnection();
@@ -26,9 +27,10 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void SpacebrewSender::setupConnection(){
         //connection->addPublish("Scene", "TSPSScene");
-        connection->addPublish("personEntered", "tspsperson");
-        connection->addPublish("personUpdated", "tspsperson");
-        connection->addPublish("personLeft", "tspsperson");
+        connection->addPublish( personEnteredMessage.name, personEnteredMessage.type );
+        connection->addPublish( personUpdatedMessage.name, personUpdatedMessage.type );
+        connection->addPublish( personWillLeaveMessage.name, personWillLeaveMessage.type );
+        connection->addPublish( sceneMessage.name, sceneMessage.type );
         //connection->addPublish("customEvent", "Object"); hm...
     }
     
@@ -109,8 +111,12 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void SpacebrewSender::sceneUpdated( Scene s ){
-        // to-do...
+    void SpacebrewSender::sceneUpdated( Scene & s ){
+        sceneMessage.value = s.getJSONMessge();
+        if ( spacebrewMutex.tryLock()){
+            connection->send( &sceneMessage );
+            spacebrewMutex.unlock();
+        }
     }
     
 }

@@ -50,14 +50,14 @@ namespace ofxTSPS {
         void customEvent( string eventName, map<string,string>params );
         
         // scene data
-        void sceneUpdated( Scene s );
+        void sceneUpdated( Scene & s );
         
     private:
         bool bEnabled;
         Spacebrew::Connection * connection;
         void setupConnection();
         
-        Spacebrew::TSPSMessage personEnteredMessage, personUpdatedMessage, personWillLeaveMessage;
+        Spacebrew::TSPSMessage personEnteredMessage, personUpdatedMessage, personWillLeaveMessage, sceneMessage;
         
         ofMutex spacebrewMutex;
     };

@@ -99,7 +99,7 @@ namespace ofxTSPS {
         void customEvent( string eventName, map<string,string>params );
         
         // scene data
-        void sceneUpdated( Scene s );
+        void sceneUpdated( Scene & s );
         
         void send ( ofxOscMessage m );
         void reroute(string _ip, int _port);

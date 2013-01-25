@@ -130,8 +130,8 @@ namespace ofxTSPS {
     }
     
     //--------------------------------------------------------------
-    void OscSender::sceneUpdated( Scene s ){
-        ofxOscMessage m = s.getOscMessage( "/TSPS/scene");
+    void OscSender::sceneUpdated( Scene & s ){
+        ofxOscMessage m = s.getOscMessage( "/TSPS/scene" );
         sendMessage( m );
     }
     
