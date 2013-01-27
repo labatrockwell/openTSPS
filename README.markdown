@@ -39,6 +39,13 @@ Compiling:
 3. open the project for your platform (Xcode of vs2010) in openTSPS/standalone/basic
 4. compile and run!
 
+Compiling OS X 10.7+:
+------------
+To use the video settings feature with openFrameworks, you must compile against OS X 10.6. If you don't need 
+the video settings, change the Base SDK in the openTSPS project and openFrameworks project to "Latest SDK".
+
+To compile against 10.6, follow the steps laid out in this [forum post](http://forum.openframeworks.cc/index.php/topic,10343.0.html)
+
 Build Script
 ------------
 * (OS X) - You can alternately build all of the binaries, the Processing library, and zip up all examples by running the build script
@@ -49,7 +56,7 @@ Build Script
 
 Troubleshooting
 ------------
-* If you have trouble compiling, experience crashes, or need any general help, please visit the [TSPS Forum] (http://opentsps.com/forum)
+* If you have trouble compiling, experience crashes, or need any general help, please visit the [TSPS Forum](http://opentsps.com/forum)
 
 WebSockets
 ------------
