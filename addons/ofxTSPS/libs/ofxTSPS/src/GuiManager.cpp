@@ -166,8 +166,9 @@ namespace ofxTSPS {
         videoSettingsGroup->setBackgroundSelectColor(148,129,85);
         videoSettingsGroup->seBaseColor(244,136,136);
         videoSettingsGroup->setShowText(false);
-        /*panel.addButton("open video settings");*/
-        
+#ifndef OF_VIDEO_CAPTURE_QTKIT
+        panel.addButton("open video settings");
+#endif
         vector<string>source_types;
         source_types.push_back("Web Camera");
         source_types.push_back("Video File");
@@ -728,16 +729,18 @@ namespace ofxTSPS {
         settings.highpassAmp = panel.getValueI("AMPLIFICATION_AMOUNT");
         panel.setGroupActive("video", "amplification", settings.bAmplify);
         
+#ifndef OF_VIDEO_CAPTURE_QTKIT
         if(panel.getButtonPressed("open video settings") && settings.getSource() != NULL && settings.getInputType() == CAMERA_VIDEOGRABBER){
             ofVideoGrabber * grab = dynamic_cast<ofVideoGrabber *>(settings.getSource());
             grab->videoSettings();
         }
         
-        /*if ( settings.getInputType() == CAMERA_VIDEOGRABBER && ){
+        if ( settings.getInputType() == CAMERA_VIDEOGRABBER ){
             panel.getElement("open video settings")->enable();
         } else {
             panel.getElement("open video settings")->disable();
-        }*/
+        }
+#endif
         
 		#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32) || defined(__MINGW32__)
 			// no websever on windows
