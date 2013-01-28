@@ -930,9 +930,9 @@ namespace ofxTSPS {
                 ofScale( (float) activeView.width / width , (float) activeView.height / height );
                 tspsProcessor->draw();
             } ofPopMatrix();
+            scene.draw( activeView.width, activeView.height );
 			ofPopMatrix();
 			dataView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);
-            scene.draw( activeView.width, activeView.height );
 		}
 		
 		//draw all images small

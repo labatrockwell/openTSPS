@@ -45,11 +45,11 @@ namespace ofxTSPS {
                 ofRectangle check = grid[i];
                 check.x *= width;
                 check.y *= height;
-                check.scale(width, height );
+                check.scale( width, height );
                 if ( activeGrid[i] ){
                     ofFill();
                     ofSetColor(255,100);
-                } else{
+                } else {
                     ofNoFill();
                     ofSetColor(255);
                 }
@@ -65,7 +65,7 @@ namespace ofxTSPS {
             ofRectangle check = grid[i];
             check.x *= cameraWidth;
             check.y *= cameraHeight;
-            check.scale(cameraWidth, cameraHeight );
+            check.scale( cameraWidth, cameraHeight );
             if ( check.inside(p->centroid)){
                 activeGrid[i] = true;
             }
@@ -89,7 +89,7 @@ namespace ofxTSPS {
         
         for (int x=0; x<w; x++){
             for (int y=0; y<h; y++){
-                grid.push_back(ofRectangle(x, y, 1.0 / w, 1.0 / h));
+                grid.push_back(ofRectangle((float) x/w, (float) y/h, 1.0 / (float) w, 1.0 / (float) h));
                 activeGrid.push_back(false);
             }
         }
