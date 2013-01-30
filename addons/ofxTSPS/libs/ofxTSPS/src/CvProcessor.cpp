@@ -134,6 +134,7 @@ namespace ofxTSPS {
         ofxCv::threshold(differencedImage, threshold);
         
         // find contours
+        contourFinder.setFindHoles( bFindHoles );
         contourFinder.setMinArea( minBlobArea * tspsWidth * tspsHeight );
         contourFinder.setMaxArea( maxBlobArea * tspsWidth * tspsHeight );
         contourFinder.findContours( differencedImage );
