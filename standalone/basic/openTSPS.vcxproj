@@ -146,7 +146,7 @@
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.c" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Connection.cpp" />
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\LWSEvents.cpp" />
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Protocol.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Reactor.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Server.cpp" />
@@ -350,7 +350,7 @@
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Client.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\LWSEvents.h" />
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Protocol.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Reactor.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Server.h" />
