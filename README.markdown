@@ -40,8 +40,12 @@ Compiling:
 ------------
 1. clone openframeworks from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
 2. clone the TSPS directory into openframeworks/
-3. open the project for your platform (Xcode of vs2010) in openTSPS/standalone/basic
-4. compile and run!
+3. clone all submodules:
+'''
+git submodule update --init --recursive
+'''
+4. open the project for your platform (Xcode of vs2010) in openTSPS/standalone/basic
+5. compile and run!
 
 Build Script
 ------------
