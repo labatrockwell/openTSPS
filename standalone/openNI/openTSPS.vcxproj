@@ -58,7 +58,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOpenCv\libs;..\..\..\addons\ofxOpenCv\libs\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video;..\..\..\addons\ofxOpenCv\libs\opencv\lib;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2010;..\..\..\addons\ofxOpenCv\src;..\..\addons\ofxKinect\libs\libfreenect;..\..\addons\ofxKinect\src;..\..\addons\ofxLabGui\src\elements;..\..\addons\ofxLabGui\src;..\..\addons\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\jsoncpp\json;..\..\addons\ofxLibwebsockets\libs\jsoncpp;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include;..\..\addons\ofxLibwebsockets\libs\openssl;..\..\addons\ofxOpenCVExtensions\src;..\..\addons\ofxOpenNI\include\openni;..\..\addons\ofxOpenNI\include\openni\Win32;..\..\addons\ofxOpenNI\include\nite;..\..\addons\ofxOpenNI\src;..\..\addons\ofxTSPS\libs\ofxTSPS\src;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\openni;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\opencv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication;..\..\addons\ofxTSPS\libs\ofxTSPS\include;..\..\addons\ofxTSPS\src;..\..\addons\ofxTuioWrapper\src\oscpack\include;..\..\addons\ofxTuioWrapper\src\oscpack\include\osc;..\..\addons\ofxTuioWrapper\src\oscpack\include\ip;..\..\addons\ofxTuioWrapper\src\core;..\..\addons\ofxTuioWrapper\src;..\..\addons\ofxMSAInteractiveObject\src;..\..\addons\ofxCv\libs\ofxCv\src;..\..\addons\ofxCv\libs\ofxCv\include;..\..\addons\ofxCv\src;%(AdditionalIncludeDirectories);src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOpenCv\libs;..\..\..\addons\ofxOpenCv\libs\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video;..\..\..\addons\ofxOpenCv\libs\opencv\lib;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2010;..\..\..\addons\ofxOpenCv\src;..\..\addons\ofxKinect\libs\libfreenect;..\..\addons\ofxKinect\src;..\..\addons\ofxLabGui\src\elements;..\..\addons\ofxLabGui\src;..\..\addons\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\jsoncpp\json;..\..\addons\ofxLibwebsockets\libs\jsoncpp;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include;..\..\addons\ofxLibwebsockets\libs\openssl;..\..\addons\ofxOpenCVExtensions\src;..\..\addons\ofxOpenNI\include\openni;..\..\addons\ofxOpenNI\include\openni\Win32;..\..\addons\ofxOpenNI\include\nite;..\..\addons\ofxOpenNI\src;..\..\addons\ofxTSPS\libs\ofxTSPS\src;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\openni;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\opencv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication;..\..\addons\ofxTSPS\libs\ofxTSPS\include;..\..\addons\ofxTSPS\src;..\..\addons\ofxTuioWrapper\src\oscpack\include;..\..\addons\ofxTuioWrapper\src\oscpack\include\osc;..\..\addons\ofxTuioWrapper\src\oscpack\include\ip;..\..\addons\ofxTuioWrapper\src\core;..\..\addons\ofxTuioWrapper\src;..\..\addons\ofxMSAInteractiveObject\src;..\..\addons\ofxCv\libs\ofxCv\src;..\..\addons\ofxCv\libs\ofxCv\include;..\..\addons\ofxCv\src;%(AdditionalIncludeDirectories);src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
@@ -69,7 +69,7 @@
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalDependencies>%(AdditionalDependencies);opencv_calib3d231d.lib;opencv_contrib231d.lib;opencv_core231d.lib;opencv_features2d231d.lib;opencv_flann231d.lib;opencv_gpu231d.lib;opencv_haartraining_engined.lib;opencv_highgui231d.lib;opencv_imgproc231d.lib;opencv_legacy231d.lib;opencv_ml231d.lib;opencv_objdetect231d.lib;opencv_video231d.lib;zlibd.lib;freenect.lib;libwebsocketswin32.lib;libeay32.lib;ssleay32.lib;oscpackd.lib;openNI.lib;XnVCNITE_1_5_2.lib;XnVFeatures_1_5_2.lib;XnVHandGenerator_1_5_2.lib;XnVNITE_1_5_2.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2010;..\..\addons\ofxTuioWrapper\src\oscpack\lib\win32;..\..\addons\ofxOpenNI\win\copy_to_data_openni_path\lib;..\..\..\addons\ofxLibwebsockets\libs\openssl\lib\win32;..\..\..\addons\ofxLibwebsockets\libs\libwebsockets\lib\win32;..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2010;..\..\addons\ofxTuioWrapper\src\oscpack\lib\win32;..\..\addons\ofxOpenNI\win\copy_to_data_openni_path\lib;..\..\..\addons\ofxLibwebsockets\libs\openssl\lib\win32;..\..\addons\ofxLibwebsockets\libs\openssl\lib\win32;..\..\addons\ofxLibwebsockets\libs\libwebsockets\lib\win32;..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
     <PostBuildEvent />
@@ -140,10 +140,6 @@
     <ClCompile Include="..\..\addons\ofxKinect\src\ofxKinect.cpp" />
     <ClCompile Include="..\..\addons\ofxLabGui\src\ofxLabGui.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\jsoncpp.cpp" />
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt.c" />
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt_long.c" />
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\gettimeofday.c" />
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.c" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Connection.cpp" />
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp" />
@@ -154,9 +150,10 @@
     <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.cpp" />
     <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.cpp" />
     <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.cpp" />
+    <ClCompile Include="..\..\addons\ofxOpenNI\src\ofxOpenNI.cpp" />
+    <ClCompile Include="..\..\addons\ofxOpenNI\src\ofxOpenNITypes.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\CvPerson.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\CvProcessor.cpp" />
-    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Events.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Processor.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\GuiManager.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\OscSender.cpp" />
@@ -165,6 +162,7 @@
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Scene.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Settings.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TCPSender.cpp" />
+    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TSPSEvents.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TUIOSender.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Utils.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\WebSocketSender.cpp" />
@@ -341,13 +339,6 @@
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\json\json-forwards.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\json\json.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\libwebsockets.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\gettimeofday.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\netdb.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\strings.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\sys\time.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\unistd.h" />
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Client.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h" />
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h" />
@@ -424,6 +415,9 @@
     <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.h" />
     <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.h" />
     <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.h" />
+    <ClInclude Include="..\..\addons\ofxOpenNI\src\ofxOpenNI.h" />
+    <ClInclude Include="..\..\addons\ofxOpenNI\src\ofxOpenNITypes.h" />
+    <ClInclude Include="..\..\addons\ofxOpenNI\src\ofxOpenNIUtils.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication\OscSender.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication\TCPSender.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication\TUIOSender.h" />
@@ -431,7 +425,6 @@
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\Constants.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv\CvPerson.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv\CvProcessor.h" />
-    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\Events.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui\GuiManager.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui\Settings.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\PeopleTracker.h" />
@@ -442,6 +435,7 @@
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\Source.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\VideoFile.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\VideoGrabber.h" />
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\TSPSEvents.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils\Utils.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils\View.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPS.h" />

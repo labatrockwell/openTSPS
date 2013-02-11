@@ -61,18 +61,6 @@
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\jsoncpp.cpp">
       <Filter>addons\third-party\ofxLibwebsockets\libs\jsoncpp</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt_long.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\gettimeofday.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp">
       <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
     </ClCompile>
@@ -223,11 +211,17 @@
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Processor.cpp">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Events.cpp">
-      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp">
       <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TSPSEvents.cpp">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxOpenNI\src\ofxOpenNI.cpp">
+      <Filter>addons\third-party\ofxOpenNI\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxOpenNI\src\ofxOpenNITypes.cpp">
+      <Filter>addons\third-party\ofxOpenNI\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -345,15 +339,6 @@
     <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\lib">
       <UniqueIdentifier>{4be6f779-2f3a-4804-a539-77701024412a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port">
-      <UniqueIdentifier>{d8d33087-af55-41c9-8006-ad8b9940d43f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers">
-      <UniqueIdentifier>{1f27c8aa-0f40-47e0-92ea-5467ab6cba10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\sys">
-      <UniqueIdentifier>{050eeebe-69f3-4b33-a9db-33d58c0b7def}</UniqueIdentifier>
-    </Filter>
     <Filter Include="addons\third-party\ofxLibwebsockets\libs\openssl\openssl">
       <UniqueIdentifier>{f00ee52b-5b3d-44ae-88ee-214f10897848}</UniqueIdentifier>
     </Filter>
@@ -452,6 +437,12 @@
     </Filter>
     <Filter Include="addons\third-party\ofxTuioWrapper\src\oscpack\include\osc">
       <UniqueIdentifier>{92a51fd0-2ebf-4755-b7fd-aa6a8d107b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxOpenNI">
+      <UniqueIdentifier>{4a2b3e69-58c0-4d9b-b3fb-8fbb5848aa01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxOpenNI\src">
+      <UniqueIdentifier>{3c26860b-ec00-41fd-a039-72ab55c9f9a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -583,27 +574,6 @@
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\libwebsockets.h">
       <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\gettimeofday.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\netdb.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\strings.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\unistd.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\sys\time.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\sys</Filter>
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ui_compat.h">
       <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
@@ -1310,11 +1280,20 @@
     <ClInclude Include="..\..\addons\ofxTuioWrapper\src\core\TuioTime.h">
       <Filter>addons\third-party\ofxTuioWrapper\src\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\Events.h">
-      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h">
       <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\TSPSEvents.h">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenNI\src\ofxOpenNI.h">
+      <Filter>addons\third-party\ofxOpenNI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenNI\src\ofxOpenNITypes.h">
+      <Filter>addons\third-party\ofxOpenNI\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxOpenNI\src\ofxOpenNIUtils.h">
+      <Filter>addons\third-party\ofxOpenNI\src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
