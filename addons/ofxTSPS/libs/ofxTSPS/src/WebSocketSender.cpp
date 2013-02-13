@@ -164,7 +164,7 @@ namespace ofxTSPS {
         int index = 0;
         for ( it = params.begin(); it != params.end(); it){
             
-            jsonString += "\"" + (*it).first + "\":\" " + (*it).second + "\"";
+            jsonString += "\"" + (*it).first + "\":\"" + (*it).second + "\"";
             if ( ++it != params.end() ){
                 jsonString += ",";
             }
