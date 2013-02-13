@@ -1331,6 +1331,9 @@
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h">
       <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication\SpacebrewSender.h">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication</Filter>
     </ClInclude>
