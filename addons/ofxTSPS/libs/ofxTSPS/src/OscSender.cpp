@@ -99,6 +99,7 @@ namespace ofxTSPS {
     void OscSender::customEvent( string eventName, string eventData ){
         ofxOscMessage m;
         m.setAddress("/TSPS/customEvent");
+        m.addStringArg( eventName );
         m.addStringArg( eventData );
         sendMessage(m);
     }
