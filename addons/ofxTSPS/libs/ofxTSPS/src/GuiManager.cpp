@@ -820,7 +820,7 @@ namespace ofxTSPS {
         
         settings.tcpPort = (int) atoi(panel.getValueS("TCP_PORT", 0, "8888").c_str());
         
-        settings.spacebrewHost = panel.getValueS("SB_HOST", 0, "localhost");
+        settings.spacebrewHost = panel.getValueS("SB_HOST", 0, "sandbox.spacebrew.cc");
         settings.bSendSpacebrew = panel.getValueB("SEND_SB");
         
         settings.webSocketServerPort = (int) atoi(panel.getValueS("WSS_PORT", 0, "7681").c_str());

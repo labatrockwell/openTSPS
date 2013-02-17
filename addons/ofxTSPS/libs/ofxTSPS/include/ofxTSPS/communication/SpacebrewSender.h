@@ -57,6 +57,8 @@ namespace ofxTSPS {
         Spacebrew::Connection * connection;
         void setupConnection();
         
+        bool bSeesPeople;
+        
         Spacebrew::TSPSMessage personEnteredMessage, personUpdatedMessage, personWillLeaveMessage, sceneMessage;
         
         ofMutex spacebrewMutex;
