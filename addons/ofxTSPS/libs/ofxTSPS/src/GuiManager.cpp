@@ -439,9 +439,9 @@ namespace ofxTSPS {
         peoplePanel->setBackgroundSelectColor(178,101,0);
         
         guiTypePanel * scenePanel = panel.addPanel("scene", 1, false);
-        peoplePanel->setDrawLock( false );
-        peoplePanel->setBackgroundColor(178,101,0);
-        peoplePanel->setBackgroundSelectColor(178,101,0);
+        scenePanel->setDrawLock( false );
+        scenePanel->setBackgroundColor(178,101,0);
+        scenePanel->setBackgroundSelectColor(178,101,0);
         
         panelGroups["data"].push_back( peoplePanel );
         panelGroups["data"].push_back( scenePanel );
