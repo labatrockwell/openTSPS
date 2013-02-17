@@ -140,7 +140,7 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void WebSocketSender::customEvent( string eventName, string eventData ){
-        toSend.push_back(WebSocketMessage("{\"type\":\"customEvent\",\"name\":\"" + eventName + "\", \"data\":\" " + eventData + " \"}"));
+        toSend.push_back(WebSocketMessage("{\"type\":\"customEvent\",\"name\":\"" + eventName + "\", \"data\":\"" + eventData + " \"}"));
     }
     
     //---------------------------------------------------------------------------
