@@ -290,8 +290,8 @@ namespace ofxTSPS {
         m.addFloatArg(boundingRect.height);
         
         if(!bUseLegacy){
-            m.addFloatArg(highest.x);
-            m.addFloatArg(highest.y);
+            m.addFloatArg(highest.x / cameraWidth );
+            m.addFloatArg(highest.y / cameraHeight );
         }
         
         ofRectangle haarRect = getHaarRectNormalized(cameraWidth,cameraHeight);
