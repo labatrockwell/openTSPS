@@ -1,5 +1,17 @@
 Release Notes
 ------------
+1.3.4 (2/17/13)
+* New gui groups with more organized panels
+* New parameters for ofxTSPS::Scene, including mode to send simple on/off for an arbitrary grid layed over a scene
+	* See new Processing example
+* Custom events API allows for more extendable TSPS
+* Processing, Javascript, openFrameworks libraries updated with Scene and custom events
+* All Windows projects updated
+* New "deviceIndex" property in defaults xml, which allows you to specify which camera index to open
+* Re-added video settings button in OS X via compiling for 10.6 SDK
+* Added in simple connection to Spacebrew (www.spacebrew.cc) as a new communication option
+* Fixes for Unity library
+
 1.3 (9/10/12)
 * Downloadable apps:
 	* windows version with Kinect! (finally!)
