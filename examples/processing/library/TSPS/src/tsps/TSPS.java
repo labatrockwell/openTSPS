@@ -4,6 +4,7 @@ import netP5.*;
 import oscP5.*;
 import processing.core.PApplet;
 import processing.core.PVector;
+import java.util.ArrayList;
 
 import java.util.*;
 import java.lang.reflect.Method;
@@ -28,6 +29,12 @@ public class TSPS {
 	 */
 	private Hashtable<Integer, TSPSPerson> _currentPeople;
 	
+	/**
+	 * Current TSPScene
+	 */
+	
+	public TSPSScene scene;
+
 	private Method personEntered;
 	private Method personUpdated;
 	private Method personLeft;
@@ -48,6 +55,7 @@ public class TSPS {
 		receiver = new OscP5(this, defaultPort);
 		people = new Hashtable<Integer, TSPSPerson>();
 		_currentPeople = new Hashtable<Integer, TSPSPerson>();
+		scene			= new TSPSScene( parent );
 		registerEvents();
 		parent.registerPre(this);
 	}
@@ -66,6 +74,7 @@ public class TSPS {
 		receiver = new OscP5(this, port);
 		people = new Hashtable<Integer, TSPSPerson>();
 		_currentPeople = new Hashtable<Integer, TSPSPerson>();
+		scene			= new TSPSScene( parent );
 
 		registerEvents();
 		parent.registerPre(this);
@@ -217,7 +226,7 @@ public class TSPS {
 
 		// scene
 		else if (theOscMessage.checkAddrPattern("/TSPS/scene")){
-			
+			scene.update( theOscMessage );
 		}
 
 		// custom event

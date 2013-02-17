@@ -9,8 +9,7 @@ import java.util.Collections;
  * TSPS Person object, containing properties unique to a specific tracked person
  */
 public class TSPSPerson
-{
-	
+{	
 	private final PApplet app;
 
 	/** Unique ID, different for each Person as long as TSPS is running */
