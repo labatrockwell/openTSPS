@@ -92,6 +92,7 @@
 		A9485FE915C4764D00761D1C /* ofxTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485FE315C4764D00761D1C /* ofxTCPServer.cpp */; };
 		A9485FEA15C4764D00761D1C /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485FE515C4764D00761D1C /* ofxUDPManager.cpp */; };
 		A9747A9416B58AF2004E483F /* TSPSDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9747A9216B58AF2004E483F /* TSPSDelegate.cpp */; };
+		A97BC4C016D08B00007CC131 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A97BC4BE16D08AE9007CC131 /* icon.icns */; };
 		A9860C6F15F989D400B70F26 /* ofxOpenNI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9860C6A15F989D400B70F26 /* ofxOpenNI.cpp */; };
 		A9860C7015F989D400B70F26 /* ofxOpenNITypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9860C6C15F989D400B70F26 /* ofxOpenNITypes.cpp */; };
 		A9B0E04116B03F6B00B4268E /* ofxSpacebrew.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9B0E03716B03F6B00B4268E /* ofxSpacebrew.cpp */; };
@@ -542,6 +543,7 @@
 		A95D3FF015D2148800EBDAA9 /* VideoFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoFile.h; sourceTree = "<group>"; };
 		A9747A9216B58AF2004E483F /* TSPSDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSPSDelegate.cpp; path = ../../extras/TSPSDelegate.cpp; sourceTree = "<group>"; };
 		A9747A9316B58AF2004E483F /* TSPSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSPSDelegate.h; path = ../../extras/TSPSDelegate.h; sourceTree = "<group>"; };
+		A97BC4BE16D08AE9007CC131 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A98609F215F9874800B70F26 /* OpenNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNI.h; sourceTree = "<group>"; };
 		A9860BE115F989D400B70F26 /* libusb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libusb.h; sourceTree = "<group>"; };
 		A9860BE315F989D400B70F26 /* XnCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XnCommon.h; sourceTree = "<group>"; };
@@ -2204,6 +2206,7 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				A97BC4BE16D08AE9007CC131 /* icon.icns */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
@@ -2243,6 +2246,7 @@
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
 				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
 				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+				A97BC4BF16D08AFD007CC131 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -2294,6 +2298,17 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A97BC4BF16D08AFD007CC131 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A97BC4C016D08B00007CC131 /* icon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
@@ -2429,7 +2444,7 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
@@ -2443,7 +2458,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -2463,7 +2478,7 @@
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
@@ -2477,7 +2492,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};

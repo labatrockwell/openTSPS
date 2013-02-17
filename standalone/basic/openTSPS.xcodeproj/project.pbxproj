@@ -92,6 +92,7 @@
 		A9485FE915C4764D00761D1C /* ofxTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485FE315C4764D00761D1C /* ofxTCPServer.cpp */; };
 		A9485FEA15C4764D00761D1C /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485FE515C4764D00761D1C /* ofxUDPManager.cpp */; };
 		A974230416A4B0FA00BC6910 /* TSPSDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A974230216A4B0FA00BC6910 /* TSPSDelegate.cpp */; };
+		A97BC4B816D08A7D007CC131 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A97BC4B616D08A55007CC131 /* icon.icns */; };
 		A99447DC16A10D9E00D7BA95 /* SpacebrewSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A99447DB16A10D9E00D7BA95 /* SpacebrewSender.cpp */; };
 		A9D592A41640908B00B2074F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D592A31640908B00B2074F /* Accelerate.framework */; };
 		A9D592A71640909500B2074F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D592A51640909500B2074F /* CoreVideo.framework */; };
@@ -540,6 +541,7 @@
 		A95D3FF015D2148800EBDAA9 /* VideoFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoFile.h; sourceTree = "<group>"; };
 		A974230216A4B0FA00BC6910 /* TSPSDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSPSDelegate.cpp; sourceTree = "<group>"; };
 		A974230316A4B0FA00BC6910 /* TSPSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPSDelegate.h; sourceTree = "<group>"; };
+		A97BC4B616D08A55007CC131 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A99447DB16A10D9E00D7BA95 /* SpacebrewSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpacebrewSender.cpp; sourceTree = "<group>"; };
 		A9D592A31640908B00B2074F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
 		A9D592A51640909500B2074F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../../../../System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
@@ -1894,6 +1896,7 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				A97BC4B616D08A55007CC131 /* icon.icns */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
@@ -1932,6 +1935,7 @@
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
 				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
 				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+				A97BC4B716D08A7A007CC131 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1983,6 +1987,17 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A97BC4B716D08A7A007CC131 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A97BC4B816D08A7D007CC131 /* icon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
