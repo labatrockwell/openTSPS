@@ -862,8 +862,10 @@ namespace ofxTSPS {
         
         // add depth if we've got it
         ofShortPixels distancePixels;
-        if (currentSource->getType() == CAMERA_KINECT){
-            distancePixels = ((ofxKinect*)currentSource)->getRawDepthPixelsRef();
+        if (currentSource->getType() == CAMERA_KINECT && currentSource->isOpen()){
+            if ( (dynamic_cast<ofxKinect*>(currentSource))->getRawDepthPixelsRef().isAllocated() ){
+                distancePixels = (dynamic_cast<ofxKinect*>(currentSource))->getRawDepthPixelsRef();
+            }
         }
         for(int i = 0; i < trackedPeople.size(); i++){
              ofxTSPS::Person* p = trackedPeople[i];
