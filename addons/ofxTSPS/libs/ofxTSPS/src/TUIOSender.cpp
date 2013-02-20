@@ -4,6 +4,7 @@
  */
 
 #include "ofxTSPS/communication/TUIOSender.h"
+#include "ofxTSPS/Scene.h"
 
 namespace ofxTSPS {
     void TUIOSender::cursorPressed(float x, float y, int cursorId) {

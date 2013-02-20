@@ -6,6 +6,7 @@
 
 #include "ofxTSPS/communication/WebSocketSender.h"
 #include "ofxTSPS/Person.h"
+#include "ofxTSPS/Scene.h"
 
 namespace ofxTSPS {
     //---------------------------------------------------------------------------
@@ -119,27 +120,27 @@ namespace ofxTSPS {
     // TSPS EVENTS
     //---------------------------------------------------------------------------
     void WebSocketSender::personEntered ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-        toSend.push_back(WebSocketMessage(p->getJSON("personEntered", centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
+        toSend.push_back(WebSocketMessage(p->getJSON("personEntered", cameraWidth,cameraHeight,bSendContours, appendData )));
     }
     
     //---------------------------------------------------------------------------
     void WebSocketSender::personMoved ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-        toSend.push_back(WebSocketMessage(p->getJSON("personMoved",centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
+        toSend.push_back(WebSocketMessage(p->getJSON("personMoved",cameraWidth,cameraHeight,bSendContours, appendData )));
     }
     
     //---------------------------------------------------------------------------
     void WebSocketSender::personUpdated ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){	
-        toSend.push_back(WebSocketMessage(p->getJSON("personUpdated", centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
+        toSend.push_back(WebSocketMessage(p->getJSON("personUpdated", cameraWidth,cameraHeight,bSendContours, appendData )));
     }
     
     //---------------------------------------------------------------------------
     void WebSocketSender::personWillLeave ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool bSendContours ){
-        toSend.push_back(WebSocketMessage(p->getJSON("personWillLeave", centroid,cameraWidth,cameraHeight,bSendContours, appendData )));
+        toSend.push_back(WebSocketMessage(p->getJSON("personWillLeave", cameraWidth,cameraHeight,bSendContours, appendData )));
     }
     
     //---------------------------------------------------------------------------
     void WebSocketSender::customEvent( string eventName, string eventData ){
-        toSend.push_back(WebSocketMessage("{\"type\":\"customEvent\",\"name\":\"" + eventName + "\", \"data\":\" " + eventData + " \"}"));
+        toSend.push_back(WebSocketMessage("{\"type\":\"customEvent\",\"name\":\"" + eventName + "\", \"data\":\"" + eventData + " \"}"));
     }
     
     //---------------------------------------------------------------------------
@@ -163,13 +164,18 @@ namespace ofxTSPS {
         int index = 0;
         for ( it = params.begin(); it != params.end(); it){
             
-            jsonString += "\"" + (*it).first + "\":\" " + (*it).second + "\"";
+            jsonString += "\"" + (*it).first + "\":\"" + (*it).second + "\"";
             if ( ++it != params.end() ){
                 jsonString += ",";
             }
         }
         jsonString += "}}";
         toSend.push_back(WebSocketMessage(jsonString));
+    }
+    
+    //--------------------------------------------------------------
+    void WebSocketSender::sceneUpdated( Scene & s ){
+        toSend.push_back(WebSocketMessage(s.getJSONMessge()));
     }
     
     //---------------------------------------------------------------------------

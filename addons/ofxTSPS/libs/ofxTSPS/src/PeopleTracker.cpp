@@ -224,6 +224,29 @@ namespace ofxTSPS {
             }
             
             trackPeople();
+            
+            if ( p_Settings->bSendScene ){
+                // send scene
+                if (bTuioEnabled){
+                    // no scene for tuio?
+                }
+                
+                if (bOscEnabled){
+                    oscClient.sceneUpdated(scene);
+                }
+                
+                if (bTcpEnabled){
+                    tcpClient.sceneUpdated(scene);
+                }
+                
+                if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
+                    webSocketServer.sceneUpdated(scene);
+                }
+                
+                if ( bSpacebrewEnabled ){
+                    spacebrewSender.sceneUpdated(scene);
+                }
+            }
         }
     }
     
@@ -325,6 +348,11 @@ namespace ofxTSPS {
         if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
             webSocketServer.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
         }
+        
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
+        }
+        
         trackedPeople.push_back( person );
         
         // notify listeners
@@ -355,6 +383,9 @@ namespace ofxTSPS {
             webSocketServer.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
+        }
         // notify listeners
         EventArgs args;
         args.person = person;
@@ -382,6 +413,9 @@ namespace ofxTSPS {
             webSocketServer.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
         }
         
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
+        }
         // notify listeners
         EventArgs args;
         args.person = person;
@@ -544,6 +578,12 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
+    void PeopleTracker::setupSpacebrew( string host )
+    {
+        spacebrewSender.setHost(host);
+    }
+    
+    //---------------------------------------------------------------------------
     void PeopleTracker::setupWebSocketServer( int port)
     {
         ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET SERVER ON PORT "+port);
@@ -604,6 +644,14 @@ namespace ofxTSPS {
             doRelearnBackground = p_Settings->bLearnBackground;
         
         //----------------------------------------------
+        // Scene
+        //----------------------------------------------
+        
+        if ( scene.getGridX() != p_Settings->sceneGridX || scene.getGridY() != p_Settings->sceneGridY ){
+            scene.buildGrid(p_Settings->sceneGridX, p_Settings->sceneGridY);
+        }
+        
+        //----------------------------------------------
         // Processor
         //----------------------------------------------
         
@@ -648,6 +696,20 @@ namespace ofxTSPS {
             bWebSocketServerEnabled = false;
             webSocketServer.closeServer();
         }
+        
+        // check to enable spacebrew
+        if (p_Settings->bSendSpacebrew && !bSpacebrewEnabled ){
+            bSpacebrewEnabled = true;
+            spacebrewSender.enable();
+        } else if (!p_Settings->bSendSpacebrew){
+            bSpacebrewEnabled = false;
+            spacebrewSender.disable();
+        }
+        
+        if ( bSpacebrewEnabled ){
+            spacebrewSender.setHost(p_Settings->spacebrewHost);
+        }
+        
         //----------------------------------------------
         // COMMUNICATION : Send data
         //----------------------------------------------	
@@ -800,8 +862,10 @@ namespace ofxTSPS {
         
         // add depth if we've got it
         ofShortPixels distancePixels;
-        if (currentSource->getType() == CAMERA_KINECT){
-            distancePixels = ((ofxKinect*)currentSource)->getRawDepthPixelsRef();
+        if (currentSource->getType() == CAMERA_KINECT && currentSource->isOpen()){
+            if ( (dynamic_cast<ofxKinect*>(currentSource))->getRawDepthPixelsRef().isAllocated() ){
+                distancePixels = (dynamic_cast<ofxKinect*>(currentSource))->getRawDepthPixelsRef();
+            }
         }
         for(int i = 0; i < trackedPeople.size(); i++){
              ofxTSPS::Person* p = trackedPeople[i];
@@ -868,6 +932,7 @@ namespace ofxTSPS {
                 ofScale( (float) activeView.width / width , (float) activeView.height / height );
                 tspsProcessor->draw();
             } ofPopMatrix();
+            scene.draw( activeView.width, activeView.height );
 			ofPopMatrix();
 			dataView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);
 		}
@@ -1096,6 +1161,7 @@ namespace ofxTSPS {
     {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->threshold = thresholdAmount;
+        gui.setValueF( "THRESHOLD", thresholdAmount );
     }
     
     //---------------------------------------------------------------------------
@@ -1407,6 +1473,26 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     bool PeopleTracker::inAdjustedView() {
         return adjustedView.isActive();
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getCameraImage(){
+        return &cameraImage;
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getWarpedImage(){
+        return &warpedImage;
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getBackgroundImage(){
+        return &backgroundImage;
+    }
+    
+    //---------------------------------------------------------------------------
+    ofImage * PeopleTracker::getDifferencedImage(){
+        return &differencedImage;
     }
     
 }

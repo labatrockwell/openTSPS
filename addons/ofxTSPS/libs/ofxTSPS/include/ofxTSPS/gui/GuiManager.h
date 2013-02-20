@@ -68,6 +68,11 @@ namespace ofxTSPS {
         void update();
         void draw();
         
+        void enableGroup( string & groupName );
+        void enableGroup( string groupName );
+        void disableGroup( string groupName );
+        vector<string> getGroupNames();
+        
         // set capabilities
         void setHaarEnabled( bool bHaar );
         void setOpticalFlowEnabled( bool bOpticalFlow );
@@ -126,8 +131,13 @@ namespace ofxTSPS {
     protected:
         Settings settings;
         
-        //a little goofy way to keep track of custom params. works but i'm open to suggestions
         ofxLabGui panel;
+        string enabledPanelGroup;
+        map<string, vector<guiTypePanel *> > panelGroups;
+        map<string, guiTypeButton*> buttons;
+        ofPoint buttonPosition;
+        
+        //a little goofy way to keep track of custom params. works but i'm open to suggestions
         vector<GUICustomParam> params;
         map<std::string, guiTypeButton*> customButtons;
         
@@ -154,6 +164,10 @@ namespace ofxTSPS {
         
         simpleFileLister* videoFiles;
         simpleFileLister* haarFiles;
+        
+        // add custom panel if a user calls any of the add() functions
+        bool bHasCustomPanel;
+        void addCustomGui();
         
     private:
         guiTypeGroup * haarGroup;

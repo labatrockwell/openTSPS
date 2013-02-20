@@ -3,7 +3,7 @@
 	url = https://github.com/ofTheo/ofxKinect.git
 [submodule "addons/ofxOpenNI"]
 	path = addons/ofxOpenNI
-	url = https://github.com/gameoverhack/ofxOpenNI
+	url = https://github.com/labatrockwell/ofxOpenNI
 [submodule "addons/ofxCv"]
 	path = addons/ofxCv
 	url = https://github.com/kylemcdonald/ofxCv
@@ -16,3 +16,6 @@
 [submodule "addons/ofxTSPSReceiver"]
 	path = addons/ofxTSPSReceiver
 	url = https://github.com/labatrockwell/ofxTSPSReceiver
+[submodule "addons/ofxSpacebrew"]
+	path = addons/ofxSpacebrew
+	url = https://github.com/labatrockwell/ofxSpacebrew.git

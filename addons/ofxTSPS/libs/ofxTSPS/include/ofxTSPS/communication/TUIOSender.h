@@ -38,6 +38,8 @@ public:
 
 namespace ofxTSPS {
     
+    class Scene;
+    
     using namespace TUIO;
     class TUIOSender {
     public:
@@ -61,6 +63,9 @@ namespace ofxTSPS {
         void cursorPressed(float x, float y, int cursorId);
         void cursorReleased(float x, float y, int cursorId);
         void cursorDragged(float x, float y, int cursorId);
+        
+        // scene data
+        void sceneUpdated( Scene & s );
         
     protected:
         

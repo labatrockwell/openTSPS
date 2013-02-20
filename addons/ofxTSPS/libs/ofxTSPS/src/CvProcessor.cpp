@@ -133,15 +133,8 @@ namespace ofxTSPS {
         differencedImage.setFromPixels(image.getPixelsRef());
         ofxCv::threshold(differencedImage, threshold);
         
-        //reset scene
-        scene->percentCovered = 0;
-        if ( bTrackOpticalFlow && bFlowTrackedOnce ){
-            scene->averageMotion = flow.getAverageFlow();
-        } else {
-            scene->averageMotion = ofPoint(0,0);
-        }
-        
         // find contours
+        contourFinder.setFindHoles( bFindHoles );
         contourFinder.setMinArea( minBlobArea * tspsWidth * tspsHeight );
         contourFinder.setMaxArea( maxBlobArea * tspsWidth * tspsHeight );
         contourFinder.findContours( differencedImage );
@@ -163,8 +156,6 @@ namespace ofxTSPS {
                     continue;
                 }
                 p->oid = i; //hack ;(
-                
-                scene->percentCovered += p->area;
                 
                 //update this person with new blob info
                 // to-do: make centroid dampening dynamic
@@ -195,12 +186,12 @@ namespace ofxTSPS {
                     p->highest.set(  p->boundingRect.x + maxLoc.x,  p->boundingRect.y + maxLoc.y, maxVal);
                     p->lowest.set(  p->boundingRect.x + minLoc.x,  p->boundingRect.y + minLoc.y, minVal);
                 } else {
-                    p->highest.x = ( p->highest.x * .7 ) + ( p->boundingRect.x + maxLoc.x ) * .3;
-                    p->highest.y = ( p->highest.y * .7 ) + ( p->boundingRect.y + maxLoc.y ) * .3;
-                    p->highest.z = ( p->highest.z * .7) + ( maxVal ) * .3;
-                    p->lowest.x = ( p->lowest.x * .7 ) + ( p->boundingRect.x + minLoc.x ) * .3;
-                    p->lowest.y = ( p->lowest.y * .7 ) + ( p->boundingRect.y + minLoc.y ) * .3;
-                    p->lowest.z = ( p->lowest.z * .7) + ( minVal ) * .3;            
+                    p->highest.x = ( p->highest.x * .9 ) + ( p->boundingRect.x + maxLoc.x ) * .1;
+                    p->highest.y = ( p->highest.y * .9 ) + ( p->boundingRect.y + maxLoc.y ) * .1;
+                    p->highest.z = ( p->highest.z * .9) + ( maxVal ) * .1;
+                    p->lowest.x = ( p->lowest.x * .9 ) + ( p->boundingRect.x + minLoc.x ) * .1;
+                    p->lowest.y = ( p->lowest.y * .9 ) + ( p->boundingRect.y + minLoc.y ) * .1;
+                    p->lowest.z = ( p->lowest.z * .9) + ( minVal ) * .1;
                 }
                 
                 // cap highest + lowest
@@ -264,6 +255,14 @@ namespace ofxTSPS {
                 personEntered(newPerson, scene);
             }
         }
+        
+        //reset scene
+        if ( bTrackOpticalFlow && bFlowTrackedOnce ){
+            scene->averageMotion = flow.getAverageFlow();
+        } else {
+            scene->averageMotion = ofPoint(0,0);
+        }
+        scene->update( trackedPeople, tspsWidth, tspsHeight );
         
         // delete old blobs
         for (int i=trackedPeople->size()-1; i>=0; i--){

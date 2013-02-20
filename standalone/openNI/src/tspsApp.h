@@ -3,53 +3,32 @@
 
 #include "ofMain.h"
 
-/*********************************************************
-    INCLUDES + DEFINES
-*********************************************************/
-
-    // TSPS core
-    #include "ofxTSPS.h"
-	
-    // include OpenNI source
-    #include "OpenNI.h"
-
-    #define TSPS_HOME_PAGE "http://opentsps.com"
-
-/*********************************************************
-    APP
-*********************************************************/
+#include "TSPSDelegate.h"
+#include "OpenNI.h"
+#include "ofxLabGui.h"
+#define MAX_CAMERAS 4
 
 class tspsApp : public ofBaseApp {
-
-	public:
     
-		void setup();
-		void update();
-		void draw();
-		
-		void keyPressed  (int key);
-        
-        // custom openNI source
-        ofxTSPS::OpenNI source;
+public:
     
-        // TSPS core: PeopleTracker + events
-        
-        ofxTSPS::PeopleTracker peopleTracker;
-        void onPersonEntered( ofxTSPS::EventArgs & tspsEvent );
-        void onPersonUpdated( ofxTSPS::EventArgs & tspsEvent );
-        void onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent );
-
-	//status bar stuff
-		ofImage statusBar;
-		int		drawStatus[3];
-		ofImage personEnteredImage;
-		ofImage personUpdatedImage;
-		ofImage personLeftImage;
-		ofTrueTypeFont timesBoldItalic;
-	
-	//other gui images
-		ofImage background;
+    tspsApp( int numCameras = 1 );
+    void setup();
+    void update();
+    void draw();
     
+    // custom openNI source
+    vector<ofxTSPS::OpenNI *> sources;
+    
+    int currentDelegate; // which one you are drawing
+    vector<ofxTSPS::Delegate *> delegates;
+    
+    // buttons for switching between cameras + adding more cameras
+    map<string, guiTypeButton *> buttons;
+    void onButtonPressed( string & button );
+    
+    // normal of events
+    void mouseReleased(int x, int y, int button);
 };
 
 #endif

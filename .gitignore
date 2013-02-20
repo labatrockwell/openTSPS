@@ -10,7 +10,10 @@ examples/processing/library/workspace/TSPS/distribution/*
 #ignore auto-generated docs (see docs/readme)
 docs/html/*
 
-*.exe*.exp*.sdf*.mode1v3
+*.exe
+*.exp
+*.sdf
+*.mode1v3
 *.pbxuser
 */*/build/
 obj/
@@ -77,3 +80,14 @@ releases/*
 
 examples/processing/library/.idea/workspace.xml
 examples/quartz/OpenTSPS OSC data into QC | Kineme.webloc
+fmodex.dll
+fmodexL.dll
+FreeImage.dll
+FreeType-6.dll
+glut32.dll
+Assimp32.dll
+*.pdb
+*.ilk
+*_debug.lib
+Zlib.dll
+*.suo

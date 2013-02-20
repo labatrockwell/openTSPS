@@ -101,6 +101,9 @@ namespace ofxTSPS {
         bool    bSendTuio;
         bool    bSendTcp;
         
+        string  spacebrewHost;
+        bool    bSendSpacebrew;
+        
         bool    bSendWebSocketServer;
         bool    bSendWebSocketClient;
         string  webSocketHost;
@@ -115,6 +118,10 @@ namespace ofxTSPS {
         string  tuioHost;
         int     tuioPort;
         int     tcpPort;
+        
+        // scene vars
+        bool    bSendScene;
+        int     sceneGridX, sceneGridY;
         
         // video grabber
         void setSource( Source * source);

@@ -1,102 +1,107 @@
 #include "tspsApp.h"
 
+
+//--------------------------------------------------------------
+tspsApp::tspsApp( int numCameras ){
+    for (int i=0; i<numCameras; i++){
+        delegates.push_back( new ofxTSPS::Delegate(i) );
+        delegates.back()->disableEvents();
+        
+        sources.push_back( new ofxTSPS::OpenNI() );
+    }
+}
+
 //--------------------------------------------------------------
 void tspsApp::setup(){
+	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofBackground(223, 212, 190);
-	
     
-	peopleTracker.setup();
-    // add your custom source
-    peopleTracker.setSource(source);
+    // which delegate is getting drawn
+    currentDelegate = 0;
+    if ( delegates.size() > 0 ){
+        delegates[currentDelegate]->enableEvents();
+    }
     
-    // setup OpenNI source
-    source.openSource(640,480);
+    // add buttons for switching between cameras
+    ofRectangle dimensions = ofRectangle( 105, 10, 50, buttonHeight);
     
-    // setup layout stuff + add this as a TSPS listener
-	peopleTracker.loadFont("fonts/times.ttf", 10);
-    ofxAddTSPSListeners(this);
-    
-	//load GUI / interface images
-	personEnteredImage.loadImage("graphic/triggers/PersonEntered_Active.png");
-	personUpdatedImage.loadImage("graphic/triggers/PersonUpdated_Active.png");
-	personLeftImage.loadImage("graphic/triggers/PersonLeft_Active.png");
-	statusBar.loadImage("graphic/bottomBar.png");
-	background.loadImage("graphic/background.png");
-	timesBoldItalic.loadFont("fonts/timesbi.ttf", 16);
-    
-	drawStatus[0] = 0;
-	drawStatus[1] = 0;
-	drawStatus[2] = 0;
+    for ( int i=0; i<delegates.size(); i++){
+        delegates[i]->setup();
+        delegates[i]->getPeopleTracker()->setSource(*sources[i]);
+        
+        // setup OpenNI source
+        sources[i]->openSource(320,240);
+        
+        string name = "C:"+ofToString( i+1 );
+        guiTypeButton * btn = new guiTypeButton();
+        btn->setup( name, dimensions.width, dimensions.height );
+        btn->setPosition( dimensions.x, dimensions.y );
+        btn->setBackgroundSelectColor(0,168,156);
+        btn->setBackgroundColor(0,84,78);
+        ofAddListener(btn->buttonPressed, this, &tspsApp::onButtonPressed );
+        buttons.insert( pair<string, guiTypeButton*>( name, btn ) );
+        
+        if ( i == currentDelegate ){
+            btn->setSelected();
+        } else {
+            btn->setNormal();
+        }
+        
+        dimensions.x += 10 + dimensions.width;
+    }
 }
 
 //--------------------------------------------------------------
 void tspsApp::update(){
-    source.update();
-    peopleTracker.update();
-}
-
-//--------------------------------------------------------------
-//delegate methods for people entering and exiting
-void tspsApp::onPersonEntered( ofxTSPS::EventArgs & tspsEvent ){
-	//do something with them
-	ofLog(OF_LOG_VERBOSE, "person %d of size %f entered!\n", tspsEvent.person->pid, tspsEvent.person->area);
-	drawStatus[0] = 10;
-}
-
-//--------------------------------------------------------------
-void tspsApp::onPersonWillLeave( ofxTSPS::EventArgs & tspsEvent ){
-	//do something to clean up
-	ofLog(OF_LOG_VERBOSE, "person %d left after being %d frames in the system\n", tspsEvent.person->pid, tspsEvent.person->age);
-	drawStatus[2] = 10;
-}
-
-//--------------------------------------------------------------
-void tspsApp::onPersonUpdated( ofxTSPS::EventArgs & tspsEvent ){
-	ofLog(OF_LOG_VERBOSE, "updated %d person\n", tspsEvent.person->pid);
-	drawStatus[1] = 10;
+    for (int i=0; i<delegates.size(); i++){
+        sources[i]->update();
+        delegates[i]->update();
+    }
 }
 
 //--------------------------------------------------------------
 void tspsApp::draw(){
-    // bg image
-	ofEnableAlphaBlending();
-	ofSetHexColor(0xffffff);
-	background.draw(0,0);
+    if ( delegates.size() > 0 ){
+        delegates[currentDelegate]->draw();
+    }
     
-    // render TSPS interface
-	peopleTracker.draw();
+    // draw custom buttons
+    map<std::string, guiTypeButton*>::iterator it;
+    for( it=buttons.begin(); it!=buttons.end(); it++ ){
+        it->second->render();
+    }
+}
 
-	//draw status bar stuff
-	statusBar.draw(0,700);
-	if (drawStatus[0] > 0){
-		drawStatus[0]--;
-		personEnteredImage.draw(397,728);
-	}
-	if (drawStatus[1] > 0){
-		drawStatus[1]--;
-		personUpdatedImage.draw(533,728);
-	}
-	if (drawStatus[2] > 0){
-		drawStatus[2]--;
-		personLeftImage.draw(666,728);
-	}
 
-	ofSetColor(0, 169, 157);
-	char numPeople[1024];
-	sprintf(numPeople, "%i", peopleTracker.totalPeople());
-	timesBoldItalic.drawString(numPeople,350,740);
+//--------------------------------------------------------------
+void tspsApp::mouseReleased(int x, int y, int button){
+    // check hit of buttons
+    map<std::string, guiTypeButton*>::iterator it;
+    for( it=buttons.begin(); it!=buttons.end(); it++ ){
+        it->second->checkHit( x, y, button );
+    }
 }
 
 //--------------------------------------------------------------
-void tspsApp::keyPressed  (int key){
-
-	switch (key){
-		case ' ':{
-			peopleTracker.relearnBackground();
-		} break;
-		case 'f':{
-			ofToggleFullscreen();
-		} break;
-	}
+void tspsApp::onButtonPressed( string & button ){
+    for (int i=0; i<delegates.size(); i++){
+        string name = "C:"+ofToString( i+1 );
+        if ( button == name ){
+            // does this delegate exist?
+            if ( i < delegates.size() ){
+                if ( delegates.size() > 0 ){
+                    delegates[currentDelegate]->disableEvents();
+                }
+                currentDelegate = i;
+                if ( delegates.size() > 0 ){
+                    delegates[currentDelegate]->enableEvents();
+                }
+            }
+            buttons[ name ]->setSelected();
+        } else {
+            buttons[ name ]->setNormal();
+        }
+    }
+    
 }

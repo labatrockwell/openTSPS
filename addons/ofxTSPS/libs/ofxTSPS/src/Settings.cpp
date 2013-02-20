@@ -56,6 +56,9 @@ namespace ofxTSPS {
         
         webSocketUseSSL = false;
         
+        spacebrewHost   = "localhost";
+        bSendSpacebrew  = false;
+        
         tuioHost = "localhost";
         tuioPort = 3333;
         
@@ -65,6 +68,10 @@ namespace ofxTSPS {
             quadWarpScaled.push_back(ofPoint(0,0));
             quadWarpOriginal.push_back(ofPoint(0,0));
         }
+        
+        // scene
+        bSendScene = true;
+        sceneGridX = sceneGridY = 0;
     }
     
     

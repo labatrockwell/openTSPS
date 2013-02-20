@@ -42,7 +42,7 @@ OFX_TUIO_LIBS       = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx/lib
 OFX_TUIO_INC        = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/include/ip $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/include/osc
 
 //ofxOpenni
-OFX_OPENNI_LIBS     = bin/data/openni/lib/libOpenNI.dylib
+OFX_OPENNI_LIBS     = /usr/lib/libOpenNI.dylib
 
 // all addons
 OF_ADDON_HEADERS = $(OFX_KINECT_HEADERS) $(OFX_OPENCV_HEADERS) $(OFX_CV_INC) $(OFX_LWS_INCLUDES) $(OFX_OSC_INC) $(OFX_TUIO_INC) $(OFX_TSPS_INC)

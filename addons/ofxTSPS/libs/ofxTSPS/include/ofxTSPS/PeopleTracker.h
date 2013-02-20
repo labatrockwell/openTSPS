@@ -65,9 +65,10 @@
 #include "ofxTSPS/gui/GuiManager.h"
 
 // communication
-#include "ofxTSPS/communication/TUIOSender.h"
 #include "ofxTSPS/communication/OscSender.h"
+#include "ofxTSPS/communication/SpacebrewSender.h"
 #include "ofxTSPS/communication/TCPSender.h"
+#include "ofxTSPS/communication/TUIOSender.h"
 #include "ofxTSPS/communication/WebSocketSender.h"
 
 namespace ofxTSPS {
@@ -113,6 +114,7 @@ namespace ofxTSPS {
             void setupTuio(string ip, int port);
             void setupOsc(string ip, int port);
             void setupTcp(int port);
+            void setupSpacebrew( string host );
             void setupWebSocketServer(int port);
             void setupWebSocketClient( string host, int port, bool bUseSSL = false, string channel="");
         
@@ -203,6 +205,12 @@ namespace ofxTSPS {
             bool inDifferencingView();
             bool inDataView();
         
+            // advanced: accessors for current images
+            ofImage * getCameraImage();
+            ofImage * getWarpedImage();
+            ofImage * getBackgroundImage();
+            ofImage * getDifferencedImage();        
+        
         protected:
             // Default settings
             ofxXmlSettings  defaults;
@@ -259,6 +267,8 @@ namespace ofxTSPS {
             bool bTcpEnabled;
             WebSocketSender webSocketServer;
             bool bWebSocketServerEnabled, bWebSocketClientEnabled;
+            SpacebrewSender spacebrewSender;
+            bool bSpacebrewEnabled;
         
             //gui
 

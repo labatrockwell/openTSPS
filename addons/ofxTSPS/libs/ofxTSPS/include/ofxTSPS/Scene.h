@@ -32,19 +32,41 @@
 
 #pragma once
 
-#include "ofPoint.h"
+#include "ofMain.h"
 
 class ofxOscMessage;
 
 namespace ofxTSPS {
+    class Person;
     class Scene {
     public:
         
         Scene();
         
         ofPoint averageMotion;
-        float percentCovered;
+        float   percentCovered;
+        int     numPeople;
         
-        ofxOscMessage getOscMessage( string address );
+        ofxOscMessage   getOscMessage( string address );
+        string          getJSONMessge();
+        string          getTCPMessage();
+        
+        void reset();
+        void update( vector<Person*> * people, int cameraWidth, int cameraHeight );
+        void draw( int width, int height );
+        
+        void buildGrid( int w, int h );
+        vector<ofRectangle> getGrid();
+        
+        int getGridX();
+        int getGridY();
+        
+    private:
+        
+        void processPerson( Person * p, int cameraWidth, int cameraHeight );
+        vector<bool>        activeGrid;
+        vector<ofRectangle> grid;
+        
+        int gridX, gridY;
     };
 }
