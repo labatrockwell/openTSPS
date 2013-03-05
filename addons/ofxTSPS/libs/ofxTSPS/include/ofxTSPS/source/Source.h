@@ -81,6 +81,11 @@ namespace ofxTSPS {
             return bIsOpen;
         }
         
+        // implemented by 3D-capable sources
+        virtual float getDepth( float x, float y ){
+            return 0.0f;
+        }
+        
     protected:
         SourceType  type;
         int         sourceIndex;    // which camera are we opening
