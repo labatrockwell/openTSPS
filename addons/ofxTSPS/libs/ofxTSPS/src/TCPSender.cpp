@@ -55,12 +55,7 @@ namespace ofxTSPS {
      ***************************************************************/	
     
     void TCPSender::send(){
-        
-        map<int,ofxTCPClient>::iterator it;
-        for(it=TCP.TCPConnections.begin(); it!=TCP.TCPConnections.end(); it++){
-            int err = 0;
-            if(it->second.isConnected()) err = it->second.send(currentString);
-        }
+        TCP.sendToAll(currentString);
         currentString = "";
     };
     
