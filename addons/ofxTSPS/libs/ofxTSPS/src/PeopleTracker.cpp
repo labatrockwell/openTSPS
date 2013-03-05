@@ -855,34 +855,6 @@ namespace ofxTSPS {
         // Track
         //-----------------------	
         differencedImage.setFromPixels( tspsProcessor->process( grayDiff ) );
-        
-        //-----------------------
-        // Custom properties
-        //-----------------------
-        
-        // add depth if we've got it
-        ofShortPixels distancePixels;
-        if (currentSource->getType() == CAMERA_KINECT && currentSource->isOpen()){
-            if ( (dynamic_cast<ofxKinect*>(currentSource))->getRawDepthPixelsRef().isAllocated() ){
-                distancePixels = (dynamic_cast<ofxKinect*>(currentSource))->getRawDepthPixelsRef();
-            }
-        }
-        for(int i = 0; i < trackedPeople.size(); i++){
-             ofxTSPS::Person* p = trackedPeople[i];
-             if (currentSource->getType() == CAMERA_KINECT && currentSource->isOpen() && (p->highest.x > 0 && p->highest.y > 0)){
-                 // distance is in mm, with the max val being 10 m
-                 // scale it by max to get it in a 0-1 range
-                 ofPoint rounded(p->highest);
-                 rounded.x = (int) (rounded.x);
-                 rounded.y = (int) (rounded.y);
-                 // since ofxKinect seems to crash at getDistanceAt...
-                 if ( distancePixels.getWidth() > rounded.x && distancePixels.getHeight() > rounded.y){
-                     p->depth = ((ofxKinect*)currentSource)->getDistanceAt( rounded )/10000.0;
-                 }
-             } else {
-                 p->depth = p->highest.z / 255.0f;
-             }
-         }
     }
     
     //---------------------------------------------------------------------------

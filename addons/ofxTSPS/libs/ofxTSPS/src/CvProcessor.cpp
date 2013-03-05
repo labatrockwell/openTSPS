@@ -168,8 +168,7 @@ namespace ofxTSPS {
                     p->simpleContour[i].y /= tspsHeight;
                 }
                 
-                //find peak in blob (only useful with Kinect)
-                // TO-DO
+                //find peak in blob (only useful with depth cameras)
                 cv::Point minLoc, maxLoc;
                 double minVal = 0, maxVal = 0;
                 cv::Rect rect;
@@ -179,6 +178,9 @@ namespace ofxTSPS {
                 rect.height = p->boundingRect.height;
                 cv::Mat roiMat(cameraMat, rect);
                 cv::minMaxLoc( roiMat, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
+                
+                // set depth
+                p->depth = p->highest.z / 255.0f;
                 
                 // set highest and lowest points: x, y, VALUE stored in .z prop
                 // ease vals unless first time you're setting them
