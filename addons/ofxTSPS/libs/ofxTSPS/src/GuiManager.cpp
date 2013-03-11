@@ -488,16 +488,15 @@ namespace ofxTSPS {
         ofAddListener(panel.getLoadButton()->buttonPressed, this, &GuiManager::loadEventCatcher);
         ofAddListener(panel.getSaveAsButton()->buttonPressed, this, &GuiManager::saveAsEventCatcher);
         
-        //set active panel to be differencing
-        panel.setSelectedPanel("differencing");
-        
         bHasCustomPanel = false;
         
         ofEventArgs nullArgs;
         update(nullArgs);
         enableEvents();
         
+        // set active group
         enableGroup("sensing");
+        panel.setSelectedPanel("differencing");
     }
     
     
