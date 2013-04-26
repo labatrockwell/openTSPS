@@ -19,9 +19,13 @@ namespace ofxTSPS {
     public:
         
         Delegate( int myId = 0 );
+        
         void setup();
         void update();
         void draw();
+        
+        void setSettingsFile( string filename );
+        string getSettingsFile();
         
         virtual void disableEvents();
         virtual void enableEvents();
@@ -53,6 +57,9 @@ namespace ofxTSPS {
     protected:
         
         ofxTSPS::PeopleTracker peopleTracker;
+        
+        // settings file
+        string settingsFile;
         
         int id;
         

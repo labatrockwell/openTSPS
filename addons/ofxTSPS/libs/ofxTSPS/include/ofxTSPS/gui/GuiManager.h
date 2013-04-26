@@ -166,8 +166,11 @@ namespace ofxTSPS {
         simpleFileLister* haarFiles;
         
         // add custom panel if a user calls any of the add() functions
-        bool bHasCustomPanel;
-        void addCustomGui();
+        int     customItemCount; // this is dumb, probably a better way to do this
+        int     customPanelCount;
+        string  currentCustomPanel;
+        bool    bHasCustomPanel;
+        void    addCustomGui();
         
     private:
         guiTypeGroup * haarGroup;

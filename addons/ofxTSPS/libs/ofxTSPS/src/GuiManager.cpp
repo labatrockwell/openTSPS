@@ -502,7 +502,11 @@ namespace ofxTSPS {
     
     void GuiManager::addCustomGui(){
         if ( bHasCustomPanel ) return;
-        guiTypePanel * customPanel = panel.addPanel("custom", 1, false);
+        customPanelCount = 0;
+        customItemCount = 0;
+        
+        currentCustomPanel = "custom_"+ofToString(customPanelCount);
+        guiTypePanel * customPanel = panel.addPanel(currentCustomPanel, 1, false);
         customPanel->setDrawLock( false );
         customPanel->setBackgroundColor(11,119,108);
         customPanel->setBackgroundSelectColor(11,119,108);
@@ -514,7 +518,7 @@ namespace ofxTSPS {
             disableGroup("custom");
         }
         
-        panel.setWhichPanel("custom");
+        panel.setWhichPanel(currentCustomPanel);
         guiTypeGroup * customSettingsGroup = panel.addGroup("custom settings");
         customSettingsGroup->setBackgroundColor(148,129,85);
         customSettingsGroup->setBackgroundSelectColor(148,129,85);
@@ -585,7 +589,7 @@ namespace ofxTSPS {
         GUICustomParam p;
         string key = "CUSTOM" + ofToString(params.size());
         
-        panel.setWhichPanel("custom");
+        panel.setWhichPanel(currentCustomPanel);
         panel.setWhichColumn(0);	
         panel.addSlider(name, key, *value, min, max, true);
         
@@ -594,6 +598,33 @@ namespace ofxTSPS {
         p.i = value;
         params.push_back(p);
         panel.loadSettings( panel.getCurrentXMLFile() );
+        
+        // do we need to add another panel?
+        customItemCount++;
+        
+        if ( customItemCount > 8 ){
+            customItemCount = 0;
+            customPanelCount++;
+            currentCustomPanel = "custom_"+ofToString(customPanelCount);
+            guiTypePanel * customPanel = panel.addPanel(currentCustomPanel, 1, false);
+            customPanel->setDrawLock( false );
+            customPanel->setBackgroundColor(11,119,108);
+            customPanel->setBackgroundSelectColor(11,119,108);
+            bHasCustomPanel = true;
+            
+            panelGroups["custom"].push_back( customPanel );
+            
+            if ( enabledPanelGroup != "custom"){
+                disableGroup("custom");
+            }
+            
+            panel.setWhichPanel(currentCustomPanel);
+            guiTypeGroup * customSettingsGroup = panel.addGroup("custom settings");
+            customSettingsGroup->setBackgroundColor(148,129,85);
+            customSettingsGroup->setBackgroundSelectColor(148,129,85);
+            customSettingsGroup->seBaseColor(58,187,147);
+            customSettingsGroup->setShowText(false);
+        }
     }
     
     void GuiManager::addSlider(string name, float* value, float min, float max)
@@ -601,7 +632,7 @@ namespace ofxTSPS {
         addCustomGui();
         GUICustomParam p;
         string key = "CUSTOM" + ofToString(params.size());	
-        panel.setWhichPanel("custom");
+        panel.setWhichPanel(currentCustomPanel);
         panel.setWhichColumn(0);
         panel.addSlider(name, key, *value, min, max, false);
         
@@ -609,6 +640,33 @@ namespace ofxTSPS {
         p.type = PARAM_FLOAT;
         p.f = value;
         params.push_back(p);
+        
+        // do we need to add another panel?
+        customItemCount++;
+        
+        if ( customItemCount > 8 ){
+            customItemCount = 0;
+            customPanelCount++;
+            currentCustomPanel = "custom_"+ofToString(customPanelCount);
+            guiTypePanel * customPanel = panel.addPanel(currentCustomPanel, 1, false);
+            customPanel->setDrawLock( false );
+            customPanel->setBackgroundColor(11,119,108);
+            customPanel->setBackgroundSelectColor(11,119,108);
+            bHasCustomPanel = true;
+            
+            panelGroups["custom"].push_back( customPanel );
+            
+            if ( enabledPanelGroup != "custom"){
+                disableGroup("custom");
+            }
+            
+            panel.setWhichPanel(currentCustomPanel);
+            guiTypeGroup * customSettingsGroup = panel.addGroup("custom settings");
+            customSettingsGroup->setBackgroundColor(148,129,85);
+            customSettingsGroup->setBackgroundSelectColor(148,129,85);
+            customSettingsGroup->seBaseColor(58,187,147);
+            customSettingsGroup->setShowText(false);
+        }
     }
     
     void GuiManager::addToggle(string name, bool* value)
@@ -617,7 +675,7 @@ namespace ofxTSPS {
         GUICustomParam p;	
         string key = "CUSTOM" + ofToString(params.size());
         
-        panel.setWhichPanel("custom");
+        panel.setWhichPanel(currentCustomPanel);
         panel.setWhichColumn(0);
         panel.addToggle(name, key, *value);
         
@@ -625,6 +683,33 @@ namespace ofxTSPS {
         p.type = PARAM_BOOL;
         p.b = value;
         params.push_back(p);
+        
+        // do we need to add another panel?
+        customItemCount++;
+        
+        if ( customItemCount > 8 ){
+            customItemCount = 0;
+            customPanelCount++;
+            currentCustomPanel = "custom_"+ofToString(customPanelCount);
+            guiTypePanel * customPanel = panel.addPanel(currentCustomPanel, 1, false);
+            customPanel->setDrawLock( false );
+            customPanel->setBackgroundColor(11,119,108);
+            customPanel->setBackgroundSelectColor(11,119,108);
+            bHasCustomPanel = true;
+            
+            panelGroups["custom"].push_back( customPanel );
+            
+            if ( enabledPanelGroup != "custom"){
+                disableGroup("custom");
+            }
+            
+            panel.setWhichPanel(currentCustomPanel);
+            guiTypeGroup * customSettingsGroup = panel.addGroup("custom settings");
+            customSettingsGroup->setBackgroundColor(148,129,85);
+            customSettingsGroup->setBackgroundSelectColor(148,129,85);
+            customSettingsGroup->seBaseColor(58,187,147);
+            customSettingsGroup->setShowText(false);
+        }
     }
     
     /***************************************************************

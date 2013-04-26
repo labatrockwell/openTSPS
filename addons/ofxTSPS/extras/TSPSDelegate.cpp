@@ -13,11 +13,22 @@ namespace ofxTSPS {
     //--------------------------------------------------------------
     Delegate::Delegate( int _id ){
         id = _id;
+        settingsFile = "settings/settings"+ofToString(id)+".xml";
+    }
+    
+    //--------------------------------------------------------------
+    void Delegate::setSettingsFile( string filename ){
+        settingsFile = filename;
+    }
+    
+    //--------------------------------------------------------------
+    string Delegate::getSettingsFile(){
+        return settingsFile;
     }
     
     //--------------------------------------------------------------
     void Delegate::setup(){
-        peopleTracker.setup(0,0,"settings/settings"+ofToString(id)+".xml",id);
+        peopleTracker.setup(0,0,settingsFile,id);
         peopleTracker.loadFont("fonts/times.ttf", 10);
         ofxAddTSPSListeners(this);
         
