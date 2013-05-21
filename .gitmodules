@@ -18,4 +18,4 @@
 	url = https://github.com/labatrockwell/ofxTSPSReceiver
 [submodule "addons/ofxSpacebrew"]
 	path = addons/ofxSpacebrew
-	url = https://github.com/labatrockwell/ofxSpacebrew.git
+	url = https://github.com/Spacebrew/ofxSpacebrew.git
