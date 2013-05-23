@@ -35,6 +35,11 @@ namespace ofxTSPS {
                 // is there a better way to do this? probably...
                 //resize( tspsWidth, tspsHeight );
             }
+#ifdef TARGET_OSX
+            if ( bPublishTexture ){
+                publishToSyphon( ofVideoPlayer::getTextureReference() );
+            }
+#endif
         }
         
         void closeSource(){

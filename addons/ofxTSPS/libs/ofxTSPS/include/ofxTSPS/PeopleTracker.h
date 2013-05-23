@@ -49,6 +49,7 @@
 // sources
 #include "ofxTSPS/source/Source.h"
 #include "ofxTSPS/source/Kinect.h"
+#include "ofxTSPS/source/Syphon.h"
 #include "ofxTSPS/source/VideoFile.h"
 #include "ofxTSPS/source/VideoGrabber.h"
 
@@ -96,12 +97,18 @@ namespace ofxTSPS {
             // source
             void    setSource( Source & newSource );    // Use this to force to a Source or override with your own source
             bool    setupSource( SourceType type, int which=-1 );     // Setup a known source type (CAMERA_CUSTOM + CAMERA_UNDEFINED won't do anything)
+        
+            // specific source accessors
             bool    useKinect();
             void    setUseKinect( bool bUseKinect=true );
             bool    useVideoFile();
             void    setUseVideoFile( bool bUseVideoFile = true);
             bool    useVideoGrabber();
             void    setUseVideoGrabber( bool bUseVideoGrabber = true);
+#ifdef TARGET_OSX
+            bool    useSyphon();
+            void    setUseSyphon( bool bUseSyphon = true);
+#endif
             bool    useCustomSource();
             void    setUseCustomSource( bool bUseCustomSource = true);
         

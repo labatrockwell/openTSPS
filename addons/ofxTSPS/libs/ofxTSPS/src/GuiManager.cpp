@@ -173,6 +173,9 @@ namespace ofxTSPS {
         source_types.push_back("Web Camera");
         source_types.push_back("Video File");
         source_types.push_back("Kinect");
+#ifdef TARGET_OSX
+        source_types.push_back("Syphon");
+#endif
         source_types.push_back("custom");
         
         panel.addMultiToggle("source type", "SOURCE_TYPE", 0, source_types);

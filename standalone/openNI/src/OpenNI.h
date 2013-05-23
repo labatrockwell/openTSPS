@@ -56,6 +56,10 @@ namespace ofxTSPS {
                     // shift
                     invertedPixels[i] *= (float) (1.0f-shift);
                 }
+#ifdef TARGET_OSX
+                invertedTexture.loadData(invertedPixels);
+                publishToSyphon( invertedTexture );
+#endif
             }
         }
         
@@ -82,7 +86,10 @@ namespace ofxTSPS {
                 }
                 setDepthColoring(COLORING_BLUES);
                 addDepthGenerator();
-                start();                
+                start();
+#ifdef TARGET_OSX
+                invertedTexture.allocate(invertedPixels);
+#endif
             }
             return bIsOpen;
         }
@@ -91,7 +98,8 @@ namespace ofxTSPS {
             stop();
         }
     private:
-        ofPixels invertedPixels;
+        ofPixels    invertedPixels;
+        ofTexture   invertedTexture;
     };
 }
 

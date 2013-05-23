@@ -35,6 +35,7 @@ namespace ofxTSPS {
         CAMERA_VIDEOGRABBER,
         CAMERA_VIDEOFILE,
         CAMERA_KINECT,
+        CAMERA_SYPHON,
         CAMERA_CUSTOM,
         CAMERA_UNDEFINED
     };

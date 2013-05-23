@@ -11,6 +11,10 @@
 #include "ofMain.h"
 #include "ofxTSPS/Constants.h"
 
+#ifdef TARGET_OSX
+#include "ofxSyphon.h"
+#endif
+
 namespace ofxTSPS {
     class Source :  virtual public ofBaseHasPixels {
     public:
@@ -24,6 +28,11 @@ namespace ofxTSPS {
             bCanTrackOpticalFlow    = true;
             bCanTrackSkeleton       = true;
             bIsOpen                  = false;
+            
+#ifdef TARGET_OSX
+            bPublishTexture         = true;
+            setupSyphon();
+#endif
         }
         
         // get capabilities
@@ -86,6 +95,21 @@ namespace ofxTSPS {
             return 0.0f;
         }
         
+        // feature: stream via Syphon
+#ifdef TARGET_OSX
+        virtual void setupSyphon( string name="tspsSyphon" ){
+            syphonServer.setName(name);
+        };
+        
+        virtual void setPublishTexture( bool publishTexture=true){
+            bPublishTexture = publishTexture;
+        }
+        
+        virtual bool isPublishingTexture(){
+            return bPublishTexture;
+        }
+#endif
+        
     protected:
         SourceType  type;
         int         sourceIndex;    // which camera are we opening
@@ -99,5 +123,16 @@ namespace ofxTSPS {
         bool bCanTrackContours, bTrackContours;
         bool bCanTrackSkeleton, bTrackSkeleton;
         bool bCanTrackOpticalFlow, bTrackOpticalFlow;
+        
+        // feature: stream via Syphon
+#ifdef TARGET_OSX
+        bool            bPublishTexture;
+        ofxSyphonServer syphonServer;
+        
+        
+        virtual void publishToSyphon( ofTexture & tex ){
+            syphonServer.publishTexture(&tex);
+        }
+#endif
     };
 }

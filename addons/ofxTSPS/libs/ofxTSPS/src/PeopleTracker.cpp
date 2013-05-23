@@ -191,6 +191,12 @@ namespace ofxTSPS {
         } else if ( useVideoFile() && currentSource->getType() == CAMERA_VIDEOFILE && getVideoFile() != currentSource->getCustomData() ){
             setupSource( CAMERA_VIDEOFILE );
         }
+#ifdef TARGET_OSX
+        // 4 syphon
+        else if ( useSyphon() && (currentSource == NULL || currentSource->getType() != CAMERA_SYPHON) ){
+            setupSource( CAMERA_SYPHON );
+        }
+#endif
         
         // update source
         bool bNewFrame = false;
@@ -200,13 +206,14 @@ namespace ofxTSPS {
         }
         
         if ( bNewFrame ){
-            if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
+            ofImageType currentType = currentSource->getPixelsRef().getImageType();
+            if ( currentType != OF_IMAGE_GRAYSCALE ){
                 // TO-DO: this should probably be in the Processor
                 // convert to grayscale and resize
                 if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
                     ofImage tempImage;
                     tempImage.setFromPixels( currentSource->getPixelsRef() );
-                    ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, CV_RGB2GRAY);
+                    ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, currentType == OF_IMAGE_COLOR_ALPHA ? CV_RGB2GRAY : CV_RGBA2GRAY);
                     ofxCv::resize(tempImage, cameraImage);
                 } else {
                     ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
@@ -474,6 +481,11 @@ namespace ofxTSPS {
                 }
                 currentSource = new VideoFile();
                 break;
+#ifdef TARGET_OSX
+            case CAMERA_SYPHON:
+                currentSource = new Syphon();
+                break;
+#endif
             default:
                 break;
         }
@@ -1404,6 +1416,24 @@ namespace ofxTSPS {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->videoFile = file;    
     }
+    
+#ifdef TARGET_OSX
+    //---------------------------------------------------------------------------
+    bool PeopleTracker::useSyphon(){
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        return p_Settings->inputType == CAMERA_SYPHON;
+    }
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::setUseSyphon( bool bUseSyphon ){
+        if ( bUseSyphon ){
+            gui.setValueI( "SOURCE_TYPE", CAMERA_SYPHON );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_SYPHON;
+        }
+    }
+#endif
     
     //---------------------------------------------------------------------------
     bool PeopleTracker::useCustomSource(){

@@ -25,6 +25,11 @@ namespace ofxTSPS {
         
         void update(){
             ofxKinect::update();
+#ifdef TARGET_OSX
+            if ( bPublishTexture ){
+                publishToSyphon( ofxKinect::getTextureReference() );
+            }
+#endif
         }
         
         bool doProcessFrame(){

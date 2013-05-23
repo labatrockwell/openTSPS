@@ -19,3 +19,6 @@
 [submodule "addons/ofxSpacebrew"]
 	path = addons/ofxSpacebrew
 	url = https://github.com/Spacebrew/ofxSpacebrew.git
+[submodule "addons/ofxSyphon"]
+	path = addons/ofxSyphon
+	url = https://github.com/astellato/ofxSyphon
