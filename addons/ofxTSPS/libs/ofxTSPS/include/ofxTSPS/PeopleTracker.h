@@ -58,9 +58,6 @@
 //#include "ofxTSPS/opencv/OpenCvProcessor.h" // R.I.P.
 #include "ofxTSPS/cv/CvProcessor.h"
 
-//processing
-#include "CPUImageFilter.h"
-
 // gui + settings
 #include "ofxTSPS/gui/Settings.h"
 #include "ofxTSPS/gui/GuiManager.h"
@@ -219,6 +216,9 @@ namespace ofxTSPS {
             ofImage * getDifferencedImage();        
         
         protected:
+            // quick thread lock
+            ofMutex mutex;
+        
             // Default settings
             ofxXmlSettings  defaults;
         
@@ -245,11 +245,8 @@ namespace ofxTSPS {
             Scene scene;
         
             // core images
-            ofImage cameraImage, warpedImage, backgroundImage, differencedImage;
+            ofImage cameraImage, warpedImage, backgroundImage, differencedImage, grayDiff;
             ofPixels blackPixels;
-            
-            // filter image
-            CPUImageFilter		grayDiff;
         
             // blob tracking things
             int drawMode;

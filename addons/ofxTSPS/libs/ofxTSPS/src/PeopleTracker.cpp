@@ -79,8 +79,7 @@ namespace ofxTSPS {
         warpedImage.setFromPixels(blackPixels);
         backgroundImage.setFromPixels(blackPixels);
         differencedImage.setFromPixels(blackPixels);
-        
-        grayDiff.allocate(width, height);
+        grayDiff.setFromPixels(blackPixels);
         
         //set tracker
         bOscEnabled = bTuioEnabled = bTcpEnabled = bWebSocketServerEnabled = bWebSocketClientEnabled = false;
@@ -527,8 +526,8 @@ namespace ofxTSPS {
         warpedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         backgroundImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
+        grayDiff.allocate(width, height, OF_IMAGE_GRAYSCALE);
         
-        grayDiff.allocate(width, height);
         gui.setupQuadGui( width, height );
         
         activeViewIndex = 4;
@@ -583,7 +582,7 @@ namespace ofxTSPS {
     void PeopleTracker::setupTcp(int port)
     {
         bTcpEnabled = true;
-        ofLog(OF_LOG_VERBOSE, "SEND TCP TO PORT "+port);
+        ofLogVerbose()<<"SEND TCP TO PORT "<<port;
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->tcpPort = port;
         tcpClient.setup(port);
@@ -598,7 +597,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void PeopleTracker::setupWebSocketServer( int port)
     {
-        ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET SERVER ON PORT "+port);
+        ofLog(OF_LOG_VERBOSE, "SEND WEBSOCKET SERVER ON PORT "+ofToString(port));
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         bWebSocketServerEnabled = true;
         p_Settings->webSocketServerPort = port;
@@ -789,8 +788,6 @@ namespace ofxTSPS {
         //-------------------------------
         
         //warp background
-        //colorImage = grayImage;
-        //colorImageWarped = colorImage;
         getQuadSubImage(cameraImage, warpedImage, p_Settings->quadWarpScaled, OF_IMAGE_GRAYSCALE);	
         
         // mirror?
@@ -816,12 +813,14 @@ namespace ofxTSPS {
         
         // update scaled down images
         grayDiff.setFromPixels(warpedImage.getPixelsRef());
-        //grayDiff = grayImageWarped;
         
         //amplify
         if(p_Settings->bAmplify){
-            grayDiff.amplify(grayDiff, p_Settings->highpassAmp/15.0f);
-            warpedImage.setFromPixels(grayDiff.getPixelsRef());
+            float scalef = p_Settings->highpassAmp / 15.0f / 128.0f;
+            cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
+            cv::multiply(src, src, dst, scalef);
+            ofxCv::toOf( dst, warpedImage);
+            warpedImage.update();
         }
         
         // set base camera image
@@ -854,13 +853,39 @@ namespace ofxTSPS {
         // Post-difference filters
         //-----------------------
         
-        if(p_Settings->bSmooth){
-            grayDiff.blur((p_Settings->smooth * 2) + 1); //needs to be an odd number
-        }
-        
         //highpass filter
         if(p_Settings->bHighpass){
-            grayDiff.highpass(p_Settings->highpassBlur, p_Settings->highpassNoise);
+            cv::Mat mat = ofxCv::toCv(grayDiff);
+            cv::Mat dst = ofxCv::toCv(grayDiff);
+
+            //Blur Original Image
+            if(p_Settings->highpassBlur > 0){
+                cv::blur(mat, mat, cv::Size((p_Settings->highpassBlur * 2 )+1, (p_Settings->highpassBlur * 2 )+1));
+            }
+            
+            int kernelSize = p_Settings->highpassKernel;
+            if ( kernelSize % 2 == 0){
+                kernelSize += 1;
+            }
+            
+            mutex.lock();
+            cv::Laplacian(mat, dst, mat.type(), (int) kernelSize);
+            mutex.unlock();
+            
+            //Post-Blur  Image
+            if(p_Settings->highpassBlur > 0){
+                cv::blur(dst, dst, cv::Size((p_Settings->highpassNoise * 2 )+1, (p_Settings->highpassNoise * 2 )+1));
+            }
+            
+            ofxCv::toOf( dst, grayDiff );
+            //grayDiff.update();
+        }
+        
+        // blur filter
+        if(p_Settings->bSmooth){
+            cv::Mat mat = ofxCv::toCv(grayDiff);
+            cv::blur(mat, mat, cv::Size((p_Settings->smooth * 2) + 1, (p_Settings->smooth * 2) + 1));
+            ofxCv::toOf( mat, grayDiff);
         }
         
         //-----------------------

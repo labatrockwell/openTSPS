@@ -61,6 +61,7 @@ namespace ofxTSPS {
         bool    bInvert;
         int     smooth;
         int     highpassBlur;
+        int     highpassKernel;
         int     highpassNoise;
         int     highpassAmp;
         int     threshold;	

@@ -23,6 +23,11 @@ namespace ofxTSPS {
             return (numAvailableDevices() >= 1);
         }
         
+        int numAvailable(){
+            if (!bGrabberInited) init();
+            return numAvailableDevices();
+        };
+        
         void update(){
             ofxKinect::update();
 #ifdef TARGET_OSX

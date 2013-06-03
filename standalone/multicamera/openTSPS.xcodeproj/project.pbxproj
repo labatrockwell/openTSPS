@@ -63,11 +63,7 @@
 		A9485F3015C4712D00761D1C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485CA715C4712900761D1C /* libcrypto.a */; };
 		A9485F3115C4712D00761D1C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9485CA815C4712900761D1C /* libssl.a */; };
 		A9485F3415C4712D00761D1C /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485CF415C4712900761D1C /* ofxMSAInteractiveObject.cpp */; };
-		A9485F3515C4712D00761D1C /* CPUImageFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485CF915C4712900761D1C /* CPUImageFilter.cpp */; };
-		A9485F3615C4712D00761D1C /* ofxCvBlobTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485CFB15C4712900761D1C /* ofxCvBlobTracker.cpp */; };
-		A9485F3715C4712D00761D1C /* ofxCvCoordWarping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485CFE15C4712900761D1C /* ofxCvCoordWarping.cpp */; };
 		A9485F3815C4712D00761D1C /* ofxCvCoordWarpingGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485D0015C4712900761D1C /* ofxCvCoordWarpingGui.cpp */; };
-		A9485F3915C4712D00761D1C /* ofxCvOpticalFlowLK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485D0215C4712900761D1C /* ofxCvOpticalFlowLK.cpp */; };
 		A9485F5E15C4712D00761D1C /* CvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E2F15C4712A00761D1C /* CvPerson.cpp */; };
 		A9485F5F15C4712D00761D1C /* CvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3015C4712A00761D1C /* CvProcessor.cpp */; };
 		A9485F6115C4712D00761D1C /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485E3215C4712A00761D1C /* GuiManager.cpp */; };
@@ -458,18 +454,8 @@
 		A9485CF415C4712900761D1C /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSAInteractiveObject.cpp; sourceTree = "<group>"; };
 		A9485CF515C4712900761D1C /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSAInteractiveObject.h; sourceTree = "<group>"; };
 		A9485CF715C4712900761D1C /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		A9485CF915C4712900761D1C /* CPUImageFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPUImageFilter.cpp; sourceTree = "<group>"; };
-		A9485CFA15C4712900761D1C /* CPUImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUImageFilter.h; sourceTree = "<group>"; };
-		A9485CFB15C4712900761D1C /* ofxCvBlobTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvBlobTracker.cpp; sourceTree = "<group>"; };
-		A9485CFC15C4712900761D1C /* ofxCvBlobTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvBlobTracker.h; sourceTree = "<group>"; };
-		A9485CFD15C4712900761D1C /* ofxCvConstants_Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvConstants_Track.h; sourceTree = "<group>"; };
-		A9485CFE15C4712900761D1C /* ofxCvCoordWarping.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvCoordWarping.cpp; sourceTree = "<group>"; };
-		A9485CFF15C4712900761D1C /* ofxCvCoordWarping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvCoordWarping.h; sourceTree = "<group>"; };
 		A9485D0015C4712900761D1C /* ofxCvCoordWarpingGui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvCoordWarpingGui.cpp; sourceTree = "<group>"; };
 		A9485D0115C4712900761D1C /* ofxCvCoordWarpingGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvCoordWarpingGui.h; sourceTree = "<group>"; };
-		A9485D0215C4712900761D1C /* ofxCvOpticalFlowLK.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvOpticalFlowLK.cpp; sourceTree = "<group>"; };
-		A9485D0315C4712900761D1C /* ofxCvOpticalFlowLK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvOpticalFlowLK.h; sourceTree = "<group>"; };
-		A9485D0415C4712900761D1C /* ofxCvTrackedBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvTrackedBlob.h; sourceTree = "<group>"; };
 		A9485E0F15C4712A00761D1C /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		A9485E1515C4712A00761D1C /* OscSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscSender.h; sourceTree = "<group>"; };
 		A9485E1615C4712A00761D1C /* TCPSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSender.h; sourceTree = "<group>"; };
@@ -1547,18 +1533,8 @@
 		A9485CF815C4712900761D1C /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A9485CF915C4712900761D1C /* CPUImageFilter.cpp */,
-				A9485CFA15C4712900761D1C /* CPUImageFilter.h */,
-				A9485CFB15C4712900761D1C /* ofxCvBlobTracker.cpp */,
-				A9485CFC15C4712900761D1C /* ofxCvBlobTracker.h */,
-				A9485CFD15C4712900761D1C /* ofxCvConstants_Track.h */,
-				A9485CFE15C4712900761D1C /* ofxCvCoordWarping.cpp */,
-				A9485CFF15C4712900761D1C /* ofxCvCoordWarping.h */,
 				A9485D0015C4712900761D1C /* ofxCvCoordWarpingGui.cpp */,
 				A9485D0115C4712900761D1C /* ofxCvCoordWarpingGui.h */,
-				A9485D0215C4712900761D1C /* ofxCvOpticalFlowLK.cpp */,
-				A9485D0315C4712900761D1C /* ofxCvOpticalFlowLK.h */,
-				A9485D0415C4712900761D1C /* ofxCvTrackedBlob.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -2160,11 +2136,7 @@
 				A9485F2E15C4712D00761D1C /* Reactor.cpp in Sources */,
 				A9485F2F15C4712D00761D1C /* Server.cpp in Sources */,
 				A9485F3415C4712D00761D1C /* ofxMSAInteractiveObject.cpp in Sources */,
-				A9485F3515C4712D00761D1C /* CPUImageFilter.cpp in Sources */,
-				A9485F3615C4712D00761D1C /* ofxCvBlobTracker.cpp in Sources */,
-				A9485F3715C4712D00761D1C /* ofxCvCoordWarping.cpp in Sources */,
 				A9485F3815C4712D00761D1C /* ofxCvCoordWarpingGui.cpp in Sources */,
-				A9485F3915C4712D00761D1C /* ofxCvOpticalFlowLK.cpp in Sources */,
 				A9485F5E15C4712D00761D1C /* CvPerson.cpp in Sources */,
 				A9485F5F15C4712D00761D1C /* CvProcessor.cpp in Sources */,
 				A9485F6115C4712D00761D1C /* GuiManager.cpp in Sources */,

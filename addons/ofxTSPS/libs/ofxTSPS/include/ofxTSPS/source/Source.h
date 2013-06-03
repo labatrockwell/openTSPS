@@ -44,6 +44,7 @@ namespace ofxTSPS {
         
         // core
         virtual bool available(){ return true; };
+        virtual int  numAvailable(){ return 0; };
         virtual bool openSource( int width, int height, string etc="" ){ return true; };
         virtual void update(){};
         virtual bool doProcessFrame(){ return true; };

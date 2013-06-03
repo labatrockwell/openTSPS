@@ -190,7 +190,7 @@ namespace ofxTSPS {
         panel.addTextField("video directory (inside data folder)", "VIDEO_FILE_DIR", "videos", 200, 20);
         videoFiles = new simpleFileLister();
         int numVideoFiles = videoFiles->listDir(ofToDataPath("videos", true));
-        ofLog(OF_LOG_VERBOSE, "num video files found: " + numVideoFiles);
+        ofLogVerbose()<< "num video files found: " << numVideoFiles;
         panel.addFileLister("video files:", videoFiles, 240, 100);
         panel.addToggle("reload directory", "VIDEO_FILE_RELOAD", true);
         
@@ -267,7 +267,7 @@ namespace ofxTSPS {
         thresholdGroup->seBaseColor(255,136,37);
         thresholdGroup->setShowText(false);
         thresholdGroup->setActive(true);
-        panel.addSlider("threshold:", "THRESHOLD", 100, 0, 255, false);
+        panel.addSlider("threshold:", "THRESHOLD", 100, 1, 255, false);
         vector<string> multi;
         multi.push_back("light on dark");
         multi.push_back("dark on light");
@@ -280,8 +280,9 @@ namespace ofxTSPS {
         highpassGroup->seBaseColor(58,187,147);
         highpassGroup->setShowText(false);
         panel.addToggle("use highpass", "USE_HIGHPASS", false);
-        panel.addSlider("highpass filter:", "HIGHPASS_BLUR", 1, 1, 255, true);
-        panel.addSlider("highpass post-blur:", "HIGHPASS_NOISE", 1, 1, 30, true);
+        panel.addSlider("highpass pre-blur:", "HIGHPASS_BLUR", 1.0, 0.0f, 15.0f, false);
+        panel.addSlider("highpass kernel size", "HIGHPASS_KERNEL", 1, 1, 7, true);
+        panel.addSlider("highpass post-blur:", "HIGHPASS_NOISE", 1.0, 0.0f, 15.0f, false);
         
         guiTypeGroup * smoothingGroup = panel.addGroup("smoothing");
         smoothingGroup->setBackgroundColor(148,129,85);
@@ -319,7 +320,7 @@ namespace ofxTSPS {
         //	ofSetDataPathRoot("data/");
         haarFiles = new simpleFileLister();
         int numHaar = haarFiles->listDir(ofToDataPath("haar", true));
-        ofLog(OF_LOG_VERBOSE, "haar files found " + numHaar);
+        ofLogVerbose()<< "haar files found " << numHaar;
         panel.addFileLister("types of features:", haarFiles, 240, 100);
         panel.addSlider("expand detection area:", "HAAR_PADDING", 0.0f, 0.0f, 200.0f, false);
         
@@ -804,8 +805,9 @@ namespace ofxTSPS {
         panel.setGroupActive("differencing", "smoothing", settings.bSmooth);
         
         settings.bHighpass = panel.getValueI("USE_HIGHPASS");
-        settings.highpassBlur =  panel.getValueI("HIGHPASS_BLUR");
-        settings.highpassNoise = panel.getValueI("HIGHPASS_NOISE");
+        settings.highpassBlur =  panel.getValueF("HIGHPASS_BLUR");
+        settings.highpassKernel = panel.getValueI("HIGHPASS_KERNEL");
+        settings.highpassNoise = panel.getValueF("HIGHPASS_NOISE");
         panel.setGroupActive("differencing", "highpass", settings.bHighpass);
         
         settings.bFlipX = panel.getValueB("FLIP_X");

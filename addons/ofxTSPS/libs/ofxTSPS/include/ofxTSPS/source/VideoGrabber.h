@@ -21,6 +21,10 @@ namespace ofxTSPS {
             type = CAMERA_VIDEOGRABBER;
         }
         
+        int numAvailable(){
+            return 1;
+        }
+        
         bool openSource( int width, int height, string etc="" ){
             setDeviceID(sourceIndex);
             bIsOpen = initGrabber(width,height);

@@ -8,8 +8,17 @@
 
 #pragma once
 
-#include "ofxOpenNI.h"
+// ???
+#ifndef MIN
+#define MIN(x,y) (((x) < (y)) ? (x) : (y))
+#endif
+
+#ifndef MAX
+#define MAX(x,y) (((x) > (y)) ? (x) : (y))
+#endif
+
 #include "ofxTSPS/source/Source.h"
+#include "ofxOpenNI.h"
 
 namespace ofxTSPS {
     class OpenNI : public Source, public ofxOpenNI {
