@@ -56,10 +56,5 @@ namespace ofxTSPS {
             close();
             clear();
         }
-        
-        virtual float getDepth( float x, float y ){
-            // distance is in mm, with the max val being 10 m
-            // scale it by max to get it in a 0-1 ranges
-        }
     };
 }
