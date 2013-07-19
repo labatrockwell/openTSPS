@@ -7,7 +7,7 @@ tspsApp::tspsApp( int numCameras ){
         delegates.push_back( new ofxTSPS::Delegate(i) );
         delegates.back()->disableEvents();
         
-        sources.push_back( new ofxTSPS::OpenNI() );
+        sources.push_back( new ofxTSPS::OpenNI2() );
     }
 }
 

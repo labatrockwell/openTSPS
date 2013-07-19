@@ -4,7 +4,7 @@
 #include "ofMain.h"
 
 #include "TSPSDelegate.h"
-#include "OpenNI.h"
+#include "OpenNI2.h"
 #include "ofxLabGui.h"
 #define MAX_CAMERAS 4
 
@@ -18,7 +18,7 @@ public:
     void draw();
     
     // custom openNI source
-    vector<ofxTSPS::OpenNI *> sources;
+    vector<ofxTSPS::OpenNI2 *> sources;
     
     int currentDelegate; // which one you are drawing
     vector<ofxTSPS::Delegate *> delegates;

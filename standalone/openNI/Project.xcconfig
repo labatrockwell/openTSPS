@@ -12,8 +12,9 @@ TSPS_ADDONS_PATH = ../../addons
 // This is always a full path
 #include "../../addons/ofxTSPS/TSPS.xcconfig"
 
-//ofxOpenni
-OFX_OPENNI_LIBS     = /usr/lib/libOpenNI.dylib
+//ofxNI2
+OFX_NI2_HEADERS  =$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/include
+OFX_NI2_LIBS     = $(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx/libOpenNI2.dylib
 
 // You must add "TSPS_ADDON_HEADERS" and "TSPS_ADDON_LIBS" here
 // to include all of TSPS' dependencies

@@ -41,7 +41,7 @@
     <val_0>0.100000001</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>139.777786255</val_0>
+    <val_0>120.474075317</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
     <val_0>2.000000000</val_0>
@@ -125,7 +125,7 @@
     <val_0 />
 </WS_CHANNEL>
 <SEND_SB>
-    <val_0>1.000000000</val_0>
+    <val_0>0.000000000</val_0>
 </SEND_SB>
 <SB_HOST>
     <val_0>192.168.1.101</val_0>
@@ -153,3 +153,6 @@
 <QUAD2_Y>1.000000000</QUAD2_Y>
 <QUAD3_X>0.000000000</QUAD3_X>
 <QUAD3_Y>1.000000000</QUAD3_Y>
+<HIGHPASS_KERNEL>
+    <val_0>1.000000000</val_0>
+</HIGHPASS_KERNEL>
