@@ -1,0 +1,40 @@
+// core addons
+CORE_ADDONS_PATH    = $(OF_PATH)/addons
+
+//ofxOpenCV
+OFX_OPENCV_HEADERS  = $(CORE_ADDONS_PATH)/ofxOpenCv/libs/opencv/include/
+
+//ofxOsc
+OFX_OSC_INC         = $(CORE_ADDONS_PATH)ofxOsc/libs  $(CORE_ADDONS_PATH)/ofxOsc/libs/oscpack  $(CORE_ADDONS_PATH)/ofxOsc/libs/oscpack/src  $(CORE_ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip  $(CORE_ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip/posix  $(CORE_ADDONS_PATH)/ofxOsc/libs/oscpack/src/ip/win32  $(CORE_ADDONS_PATH)/ofxOsc/libs/oscpack/src/osc  $(CORE_ADDONS_PATH)/ofxOsc/src
+
+// TSPS addons
+// THIS SHOULD BE DEFINED IN YOUR xcconfig!
+//TSPS_ADDONS_PATH    = ../../addons
+
+//ofxTSPS
+OFX_TSPS_INC        = $(TSPS_ADDONS_PATH)/ofxTSPS/libs/ofxTSPS/include
+
+//ofxCv
+OFX_CV_INC          = $(ADDONS_PATH)/ofxOpenCv/libs/opencv/include/ $(TSPS_ADDONS_PATH)/ofxCv/libs/ofxCv/include/
+
+//ofxLibwebsockets
+LIB_SSL             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a
+LIB_CRYPTO          = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libcrypto.a
+SSL_INC             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/
+LWS                 = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx/libwebsockets.a
+LWS_INC             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/include
+OFX_LWS_INCLUDE     = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/ofxLibwebsockets/include
+OFX_LWS_LIBS        = $(LIB_CRYPTO) $(LIB_SSL) $(LWS)
+OFX_LWS_INCLUDES    = $(SSL_INC) $(OFX_LWS_INCLUDE) $(LWS_INC)
+
+// ofxKinect
+OFX_KINECT_HEADERS  = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb-1.0/include/libusb-1.0 $(TSPS_ADDONS_PATH)/ofxKinect/libs/libfreenect/include
+OFX_KINECT_LIBS     = $(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb-1.0/lib/osx/usb-1.0.a
+
+// ofxTuioWrapper
+OFX_TUIO_LIBS       = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx/libOsc.a
+OFX_TUIO_INC        = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/include/ip $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/include/osc
+
+// all addons
+TSPS_ADDON_HEADERS = $(OFX_KINECT_HEADERS) $(OFX_OPENCV_HEADERS) $(OFX_CV_INC) $(OFX_LWS_INCLUDES) $(OFX_OSC_INC) $(OFX_TUIO_INC) $(OFX_TSPS_INC)
+TSPS_ADDON_LIBS = $(OFX_KINECT_LIBS) $(OFX_LWS_LIBS) $(OFX_TUIO_LIBS)

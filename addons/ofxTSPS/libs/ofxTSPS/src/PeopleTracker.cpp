@@ -449,6 +449,9 @@ namespace ofxTSPS {
             case CAMERA_VIDEOGRABBER:
                 setUseVideoGrabber();
                 break;
+            case CAMERA_SYPHON:
+                setUseSyphon();
+                break;
             case CAMERA_CUSTOM:
                 setUseCustomSource();
                 break;

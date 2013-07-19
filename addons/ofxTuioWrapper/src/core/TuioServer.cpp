@@ -154,7 +154,7 @@ void TuioServer::sendFullMessages() {
 }
 
 TuioServer::TuioServer() {
-	initialize("127.0.0.1",3333,MAX_UDP_SIZE);
+	initialize((char *) "127.0.0.1",3333,MAX_UDP_SIZE);
 }
 
 TuioServer::TuioServer(char *host, int port) {
