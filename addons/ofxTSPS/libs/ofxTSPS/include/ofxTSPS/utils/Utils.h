@@ -16,8 +16,8 @@ static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <o
         return;
     } // weird thing that could happen...
     
-    unsigned char * inpix;
-    unsigned char * outpix;
+    static unsigned char * inpix;
+    static unsigned char * outpix;
     inpix   = inputImage.getPixels();
     outpix  = outputImage.getPixels();
     

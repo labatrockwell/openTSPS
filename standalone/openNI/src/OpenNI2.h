@@ -21,7 +21,10 @@ namespace ofxTSPS {
             // type defaults to CAMERA_CUSTOM
             bCanTrackHaar = false;
             bDepthSetup = false;
+            bDoProcessFrame = false;
             device = NULL;
+            nearClipping = 0;
+            farClipping = -1; // will be reset to max value
         }
         
         ~OpenNI2(){
@@ -39,6 +42,10 @@ namespace ofxTSPS {
         }
         
         void update(){
+            device->update();
+            if ( !bDoProcessFrame ){
+                bDoProcessFrame = isFrameNew();
+            }
             updateTextureIfNeeded();
 #ifdef TARGET_OSX
             publishToSyphon( getTextureReference() );
@@ -51,12 +58,14 @@ namespace ofxTSPS {
         
         ofPixels & getPixelsRef(){
             static ofPixels retPix;
-            depthRemapToRange(ofxNI2::DepthStream::getPixelsRef(), retPix, 0, stream.getMaxPixelValue(), true);
+            depthRemapToRange(ofxNI2::DepthStream::getPixelsRef(), retPix, nearClipping, farClipping, false);
             return retPix;
         }
         
         bool doProcessFrame(){
-            return ofxNI2::DepthStream::getPixelsRef().getWidth() != 0;
+            bool bReturn = bDoProcessFrame;
+            if ( bDoProcessFrame ) bDoProcessFrame = false;
+            return bReturn;
         }
         
         // fixed invert...
@@ -68,7 +77,7 @@ namespace ofxTSPS {
             const unsigned short *src_ptr = src.getPixels();
             unsigned char *dst_ptr = dst.getPixels();
             
-            float inv_range = 1. / (far - near);
+//            float inv_range = 1. / (far - near);
             
             if (invert)
                 std::swap(near, far);
@@ -92,8 +101,9 @@ namespace ofxTSPS {
             // only try to attach device once
             if ( !bDepthSetup ){
                 bIsOpen = setup(*device);
+                if ( farClipping == -1 ) farClipping = stream.getMaxPixelValue();
 //                setSize(320, 240);
-//                setFps(30);
+                setFps(30);
                 bDepthSetup  = bIsOpen;
             } else {
                 bIsOpen = true;
@@ -110,8 +120,23 @@ namespace ofxTSPS {
             stream.stop();
             bIsOpen = false;
         }
+        
+        // Be careful, might be null!
+        ofxNI2::Device * getDevice(){
+            return device;
+        }
+        
+        void setNearClipping( int near ){
+            nearClipping = max(0,near);
+        }
+        
+        void setFarClipping( int far ){
+            farClipping = min( far, bIsOpen ? stream.getMaxPixelValue() : 10000 );
+        }
+        
     private:
         ofxNI2::Device *device;
-        bool bDepthSetup;
+        bool bDepthSetup, bDoProcessFrame;
+        int nearClipping, farClipping;
     };
 }
