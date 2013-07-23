@@ -886,7 +886,9 @@ namespace ofxTSPS {
                 cv::blur(dst, dst, cv::Size((p_Settings->highpassNoise * 2 )+1, (p_Settings->highpassNoise * 2 )+1));
             }
             
-            ofxCv::toOf( dst, grayDiff );
+			static ofImage temp;
+            ofxCv::toOf( dst, temp );
+			grayDiff.setFromPixels( temp.getPixelsRef() );
             //grayDiff.update();
         }
         
@@ -894,7 +896,9 @@ namespace ofxTSPS {
         if(p_Settings->bSmooth){
             cv::Mat mat = ofxCv::toCv(grayDiff);
             cv::blur(mat, mat, cv::Size((p_Settings->smooth * 2) + 1, (p_Settings->smooth * 2) + 1));
-            ofxCv::toOf( mat, grayDiff);
+            static ofImage temp;
+            ofxCv::toOf( mat, temp );
+			grayDiff.setFromPixels( temp.getPixelsRef() );
         }
         
         //-----------------------
