@@ -450,7 +450,9 @@ namespace ofxTSPS {
                 setUseVideoGrabber();
                 break;
             case CAMERA_SYPHON:
+#ifdef TARGET_OSX
                 setUseSyphon();
+#endif
                 break;
             case CAMERA_CUSTOM:
                 setUseCustomSource();
@@ -799,9 +801,11 @@ namespace ofxTSPS {
             if ( p_Settings->bFlipX && p_Settings->bFlipY ) mode = -1;
             else if ( p_Settings->bFlipY ) mode = 0;
             
+			static ofImage temp = warpedImage;
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::flip( src, dst, mode );
-            ofxCv::toOf( dst, warpedImage );
+            ofxCv::toOf( dst, temp );
+			warpedImage.setFromPixels( temp.getPixelsRef() );
             warpedImage.update();
         }
         
@@ -820,9 +824,11 @@ namespace ofxTSPS {
         //amplify
         if(p_Settings->bAmplify){
             float scalef = p_Settings->highpassAmp / 15.0f / 128.0f;
+			static ofImage temp = warpedImage;
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::multiply(src, src, dst, scalef);
-            ofxCv::toOf( dst, warpedImage);
+            ofxCv::toOf( dst, temp);
+			warpedImage.setFromPixels( temp.getPixelsRef() );
             warpedImage.update();
         }
         
