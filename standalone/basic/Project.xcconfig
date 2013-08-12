@@ -5,6 +5,14 @@ OF_PATH = ../../..
 //THIS HAS ALL THE HEADER AND LIBS FOR OF CORE
 #include "../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig"
 
+//ICONS - NEW IN 0072 
+ICON_NAME_DEBUG = icon-debug.icns
+ICON_NAME_RELEASE = icon.icns
+ICON_FILE_PATH = $(OF_PATH)/libs/openFrameworksCompiled/project/osx/
+
+//IF YOU WANT AN APP TO HAVE A CUSTOM ICON - PUT THEM IN YOUR DATA FOLDER AND CHANGE ICON_FILE_PATH to:
+//ICON_FILE_PATH = bin/data/
+
 // YOU MUST DEFINE THIS VAR! This tells TSPS where to look for its core
 // addons (in openframeworks/openTSPS/addons)
 TSPS_ADDONS_PATH = ../../addons
@@ -12,7 +20,6 @@ TSPS_ADDONS_PATH = ../../addons
 // This is always a full path
 #include "../../addons/ofxTSPS/TSPS.xcconfig"
 
-// You must add "TSPS_ADDON_HEADERS" and "TSPS_ADDON_LIBS" here
-// to include all of TSPS' dependencies
-HEADER_SEARCH_PATHS = $(OF_CORE_HEADERS) $(TSPS_ADDON_HEADERS)
+
 OTHER_LDFLAGS = $(OF_CORE_LIBS) $(TSPS_ADDON_LIBS)
+HEADER_SEARCH_PATHS = $(OF_CORE_HEADERS) $(TSPS_ADDON_HEADERS)

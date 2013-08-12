@@ -33,6 +33,7 @@
 #include <list>
 #include <algorithm>
 
+#include "ofMain.h"
 #include "OscOutboundPacketStream.h"
 #include "NetworkingUtils.h"
 #include "UdpSocket.h"
