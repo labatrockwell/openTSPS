@@ -98,6 +98,7 @@ namespace ofxTSPS {
         int getSelectedPanel();
         void setSelectedPanel( int index );
         void setSelectedPanel( string name );
+        void addPanelToGroup( string groupName, guiTypePanel * panel );
         
         //disable / enable stuff
         void enableElement( string name );

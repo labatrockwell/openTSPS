@@ -741,6 +741,14 @@ namespace ofxTSPS {
      GET + SET PANEL INFO / SELECTED PANEL
      ***************************************************************/
     
+    
+    void GuiManager::addPanelToGroup( string groupName, guiTypePanel * panel ){
+        if ( panelGroups.count(groupName) == 0 ){
+            ofLogWarning()<<"No group with name "<<groupName<<", adding it!";
+        }
+        panelGroups[groupName].push_back( panel );
+    }
+    
     int GuiManager::getSelectedPanel(){
         return panel.getSelectedPanelIndex();
     }
