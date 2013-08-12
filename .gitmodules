@@ -21,7 +21,7 @@
 	url = https://github.com/Spacebrew/ofxSpacebrew.git
 [submodule "addons/ofxSyphon"]
 	path = addons/ofxSyphon
-	url = https://github.com/astellato/ofxSyphon
+	url = https://github.com/labatrockwell/ofxSyphon.git
 [submodule "addons/ofxNI2"]
 	path = addons/ofxNI2
 	url = https://github.com/satoruhiga/ofxNI2.git
