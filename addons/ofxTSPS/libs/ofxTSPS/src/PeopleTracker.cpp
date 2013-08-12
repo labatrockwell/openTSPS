@@ -37,7 +37,7 @@ namespace ofxTSPS {
             //delete currentSource;
         }
         tspsProcessor->exit();
-        delete tspsProcessor;
+//        delete tspsProcessor;
     }
     
     //---------------------------------------------------------------------------
@@ -190,8 +190,12 @@ namespace ofxTSPS {
         } else if ( useVideoFile() && currentSource->getType() == CAMERA_VIDEOFILE && getVideoFile() != currentSource->getCustomData() ){
             setupSource( CAMERA_VIDEOFILE );
         }
+        // 4: OpenNI
+        else if ( useOpenNI() && ( currentSource == NULL || currentSource->getType() != CAMERA_OPENNI)){
+            setupSource( CAMERA_OPENNI );
+        }
 #ifdef TARGET_OSX
-        // 4 syphon
+        // 5: syphon
         else if ( useSyphon() && (currentSource == NULL || currentSource->getType() != CAMERA_SYPHON) ){
             setupSource( CAMERA_SYPHON );
         }
@@ -454,8 +458,14 @@ namespace ofxTSPS {
                 setUseSyphon();
 #endif
                 break;
+            case CAMERA_OPENNI:
+                setUseOpenNI();
+                break;
             case CAMERA_CUSTOM:
                 setUseCustomSource();
+                break;
+                
+            case CAMERA_UNDEFINED:
                 break;
         }
         
@@ -485,6 +495,9 @@ namespace ofxTSPS {
                 }
                 currentSource = new VideoFile();
                 break;
+            case CAMERA_OPENNI:
+                currentSource = new OpenNI2();
+                break;
 #ifdef TARGET_OSX
             case CAMERA_SYPHON:
                 currentSource = new Syphon();
@@ -503,6 +516,9 @@ namespace ofxTSPS {
                 break;
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
+                break;
+            case CAMERA_OPENNI:
+                setUseOpenNI();
                 break;
             case CAMERA_VIDEOGRABBER:
                 setUseVideoGrabber();
@@ -1425,6 +1441,23 @@ namespace ofxTSPS {
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_KINECT;
+        }
+    }
+    
+    
+    //---------------------------------------------------------------------------
+    bool    PeopleTracker::useOpenNI(){
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        return p_Settings->inputType == CAMERA_OPENNI;
+    }
+    
+    //---------------------------------------------------------------------------
+    void    PeopleTracker::setUseOpenNI( bool bUseOpenNI ){
+        if ( bUseOpenNI ){
+            gui.setValueI( "SOURCE_TYPE", CAMERA_OPENNI );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_OPENNI;
         }
     }
     

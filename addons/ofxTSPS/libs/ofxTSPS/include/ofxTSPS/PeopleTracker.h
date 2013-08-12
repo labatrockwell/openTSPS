@@ -49,6 +49,7 @@
 // sources
 #include "ofxTSPS/source/Source.h"
 #include "ofxTSPS/source/Kinect.h"
+#include "ofxTSPS/source/OpenNI2.h"
 #include "ofxTSPS/source/Syphon.h"
 #include "ofxTSPS/source/VideoFile.h"
 #include "ofxTSPS/source/VideoGrabber.h"
@@ -98,6 +99,8 @@ namespace ofxTSPS {
             // specific source accessors
             bool    useKinect();
             void    setUseKinect( bool bUseKinect=true );
+            bool    useOpenNI();
+            void    setUseOpenNI( bool bUseOpenNI=true );
             bool    useVideoFile();
             void    setUseVideoFile( bool bUseVideoFile = true);
             bool    useVideoGrabber();

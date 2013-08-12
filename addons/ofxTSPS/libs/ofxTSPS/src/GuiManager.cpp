@@ -170,9 +170,15 @@ namespace ofxTSPS {
         panel.addButton("open video settings");
 #endif
         vector<string>source_types;
-        source_types.push_back("Web Camera");
+        ofVideoGrabber dummyGrabber;
+        vector<ofVideoDevice>	devices = dummyGrabber.listDevices();
+        for ( int i=0; i<devices.size(); i++){
+            source_types.push_back(devices[i].deviceName);
+        }
+//        source_types.push_back("Web Camera");
         source_types.push_back("Video File");
         source_types.push_back("Kinect");
+        source_types.push_back("OpenNI");
 #ifdef TARGET_OSX
         source_types.push_back("Syphon");
 #endif

@@ -31,6 +31,10 @@
 		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
 		960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF88F02779DD820913ACEA06 /* ofxTCPClient.cpp */; };
 		9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 832BDC407620CDBA568B713D /* tinyxmlerror.cpp */; };
+		A90EB8DC17B9435600CB9682 /* libNiTE2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9EC77A617B9230F002D8BEF /* libNiTE2.dylib */; };
+		A90EB8DD17B9435E00CB9682 /* libOpenNI2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9EC77D217B9230F002D8BEF /* libOpenNI2.dylib */; };
+		A90EB8DF17B9436E00CB9682 /* Drivers in CopyFiles */ = {isa = PBXBuildFile; fileRef = A90EB8DE17B9436C00CB9682 /* Drivers */; };
+		A90EB8E017B9438500CB9682 /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9EC78E117B92310002D8BEF /* Syphon.framework */; };
 		A9EC799B17B92311002D8BEF /* Calibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9EC760317B9230D002D8BEF /* Calibration.cpp */; };
 		A9EC799C17B92311002D8BEF /* ContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9EC760417B9230D002D8BEF /* ContourFinder.cpp */; };
 		A9EC799D17B92311002D8BEF /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9EC760517B9230D002D8BEF /* Distance.cpp */; };
@@ -65,9 +69,6 @@
 		A9EC79DC17B92311002D8BEF /* ssleay32.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC771F17B9230E002D8BEF /* ssleay32.lib */; };
 		A9EC79DD17B92311002D8BEF /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9EC776917B9230E002D8BEF /* ofxMSAInteractiveObject.cpp */; };
 		A9EC79E417B92311002D8BEF /* libNiTE2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC77A617B9230F002D8BEF /* libNiTE2.dylib */; };
-		A9EC79E517B92311002D8BEF /* libFreenectDriver.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC77CF17B9230F002D8BEF /* libFreenectDriver.dylib */; };
-		A9EC79E617B92311002D8BEF /* libOniFile.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC77D017B9230F002D8BEF /* libOniFile.dylib */; };
-		A9EC79E717B92311002D8BEF /* libPS1080.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC77D117B9230F002D8BEF /* libPS1080.dylib */; };
 		A9EC79E817B92311002D8BEF /* libOpenNI2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC77D217B9230F002D8BEF /* libOpenNI2.dylib */; };
 		A9EC79E917B92311002D8BEF /* ofxNI2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9EC77D717B9230F002D8BEF /* ofxNI2.cpp */; };
 		A9EC79EA17B92311002D8BEF /* ofxNiTE2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9EC77D917B9230F002D8BEF /* ofxNiTE2.cpp */; };
@@ -148,6 +149,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A90EB8DB17B9434700CB9682 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				A90EB8DC17B9435600CB9682 /* libNiTE2.dylib in CopyFiles */,
+				A90EB8DD17B9435E00CB9682 /* libOpenNI2.dylib in CopyFiles */,
+				A90EB8DF17B9436E00CB9682 /* Drivers in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4C2427710CC5ABF004149E2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +168,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
+				A90EB8E017B9438500CB9682 /* Syphon.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +275,8 @@
 		A15E0125B8C9B7F01DED5695 /* matrix.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = matrix.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/matrix.h; sourceTree = SOURCE_ROOT; };
 		A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscHostEndianness.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h; sourceTree = SOURCE_ROOT; };
 		A2EE5E80B134EA52A8B369D2 /* eigen.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = eigen.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/eigen.hpp; sourceTree = SOURCE_ROOT; };
+		A90EB8DE17B9436C00CB9682 /* Drivers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Drivers; sourceTree = "<group>"; };
+		A937D6D917B943CE00EF63B3 /* OpenNI2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNI2.h; sourceTree = "<group>"; };
 		A9C85208C7E45FB9D1926789 /* wimage.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = wimage.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/wimage.hpp; sourceTree = SOURCE_ROOT; };
 		A9EC75F517B9230D002D8BEF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A9EC75F917B9230D002D8BEF /* Calibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calibration.h; sourceTree = "<group>"; };
@@ -452,9 +468,6 @@
 		A9EC77C817B9230F002D8BEF /* OpenNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNI.h; sourceTree = "<group>"; };
 		A9EC77C917B9230F002D8BEF /* PS1080.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS1080.h; sourceTree = "<group>"; };
 		A9EC77CB17B9230F002D8BEF /* OniPlatformWin32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OniPlatformWin32.h; sourceTree = "<group>"; };
-		A9EC77CF17B9230F002D8BEF /* libFreenectDriver.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libFreenectDriver.dylib; sourceTree = "<group>"; };
-		A9EC77D017B9230F002D8BEF /* libOniFile.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libOniFile.dylib; sourceTree = "<group>"; };
-		A9EC77D117B9230F002D8BEF /* libPS1080.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libPS1080.dylib; sourceTree = "<group>"; };
 		A9EC77D217B9230F002D8BEF /* libOpenNI2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libOpenNI2.dylib; sourceTree = "<group>"; };
 		A9EC77D317B9230F002D8BEF /* OpenNI.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenNI.ini; sourceTree = "<group>"; };
 		A9EC77D417B9230F002D8BEF /* PS1080.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PS1080.ini; sourceTree = "<group>"; };
@@ -669,9 +682,6 @@
 				A9EC79DB17B92311002D8BEF /* libeay32.lib in Frameworks */,
 				A9EC79DC17B92311002D8BEF /* ssleay32.lib in Frameworks */,
 				A9EC79E417B92311002D8BEF /* libNiTE2.dylib in Frameworks */,
-				A9EC79E517B92311002D8BEF /* libFreenectDriver.dylib in Frameworks */,
-				A9EC79E617B92311002D8BEF /* libOniFile.dylib in Frameworks */,
-				A9EC79E717B92311002D8BEF /* libPS1080.dylib in Frameworks */,
 				A9EC79E817B92311002D8BEF /* libOpenNI2.dylib in Frameworks */,
 				A9EC7A2717B92311002D8BEF /* Syphon.framework in Frameworks */,
 			);
@@ -1665,22 +1675,12 @@
 		A9EC77CD17B9230F002D8BEF /* osx */ = {
 			isa = PBXGroup;
 			children = (
-				A9EC77CE17B9230F002D8BEF /* Drivers */,
+				A90EB8DE17B9436C00CB9682 /* Drivers */,
 				A9EC77D217B9230F002D8BEF /* libOpenNI2.dylib */,
 				A9EC77D317B9230F002D8BEF /* OpenNI.ini */,
 				A9EC77D417B9230F002D8BEF /* PS1080.ini */,
 			);
 			path = osx;
-			sourceTree = "<group>";
-		};
-		A9EC77CE17B9230F002D8BEF /* Drivers */ = {
-			isa = PBXGroup;
-			children = (
-				A9EC77CF17B9230F002D8BEF /* libFreenectDriver.dylib */,
-				A9EC77D017B9230F002D8BEF /* libOniFile.dylib */,
-				A9EC77D117B9230F002D8BEF /* libPS1080.dylib */,
-			);
-			path = Drivers;
 			sourceTree = "<group>";
 		};
 		A9EC77D617B9230F002D8BEF /* src */ = {
@@ -1910,6 +1910,7 @@
 			isa = PBXGroup;
 			children = (
 				A9EC790C17B92310002D8BEF /* Kinect.h */,
+				A937D6D917B943CE00EF63B3 /* OpenNI2.h */,
 				A9EC790D17B92310002D8BEF /* Source.h */,
 				A9EC790E17B92310002D8BEF /* Syphon.h */,
 				A9EC790F17B92310002D8BEF /* VideoFile.h */,
@@ -2257,6 +2258,7 @@
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
 				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
 				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+				A90EB8DB17B9434700CB9682 /* CopyFiles */,
 			);
 			buildRules = (
 			);
