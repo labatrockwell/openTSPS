@@ -2506,6 +2506,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
+				OTHER_LDFLAGS = "$(OTHER_LDFLAGS)";
 				SDKROOT = macosx10.6;
 			};
 			name = Debug;
@@ -2540,6 +2541,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
+				OTHER_LDFLAGS = "$(OTHER_LDFLAGS)";
 				SDKROOT = macosx10.6;
 			};
 			name = Release;
