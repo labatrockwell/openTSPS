@@ -1,5 +1,12 @@
 Release Notes
 ------------
+1.3.6 ()
+\ Updated all code for openFrameworks 0.8.0
++ Native support for OpenNI2 (side-by-side with ofxKinect on OS X)
+
+1.3.6 ()
+* TO-DO
+
 1.3.4 (2/17/13)
 * New gui groups with more organized panels
 * New parameters for ofxTSPS::Scene, including mode to send simple on/off for an arbitrary grid layed over a scene

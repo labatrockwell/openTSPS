@@ -38,7 +38,7 @@ Installing:
 
 Compiling:
 ------------
-1. clone openframeworks from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
+1. clone openframeworks 0.8.0 from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
 2. clone the TSPS directory into openframeworks/
 3. clone all submodules:
 ```
