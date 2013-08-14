@@ -18,7 +18,7 @@ namespace ofxTSPS {
         
         OpenNI2() : Source(), ofxNI2::DepthStream()
         {
-            // type defaults to CAMERA_CUSTOM
+            type = CAMERA_OPENNI;
             bCanTrackHaar = false;
             bDepthSetup = false;
             bDoProcessFrame = false;
