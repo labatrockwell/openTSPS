@@ -284,7 +284,7 @@ class guiBaseObject{
         virtual void renderText(){
             if(!bShowText) return;
 
-            glColor4fv(textColor.getColorF());
+            ofSetColor(textColor.getColor().r, textColor.getColor().g, textColor.getColor().b, textColor.getColor().a);
             displayText.renderText(boundingBox.x, boundingBox.y + displayText.getTextSingleLineHeight());
         }
 		
@@ -292,7 +292,7 @@ class guiBaseObject{
 		virtual void renderText(int x, int y){
 			if(!bShowText) return;
 			
-			glColor4fv(textColor.getColorF());
+			ofSetColor(textColor.getColor().r, textColor.getColor().g, textColor.getColor().b, textColor.getColor().a);
 			displayText.renderText(x, y + displayText.getTextSingleLineHeight());
 		}
 

@@ -59,18 +59,18 @@ public:
             ofPushMatrix();{
                 //draw the background
                 ofFill();
-                glColor4fv(bgColor.getColorF());
+                ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().getColor().a);
                 ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
                 
                 //draw the outline
                 ofNoFill();
-                glColor4fv(outlineColor.getColorF());
+                ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
                 ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
                 ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
                 
                 ofFill();
-                //glColor4fv(fgColor.getColorF());
-                ofSetHexColor(0xffffff);
+                //ofSetColor(fgColor.getColorF());
+                ofSetColor(255);
                 guiBaseObject::renderText((int)(hitArea.x + hitArea.width/2 - (displayText.getTextWidth()/2)), hitArea.y);
             
             } ofPopMatrix();

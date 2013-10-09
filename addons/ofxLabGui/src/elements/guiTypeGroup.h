@@ -52,9 +52,9 @@ public:
 	void setActive( bool _active=true ){
 		active = _active;
 		if (active){
-			bgColor.setColor(bgColor.getColor().r*255.0f, bgColor.getColor().g*255.0f, bgColor.getColor().b*255.0f, 255);			
+			bgColor.setColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, 255);
 		} else {
-			bgColor.setColor(bgColor.getColor().r*255.0f, bgColor.getColor().g*255.0f, bgColor.getColor().b*255.0f, 150);
+			bgColor.setColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, 150);
 		}
 	}
 	
@@ -197,12 +197,12 @@ public:
                 ofTranslate(boundingBox.x, boundingBox.y, 0);
                 //draw the background
                 ofFill();
-                glColor4fv(bgColor.getColorF());
+                ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
                 ofRect(0, 0, boundingBox.width, boundingBox.height);
                 
                 //draw the outline
                 ofNoFill();
-                glColor4fv(outlineColor.getColorF());
+                ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
                 ofRect(0, 0, boundingBox.width, boundingBox.height);
             ofPopMatrix();
 		

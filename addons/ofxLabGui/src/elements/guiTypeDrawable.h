@@ -83,12 +83,12 @@ class guiTypeDrawable : public guiBaseObject{
 
                     //draw the background
                     ofFill();
-                    glColor4fv(bgColor.getColorF());
+                    ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
                     ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
                     ofDisableAlphaBlending();
 
-                    ofSetHexColor(0xFFFFFF);
+                    ofSetColor(255);
                     vid->draw(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
                 } ofPopMatrix();
