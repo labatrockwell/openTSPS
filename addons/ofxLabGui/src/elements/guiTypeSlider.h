@@ -40,16 +40,16 @@ class guiTypeSlider : public guiBaseObject{
 
                     //draw the background
                     ofFill();
-                    glColor4fv(bgColor.getColorF());
+                    ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
                     ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
                     //draw the foreground
-                    glColor4fv(fgColor.getColorF());
+                    ofSetColor(fgColor.getColor().r, fgColor.getColor().g, fgColor.getColor().b, fgColor.getColor().a);
                     ofRect(hitArea.x, hitArea.y, hitArea.width * value.getPct(), hitArea.height);
 
                     //draw the outline
                     ofNoFill();
-                    glColor4fv(outlineColor.getColorF());
+                    ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
                     ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
                 glPopMatrix();
             ofPopStyle();

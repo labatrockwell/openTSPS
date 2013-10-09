@@ -65,21 +65,21 @@ class guiTypeText : public guiBaseObject{
 			
 			//draw the background
 			ofFill();
-			glColor4fv(bgColor.getColorF());
+			ofSetColor(bgColor.getColor().r,bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
 			ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 			
 			//draw the outline
 			ofNoFill();
-			glColor4fv(outlineColor.getColorF());
+			ofSetColor(outlineColor.getColor().r,outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
 			ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 			
 			ofFill();
-			glColor4fv(outlineColor.getColorF());
+			ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
 			valueText.renderText(hitArea.x + 2, hitArea.y+hitArea.height*3/4);
 			//ofDrawBitmapString(newValue, hitArea.x, hitArea.y+hitArea.height*3/4);
 			ofNoFill();
 			
-			glColor4fv(fgColor.getColorF());
+			ofSetColor(fgColor.getColor().r, fgColor.getColor().g, fgColor.getColor().b, fgColor.getColor().a);
 			ofRect(hitArea.x+3, hitArea.y+3, -6 + hitArea.width, -6 + hitArea.height);
 			
 			glPopMatrix();

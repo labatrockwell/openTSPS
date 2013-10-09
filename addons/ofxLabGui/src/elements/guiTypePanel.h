@@ -309,12 +309,12 @@ class guiTypePanel : public guiBaseObject{
                     ofTranslate(boundingBox.x, boundingBox.y, 0);
                     //draw the background
                     ofFill();
-                    glColor4fv(bgColor.getSelectedColorF());
+                    ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
                     ofRect(0, 0, boundingBox.width, boundingBox.height);
 
                     //draw the outline
                     ofNoFill();
-                    glColor4fv(outlineColor.getColorF());			
+                    ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);			
 					ofBeginShape();
 					ofVertex(tabRect.x-boundingBox.x, 0);
 					ofVertex(0, 0);
@@ -326,7 +326,7 @@ class guiTypePanel : public guiBaseObject{
 			
 					if (groups.size() > 0){						
 						ofFill();
-						glColor4fv(groupBgColor.getSelectedColorF());
+						ofSetColor(groupBgColor.getColor().r, groupBgColor.getColor().g, groupBgColor.getColor().b, groupBgColor.getColor().a);
 						ofRect(groupBg.x, groupBg.y, groupBg.width, groupBg.height);
 					}
 			
@@ -359,7 +359,7 @@ class guiTypePanel : public guiBaseObject{
 				ofFill();
 			
 				if (bSelected){
-					glColor4fv(bgColor.getSelectedColorF());
+					ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
 					ofBeginShape();
 					ofVertex(0, tabRect.height);
 					ofVertex(0, 0);
@@ -367,13 +367,13 @@ class guiTypePanel : public guiBaseObject{
 					ofVertex(tabRect.width, tabRect.height);
 					ofEndShape(false);
 				} else {
-					glColor4fv(bgColor.getColorF());
+					ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
 					ofRect(0,0,tabRect.width, tabRect.height-1);
 				}
 				
 				//ofRect(0,0,tabRect.width, tabRect.height);
 				ofNoFill();
-				glColor4fv(outlineColor.getColorF());
+				ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
 				ofBeginShape();
 				ofVertex(0, tabRect.height);
 				ofVertex(0, 0);

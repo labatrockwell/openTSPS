@@ -1163,12 +1163,12 @@ void ofxLabGui::draw(){
 				glTranslatef(boundingBox.x, boundingBox.y, 0);
 				//draw the background
 				ofFill();
-				glColor4fv(bgColor.getColorF());
+				ofSetColor(bgColor.getColor().r,bgColor.getColor().g,bgColor.getColor().b,bgColor.getColor().a);
 				ofRect(0, 0, boundingBox.width, panelH);
 
 				//draw the outline
 				ofNoFill();
-				glColor4fv(outlineColor.getColorF());
+				ofSetColor(outlineColor.getColor().r,outlineColor.getColor().g,outlineColor.getColor().b, outlineColor.getColor().a);
 				ofRect(0, 0, boundingBox.width, panelH);
 				ofLine(0, 20, boundingBox.width, 20);
 			glPopMatrix();
@@ -1177,12 +1177,12 @@ void ofxLabGui::draw(){
 				glTranslatef(boundingBox.x, (int) boundingBox.y + panels[0]->getPosY(), 0);
 					//draw the background
 				ofFill();
-				glColor4fv(bgColor.getColorF());
+				ofSetColor(bgColor.getColor().r,bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
 				ofRect(0, 0, boundingBox.width, (int) panelH - panels[0]->getPosY());
 
 				//draw the outline
 				ofNoFill();
-				glColor4fv(outlineColor.getColorF());
+				ofSetColor(outlineColor.getColor().r,outlineColor.getColor().b,outlineColor.getColor().g,outlineColor.getColor().a);
 				ofRect(0, 0, boundingBox.width, (int) panelH - panels[0]->getPosY());
 				ofLine(0, 20, boundingBox.width, 20);
 			glPopMatrix();
@@ -1195,7 +1195,7 @@ void ofxLabGui::draw(){
 		saveAsButton->render();
         ofPushMatrix();
             ofTranslate(2,0,0);
-            glColor4fv(textColor.getColorF());
+            ofSetColor(textColor.getColor().r,textColor.getColor().g, textColor.getColor().b, textColor.getColor().a);
             guiBaseObject::renderText();
         ofPopMatrix();
 
@@ -1209,7 +1209,7 @@ void ofxLabGui::draw(){
                     if( i == selectedPanel){
                         ofPushStyle();
                             ofFill();
-                            glColor4fv(fgColor.getSelectedColorF());
+                            ofSetColor(fgColor.getSelectedColorF());
 							ofBeginShape();
 							ofVertex(panelTabs[i].x, panelTabs[i].y+panelTabs[i].height);
 							ofVertex(panelTabs[i].x, panelTabs[i].y);
@@ -1217,10 +1217,10 @@ void ofxLabGui::draw(){
 							ofVertex(panelTabs[i].x+panelTabs[i].width, panelTabs[i].y + panelTabs[i].height);
 							ofEndShape(false);
                             //ofRect(panelTabs[i].x, panelTabs[i].y, panelTabs[i].width, panelTabs[i].height);
-                            glColor4fv(outlineColor.getColorF());
+                            ofSetColor(outlineColor.getColorF());
                         ofPopStyle();
                     }
-                    glColor4fv(outlineColor.getColorF());
+                    ofSetColor(outlineColor.getColorF());
                     ofNoFill();
 					ofBeginShape();
 					ofVertex(panelTabs[i].x, panelTabs[i].y+panelTabs[i].height);
