@@ -67,22 +67,22 @@ class guiTypeLogger : public guiBaseObject{
                 ofPushMatrix();{
                     //draw the background
                     ofFill();
-                    glColor4fv(bgColor.getColorF());
+                    ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
                     ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
 
-                    glColor4fv(textColor.getColorF());
+                    ofSetColor(textColor.getColor().r, textColor.getColor().g, textColor.getColor().b, textColor.getColor().a);
                     guiBaseObject::renderText();
 
                     ofFill();
-                    glColor4fv(fgColor.getColorF());
+                    ofSetColor(fgColor.getColor().r, fgColor.getColor().g, fgColor.getColor().b, fgColor.getColor().a);
                     ofRect(hitArea.x, hitArea.y + (hitArea.height - 5) * pct, hitArea.width, 5);
 
                     ofNoFill();
-                    glColor4fv(outlineColor.getColorF());
+                    ofSetColor(outlineColor.getColor().r, fgColor.getColor().g, fgColor.getColor().b, fgColor.getColor().a);
                     ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
                     ofRect(hitArea.x , hitArea.y, hitArea.width, hitArea.height);
 
-                    glColor4fv(textColor.getColorF());
+                    ofSetColor(textColor.getColor().r, textColor.getColor().g, textColor.getColor().b, textColor.getColor().a);
                     if(log != NULL)drawRecords(hitArea.x+hitArea.width + 5, hitArea.y, boundingBox.width-(hitArea.width + 5), boundingBox.height);
                 } ofPopMatrix();
             }ofPopStyle();

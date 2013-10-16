@@ -47,7 +47,7 @@ class guiType2DSlider : public guiBaseObject{
 
                     //draw the background
                     ofFill();
-                    glColor4fv(bgColor.getColorF());
+                    ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
                     ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
                     //draw the foreground
@@ -58,7 +58,7 @@ class guiType2DSlider : public guiBaseObject{
                     float bx = hitArea.x + (boxWidth * 0.5) + ( value.getPct(0) * (hitArea.width - (boxWidth)) );
                     float by = hitArea.y + (boxHeight * 0.5) + ( value.getPct(1) * (hitArea.height - (boxHeight)) );
 
-                    glColor4fv(fgColor.getColorF());
+                    ofSetColor(fgColor.getColor().r, fgColor.getColor().g, fgColor.getColor().b, fgColor.getColor().a);
 
                     ofSetRectMode(OF_RECTMODE_CENTER);
                     ofRect(bx, by, boxWidth, boxHeight);
@@ -66,7 +66,7 @@ class guiType2DSlider : public guiBaseObject{
 
                     //draw the outline
                     ofNoFill();
-                    glColor4fv(outlineColor.getColorF());
+                    ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
                     ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
                 } ofPopMatrix();
