@@ -69,7 +69,7 @@ namespace ofxTSPS {
         }
         
         // fixed invert...
-        inline void depthRemapToRange(const ofShortPixels &src, ofPixels &dst, int near, int far, int invert)
+        inline void depthRemapToRange(const ofShortPixels &src, ofPixels &dst, int nearval, int farval, int invert)
         {
             int N = src.getWidth() * src.getHeight();
             dst.allocate(src.getWidth(), src.getHeight(), 1);
@@ -80,12 +80,12 @@ namespace ofxTSPS {
 //            float inv_range = 1. / (far - near);
             
             if (invert)
-                std::swap(near, far);
+                std::swap(nearval, farval);
             
             for (int i = 0; i < N; i++)
             {
                 unsigned short C = *src_ptr;
-                *dst_ptr = C == 0 ? 0 : ofMap(C, near, far, 0, 255, true);
+                *dst_ptr = C == 0 ? 0 : ofMap(C, nearval, farval, 0, 255, true);
                 src_ptr++;
                 dst_ptr++;
             }
@@ -95,7 +95,10 @@ namespace ofxTSPS {
             // setup device?
             if ( device == NULL ){
                 device = new ofxNI2::Device;
-                device->setup();
+                bIsOpen = device->setup();
+				if ( !bIsOpen ){
+					return false;
+				}
             }
             
             // only try to attach device once
@@ -126,12 +129,12 @@ namespace ofxTSPS {
             return device;
         }
         
-        void setNearClipping( int near ){
-            nearClipping = max(0,near);
+        void setNearClipping( int nearval ){
+            nearClipping = max(0,nearval);
         }
         
-        void setFarClipping( int far ){
-            farClipping = min( far, bIsOpen ? stream.getMaxPixelValue() : 10000 );
+        void setFarClipping( int farval ){
+            farClipping = min( farval, bIsOpen ? stream.getMaxPixelValue() : 10000 );
         }
         
     private:

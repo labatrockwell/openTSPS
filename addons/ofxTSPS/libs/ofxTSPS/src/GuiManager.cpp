@@ -175,6 +175,7 @@ namespace ofxTSPS {
         for ( int i=0; i<devices.size(); i++){
             source_types.push_back(devices[i].deviceName);
         }
+		sourceOffset = source_types.size() == 0 ? -1 : source_types.size();
 //        source_types.push_back("Web Camera");
         source_types.push_back("Video File");
         source_types.push_back("Kinect");
@@ -783,7 +784,8 @@ namespace ofxTSPS {
         
         //settings.cameraIndex = panel.getValueF("CAMERA_INDEX");
         //settings.bUseKinect  = panel.getValueB("USE_KINECT");
-        settings.inputType     = (SourceType) panel.getValueI("SOURCE_TYPE");
+		int index = panel.getValueI("SOURCE_TYPE");
+        settings.inputType     = (SourceType) ( index < sourceOffset ? 0 : index - sourceOffset );
         
         if ( settings.inputType == CAMERA_VIDEOFILE){
             panel.getElement("videoFiles")->enable();

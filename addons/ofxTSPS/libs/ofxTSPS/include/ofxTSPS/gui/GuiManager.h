@@ -151,6 +151,10 @@ namespace ofxTSPS {
         // switch state of learn BG when we need to
         bool bLastBgState;
         
+		// essentially # of videograbber devices connected; allows you to cast to ofxTSPS::SourceType
+		// from gui panel
+		int	 sourceOffset;
+
         void saveEventCatcher( string & buttonName);
         void reloadEventCatcher( string & buttonName);
         void loadEventCatcher( string & buttonName);
