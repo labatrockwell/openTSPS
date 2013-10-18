@@ -24,4 +24,4 @@
 	url = https://github.com/astellato/ofxSyphon.git
 [submodule "addons/ofxNI2"]
 	path = addons/ofxNI2
-	url = https://github.com/satoruhiga/ofxNI2.git
+	url = https://github.com/labatrockwell/ofxNI2.git
