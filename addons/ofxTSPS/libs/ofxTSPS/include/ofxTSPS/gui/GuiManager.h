@@ -38,6 +38,14 @@
 // maybe there's a simpler way to integrate this?
 #include "ofxCvCoordWarpingGui.h"
 
+// hm, would like to not include these all...
+#include "ofxTSPS/source/Source.h"
+#include "ofxTSPS/source/Kinect.h"
+#include "ofxTSPS/source/OpenNI2.h"
+#include "ofxTSPS/source/Syphon.h"
+#include "ofxTSPS/source/VideoFile.h"
+#include "ofxTSPS/source/VideoGrabber.h"
+
 namespace ofxTSPS {
     typedef struct  {
         int type;
@@ -48,6 +56,11 @@ namespace ofxTSPS {
         bool* b;
         
     } GUICustomParam;
+    
+    typedef struct {
+        SourceType  type;
+        int         index;
+    } SourceSelection;
     
     class GuiManager {
         
@@ -93,6 +106,11 @@ namespace ofxTSPS {
         // add elements outside of panels
         guiTypeButton * addButton( string name, ofRectangle dimensions, ofColor color = NULL, ofColor bgcolor = NULL );
         guiTypeButton * getButton( string name );
+        
+        // refresh current sources
+        void refreshSourcePanel();
+        map<int,SourceSelection> * getCurrentSources();
+        int getSourceSelectionIndex( SourceType type, int deviceIndex);
         
         //get + set panel info
         int getSelectedPanel();
@@ -151,9 +169,8 @@ namespace ofxTSPS {
         // switch state of learn BG when we need to
         bool bLastBgState;
         
-		// essentially # of videograbber devices connected; allows you to cast to ofxTSPS::SourceType
-		// from gui panel
-		int	 sourceOffset;
+        // map of source indices to types
+        map<int,SourceSelection> currentSources;
 
         void saveEventCatcher( string & buttonName);
         void reloadEventCatcher( string & buttonName);

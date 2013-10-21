@@ -177,11 +177,11 @@ namespace ofxTSPS {
         // change source?
         // 1: Kinect?
         if ( useKinect() && (currentSource == NULL || currentSource->getType() != CAMERA_KINECT)){
-            setupSource( CAMERA_KINECT );
+            setupSource( CAMERA_KINECT, p_Settings->cameraIndex );
         
         // 2: Video Grabber?
         } else if (useVideoGrabber() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOGRABBER)){
-            setupSource( CAMERA_VIDEOGRABBER );
+            setupSource( CAMERA_VIDEOGRABBER, p_Settings->cameraIndex );
         
         // 3: Video File?
         } else if ( useVideoFile() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOFILE) ){
@@ -192,7 +192,7 @@ namespace ofxTSPS {
         }
         // 4: OpenNI
         else if ( useOpenNI() && ( currentSource == NULL || currentSource->getType() != CAMERA_OPENNI)){
-            setupSource( CAMERA_OPENNI );
+            setupSource( CAMERA_OPENNI, p_Settings->cameraIndex );
         }
 #ifdef TARGET_OSX
         // 5: syphon
@@ -512,16 +512,16 @@ namespace ofxTSPS {
         // override settings (if necessary)
         switch( currentSource->getType() ){
             case CAMERA_KINECT:
-                setUseKinect();
+                setUseKinect(true, which);
                 break;
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
                 break;
             case CAMERA_OPENNI:
-                setUseOpenNI();
+                setUseOpenNI(true, which);
                 break;
             case CAMERA_VIDEOGRABBER:
-                setUseVideoGrabber();
+                setUseVideoGrabber(true, which);
                 break;
             case CAMERA_CUSTOM:
                 setUseCustomSource();
@@ -1419,11 +1419,11 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::setUseVideoGrabber( bool bUseVideoGrabber ){
+    void PeopleTracker::setUseVideoGrabber( bool bUseVideoGrabber, int deviceIndex ){
         if ( bUseVideoGrabber ){
-            gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOGRABBER );
-            gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
+            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_VIDEOGRABBER, deviceIndex) );
+            gui.update();
             p_Settings->inputType = CAMERA_VIDEOGRABBER;
         }
     }
@@ -1435,9 +1435,9 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::setUseKinect( bool bUseKinect ){
+    void PeopleTracker::setUseKinect( bool bUseKinect, int deviceIndex ){
         if ( bUseKinect ){
-            gui.setValueI( "SOURCE_TYPE", CAMERA_KINECT );
+            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_KINECT, deviceIndex) );
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_KINECT;
@@ -1452,9 +1452,9 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void    PeopleTracker::setUseOpenNI( bool bUseOpenNI ){
+    void    PeopleTracker::setUseOpenNI( bool bUseOpenNI, int deviceIndex ){
         if ( bUseOpenNI ){
-            gui.setValueI( "SOURCE_TYPE", CAMERA_OPENNI );
+            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_OPENNI, deviceIndex) );
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_OPENNI;
@@ -1468,9 +1468,9 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    void PeopleTracker::setUseVideoFile( bool bUseVideoFile ){
+    void PeopleTracker::setUseVideoFile( bool bUseVideoFile, int deviceIndex ){
         if ( bUseVideoFile ){
-            gui.setValueI( "SOURCE_TYPE", CAMERA_VIDEOFILE );
+            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_VIDEOFILE, deviceIndex) );
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_VIDEOFILE;            

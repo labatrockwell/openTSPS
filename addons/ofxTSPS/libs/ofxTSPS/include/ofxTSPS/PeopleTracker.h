@@ -98,13 +98,13 @@ namespace ofxTSPS {
         
             // specific source accessors
             bool    useKinect();
-            void    setUseKinect( bool bUseKinect=true );
+            void    setUseKinect( bool bUseKinect=true, int deviceIndex=0 );
             bool    useOpenNI();
-            void    setUseOpenNI( bool bUseOpenNI=true );
+            void    setUseOpenNI( bool bUseOpenNI=true, int deviceIndex=0 );
             bool    useVideoFile();
-            void    setUseVideoFile( bool bUseVideoFile = true);
+            void    setUseVideoFile( bool bUseVideoFile = true, int deviceIndex=0);
             bool    useVideoGrabber();
-            void    setUseVideoGrabber( bool bUseVideoGrabber = true);
+            void    setUseVideoGrabber( bool bUseVideoGrabber = true, int deviceIndex=0);
 #ifdef TARGET_OSX
             bool    useSyphon();
             void    setUseSyphon( bool bUseSyphon = true);

@@ -49,7 +49,6 @@ namespace ofxTSPS {
         
         // camera vars
         //bool    bUseKinect;
-        int     cameraIndex;
         
         // video file vars
         string  videoDirectory;
@@ -128,6 +127,8 @@ namespace ofxTSPS {
         void setSource( Source * source);
         Source*         getSource();
         SourceType      getInputType();
+        int             cameraIndex;
+        SourceType      inputType;
         
         //layout vars
         int lastCurrentPanel;
@@ -140,7 +141,6 @@ namespace ofxTSPS {
         //xml file
         vector <string> xmlFiles;
         string currentXmlFile;
-        SourceType      inputType;
         
     private:
         Source*         source;

@@ -174,15 +174,60 @@ namespace ofxTSPS {
         vector<ofVideoDevice>	devices = dummyGrabber.listDevices();
         for ( int i=0; i<devices.size(); i++){
             source_types.push_back(devices[i].deviceName);
+            SourceSelection sel;
+            sel.type = CAMERA_VIDEOGRABBER;
+            sel.index = i;
+            currentSources[currentSources.size()] = sel;
         }
-		sourceOffset = source_types.size() == 0 ? -1 : source_types.size();
-//        source_types.push_back("Web Camera");
+        
+        Kinect dummyKinect;
+        int numKinects = dummyKinect.numAvailable();
+        
+        for ( int i=0; i<numKinects; i++){
+            source_types.push_back("Kinect "+ofToString(i));
+            
+            SourceSelection sel;
+            sel.type = CAMERA_KINECT;
+            sel.index = i;
+            currentSources[currentSources.size()] = sel;
+        }
+        
+//        static OpenNI2 dummyOpenNI;
+//        int numOpenNI = dummyOpenNI.numAvailable();
+//        
+//        for ( int i=0; i<numOpenNI; i++){
+//            source_types.push_back("OpenNI2 "+ofToString(i));
+//            
+//            SourceSelection sel;
+//            sel.type = CAMERA_OPENNI;
+//            sel.index = i;
+//            currentSources[currentSources.size()] = sel;
+//        }
+
+        
+        SourceSelection sel;
+        sel.type = CAMERA_OPENNI;
+        sel.index = 0;
+        currentSources[currentSources.size()] = sel;
+        source_types.push_back("OpenNI2");
+        
+        SourceSelection videofileSelection;
+        videofileSelection.type = CAMERA_VIDEOFILE;
+        videofileSelection.index = 0;
+        currentSources[currentSources.size()] = videofileSelection;
         source_types.push_back("Video File");
-        source_types.push_back("Kinect");
-        source_types.push_back("OpenNI");
+        
 #ifdef TARGET_OSX
+        SourceSelection syphonSelection;
+        syphonSelection.type = CAMERA_SYPHON;
+        syphonSelection.index = 0;
+        currentSources[currentSources.size()] = syphonSelection;
         source_types.push_back("Syphon");
 #endif
+        SourceSelection customSelection;
+        customSelection.type = CAMERA_SYPHON;
+        customSelection.index = 0;
+        currentSources[currentSources.size()] = customSelection;
         source_types.push_back("custom");
         
         panel.addMultiToggle("source type", "SOURCE_TYPE", 0, source_types);
@@ -511,6 +556,24 @@ namespace ofxTSPS {
     }
     
     
+    void GuiManager::refreshSourcePanel(){
+        // silent for now..
+    }
+    
+    map<int,SourceSelection> * GuiManager::getCurrentSources(){
+        return &currentSources;
+    }
+    
+    int GuiManager::getSourceSelectionIndex( SourceType type, int deviceIndex){
+        map<int,SourceSelection>::iterator it = currentSources.begin();
+        for ( it; it != currentSources.end(); it++){
+            if ( it->second.type == type && it->second.index == deviceIndex ){
+                return it->first;
+            }
+        }
+        return -1;
+    }
+    
     void GuiManager::addCustomGui(){
         if ( bHasCustomPanel ) return;
         customPanelCount = 0;
@@ -785,7 +848,9 @@ namespace ofxTSPS {
         //settings.cameraIndex = panel.getValueF("CAMERA_INDEX");
         //settings.bUseKinect  = panel.getValueB("USE_KINECT");
 		int index = panel.getValueI("SOURCE_TYPE");
-        settings.inputType     = (SourceType) ( index < sourceOffset ? 0 : index - sourceOffset );
+        
+        settings.inputType      = currentSources[index].type;
+        settings.cameraIndex    = currentSources[index].index;
         
         if ( settings.inputType == CAMERA_VIDEOFILE){
             panel.getElement("videoFiles")->enable();

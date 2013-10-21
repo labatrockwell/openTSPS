@@ -5,6 +5,7 @@
 //  Created by Brett Renfer on 8/7/12.
 //
 //
+#pragma once
 
 #include "ofxKinect.h"
 #include "ofxTSPS/source/Source.h"

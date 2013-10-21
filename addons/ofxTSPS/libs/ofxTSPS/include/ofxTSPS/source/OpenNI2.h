@@ -28,8 +28,10 @@ namespace ofxTSPS {
         }
         
         ~OpenNI2(){
-            device->exit();
-            delete device;
+            if ( device != NULL ){
+                device->exit();
+                delete device;
+            }
         }
         
         // core
@@ -40,6 +42,14 @@ namespace ofxTSPS {
             }
             return (device->listDevices() >= 1);
         }
+        
+        int numAvailable(){
+            if ( device == NULL ){
+                device = new ofxNI2::Device;
+                device->setup();
+            }
+            return device->listDevices();
+        };
         
         void update(){
             device->update();
