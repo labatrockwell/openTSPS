@@ -48,7 +48,13 @@
 
 // sources
 #include "ofxTSPS/source/Source.h"
+
+#define TSPS_ONLY_OPENNI
+
+#ifndef TSPS_ONLY_OPENNI
 #include "ofxTSPS/source/Kinect.h"
+#endif
+
 #include "ofxTSPS/source/OpenNI2.h"
 #include "ofxTSPS/source/Syphon.h"
 #include "ofxTSPS/source/VideoFile.h"
@@ -97,8 +103,12 @@ namespace ofxTSPS {
             bool    setupSource( SourceType type, int which=-1 );     // Setup a known source type (CAMERA_CUSTOM + CAMERA_UNDEFINED won't do anything)
         
             // specific source accessors
+        
+            #ifndef TSPS_ONLY_OPENNI
             bool    useKinect();
             void    setUseKinect( bool bUseKinect=true, int deviceIndex=0 );
+            #endif
+        
             bool    useOpenNI();
             void    setUseOpenNI( bool bUseOpenNI=true, int deviceIndex=0 );
             bool    useVideoFile();

@@ -40,7 +40,11 @@
 
 // hm, would like to not include these all...
 #include "ofxTSPS/source/Source.h"
+
+#define TSPS_ONLY_OPENNI
+#ifndef TSPS_ONLY_OPENNI
 #include "ofxTSPS/source/Kinect.h"
+#endif
 #include "ofxTSPS/source/OpenNI2.h"
 #include "ofxTSPS/source/Syphon.h"
 #include "ofxTSPS/source/VideoFile.h"

@@ -180,6 +180,7 @@ namespace ofxTSPS {
             currentSources[currentSources.size()] = sel;
         }
         
+#ifndef TSPS_ONLY_OPENNI
         Kinect dummyKinect;
         int numKinects = dummyKinect.numAvailable();
         
@@ -191,6 +192,7 @@ namespace ofxTSPS {
             sel.index = i;
             currentSources[currentSources.size()] = sel;
         }
+#endif
         
 //        static OpenNI2 dummyOpenNI;
 //        int numOpenNI = dummyOpenNI.numAvailable();

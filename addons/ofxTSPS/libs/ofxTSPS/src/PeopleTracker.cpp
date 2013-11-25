@@ -134,6 +134,7 @@ namespace ofxTSPS {
             if ( useVideoFile() ){
                 setupSource( CAMERA_VIDEOFILE );
             
+            #ifndef TSPS_ONLY_OPENNI
             // kinect?
             } else if ( useKinect() ){
                 // are there any kinects out there?
@@ -145,6 +146,7 @@ namespace ofxTSPS {
                     setupSource( CAMERA_VIDEOGRABBER, deviceID );
                 }
             // video grabber
+            #endif
             } else {
                 setupSource( CAMERA_VIDEOGRABBER, deviceID );
             }
@@ -176,11 +178,14 @@ namespace ofxTSPS {
         
         // change source?
         // 1: Kinect?
+        #ifndef TSPS_ONLY_OPENNI
         if ( useKinect() && (currentSource == NULL || currentSource->getType() != CAMERA_KINECT)){
             setupSource( CAMERA_KINECT, p_Settings->cameraIndex );
         
         // 2: Video Grabber?
-        } else if (useVideoGrabber() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOGRABBER)){
+        } else
+        #endif 
+        if (useVideoGrabber() && (currentSource == NULL || currentSource->getType() != CAMERA_VIDEOGRABBER)){
             setupSource( CAMERA_VIDEOGRABBER, p_Settings->cameraIndex );
         
         // 3: Video File?
@@ -445,7 +450,11 @@ namespace ofxTSPS {
         // make settings so they don't boot what you did
         switch( currentSource->getType() ){
             case CAMERA_KINECT:
+                #ifndef TSPS_ONLY_OPENNI
                 setUseKinect();
+                #else
+                // hm
+                #endif
                 break;
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
@@ -482,7 +491,9 @@ namespace ofxTSPS {
         string etc = "";
         switch ( type ){
             case CAMERA_KINECT:
+#ifndef TSPS_ONLY_OPENNI
                 currentSource = new Kinect();
+#endif
                 break;
             case CAMERA_VIDEOGRABBER:
                 currentSource = new VideoGrabber();
@@ -512,7 +523,9 @@ namespace ofxTSPS {
         // override settings (if necessary)
         switch( currentSource->getType() ){
             case CAMERA_KINECT:
+#ifndef TSPS_ONLY_OPENNI
                 setUseKinect(true, which);
+#endif
                 break;
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
@@ -1428,6 +1441,8 @@ namespace ofxTSPS {
         }
     }
     
+#ifndef TSPS_ONLY_OPENNI
+    
     //---------------------------------------------------------------------------
     bool PeopleTracker::useKinect(){
         if (p_Settings == NULL) p_Settings = gui.getSettings();
@@ -1443,7 +1458,7 @@ namespace ofxTSPS {
             p_Settings->inputType = CAMERA_KINECT;
         }
     }
-    
+#endif
     
     //---------------------------------------------------------------------------
     bool    PeopleTracker::useOpenNI(){
