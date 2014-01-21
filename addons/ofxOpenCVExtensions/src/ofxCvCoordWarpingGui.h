@@ -29,7 +29,7 @@
 #define _GUI_QUAD_
 
 #include "ofMain.h"
-#include "ofxOpenCv.h"
+//#include "ofxOpenCv.h"
 #include "ofxXmlSettings.h"
 #include "ofxMSAInteractiveObject.h"
 

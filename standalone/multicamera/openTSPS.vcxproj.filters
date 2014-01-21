@@ -52,41 +52,11 @@
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\CvPerson.cpp">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.cpp">
-      <Filter>addons\third-party\ofxOpenCVExtensions\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp">
       <Filter>addons\third-party\ofxMSAInteractiveObject\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\jsoncpp\jsoncpp.cpp">
       <Filter>addons\third-party\ofxLibwebsockets\libs\jsoncpp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt_long.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\gettimeofday.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.c">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Connection.cpp">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Protocol.cpp">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Reactor.cpp">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Server.cpp">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\addons\ofxLabGui\src\ofxLabGui.cpp">
       <Filter>addons\third-party\ofxLabGui\src</Filter>
@@ -133,27 +103,6 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
       <Filter>addons\built-in\ofxXmlSettings\libs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
       <Filter>addons\built-in\ofxOsc\libs\oscpack\src\ip</Filter>
     </ClCompile>
@@ -180,9 +129,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
       <Filter>addons\built-in\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.cpp">
-      <Filter>addons\third-party\ofxOpenCVExtensions\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.cpp">
       <Filter>addons\third-party\ofxOpenCVExtensions\src</Filter>
@@ -223,14 +169,62 @@
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Processor.cpp">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\LWSEvents.cpp">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TSPSEvents.cpp">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TSPSDelegate.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\addons\ofxSpacebrew\src\ofxSpacebrew.cpp">
+      <Filter>addons\third-party\ofxSpacebrew\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Client.cpp">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Connection.cpp">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Events.cpp">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Protocol.cpp">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Reactor.cpp">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Server.cpp">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\SpacebrewSender.cpp">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\extras\TSPSDelegate.cpp">
+      <Filter>addons\third-party\ofxTSPS\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\tilt.c">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.c">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\cameras.c">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\core.c">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\registration.c">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxNI2\src\ofxNI2.cpp">
+      <Filter>addons\third-party\ofxNI2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxNI2\src\ofxNiTE2.cpp">
+      <Filter>addons\third-party\ofxNI2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu.cpp">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\failguard.cpp">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -327,47 +321,17 @@
     <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets">
       <UniqueIdentifier>{e6d0f528-a1e0-4b2b-9ea8-5e9a8c74c636}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets">
-      <UniqueIdentifier>{35b0758d-69cd-4c0a-8f7a-89a293306135}</UniqueIdentifier>
-    </Filter>
     <Filter Include="addons\third-party\ofxLibwebsockets\src">
       <UniqueIdentifier>{121d1f50-a811-4231-a550-09cdde9d1cb6}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\third-party\ofxLibwebsockets\libs\jsoncpp">
       <UniqueIdentifier>{ab7c5c98-f37b-456c-980b-3b27ee544f46}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\openssl">
-      <UniqueIdentifier>{c8b56a0d-6d67-4a84-9d23-01b5981ae42b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="addons\third-party\ofxLibwebsockets\libs\jsoncpp\json">
       <UniqueIdentifier>{97cd890a-519f-4dc1-bb64-ac3b3e2cbcf9}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\include">
       <UniqueIdentifier>{1bffc7ab-9558-44f2-8b70-a1f1578123da}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\lib">
-      <UniqueIdentifier>{4be6f779-2f3a-4804-a539-77701024412a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port">
-      <UniqueIdentifier>{d8d33087-af55-41c9-8006-ad8b9940d43f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers">
-      <UniqueIdentifier>{1f27c8aa-0f40-47e0-92ea-5467ab6cba10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\sys">
-      <UniqueIdentifier>{050eeebe-69f3-4b33-a9db-33d58c0b7def}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\openssl\openssl">
-      <UniqueIdentifier>{f00ee52b-5b3d-44ae-88ee-214f10897848}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include">
-      <UniqueIdentifier>{1e9cf7a1-734f-4261-81b6-b04b71c598db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\src">
-      <UniqueIdentifier>{7f3d25de-f9b2-4aec-b369-4af9b7f9da32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets">
-      <UniqueIdentifier>{48f135cc-5352-42d8-a4b9-53a98173ba66}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\third-party\ofxLabGui\src">
       <UniqueIdentifier>{98fb99b4-a8ae-40e4-af54-fc1a16461497}</UniqueIdentifier>
@@ -456,11 +420,59 @@
     <Filter Include="addons\third-party\ofxTuioWrapper\src\oscpack\include\osc">
       <UniqueIdentifier>{92a51fd0-2ebf-4755-b7fd-aa6a8d107b10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons\third-party\ofxSpacebrew">
+      <UniqueIdentifier>{08e9fc05-f3b8-42e7-b648-0d34fa0f4075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxSpacebrew\src">
+      <UniqueIdentifier>{a9680750-89e9-42d1-a3f8-71b98676205a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets">
+      <UniqueIdentifier>{0dd271c9-8e80-4465-b796-5ff4e976367d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxTSPS\extra">
+      <UniqueIdentifier>{d57ecba9-f912-44d7-b325-b59e7bbb8658}</UniqueIdentifier>
+    </Filter>
     <Filter Include="addons\third-party\ofxKinect\libs">
-      <UniqueIdentifier>{5708aeb3-b98a-41c0-93f1-0f445f454d64}</UniqueIdentifier>
+      <UniqueIdentifier>{df7d81bb-1db6-441a-a86a-83de720d4c03}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\third-party\ofxKinect\libs\libfreenect">
-      <UniqueIdentifier>{0d7e792a-6ddc-41ca-b0c5-96c3929ed0d5}</UniqueIdentifier>
+      <UniqueIdentifier>{3ce65611-9ad6-40fa-b1a3-68df2baecbe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs\libusb-win32">
+      <UniqueIdentifier>{d1c4b378-853a-4525-a9d6-7d658b75d71a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs\libfreenect\src">
+      <UniqueIdentifier>{a075d429-5997-45bf-893c-9df098569072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs\libfreenect\include">
+      <UniqueIdentifier>{6581a466-1082-4db7-b84c-0f2cf3d1d2dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs\libfreenect\libusb">
+      <UniqueIdentifier>{3883200c-4843-4695-9b7a-7bf0b92814b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxNI2">
+      <UniqueIdentifier>{9d003b63-cdc0-4099-890c-479866a403d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxNI2\src">
+      <UniqueIdentifier>{9b1b3211-ae74-4b5d-9a14-3591f31852fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxNI2\src\utls">
+      <UniqueIdentifier>{5c103449-bf54-46a8-8db2-ce68f0209c06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxNI2\libs">
+      <UniqueIdentifier>{47ea64f1-f0a4-4e8f-959e-cd825173d2b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxNI2\libs\openni">
+      <UniqueIdentifier>{9af879fd-df07-4d46-8699-0fd3af7aaf31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxNI2\libs\nite">
+      <UniqueIdentifier>{b34891ea-dcfe-49df-8891-d66b3c072b44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxNI2\libs\openni\win32">
+      <UniqueIdentifier>{deb3b1dc-3dfc-4457-971f-e7decc7226c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod">
+      <UniqueIdentifier>{3fc1d971-6cc7-43e7-81f4-dc7617e0ba07}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -575,9 +587,6 @@
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication\WebSocketSender.h">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\CPUImageFilter.h">
-      <Filter>addons\third-party\ofxOpenCVExtensions\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h">
       <Filter>addons\third-party\ofxMSAInteractiveObject\src</Filter>
     </ClInclude>
@@ -592,237 +601,6 @@
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\libwebsockets.h">
       <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\getopt.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\gettimeofday.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\netdb.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\strings.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\unistd.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\websock-w32.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\sys\time.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers\sys</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ui_compat.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\x509.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\x509_vfy.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\x509v3.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\aes.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\asn1.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\asn1_mac.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\asn1t.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\bio.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\blowfish.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\bn.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\buffer.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\cast.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\comp.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\conf.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\conf_api.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\crypto.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\des.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\des_old.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\dh.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\dsa.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\dso.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\e_os2.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ebcdic.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ec.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\engine.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\err.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\evp.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\hmac.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\krb5_asn.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\kssl.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\lhash.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\md2.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\md4.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\md5.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\mdc2.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\obj_mac.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\objects.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ocsp.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\opensslconf.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\opensslv.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ossl_typ.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\pem.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\pem2.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\pkcs7.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\pkcs12.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\rand.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\rc2.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\rc4.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\rc5.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ripemd.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\rsa.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\safestack.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\sha.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ssl.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ssl2.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ssl3.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ssl23.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\stack.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\symhacks.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\tls1.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\tmdiff.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\txt_db.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\openssl\openssl\ui.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\openssl\openssl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Client.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Protocol.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Reactor.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Server.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Util.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxLabGui\src\guiIncludes.h">
       <Filter>addons\third-party\ofxLabGui\src</Filter>
@@ -934,39 +712,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
       <Filter>addons\built-in\ofxXmlSettings\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvMain.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h">
-      <Filter>addons\built-in\ofxOpenCv\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\calib3d.hpp">
       <Filter>addons\built-in\ofxOpenCv\libs\opencv\include\opencv2</Filter>
@@ -1253,9 +998,6 @@
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
       <Filter>addons\built-in\ofxOsc\libs\oscpack\src\osc</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarping.h">
-      <Filter>addons\third-party\ofxOpenCVExtensions\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\addons\ofxOpenCVExtensions\src\ofxCvCoordWarpingGui.h">
       <Filter>addons\third-party\ofxOpenCVExtensions\src</Filter>
     </ClInclude>
@@ -1319,24 +1061,143 @@
     <ClInclude Include="..\..\addons\ofxTuioWrapper\src\core\TuioTime.h">
       <Filter>addons\third-party\ofxTuioWrapper\src\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\LWSEvents.h">
-      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\TSPSEvents.h">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS</Filter>
     </ClInclude>
-    <ClInclude Include="src\TSPSDelegate.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\addons\ofxSpacebrew\src\ofxSpacebrew.h">
+      <Filter>addons\third-party\ofxSpacebrew\src</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010\freenect.dll">
-      <Filter>addons\third-party\ofxKinect\libs\libfreenect</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\addons\ofxKinect\libs\libfreenect\lib\vs2010\freenect.lib">
-      <Filter>addons\third-party\ofxKinect\libs\libfreenect</Filter>
-    </Library>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Protocol.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Reactor.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Server.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Util.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Client.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Connection.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Events.h">
+      <Filter>addons\third-party\ofxLibwebsockets\libs\ofxLibwebsockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication\SpacebrewSender.h">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\extras\TSPSDelegate.h">
+      <Filter>addons\third-party\ofxTSPS\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libusb-win32\include\lusb0_usb.h">
+      <Filter>addons\third-party\ofxKinect\libs\libusb-win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect-registration.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\platform\windows\stdbool.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\platform\windows\unistd.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\cameras.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\freenect_internal.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\loader.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\registration.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\ofxNI2.h">
+      <Filter>addons\third-party\ofxNI2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\ofxNiTE2.h">
+      <Filter>addons\third-party\ofxNI2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\utils\AssimpModel.h">
+      <Filter>addons\third-party\ofxNI2\src\utls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\utils\DepthRemapToRange.h">
+      <Filter>addons\third-party\ofxNI2\src\utls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\utils\DepthReprojection.h">
+      <Filter>addons\third-party\ofxNI2\src\utls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\utils\DoubleBuffer.h">
+      <Filter>addons\third-party\ofxNI2\src\utls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\utils\MeshGenerator.h">
+      <Filter>addons\third-party\ofxNI2\src\utls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\src\utils\TimedomainMedianFilter.h">
+      <Filter>addons\third-party\ofxNI2\src\utls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniCAPI.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniCEnums.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniCProperties.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniCTypes.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniEnums.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniPlatform.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniProperties.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OniVersion.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\OpenNI.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\PS1080.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\Win32\OniPlatformWin32.h">
+      <Filter>addons\third-party\ofxNI2\libs\openni\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu_internal.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu_threads.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu_threads_win32.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\failguard.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusb.h">
+      <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb\libusbemu-mod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\OpenNI2.h">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
