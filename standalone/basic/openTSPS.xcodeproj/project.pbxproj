@@ -87,12 +87,12 @@
 		A9485FE815C4764D00761D1C /* ofxTCPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485FE115C4764D00761D1C /* ofxTCPManager.cpp */; };
 		A9485FE915C4764D00761D1C /* ofxTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485FE315C4764D00761D1C /* ofxTCPServer.cpp */; };
 		A9485FEA15C4764D00761D1C /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9485FE515C4764D00761D1C /* ofxUDPManager.cpp */; };
+		A96BA3631896FA850004AD49 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96BA3611896FA850004AD49 /* Accelerate.framework */; };
+		A96BA3641896FA850004AD49 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96BA3621896FA850004AD49 /* CoreVideo.framework */; };
+		A96BA3661896FA980004AD49 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96BA3651896FA980004AD49 /* QTKit.framework */; };
 		A974230416A4B0FA00BC6910 /* TSPSDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A974230216A4B0FA00BC6910 /* TSPSDelegate.cpp */; };
 		A97BC4B816D08A7D007CC131 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A97BC4B616D08A55007CC131 /* icon.icns */; };
 		A99447DC16A10D9E00D7BA95 /* SpacebrewSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A99447DB16A10D9E00D7BA95 /* SpacebrewSender.cpp */; };
-		A9D592A41640908B00B2074F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D592A31640908B00B2074F /* Accelerate.framework */; };
-		A9D592A71640909500B2074F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D592A51640909500B2074F /* CoreVideo.framework */; };
-		A9D592A81640909500B2074F /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D592A61640909500B2074F /* QTKit.framework */; };
 		A9DE15481799CD7F000FE2BA /* cameras.c in Sources */ = {isa = PBXBuildFile; fileRef = A9DE15181799CD7F000FE2BA /* cameras.c */; };
 		A9DE15491799CD7F000FE2BA /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = A9DE151A1799CD7F000FE2BA /* core.c */; };
 		A9DE154A1799CD7F000FE2BA /* registration.c in Sources */ = {isa = PBXBuildFile; fileRef = A9DE151D1799CD7F000FE2BA /* registration.c */; };
@@ -523,14 +523,14 @@
 		A95D3FEE15D2079600EBDAA9 /* VideoGrabber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoGrabber.h; sourceTree = "<group>"; };
 		A95D3FEF15D20AF300EBDAA9 /* Kinect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kinect.h; sourceTree = "<group>"; };
 		A95D3FF015D2148800EBDAA9 /* VideoFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoFile.h; sourceTree = "<group>"; };
+		A96BA3611896FA850004AD49 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
+		A96BA3621896FA850004AD49 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../../../../../System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
+		A96BA3651896FA980004AD49 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = ../../../../../../../../../System/Library/Frameworks/QTKit.framework; sourceTree = "<group>"; };
 		A974230216A4B0FA00BC6910 /* TSPSDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSPSDelegate.cpp; sourceTree = "<group>"; };
 		A974230316A4B0FA00BC6910 /* TSPSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPSDelegate.h; sourceTree = "<group>"; };
 		A97BC4B616D08A55007CC131 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A98F0B72174E55C9003ABBC2 /* Syphon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Syphon.h; sourceTree = "<group>"; };
 		A99447DB16A10D9E00D7BA95 /* SpacebrewSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpacebrewSender.cpp; sourceTree = "<group>"; };
-		A9D592A31640908B00B2074F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
-		A9D592A51640909500B2074F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../../../../System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
-		A9D592A61640909500B2074F /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = ../../../../../../../../System/Library/Frameworks/QTKit.framework; sourceTree = "<group>"; };
 		A9DE14D21799CD7F000FE2BA /* libfreenect-registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libfreenect-registration.h"; sourceTree = "<group>"; };
 		A9DE14D31799CD7F000FE2BA /* libfreenect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libfreenect.h; sourceTree = "<group>"; };
 		A9DE15181799CD7F000FE2BA /* cameras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cameras.c; sourceTree = "<group>"; };
@@ -593,10 +593,10 @@
 				A9485F3015C4712D00761D1C /* libcrypto.a in Frameworks */,
 				A9485F3115C4712D00761D1C /* libssl.a in Frameworks */,
 				A9485F7515C4712D00761D1C /* libOsc.a in Frameworks */,
-				A9D592A41640908B00B2074F /* Accelerate.framework in Frameworks */,
-				A9D592A71640909500B2074F /* CoreVideo.framework in Frameworks */,
-				A9D592A81640909500B2074F /* QTKit.framework in Frameworks */,
 				A94099E4174C2D80002BAAA0 /* Syphon.framework in Frameworks */,
+				A96BA3631896FA850004AD49 /* Accelerate.framework in Frameworks */,
+				A96BA3641896FA850004AD49 /* CoreVideo.framework in Frameworks */,
+				A96BA3661896FA980004AD49 /* QTKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1900,7 +1900,7 @@
 		BBAB23C913894ECA00AA2426 /* system frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A9D592A31640908B00B2074F /* Accelerate.framework */,
+				A96BA3611896FA850004AD49 /* Accelerate.framework */,
 				E45BE9710E8CC7DD009D7055 /* AGL.framework */,
 				E4C2424410CC5A17004149E2 /* AppKit.framework */,
 				E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */,
@@ -1910,10 +1910,10 @@
 				E45BE9750E8CC7DD009D7055 /* CoreAudio.framework */,
 				E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */,
 				E45BE9770E8CC7DD009D7055 /* CoreServices.framework */,
-				A9D592A51640909500B2074F /* CoreVideo.framework */,
+				A96BA3621896FA850004AD49 /* CoreVideo.framework */,
 				E4C2424610CC5A17004149E2 /* IOKit.framework */,
 				E45BE9790E8CC7DD009D7055 /* OpenGL.framework */,
-				A9D592A61640909500B2074F /* QTKit.framework */,
+				A96BA3651896FA980004AD49 /* QTKit.framework */,
 				E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */,
 			);
 			name = "system frameworks";
@@ -2199,7 +2199,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -2233,7 +2233,7 @@
 					"-lpthread",
 					"-mtune=native",
 				);
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
