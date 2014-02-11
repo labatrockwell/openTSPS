@@ -281,12 +281,20 @@ namespace ofxTSPS {
                 trackedPeople->erase(trackedPeople->begin() + i);
             }
         }
+        
+        // set last image
+        prevImage.setFromPixels( cameraSmallImage.getPixelsRef() );
+        
         return differencedImage.getPixelsRef();
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::processOpticalFlow( ofBaseImage & image ){
-        flow.calcOpticalFlow(image);
+        // manually resetting
+        if ( prevImage.isAllocated() ){
+            flow.resetFlow();
+            flow.calcOpticalFlow(prevImage, image);
+        }
         bFlowTrackedOnce = true;
     }
     
