@@ -34,6 +34,15 @@ public:
 		isAlive = wasAlive = moved = false;
 		x = y = 0;
 	}
+    
+    void set( const TuioPersonCursor & p){
+        pid = p.pid;
+        x = p.x;
+        y = p.y;
+        isAlive = p.isAlive;
+        wasAlive = p.wasAlive;
+        moved = p.moved;
+    }
 };
 
 namespace ofxTSPS {
@@ -71,8 +80,9 @@ namespace ofxTSPS {
         
         std::string		host;
         int				port;
-        TuioCursor      *tuioCursor[OF_MAX_TOUCHES];
-        TuioPersonCursor	myCursor[OF_MAX_TOUCHES];
+        map<int, TuioCursor* > tuioCursor;
+        map<int, TuioPersonCursor > currentCursors;
+        map<int, TuioPersonCursor > newCursors;
         TuioTime			currentTime;
     };
 }

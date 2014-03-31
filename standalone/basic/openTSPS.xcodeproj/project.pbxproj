@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01599F9018E9E6C200FE6D2B /* ETF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01599F8E18E9E6C200FE6D2B /* ETF.cpp */; };
+		01599F9118E9E6C200FE6D2B /* fdog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01599F8F18E9E6C200FE6D2B /* fdog.cpp */; };
 		2E12CFF515F8168B00D5BC05 /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E12CFF315F8168B00D5BC05 /* Processor.cpp */; };
 		A92EE0CA15FD289900C0A11B /* TSPSEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92EE0C915FD289900C0A11B /* TSPSEvents.cpp */; };
 		A94099E4174C2D80002BAAA0 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94099D0174C2D80002BAAA0 /* Syphon.framework */; };
@@ -150,6 +152,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01599F8918E9E6C200FE6D2B /* ETF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETF.h; sourceTree = "<group>"; };
+		01599F8A18E9E6C200FE6D2B /* fdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fdog.h; sourceTree = "<group>"; };
+		01599F8B18E9E6C200FE6D2B /* imatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imatrix.h; sourceTree = "<group>"; };
+		01599F8C18E9E6C200FE6D2B /* myvec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myvec.h; sourceTree = "<group>"; };
+		01599F8E18E9E6C200FE6D2B /* ETF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ETF.cpp; sourceTree = "<group>"; };
+		01599F8F18E9E6C200FE6D2B /* fdog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fdog.cpp; sourceTree = "<group>"; };
 		2E12CFF315F8168B00D5BC05 /* Processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Processor.cpp; sourceTree = "<group>"; };
 		A92EE0C915FD289900C0A11B /* TSPSEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSPSEvents.cpp; sourceTree = "<group>"; };
 		A92EE0CB15FD289F00C0A11B /* TSPSEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPSEvents.h; sourceTree = "<group>"; };
@@ -603,6 +611,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01599F8618E9E6C200FE6D2B /* CLD */ = {
+			isa = PBXGroup;
+			children = (
+				01599F8718E9E6C200FE6D2B /* include */,
+				01599F8D18E9E6C200FE6D2B /* src */,
+			);
+			path = CLD;
+			sourceTree = "<group>";
+		};
+		01599F8718E9E6C200FE6D2B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				01599F8818E9E6C200FE6D2B /* CLD */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		01599F8818E9E6C200FE6D2B /* CLD */ = {
+			isa = PBXGroup;
+			children = (
+				01599F8918E9E6C200FE6D2B /* ETF.h */,
+				01599F8A18E9E6C200FE6D2B /* fdog.h */,
+				01599F8B18E9E6C200FE6D2B /* imatrix.h */,
+				01599F8C18E9E6C200FE6D2B /* myvec.h */,
+			);
+			path = CLD;
+			sourceTree = "<group>";
+		};
+		01599F8D18E9E6C200FE6D2B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				01599F8E18E9E6C200FE6D2B /* ETF.cpp */,
+				01599F8F18E9E6C200FE6D2B /* fdog.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		A94099B9174C2D80002BAAA0 /* ofxSyphon */ = {
 			isa = PBXGroup;
 			children = (
@@ -1124,6 +1169,7 @@
 		A9485BC015C4712900761D1C /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				01599F8618E9E6C200FE6D2B /* CLD */,
 				A9485BC215C4712900761D1C /* ofxCv */,
 			);
 			path = libs;
@@ -2005,6 +2051,8 @@
 /* Begin PBXProject section */
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "openTSPS" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -2115,6 +2163,7 @@
 				A9485F2315C4712D00761D1C /* jsoncpp.cpp in Sources */,
 				A9485F2A15C4712D00761D1C /* Client.cpp in Sources */,
 				A9485F2B15C4712D00761D1C /* Connection.cpp in Sources */,
+				01599F9118E9E6C200FE6D2B /* fdog.cpp in Sources */,
 				A9485F2C15C4712D00761D1C /* Events.cpp in Sources */,
 				A9485F2D15C4712D00761D1C /* Protocol.cpp in Sources */,
 				A9485F2E15C4712D00761D1C /* Reactor.cpp in Sources */,
@@ -2132,6 +2181,7 @@
 				A9485F6B15C4712D00761D1C /* TCPSender.cpp in Sources */,
 				A9485F6C15C4712D00761D1C /* TUIOSender.cpp in Sources */,
 				A9485F6D15C4712D00761D1C /* Utils.cpp in Sources */,
+				01599F9018E9E6C200FE6D2B /* ETF.cpp in Sources */,
 				A9485F6E15C4712D00761D1C /* WebSocketSender.cpp in Sources */,
 				A9485F6F15C4712D00761D1C /* TuioClient.cpp in Sources */,
 				A9485F7015C4712D00761D1C /* TuioServer.cpp in Sources */,
@@ -2174,8 +2224,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -2207,8 +2256,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;

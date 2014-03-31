@@ -343,7 +343,7 @@ namespace ofxTSPS {
         ofPoint centroid = person->getCentroidNormalized(width, height);
         
         if(bTuioEnabled){
-            tuioClient.cursorPressed(1.0*centroid.x/width, 1.0*centroid.y/height, person->oid );
+            tuioClient.cursorPressed(1.0*centroid.x/width, 1.0*centroid.y/height, person->pid );
         }
         if(bOscEnabled){
             oscClient.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
@@ -374,7 +374,7 @@ namespace ofxTSPS {
         
         if (bTuioEnabled){
             ofPoint tuioCursor = person->getCentroidNormalized(width, height);
-            tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, person->oid);
+            tuioClient.cursorDragged( tuioCursor.x, tuioCursor.y, person->pid);
         }
         
         if (bOscEnabled){
@@ -403,7 +403,7 @@ namespace ofxTSPS {
     void PeopleTracker::personWillLeave( Person * person, Scene * scene ){
         ofPoint centroid = person->getCentroidNormalized(width, height);
         if (bTuioEnabled) {
-            tuioClient.cursorReleased(centroid.x, centroid.y, person->oid);
+            tuioClient.cursorReleased(centroid.x, centroid.y, person->pid);
         }
         //send osc kill message if enabled
         if (bOscEnabled){
