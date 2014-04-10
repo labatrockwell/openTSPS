@@ -49,8 +49,6 @@
 // sources
 #include "ofxTSPS/source/Source.h"
 
-#define TSPS_ONLY_OPENNI
-
 #ifndef TSPS_ONLY_OPENNI
 #include "ofxTSPS/source/Kinect.h"
 #endif

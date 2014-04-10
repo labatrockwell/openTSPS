@@ -159,8 +159,6 @@ namespace ofxTSPS {
         
         // video settings
         panel.setWhichPanel("video");
-        //James G: Added video settings
-        // BR: Miss U guys ;(
         guiTypeGroup * videoSettingsGroup = panel.addGroup("camera settings");
         videoSettingsGroup->setBackgroundColor(148,129,85);
         videoSettingsGroup->setBackgroundSelectColor(148,129,85);
@@ -194,24 +192,17 @@ namespace ofxTSPS {
         }
 #endif
         
-//        static OpenNI2 dummyOpenNI;
-//        int numOpenNI = dummyOpenNI.numAvailable();
-//        
-//        for ( int i=0; i<numOpenNI; i++){
-//            source_types.push_back("OpenNI2 "+ofToString(i));
-//            
-//            SourceSelection sel;
-//            sel.type = CAMERA_OPENNI;
-//            sel.index = i;
-//            currentSources[currentSources.size()] = sel;
-//        }
-
+        static OpenNI2 dummyOpenNI;
+        int numOpenNI = dummyOpenNI.numAvailable();
         
-        SourceSelection sel;
-        sel.type = CAMERA_OPENNI;
-        sel.index = 0;
-        currentSources[currentSources.size()] = sel;
-        source_types.push_back("OpenNI2");
+        for ( int i=0; i<numOpenNI; i++){
+            source_types.push_back("OpenNI2 "+ofToString(i));
+            
+            SourceSelection sel;
+            sel.type = CAMERA_OPENNI;
+            sel.index = i;
+            currentSources[currentSources.size()] = sel;
+        }
         
         SourceSelection videofileSelection;
         videofileSelection.type = CAMERA_VIDEOFILE;
