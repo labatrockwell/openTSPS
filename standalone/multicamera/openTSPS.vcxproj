@@ -80,7 +80,7 @@
     <PostBuildEvent>
       <Command>xcopy /e /i /y "$(ProjectDir)..\..\..\export\vs\*.dll" "$(ProjectDir)bin"
 xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\OpenNI2\lib\win32\OpenNI2.lib" "$(ProjectDir)bin"
-xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\OpenNI2\lib\win32\OpenNI2" "$(ProjectDir)bin"
+xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\OpenNI2\lib\win32\OpenNI2" "$(ProjectDir)bin\data"
 xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\NiTE2\lib\win32\NiTE2.lib" "$(ProjectDir)bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -112,7 +112,7 @@ xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\NiTE2\lib\win32\NiTE2.lib"
     <PostBuildEvent>
       <Command>xcopy /e /i /y "$(ProjectDir)..\..\..\export\vs\*.dll" "$(ProjectDir)bin"
 xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\OpenNI2\lib\win32\OpenNI2.lib" "$(ProjectDir)bin"
-xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\OpenNI2\lib\win32\OpenNI2" "$(ProjectDir)bin"
+xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\OpenNI2\lib\win32\OpenNI2" "$(ProjectDir)bin\data"
 xcopy /e /i /y "$(ProjectDir)..\..\addons\ofxNI2\libs\NiTE2\lib\win32\NiTE2.lib" "$(ProjectDir)bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
