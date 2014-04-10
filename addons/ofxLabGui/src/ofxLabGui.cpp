@@ -747,7 +747,7 @@ void ofxLabGui::disableIncrementSave(){
 
 //-----------------------------
 void ofxLabGui::loadSettings(string xmlFile){
-	cout<<"LOADING "<<xmlFile<<endl;
+	ofLogVerbose()<<"[ofxLabGui]: LOADING "<<xmlFile<<endl;
     for(int i = 0; i < guiObjects.size(); i++)guiObjects[i]->loadSettings(xmlFile);
 
     currentXmlFile = xmlFile;

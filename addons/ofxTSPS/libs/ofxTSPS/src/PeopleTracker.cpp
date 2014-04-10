@@ -88,7 +88,6 @@ namespace ofxTSPS {
         //setup gui
         gui.setup();
         gui.setupQuadGui( width, height );
-        gui.loadSettings( settingsfile == "" ? defaults.getValue("settings_file", "settings/settings.xml") : settingsfile );
         
         activeHeight = ofGetHeight();
         activeWidth = ofGetWidth();
@@ -151,6 +150,8 @@ namespace ofxTSPS {
                 setupSource( CAMERA_VIDEOGRABBER, deviceID );
             }
         }
+        
+        gui.loadSettings( settingsfile == "" ? defaults.getValue("settings_file", "settings/settings.xml") : settingsfile );
         
         // setup default processor
         if ( tspsProcessor == NULL ){
