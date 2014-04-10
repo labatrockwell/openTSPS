@@ -61,7 +61,7 @@
     <ClCompile Include="..\..\addons\ofxLabGui\src\ofxLabGui.cpp">
       <Filter>addons\third-party\ofxLabGui\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxKinect\src\ofxKinect.cpp">
+    <ClCompile Include="..\..\..\addons\ofxKinect\src\ofxKinect.cpp">
       <Filter>addons\third-party\ofxKinect\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\addons\ofxCv\libs\ofxCv\src\Utilities.cpp">
@@ -199,19 +199,19 @@
     <ClCompile Include="..\..\addons\ofxTSPS\extras\TSPSDelegate.cpp">
       <Filter>addons\third-party\ofxTSPS\extra</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\tilt.c">
+    <ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\tilt.c">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.c">
+    <ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.c">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\cameras.c">
+    <ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\cameras.c">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\core.c">
+    <ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\core.c">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\addons\ofxKinect\libs\libfreenect\src\registration.c">
+    <ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\registration.c">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\addons\ofxNI2\src\ofxNI2.cpp">
@@ -671,10 +671,10 @@
     <ClInclude Include="..\..\addons\ofxLabGui\src\elements\guiTypeToggle.h">
       <Filter>addons\third-party\ofxLabGui\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\src\ofxBase3DVideo.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\src\ofxBase3DVideo.h">
       <Filter>addons\third-party\ofxKinect\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\src\ofxKinect.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\src\ofxKinect.h">
       <Filter>addons\third-party\ofxKinect\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxCv\src\ofxCv.h">
@@ -1094,34 +1094,34 @@
     <ClInclude Include="..\..\addons\ofxTSPS\extras\TSPSDelegate.h">
       <Filter>addons\third-party\ofxTSPS\extra</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libusb-win32\include\lusb0_usb.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-win32\include\lusb0_usb.h">
       <Filter>addons\third-party\ofxKinect\libs\libusb-win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect-registration.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect-registration.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\platform\windows\stdbool.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\stdbool.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\platform\windows\unistd.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\unistd.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\libusb</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\cameras.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\cameras.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\freenect_internal.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\freenect_internal.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\loader.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\loader.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\addons\ofxKinect\libs\libfreenect\src\registration.h">
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\registration.h">
       <Filter>addons\third-party\ofxKinect\libs\libfreenect\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxNI2\src\ofxNI2.h">
