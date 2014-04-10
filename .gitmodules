@@ -1,6 +1,3 @@
-[submodule "addons/ofxKinect"]
-	path = addons/ofxKinect
-	url = https://github.com/ofTheo/ofxKinect.git
 [submodule "addons/ofxOpenNI"]
 	path = addons/ofxOpenNI
 	url = https://github.com/labatrockwell/ofxOpenNI
