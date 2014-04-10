@@ -850,7 +850,7 @@ void ofxLabGui::saveSettings(string xmlFile){
 
         settings.saveFile(xmlName);
     }
-	cout<<"SAVING "<<xmlFile;
+	ofLogVerbose()<<"SAVING "<<xmlFile;
     settings.saveFile(xmlFile);
     currentXmlFile = xmlFile;
     usingXml = true;

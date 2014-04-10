@@ -62,7 +62,6 @@
 
 // TSPS Processors
 #include "ofxTSPS/Processor.h"
-//#include "ofxTSPS/opencv/OpenCvProcessor.h" // R.I.P.
 #include "ofxTSPS/cv/CvProcessor.h"
 
 // gui + settings

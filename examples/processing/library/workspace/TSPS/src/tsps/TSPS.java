@@ -225,12 +225,12 @@ public class TSPS {
 		}
 
 		// scene
-		else if (theOscMessage.checkAddrPattern("/TSPS/scene")){
+		else if (theOscMessage.checkAddrPattern("/TSPS/scene/")){
 			scene.update( theOscMessage );
 		}
 
 		// custom event
-		else if (theOscMessage.checkAddrPattern("/TSPS/customEvent")){
+		else if (theOscMessage.checkAddrPattern("/TSPS/customEvent/")){
 			ArrayList<String> args = new ArrayList<String>();
 			for (int i=0; i<theOscMessage.arguments().length; i++){
 				args.add( theOscMessage.get(i).stringValue());

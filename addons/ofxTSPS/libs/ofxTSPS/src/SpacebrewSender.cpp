@@ -13,7 +13,7 @@
 namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
-    SpacebrewSender::SpacebrewSender( string host ) :    
+    SpacebrewSender::SpacebrewSender() :
     personEnteredMessage("personEntered", "tspsperson"),
     personUpdatedMessage("personUpdated", "tspsperson"),
     personWillLeaveMessage("personLeft", "tspsperson"),
@@ -22,7 +22,6 @@ namespace ofxTSPS {
         bSeesPeople = false;
         connection = new Spacebrew::Connection();
         setupConnection();
-        connection->connect(host, "TSPS", "TSPS is an open toolkit for sensing people in spaces");
     }
     
     //---------------------------------------------------------------------------
@@ -30,17 +29,18 @@ namespace ofxTSPS {
         connection->addPublish("numPeople", Spacebrew::TYPE_RANGE );
         connection->addPublish("seesPeople", Spacebrew::TYPE_BOOLEAN );
         
-        //connection->addPublish("Scene", "TSPSScene");
-        //connection->addPublish( personEnteredMessage.name, personEnteredMessage.type );
-        //connection->addPublish( personUpdatedMessage.name, personUpdatedMessage.type );
-        //connection->addPublish( personWillLeaveMessage.name, personWillLeaveMessage.type );
-        //connection->addPublish( sceneMessage.name, sceneMessage.type );
-        //connection->addPublish("customEvent", "Object"); hm...
+        connection->addPublish( personEnteredMessage.name, personEnteredMessage.type );
+        connection->addPublish( personUpdatedMessage.name, personUpdatedMessage.type );
+        connection->addPublish( personWillLeaveMessage.name, personWillLeaveMessage.type );
+        connection->addPublish( sceneMessage.name, sceneMessage.type );
+//        connection->addPublish("customEvent", "Object"); hm...
     }
     
     //---------------------------------------------------------------------------
     void SpacebrewSender::setHost( string host ){
         if ( host == connection->getHost() ) return;
+        
+        connection->connect(host, "TSPS", "TSPS is an open toolkit for sensing people in spaces");
         
         spacebrewMutex.lock();
         // delete old connection

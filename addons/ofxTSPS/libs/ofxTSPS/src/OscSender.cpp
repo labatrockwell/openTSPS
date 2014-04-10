@@ -98,7 +98,7 @@ namespace ofxTSPS {
     //--------------------------------------------------------------
     void OscSender::customEvent( string eventName, string eventData ){
         ofxOscMessage m;
-        m.setAddress("/TSPS/customEvent");
+        m.setAddress("/TSPS/customEvent/");
         m.addStringArg( eventName );
         m.addStringArg( eventData );
         sendMessage(m);
@@ -107,7 +107,7 @@ namespace ofxTSPS {
     //--------------------------------------------------------------
     void OscSender::customEvent( string eventName, vector<string> params ){
         ofxOscMessage toSend;
-        toSend.setAddress("/TSPS/customEvent");
+        toSend.setAddress("/TSPS/customEvent/");
         toSend.addStringArg(eventName);
         
         for ( int i=0; i<params.size(); i++){
@@ -119,7 +119,7 @@ namespace ofxTSPS {
     //--------------------------------------------------------------
     void OscSender::customEvent( string eventName, map<string,string>params ){
         ofxOscMessage toSend;
-        toSend.setAddress("/TSPS/customEvent");
+        toSend.setAddress("/TSPS/customEvent/");
         toSend.addStringArg(eventName);
         
         map<string,string>::iterator it;
@@ -132,7 +132,7 @@ namespace ofxTSPS {
     
     //--------------------------------------------------------------
     void OscSender::sceneUpdated( Scene & s ){
-        ofxOscMessage m = s.getOscMessage( "/TSPS/scene" );
+        ofxOscMessage m = s.getOscMessage( "/TSPS/scene/" );
         sendMessage( m );
     }
     
