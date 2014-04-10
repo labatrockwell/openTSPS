@@ -104,7 +104,7 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <AdditionalDependencies>opencv_calib3d231.lib;opencv_contrib231.lib;opencv_core231.lib;opencv_features2d231.lib;opencv_flann231.lib;opencv_gpu231.lib;opencv_haartraining_engine.lib;opencv_highgui231.lib;opencv_imgproc231.lib;opencv_legacy231.lib;opencv_ml231.lib;opencv_objdetect231.lib;opencv_video231.lib;zlib.lib;libusb.lib;websockets_static.lib;oscpack.lib;OpenNI2.lib;NiTE2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_calib3d231.lib;opencv_contrib231.lib;opencv_core231.lib;opencv_features2d231.lib;opencv_flann231.lib;opencv_gpu231.lib;opencv_haartraining_engine.lib;opencv_imgproc231.lib;opencv_legacy231.lib;opencv_ml231.lib;opencv_objdetect231.lib;opencv_video231.lib;zlib.lib;libusb.lib;websockets_static.lib;oscpack.lib;OpenNI2.lib;NiTE2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\addons\ofxNI2\libs\NiTE2\lib\win32;..\..\addons\ofxNI2\libs\OpenNI2\lib\win32;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs;..\..\addons\ofxTuioWrapper\src\oscpack\lib\win32;..\..\addons\ofxLibwebsockets\libs\openssl\lib\win32;..\..\addons\ofxLibwebsockets\libs\libwebsockets\lib\win32\Release;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
