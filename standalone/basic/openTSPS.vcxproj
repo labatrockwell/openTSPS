@@ -60,8 +60,8 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxNetwork\src;..\..\addons\ofxNI2\src\utils;..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\Win32;..\..\addons\ofxNI2\libs\NiTE2\include;..\..\addons\ofxNI2\libs\OpenNI2\include\ni2;..\..\addons\ofxNI2\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOpenCv\libs;..\..\..\addons\ofxOpenCv\libs\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video;..\..\..\addons\ofxOpenCv\libs\opencv\lib;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs;..\..\..\addons\ofxOpenCv\src;..\..\..\addons\ofxKinect\src;..\..\..\addons\ofxKinect\libs\libfreenect;..\..\..\addons\ofxKinect\libs\libfreenect\src;..\..\..\addons\ofxKinect\libs\libfreenect\include;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows;..\..\..\addons\ofxKinect\libs\libusb-win32\include;..\..\addons\ofxLabGui\src\elements;..\..\addons\ofxLabGui\src;..\..\addons\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\jsoncpp\json;..\..\addons\ofxLibwebsockets\libs\jsoncpp;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include;..\..\addons\ofxLibwebsockets\libs\openssl\openssl;..\..\addons\ofxOpenCVExtensions\src;..\..\addons\ofxOpenNI\include\openni;..\..\addons\ofxOpenNI\include\openni\Win32;..\..\addons\ofxOpenNI\include\nite;..\..\addons\ofxTSPS\extras;..\..\addons\ofxOpenNI\src;..\..\addons\ofxTSPS\libs\ofxTSPS\src;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\openni;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\opencv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication;..\..\addons\ofxTSPS\libs\ofxTSPS\include;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS;..\..\addons\ofxTSPS\platform\win32\libusbemu-modified;..\..\addons\ofxTSPS\src;..\..\addons\ofxTuioWrapper\src\oscpack\include;..\..\addons\ofxTuioWrapper\src\oscpack\include\osc;..\..\addons\ofxTuioWrapper\src\oscpack\include\ip;..\..\addons\ofxTuioWrapper\src\core;..\..\addons\ofxTuioWrapper\src;..\..\addons\ofxMSAInteractiveObject\src;..\..\addons\ofxCv\libs\ofxCv\src;..\..\addons\ofxCv\libs\ofxCv\include;..\..\addons\ofxCv\src;..\..\addons\ofxSpacebrew\src;%(AdditionalIncludeDirectories);src</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x500;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxNetwork\src;..\..\addons\ofxNI2\src\utils;..\..\addons\ofxNI2\libs\OpenNI2\include\ni2\Win32;..\..\addons\ofxNI2\libs\NiTE2\include;..\..\addons\ofxNI2\libs\OpenNI2\include\ni2;..\..\addons\ofxNI2\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOpenCv\libs;..\..\..\addons\ofxOpenCv\libs\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video;..\..\..\addons\ofxOpenCv\libs\opencv\lib;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs;..\..\..\addons\ofxOpenCv\src;..\..\..\addons\ofxKinect\src;..\..\..\addons\ofxKinect\libs\libfreenect;..\..\..\addons\ofxKinect\libs\libfreenect\src;..\..\..\addons\ofxKinect\libs\libfreenect\include;..\..\..\addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows;..\..\..\addons\ofxKinect\src\extra;..\..\..\addons\ofxKinect\libs\libusb-win32\include;..\..\addons\ofxLabGui\src\elements;..\..\addons\ofxLabGui\src;..\..\addons\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\jsoncpp\json;..\..\addons\ofxLibwebsockets\libs\jsoncpp;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include\win32port\win32helpers;..\..\addons\ofxLibwebsockets\libs\libwebsockets\include;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src;..\..\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include;..\..\addons\ofxLibwebsockets\libs\openssl\openssl;..\..\addons\ofxOpenCVExtensions\src;..\..\addons\ofxOpenNI\include\openni;..\..\addons\ofxOpenNI\include\openni\Win32;..\..\addons\ofxOpenNI\include\nite;..\..\addons\ofxTSPS\extras;..\..\addons\ofxOpenNI\src;..\..\addons\ofxTSPS\libs\ofxTSPS\src;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\openni;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\opencv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\gui;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\cv;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\communication;..\..\addons\ofxTSPS\libs\ofxTSPS\include;..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS;..\..\addons\ofxTSPS\platform\win32\libusbemu-modified;..\..\addons\ofxTSPS\src;..\..\addons\ofxTuioWrapper\src\oscpack\include;..\..\addons\ofxTuioWrapper\src\oscpack\include\osc;..\..\addons\ofxTuioWrapper\src\oscpack\include\ip;..\..\addons\ofxTuioWrapper\src\core;..\..\addons\ofxTuioWrapper\src;..\..\addons\ofxMSAInteractiveObject\src;..\..\addons\ofxCv\libs\ofxCv\src;..\..\addons\ofxCv\libs\ofxCv\include;..\..\addons\ofxCv\libs\CLD\src;..\..\addons\ofxCv\libs\CLD\include\CLD;..\..\addons\ofxCv\src;..\..\addons\ofxSpacebrew\src;%(AdditionalIncludeDirectories);src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINSOCKAPI_;_WIN32_WINNT=0x500;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -86,7 +86,7 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x500;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINSOCKAPI_;_WIN32_WINNT=0x500;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
@@ -115,6 +115,9 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\failguard.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinect\src\extra\ofxKinectExtras.cpp" />
     <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.cpp" />
     <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.cpp" />
     <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.cpp" />
@@ -143,6 +146,8 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+    <ClCompile Include="..\..\addons\ofxCv\libs\CLD\src\ETF.cpp" />
+    <ClCompile Include="..\..\addons\ofxCv\libs\CLD\src\fdog.cpp" />
     <ClCompile Include="..\..\addons\ofxCv\libs\ofxCv\src\Calibration.cpp" />
     <ClCompile Include="..\..\addons\ofxCv\libs\ofxCv\src\ContourFinder.cpp" />
     <ClCompile Include="..\..\addons\ofxCv\libs\ofxCv\src\Distance.cpp" />
@@ -187,8 +192,6 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\TUIOSender.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\Utils.cpp" />
     <ClCompile Include="..\..\addons\ofxTSPS\libs\ofxTSPS\src\WebSocketSender.cpp" />
-    <ClCompile Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\failguard.cpp" />
-    <ClCompile Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu.cpp" />
     <ClCompile Include="..\..\addons\ofxTuioWrapper\src\core\TuioClient.cpp" />
     <ClCompile Include="..\..\addons\ofxTuioWrapper\src\core\TuioServer.cpp" />
     <ClCompile Include="..\..\addons\ofxTuioWrapper\src\core\TuioTime.cpp" />
@@ -204,6 +207,16 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect-audio.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\failguard.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusb.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_internal.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_threads.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_threads_win32.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\stdbool.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\unistd.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0\libusb.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinect\src\extra\ofxKinectExtras.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetwork.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetworkUtils.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.h" />
@@ -324,6 +337,10 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+    <ClInclude Include="..\..\addons\ofxCv\libs\CLD\include\CLD\ETF.h" />
+    <ClInclude Include="..\..\addons\ofxCv\libs\CLD\include\CLD\fdog.h" />
+    <ClInclude Include="..\..\addons\ofxCv\libs\CLD\include\CLD\imatrix.h" />
+    <ClInclude Include="..\..\addons\ofxCv\libs\CLD\include\CLD\myvec.h" />
     <ClInclude Include="..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Calibration.h" />
     <ClInclude Include="..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\ContourFinder.h" />
     <ClInclude Include="..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Distance.h" />
@@ -336,8 +353,6 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     <ClInclude Include="..\..\addons\ofxCv\src\ofxCv.h" />
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect-registration.h" />
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\stdbool.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\unistd.h" />
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\cameras.h" />
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\freenect_internal.h" />
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\loader.h" />
@@ -425,11 +440,6 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\VideoGrabber.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils\Utils.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils\View.h" />
-    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\failguard.h" />
-    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusb.h" />
-    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu_internal.h" />
-    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu_threads.h" />
-    <ClInclude Include="..\..\addons\ofxTSPS\platform\win32\libusbemu-modified\libusbemu_threads_win32.h" />
     <ClInclude Include="..\..\addons\ofxTSPS\src\ofxTSPS.h" />
     <ClInclude Include="..\..\addons\ofxTuioWrapper\src\core\TuioClient.h" />
     <ClInclude Include="..\..\addons\ofxTuioWrapper\src\core\TuioContainer.h" />
