@@ -14,9 +14,9 @@
 
 #pragma once
 
+#include "ofMain.h"
 #include "TuioServer.h"
 #include "TuioCursor.h"
-#include "ofMain.h"
 
 #ifndef OF_MAX_TOUCHES
 #define OF_MAX_TOUCHES 20

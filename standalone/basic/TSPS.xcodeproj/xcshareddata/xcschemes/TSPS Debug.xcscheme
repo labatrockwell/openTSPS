@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
+   LastUpgradeVersion = "0460"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,36 +15,36 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "openTSPS.app"
-               BlueprintName = "openTSPS"
-               ReferencedContainer = "container:openTSPS.xcodeproj">
+               BuildableName = "TSPS.app"
+               BlueprintName = "TSPS"
+               ReferencedContainer = "container:TSPS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Release">
+      buildConfiguration = "Debug">
       <Testables>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "openTSPS.app"
-            BlueprintName = "openTSPS"
-            ReferencedContainer = "container:openTSPS.xcodeproj">
+            BuildableName = "TSPS.app"
+            BlueprintName = "TSPS"
+            ReferencedContainer = "container:TSPS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -51,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "openTSPS.app"
-            BlueprintName = "openTSPS"
-            ReferencedContainer = "container:openTSPS.xcodeproj">
+            BuildableName = "TSPS.app"
+            BlueprintName = "TSPS"
+            ReferencedContainer = "container:TSPS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -63,23 +64,23 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "openTSPS.app"
-            BlueprintName = "openTSPS"
-            ReferencedContainer = "container:openTSPS.xcodeproj">
+            BuildableName = "TSPS.app"
+            BlueprintName = "TSPS"
+            ReferencedContainer = "container:TSPS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Release">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

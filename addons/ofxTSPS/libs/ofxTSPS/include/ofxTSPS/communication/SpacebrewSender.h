@@ -32,7 +32,7 @@ namespace ofxTSPS {
     {
     public:
         
-        SpacebrewSender( string host="localhost" );
+        SpacebrewSender();
         
         void setHost( string host );
         void enable();

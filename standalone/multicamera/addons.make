@@ -12,3 +12,4 @@ ofxContourAnalysis
 #ofxLabGui
 ofxXmlSettings
 ofxDirList
+ofxKinect
