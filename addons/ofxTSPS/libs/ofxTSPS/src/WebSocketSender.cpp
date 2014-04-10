@@ -205,7 +205,7 @@ namespace ofxTSPS {
     
     //--------------------------------------------------------------
     void WebSocketSender::onClose(ofxLibwebsockets::Event& args) {
-        std::cout << "Connection closed" << std::endl;
+        ofLogWarning() << "[ofxTSPS::WebSocketSender] Connection closed" << std::endl;
         for (int i=0; i<sockets.size(); i++){
             if (sockets[i] == &args.conn){
                 std::cout << "removing connection " << std::endl;

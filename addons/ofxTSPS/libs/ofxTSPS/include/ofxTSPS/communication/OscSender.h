@@ -9,7 +9,7 @@
 
  OSC Message is structured like this:
 
- address: /TSPS/person/ + ordered id (i.e. TSPS/person/0)
+ address: /TSPS/person/ + ordered id + / (i.e. TSPS/person/0/)
 
  // LEGACY
  
@@ -54,14 +54,14 @@
  
  // TSPS 1.3.2: Scene + CustomEvent
  
- address: /TSPS/scene
+ address: /TSPS/scene/
  argument 0: currentTime
  argument 1: percentCovered
  argument 2: numPeople
  argument 3: averageMotion.x
  argument 4: averageMotion.y
  
- address: /TSPS/customEvent
+ address: /TSPS/customEvent/
  argument 0: {string} eventName
  argument 1: {string} eventData 
  

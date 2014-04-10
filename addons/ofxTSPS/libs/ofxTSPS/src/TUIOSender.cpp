@@ -39,7 +39,7 @@ namespace ofxTSPS {
         tuioServer = new TuioServer((char*)host.c_str(), port);
         tuioServer->enableFullUpdate();
         currentTime = TuioTime::getSessionTime();
-        cout<<"SET UP AT "<<host<<":"<<port<<endl;
+        ofLogVerbose()<<"[ofxTSPS::TUIOSender] SET UP AT "<<host<<":"<<port<<endl;
     }
     
     
