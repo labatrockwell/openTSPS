@@ -24,4 +24,4 @@
 	url = https://github.com/labatrockwell/ofxNI2.git
 [submodule "addons/ofxUI"]
 	path = addons/ofxUI
-	url = https://github.com/rezaali/ofxUI.git
+	url = https://github.com/robotconscience/ofxUI.git
