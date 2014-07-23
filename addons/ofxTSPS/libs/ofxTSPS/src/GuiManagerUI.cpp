@@ -50,14 +50,11 @@ namespace ofxTSPS {
         
         // to-do: "custom" panel
         
-        // master tab bar
-        guiController = new ofxUITabBar(0,0,guiWidth, guiTabHeight);
-        
         // setup panel switch buttons
         
         //---- setup source panel ----
         ofxUIScrollableCanvas * videoPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        videoPanel->setName("video");
+        videoPanel->setName("Select Input");
         guis["source"]["video"]= videoPanel;
         
         // video settings
@@ -123,30 +120,38 @@ namespace ofxTSPS {
         currentSources[currentSources.size()] = customSelection;
         source_types.push_back("custom");
         
-        ofxUIDropDownList * sourceSelect = videoPanel->addDropDownList("source type", source_types);
-        sourceSelect->setAllowMultiple(false);
+        ofxUIRadio * sourceSelect = videoPanel->addRadio("source type", source_types);
         sourceSelect->getToggles()[0]->setValue(true);
         
         // video files
-        ofxUILabel * videoGroup = videoPanel->addLabel("video files");
-        videoPanel->addTextInput("video directory (inside data folder)", "videos")->setParent(videoGroup);
+        ofxUIScrollableCanvas * videoFiles = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
+        videoFiles->setName("Select Video File");
+        guis["source"]["videofile"] = videoFiles;
         
+        // video files
+        ofxUILabel * videoGroup = videoFiles->addLabel("video files");
+        videoFiles->addTextInput("video directory (inside data folder)", "videos");
         vector<string> ext; ext.push_back("mov");
-        videoFileDropdown = new ofxUIDirectoryDropdown("videoFiles", "videos", ext);
-        videoPanel->addWidgetDown(videoFileDropdown);
-        videoFileDropdown->setParent(videoGroup);
-        videoPanel->addToggle("refresh directory", &videoFileDropdown->needToRefresh)->setParent(videoGroup);
+        videoFileDropdown = new ofxUIDynamicRadio("videoFiles", "videos", ext);
+        videoFiles->addToggle("refresh directory", &videoFileDropdown->needToRefresh);
+        
+        videoFiles->addWidgetDown(videoFileDropdown->getWidget());
+        
+        // camera settings
+        ofxUIScrollableCanvas * cameraSettings = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
+        cameraSettings->setName("Setup Image");
+        guis["source"]["videosettings"]= cameraSettings;
         
         // flip + invert
-        videoPanel->addLabel("adjust camera");
-        videoPanel->addToggle("flip horizontal", &settings.bFlipX);
-        videoPanel->addToggle("flip vertical", &settings.bFlipY);
-        videoPanel->addToggle("invert", &settings.bInvert);
+        cameraSettings->addLabel("adjust camera");
+        cameraSettings->addToggle("flip horizontal", &settings.bFlipX);
+        cameraSettings->addToggle("flip vertical", &settings.bFlipY);
+        cameraSettings->addToggle("invert", &settings.bInvert);
         
         // amplification
-        videoPanel->addLabel("amplification");
-        videoPanel->addToggle("use amplification (video gain)", &settings.bAmplify);
-        videoPanel->addIntSlider("amplification amount", 1, 100, &settings.highpassAmp);
+        cameraSettings->addLabel("amplification");
+        cameraSettings->addToggle("use amplification (video gain)", &settings.bAmplify);
+        cameraSettings->addIntSlider("amplification amount", 1, 100, &settings.highpassAmp);
         
         //---- end setup source panel ----
         
@@ -205,9 +210,8 @@ namespace ofxTSPS {
         ofxUILabel * haarGroup = trackingPanel->addLabel("haar tracking");
         trackingPanel->addToggle("detect and send features in blobs", &settings.bDetectHaar)->setParent(haarGroup);
         vector<string> haar_ext; haar_ext.push_back("xml");
-        haarFileDropdown = new ofxUIDirectoryDropdown("haar files", "haar", haar_ext);
-        trackingPanel->addWidgetDown(haarFileDropdown);
-        haarFileDropdown->setParent(haarGroup);
+        haarFileDropdown = new ofxUIDynamicRadio("haar files", "haar", haar_ext);
+        trackingPanel->addWidgetDown(haarFileDropdown->getWidget());
         trackingPanel->addSlider("expand detection area:", 0.0, 200.0f, &settings.haarAreaPadding)->setParent(haarGroup);
         
         // ---- end setup sensing panel ----
@@ -284,11 +288,15 @@ namespace ofxTSPS {
         
         // ---- end setup data panel ----
         
+        // master tab bar
+        guiController = new ofxUITabBar(0,0,guiWidth, guiTabHeight);
+        guiController->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
+        
         // set up main tabs
-        guiController = new ofxUITabBar();
         for ( auto key : guis ){
-            guiControllers[key.first] = new ofxUITabBar(200,0,guiWidth,guiTabHeight);
+            guiControllers[key.first] = new ofxUITabBar(0,guiTabHeight,guiWidth,guiTabHeight);
             guiControllers[key.first]->setName(key.first);
+            guiControllers[key.first]->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
             
             for ( auto g : guis[key.first] ){
                 guiControllers[key.first]->addCanvas(g.second);
@@ -424,11 +432,11 @@ namespace ofxTSPS {
      ***************************************************************/
     
     void GuiManagerUI::setHaarEnabled( bool bHaar ){
-        guis["sensing"]["tracking"]->getWidget("haar tracking")->setVisible(bHaar);
+        showHideWidgetChildren( guis["sensing"]["tracking"], "haar tracking", bHaar);
     }
     
     void GuiManagerUI::setOpticalFlowEnabled( bool bOpticalFlow ){
-        guis["data"]["people"]->getWidget("optical flow")->setVisible(bOpticalFlow);
+        showHideWidgetChildren( guis["data"]["people"], "optical flow", bOpticalFlow);
     }
     
     
@@ -445,6 +453,18 @@ namespace ofxTSPS {
     void GuiManagerUI::setSelectedPanel( string name ){
     }
     
+    void GuiManagerUI::showHideWidgetChildren( ofxUICanvas * group, string name, bool bShow ){
+        ofxUIWidget * parent = group->getWidget(name);
+        if ( parent ){
+            for ( auto * w : group->getWidgets() ){
+                if ( w->getParent() == parent ){
+                    w->setVisible(bShow);
+                }
+            }
+            parent->setVisible(bShow);
+        }
+    }
+    
     void GuiManagerUI::update(ofEventArgs &e){
         update();
     }
@@ -456,20 +476,33 @@ namespace ofxTSPS {
         }
         
         // camera
-        vector<int> inds = ((ofxUIDropDownList*) guis["source"]["video"]->getWidget("source type"))->getSelectedIndeces();
-		int index = inds.size() > 0 ? inds[0] : 0;
+		int index = ((ofxUIRadio*) guis["source"]["video"]->getWidget("source type"))->getValue();
         
         settings.inputType      = currentSources[index].type;
         settings.cameraIndex    = currentSources[index].index;
         
-        if ( settings.inputType == CAMERA_VIDEOFILE){
-            guis["source"]["video"]->getWidget("video files")->setVisible(true);
+        if ( settings.inputType == CAMERA_VIDEOFILE ){
         } else {
-            guis["source"]["video"]->getWidget("video files")->setVisible(false);
+            guis["source"]["videofile"]->disable();
+        }
+        
+        // hack for layout
+        for ( auto key : guis ){
+            bool bParentActive = guiControllers[key.first]->isEnabled();
+            bool bSomeoneEnabled = false;
+            
+            for ( auto g : guis[key.first] ){
+                if (!bParentActive) g.second->disable();
+                if (!bSomeoneEnabled) bSomeoneEnabled = g.second->isEnabled();
+            }
+            if ( bParentActive && !bSomeoneEnabled ){
+                guiControllers[key.first]->setActiveCanvas( guis[key.first].begin()->second );
+            }
         }
         
         // video files
-        string currentDir = ((ofxUITextInput*) guis["source"]["video"]->getWidget("video directory (inside data folder)"))->getTextString();
+        string currentDir = ((ofxUITextInput*) guis["source"]["videofile"]->getWidget("video directory (inside data folder)"))->getTextString();
+        
         if ( settings.videoDirectory != currentDir ){
             settings.videoDirectory = currentDir;
             
@@ -479,7 +512,7 @@ namespace ofxTSPS {
                 ofLog( OF_LOG_VERBOSE, "No videos found, switching to camera input" );
             }
         }
-        if(videoFileDropdown->getSelectedNames().size() != 0 && videoFileDropdown->getSelectedNames()[0] != "" ){
+        if( videoFileDropdown != NULL && videoFileDropdown->getSelectedPath() != "" ){
             settings.videoFile = videoFileDropdown->getSelectedPath();
         }
         
@@ -502,7 +535,7 @@ namespace ofxTSPS {
         
         settings.trackType = ((ofxUIRadio*) guis["sensing"]["differencing"]->getWidget("type of differencing"))->getValue();
         
-        if(haarFileDropdown->getSelectedNames().size() != 0 && haarFileDropdown->getSelectedNames()[0] != "" ){
+        if(haarFileDropdown->getSelectedPath() != "" ){
             settings.haarFile = haarFileDropdown->getSelectedPath();
         }
         
@@ -547,16 +580,16 @@ namespace ofxTSPS {
         // UPDATE GUI QUADS HERE
         // because this returns a pointer to the actual points that get updated,
         // you store it in an array so it doesn't get updated when it draws
-//        ofPoint * scaledPoints = quadGui.getScaledQuadPoints(cameraWidth,cameraHeight);
-//        for (int i=0; i<4; i++){
-//            settings.quadWarpScaled[i] = scaledPoints[i];
-//        }
+        ofPoint * scaledPoints = quadGui.getScaledQuadPoints(cameraWidth,cameraHeight);
+        for (int i=0; i<4; i++){
+            settings.quadWarpScaled[i] = scaledPoints[i];
+        }
         
         //get xml
 //        settings.currentXmlFile = panel.getCurrentXMLFile();
     }
     
-    /*
+    
     void GuiManagerUI::setupQuadGui ( int _cameraWidth, int _cameraHeight )
     {
         cameraWidth = _cameraWidth;
@@ -603,7 +636,6 @@ namespace ofxTSPS {
     void GuiManagerUI::changeGuiCameraView(bool bCameraView) {
         quadGui.bCameraView = bCameraView;
     };
-     */
     
     /***************************************************************
      GET + SET SPECIFIC VALUES FROM THE GUI

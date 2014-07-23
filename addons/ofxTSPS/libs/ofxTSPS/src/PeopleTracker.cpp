@@ -87,7 +87,7 @@ namespace ofxTSPS {
         
         //setup gui
         gui.setup();
-        //gui.setupQuadGui( width, height );
+        gui.setupQuadGui( width, height );
         
         activeHeight = ofGetHeight();
         activeWidth = ofGetWidth();
@@ -563,7 +563,7 @@ namespace ofxTSPS {
         differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         grayDiff.allocate(width, height, OF_IMAGE_GRAYSCALE);
         
-        //gui.setupQuadGui( width, height );
+        gui.setupQuadGui( width, height );
         
         activeViewIndex = 4;
         
@@ -686,8 +686,10 @@ namespace ofxTSPS {
         // Localize vars
         //----------------------------------------------
         
-        if ( !doRelearnBackground )
+        if ( !doRelearnBackground ){
             doRelearnBackground = p_Settings->bLearnBackground;
+            p_Settings->bLearnBackground = false;
+        }
         
         //----------------------------------------------
         // Scene
@@ -870,6 +872,8 @@ namespace ofxTSPS {
             backgroundImage.setFromPixels(warpedImage.getPixelsRef());
             tspsProcessor->captureBackground( warpedImage );
             doRelearnBackground = false;
+            p_Settings->bLearnBackground = false;
+            cout << "learn"<<endl;
         }
         
         //progressive relearn background
@@ -881,6 +885,7 @@ namespace ofxTSPS {
         if (p_Settings->bBlankBackground){
             tspsProcessor->blankBackground();
             backgroundImage.setFromPixels(blackPixels);
+            p_Settings->bBlankBackground = false;
         }
         
         //-----------------------
@@ -969,7 +974,7 @@ namespace ofxTSPS {
 		//draw large image
 		if (activeViewIndex ==  CAMERA_SOURCE_VIEW){
 			cameraView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);		
-			//gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
+			gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
 		} else if ( activeViewIndex == ADJUSTED_CAMERA_VIEW){
 			adjustedView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);				
 		} else if ( activeViewIndex == REFERENCE_BACKGROUND_VIEW){
@@ -1213,7 +1218,6 @@ namespace ofxTSPS {
     {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         p_Settings->threshold = thresholdAmount;
-        gui.setValueF( "THRESHOLD", thresholdAmount );
     }
     
     //---------------------------------------------------------------------------
@@ -1424,7 +1428,7 @@ namespace ofxTSPS {
         dataView.y = cameraView.y;
         dataView.width = smallView.x;
         dataView.height = smallView.y;	
-        //gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
+        gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
     }
     //---------------------------------------------------------------------------
     bool PeopleTracker::useVideoGrabber(){

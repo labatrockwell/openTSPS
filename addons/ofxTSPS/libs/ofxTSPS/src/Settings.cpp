@@ -29,7 +29,7 @@ namespace ofxTSPS {
         captureSeconds              = 1;
         bLearnBackgroundOnStartup   = false;
         bStartupBgCaptured          = false;
-        bLearnBackgroundProgressive = true;
+        bLearnBackgroundProgressive = false;
         bAdjustedViewInColor        = false;		
         trackType = TRACK_LIGHT;
         

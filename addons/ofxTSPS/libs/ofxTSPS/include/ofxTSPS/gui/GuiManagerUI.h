@@ -63,25 +63,26 @@ namespace ofxTSPS {
         int         index;
     } SourceSelection;
     
-    class ofxUIDirectoryDropdown : public ofxUIDropDownList {
+    class ofxUIDynamicRadio {
     public:
         
-        ofxUIDirectoryDropdown( string name, string fileDirectory, vector<string> extensions, bool autoRefresh = true ) :
-        ofxUIDropDownList(name, vector<string>() ){
-            setAllowMultiple(false);
+        ofxUIDynamicRadio( string _name, string fileDirectory, vector<string> extensions, bool autoRefresh = true ){
+            name = _name;
+            radio = NULL;
+            
             for ( auto e : extensions ) directory.allowExt(e);
             currentDirectory = fileDirectory;
+            needToRefresh = true;
             refresh();
             
-            selectedIndeces.push_back(0);
-            
             if ( autoRefresh ){
-                ofAddListener(ofEvents().update, this, &ofxUIDirectoryDropdown::update);
+                ofAddListener(ofEvents().update, this, &ofxUIDynamicRadio::update, OF_EVENT_ORDER_BEFORE_APP);
             }
         }
         
         void update( ofEventArgs & e ){
             if ( needToRefresh ){
+                needToRefresh = false;
                 refresh();
             }
         }
@@ -94,9 +95,32 @@ namespace ofxTSPS {
                 files.push_back( f.getFileName() );
                 i++;
             }
-            clearToggles();
-            addToggles(files);
+            
+            ofxUICanvas * parent = NULL;
+            if ( radio != NULL ){
+                parent = (ofxUICanvas *) radio->getParent();
+                
+                if ( parent != NULL && radio != NULL ){
+                    parent->removeWidget(radio);
+                }
+            }
+            
+            vector<string> fileNames;
+            
+            for ( auto tname : files ){
+                fileNames.push_back(tname);
+            }
+            
+            if ( parent != NULL ){
+                radio = parent->addRadio(name, fileNames);
+            } else {
+                radio = new ofxUIRadio(name, fileNames, OFX_UI_ORIENTATION_VERTICAL, 0, 0);
+            }
             return numFiles;
+        }
+        
+        ofxUIRadio * getWidget(){
+            return radio;
         }
         
         int getNumFiles(){
@@ -109,10 +133,8 @@ namespace ofxTSPS {
         }
         
         string getSelectedPath(){
-            if ( getSelectedIndeces().size() == 0 ){
-                return "";
-            }
-            return directory.getFile( getSelectedIndeces()[0] ).getAbsolutePath();
+            if ( numFiles == 0 || ( radio!= NULL && radio->getValue() == -1) || radio == NULL ) return "";
+            return directory.getFile( radio->getValue() ).getAbsolutePath();
         }
         
         // public vars for connecting to other guis
@@ -124,6 +146,9 @@ namespace ofxTSPS {
         ofDirectory directory;
         string currentDirectory;
         int numFiles;
+        
+        ofxUIRadio * radio;
+       string name;
     };
     
     class GuiManagerUI {
@@ -164,6 +189,11 @@ namespace ofxTSPS {
         void addSlider(string name, float* value, float min, float max);
         void addToggle(string name, bool* value);
         
+        // quad gui stuff
+        void setupQuadGui ( int cameraWidth, int cameraHeight );
+        void drawQuadGui();
+        void drawQuadGui( int x, int y, int width, int height );
+        
         // add elements outside of panels
         
         // refresh current sources
@@ -196,7 +226,7 @@ namespace ofxTSPS {
     	
         // Added so the quadGui instance can know when image warping is allowed to occur
         //            (i.e., the image can only get warped when in Camera View).
-        void changeGuiCameraView(bool bCameraView){}
+        void changeGuiCameraView(bool bCameraView);
         
         // minimize + maximize (should this be here? hmmm)
         void minimize( string & button );
@@ -212,14 +242,17 @@ namespace ofxTSPS {
         map<string, map<string, ofxUIScrollableCanvas *> > guis;
         
         // custom widgets
-        ofxUIDirectoryDropdown * videoFileDropdown;
-        ofxUIDirectoryDropdown * haarFileDropdown;
+        ofxUIDynamicRadio * videoFileDropdown;
+        ofxUIDynamicRadio * haarFileDropdown;
+        
+        // quad gui stuff
+        bool quadGuiSetup;
+        ofxCvCoordWarpingGui quadGui;
+        
+        void showHideWidgetChildren( ofxUICanvas * group, string name, bool bShow );
         
         string enabledPanelGroup;
         
-        //an even goofier way to easily add the quad qui
-        bool quadGuiSetup;
-        ofxCvCoordWarpingGui quadGui;
         int cameraWidth, cameraHeight;
         int currentPanel, lastCurrentPanel;
         
