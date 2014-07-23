@@ -992,8 +992,7 @@ namespace ofxTSPS {
         settings.webSocketUseSSL = panel.getValueB("WS_USESSL");
         settings.webSocketChannel = panel.getValueS("WS_CHANNEL", 0, "localhost");
         
-        settings.bSendOscContours = panel.getValueB("SEND_OSC_CONTOURS");
-        panel.setGroupActive("sensing", "options", settings.bSendOscContours);
+        panel.setGroupActive("sensing", "options", settings.bSendContours);
         
         panel.setGroupActive("communication", "OSC", settings.bSendOsc);
         panel.setGroupActive("communication", "TUIO", settings.bSendTuio);

@@ -22,3 +22,6 @@
 [submodule "addons/ofxNI2"]
 	path = addons/ofxNI2
 	url = https://github.com/labatrockwell/ofxNI2.git
+[submodule "addons/ofxUI"]
+	path = addons/ofxUI
+	url = https://github.com/rezaali/ofxUI.git

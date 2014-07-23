@@ -69,7 +69,7 @@ namespace ofxTSPS {
         bool    bSmooth;
         
         bool    bLearnBackgroundOnStartup, bStartupBgCaptured;
-        int     captureSeconds;
+        float   captureSeconds;
         
         bool    bLearnBackground;
         bool    bBlankBackground;
@@ -106,13 +106,14 @@ namespace ofxTSPS {
         
         bool    bSendWebSocketServer;
         bool    bSendWebSocketClient;
+        bool    bOpenWebSocketDebugURL;
         string  webSocketHost;
         int     webSocketPort;
         bool    webSocketUseSSL;
         string  webSocketChannel;
         int     webSocketServerPort;
         
-        bool    bSendOscContours;
+        bool    bSendContours;
         string  oscHost;
         int     oscPort;
         string  tuioHost;
@@ -129,6 +130,7 @@ namespace ofxTSPS {
         SourceType      getInputType();
         int             cameraIndex;
         SourceType      inputType;
+        bool            bOpenVideoSettings;
         
         //layout vars
         int lastCurrentPanel;

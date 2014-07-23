@@ -64,7 +64,7 @@
 
 // gui + settings
 #include "ofxTSPS/gui/Settings.h"
-#include "ofxTSPS/gui/GuiManager.h"
+#include "ofxTSPS/gui/GuiManagerUI.h"
 
 // communication
 #include "ofxTSPS/communication/OscSender.h"
@@ -179,7 +179,7 @@ namespace ofxTSPS {
             void addToggle(string name, bool* value);
         
             // add buttons managed by the gui but external to the main interface
-            guiTypeButton * addExternalButton( string name, ofRectangle dimensions );
+//            guiTypeButton * addExternalButton( string name, ofRectangle dimensions );
         
             // video file stuff
             string  getVideoFile();
@@ -286,7 +286,7 @@ namespace ofxTSPS {
         
             //gui
 
-            GuiManager gui;
+            GuiManagerUI gui;
             bool guiLoaded;
             float activeHeight, activeWidth;
         

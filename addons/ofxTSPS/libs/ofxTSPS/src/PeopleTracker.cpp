@@ -87,7 +87,7 @@ namespace ofxTSPS {
         
         //setup gui
         gui.setup();
-        gui.setupQuadGui( width, height );
+        //gui.setupQuadGui( width, height );
         
         activeHeight = ofGetHeight();
         activeWidth = ofGetWidth();
@@ -356,17 +356,17 @@ namespace ofxTSPS {
             tuioClient.cursorPressed(1.0*centroid.x/width, 1.0*centroid.y/height, person->pid );
         }
         if(bOscEnabled){
-            oscClient.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
+            oscClient.personEntered(person, centroid, width, height, p_Settings->bSendContours);
         }
         if(bTcpEnabled){
-            tcpClient.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
+            tcpClient.personEntered(person, centroid, width, height, p_Settings->bSendContours);
         }
         if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
+            webSocketServer.personEntered(person, centroid, width, height, p_Settings->bSendContours);
         }
         
         if ( bSpacebrewEnabled ){
-            spacebrewSender.personEntered(person, centroid, width, height, p_Settings->bSendOscContours);
+            spacebrewSender.personEntered(person, centroid, width, height, p_Settings->bSendContours);
         }
         
         trackedPeople.push_back( person );
@@ -388,19 +388,19 @@ namespace ofxTSPS {
         }
         
         if (bOscEnabled){
-            oscClient.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
+            oscClient.personUpdated(person, centroid, width, height, p_Settings->bSendContours);
         }
         
         if (bTcpEnabled){
-            tcpClient.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
+            tcpClient.personUpdated(person, centroid, width, height, p_Settings->bSendContours);
         }
         
         if ( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
+            webSocketServer.personUpdated(person, centroid, width, height, p_Settings->bSendContours);
         }
         
         if ( bSpacebrewEnabled ){
-            spacebrewSender.personUpdated(person, centroid, width, height, p_Settings->bSendOscContours);
+            spacebrewSender.personUpdated(person, centroid, width, height, p_Settings->bSendContours);
         }
         // notify listeners
         EventArgs args;
@@ -417,20 +417,20 @@ namespace ofxTSPS {
         }
         //send osc kill message if enabled
         if (bOscEnabled){
-            oscClient.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
+            oscClient.personWillLeave(person, centroid, width, height, p_Settings->bSendContours);
         };
         
         //send tcp kill message if enabled
         if(bTcpEnabled){
-            tcpClient.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
+            tcpClient.personWillLeave(person, centroid, width, height, p_Settings->bSendContours);
         }
         
         if( bWebSocketClientEnabled || bWebSocketServerEnabled ){
-            webSocketServer.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
+            webSocketServer.personWillLeave(person, centroid, width, height, p_Settings->bSendContours);
         }
         
         if ( bSpacebrewEnabled ){
-            spacebrewSender.personWillLeave(person, centroid, width, height, p_Settings->bSendOscContours);
+            spacebrewSender.personWillLeave(person, centroid, width, height, p_Settings->bSendContours);
         }
         // notify listeners
         EventArgs args;
@@ -563,7 +563,7 @@ namespace ofxTSPS {
         differencedImage.allocate(width, height, OF_IMAGE_GRAYSCALE);
         grayDiff.allocate(width, height, OF_IMAGE_GRAYSCALE);
         
-        gui.setupQuadGui( width, height );
+        //gui.setupQuadGui( width, height );
         
         activeViewIndex = 4;
         
@@ -969,7 +969,7 @@ namespace ofxTSPS {
 		//draw large image
 		if (activeViewIndex ==  CAMERA_SOURCE_VIEW){
 			cameraView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);		
-			gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
+			//gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
 		} else if ( activeViewIndex == ADJUSTED_CAMERA_VIEW){
 			adjustedView.drawLarge(activeView.x, activeView.y, activeView.width, activeView.height);				
 		} else if ( activeViewIndex == REFERENCE_BACKGROUND_VIEW){
@@ -1041,7 +1041,7 @@ namespace ofxTSPS {
             //if haarfinder is looking at these blobs, draw the area it's looking at
             Person* p = trackedPeople[i];
             
-            p->draw( width, height, p_Settings->bSendOscContours, p_Settings->bDetectHaar, p_Settings->haarAreaPadding);													
+            p->draw( width, height, p_Settings->bSendContours, p_Settings->bDetectHaar, p_Settings->haarAreaPadding);													
         }
         ofPopMatrix();
         ofSetHexColor(0xffffff);				
@@ -1130,9 +1130,9 @@ namespace ofxTSPS {
     }
     
     //---------------------------------------------------------------------------
-    guiTypeButton * PeopleTracker::addExternalButton( string name, ofRectangle dimensions){
-        return gui.addButton( name, dimensions );
-    }
+//    guiTypeButton * PeopleTracker::addExternalButton( string name, ofRectangle dimensions){
+//        return gui.addButton( name, dimensions );
+//    }
     
     //---------------------------------------------------------------------------
     //---------------------------------------------------------------------------
@@ -1424,7 +1424,7 @@ namespace ofxTSPS {
         dataView.y = cameraView.y;
         dataView.width = smallView.x;
         dataView.height = smallView.y;	
-        gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
+        //gui.drawQuadGui( activeView.x, activeView.y, activeView.width, activeView.height );
     }
     //---------------------------------------------------------------------------
     bool PeopleTracker::useVideoGrabber(){
