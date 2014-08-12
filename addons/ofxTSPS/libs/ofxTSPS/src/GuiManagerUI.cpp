@@ -23,7 +23,6 @@ namespace ofxTSPS {
         bEventsEnabled = false;
     }
     
-    
     GuiManagerUI::~GuiManagerUI(){
         disableEvents();
     }
@@ -76,6 +75,7 @@ namespace ofxTSPS {
             SourceSelection sel;
             sel.type = CAMERA_VIDEOGRABBER;
             sel.index = i;
+            sel.name = devices[i].deviceName;
             currentSources[currentSources.size()] = sel;
         }
         
@@ -88,6 +88,7 @@ namespace ofxTSPS {
             SourceSelection sel;
             sel.type = CAMERA_KINECT;
             sel.index = i;
+            sel.name = "Kinect "+ofToString(i);
             currentSources[currentSources.size()] = sel;
         }
         
@@ -104,12 +105,14 @@ namespace ofxTSPS {
             SourceSelection sel;
             sel.type = CAMERA_OPENNI;
             sel.index = i;
+            sel.name = "OpenNI2 "+ofToString(i);
             currentSources[currentSources.size()] = sel;
         }
         
         SourceSelection videofileSelection;
         videofileSelection.type = CAMERA_VIDEOFILE;
         videofileSelection.index = 0;
+        videofileSelection.name = "Video File";
         currentSources[currentSources.size()] = videofileSelection;
         source_types.push_back("Video File");
         
@@ -117,12 +120,14 @@ namespace ofxTSPS {
         SourceSelection syphonSelection;
         syphonSelection.type = CAMERA_SYPHON;
         syphonSelection.index = 0;
+        syphonSelection.name = "Syphon";
         currentSources[currentSources.size()] = syphonSelection;
         source_types.push_back("Syphon");
 #endif
         SourceSelection customSelection;
         customSelection.type = CAMERA_SYPHON;
         customSelection.index = 0;
+        customSelection.name = "custom";
         currentSources[currentSources.size()] = customSelection;
         source_types.push_back("custom");
         
@@ -409,6 +414,26 @@ namespace ofxTSPS {
         return -1;
     }
     
+    
+    void GuiManagerUI::selectSource( SourceType type, int deviceIndex ){
+        // camera
+        int index = -1;
+        for ( auto s : currentSources ){
+            if ( s.second.type == type && s.second.index == deviceIndex ){
+                index = s.first;
+            }
+        }
+        ((ofxUIRadio*) guis["source"]["video"]->getWidget("source type"))->activateToggle( currentSources[index].name );
+        
+        settings.inputType      = currentSources[index].type;
+        settings.cameraIndex    = currentSources[index].index;
+        
+        if ( settings.inputType == CAMERA_VIDEOFILE ){
+        } else {
+            guis["source"]["videoFile"]->disable();
+        }
+    }
+    
     void GuiManagerUI::addCustomGui(){
     }
     
@@ -444,15 +469,6 @@ namespace ofxTSPS {
     /***************************************************************
      GET + SET PANEL INFO / SELECTED PANEL
      ***************************************************************/
-    
-    int GuiManagerUI::getSelectedPanel(){
-    }
-    
-    void GuiManagerUI::setSelectedPanel( int index ){
-    }
-    
-    void GuiManagerUI::setSelectedPanel( string name ){
-    }
     
     void GuiManagerUI::showHideWidgetChildren( ofxUICanvas * group, string name, bool bShow ){
         ofxUIWidget * parent = group->getWidget(name);
@@ -638,43 +654,7 @@ namespace ofxTSPS {
     void GuiManagerUI::changeGuiCameraView(bool bCameraView) {
         quadGui.bCameraView = bCameraView;
     };
-    
-    /***************************************************************
-     GET + SET SPECIFIC VALUES FROM THE GUI
-     ***************************************************************/
-    
-    //----------------------------------------------------------
-    bool GuiManagerUI::getValueB( string name ){
-    }
-    
-    //----------------------------------------------------------
-    int GuiManagerUI::getValueI( string name ){
-    }
-    
-    //----------------------------------------------------------
-    float GuiManagerUI::getValueF( string name ){
-    }
-    
-    //----------------------------------------------------------
-    string GuiManagerUI::getValueS( string name ){
-    }
-    
-    //----------------------------------------------------------
-    void GuiManagerUI::setValueB( string name, bool val ){
-    }
-    
-    //----------------------------------------------------------
-    void GuiManagerUI::setValueI( string name, int val ){
-    }
-    
-    //----------------------------------------------------------
-    void GuiManagerUI::setValueF( string name, float val ){
-    }
-    
-    //----------------------------------------------------------
-    void GuiManagerUI::setValueS( string name, string val ){
-    }
-    
+        
     /***************************************************************
      ENABLE / DISABLE ELEMENTS
      ***************************************************************/

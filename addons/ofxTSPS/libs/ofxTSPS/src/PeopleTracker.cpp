@@ -636,10 +636,8 @@ namespace ofxTSPS {
         if (p_Settings == NULL) p_Settings = gui.getSettings();
         bWebSocketServerEnabled = true;
         p_Settings->webSocketServerPort = port;
-        gui.setValueI("WSS_PORT", port);
         bWebSocketServerEnabled = webSocketServer.setupServer(port);
         p_Settings->bSendWebSocketServer = bWebSocketServerEnabled;
-        gui.setValueB("SEND_WSS", p_Settings->bSendWebSocketServer);
     }
     
     //---------------------------------------------------------------------------
@@ -653,12 +651,6 @@ namespace ofxTSPS {
         p_Settings->webSocketUseSSL = bUseSSL;
         bWebSocketClientEnabled = webSocketServer.setupClient( host, port, false, channel);
         p_Settings->bSendWebSocketClient = bWebSocketClientEnabled;
-        
-        gui.setValueS("WS_HOST", host);
-        gui.setValueS("WS_PORT", ofToString( port ));
-        gui.setValueS("WS_CHANNEL", channel);
-        gui.setValueB("WS_USESSL", bUseSSL);
-        gui.setValueB("SEND_WS", p_Settings->bSendWebSocketClient);
     }
     
     //---------------------------------------------------------------------------
@@ -1440,7 +1432,7 @@ namespace ofxTSPS {
     void PeopleTracker::setUseVideoGrabber( bool bUseVideoGrabber, int deviceIndex ){
         if ( bUseVideoGrabber ){
             if (p_Settings == NULL) p_Settings = gui.getSettings();
-            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_VIDEOGRABBER, deviceIndex) );
+            gui.selectSource(CAMERA_VIDEOGRABBER, deviceIndex);
             gui.update();
             p_Settings->inputType = CAMERA_VIDEOGRABBER;
         }
@@ -1457,7 +1449,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseKinect( bool bUseKinect, int deviceIndex ){
         if ( bUseKinect ){
-            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_KINECT, deviceIndex) );
+            gui.selectSource(CAMERA_KINECT, deviceIndex);
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_KINECT;
@@ -1474,7 +1466,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void    PeopleTracker::setUseOpenNI( bool bUseOpenNI, int deviceIndex ){
         if ( bUseOpenNI ){
-            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_OPENNI, deviceIndex) );
+            gui.selectSource(CAMERA_OPENNI, deviceIndex);
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_OPENNI;
@@ -1490,7 +1482,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseVideoFile( bool bUseVideoFile, int deviceIndex ){
         if ( bUseVideoFile ){
-            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_VIDEOFILE, deviceIndex) );
+            gui.selectSource(CAMERA_VIDEOFILE, deviceIndex);
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_VIDEOFILE;            
@@ -1518,7 +1510,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseSyphon( bool bUseSyphon ){
         if ( bUseSyphon ){
-            gui.setValueI( "SOURCE_TYPE", CAMERA_SYPHON );
+            gui.selectSource(CAMERA_SYPHON, 0);
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_SYPHON;
@@ -1535,7 +1527,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void PeopleTracker::setUseCustomSource( bool bUseCustom ){
         if ( bUseCustom ){
-            gui.setValueI( "SOURCE_TYPE", CAMERA_CUSTOM );
+            gui.selectSource(CAMERA_CUSTOM, 0);
             gui.update();
             if (p_Settings == NULL) p_Settings = gui.getSettings();
             p_Settings->inputType = CAMERA_CUSTOM;

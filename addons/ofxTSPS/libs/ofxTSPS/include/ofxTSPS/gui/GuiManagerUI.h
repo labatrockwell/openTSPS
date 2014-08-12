@@ -61,6 +61,7 @@ namespace ofxTSPS {
     typedef struct {
         SourceType  type;
         int         index;
+        string      name;
     } SourceSelection;
     
     class ofxUIDynamicRadio {
@@ -202,26 +203,11 @@ namespace ofxTSPS {
         void refreshSourcePanel();
         map<int,SourceSelection> * getCurrentSources();
         int getSourceSelectionIndex( SourceType type, int deviceIndex);
-        
-        //get + set panel info
-        int getSelectedPanel();
-        void setSelectedPanel( int index );
-        void setSelectedPanel( string name );
+        void selectSource( SourceType type, int deviceIndex = 0 );
         
         //disable / enable stuff
         void enableElement( string name );
         void disableElement( string name );
-        
-        // get values
-        bool    getValueB( string name );
-        int     getValueI( string name );
-        float   getValueF( string name );
-        string  getValueS( string name );
-        
-        void    setValueB( string name, bool val );
-        void    setValueI( string name, int val );
-        void    setValueF( string name, float val );
-        void    setValueS( string name, string val );
         
         // load
         void loadSettings ( string xml );
