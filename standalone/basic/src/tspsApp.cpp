@@ -4,10 +4,10 @@
 //--------------------------------------------------------------
 void tspsApp::setup(){
     // retina support, some day
-//    ofAppGLFWWindow * window = (ofAppGLFWWindow*) ofGetWindowPtr();
-//    if ( window->getPixelScreenCoordScale() != 1 ){
-//        ofSetWindowShape(1024 * window->getPixelScreenCoordScale(), 768 * window->getPixelScreenCoordScale());
-//    }
+    ofAppGLFWWindow * window = (ofAppGLFWWindow*) ofGetWindowPtr();
+    if ( window->getPixelScreenCoordScale() != 1 ){
+        ofSetWindowShape(1024 * window->getPixelScreenCoordScale(), 768 * window->getPixelScreenCoordScale());
+    }
     
 	ofSetFrameRate(60);
 	ofBackground(223, 212, 190);

@@ -151,6 +151,8 @@ namespace ofxTSPS {
        string name;
     };
     
+    typedef ofxUICanvas GUICanvas;
+    
     class GuiManagerUI {
         
     public:
@@ -239,17 +241,23 @@ namespace ofxTSPS {
         Settings settings;
         ofxUITabBar * guiController;
         map<string, ofxUITabBar *> guiControllers;
-        map<string, map<string, ofxUIScrollableCanvas *> > guis;
+        map<string, map<string, GUICanvas *> > guis;
+        vector<string> guiNames; //hack-y way to keep an ordered list
+        vector<string> guiTypes; //hack-y way to keep an ordered list
         
         // custom widgets
         ofxUIDynamicRadio * videoFileDropdown;
         ofxUIDynamicRadio * haarFileDropdown;
         
+        // setup methods
+        GUICanvas * setupGUI( string name, string type );
+        GUICanvas * setupGUI( string longName, string name, string type );
+        
         // quad gui stuff
         bool quadGuiSetup;
         ofxCvCoordWarpingGui quadGui;
         
-        void showHideWidgetChildren( ofxUICanvas * group, string name, bool bShow );
+        void showHideWidgetChildren( GUICanvas * group, string name, bool bShow );
         
         string enabledPanelGroup;
         

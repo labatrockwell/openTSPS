@@ -5,8 +5,15 @@
 
 #include "ofxTSPS/gui/GuiManagerUI.h"
 #include "ofxTSPS/gui/Settings.h"
+#include "ofAppGLFWWindow.h"
 
 namespace ofxTSPS {
+    // these will become global settings
+    float guiWidth  = 300;
+    float guiHeight = 600;
+    float guiTabHeight = 20;
+    bool bRetina = false;
+    
     enum{
         PARAM_INT, PARAM_FLOAT, PARAM_BOOL
     };
@@ -36,10 +43,11 @@ namespace ofxTSPS {
     void GuiManagerUI::setup(){
         enableGui = true;
         
-        // these will become global settings
-        float guiWidth  = 300;
-        float guiHeight = 600;
-        float guiTabHeight = 20;
+        // retina?
+        ofAppGLFWWindow * window = (ofAppGLFWWindow*) ofGetWindowPtr();
+        if ( window->getPixelScreenCoordScale() != 1 ){
+            bRetina = true;
+        }
         
         // setup each panel group
         guis["source"];
@@ -53,9 +61,7 @@ namespace ofxTSPS {
         // setup panel switch buttons
         
         //---- setup source panel ----
-        ofxUIScrollableCanvas * videoPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        videoPanel->setName("Select Input");
-        guis["source"]["video"]= videoPanel;
+        GUICanvas * videoPanel = setupGUI("Select Input", "video", "source");
         
         // video settings
         videoPanel->addLabel("camera settings");
@@ -124,9 +130,7 @@ namespace ofxTSPS {
         sourceSelect->getToggles()[0]->setValue(true);
         
         // video files
-        ofxUIScrollableCanvas * videoFiles = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        videoFiles->setName("Select Video File");
-        guis["source"]["videofile"] = videoFiles;
+        GUICanvas * videoFiles = setupGUI("Select Video File", "videoFile", "source");
         
         // video files
         ofxUILabel * videoGroup = videoFiles->addLabel("video files");
@@ -138,9 +142,7 @@ namespace ofxTSPS {
         videoFiles->addWidgetDown(videoFileDropdown->getWidget());
         
         // camera settings
-        ofxUIScrollableCanvas * cameraSettings = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        cameraSettings->setName("Setup Image");
-        guis["source"]["videosettings"]= cameraSettings;
+        GUICanvas * cameraSettings = setupGUI("Setup Image", "image", "source");
         
         // flip + invert
         cameraSettings->addLabel("adjust camera");
@@ -156,9 +158,7 @@ namespace ofxTSPS {
         //---- end setup source panel ----
         
         // ---- setup sensing panel ----
-        ofxUIScrollableCanvas * backgroundPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        backgroundPanel->setName("background");
-        guis["sensing"]["background"] = ( backgroundPanel );
+        GUICanvas * backgroundPanel = setupGUI("background", "sensing");
         
         //background settings
         backgroundPanel->addLabel("background");
@@ -172,9 +172,8 @@ namespace ofxTSPS {
         backgroundPanel->addSlider("recapture rate", 0.0f, 1000.0f, &settings.fLearnRate);
         
         //differencing settings
-        ofxUIScrollableCanvas * differencingPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        differencingPanel->setName("differencing");
-        guis["sensing"]["differencing"] = ( differencingPanel );
+        GUICanvas * differencingPanel = setupGUI("differencing", "sensing");
+        
         differencingPanel->addLabel("differencing");
         differencingPanel->addIntSlider("threshold", 0, 255, &settings.threshold);
         
@@ -196,9 +195,7 @@ namespace ofxTSPS {
         
         //sensing
         
-        ofxUIScrollableCanvas * trackingPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        trackingPanel->setName("tracking");
-        guis["sensing"]["tracking"] = ( trackingPanel );
+        GUICanvas * trackingPanel = setupGUI("tracking", "sensing");
         
         trackingPanel->addLabel("blobs");
         trackingPanel->addSlider("minimum blob size (% of view)", 0.01f, 50.0f, 1.f); // not auto
@@ -217,18 +214,13 @@ namespace ofxTSPS {
         // ---- end setup sensing panel ----
         
         // ---- setup communication panel ----
-        
-        ofxUIScrollableCanvas * oscPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        oscPanel->setName("OSC");
-        guis["communication"]["OSC"] = oscPanel;
+        GUICanvas * oscPanel = setupGUI("OSC", "communication");
         oscPanel->addToggle("send OSC", &settings.bSendOsc);
         oscPanel->addTextInput("receiver IP address (OSC host)", "127.0.0.1");
         oscPanel->addTextInput("receiver port", "12000");
         oscPanel->addToggle("use legacy OSC", &settings.bUseLegacyOsc);
         
-        ofxUIScrollableCanvas * websocketPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        websocketPanel->setName("WebSockets");
-        guis["communication"]["websockets"] = websocketPanel;
+        GUICanvas * websocketPanel = setupGUI("WebSockets", "communication");
         
         websocketPanel->addLabel("WebSocket Server");
         websocketPanel->addToggle("send over WebSocket server", &settings.bSendWebSocketServer);
@@ -242,32 +234,23 @@ namespace ofxTSPS {
         websocketPanel->addTextInput("websocket channel (optional)", "");
         websocketPanel->addToggle("use SSL", &settings.webSocketUseSSL);
         
-        ofxUIScrollableCanvas * spacebrewPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        spacebrewPanel->setName("Spacebrew");
-        guis["communication"]["spacebrew"] = spacebrewPanel;
+        GUICanvas * spacebrewPanel = setupGUI("Spacebrew", "communication");
         spacebrewPanel->addTextInput("Spacebrew host", "sandbox.spacebrew.cc");
         
-        ofxUIScrollableCanvas * tuioPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        tuioPanel->setName("TUIO");
+        GUICanvas * tuioPanel = setupGUI("TUIO", "communication");
         guis["communication"]["tuio"] = tuioPanel;
         tuioPanel->addToggle("send TUIO", &settings.bSendTuio);
         tuioPanel->addTextInput("receiver IP address (TUIO host)", "127.0.0.1");
         tuioPanel->addTextInput("receiver port", "3333");
         
-        ofxUIScrollableCanvas * tcpPanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        tcpPanel->setName("TCP");
-        guis["communication"]["tcp"] = tcpPanel;
+        GUICanvas * tcpPanel = setupGUI("TCP", "communication");
         tcpPanel->addToggle("send TCP", &settings.bSendTcp);
         tcpPanel->addTextInput("broadcast port (TCP port)", "8888");
         
         // ----- end setup comm panel -----
         
         // ---- setup data panel ----
-        
-        ofxUIScrollableCanvas * peoplePanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        peoplePanel->setName("people");
-        guis["data"]["people"] = peoplePanel;
-        
+        GUICanvas * peoplePanel = setupGUI("people", "data");
         peoplePanel->addLabel("options");
         peoplePanel->addToggle("track and send contours", &settings.bSendContours);
         
@@ -278,9 +261,7 @@ namespace ofxTSPS {
         //panel.addSlider("filter vectors smaller than:", "MIN_OPTICAL_FLOW", 0, 0, 5.0, false);
         //panel.addSlider("clamp vectors: larger than", "MAX_OPTICAL_FLOW", 10, 5.0, 200, false);
         
-        ofxUIScrollableCanvas * scenePanel = new ofxUIScrollableCanvas(0, 50, guiWidth, guiHeight);
-        scenePanel->setName("scene");
-        guis["data"]["scene"] = scenePanel;
+        GUICanvas * scenePanel = setupGUI("scene", "data");
         scenePanel->addLabel("options");
         scenePanel->addToggle("send scene data", &settings.bSendScene);
         scenePanel->addIntSlider("scene grid horizontal", 0, 10, &settings.sceneGridX);
@@ -291,17 +272,22 @@ namespace ofxTSPS {
         // master tab bar
         guiController = new ofxUITabBar(0,0,guiWidth, guiTabHeight);
         guiController->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
+        //guiController->setFont("fonts/times.ttf");
+        if ( bRetina ) guiController->setRetinaResolution();
         
         // set up main tabs
-        for ( auto key : guis ){
-            guiControllers[key.first] = new ofxUITabBar(0,guiTabHeight,guiWidth,guiTabHeight);
-            guiControllers[key.first]->setName(key.first);
-            guiControllers[key.first]->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
+        for ( auto s : guiTypes ){
+//        for ( auto key : guis ){
+            guiControllers[s] = new ofxUITabBar(0,guiTabHeight,guiWidth,guiTabHeight);
+            guiControllers[s]->setName(s);
+            guiControllers[s]->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
+            //guiControllers[s]->setFont("fonts/times.ttf");
+            if ( bRetina ) guiControllers[s]->setRetinaResolution();
             
-            for ( auto g : guis[key.first] ){
-                guiControllers[key.first]->addCanvas(g.second);
+            for ( auto g : guis[s] ){
+                guiControllers[s]->addCanvas(g.second);
             }
-            guiController->addCanvas(guiControllers[key.first]);
+            guiController->addCanvas(guiControllers[s]);
         }
         
         // set up section tabs
@@ -389,6 +375,21 @@ namespace ofxTSPS {
         enableEvents();
     }
     
+    GUICanvas * GuiManagerUI::setupGUI( string name, string type ){
+        return setupGUI(name, ofToLower(name), type);
+    }
+    
+    GUICanvas * GuiManagerUI::setupGUI( string longName, string name, string type ){
+        GUICanvas * panel = new GUICanvas(0, 50, guiWidth, guiHeight);
+        panel->setName(longName);
+        if ( bRetina ) panel->setRetinaResolution();
+        //panel->setFont("fonts/times.ttf");
+        if ( guis[type].size() == 0 ) guiTypes.push_back(type);
+        guis[type][name] = panel;
+        guiNames.push_back(name);
+        
+        return panel;
+    }
     
     void GuiManagerUI::refreshSourcePanel(){
         // silent for now..
@@ -483,11 +484,12 @@ namespace ofxTSPS {
         
         if ( settings.inputType == CAMERA_VIDEOFILE ){
         } else {
-            guis["source"]["videofile"]->disable();
+            guis["source"]["videoFile"]->disable();
         }
         
         // hack for layout
         for ( auto key : guis ){
+            if ( guiControllers.count(key.first) == 0 ) continue;
             bool bParentActive = guiControllers[key.first]->isEnabled();
             bool bSomeoneEnabled = false;
             
@@ -501,7 +503,7 @@ namespace ofxTSPS {
         }
         
         // video files
-        string currentDir = ((ofxUITextInput*) guis["source"]["videofile"]->getWidget("video directory (inside data folder)"))->getTextString();
+        string currentDir = ((ofxUITextInput*) guis["source"]["videoFile"]->getWidget("video directory (inside data folder)"))->getTextString();
         
         if ( settings.videoDirectory != currentDir ){
             settings.videoDirectory = currentDir;
@@ -542,9 +544,9 @@ namespace ofxTSPS {
         //update osc stuff
         
         settings.oscHost =
-            ((ofxUITextInput*) guis["communication"]["OSC"]->getWidget("receiver IP address (OSC host)") )->getTextString();
+            ((ofxUITextInput*) guis["communication"]["osc"]->getWidget("receiver IP address (OSC host)") )->getTextString();
         settings.oscPort =
-            ofToInt(((ofxUITextInput*) guis["communication"]["OSC"]->getWidget("receiver port") )->getTextString());
+            ofToInt(((ofxUITextInput*) guis["communication"]["osc"]->getWidget("receiver port") )->getTextString());
         
         // update TUIO
         settings.tuioHost =
