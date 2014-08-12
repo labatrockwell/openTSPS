@@ -381,7 +381,6 @@
 		01059A8018F6E72E003CC75F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		01059A8218F6E72E003CC75F /* CvPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CvPerson.h; sourceTree = "<group>"; };
 		01059A8318F6E72E003CC75F /* CvProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CvProcessor.h; sourceTree = "<group>"; };
-		01059A8518F6E72E003CC75F /* GuiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManager.h; sourceTree = "<group>"; };
 		01059A8618F6E72E003CC75F /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		01059A8A18F6E72E003CC75F /* PeopleTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTracker.h; sourceTree = "<group>"; };
 		01059A8B18F6E72E003CC75F /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -1368,7 +1367,6 @@
 		01059A8418F6E72E003CC75F /* gui */ = {
 			isa = PBXGroup;
 			children = (
-				01059A8518F6E72E003CC75F /* GuiManager.h */,
 				01059A8618F6E72E003CC75F /* Settings.h */,
 				01C2194B197FF5C50038C84E /* GuiManagerUI.h */,
 			);

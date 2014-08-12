@@ -48,7 +48,7 @@
 #include "ofxTSPS/source/VideoGrabber.h"
 
 namespace ofxTSPS {
-    typedef struct  {
+    struct GUICustomParam  {
         int type;
         string key;
         
@@ -56,13 +56,13 @@ namespace ofxTSPS {
         int* i;
         bool* b;
         
-    } GUICustomParam;
+    };
     
-    typedef struct {
+    struct SourceSelection {
         SourceType  type;
         int         index;
         string      name;
-    } SourceSelection;
+    };
     
     class ofxUIDynamicRadio {
     public:
@@ -201,7 +201,7 @@ namespace ofxTSPS {
         
         // refresh current sources
         void refreshSourcePanel();
-        map<int,SourceSelection> * getCurrentSources();
+        vector<SourceSelection> * getCurrentSources();
         int getSourceSelectionIndex( SourceType type, int deviceIndex);
         void selectSource( SourceType type, int deviceIndex = 0 );
         
@@ -254,7 +254,7 @@ namespace ofxTSPS {
         bool bLastBgState;
         
         // map of source indices to types
-        map<int,SourceSelection> currentSources;
+        vector<SourceSelection> currentSources;
         
         void saveEventCatcher( string & buttonName);
         void reloadEventCatcher( string & buttonName);

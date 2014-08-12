@@ -76,7 +76,7 @@ namespace ofxTSPS {
             sel.type = CAMERA_VIDEOGRABBER;
             sel.index = i;
             sel.name = devices[i].deviceName;
-            currentSources[currentSources.size()] = sel;
+            currentSources.push_back(sel);
         }
         
         Kinect dummyKinect;
@@ -89,7 +89,7 @@ namespace ofxTSPS {
             sel.type = CAMERA_KINECT;
             sel.index = i;
             sel.name = "Kinect "+ofToString(i);
-            currentSources[currentSources.size()] = sel;
+            currentSources.push_back(sel);
         }
         
         // todo: Kinect v2
@@ -106,14 +106,14 @@ namespace ofxTSPS {
             sel.type = CAMERA_OPENNI;
             sel.index = i;
             sel.name = "OpenNI2 "+ofToString(i);
-            currentSources[currentSources.size()] = sel;
+            currentSources.push_back(sel);
         }
         
         SourceSelection videofileSelection;
         videofileSelection.type = CAMERA_VIDEOFILE;
         videofileSelection.index = 0;
         videofileSelection.name = "Video File";
-        currentSources[currentSources.size()] = videofileSelection;
+        currentSources.push_back(videofileSelection);
         source_types.push_back("Video File");
         
 #ifdef TARGET_OSX
@@ -121,14 +121,14 @@ namespace ofxTSPS {
         syphonSelection.type = CAMERA_SYPHON;
         syphonSelection.index = 0;
         syphonSelection.name = "Syphon";
-        currentSources[currentSources.size()] = syphonSelection;
+        currentSources.push_back(syphonSelection);
         source_types.push_back("Syphon");
 #endif
         SourceSelection customSelection;
         customSelection.type = CAMERA_SYPHON;
         customSelection.index = 0;
         customSelection.name = "custom";
-        currentSources[currentSources.size()] = customSelection;
+        currentSources.push_back(customSelection);
         source_types.push_back("custom");
         
         ofxUIRadio * sourceSelect = videoPanel->addRadio("source type", source_types);
@@ -400,15 +400,14 @@ namespace ofxTSPS {
         // silent for now..
     }
     
-    map<int,SourceSelection> * GuiManagerUI::getCurrentSources(){
+    vector<SourceSelection> * GuiManagerUI::getCurrentSources(){
         return &currentSources;
     }
     
     int GuiManagerUI::getSourceSelectionIndex( SourceType type, int deviceIndex){
-        map<int,SourceSelection>::iterator it = currentSources.begin();
-        for ( it; it != currentSources.end(); it++){
-            if ( it->second.type == type && it->second.index == deviceIndex ){
-                return it->first;
+        for ( int i=0; i<currentSources.size(); i++){
+            if ( currentSources[i].type == type && currentSources[i].index == deviceIndex ){
+                return i;
             }
         }
         return -1;
@@ -418,10 +417,12 @@ namespace ofxTSPS {
     void GuiManagerUI::selectSource( SourceType type, int deviceIndex ){
         // camera
         int index = -1;
+        int i=0;
         for ( auto s : currentSources ){
-            if ( s.second.type == type && s.second.index == deviceIndex ){
-                index = s.first;
+            if ( s.type == type && s.index == deviceIndex ){
+                index = i;
             }
+            i++;
         }
         ((ofxUIRadio*) guis["source"]["video"]->getWidget("source type"))->activateToggle( currentSources[index].name );
         
