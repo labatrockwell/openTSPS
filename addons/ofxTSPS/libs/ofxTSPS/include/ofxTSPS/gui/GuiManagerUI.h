@@ -231,6 +231,10 @@ namespace ofxTSPS {
         vector<string> guiNames; //hack-y way to keep an ordered list
         vector<string> guiTypes; //hack-y way to keep an ordered list
         
+        // added "self-documenting" stuff!
+        map<string, string> aboutMap;
+        ofxUITextArea * textArea;
+        
         // custom widgets
         ofxUIDynamicRadio * videoFileDropdown;
         ofxUIDynamicRadio * haarFileDropdown;

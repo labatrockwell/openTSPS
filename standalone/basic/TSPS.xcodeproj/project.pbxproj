@@ -40,7 +40,6 @@
 		01059BDC18F6E72F003CC75F /* TSPSDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059A7318F6E72E003CC75F /* TSPSDelegate.cpp */; };
 		01059BDD18F6E72F003CC75F /* CvPerson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059A9918F6E72E003CC75F /* CvPerson.cpp */; };
 		01059BDE18F6E72F003CC75F /* CvProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059A9A18F6E72E003CC75F /* CvProcessor.cpp */; };
-		01059BDF18F6E72F003CC75F /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059A9B18F6E72E003CC75F /* GuiManager.cpp */; };
 		01059BE218F6E72F003CC75F /* OscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059A9E18F6E72E003CC75F /* OscSender.cpp */; };
 		01059BE318F6E72F003CC75F /* PeopleTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059A9F18F6E72E003CC75F /* PeopleTracker.cpp */; };
 		01059BE418F6E72F003CC75F /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059AA018F6E72E003CC75F /* Person.cpp */; };
@@ -396,7 +395,6 @@
 		01059A9718F6E72E003CC75F /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
 		01059A9918F6E72E003CC75F /* CvPerson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CvPerson.cpp; sourceTree = "<group>"; };
 		01059A9A18F6E72E003CC75F /* CvProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CvProcessor.cpp; sourceTree = "<group>"; };
-		01059A9B18F6E72E003CC75F /* GuiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GuiManager.cpp; sourceTree = "<group>"; };
 		01059A9E18F6E72E003CC75F /* OscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscSender.cpp; sourceTree = "<group>"; };
 		01059A9F18F6E72E003CC75F /* PeopleTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PeopleTracker.cpp; sourceTree = "<group>"; };
 		01059AA018F6E72E003CC75F /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
@@ -1399,7 +1397,6 @@
 			children = (
 				01059A9918F6E72E003CC75F /* CvPerson.cpp */,
 				01059A9A18F6E72E003CC75F /* CvProcessor.cpp */,
-				01059A9B18F6E72E003CC75F /* GuiManager.cpp */,
 				01C21C43197FF6470038C84E /* GuiManagerUI.cpp */,
 				01059A9E18F6E72E003CC75F /* OscSender.cpp */,
 				01059A9F18F6E72E003CC75F /* PeopleTracker.cpp */,
@@ -2626,7 +2623,6 @@
 				01059BD218F6E72E003CC75F /* ofxSpacebrew.cpp in Sources */,
 				01059B3918F6E72E003CC75F /* RunningBackground.cpp in Sources */,
 				960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */,
-				01059BDF18F6E72F003CC75F /* GuiManager.cpp in Sources */,
 				01C21BF1197FF5F90038C84E /* ofxUIImageToggle.cpp in Sources */,
 				01059BE918F6E72F003CC75F /* TCPSender.cpp in Sources */,
 				01C21BFE197FF5F90038C84E /* ofxUIScrollableCanvas.cpp in Sources */,
@@ -2815,7 +2811,7 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = /Users/brettrenfer/Dropbox/Code/OF/of_v0.8.3_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx;
+				LIBRARY_SEARCH_PATHS = ../../addons/ofxNI2/libs/OpenNI2/lib/osx;
 				PRODUCT_NAME = TSPSDebug;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2838,7 +2834,7 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = /Users/brettrenfer/Dropbox/Code/OF/of_v0.8.3_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx;
+				LIBRARY_SEARCH_PATHS = ../../addons/ofxNI2/libs/OpenNI2/lib/osx;
 				PRODUCT_NAME = TSPS;
 				WRAPPER_EXTENSION = app;
 			};

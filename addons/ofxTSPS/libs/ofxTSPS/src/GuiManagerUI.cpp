@@ -10,7 +10,7 @@
 namespace ofxTSPS {
     // these will become global settings
     float guiWidth  = 300;
-    float guiHeight = 600;
+    float guiHeight = 500;
     float guiTabHeight = 20;
     bool bRetina = false;
     
@@ -373,6 +373,13 @@ namespace ofxTSPS {
 //        ofAddListener(panel.getLoadButton()->buttonPressed, this, &GuiManagerUI::loadEventCatcher);
 //        ofAddListener(panel.getSaveAsButton()->buttonPressed, this, &GuiManagerUI::saveAsEventCatcher);
         
+        // begin "self-documenting"
+        textArea = new ofxUITextArea("About", "Test!", guiWidth, 0, 0, guiTabHeight + guiTabHeight + 20 +guiTabHeight + guiHeight);
+        textArea->setFont(guiController->getFontMedium());
+        textArea->getLabelWidget()->setFont(guiController->getFontMedium());
+        textArea->setParent(guiController);
+//        textArea->setDraw(true);
+        
         bHasCustomPanel = false;
         
         ofEventArgs nullArgs;
@@ -719,6 +726,9 @@ namespace ofxTSPS {
 //            for( it=customButtons.begin(); it!=customButtons.end(); it++ ){
 //                it->second->render();
 //            }
+            
+            textArea->update();
+            textArea->draw();
         }
     }
     
