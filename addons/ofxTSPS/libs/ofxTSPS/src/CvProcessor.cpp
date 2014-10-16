@@ -70,7 +70,7 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
         // update camera image
-        cameraImage.setFromPixels(image.getPixelsRef());
+        cameraImage.setFromPixels(image.getPixels());
         
         // update smaller image
         // pixel copy method is temporary... copying directly to image
@@ -88,8 +88,8 @@ namespace ofxTSPS {
     
     //------------------------------------------------------------------------
     void CvProcessor::captureBackground( ofBaseImage & image ){
-        backgroundImage.setFromPixels( image.getPixelsRef() );
-        progressiveBackgroundImage.setFromPixels( image.getPixelsRef() );
+        backgroundImage.setFromPixels( image.getPixels() );
+        progressiveBackgroundImage.setFromPixels( image.getPixels() );
     }
     
     //------------------------------------------------------------------------
@@ -97,7 +97,7 @@ namespace ofxTSPS {
         ofxCv::lerp(image, progressiveBackgroundImage, progressiveBackgroundImage, amount);
         //cv::addWeighted( toCv(backgroundImage), amount, toCv(progressiveBackgroundImage), 1.0f-amount,0, toCv(progressiveBackgroundImage) );
         backgroundImage = progressiveBackgroundImage;
-        return backgroundImage.getPixelsRef();
+        return backgroundImage.getPixels();
     }
     
     //------------------------------------------------------------------------
@@ -117,7 +117,7 @@ namespace ofxTSPS {
             }
         }
         differencedImage.update();
-        return differencedImage.getPixelsRef();
+        return differencedImage.getPixels();
     }
     
     //------------------------------------------------------------------------
@@ -130,7 +130,7 @@ namespace ofxTSPS {
             processOpticalFlow( cameraSmallImage );
         }
         
-        differencedImage.setFromPixels(image.getPixelsRef());
+        differencedImage.setFromPixels(image.getPixels());
         ofxCv::threshold(differencedImage, threshold);
         
         // find contours
@@ -281,7 +281,7 @@ namespace ofxTSPS {
                 trackedPeople->erase(trackedPeople->begin() + i);
             }
         }
-        return differencedImage.getPixelsRef();
+        return differencedImage.getPixels();
     }
     
     //------------------------------------------------------------------------

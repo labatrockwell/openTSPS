@@ -62,14 +62,17 @@ namespace ofxTSPS {
 #endif
         }
         
-        unsigned char * getPixels(){
-            return getPixelsRef().getPixels();
-        }
+//        unsigned char * getPixels(){
+//            return getPixels();
+//        }
         
-        ofPixels & getPixelsRef(){
-            static ofPixels retPix;
+        ofPixels & getPixels(){
             depthRemapToRange(ofxNI2::DepthStream::getPixelsRef(), retPix, nearClipping, farClipping, true);
             return retPix;
+        }
+        
+        const ofPixels & getPixels() const {
+            return getPixels();
         }
         
         bool doProcessFrame(){
@@ -151,5 +154,6 @@ namespace ofxTSPS {
         ofxNI2::Device *device;
         bool bDepthSetup, bDoProcessFrame;
         int nearClipping, farClipping;
+        ofPixels retPix;
     };
 }

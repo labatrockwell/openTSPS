@@ -19,14 +19,13 @@ OFX_CV_INC          = $(CORE_ADDONS_PATH)/ofxOpenCv/libs/opencv/include/ $(TSPS_
 OFX_CV_lIBS         = $(CORE_ADDONS_PATH)/ofxOpenCv/libs/opencv/lib/osx/opencv.a
 
 //ofxLibwebsockets
-LIB_SSL             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libssl.a
-LIB_CRYPTO          = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx/libcrypto.a
-SSL_INC             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/
+LWS_SEARCH          = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx
 LWS                 = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx/libwebsockets.a
 LWS_INC             = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/include
 OFX_LWS_INCLUDE     = $(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/ofxLibwebsockets/include
-OFX_LWS_LIBS        = $(LIB_CRYPTO) $(LIB_SSL) $(LWS)
-OFX_LWS_INCLUDES    = $(SSL_INC) $(OFX_LWS_INCLUDE) $(LWS_INC)
+OFX_LWS_LIBS        = $(LWS)
+OFX_LWS_SEARCH      = $(LWS_SEARCH)
+OFX_LWS_INCLUDES    = $(OFX_LWS_INCLUDE) $(LWS_INC)
 
 // ofxKinect
 OFX_KINECT_HEADERS  = $(CORE_ADDONS_PATH)/ofxKinect/libs/libusb-1.0/include/libusb-1.0 $(CORE_ADDONS_PATH)/ofxKinect/libs/libusb-1.0/include $(CORE_ADDONS_PATH)/ofxKinect/libs/libfreenect/include
@@ -35,6 +34,7 @@ OFX_KINECT_LIBS     = $(CORE_ADDONS_PATH)/ofxKinect/libs/libusb-1.0/lib/osx/usb-
 //ofxNI2
 OFX_NI2_HEADERS  = $(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/include
 OFX_NI2_LIBS     = $(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx/libOpenNI2.dylib
+OFX_NI2_SEARCH   = $(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx
 
 // ofxTuioWrapper
 OFX_TUIO_LIBS       = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx/libOsc.a
@@ -43,3 +43,4 @@ OFX_TUIO_INC        = $(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/include/ip 
 // all addons
 TSPS_ADDON_HEADERS = $(OFX_KINECT_HEADERS) $(OFX_OPENCV_HEADERS) $(OFX_CV_INC) $(OFX_LWS_INCLUDES) $(OFX_OSC_INC) $(OFX_TUIO_INC) $(OFX_NI2_HEADERS) $(OFX_TSPS_INC)
 TSPS_ADDON_LIBS = $(OFX_CV_lIBS) $(OFX_KINECT_LIBS) $(OFX_LWS_LIBS) $(OFX_TUIO_LIBS) $(OFX_NI2_LIBS)
+TSPS_ADDON_LIB_SEARCH_PATHS = $(OFX_LWS_SEARCH) $(OFX_NI2_SEARCH)

@@ -42,8 +42,8 @@ namespace ofxTSPS {
             return isFrameNew();
         }
         
-        ofPixelsRef getPixelsRef(){
-            return getDepthPixelsRef();
+        ofPixels & getPixels(){
+            return getDepthPixels();
         }
         
         bool openSource( int width, int height, string etc="" ){

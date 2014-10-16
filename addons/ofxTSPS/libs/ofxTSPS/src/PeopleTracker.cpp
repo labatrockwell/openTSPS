@@ -215,27 +215,27 @@ namespace ofxTSPS {
         }
         
         if ( bNewFrame ){
-            ofImageType currentType = currentSource->getPixelsRef().getImageType();
+            ofImageType currentType = currentSource->getPixels().getImageType();
             if ( currentType != OF_IMAGE_GRAYSCALE ){
                 // TO-DO: this should probably be in the Processor
                 // convert to grayscale and resize
-                if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                     ofImage tempImage;
-                    tempImage.setFromPixels( currentSource->getPixelsRef() );
-                    ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, currentType == OF_IMAGE_COLOR_ALPHA ? CV_RGB2GRAY : CV_RGBA2GRAY);
+                    tempImage.setFromPixels( currentSource->getPixels() );
+                    ofxCv::convertColor( currentSource->getPixels(), tempImage, currentType == OF_IMAGE_COLOR_ALPHA ? CV_RGB2GRAY : CV_RGBA2GRAY);
                     ofxCv::resize(tempImage, cameraImage);
                 } else {
-                    ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+                    ofxCv::convertColor( currentSource->getPixels(), cameraImage, CV_RGB2GRAY);
                 }
                 cameraImage.update();
             } else {
                 // either resize or just copy pixels
-                if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                     ofImage tempImage;
-                    tempImage.setFromPixels( currentSource->getPixelsRef() );
+                    tempImage.setFromPixels( currentSource->getPixels() );
                     ofxCv::resize(tempImage, cameraImage);
                 } else {
-                    cameraImage.setFromPixels( currentSource->getPixelsRef() );
+                    cameraImage.setFromPixels( currentSource->getPixels() );
                 }
             }
             
@@ -268,26 +268,26 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::update( ofBaseImage & image ){
-        if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
+        if ( currentSource->getPixels().getImageType() != OF_IMAGE_GRAYSCALE ){
             // TO-DO: this should probably be in the Processor
             // convert to grayscale and resize
-            if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+            if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                 ofImage tempImage;
-                tempImage.setFromPixels( currentSource->getPixelsRef() );
-                ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, CV_RGB2GRAY);
+                tempImage.setFromPixels( currentSource->getPixels() );
+                ofxCv::convertColor( currentSource->getPixels(), tempImage, CV_RGB2GRAY);
                 ofxCv::resize(tempImage, cameraImage);
             } else {
-                ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+                ofxCv::convertColor( currentSource->getPixels(), cameraImage, CV_RGB2GRAY);
             }
             cameraImage.update();
         } else {
             // either resize or just copy pixels
-            if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+            if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                 ofImage tempImage;
-                tempImage.setFromPixels( currentSource->getPixelsRef() );
+                tempImage.setFromPixels( currentSource->getPixels() );
                 ofxCv::resize(tempImage, cameraImage);
             } else {
-                cameraImage.setFromPixels( currentSource->getPixelsRef() );
+                cameraImage.setFromPixels( currentSource->getPixels() );
             }
         }
         
@@ -829,13 +829,13 @@ namespace ofxTSPS {
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::flip( src, dst, mode );
             ofxCv::toOf( dst, temp );
-			warpedImage.setFromPixels( temp.getPixelsRef() );
+			warpedImage.setFromPixels( temp.getPixels() );
             warpedImage.update();
         }
         
         // invert
         if ( p_Settings->bInvert ){
-            ofPixelsRef pix = warpedImage.getPixelsRef();
+            ofPixelsRef pix = warpedImage.getPixels();
             for (int i=0, len=pix.getWidth()*pix.getHeight()*pix.getNumChannels();i<len;i++){
                 pix[i]=255-pix[i];
             }
@@ -843,7 +843,7 @@ namespace ofxTSPS {
         }
         
         // update scaled down images
-        grayDiff.setFromPixels(warpedImage.getPixelsRef());
+        grayDiff.setFromPixels(warpedImage.getPixels());
         
         //amplify
         if(p_Settings->bAmplify){
@@ -852,7 +852,7 @@ namespace ofxTSPS {
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::multiply(src, src, dst, scalef);
             ofxCv::toOf( dst, temp);
-			warpedImage.setFromPixels( temp.getPixelsRef() );
+			warpedImage.setFromPixels( temp.getPixels() );
             warpedImage.update();
         }
         
@@ -861,7 +861,7 @@ namespace ofxTSPS {
         
         //learn background
         if (doRelearnBackground){
-            backgroundImage.setFromPixels(warpedImage.getPixelsRef());
+            backgroundImage.setFromPixels(warpedImage.getPixels());
             tspsProcessor->captureBackground( warpedImage );
             doRelearnBackground = false;
             p_Settings->bLearnBackground = false;
@@ -915,7 +915,7 @@ namespace ofxTSPS {
             
 			static ofImage temp;
             ofxCv::toOf( dst, temp );
-			grayDiff.setFromPixels( temp.getPixelsRef() );
+			grayDiff.setFromPixels( temp.getPixels() );
             //grayDiff.update();
         }
         
@@ -925,7 +925,7 @@ namespace ofxTSPS {
             cv::blur(mat, mat, cv::Size((p_Settings->smooth * 2) + 1, (p_Settings->smooth * 2) + 1));
             static ofImage temp;
             ofxCv::toOf( mat, temp );
-			grayDiff.setFromPixels( temp.getPixelsRef() );
+			grayDiff.setFromPixels( temp.getPixels() );
         }
         
         //-----------------------

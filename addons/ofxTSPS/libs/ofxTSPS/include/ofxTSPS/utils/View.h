@@ -36,7 +36,7 @@ namespace ofxTSPS {
         //-------------------------------------------------
         void setImage(ofBaseImage * _image){
             bImage = true;
-            if ( _image->getPixelsRef().getNumChannels() == 1){
+            if ( _image->getPixels().getNumChannels() == 1){
                 bGray = true;
             } else {
                 bGray = false;
