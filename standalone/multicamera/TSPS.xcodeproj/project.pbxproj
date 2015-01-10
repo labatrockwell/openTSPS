@@ -32,7 +32,6 @@
 		0105937118F6E458003CC75F /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 010590B418F6E456003CC75F /* libssl.a */; };
 		0105937418F6E458003CC75F /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0105910218F6E456003CC75F /* ofxMSAInteractiveObject.cpp */; };
 		010593B218F6E458003CC75F /* ofxSpacebrew.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0105922218F6E457003CC75F /* ofxSpacebrew.cpp */; };
-		010593B718F6E458003CC75F /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0105924518F6E458003CC75F /* Syphon.framework */; };
 		010593B818F6E458003CC75F /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0105924818F6E458003CC75F /* SyphonNameboundClient.m */; };
 		010593B918F6E458003CC75F /* ofxSyphonClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0105924D18F6E458003CC75F /* ofxSyphonClient.mm */; };
 		010593BA18F6E458003CC75F /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0105924F18F6E458003CC75F /* ofxSyphonServer.mm */; };
@@ -65,7 +64,6 @@
 		010593D718F6E458003CC75F /* oscpackd.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010592BA18F6E458003CC75F /* oscpackd.lib */; };
 		010593D818F6E458003CC75F /* TuioTcpXmlServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 010592BB18F6E458003CC75F /* TuioTcpXmlServer.cpp */; };
 		0105946C18F6E562003CC75F /* ofxCvCoordWarpingGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0105946A18F6E562003CC75F /* ofxCvCoordWarpingGui.cpp */; };
-		01059C8718F6ECC8003CC75F /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0105924518F6E458003CC75F /* Syphon.framework */; };
 		01059D6B18F70088003CC75F /* ofxNI2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059D6018F70088003CC75F /* ofxNI2.cpp */; };
 		01059D6C18F70088003CC75F /* ofxNiTE2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059D6218F70088003CC75F /* ofxNiTE2.cpp */; };
 		01059DCB18F70098003CC75F /* libNiTE2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01059D7818F70098003CC75F /* libNiTE2.dylib */; };
@@ -81,6 +79,9 @@
 		0F8F016776681D468C0D0949 /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 34FC4C582EA5ED68F36013CD /* audio.c */; };
 		125506CD3E5F428AAFE5CC65 /* ofxTCPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F399B91E98DC31CDA6DDACB4 /* ofxTCPManager.cpp */; };
 		169D3C72FDE6C5590A1616F5 /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A03390302D5A2C9F0E4AB /* ofxCvFloatImage.cpp */; };
+		1A7060111A614C3C00224073 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7060101A614C3C00224073 /* Syphon.framework */; };
+		1A7060121A614C6600224073 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7060101A614C3C00224073 /* Syphon.framework */; };
+		1A7060131A614C6600224073 /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A7060101A614C3C00224073 /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D5F3298C2FA073628012944 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C76DE5C29BDBD2CAA1DD0021 /* ofxCvContourFinder.cpp */; };
 		21A059755481CC0BF969FD2D /* keep_alive.c in Sources */ = {isa = PBXBuildFile; fileRef = A3528DDFF05B00283552455D /* keep_alive.c */; };
 		250A95BA26587BE85DB0A353 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE9C7160245B19131DAE6128 /* ofxCvColorImage.cpp */; };
@@ -179,7 +180,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
-				01059C8718F6ECC8003CC75F /* Syphon.framework in CopyFiles */,
+				1A7060131A614C6600224073 /* Syphon.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +341,6 @@
 		0105922018F6E457003CC75F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		0105922218F6E457003CC75F /* ofxSpacebrew.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSpacebrew.cpp; sourceTree = "<group>"; };
 		0105922318F6E457003CC75F /* ofxSpacebrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSpacebrew.h; sourceTree = "<group>"; };
-		0105924518F6E458003CC75F /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = "<group>"; };
 		0105924718F6E458003CC75F /* SyphonNameboundClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonNameboundClient.h; sourceTree = "<group>"; };
 		0105924818F6E458003CC75F /* SyphonNameboundClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyphonNameboundClient.m; sourceTree = "<group>"; };
 		0105924918F6E458003CC75F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -486,6 +486,7 @@
 		0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscParameterSync.cpp; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.cpp; sourceTree = SOURCE_ROOT; };
 		0CF0AA3895D28E97D8A1E4A9 /* ground_truth.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ground_truth.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/ground_truth.h; sourceTree = SOURCE_ROOT; };
 		114B872696817CC33990FC83 /* imgproc.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = imgproc.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/imgproc.hpp; sourceTree = SOURCE_ROOT; };
+		1A7060101A614C3C00224073 /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = "<group>"; };
 		1C085E327DAB912CFA2A443D /* ofxTCPServer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPServer.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPServer.cpp; sourceTree = SOURCE_ROOT; };
 		1DFA26F2C6BBD1B8AC24C0B1 /* ofxNetworkUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNetworkUtils.h; path = ../../../addons/ofxNetwork/src/ofxNetworkUtils.h; sourceTree = SOURCE_ROOT; };
 		1E95EFD35ED9C5D97F2F015E /* timer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = timer.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/timer.h; sourceTree = SOURCE_ROOT; };
@@ -682,11 +683,11 @@
 				010593D618F6E458003CC75F /* oscpack.lib in Frameworks */,
 				01059DD018F70098003CC75F /* libOpenNI2.dylib in Frameworks */,
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
+				1A7060111A614C3C00224073 /* Syphon.framework in Frameworks */,
 				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
 				01059DCB18F70098003CC75F /* libNiTE2.dylib in Frameworks */,
 				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
 				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
-				010593B718F6E458003CC75F /* Syphon.framework in Frameworks */,
 				0105937118F6E458003CC75F /* libssl.a in Frameworks */,
 				010593D418F6E458003CC75F /* libOsc.a in Frameworks */,
 				010593D518F6E458003CC75F /* oscpack.a in Frameworks */,
@@ -700,6 +701,7 @@
 				E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */,
 				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
+				1A7060121A614C6600224073 /* Syphon.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
 				E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */,
 			);
@@ -1209,7 +1211,7 @@
 		0105924418F6E458003CC75F /* osx */ = {
 			isa = PBXGroup;
 			children = (
-				0105924518F6E458003CC75F /* Syphon.framework */,
+				1A7060101A614C3C00224073 /* Syphon.framework */,
 			);
 			path = osx;
 			sourceTree = "<group>";
@@ -2597,6 +2599,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxSyphon/libs/Syphon/lib/osx,
+					/Users/james/Development/of_v0.8.4_osx_release/openTSPS/addons/ofxSyphon/libs/Syphon/lib/osx,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2607,6 +2610,7 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -2670,22 +2674,22 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_client_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blobvideo/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/linux,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx/Drivers,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/win32,
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_client_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blobvideo/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/linux",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx/Drivers",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/win32",
 				);
 				OTHER_LDFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = TSPSDebug;
@@ -2702,6 +2706,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxSyphon/libs/Syphon/lib/osx,
+					/Users/james/Development/of_v0.8.4_osx_release/openTSPS/addons/ofxSyphon/libs/Syphon/lib/osx,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -2711,6 +2716,7 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -2774,22 +2780,22 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_client_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blobvideo/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/linux,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx/Drivers,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/win32,
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_client_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blobvideo/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/linux",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx/Drivers",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/win32",
 				);
 				OTHER_LDFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = TSPS;
