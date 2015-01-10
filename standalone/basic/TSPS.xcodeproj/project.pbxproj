@@ -35,7 +35,6 @@
 		01059B9318F6E72E003CC75F /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0105991C18F6E72C003CC75F /* ofxMSAInteractiveObject.cpp */; };
 		01059B9418F6E72E003CC75F /* ofxCvCoordWarpingGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0105992118F6E72C003CC75F /* ofxCvCoordWarpingGui.cpp */; };
 		01059BD218F6E72E003CC75F /* ofxSpacebrew.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059A4118F6E72D003CC75F /* ofxSpacebrew.cpp */; };
-		01059BD718F6E72F003CC75F /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01059A6418F6E72E003CC75F /* Syphon.framework */; };
 		01059BD818F6E72F003CC75F /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 01059A6718F6E72E003CC75F /* SyphonNameboundClient.m */; };
 		01059BD918F6E72F003CC75F /* ofxSyphonClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 01059A6C18F6E72E003CC75F /* ofxSyphonClient.mm */; };
 		01059BDA18F6E72F003CC75F /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 01059A6E18F6E72E003CC75F /* ofxSyphonServer.mm */; };
@@ -63,7 +62,6 @@
 		01059BF218F6E72F003CC75F /* ofxTuioServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059ABE18F6E72E003CC75F /* ofxTuioServer.cpp */; };
 		01059BF418F6E72F003CC75F /* libOsc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01059AD518F6E72E003CC75F /* libOsc.a */; };
 		01059BF818F6E72F003CC75F /* TuioTcpXmlServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059ADA18F6E72E003CC75F /* TuioTcpXmlServer.cpp */; };
-		01059C8618F6E822003CC75F /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01059A6418F6E72E003CC75F /* Syphon.framework */; };
 		01059D3D18F6F9AB003CC75F /* libNiTE2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01059CD718F6F9AB003CC75F /* libNiTE2.dylib */; };
 		01059D4218F6F9AB003CC75F /* libOpenNI2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01059D1418F6F9AB003CC75F /* libOpenNI2.dylib */; };
 		01059D4418F6F9AB003CC75F /* ofxNI2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01059D2C18F6F9AB003CC75F /* ofxNI2.cpp */; };
@@ -80,6 +78,8 @@
 		0F8F016776681D468C0D0949 /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 34FC4C582EA5ED68F36013CD /* audio.c */; };
 		125506CD3E5F428AAFE5CC65 /* ofxTCPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F399B91E98DC31CDA6DDACB4 /* ofxTCPManager.cpp */; };
 		169D3C72FDE6C5590A1616F5 /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A03390302D5A2C9F0E4AB /* ofxCvFloatImage.cpp */; };
+		1A7060151A6153D600224073 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01059A6418F6E72E003CC75F /* Syphon.framework */; };
+		1A7060161A6153D600224073 /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01059A6418F6E72E003CC75F /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D5F3298C2FA073628012944 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C76DE5C29BDBD2CAA1DD0021 /* ofxCvContourFinder.cpp */; };
 		21A059755481CC0BF969FD2D /* keep_alive.c in Sources */ = {isa = PBXBuildFile; fileRef = A3528DDFF05B00283552455D /* keep_alive.c */; };
 		250A95BA26587BE85DB0A353 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE9C7160245B19131DAE6128 /* ofxCvColorImage.cpp */; };
@@ -178,7 +178,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
-				01059C8618F6E822003CC75F /* Syphon.framework in CopyFiles */,
+				1A7060161A6153D600224073 /* Syphon.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,7 +684,6 @@
 				01059B8F18F6E72E003CC75F /* libcrypto.a in Frameworks */,
 				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
 				01059D4218F6F9AB003CC75F /* libOpenNI2.dylib in Frameworks */,
-				01059BD718F6E72F003CC75F /* Syphon.framework in Frameworks */,
 				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
 				E45BE97F0E8CC7DD009D7055 /* CoreAudio.framework in Frameworks */,
 				E45BE9800E8CC7DD009D7055 /* CoreFoundation.framework in Frameworks */,
@@ -698,6 +697,7 @@
 				01059D3D18F6F9AB003CC75F /* libNiTE2.dylib in Frameworks */,
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
+				1A7060151A6153D600224073 /* Syphon.framework in Frameworks */,
 				E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */,
 				0140B2C518F6E3EA009CF983 /* usb-1.0.a in Frameworks */,
 			);
@@ -2607,7 +2607,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxSyphon/libs/Syphon/lib/osx,
+					"$(TSPS_ADDONS_PATH)/ofxSyphon/libs/Syphon/lib/osx",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2617,6 +2617,7 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -2680,23 +2681,23 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
-					"/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/addons/ofxKinect/libs/libusb-1.0/lib/osx",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_client_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blobvideo/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/linux,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx/Drivers,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/win32,
+					"$(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb-1.0/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_client_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blobvideo/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/linux",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx/Drivers",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/win32",
 				);
 				PRODUCT_NAME = TSPSDebug;
 				WRAPPER_EXTENSION = app;
@@ -2711,7 +2712,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxSyphon/libs/Syphon/lib/osx,
+					"$(TSPS_ADDONS_PATH)/ofxSyphon/libs/Syphon/lib/osx",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -2720,6 +2721,7 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -2783,23 +2785,23 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
-					"/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/addons/ofxKinect/libs/libusb-1.0/lib/osx",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_client_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blob/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/example_server_blobvideo/bin,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxLibwebsockets/libs/openssl/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/linux,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxTuioWrapper/src/oscpack/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/NiTE2/lib/win32,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx/Drivers,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.8.1_osx_release/openTSPS/addons/ofxNI2/libs/OpenNI2/lib/win32,
+					"$(TSPS_ADDONS_PATH)/ofxKinect/libs/libusb-1.0/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_client_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blob/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/example_server_blobvideo/bin",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Debug",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/libwebsockets/lib/win32/Release",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxLibwebsockets/libs/openssl/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/linux",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxTuioWrapper/src/oscpack/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/NiTE2/lib/win32",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx/Drivers",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/osx",
+					"$(TSPS_ADDONS_PATH)/ofxNI2/libs/OpenNI2/lib/win32",
 				);
 				PRODUCT_NAME = TSPS;
 				WRAPPER_EXTENSION = app;
