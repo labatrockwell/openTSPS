@@ -264,6 +264,17 @@ namespace ofxTSPS {
         panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
         panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
         
+#ifdef TSPS_KINECT2
+        guiTypeGroup * k2Group = panel.addGroup("kinect settings");
+        k2Group->setBackgroundColor(148,129,85);
+        k2Group->setBackgroundSelectColor(148,129,85);
+        k2Group->seBaseColor(244,136,136);
+        k2Group->setShowText(false);
+
+        panel.addSlider("near threshold:", "K2_NEAR", 30., 0., 5000., false);
+        panel.addSlider("far threshold:", "K2_FAR", 1000., 0., 5000., false);
+#endif
+
         // end setup source panel
         
         // setup sensing panel

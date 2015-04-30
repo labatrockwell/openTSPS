@@ -46,6 +46,10 @@ namespace ofxTSPS {
 			// https://github.com/rickbarraza/KinectV2_Lessons/blob/master/3_MakeRawDepthBrigther/src/testApp.cpp
 			static vector<unsigned char> depthLookupTable;
 			
+			if ( nearCached != nearClipping || farCached != farClipping){
+				depthLookupTable.clear();
+			}
+
 			if ( depthLookupTable.size() == 0){
 
 				// IF YOU WANT NEAR TO BE BLACK AND FAR TO BE WHITE, SWITCH THESE
@@ -85,6 +89,8 @@ namespace ofxTSPS {
 					}
 				}
 			}
+			nearCached = nearClipping;
+			farCached = farClipping;
         }
         
         ofPixelsRef getPixelsRef(){
@@ -117,6 +123,7 @@ namespace ofxTSPS {
 		float nearClipping, farClipping;
 
 	protected:
+		float nearCached, farCached;
 		ofPixels outputPixels;
 		bool bDepthInited;
     };

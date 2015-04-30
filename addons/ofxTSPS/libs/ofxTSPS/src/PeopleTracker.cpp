@@ -212,6 +212,14 @@ namespace ofxTSPS {
         // update source
         bool bNewFrame = false;
         if ( currentSource != NULL && currentSource->isOpen() ){
+#ifdef TSPS_KINECT2
+			if ( currentSource->getType() == CAMERA_KINECT ){
+				Kinect2 * kRef = dynamic_cast<Kinect2*>(currentSource);
+				kRef->nearClipping = gui.getValueF("K2_NEAR");
+				kRef->farClipping = gui.getValueF("K2_FAR");
+			}
+#endif
+
             currentSource->update();
             bNewFrame = currentSource->doProcessFrame();
         }
