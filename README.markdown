@@ -44,8 +44,16 @@ Compiling:
 ```
 git submodule update --init --recursive
 ```
-4. open the project for your platform (Xcode of vs2010) in openTSPS/standalone/basic
-5. compile and run!
+4. Kinect 2 support: checkout ofxKinectForWindows2 using new cloneaddons.sh
+```
+bash cloneaddons.sh
+```
+5. open the project for your platform (Xcode of vs2010) in openTSPS/standalone/basic
+* Windows only: add this preprocessor argument to the ofxKinectForWindows2 project:
+```
+_WIN32_WINNT=0x500
+```
+6. compile and run!
 
 Compiling OS X 10.7+:
 ------------

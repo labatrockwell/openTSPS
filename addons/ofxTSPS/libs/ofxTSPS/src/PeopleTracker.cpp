@@ -196,10 +196,12 @@ namespace ofxTSPS {
         } else if ( useVideoFile() && currentSource->getType() == CAMERA_VIDEOFILE && getVideoFile() != currentSource->getCustomData() ){
             setupSource( CAMERA_VIDEOFILE );
         }
+#ifndef TSPS_KINECT2
         // 4: OpenNI
         else if ( useOpenNI() && ( currentSource == NULL || currentSource->getType() != CAMERA_OPENNI)){
             setupSource( CAMERA_OPENNI, p_Settings->cameraIndex );
         }
+#endif
 #ifdef TARGET_OSX
         // 5: syphon
         else if ( useSyphon() && (currentSource == NULL || currentSource->getType() != CAMERA_SYPHON) ){
@@ -468,9 +470,11 @@ namespace ofxTSPS {
                 setUseSyphon();
 #endif
                 break;
+#ifndef TSPS_KINECT2
             case CAMERA_OPENNI:
                 setUseOpenNI();
                 break;
+#endif
             case CAMERA_CUSTOM:
                 setUseCustomSource();
                 break;
@@ -493,7 +497,11 @@ namespace ofxTSPS {
         switch ( type ){
             case CAMERA_KINECT:
 #ifndef TSPS_ONLY_OPENNI
+#ifdef TSPS_KINECT2
+                currentSource = new Kinect2();
+#else
                 currentSource = new Kinect();
+#endif
 #endif
                 break;
             case CAMERA_VIDEOGRABBER:
@@ -507,9 +515,11 @@ namespace ofxTSPS {
                 }
                 currentSource = new VideoFile();
                 break;
+#ifndef TSPS_KINECT2
             case CAMERA_OPENNI:
                 currentSource = new OpenNI2();
                 break;
+#endif
 #ifdef TARGET_OSX
             case CAMERA_SYPHON:
                 currentSource = new Syphon();
@@ -531,9 +541,11 @@ namespace ofxTSPS {
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
                 break;
+#ifndef TSPS_KINECT2
             case CAMERA_OPENNI:
                 setUseOpenNI(true, which);
                 break;
+#endif
             case CAMERA_VIDEOGRABBER:
                 setUseVideoGrabber(true, which);
                 break;
@@ -834,7 +846,7 @@ namespace ofxTSPS {
 			static ofImage temp = warpedImage;
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::flip( src, dst, mode );
-            ofxCv::toOf( dst, temp );
+            ofxCv::toOf( dst, temp.getPixelsRef() );
 			warpedImage.setFromPixels( temp.getPixelsRef() );
             warpedImage.update();
         }
@@ -857,7 +869,7 @@ namespace ofxTSPS {
 			static ofImage temp = warpedImage;
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::multiply(src, src, dst, scalef);
-            ofxCv::toOf( dst, temp);
+            ofxCv::toOf( dst, temp.getPixelsRef());
 			warpedImage.setFromPixels( temp.getPixelsRef() );
             warpedImage.update();
         }
@@ -917,7 +929,7 @@ namespace ofxTSPS {
             }
             
 			static ofImage temp;
-            ofxCv::toOf( dst, temp );
+            ofxCv::toOf( dst, temp.getPixelsRef() );
 			grayDiff.setFromPixels( temp.getPixelsRef() );
             //grayDiff.update();
         }
@@ -927,7 +939,7 @@ namespace ofxTSPS {
             cv::Mat mat = ofxCv::toCv(grayDiff);
             cv::blur(mat, mat, cv::Size((p_Settings->smooth * 2) + 1, (p_Settings->smooth * 2) + 1));
             static ofImage temp;
-            ofxCv::toOf( mat, temp );
+            ofxCv::toOf( mat, temp.getPixelsRef() );
 			grayDiff.setFromPixels( temp.getPixelsRef() );
         }
         
@@ -1460,7 +1472,7 @@ namespace ofxTSPS {
         }
     }
 #endif
-    
+#ifndef TSPS_KINECT2
     //---------------------------------------------------------------------------
     bool    PeopleTracker::useOpenNI(){
         if (p_Settings == NULL) p_Settings = gui.getSettings();
@@ -1476,7 +1488,7 @@ namespace ofxTSPS {
             p_Settings->inputType = CAMERA_OPENNI;
         }
     }
-    
+#endif
     //---------------------------------------------------------------------------
     bool PeopleTracker::useVideoFile(){    
         if (p_Settings == NULL) p_Settings = gui.getSettings();

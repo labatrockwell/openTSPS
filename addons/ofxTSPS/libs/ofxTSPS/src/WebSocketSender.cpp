@@ -11,7 +11,6 @@
 namespace ofxTSPS {
     //---------------------------------------------------------------------------
     WebSocketSender::WebSocketSender(){
-        binary = false;
         port = 8887;
         bServerSetup = bClientSetup = false;
         server = NULL;

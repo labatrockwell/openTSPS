@@ -179,7 +179,11 @@ namespace ofxTSPS {
         }
         
 #ifndef TSPS_ONLY_OPENNI
+#ifdef TSPS_KINECT2
+        Kinect2 dummyKinect;
+#else
         Kinect dummyKinect;
+#endif;
         int numKinects = dummyKinect.numAvailable();
         
         for ( int i=0; i<numKinects; i++){
@@ -192,6 +196,7 @@ namespace ofxTSPS {
         }
 #endif
         
+#ifndef TSPS_KINECT2
         static OpenNI2 dummyOpenNI;
         int numOpenNI = dummyOpenNI.numAvailable();
         
@@ -203,6 +208,7 @@ namespace ofxTSPS {
             sel.index = i;
             currentSources[currentSources.size()] = sel;
         }
+#endif
         
         SourceSelection videofileSelection;
         videofileSelection.type = CAMERA_VIDEOFILE;

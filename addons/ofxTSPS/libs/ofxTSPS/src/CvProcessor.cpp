@@ -77,12 +77,12 @@ namespace ofxTSPS {
         // via ofxCv crashes
 		Mat srcMat = toCv(cameraImage), dstMat = toCv(resizeImage);
         cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_NEAREST);
-        toOf(dstMat, cameraSmallImage);
+        toOf(dstMat, cameraSmallImage.getPixelsRef());
         cameraSmallImage.update();
         
 		Mat dstMatBaby = toCv(resizeBabyImage);
         cv::resize(srcMat, dstMatBaby, dstMatBaby.size(), 0, 0, INTER_NEAREST);
-        toOf(dstMatBaby, cameraBabyImage);
+        toOf(dstMatBaby, cameraBabyImage.getPixelsRef());
         cameraBabyImage.update();
     }
     
