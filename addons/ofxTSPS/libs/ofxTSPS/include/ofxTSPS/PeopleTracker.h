@@ -53,7 +53,7 @@
 #ifdef TSPS_KINECT2
 #include "ofxTSPS/source/Kinect2.h"
 #else
-#include "ofxTSPS/source/Kinect.h"
+#include "ofxTSPS/source/Kinect1.h"
 #include "ofxTSPS/source/OpenNI2.h"
 #endif
 #else
