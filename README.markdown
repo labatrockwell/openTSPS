@@ -53,7 +53,11 @@ bash cloneaddons.sh
 ```
 _WIN32_WINNT=0x500
 ```
-6. compile and run!
+6. WINDOWS ONLY: Include winsock2.h instead of winsock.h everywhere in ofxKinect (see [this issue](https://github.com/openframeworks/openFrameworks/issues/3681)). It should be in 3 files:
+* libs/libfreenect/platform/windows/libusb10emu/libusb-1.0/libusb.h
+* libs/libfreenect/include/libfreenect.h
+* libs/libusb-1.0/include/libusb-1.0/libusb.h
+7. compile and run!
 
 Compiling OS X 10.7+:
 ------------
