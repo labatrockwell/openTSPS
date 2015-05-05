@@ -183,7 +183,7 @@ namespace ofxTSPS {
         Kinect2 dummyKinect;
 #else
         Kinect dummyKinect;
-#endif;
+#endif
         int numKinects = dummyKinect.numAvailable();
         
         for ( int i=0; i<numKinects; i++){
@@ -191,6 +191,17 @@ namespace ofxTSPS {
             
             SourceSelection sel;
             sel.type = CAMERA_KINECT;
+            sel.index = i;
+            currentSources[currentSources.size()] = sel;
+        }
+        
+        numKinects = 1;
+        
+        for ( int i=0; i<numKinects; i++){
+            source_types.push_back("Kinect 2 "+ofToString(i));
+            
+            SourceSelection sel;
+            sel.type = CAMERA_KINECT2;
             sel.index = i;
             currentSources[currentSources.size()] = sel;
         }
@@ -264,7 +275,7 @@ namespace ofxTSPS {
         panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
         panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
         
-#ifdef TSPS_KINECT2
+//#ifdef TSPS_KINECT2
         guiTypeGroup * k2Group = panel.addGroup("kinect settings");
         k2Group->setBackgroundColor(148,129,85);
         k2Group->setBackgroundSelectColor(148,129,85);
@@ -273,7 +284,7 @@ namespace ofxTSPS {
 
         panel.addSlider("near threshold:", "K2_NEAR", 30., 0., 5000., false);
         panel.addSlider("far threshold:", "K2_FAR", 1000., 0., 5000., false);
-#endif
+//#endif
 
         // end setup source panel
         

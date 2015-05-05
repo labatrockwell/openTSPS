@@ -144,6 +144,16 @@ namespace ofxTSPS {
                     ofLog(OF_LOG_ERROR, "No Kinects connected!");
                     setupSource( CAMERA_VIDEOGRABBER, deviceID );
                 }
+            // kinect2?
+            } else if ( useKinect2() ){
+                // are there any kinects out there?
+                
+                if ( true ){
+                    setupSource( CAMERA_KINECT2, deviceID );
+                } else {
+                    ofLog(OF_LOG_ERROR, "No Kinects connected!");
+                    setupSource( CAMERA_VIDEOGRABBER, deviceID );
+                }
             // video grabber
             #endif
             } else {
@@ -183,6 +193,9 @@ namespace ofxTSPS {
         if ( useKinect() && (currentSource == NULL || currentSource->getType() != CAMERA_KINECT)){
             setupSource( CAMERA_KINECT, p_Settings->cameraIndex );
         
+        // 1.5: Kinect2
+        } else if ( useKinect2() && (currentSource == NULL || currentSource->getType() != CAMERA_KINECT2)){
+                setupSource( CAMERA_KINECT2, p_Settings->cameraIndex );
         // 2: Video Grabber?
         } else
         #endif 
@@ -213,7 +226,7 @@ namespace ofxTSPS {
         bool bNewFrame = false;
         if ( currentSource != NULL && currentSource->isOpen() ){
 #ifdef TSPS_KINECT2
-			if ( currentSource->getType() == CAMERA_KINECT ){
+			if ( currentSource->getType() == CAMERA_KINECT2 ){
 				Kinect2 * kRef = dynamic_cast<Kinect2*>(currentSource);
 				kRef->nearClipping = gui.getValueF("K2_NEAR");
 				kRef->farClipping = gui.getValueF("K2_FAR");
@@ -467,6 +480,9 @@ namespace ofxTSPS {
                 // hm
                 #endif
                 break;
+            case CAMERA_KINECT2:
+                setUseKinect2();
+                break;
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
                 break;
@@ -511,6 +527,10 @@ namespace ofxTSPS {
                 currentSource = new Kinect();
 #endif
 #endif
+                break;
+                
+            case CAMERA_KINECT2:
+                currentSource = new Kinect2();
                 break;
             case CAMERA_VIDEOGRABBER:
                 currentSource = new VideoGrabber();
@@ -1479,6 +1499,23 @@ namespace ofxTSPS {
             p_Settings->inputType = CAMERA_KINECT;
         }
     }
+    
+    //---------------------------------------------------------------------------
+    bool PeopleTracker::useKinect2(){
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        return p_Settings->inputType == CAMERA_KINECT2;
+    }
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::setUseKinect2( bool bUseKinect, int deviceIndex ){
+        if ( bUseKinect ){
+            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_KINECT2, deviceIndex) );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_KINECT2;
+        }
+    }
+    
 #endif
 #ifndef TSPS_KINECT2
     //---------------------------------------------------------------------------

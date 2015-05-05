@@ -9,3 +9,5 @@ PREFIX="git clone https://github.com/"
 
 # source
 ${PREFIX}elliotwoods/ofxKinectForWindows2 --branch 0.8.4
+${PREFIX}robotconscience/ofxKinectV2.git --branch opencl
+${PREFIX}satoruhiga/ofxOpenGLContextScope.git
