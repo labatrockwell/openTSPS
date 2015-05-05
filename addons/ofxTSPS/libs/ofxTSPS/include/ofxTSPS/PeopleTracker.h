@@ -54,6 +54,7 @@
 #include "ofxTSPS/source/Kinect2.h"
 #else
 #include "ofxTSPS/source/Kinect1.h"
+#include "ofxTSPS/source/Kinect2.h"
 #include "ofxTSPS/source/OpenNI2.h"
 #endif
 #else
@@ -115,10 +116,13 @@ namespace ofxTSPS {
             #ifndef TSPS_ONLY_OPENNI
             bool    useKinect();
             void    setUseKinect( bool bUseKinect=true, int deviceIndex=0 );
+        
+            bool    useKinect2();
+            void    setUseKinect2( bool bUseKinect=true, int deviceIndex=0 );
+        
 			#ifndef TSPS_KINECT2
-			
             bool    useOpenNI();
-            void    setUseOpenNI( bool bUseOpenNI=true, int deviceIndex=0 );s
+            void    setUseOpenNI( bool bUseOpenNI=true, int deviceIndex=0 );
 			#endif
 			#else
             bool    useOpenNI();

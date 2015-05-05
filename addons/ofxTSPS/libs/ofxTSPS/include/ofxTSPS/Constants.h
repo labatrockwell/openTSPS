@@ -35,6 +35,7 @@ namespace ofxTSPS {
         CAMERA_VIDEOGRABBER,
         CAMERA_VIDEOFILE,
         CAMERA_KINECT,
+        CAMERA_KINECT2,
 #ifndef TSPS_KINECT2
         CAMERA_OPENNI,
 #endif

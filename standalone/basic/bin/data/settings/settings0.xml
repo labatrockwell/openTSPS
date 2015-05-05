@@ -32,7 +32,7 @@
     <val_0>0.000000000</val_0>
 </LEARN_BG_STARTUP>
 <LEARN_BG_STARTUP_SECONDS>
-    <val_0>1.000000000</val_0>
+    <val_0>1.481481552</val_0>
 </LEARN_BG_STARTUP_SECONDS>
 <RELEARN>
     <val_0>0.000000000</val_0>
@@ -41,7 +41,7 @@
     <val_0>0.100000001</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>100.000000000</val_0>
+    <val_0>89.429626465</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
     <val_0>0.000000000</val_0>
@@ -156,3 +156,9 @@
 <HIGHPASS_KERNEL>
     <val_0>1.000000000</val_0>
 </HIGHPASS_KERNEL>
+<K2_NEAR>
+    <val_0>30.000000000</val_0>
+</K2_NEAR>
+<K2_FAR>
+    <val_0>1000.000000000</val_0>
+</K2_FAR>

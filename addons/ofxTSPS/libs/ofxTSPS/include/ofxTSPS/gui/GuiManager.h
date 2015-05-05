@@ -46,6 +46,7 @@
 #include "ofxTSPS/source/Kinect2.h"
 #else
 #include "ofxTSPS/source/Kinect1.h"
+#include "ofxTSPS/source/Kinect2.h"
 #include "ofxTSPS/source/OpenNI2.h"
 #endif
 #else

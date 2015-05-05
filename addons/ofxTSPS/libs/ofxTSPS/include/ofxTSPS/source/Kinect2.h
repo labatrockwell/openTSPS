@@ -7,15 +7,23 @@
 //
 #pragma once
 
+#ifdef TARGET_OSX
+#include "ofxKinectV2.h"
+#else
 #include "ofxKinectForWindows2.h"
+#endif
 #include "ofxTSPS/source/Source.h"
 
 namespace ofxTSPS {
+    #ifdef TARGET_OSX
+    class Kinect2 : public Source, public ofxKinectV2 {
+#else
     class Kinect2 : public Source, public ofxKFW2::Device {
+#endif
     public:
                 
         Kinect2() : Source(){
-            type = CAMERA_KINECT;
+            type = CAMERA_KINECT2;
 			bDepthInited = false;
 			
 			// these will eventually be dynamic, OK
@@ -28,7 +36,7 @@ namespace ofxTSPS {
 			return true; // hm~
 		}
 		bool doProcessFrame(){
-			return getPixelsRef().getWidth() != 0; //hm;
+            return isFrameNew();//getPixelsRef().getWidth() != 0; //hm;
         }
         
         int numAvailable(){
@@ -36,12 +44,18 @@ namespace ofxTSPS {
         };
         
         void update(){
+#ifdef TARGET_OSX
+            ofxKinectV2::update();
+#else
             ofxKFW2::Device::update();
+#endif
 #ifdef TARGET_OSX
             if ( bPublishTexture ){
                 //publishToSyphon( ofxKinect::getTextureReference() );
             }
 #endif
+            
+#ifndef TARGET_OSX
 			// I like this routine! From here:
 			// https://github.com/rickbarraza/KinectV2_Lessons/blob/master/3_MakeRawDepthBrigther/src/testApp.cpp
 			static vector<unsigned char> depthLookupTable;
@@ -89,12 +103,17 @@ namespace ofxTSPS {
 					}
 				}
 			}
+#else
+            minDistance = nearClipping;
+            maxDistance = farClipping;
+#endif
+            
 			nearCached = nearClipping;
 			farCached = farClipping;
         }
         
         ofPixelsRef getPixelsRef(){
-			return outputPixels;
+			return getDepthPixels();
         }
 
 		unsigned char * getPixels(){
@@ -103,18 +122,26 @@ namespace ofxTSPS {
         
         bool openSource( int width, int height, string etc="" ){
             if (!bDepthInited){
-				bDepthInited = true;
+                bDepthInited = true;
+#ifdef TARGET_OSX
+                bIsOpen = ofxKinectV2::open();
+                
+#else
 				ofxKFW2::Device::open();
 				ofxKFW2::Device::initDepthSource();
 				bIsOpen = getDepthSource() != nullptr;
+#endif
 			}
             return bIsOpen;
         }
         
-        //void update();
         void closeSource(){
-			if ( bDepthInited ){
+            if ( bDepthInited ){
+#ifdef TARGET_OSX
+                ofxKinectV2::close();
+#else
 				ofxKFW2::Device::close();
+#endif
 				bDepthInited = false;
 			}
         }
