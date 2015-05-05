@@ -15,7 +15,7 @@ namespace ofxTSPS {
     public:
                 
         Kinect2() : Source(){
-            type = CAMERA_KINECT;
+            type = CAMERA_KINECT2;
 			bDepthInited = false;
 			
 			// these will eventually be dynamic, OK
