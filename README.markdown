@@ -41,22 +41,22 @@ Compiling:
 1. clone openframeworks 0.8.0 from here: [https://github.com/openframeworks/openFrameworks](https://github.com/openframeworks/openFrameworks )
 2. clone the TSPS directory into openframeworks/
 3. clone all submodules:
-```
-git submodule update --init --recursive
-```
+ ```
+ git submodule update --init --recursive
+ ```
 4. Kinect 2 support: checkout ofxKinectForWindows2 using new cloneaddons.sh
-```
-bash cloneaddons.sh
-```
+ ```
+ bash cloneaddons.sh
+ ```
 5. open the project for your platform (Xcode of vs2010) in openTSPS/standalone/basic
 * Windows only: add this preprocessor argument to the ofxKinectForWindows2 project:
-```
-_WIN32_WINNT=0x500
-```
+ ```
+ _WIN32_WINNT=0x500
+ ```
 6. WINDOWS ONLY: Include winsock2.h instead of winsock.h everywhere in ofxKinect (see [this issue](https://github.com/openframeworks/openFrameworks/issues/3681)). It should be in 3 files:
-* libs/libfreenect/platform/windows/libusb10emu/libusb-1.0/libusb.h
-* libs/libfreenect/include/libfreenect.h
-* libs/libusb-1.0/include/libusb-1.0/libusb.h
+ * libs/libfreenect/platform/windows/libusb10emu/libusb-1.0/libusb.h
+ * libs/libfreenect/include/libfreenect.h
+ * libs/libusb-1.0/include/libusb-1.0/libusb.h
 7. compile and run!
 
 Compiling OS X 10.7+:
