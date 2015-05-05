@@ -81,17 +81,15 @@
     <PostBuildEvent />
     <PostBuildEvent>
       <Command>xcopy /e /i /y "$(ProjectDir)..\..\..\export\vs\*.dll" "$(ProjectDir)bin"
-#ifndef TSPS_KINECT2
-xcopy /e /i /y "c:\\Program Files (x86)\OpenNI2\Redist\OpenNI2.dll" "$(ProjectDir)bin"
-xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(ProjectDir)bin"
-#endif
+xcopy /e /i /y "..\..\addons\ofxNI2\libs\OpenNI2\lib\win32\OpenNI2.dll" "$(ProjectDir)bin"
+xcopy /e /i /y "..\..\addons\ofxNI2\libs\NiTE2\lib\win32\NiTE2.dll" "$(ProjectDir)bin"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <PreprocessorDefinitions>_WINSOCKAPI_;_WIN32_WINNT=0x500;TSPS_KINECT2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINSOCKAPI_;_WIN32_WINNT=0x500;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
@@ -114,8 +112,7 @@ xcopy /e /i /y "c:\\Program Files (x86)\PrimeSense\NiTE2\Redist\NiTE2.dll" "$(Pr
     </Link>
     <PostBuildEvent />
     <PostBuildEvent>
-      <Command>xcopy /e /i /y "$(ProjectDir)..\..\..\export\vs\*.dll" "$(ProjectDir)bin"
-</Command>
+      <Command>xcopy /e /i /y "$(ProjectDir)..\..\..\export\vs\*.dll" "$(ProjectDir)bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

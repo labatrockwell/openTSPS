@@ -1,5 +1,5 @@
 <SOURCE_TYPE>
-    <val_0>1.000000000</val_0>
+    <val_0>0.000000000</val_0>
 </SOURCE_TYPE>
 <VIDEO_FILE_DIR>
     <val_0>videos</val_0>
@@ -41,10 +41,10 @@
     <val_0>0.100000001</val_0>
 </RELEARN_BACKGROUND>
 <THRESHOLD>
-    <val_0>89.429626465</val_0>
+    <val_0>175.977783203</val_0>
 </THRESHOLD>
 <BLOB_TYPE>
-    <val_0>0.000000000</val_0>
+    <val_0>2.000000000</val_0>
 </BLOB_TYPE>
 <USE_HIGHPASS>
     <val_0>0.000000000</val_0>
@@ -157,8 +157,8 @@
     <val_0>1.000000000</val_0>
 </HIGHPASS_KERNEL>
 <K2_NEAR>
-    <val_0>30.000000000</val_0>
+    <val_0>240.740737915</val_0>
 </K2_NEAR>
 <K2_FAR>
-    <val_0>1000.000000000</val_0>
+    <val_0>1092.592651367</val_0>
 </K2_FAR>

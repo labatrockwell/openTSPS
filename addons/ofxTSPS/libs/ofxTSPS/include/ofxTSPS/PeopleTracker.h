@@ -82,11 +82,6 @@
 
 namespace ofxTSPS {
 
-#ifdef TSPS_KINECT2
-	// a little helper
-	typedef Kinect2 Kinect;
-#endif
-
     // TSPS Manager class
     class PeopleTracker {
         friend class Processor;

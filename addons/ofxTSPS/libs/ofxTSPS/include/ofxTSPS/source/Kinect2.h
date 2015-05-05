@@ -15,7 +15,8 @@
 #include "ofxTSPS/source/Source.h"
 
 namespace ofxTSPS {
-    #ifdef TARGET_OSX
+
+#ifdef TARGET_OSX
     class Kinect2 : public Source, public ofxKinectV2 {
 #else
     class Kinect2 : public Source, public ofxKFW2::Device {
@@ -33,8 +34,23 @@ namespace ofxTSPS {
         
         // core
         bool available(){
+#ifdef TARGET_OSX
 			return true; // hm~
+#else
+			if (!bDepthInited){
+				try {
+					ofxKFW2::Device::open();
+					bDepthInited = true;
+				} catch (ofxKFW2::Exception & e) {
+					bDepthInited = false;
+					return false;
+				}
+			} else {
+				return true;
+			}
+#endif
 		}
+
 		bool doProcessFrame(){
 #ifdef TARGET_OSX
             return isFrameNew();
@@ -53,6 +69,7 @@ namespace ofxTSPS {
 #else
             ofxKFW2::Device::update();
 #endif
+
 #ifdef TARGET_OSX
             if ( bPublishTexture ){
                 //publishToSyphon( ofxKinect::getTextureReference() );
@@ -135,11 +152,24 @@ namespace ofxTSPS {
                 bIsOpen = ofxKinectV2::open();
                 
 #else
-				ofxKFW2::Device::open();
-				ofxKFW2::Device::initDepthSource();
-				bIsOpen = getDepthSource() != nullptr;
+				try {
+					ofxKFW2::Device::open();
+				} catch (ofxKFW2::Exception & e) {
+					bIsOpen = false;
+					bDepthInited = false;
+				}
 #endif
 			}
+			
+#ifndef TARGET_OSX
+			if ( bDepthInited && this->sensor != nullptr ){
+				auto ptr = ofxKFW2::Device::initDepthSource();
+				bIsOpen = ptr != nullptr;
+			} else {
+				bIsOpen = false;
+				bDepthInited = false;
+			}
+#endif
             return bIsOpen;
         }
         

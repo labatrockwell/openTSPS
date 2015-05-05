@@ -26,6 +26,7 @@ namespace ofxTSPS {
         
         int numAvailable(){
             if (!bGrabberInited) init();
+			cout << numAvailableDevices() <<" Kinect 1s"<<endl;
             return numAvailableDevices();
         };
         
@@ -39,6 +40,7 @@ namespace ofxTSPS {
         }
         
         bool doProcessFrame(){
+			cout << isFrameNew() <<" Kinect 1 new"<<endl;
             return isFrameNew();
         }
         
