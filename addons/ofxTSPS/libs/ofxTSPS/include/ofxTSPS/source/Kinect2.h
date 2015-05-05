@@ -36,7 +36,11 @@ namespace ofxTSPS {
 			return true; // hm~
 		}
 		bool doProcessFrame(){
-            return isFrameNew();//getPixelsRef().getWidth() != 0; //hm;
+#ifdef TARGET_OSX
+            return isFrameNew();
+#else 
+			return getPixelsRef().getWidth() != 0; //hm;
+#endif
         }
         
         int numAvailable(){
@@ -113,7 +117,11 @@ namespace ofxTSPS {
         }
         
         ofPixelsRef getPixelsRef(){
+#ifdef TARGET_OSX
 			return getDepthPixels();
+#else
+			return outputPixels;
+#endif
         }
 
 		unsigned char * getPixels(){
