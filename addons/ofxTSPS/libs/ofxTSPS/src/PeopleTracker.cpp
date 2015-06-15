@@ -170,11 +170,29 @@ namespace ofxTSPS {
     void PeopleTracker::update(){
         // update settings
         updateSettings();
-        
+
+        // load stored background on startup?
+        if ( p_Settings->bStoreBackground && !p_Settings->bStoredBgLoaded ){
+            string filename = "settings/background.jpg";
+            ofFile file = ofFile(filename);
+            if (file.exists()) {
+                ofImage storedBg = ofImage("settings/background.jpg");
+                backgroundImage.setFromPixels( storedBg.getPixelsRef() );
+                tspsProcessor->captureBackground( storedBg );
+            } else {
+                ofLog(OF_LOG_WARNING, "No stored background file exists");
+            }
+            p_Settings->bStoredBgLoaded = true;
+        }
+
         // learn background on startup?
         if ( p_Settings->bLearnBackgroundOnStartup && !p_Settings->bStartupBgCaptured && ofGetElapsedTimef() > p_Settings->captureSeconds){
             p_Settings->bStartupBgCaptured = true;
-            doRelearnBackground = true;
+
+            // only capture if the setting for using stored backgrounds is not on
+            if (!p_Settings->bStoreBackground) {
+                doRelearnBackground = true;
+            }
         }
         
         // change source?
@@ -869,6 +887,11 @@ namespace ofxTSPS {
         if (doRelearnBackground){
             backgroundImage.setFromPixels(warpedImage.getPixelsRef());
             tspsProcessor->captureBackground( warpedImage );
+
+            if (p_Settings->bStoreBackground) {
+                warpedImage.saveImage("settings/background.jpg");
+            }
+
             doRelearnBackground = false;
         }
         
