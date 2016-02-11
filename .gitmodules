@@ -1,24 +1,3 @@
-[submodule "addons/ofxOpenNI"]
-	path = addons/ofxOpenNI
-	url = https://github.com/labatrockwell/ofxOpenNI
-[submodule "addons/ofxCv"]
-	path = addons/ofxCv
-	url = https://github.com/kylemcdonald/ofxCv
 [submodule "examples/python/websocket-client"]
 	path = examples/python/websocket-client
 	url = https://github.com/liris/websocket-client.git
-[submodule "addons/ofxLibwebsockets"]
-	path = addons/ofxLibwebsockets
-	url = https://github.com/labatrockwell/ofxLibwebsockets.git
-[submodule "addons/ofxTSPSReceiver"]
-	path = addons/ofxTSPSReceiver
-	url = https://github.com/labatrockwell/ofxTSPSReceiver
-[submodule "addons/ofxSpacebrew"]
-	path = addons/ofxSpacebrew
-	url = https://github.com/Spacebrew/ofxSpacebrew.git
-[submodule "addons/ofxSyphon"]
-	path = addons/ofxSyphon
-	url = https://github.com/astellato/ofxSyphon.git
-[submodule "addons/ofxNI2"]
-	path = addons/ofxNI2
-	url = https://github.com/labatrockwell/ofxNI2.git
