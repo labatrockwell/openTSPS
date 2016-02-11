@@ -248,13 +248,13 @@ namespace ofxTSPS {
         // update source
         bool bNewFrame = false;
         if ( currentSource != NULL && currentSource->isOpen() ){
-#ifdef TSPS_KINECT2
+//#ifdef TSPS_KINECT2
 			if ( currentSource->getType() == CAMERA_KINECT2 ){
 				Kinect2 * kRef = dynamic_cast<Kinect2*>(currentSource);
 				kRef->nearClipping = gui.getValueF("K2_NEAR");
 				kRef->farClipping = gui.getValueF("K2_FAR");
 			}
-#endif
+//#endif
 
             currentSource->update();
             bNewFrame = currentSource->doProcessFrame();
@@ -934,7 +934,7 @@ namespace ofxTSPS {
             tspsProcessor->captureBackground( warpedImage );
 
             if (p_Settings->bStoreBackground) {
-                warpedImage.saveImage("settings/background.jpg");
+                warpedImage.save("settings/background.jpg");
             }
 
             doRelearnBackground = false;
@@ -1079,7 +1079,7 @@ namespace ofxTSPS {
         ofPushStyle();
         ofFill();
         ofSetColor(196,182,142);
-        ofRect(cameraView.x, cameraView.y + cameraView.height + spacing*3 + 8, cameraView.width*2 + spacing, spacing*4);
+        ofDrawRectangle(cameraView.x, cameraView.y + cameraView.height + spacing*3 + 8, cameraView.width*2 + spacing, spacing*4);
         ofPopStyle();
         
         if (!bFontLoaded) ofDrawBitmapString(frmrate, cameraView.x + 10, cameraView.y + 10 + cameraView.height + spacing*5);
@@ -1094,7 +1094,7 @@ namespace ofxTSPS {
         
         ofFill();
         ofSetHexColor(0x333333);
-        ofRect(0,0,drawWidth,drawHeight);
+        ofDrawRectangle(0,0,drawWidth,drawHeight);
         ofSetHexColor(0xffffff);
         
         ofNoFill();
@@ -1445,7 +1445,7 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     bool PeopleTracker::loadFont( string fontName, int fontSize){
-        bFontLoaded = font.loadFont(fontName, fontSize);
+        bFontLoaded = font.load(fontName, fontSize);
         if (bFontLoaded){
             cameraView.setFont(&font);
             adjustedView.setFont(&font);

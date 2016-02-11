@@ -281,7 +281,7 @@ namespace ofxTSPS {
                 trackedPeople->erase(trackedPeople->begin() + i);
             }
         }
-        return differencedImage.getPixelsRef();
+        return differencedImage.getPixels();
     }
     
     //------------------------------------------------------------------------

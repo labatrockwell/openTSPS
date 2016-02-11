@@ -282,8 +282,8 @@ namespace ofxTSPS {
         k2Group->seBaseColor(244,136,136);
         k2Group->setShowText(false);
 
-        panel.addSlider("near threshold:", "K2_NEAR", 30., 0., 5000., false);
-        panel.addSlider("far threshold:", "K2_FAR", 1000., 0., 5000., false);
+        panel.addSlider("near threshold:", "K2_NEAR", 30., 0., 12000, false);
+        panel.addSlider("far threshold:", "K2_FAR", 1000., 0., 12000, false);
 //#endif
 
         // end setup source panel
@@ -1263,7 +1263,7 @@ namespace ofxTSPS {
             
             ofSetColor(184,169,121);
             ofFill();
-            ofRect(10,40,panel.getWidth(),20);
+            ofDrawRectangle(10,40,panel.getWidth(),20);
             ofSetColor(255);
             panel.guiTTFFont.drawString("CONFIGURE TSPS: "+ ofToUpper(enabledPanelGroup), 15, 45 + panel.guiTTFFont.getSize() );
             

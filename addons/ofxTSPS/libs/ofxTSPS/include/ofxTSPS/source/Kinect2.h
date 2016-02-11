@@ -27,9 +27,8 @@ namespace ofxTSPS {
             type = CAMERA_KINECT2;
 			bDepthInited = false;
 			
-			// these will eventually be dynamic, OK
-			nearClipping = 50.0;
-			farClipping = 1000.0;
+			nearClipping = 500.0;
+			farClipping = 6000.0;
         }
         
         // core
@@ -125,8 +124,8 @@ namespace ofxTSPS {
 				}
 			}
 #else
-            minDistance = nearClipping;
-            maxDistance = farClipping;
+            minDistance.set(nearClipping);
+            maxDistance.set(farClipping);
 #endif
             
 			nearCached = nearClipping;
@@ -135,9 +134,7 @@ namespace ofxTSPS {
         
         ofPixels & getPixels(){
 #ifdef TARGET_OSX
-            static ofPixels returnPixels;
-            returnPixels = getDepthPixels();
-			return returnPixels;
+            return this->depthPix;
 #else
 			return outputPixels;
 #endif
