@@ -89,7 +89,7 @@ class guiTypeCustom : public guiBaseObject{
                     //draw the background
                     ofFill();
                     ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
-                    ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
+                    ofDrawRectangle(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
 
                     ofDisableAlphaBlending();
 

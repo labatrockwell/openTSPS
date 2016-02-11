@@ -133,17 +133,15 @@ namespace ofxTSPS {
 			farCached = farClipping;
         }
         
-        ofPixelsRef getPixelsRef(){
+        ofPixels & getPixels(){
 #ifdef TARGET_OSX
-			return getDepthPixels();
+            static ofPixels returnPixels;
+            returnPixels = getDepthPixels();
+			return returnPixels;
 #else
 			return outputPixels;
 #endif
         }
-
-		unsigned char * getPixels(){
-			return getPixelsRef().getPixels();
-		}
         
         bool openSource( int width, int height, string etc="" ){
             if (!bDepthInited){

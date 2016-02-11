@@ -62,11 +62,12 @@ namespace ofxTSPS {
 #endif
         }
         
-        unsigned char * getPixels(){
-            return getPixelsRef().getPixels();
+        const ofPixels & getPixels() const
+        {
+            return getPixels();
         }
         
-        ofPixels & getPixelsRef(){
+        ofPixels & getPixels(){
             static ofPixels retPix;
             depthRemapToRange(ofxNI2::DepthStream::getPixelsRef(), retPix, nearClipping, farClipping, true);
             return retPix;
@@ -84,8 +85,8 @@ namespace ofxTSPS {
             int N = src.getWidth() * src.getHeight();
             dst.allocate(src.getWidth(), src.getHeight(), 1);
             
-            const unsigned short *src_ptr = src.getPixels();
-            unsigned char *dst_ptr = dst.getPixels();
+            const unsigned short *src_ptr = src.getData();
+            unsigned char *dst_ptr = dst.getData();
             
 //            float inv_range = 1. / (far - near);
             

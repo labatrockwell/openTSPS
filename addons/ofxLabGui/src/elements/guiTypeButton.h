@@ -60,13 +60,13 @@ public:
                 //draw the background
                 ofFill();
                 ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().getColor().a);
-                ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
+                ofDrawRectangle(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
                 
                 //draw the outline
                 ofNoFill();
                 ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
-                ofRect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
-                ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
+                ofDrawRectangle(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
+                ofDrawRectangle(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
                 
                 ofFill();
                 //ofSetColor(fgColor.getColorF());

@@ -102,13 +102,13 @@ class guiTypeFileLister : public guiBaseObject{
                         ofPushStyle();
                             ofFill();
                             ofSetColor( fgColor.getColor().r, fgColor.getColor().g, fgColor.getColor().b, fgColor.getColor().a );
-                            ofRect(x, y+yPos+4, width-5, -lineSpacing);
+                            ofDrawRectangle(x, y+yPos+4, width-5, -lineSpacing);
                         ofPopStyle();
                     }else if( i == selectionTmp){
                         ofPushStyle();
                             ofNoFill();
                             ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
-                            ofRect(x, y+yPos+4, width-2, -lineSpacing);
+                            ofDrawRectangle(x, y+yPos+4, width-2, -lineSpacing);
                         ofPopStyle();
                     }
 
@@ -129,19 +129,19 @@ class guiTypeFileLister : public guiBaseObject{
                     //draw the background
                     ofFill();
                     ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
-                    ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
+                    ofDrawRectangle(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
 
                     ofSetColor(textColor.getColor().r, textColor.getColor().g, textColor.getColor().b, textColor.getColor().a);
                     guiBaseObject::renderText();
 
                     ofFill();
                     ofSetColor(fgColor.getColor().r, fgColor.getColor().g, fgColor.getColor().b, fgColor.getColor().a);
-                    ofRect(hitArea.x, hitArea.y + (hitArea.height - 5) * pct, sliderWidth, 5);
+                    ofDrawRectangle(hitArea.x, hitArea.y + (hitArea.height - 5) * pct, sliderWidth, 5);
 
                     ofNoFill();
                     ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
-                    ofRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
-                    ofRect(hitArea.x , hitArea.y, sliderWidth, hitArea.height);
+                    ofDrawRectangle(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
+                    ofDrawRectangle(hitArea.x , hitArea.y, sliderWidth, hitArea.height);
 
                     ofSetColor(textColor.getColor().r, textColor.getColor().g, textColor.getColor().b, textColor.getColor().a);
                     if(lister != NULL)drawRecords(hitArea.x+sliderWidth + 5, hitArea.y, boundingBox.width-(sliderWidth + 5), boundingBox.height);

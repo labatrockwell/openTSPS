@@ -75,7 +75,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void SpacebrewSender::personEntered ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours ){
         personEnteredMessage.value = p->getJSON("personEntered", cameraWidth, cameraHeight, sendContours);
-        if ( spacebrewMutex.tryLock()){
+        if ( spacebrewMutex.try_lock()){
             //connection->send( &personEnteredMessage );
             spacebrewMutex.unlock();
         }
@@ -84,7 +84,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void SpacebrewSender::personUpdated ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours ){
         personUpdatedMessage.value = p->getJSON("personUpdated", cameraWidth, cameraHeight, sendContours);
-        if ( spacebrewMutex.tryLock()){
+        if ( spacebrewMutex.try_lock()){
             //connection->send( &personUpdatedMessage );
             spacebrewMutex.unlock();
         }
@@ -93,7 +93,7 @@ namespace ofxTSPS {
     //---------------------------------------------------------------------------
     void SpacebrewSender::personWillLeave ( Person * p, ofPoint centroid, int cameraWidth, int cameraHeight, bool sendContours ){
         personWillLeaveMessage.value = p->getJSON("personLeft", cameraWidth, cameraHeight, sendContours);
-        if ( spacebrewMutex.tryLock()){
+        if ( spacebrewMutex.try_lock()){
             //connection->send( &personWillLeaveMessage );
             spacebrewMutex.unlock();
         }
@@ -119,7 +119,7 @@ namespace ofxTSPS {
         bool bPeople = s.numPeople > 0;
         
         sceneMessage.value = s.getJSONMessge();
-        if ( spacebrewMutex.tryLock()){
+        if ( spacebrewMutex.try_lock()){
 //            connection->send( &sceneMessage );
             
             connection->sendRange( "numPeople", s.numPeople );

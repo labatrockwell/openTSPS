@@ -34,7 +34,7 @@ namespace ofxTSPS {
             ofxKinect::update();
 #ifdef TARGET_OSX
             if ( bPublishTexture ){
-                publishToSyphon( ofxKinect::getTextureReference() );
+                publishToSyphon( ofxKinect::getTexture() );
             }
 #endif
         }
@@ -45,7 +45,7 @@ namespace ofxTSPS {
         }
         
         ofPixelsRef getPixelsRef(){
-            return getDepthPixelsRef();
+            return getDepthPixels();
         }
         
         bool openSource( int width, int height, string etc="" ){

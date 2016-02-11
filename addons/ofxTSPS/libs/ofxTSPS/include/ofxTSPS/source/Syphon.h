@@ -55,11 +55,11 @@ namespace ofxTSPS {
             return true;
         }
         
-        unsigned char * getPixels(){
-            return pixels.getPixels();
+        unsigned char * getData(){
+            return pixels.getData();
         }
         
-        ofPixelsRef & getPixelsRef(){
+        ofPixels & getPixels(){
             return pixels;
         }
         

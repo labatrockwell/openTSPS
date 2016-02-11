@@ -198,12 +198,12 @@ public:
                 //draw the background
                 ofFill();
                 ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
-                ofRect(0, 0, boundingBox.width, boundingBox.height);
+                ofDrawRectangle(0, 0, boundingBox.width, boundingBox.height);
                 
                 //draw the outline
                 ofNoFill();
                 ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
-                ofRect(0, 0, boundingBox.width, boundingBox.height);
+                ofDrawRectangle(0, 0, boundingBox.width, boundingBox.height);
             ofPopMatrix();
 		
             ofPushMatrix();
