@@ -57,7 +57,8 @@ public class TSPS {
 		_currentPeople = new Hashtable<Integer, TSPSPerson>();
 		scene			= new TSPSScene( parent );
 		registerEvents();
-		parent.registerPre(this);
+
+    	parent.registerMethod("pre", this);
 	}
 
 	/**
@@ -77,7 +78,7 @@ public class TSPS {
 		scene			= new TSPSScene( parent );
 
 		registerEvents();
-		parent.registerPre(this);
+    	parent.registerMethod("pre", this);
 	}	
 
 	public void pre(){
