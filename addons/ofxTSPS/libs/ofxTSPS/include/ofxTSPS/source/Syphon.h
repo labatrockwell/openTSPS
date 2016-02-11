@@ -63,6 +63,10 @@ namespace ofxTSPS {
             return pixels;
         }
         
+        const ofPixels & getPixels() const{
+            return pixels;
+        }
+        
         // width and height are ignored, but left in because of virtual function override
         bool openSource( int width, int height, string serverName="" ){
             setup();

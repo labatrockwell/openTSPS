@@ -143,6 +143,10 @@ namespace ofxTSPS {
 #endif
         }
         
+        const ofPixels & getPixels() const {
+            return getPixels();
+        }
+        
         bool openSource( int width, int height, string etc="" ){
             if (!bDepthInited){
                 bDepthInited = true;

@@ -37,7 +37,7 @@ namespace ofxTSPS {
             }
 #ifdef TARGET_OSX
             if ( bPublishTexture ){
-                publishToSyphon( ofVideoPlayer::getTextureReference() );
+                publishToSyphon( ofVideoPlayer::getTexture() );
             }
 #endif
         }

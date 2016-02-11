@@ -115,11 +115,11 @@ namespace ofxTSPS {
         
         // draw highest point
         ofSetHexColor(0xff00ff);	
-        ofCircle(highest.x, highest.y, 4);
+        ofDrawCircle(highest.x, highest.y, 4);
         
         //draw centroid
         ofSetHexColor(0xff0000);
-        ofCircle(centroid.x, centroid.y, 3);
+        ofDrawCircle(centroid.x, centroid.y, 3);
         
         //draw id
         ofSetHexColor(0xffffff);
