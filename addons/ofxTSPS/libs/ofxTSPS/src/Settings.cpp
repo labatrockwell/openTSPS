@@ -26,6 +26,8 @@ namespace ofxTSPS {
         
         // background
         bLearnBackground            = false;
+        bStoreBackground            = false;
+        bStoredBgLoaded             = false;
         captureSeconds              = 1;
         bLearnBackgroundOnStartup   = false;
         bStartupBgCaptured          = false;

@@ -73,6 +73,7 @@ namespace ofxTSPS {
         
         bool    bLearnBackground;
         bool    bBlankBackground;
+        bool    bStoreBackground, bStoredBgLoaded;
         
         bool    bAdjustedViewInColor;	
         

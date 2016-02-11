@@ -320,6 +320,7 @@ namespace ofxTSPS {
         //TODO: use the button class for this maybe?
         panel.addToggle("capture background", "LEARN_BACKGROUND", false);
         panel.addToggle("blank out background", "BLACK_BACKGROUND", false);
+        panel.addToggle("store background across sessions", "STORE_BG", false);
         panel.addToggle("capture background on startup", "LEARN_BG_STARTUP", false);
         panel.addSlider("capture X seconds after startup", "LEARN_BG_STARTUP_SECONDS", 1.0f, 0.0f, 10.0f, false);
         
@@ -958,6 +959,8 @@ namespace ofxTSPS {
         if(settings.bBlankBackground){ 
             panel.setValueB("BLACK_BACKGROUND", false);
         }
+
+        settings.bStoreBackground = panel.getValueB("STORE_BG");
         
         //panel.setValueB("LEARN_BACKGROUND", settings.bLearnBackground);
         //JG 12/8/09 GUI-REDUX Removing this feature
