@@ -105,7 +105,6 @@
 		C9109422648B170B07A778CF /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E3405C5AE387BDDC2AD19473 /* SyphonNameboundClient.m */; };
 		CCD326ED8E01272042317DD2 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A781C912CD5B01022F6BB2C /* Util.cpp */; };
 		CF159C02F7ABCA55E3ECAA55 /* double_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F48DA74EE05969866CF939D6 /* double_buffer.cpp */; };
-		D08310308758F389ACCB8D01 /* OpenCL.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 35D32716F14E3E18BA93703F /* OpenCL.framework */; };
 		D1395DD979998DCFFA40ACAC /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE0949C9F18BE455D5E6CD10 /* ofxMSAInteractiveObject.cpp */; };
 		D18574094FC9C8E453F952EB /* registration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D08F3C82AD64E10BD3FB723 /* registration.cpp */; };
 		D31F5C1B140C59B2AF1533A8 /* registration.c in Sources */ = {isa = PBXBuildFile; fileRef = 71958293AC5292DE4B7C619D /* registration.c */; };
@@ -170,7 +169,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D08310308758F389ACCB8D01 /* OpenCL.framework in Copy Files */,
 				012ABECE1C6D38D4002E59C4 /* Syphon.framework in Copy Files */,
 			);
 			name = "Copy Files";
