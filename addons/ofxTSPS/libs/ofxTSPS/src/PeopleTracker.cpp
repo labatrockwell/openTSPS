@@ -273,7 +273,6 @@ namespace ofxTSPS {
                 } else {
                     ofxCv::convertColor( currentSource->getPixels(), cameraImage, CV_RGB2GRAY);
                 }
-                cameraImage.update();
             } else {
                 // either resize or just copy pixels
                 if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
@@ -284,7 +283,8 @@ namespace ofxTSPS {
                     cameraImage.setFromPixels( currentSource->getPixels() );
                 }
             }
-            
+            cameraImage.update();
+
             trackPeople();
             
             if ( p_Settings->bSendScene ){
@@ -325,7 +325,6 @@ namespace ofxTSPS {
             } else {
                 ofxCv::convertColor( currentSource->getPixels(), cameraImage, CV_RGB2GRAY);
             }
-            cameraImage.update();
         } else {
             // either resize or just copy pixels
             if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
@@ -336,6 +335,7 @@ namespace ofxTSPS {
                 cameraImage.setFromPixels( currentSource->getPixels() );
             }
         }
+        cameraImage.update();
         
         updateSettings();
         trackPeople();

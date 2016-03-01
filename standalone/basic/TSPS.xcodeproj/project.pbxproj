@@ -3045,8 +3045,8 @@
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.X.X_github/addons/ofxNI2/libs/NiTE2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.X.X_github/addons/ofxNI2/libs/OpenNI2/lib/osx,
+					../../../addons/ofxNI2/libs/NiTE2/lib/osx,
+					../../../addons/ofxNI2/libs/OpenNI2/lib/osx,
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -3215,8 +3215,8 @@
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.X.X_github/addons/ofxNI2/libs/NiTE2/lib/osx,
-					/Users/brettrenfer/Dropbox/Code/OF/of_v0.X.X_github/addons/ofxNI2/libs/OpenNI2/lib/osx,
+					../../../addons/ofxNI2/libs/NiTE2/lib/osx,
+					../../../addons/ofxNI2/libs/OpenNI2/lib/osx,
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
