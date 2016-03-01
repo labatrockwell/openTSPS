@@ -59,7 +59,7 @@ namespace ofxTSPS {
         
         // ofxCv stuff
         ofxCv::ContourFinder        contourFinder;
-        ofxCv::CascadeClassifier    haarFinder;
+        cv::CascadeClassifier       haarFinder;
         vector<cv::Rect>            haarObjects;
         
         // opticalflow     

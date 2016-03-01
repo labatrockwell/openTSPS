@@ -16,7 +16,7 @@ ofxMSAInteractiveObject
 ${PREFIX}labatrockwell/ofxLibwebsockets.git
 ${PREFIX}memo/ofxMSAInteractiveObject.git
 ${PREFIX}labatrockwell/ofxNI2.git
-${PREFIX}labatrockwell/ofxSpacebrew.git
+${PREFIX}Spacebrew/ofxSpacebrew.git
 ${PREFIX}labatrockwell/ofxSyphon.git
 ${PREFIX}labatrockwell/ofxTSPSReceiver.git
 ${PREFIX}arturoc/ofxTuioWrapper.git
