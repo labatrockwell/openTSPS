@@ -10,6 +10,7 @@
 
 #include <cstdlib>
 #include <string>
+#include "ofMain.h"
 
 namespace ofxTSPS {
     enum TrackingType {
@@ -47,6 +48,15 @@ namespace ofxTSPS {
     //layout vars
     static int spacing      = 10;
     static int GUI_WIDTH    = 340;
+    
+    static float RETINA_SCALE(){
+        static ofAppGLFWWindow * tspsWindow = (ofAppGLFWWindow*) ofGetWindowPtr();
+        float scale = 1.;
+        if ( tspsWindow->getPixelScreenCoordScale() != 1 ){
+            scale = tspsWindow->getPixelScreenCoordScale();
+        }
+        return scale;
+    };
     
     static std::string URL = "http://github.com/labatrockwell/openTSPS";
 }

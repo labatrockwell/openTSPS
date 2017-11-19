@@ -20,7 +20,7 @@ namespace ofxTSPS {
         
         Delegate( int myId = 0 );
         
-        void setup();
+        void setup(bool bIsRetina = false);
         void update();
         void draw();
         
@@ -62,6 +62,7 @@ namespace ofxTSPS {
         string settingsFile;
         
         int id;
+        bool bIsRetina;
         
     private:
         

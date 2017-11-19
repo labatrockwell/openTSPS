@@ -26,7 +26,7 @@ void tspsApp::setup(){
         defaults.pushTag("defaults");
         id = defaults.getValue("deviceIndex", 0);
     }
-    ofxTSPS::Delegate::setup();
+    ofxTSPS::Delegate::setup(bIsRetina);
 }
 
 //--------------------------------------------------------------

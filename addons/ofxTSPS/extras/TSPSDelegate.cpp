@@ -26,10 +26,13 @@ namespace ofxTSPS {
         return settingsFile;
     }
     
+    
     //--------------------------------------------------------------
-    void Delegate::setup(){
+    void Delegate::setup( bool isRetina ){
+        this->bIsRetina = isRetina;
+        
         peopleTracker.setup(0,0,settingsFile,id);
-        peopleTracker.loadFont("fonts/times.ttf", 10);
+        peopleTracker.loadFont("fonts/times.ttf", 10 * RETINA_SCALE() );
         ofxAddTSPSListeners(this);
         
         //load GUI / interface images
@@ -38,7 +41,7 @@ namespace ofxTSPS {
         personLeftImage.load("graphic/triggers/PersonLeft_Active.png");
         statusBar.load("graphic/bottomBar.png");
         background.load("graphic/background.png");
-        timesBoldItalic.load("fonts/timesbi.ttf", 16);
+        timesBoldItalic.load("fonts/timesbi.ttf", 16 * RETINA_SCALE());
         
         drawStatus[0] = 0;
         drawStatus[1] = 0;
@@ -107,6 +110,10 @@ namespace ofxTSPS {
 
     //--------------------------------------------------------------
     void Delegate::draw(){
+        ofPushMatrix();
+        if ( bIsRetina ){
+//            ofScale(RETINA_SCALE(), RETINA_SCALE());
+        }
         // bg image
         ofEnableAlphaBlending();
         ofSetHexColor(0xffffff);
@@ -116,21 +123,22 @@ namespace ofxTSPS {
         peopleTracker.draw();
         
         //draw status bar stuff
-        statusBar.draw(0,700);
+        statusBar.draw(0,700 * RETINA_SCALE());
         if (drawStatus[0] > 0){
             drawStatus[0]--;
-            personEnteredImage.draw(397,728);
+            personEnteredImage.draw(397 * RETINA_SCALE(),728 * RETINA_SCALE());
         }
         if (drawStatus[1] > 0){
             drawStatus[1]--;
-            personUpdatedImage.draw(533,728);
+            personUpdatedImage.draw(533 * RETINA_SCALE(),728 * RETINA_SCALE());
         }
         if (drawStatus[2] > 0){
             drawStatus[2]--;
-            personLeftImage.draw(666,728);
+            personLeftImage.draw(666 * RETINA_SCALE(),728 * RETINA_SCALE());
         }
         
-        ofSetColor(0, 169, 157);
-        timesBoldItalic.drawString(ofToString(peopleTracker.totalPeople()) ,350,740);
+        ofSetColor(0, 169 * RETINA_SCALE(), 157 * RETINA_SCALE());
+        timesBoldItalic.drawString(ofToString(peopleTracker.totalPeople()) ,350 * RETINA_SCALE(),740 * RETINA_SCALE());
+        ofPopMatrix();
     }
 }

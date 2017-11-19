@@ -48,6 +48,8 @@ namespace ofxTSPS {
     void GuiManager::setup(){
         enableGui = true;
         
+        cout <<"RETINA "<<RETINA_SCALE()<<endl;
+        
         // setup each panel group
         panelGroups["source"];
         panelGroups["sensing"];
@@ -55,15 +57,15 @@ namespace ofxTSPS {
         panelGroups["data"];
         panelGroups["custom"];
         
-        panel.setup("custom", 10, 10, 330, 640);
+        panel.setup("custom", 10 * RETINA_SCALE(), 10 * RETINA_SCALE(), 330 * RETINA_SCALE(), 640 * RETINA_SCALE());
         
-        buttonPosition.set(10,70);
+        buttonPosition.set(10 * RETINA_SCALE(),70 * RETINA_SCALE());
         
         //panel layout
-        panel.loadFont("fonts/times.ttf", 10);
-        panel.setPosition(10, 100);
+        panel.loadFont("fonts/times.ttf", 10 * RETINA_SCALE());
+        panel.setPosition(10 * RETINA_SCALE(), 100 * RETINA_SCALE());
         panel.setShowText(false);
-        panel.setDimensions(330, 590); //yikes... autospacing is not working so well
+        panel.setDimensions(330 * RETINA_SCALE(), 590 * RETINA_SCALE()); //yikes... autospacing is not working so well
         panel.setCollapsible(false);
         panel.setDraggable(false);
         panel.setBackgroundColor(255,255,255);
@@ -80,40 +82,40 @@ namespace ofxTSPS {
         // setup panel switch buttons
         
         guiTypeButton * sourceButton = new guiTypeButton();
-        sourceButton->setup("source", buttonWidth*1.5, buttonHeight);
+        sourceButton->setup("source", buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
         sourceButton->setPosition(buttonPosition.x, buttonPosition.y);
-        sourceButton->setDimensions(50, 20);
+        sourceButton->setDimensions(50 * RETINA_SCALE(), 20 * RETINA_SCALE());
         sourceButton->setFont(&panel.guiTTFFont);
         sourceButton->setBackgroundColor(174,139,138,75);
         sourceButton->setBackgroundSelectColor(174,139,138);
-        buttonPosition.x += 60;
+        buttonPosition.x += 60 * RETINA_SCALE();
         
         guiTypeButton * sensingButton = new guiTypeButton();
-        sensingButton->setup("sensing", buttonWidth*1.5, buttonHeight);
+        sensingButton->setup("sensing", buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
         sensingButton->setPosition(buttonPosition.x, buttonPosition.y);
-        sensingButton->setDimensions(60, 20);
+        sensingButton->setDimensions(60 * RETINA_SCALE(), 20 * RETINA_SCALE());
         sensingButton->setFont(&panel.guiTTFFont);
         sensingButton->setBackgroundColor(113,171,154,75);
         sensingButton->setBackgroundSelectColor(113,171,154);
-        buttonPosition.x += 70;
+        buttonPosition.x += 70 * RETINA_SCALE();
         
         guiTypeButton * communicationButton = new guiTypeButton();
-        communicationButton->setup("communication", buttonWidth*1.5, buttonHeight);
-        communicationButton->setDimensions(90, 20);
+        communicationButton->setup("communication", buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
+        communicationButton->setDimensions(90 * RETINA_SCALE(), 20 * RETINA_SCALE());
         communicationButton->setPosition(buttonPosition.x, buttonPosition.y);
         communicationButton->setFont(&panel.guiTTFFont);
         communicationButton->setBackgroundColor(180,87,128,75);
         communicationButton->setBackgroundSelectColor(180,87,128);
-        buttonPosition.x += 100;
+        buttonPosition.x += 100 * RETINA_SCALE();
         
         guiTypeButton * dataButton = new guiTypeButton();
-        dataButton->setup("data", buttonWidth*1.5, buttonHeight);
-        dataButton->setDimensions(40, 20);
+        dataButton->setup("data", buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
+        dataButton->setDimensions(40 * RETINA_SCALE(), 20 * RETINA_SCALE());
         dataButton->setPosition(buttonPosition.x, buttonPosition.y);
         dataButton->setFont(&panel.guiTTFFont);
         dataButton->setBackgroundColor(178,101,0,75);
         dataButton->setBackgroundSelectColor(178,101,0);
-        buttonPosition.x += 50;
+        buttonPosition.x += 50 * RETINA_SCALE();
         
         buttons["source"] = sourceButton;
         buttons["sensing"] = sensingButton;
@@ -128,15 +130,15 @@ namespace ofxTSPS {
         // setup min + max button
         
         minimizeButton = new guiTypeButton();
-        minimizeButton->setup("minimize", buttonWidth*1.5, buttonHeight);
-        minimizeButton->setPosition(10,10);
+        minimizeButton->setup("minimize", buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
+        minimizeButton->setPosition(10 * RETINA_SCALE(),10 * RETINA_SCALE());
         minimizeButton->setFont(&panel.guiTTFFont);
         minimizeButton->setBackgroundColor(205,198,63);
         minimizeButton->setBackgroundSelectColor(205,198,63);
         
         maximizeButton = new guiTypeButton();
-        maximizeButton->setup("maximize", buttonWidth*1.5, buttonHeight);
-        maximizeButton->setPosition(10,10);
+        maximizeButton->setup("maximize", buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
+        maximizeButton->setPosition(10 * RETINA_SCALE(),10 * RETINA_SCALE());
         maximizeButton->disable();
         maximizeButton->setFont(&panel.guiTTFFont);
         maximizeButton->setBackgroundSelectColor(0,168,156);
@@ -622,8 +624,8 @@ namespace ofxTSPS {
         customSettingsGroup->setShowText(false);
         
         guiTypeButton * customButton = new guiTypeButton();
-        customButton->setup("custom", buttonWidth*1.5, buttonHeight);
-        customButton->setDimensions(50, 20);
+        customButton->setup("custom", buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
+        customButton->setDimensions(50 * RETINA_SCALE(), 20 * RETINA_SCALE());
         customButton->setPosition( buttonPosition.x, buttonPosition.y );
         customButton->setFont(&panel.guiTTFFont);
         customButton->setBackgroundColor(11,119,108,75);
@@ -1263,7 +1265,7 @@ namespace ofxTSPS {
             
             ofSetColor(184,169,121);
             ofFill();
-            ofDrawRectangle(10,40,panel.getWidth(),20);
+            ofDrawRectangle(10 * RETINA_SCALE(),40 * RETINA_SCALE(),panel.getWidth(),20 * RETINA_SCALE());
             ofSetColor(255);
             panel.guiTTFFont.drawString("CONFIGURE TSPS: "+ ofToUpper(enabledPanelGroup), 15, 45 + panel.guiTTFFont.getSize() );
             
@@ -1289,7 +1291,7 @@ namespace ofxTSPS {
         
         // if you didn't pass a rectangle, just use the default button settings
         if ( dimensions.x == dimensions.y == dimensions.width == dimensions.height){
-            btn->setup( name, buttonWidth*1.5, buttonHeight);
+            btn->setup( name, buttonWidth * RETINA_SCALE()*1.5, buttonHeight * RETINA_SCALE());
             btn->setPosition(10,10);    
         } else {
             btn->setup( name, dimensions.width, dimensions.height);
