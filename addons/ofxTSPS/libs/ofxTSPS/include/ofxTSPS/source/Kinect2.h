@@ -34,7 +34,8 @@ namespace ofxTSPS {
         // core
         bool available(){
 #ifdef TARGET_OSX
-			return true; // hm~
+            return getNumDevices() > 0;
+//            return true; // hm~
 #else
 			if (!bDepthInited){
 				try {

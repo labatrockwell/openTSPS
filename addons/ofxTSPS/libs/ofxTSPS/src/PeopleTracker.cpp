@@ -148,12 +148,11 @@ namespace ofxTSPS {
             } else if ( useKinect2() ){
                 // are there any kinects out there?
                 
-#ifdef TARGET_OSX
-                if ( true ){
-#else
-				Kinect2 kinectSource;
+                Kinect2 kinectSource;
                 if ( kinectSource.available() ){
-#endif
+//#else
+//                if ( kinectSource.available() ){
+//#endif
                     setupSource( CAMERA_KINECT2, deviceID );
                 } else {
                     ofLog(OF_LOG_ERROR, "No Kinect 2s connected!");

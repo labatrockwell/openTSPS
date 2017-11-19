@@ -18,8 +18,8 @@ static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <o
     
     static unsigned char * inpix;
     static unsigned char * outpix;
-    inpix   = inputImage.getPixels();
-    outpix  = outputImage.getPixels();
+    inpix   = inputImage.getPixels().getData();
+    outpix  = outputImage.getPixels().getData();
     
     int inW, inH, outW, outH;
     inW = inputImage.getWidth();
