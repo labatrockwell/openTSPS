@@ -5,6 +5,10 @@
   Set up TSPS + use the built-in Person draw function to visualize the data you're getting.
 */
 
+//import OSCP5
+import netP5.*;
+import oscP5.*;
+
 // import TSPS
 import tsps.*;
 TSPS tspsReceiver;
