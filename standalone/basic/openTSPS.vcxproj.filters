@@ -274,6 +274,33 @@
     <ClCompile Include="..\..\addons\ofxCv\libs\CLD\src\fdog.cpp">
       <Filter>addons\third-party\ofxCv\libs\CLD\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Device.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BaseImage.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Body.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BodyIndex.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Color.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Depth.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Infrared.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\LongExposureInfraRed.cpp">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -552,6 +579,12 @@
     <Filter Include="addons\ofxKinect\libs\libfreenect\include">
       <UniqueIdentifier>{F7A2459D-BD30-38D3-05BB-4653}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons\third-party\ofxKinectForWindows2">
+      <UniqueIdentifier>{b8048237-a149-4e0b-b7b2-538879e9ad57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\third-party\ofxKinectForWindows2\src">
+      <UniqueIdentifier>{dfe20401-7054-4665-a1a6-fbd268a374ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tspsApp.h">
@@ -628,9 +661,6 @@
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils\View.h">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\Kinect.h">
-      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\Source.h">
       <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source</Filter>
@@ -758,9 +788,6 @@
     <ClInclude Include="..\..\..\addons\ofxKinect\src\ofxKinect.h">
       <Filter>addons\ofxKinect\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0\libusb.h">
-      <Filter>addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-win32\include\lusb0_usb.h">
       <Filter>addons\ofxKinect\libs\libusb-win32\include</Filter>
     </ClInclude>
@@ -798,9 +825,6 @@
       <Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_internal.h">
-      <Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusb.h">
       <Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_threads_win32.h">
@@ -1351,6 +1375,57 @@
     </ClInclude>
     <ClInclude Include="..\..\addons\ofxNI2\libs\NiTE2\include\NiteCAPI.h">
       <Filter>addons\third-party\ofxNI2\libs\nite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Device.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Body.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Joint.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Base.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BaseImage.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Body.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BodyIndex.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Color.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Depth.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Infrared.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\LongExposureInfrared.h">
+      <Filter>addons\third-party\ofxKinectForWindows2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\Kinect2.h">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\addons\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source\Kinect1.h">
+      <Filter>addons\third-party\ofxTSPS\libs\ofxTSPS\include\ofxTSPS\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0\libusb.h">
+      <Filter>addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusb.h">
+      <Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

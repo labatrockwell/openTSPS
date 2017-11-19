@@ -5,7 +5,7 @@
  *
  *  Based in part on code created by NUI Group Dev Team A on 3/1/09.
  *  Copyright 2009 NUI Group/Inc. All rights reserved.       
- *  Version : 1.20
+ *  Version : 1.3.9
  *
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,10 +50,17 @@
 #include "ofxTSPS/source/Source.h"
 
 #ifndef TSPS_ONLY_OPENNI
-#include "ofxTSPS/source/Kinect.h"
+#ifdef TSPS_KINECT2
+#include "ofxTSPS/source/Kinect2.h"
+#else
+#include "ofxTSPS/source/Kinect1.h"
+#include "ofxTSPS/source/Kinect2.h"
+#include "ofxTSPS/source/OpenNI2.h"
+#endif
+#else
+#include "ofxTSPS/source/OpenNI2.h"
 #endif
 
-#include "ofxTSPS/source/OpenNI2.h"
 #include "ofxTSPS/source/Syphon.h"
 #include "ofxTSPS/source/VideoFile.h"
 #include "ofxTSPS/source/VideoGrabber.h"
@@ -104,10 +111,19 @@ namespace ofxTSPS {
             #ifndef TSPS_ONLY_OPENNI
             bool    useKinect();
             void    setUseKinect( bool bUseKinect=true, int deviceIndex=0 );
-            #endif
         
+            bool    useKinect2();
+            void    setUseKinect2( bool bUseKinect=true, int deviceIndex=0 );
+        
+			#ifndef TSPS_KINECT2
             bool    useOpenNI();
             void    setUseOpenNI( bool bUseOpenNI=true, int deviceIndex=0 );
+			#endif
+			#else
+            bool    useOpenNI();
+            void    setUseOpenNI( bool bUseOpenNI=true, int deviceIndex=0 );
+            #endif
+        
             bool    useVideoFile();
             void    setUseVideoFile( bool bUseVideoFile = true, int deviceIndex=0);
             bool    useVideoGrabber();

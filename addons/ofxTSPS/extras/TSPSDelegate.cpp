@@ -33,12 +33,12 @@ namespace ofxTSPS {
         ofxAddTSPSListeners(this);
         
         //load GUI / interface images
-        personEnteredImage.loadImage("graphic/triggers/PersonEntered_Active.png");
-        personUpdatedImage.loadImage("graphic/triggers/PersonUpdated_Active.png");
-        personLeftImage.loadImage("graphic/triggers/PersonLeft_Active.png");
-        statusBar.loadImage("graphic/bottomBar.png");
-        background.loadImage("graphic/background.png");
-        timesBoldItalic.loadFont("fonts/timesbi.ttf", 16);
+        personEnteredImage.load("graphic/triggers/PersonEntered_Active.png");
+        personUpdatedImage.load("graphic/triggers/PersonUpdated_Active.png");
+        personLeftImage.load("graphic/triggers/PersonLeft_Active.png");
+        statusBar.load("graphic/bottomBar.png");
+        background.load("graphic/background.png");
+        timesBoldItalic.load("fonts/timesbi.ttf", 16);
         
         drawStatus[0] = 0;
         drawStatus[1] = 0;

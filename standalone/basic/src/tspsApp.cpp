@@ -1,13 +1,21 @@
 #include "tspsApp.h"
 #include "ofAppGLFWWindow.h"
 
+bool bIsRetina = false;
+float retinaScale = 1.;
+
 //--------------------------------------------------------------
 void tspsApp::setup(){
+    // fix for OS X 10.12+
+    ofSetDataPathRoot(ofFilePath::getCurrentExeDir() + "/../Resources/data");
+    
     // retina support, some day
-//    ofAppGLFWWindow * window = (ofAppGLFWWindow*) ofGetWindowPtr();
-//    if ( window->getPixelScreenCoordScale() != 1 ){
+    ofAppGLFWWindow * window = (ofAppGLFWWindow*) ofGetWindowPtr();
+    if ( window->getPixelScreenCoordScale() != 1 ){
 //        ofSetWindowShape(1024 * window->getPixelScreenCoordScale(), 768 * window->getPixelScreenCoordScale());
-//    }
+        bIsRetina = true;
+        retinaScale = window->getPixelScreenCoordScale();
+    }
     
 	ofSetFrameRate(60);
 	ofBackground(223, 212, 190);

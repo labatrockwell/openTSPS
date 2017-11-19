@@ -283,7 +283,7 @@ void ofxCvCoordWarpingGui::draw(float passedX, float passedY, float scaleWidth, 
 			if(i == 2)ofSetColor(255, 255, 0);
 			if(i == 3)ofSetColor(0, 255, 255);
 			
-			ofRect(srcScaled[i].x, srcScaled[i].y, 8, 8);
+			ofDrawRectangle(srcScaled[i].x, srcScaled[i].y, 8, 8);
 		}
 		ofSetRectMode(OF_RECTMODE_CORNER);
 		ofFill();

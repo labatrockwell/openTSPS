@@ -179,7 +179,11 @@ namespace ofxTSPS {
         }
         
 #ifndef TSPS_ONLY_OPENNI
+#ifdef TSPS_KINECT2
+        Kinect2 dummyKinect;
+#else
         Kinect dummyKinect;
+#endif
         int numKinects = dummyKinect.numAvailable();
         
         for ( int i=0; i<numKinects; i++){
@@ -190,10 +194,22 @@ namespace ofxTSPS {
             sel.index = i;
             currentSources[currentSources.size()] = sel;
         }
+        
+        numKinects = 1;
+        
+        for ( int i=0; i<numKinects; i++){
+            source_types.push_back("Kinect 2 "+ofToString(i));
+            
+            SourceSelection sel;
+            sel.type = CAMERA_KINECT2;
+            sel.index = i;
+            currentSources[currentSources.size()] = sel;
+        }
 #endif
         
+#ifndef TSPS_KINECT2
         static OpenNI2 dummyOpenNI;
-        int numOpenNI = dummyOpenNI.numAvailable();
+        /*int numOpenNI = dummyOpenNI.numAvailable();
         
         for ( int i=0; i<numOpenNI; i++){
             source_types.push_back("OpenNI2 "+ofToString(i));
@@ -202,7 +218,8 @@ namespace ofxTSPS {
             sel.type = CAMERA_OPENNI;
             sel.index = i;
             currentSources[currentSources.size()] = sel;
-        }
+        }*/
+#endif
         
         SourceSelection videofileSelection;
         videofileSelection.type = CAMERA_VIDEOFILE;
@@ -258,6 +275,17 @@ namespace ofxTSPS {
         panel.addToggle("use amplification (video gain)", "USE_AMPLIFICATION", false);
         panel.addSlider("amplification amount:", "AMPLIFICATION_AMOUNT", 1, 1, 100, true);
         
+//#ifdef TSPS_KINECT2
+        guiTypeGroup * k2Group = panel.addGroup("kinect settings");
+        k2Group->setBackgroundColor(148,129,85);
+        k2Group->setBackgroundSelectColor(148,129,85);
+        k2Group->seBaseColor(244,136,136);
+        k2Group->setShowText(false);
+
+        panel.addSlider("near threshold:", "K2_NEAR", 30., 0., 12000, false);
+        panel.addSlider("far threshold:", "K2_FAR", 1000., 0., 12000, false);
+//#endif
+
         // end setup source panel
         
         // setup sensing panel
@@ -1235,7 +1263,7 @@ namespace ofxTSPS {
             
             ofSetColor(184,169,121);
             ofFill();
-            ofRect(10,40,panel.getWidth(),20);
+            ofDrawRectangle(10,40,panel.getWidth(),20);
             ofSetColor(255);
             panel.guiTTFFont.drawString("CONFIGURE TSPS: "+ ofToUpper(enabledPanelGroup), 15, 45 + panel.guiTTFFont.getSize() );
             

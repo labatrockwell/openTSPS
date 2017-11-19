@@ -35,7 +35,7 @@ namespace ofxTSPS {
             ofVideoGrabber::update();
 #ifdef TARGET_OSX
             if ( bPublishTexture ){
-                publishToSyphon( ofVideoGrabber::getTextureReference() );
+                publishToSyphon( ofVideoGrabber::getTexture() );
             }
 #endif
         }

@@ -46,7 +46,15 @@
 			ctx.fillText("depth: "+person.depth, person.centroid.x*vid_width, person.centroid.y*vid_height+40);
 			ctx.strokeStyle = '#ff0000';
 			ctx.beginPath();
-			ctx.moveTo(person.contours[0].x*vid_width,person.contours[0].y*vid_height);
+			if ( person.contours.length > 0 ){
+                ctx.beginPath();
+                ctx.moveTo(person.contours[0].x*vid_width,person.contours[0].y*vid_height);
+
+                for (var j=1; j<person.contours.length; j++ ){
+                    ctx.lineTo( person.contours[j].x*vid_width,person.contours[j].y*vid_height );
+                }               
+                ctx.stroke();
+            }
 
 			for (var j=1; j<person.contours.length; j++ ){
 				ctx.lineTo( person.contours[j].x*vid_width,person.contours[j].y*vid_height );

@@ -42,9 +42,17 @@
 #include "ofxTSPS/source/Source.h"
 
 #ifndef TSPS_ONLY_OPENNI
-#include "ofxTSPS/source/Kinect.h"
-#endif
+#ifdef TSPS_KINECT2
+#include "ofxTSPS/source/Kinect2.h"
+#else
+#include "ofxTSPS/source/Kinect1.h"
+#include "ofxTSPS/source/Kinect2.h"
 #include "ofxTSPS/source/OpenNI2.h"
+#endif
+#else
+#include "ofxTSPS/source/OpenNI2.h"
+#endif
+
 #include "ofxTSPS/source/Syphon.h"
 #include "ofxTSPS/source/VideoFile.h"
 #include "ofxTSPS/source/VideoGrabber.h"

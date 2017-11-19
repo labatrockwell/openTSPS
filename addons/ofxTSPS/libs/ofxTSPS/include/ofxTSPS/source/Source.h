@@ -99,7 +99,7 @@ namespace ofxTSPS {
         // feature: stream via Syphon
 #ifdef TARGET_OSX
         virtual void setupSyphon( string name="tspsSyphon" ){
-            syphonServer.setName(name);
+            syphonServer.setName(name + ofToString( (int) type) );
         };
         
         virtual void setPublishTexture( bool publishTexture=true){

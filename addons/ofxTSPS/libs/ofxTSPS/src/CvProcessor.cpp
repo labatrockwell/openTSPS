@@ -70,26 +70,26 @@ namespace ofxTSPS {
     //------------------------------------------------------------------------
     void CvProcessor::setCameraImage( ofBaseImage & image ){
         // update camera image
-        cameraImage.setFromPixels(image.getPixelsRef());
+        cameraImage.setFromPixels(image.getPixels());
         
         // update smaller image
         // pixel copy method is temporary... copying directly to image
         // via ofxCv crashes
 		Mat srcMat = toCv(cameraImage), dstMat = toCv(resizeImage);
         cv::resize(srcMat, dstMat, dstMat.size(), 0, 0, INTER_NEAREST);
-        toOf(dstMat, cameraSmallImage);
+        toOf(dstMat, cameraSmallImage.getPixels());
         cameraSmallImage.update();
         
 		Mat dstMatBaby = toCv(resizeBabyImage);
         cv::resize(srcMat, dstMatBaby, dstMatBaby.size(), 0, 0, INTER_NEAREST);
-        toOf(dstMatBaby, cameraBabyImage);
+        toOf(dstMatBaby, cameraBabyImage.getPixels());
         cameraBabyImage.update();
     }
     
     //------------------------------------------------------------------------
     void CvProcessor::captureBackground( ofBaseImage & image ){
-        backgroundImage.setFromPixels( image.getPixelsRef() );
-        progressiveBackgroundImage.setFromPixels( image.getPixelsRef() );
+        backgroundImage.setFromPixels( image.getPixels() );
+        progressiveBackgroundImage.setFromPixels( image.getPixels() );
     }
     
     //------------------------------------------------------------------------
@@ -97,7 +97,7 @@ namespace ofxTSPS {
         ofxCv::lerp(image, progressiveBackgroundImage, progressiveBackgroundImage, amount);
         //cv::addWeighted( toCv(backgroundImage), amount, toCv(progressiveBackgroundImage), 1.0f-amount,0, toCv(progressiveBackgroundImage) );
         backgroundImage = progressiveBackgroundImage;
-        return backgroundImage.getPixelsRef();
+        return backgroundImage.getPixels();
     }
     
     //------------------------------------------------------------------------
@@ -117,7 +117,7 @@ namespace ofxTSPS {
             }
         }
         differencedImage.update();
-        return differencedImage.getPixelsRef();
+        return differencedImage.getPixels();
     }
     
     //------------------------------------------------------------------------
@@ -130,7 +130,7 @@ namespace ofxTSPS {
             processOpticalFlow( cameraSmallImage );
         }
         
-        differencedImage.setFromPixels(image.getPixelsRef());
+        differencedImage.setFromPixels(image.getPixels());
         ofxCv::threshold(differencedImage, threshold);
         
         // find contours
@@ -228,8 +228,8 @@ namespace ofxTSPS {
                     ofRectangle haarROI;
                     haarROI.x		= (p->boundingRect.x - haarAreaPadding/2) * haarTrackingScale > 0.0f ? (p->boundingRect.x - haarAreaPadding/2) * haarTrackingScale : 0.0;
                     haarROI.y		= (p->boundingRect.y - haarAreaPadding/2) * haarTrackingScale > 0.0f ? (p->boundingRect.y - haarAreaPadding/2) : 0.0f;
-                    haarROI.width	= (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale > cameraBabyImage.width ? (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale : cameraBabyImage.width;
-                    haarROI.height	= (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale > cameraBabyImage.height ? (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale : cameraBabyImage.height;
+                    haarROI.width	= (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale > cameraBabyImage.getWidth() ? (p->boundingRect.width  + haarAreaPadding*2) * haarTrackingScale : cameraBabyImage.getWidth();
+                    haarROI.height	= (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale > cameraBabyImage.getHeight() ? (p->boundingRect.height + haarAreaPadding*2) * haarTrackingScale : cameraBabyImage.getHeight();
                     
                     bool haarThisFrame = false;
                     for(int j = 0; j < haarObjects.size(); j++) {
@@ -281,7 +281,7 @@ namespace ofxTSPS {
                 trackedPeople->erase(trackedPeople->begin() + i);
             }
         }
-        return differencedImage.getPixelsRef();
+        return differencedImage.getPixels();
     }
     
     //------------------------------------------------------------------------

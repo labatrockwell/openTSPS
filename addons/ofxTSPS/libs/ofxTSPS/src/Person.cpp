@@ -93,12 +93,12 @@ namespace ofxTSPS {
             }
             if (haarRect.x + haarRect.width > cameraWidth) haarRect.width = cameraWidth-haarRect.x;
             if (haarRect.y + haarRect.height > cameraHeight) haarRect.height = cameraHeight-haarRect.y;
-            ofRect(haarRect.x, haarRect.y, haarRect.width, haarRect.height);
+            ofDrawRectangle(haarRect.x, haarRect.y, haarRect.width, haarRect.height);
             
             if(hasHaarRect()){
                 //draw the haar rect
                 ofSetHexColor(0xee3523);
-                ofRect(getHaarRect().x, getHaarRect().y, getHaarRect().width, getHaarRect().height);
+                ofDrawRectangle(getHaarRect().x, getHaarRect().y, getHaarRect().width, getHaarRect().height);
                 //haar-detected people get a red square
                 ofSetHexColor(0xfd5f4f);
             } else {
@@ -111,15 +111,15 @@ namespace ofxTSPS {
         }
         
         //draw person
-        ofRect(boundingRect.x, boundingRect.y, boundingRect.width, boundingRect.height);
+        ofDrawRectangle(boundingRect.x, boundingRect.y, boundingRect.width, boundingRect.height);
         
         // draw highest point
         ofSetHexColor(0xff00ff);	
-        ofCircle(highest.x, highest.y, 4);
+        ofDrawCircle(highest.x, highest.y, 4);
         
         //draw centroid
         ofSetHexColor(0xff0000);
-        ofCircle(centroid.x, centroid.y, 3);
+        ofDrawCircle(centroid.x, centroid.y, 3);
         
         //draw id
         ofSetHexColor(0xffffff);

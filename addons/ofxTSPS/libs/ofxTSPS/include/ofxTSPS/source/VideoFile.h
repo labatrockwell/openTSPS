@@ -22,7 +22,7 @@ namespace ofxTSPS {
             tspsWidth = width;
             tspsHeight = height;
             customData = etc;
-            bIsOpen = loadMovie( customData );
+            bIsOpen = load( customData );
             if ( bIsOpen ){
                 play();
             }
@@ -31,13 +31,13 @@ namespace ofxTSPS {
         
         void update(){
             ofVideoPlayer::update();
-            if ( width != tspsWidth || height != tspsHeight ){
+            if ( this->getWidth() != tspsWidth || this->getHeight() != tspsHeight ){
                 // is there a better way to do this? probably...
                 //resize( tspsWidth, tspsHeight );
             }
 #ifdef TARGET_OSX
             if ( bPublishTexture ){
-                publishToSyphon( ofVideoPlayer::getTextureReference() );
+                publishToSyphon( ofVideoPlayer::getTexture() );
             }
 #endif
         }

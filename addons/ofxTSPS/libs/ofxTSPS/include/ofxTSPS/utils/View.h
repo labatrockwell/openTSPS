@@ -36,7 +36,7 @@ namespace ofxTSPS {
         //-------------------------------------------------
         void setImage(ofBaseImage * _image){
             bImage = true;
-            if ( _image->getPixelsRef().getNumChannels() == 1){
+            if ( _image->getPixels().getNumChannels() == 1){
                 bGray = true;
             } else {
                 bGray = false;
@@ -47,7 +47,7 @@ namespace ofxTSPS {
         //-------------------------------------------------
         void loadFont( string fontName, int size ){
             p_font = new ofTrueTypeFont();
-            p_font->loadFont(fontName, size);
+            p_font->load(fontName, size);
             bFontLoaded = true;
         }
         
@@ -88,16 +88,16 @@ namespace ofxTSPS {
                 ofNoFill();
                 ofSetLineWidth(3);
                 ofSetColor(color.r, color.g, color.b);
-                ofRect(-1,-1,width+2,height+2);			
+                ofDrawRectangle(-1,-1,width+2,height+2);
                 //or draw color around all
             } else if (bActive){			
                 ofNoFill();
                 ofSetLineWidth(3);
                 ofSetColor(color.r, color.g, color.b);
-                ofRect(-1,-1,width+2,height+2);
+                ofDrawRectangle(-1,-1,width+2,height+2);
                 ofFill();	
-                if (bFontLoaded) ofRect(-2,height+view_smallBorder*3 + 2,width+2,p_font->stringHeight("A") + view_largeBorder );	
-                else ofRect(-2,height+view_smallBorder*3 + 1,width+2,view_largeBorder*2);
+                if (bFontLoaded) ofDrawRectangle(-2,height+view_smallBorder*3 + 2,width+2,p_font->stringHeight("A") + view_largeBorder );
+                else ofDrawRectangle(-2,height+view_smallBorder*3 + 1,width+2,view_largeBorder*2);
             };
             
             ofFill(); 
@@ -125,7 +125,7 @@ namespace ofxTSPS {
 			ofNoFill();
 			ofSetColor(color.r, color.g, color.b);
 			ofSetLineWidth(3);
-			ofRect(_x, _y, _width, _height);
+			ofDrawRectangle(_x, _y, _width, _height);
             ofPopStyle();	
             
             ofSetHexColor(0xffffff);

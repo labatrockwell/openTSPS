@@ -256,18 +256,18 @@ class guiTypePanel : public guiBaseObject{
                 ofTranslate(lockRect.x, lockRect.y, 0);
 
                 ofSetColor(200, 0, 0);
-                ofRect(0, 0, lockRect.width, lockRect.height);
+                ofDrawRectangle(0, 0, lockRect.width, lockRect.height);
 
                 ofTranslate(LOCK_BORDER, LOCK_BORDER, 0);
 
                 ofSetColor(255, 255, 255);
-                ofEllipse(LOCK_WIDTH/2, LOCK_HEIGHT/2, LOCK_WIDTH * 0.8, LOCK_HEIGHT * 0.9);
+                ofDrawEllipse(LOCK_WIDTH/2, LOCK_HEIGHT/2, LOCK_WIDTH * 0.8, LOCK_HEIGHT * 0.9);
 
                 ofSetColor(200, 0, 0);
-                ofEllipse(LOCK_WIDTH/2, LOCK_HEIGHT/2, LOCK_WIDTH * 0.8 * 0.6, LOCK_HEIGHT * 0.9 * 0.6);
+                ofDrawEllipse(LOCK_WIDTH/2, LOCK_HEIGHT/2, LOCK_WIDTH * 0.8 * 0.6, LOCK_HEIGHT * 0.9 * 0.6);
 
                 ofSetColor(255, 255, 255);
-                ofRect(0, LOCK_HEIGHT/2, LOCK_WIDTH, LOCK_HEIGHT/2);
+                ofDrawRectangle(0, LOCK_HEIGHT/2, LOCK_WIDTH, LOCK_HEIGHT/2);
             ofPopMatrix();
         }
 
@@ -278,20 +278,20 @@ class guiTypePanel : public guiBaseObject{
                 ofTranslate(lockRect.x, lockRect.y, 0);
 
                 ofSetColor(0, 0, 0);
-                ofRect(0, 0, lockRect.width, lockRect.height);
+                ofDrawRectangle(0, 0, lockRect.width, lockRect.height);
 
                 ofTranslate(LOCK_BORDER, LOCK_BORDER, 0);
                 ofSetColor(255, 255, 255);
-                ofEllipse(LOCK_WIDTH/2, LOCK_HEIGHT * 0.4, LOCK_WIDTH * 0.8, LOCK_HEIGHT * 0.9);
+                ofDrawEllipse(LOCK_WIDTH/2, LOCK_HEIGHT * 0.4, LOCK_WIDTH * 0.8, LOCK_HEIGHT * 0.9);
 
                 ofSetColor(0, 0, 0);
-                ofEllipse(LOCK_WIDTH/2, LOCK_HEIGHT * 0.44, LOCK_WIDTH * 0.8 * 0.6, LOCK_HEIGHT * 0.9 * 0.6);
+                ofDrawEllipse(LOCK_WIDTH/2, LOCK_HEIGHT * 0.44, LOCK_WIDTH * 0.8 * 0.6, LOCK_HEIGHT * 0.9 * 0.6);
 
                 ofSetColor(255, 255, 255);
-                ofRect(0, LOCK_HEIGHT/2, LOCK_WIDTH, LOCK_HEIGHT/2);
+                ofDrawRectangle(0, LOCK_HEIGHT/2, LOCK_WIDTH, LOCK_HEIGHT/2);
 
                 ofSetColor(0, 0, 0);
-                ofRect(0, LOCK_HEIGHT * 0.5 - LOCK_HEIGHT * 0.25 , LOCK_WIDTH * 0.35, LOCK_HEIGHT * 0.25);
+                ofDrawRectangle(0, LOCK_HEIGHT * 0.5 - LOCK_HEIGHT * 0.25 , LOCK_WIDTH * 0.35, LOCK_HEIGHT * 0.25);
 
             ofPopMatrix();
         }
@@ -310,7 +310,7 @@ class guiTypePanel : public guiBaseObject{
                     //draw the background
                     ofFill();
                     ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
-                    ofRect(0, 0, boundingBox.width, boundingBox.height);
+                    ofDrawRectangle(0, 0, boundingBox.width, boundingBox.height);
 
                     //draw the outline
                     ofNoFill();
@@ -327,7 +327,7 @@ class guiTypePanel : public guiBaseObject{
 					if (groups.size() > 0){						
 						ofFill();
 						ofSetColor(groupBgColor.getColor().r, groupBgColor.getColor().g, groupBgColor.getColor().b, groupBgColor.getColor().a);
-						ofRect(groupBg.x, groupBg.y, groupBg.width, groupBg.height);
+						ofDrawRectangle(groupBg.x, groupBg.y, groupBg.width, groupBg.height);
 					}
 			
 					if (bDrawLock){
@@ -368,10 +368,10 @@ class guiTypePanel : public guiBaseObject{
 					ofEndShape(false);
 				} else {
 					ofSetColor(bgColor.getColor().r, bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
-					ofRect(0,0,tabRect.width, tabRect.height-1);
+					ofDrawRectangle(0,0,tabRect.width, tabRect.height-1);
 				}
 				
-				//ofRect(0,0,tabRect.width, tabRect.height);
+				//ofDrawRectangle(0,0,tabRect.width, tabRect.height);
 				ofNoFill();
 				ofSetColor(outlineColor.getColor().r, outlineColor.getColor().g, outlineColor.getColor().b, outlineColor.getColor().a);
 				ofBeginShape();

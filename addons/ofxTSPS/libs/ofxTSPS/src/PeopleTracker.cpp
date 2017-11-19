@@ -144,6 +144,20 @@ namespace ofxTSPS {
                     ofLog(OF_LOG_ERROR, "No Kinects connected!");
                     setupSource( CAMERA_VIDEOGRABBER, deviceID );
                 }
+            // kinect2?
+            } else if ( useKinect2() ){
+                // are there any kinects out there?
+                
+                Kinect2 kinectSource;
+                if ( kinectSource.available() ){
+//#else
+//                if ( kinectSource.available() ){
+//#endif
+                    setupSource( CAMERA_KINECT2, deviceID );
+                } else {
+                    ofLog(OF_LOG_ERROR, "No Kinect 2s connected!");
+                    setupSource( CAMERA_VIDEOGRABBER, deviceID );
+                }
             // video grabber
             #endif
             } else {
@@ -177,7 +191,7 @@ namespace ofxTSPS {
             ofFile file = ofFile(filename);
             if (file.exists()) {
                 ofImage storedBg = ofImage("settings/background.jpg");
-                backgroundImage.setFromPixels( storedBg.getPixelsRef() );
+                backgroundImage.setFromPixels( storedBg.getPixels() );
                 tspsProcessor->captureBackground( storedBg );
             } else {
                 ofLog(OF_LOG_WARNING, "No stored background file exists");
@@ -201,6 +215,9 @@ namespace ofxTSPS {
         if ( useKinect() && (currentSource == NULL || currentSource->getType() != CAMERA_KINECT)){
             setupSource( CAMERA_KINECT, p_Settings->cameraIndex );
         
+        // 1.5: Kinect2
+        } else if ( useKinect2() && (currentSource == NULL || currentSource->getType() != CAMERA_KINECT2)){
+                setupSource( CAMERA_KINECT2, p_Settings->cameraIndex );
         // 2: Video Grabber?
         } else
         #endif 
@@ -214,10 +231,12 @@ namespace ofxTSPS {
         } else if ( useVideoFile() && currentSource->getType() == CAMERA_VIDEOFILE && getVideoFile() != currentSource->getCustomData() ){
             setupSource( CAMERA_VIDEOFILE );
         }
+#ifndef TSPS_KINECT2
         // 4: OpenNI
         else if ( useOpenNI() && ( currentSource == NULL || currentSource->getType() != CAMERA_OPENNI)){
             setupSource( CAMERA_OPENNI, p_Settings->cameraIndex );
         }
+#endif
 #ifdef TARGET_OSX
         // 5: syphon
         else if ( useSyphon() && (currentSource == NULL || currentSource->getType() != CAMERA_SYPHON) ){
@@ -228,35 +247,43 @@ namespace ofxTSPS {
         // update source
         bool bNewFrame = false;
         if ( currentSource != NULL && currentSource->isOpen() ){
+//#ifdef TSPS_KINECT2
+			if ( currentSource->getType() == CAMERA_KINECT2 ){
+				Kinect2 * kRef = dynamic_cast<Kinect2*>(currentSource);
+				kRef->nearClipping = gui.getValueF("K2_NEAR");
+				kRef->farClipping = gui.getValueF("K2_FAR");
+			}
+//#endif
+
             currentSource->update();
             bNewFrame = currentSource->doProcessFrame();
         }
         
         if ( bNewFrame ){
-            ofImageType currentType = currentSource->getPixelsRef().getImageType();
+            ofImageType currentType = currentSource->getPixels().getImageType();
             if ( currentType != OF_IMAGE_GRAYSCALE ){
                 // TO-DO: this should probably be in the Processor
                 // convert to grayscale and resize
-                if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                     ofImage tempImage;
-                    tempImage.setFromPixels( currentSource->getPixelsRef() );
-                    ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, currentType == OF_IMAGE_COLOR_ALPHA ? CV_RGB2GRAY : CV_RGBA2GRAY);
+                    tempImage.setFromPixels( currentSource->getPixels() );
+                    ofxCv::convertColor( currentSource->getPixels(), tempImage, currentType == OF_IMAGE_COLOR_ALPHA ? CV_RGB2GRAY : CV_RGBA2GRAY);
                     ofxCv::resize(tempImage, cameraImage);
                 } else {
-                    ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+                    ofxCv::convertColor( currentSource->getPixels(), cameraImage, CV_RGB2GRAY);
                 }
-                cameraImage.update();
             } else {
                 // either resize or just copy pixels
-                if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+                if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                     ofImage tempImage;
-                    tempImage.setFromPixels( currentSource->getPixelsRef() );
+                    tempImage.setFromPixels( currentSource->getPixels() );
                     ofxCv::resize(tempImage, cameraImage);
                 } else {
-                    cameraImage.setFromPixels( currentSource->getPixelsRef() );
+                    cameraImage.setFromPixels( currentSource->getPixels() );
                 }
             }
-            
+            cameraImage.update();
+
             trackPeople();
             
             if ( p_Settings->bSendScene ){
@@ -286,28 +313,28 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     void PeopleTracker::update( ofBaseImage & image ){
-        if ( currentSource->getPixelsRef().getImageType() != OF_IMAGE_GRAYSCALE ){
+        if ( currentSource->getPixels().getImageType() != OF_IMAGE_GRAYSCALE ){
             // TO-DO: this should probably be in the Processor
             // convert to grayscale and resize
-            if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+            if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                 ofImage tempImage;
-                tempImage.setFromPixels( currentSource->getPixelsRef() );
-                ofxCv::convertColor( currentSource->getPixelsRef(), tempImage, CV_RGB2GRAY);
+                tempImage.setFromPixels( currentSource->getPixels() );
+                ofxCv::convertColor( currentSource->getPixels(), tempImage, CV_RGB2GRAY);
                 ofxCv::resize(tempImage, cameraImage);
             } else {
-                ofxCv::convertColor( currentSource->getPixelsRef(), cameraImage, CV_RGB2GRAY);
+                ofxCv::convertColor( currentSource->getPixels(), cameraImage, CV_RGB2GRAY);
             }
-            cameraImage.update();
         } else {
             // either resize or just copy pixels
-            if ( currentSource->getPixelsRef().getWidth() != width || currentSource->getPixelsRef().getHeight() != height ){
+            if ( currentSource->getPixels().getWidth() != width || currentSource->getPixels().getHeight() != height ){
                 ofImage tempImage;
-                tempImage.setFromPixels( currentSource->getPixelsRef() );
+                tempImage.setFromPixels( currentSource->getPixels() );
                 ofxCv::resize(tempImage, cameraImage);
             } else {
-                cameraImage.setFromPixels( currentSource->getPixelsRef() );
+                cameraImage.setFromPixels( currentSource->getPixels() );
             }
         }
+        cameraImage.update();
         
         updateSettings();
         trackPeople();
@@ -475,6 +502,9 @@ namespace ofxTSPS {
                 // hm
                 #endif
                 break;
+            case CAMERA_KINECT2:
+                setUseKinect2();
+                break;
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
                 break;
@@ -486,9 +516,11 @@ namespace ofxTSPS {
                 setUseSyphon();
 #endif
                 break;
+#ifndef TSPS_KINECT2
             case CAMERA_OPENNI:
                 setUseOpenNI();
                 break;
+#endif
             case CAMERA_CUSTOM:
                 setUseCustomSource();
                 break;
@@ -511,8 +543,16 @@ namespace ofxTSPS {
         switch ( type ){
             case CAMERA_KINECT:
 #ifndef TSPS_ONLY_OPENNI
+#ifdef TSPS_KINECT2
+                currentSource = new Kinect2();
+#else
                 currentSource = new Kinect();
 #endif
+#endif
+                break;
+                
+            case CAMERA_KINECT2:
+                currentSource = new Kinect2();
                 break;
             case CAMERA_VIDEOGRABBER:
                 currentSource = new VideoGrabber();
@@ -525,9 +565,11 @@ namespace ofxTSPS {
                 }
                 currentSource = new VideoFile();
                 break;
+#ifndef TSPS_KINECT2
             case CAMERA_OPENNI:
                 currentSource = new OpenNI2();
                 break;
+#endif
 #ifdef TARGET_OSX
             case CAMERA_SYPHON:
                 currentSource = new Syphon();
@@ -549,9 +591,11 @@ namespace ofxTSPS {
             case CAMERA_VIDEOFILE:
                 setUseVideoFile();
                 break;
+#ifndef TSPS_KINECT2
             case CAMERA_OPENNI:
                 setUseOpenNI(true, which);
                 break;
+#endif
             case CAMERA_VIDEOGRABBER:
                 setUseVideoGrabber(true, which);
                 break;
@@ -852,14 +896,14 @@ namespace ofxTSPS {
 			static ofImage temp = warpedImage;
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::flip( src, dst, mode );
-            ofxCv::toOf( dst, temp );
-			warpedImage.setFromPixels( temp.getPixelsRef() );
+            ofxCv::toOf( dst, temp.getPixels() );
+			warpedImage.setFromPixels( temp.getPixels() );
             warpedImage.update();
         }
         
         // invert
         if ( p_Settings->bInvert ){
-            ofPixelsRef pix = warpedImage.getPixelsRef();
+            ofPixelsRef pix = warpedImage.getPixels();
             for (int i=0, len=pix.getWidth()*pix.getHeight()*pix.getNumChannels();i<len;i++){
                 pix[i]=255-pix[i];
             }
@@ -867,7 +911,7 @@ namespace ofxTSPS {
         }
         
         // update scaled down images
-        grayDiff.setFromPixels(warpedImage.getPixelsRef());
+        grayDiff.setFromPixels(warpedImage.getPixels());
         
         //amplify
         if(p_Settings->bAmplify){
@@ -875,8 +919,8 @@ namespace ofxTSPS {
 			static ofImage temp = warpedImage;
             cv::Mat src = ofxCv::toCv( warpedImage ), dst = ofxCv::toCv( warpedImage );
             cv::multiply(src, src, dst, scalef);
-            ofxCv::toOf( dst, temp);
-			warpedImage.setFromPixels( temp.getPixelsRef() );
+            ofxCv::toOf( dst, temp.getPixels());
+			warpedImage.setFromPixels( temp.getPixels() );
             warpedImage.update();
         }
         
@@ -885,11 +929,11 @@ namespace ofxTSPS {
         
         //learn background
         if (doRelearnBackground){
-            backgroundImage.setFromPixels(warpedImage.getPixelsRef());
+            backgroundImage.setFromPixels(warpedImage.getPixels());
             tspsProcessor->captureBackground( warpedImage );
 
             if (p_Settings->bStoreBackground) {
-                warpedImage.saveImage("settings/background.jpg");
+                warpedImage.save("settings/background.jpg");
             }
 
             doRelearnBackground = false;
@@ -940,8 +984,8 @@ namespace ofxTSPS {
             }
             
 			static ofImage temp;
-            ofxCv::toOf( dst, temp );
-			grayDiff.setFromPixels( temp.getPixelsRef() );
+            ofxCv::toOf( dst, temp.getPixels() );
+			grayDiff.setFromPixels( temp.getPixels() );
             //grayDiff.update();
         }
         
@@ -950,8 +994,8 @@ namespace ofxTSPS {
             cv::Mat mat = ofxCv::toCv(grayDiff);
             cv::blur(mat, mat, cv::Size((p_Settings->smooth * 2) + 1, (p_Settings->smooth * 2) + 1));
             static ofImage temp;
-            ofxCv::toOf( mat, temp );
-			grayDiff.setFromPixels( temp.getPixelsRef() );
+            ofxCv::toOf( mat, temp.getPixels() );
+			grayDiff.setFromPixels( temp.getPixels() );
         }
         
         //-----------------------
@@ -1034,7 +1078,7 @@ namespace ofxTSPS {
         ofPushStyle();
         ofFill();
         ofSetColor(196,182,142);
-        ofRect(cameraView.x, cameraView.y + cameraView.height + spacing*3 + 8, cameraView.width*2 + spacing, spacing*4);
+        ofDrawRectangle(cameraView.x, cameraView.y + cameraView.height + spacing*3 + 8, cameraView.width*2 + spacing, spacing*4);
         ofPopStyle();
         
         if (!bFontLoaded) ofDrawBitmapString(frmrate, cameraView.x + 10, cameraView.y + 10 + cameraView.height + spacing*5);
@@ -1049,7 +1093,7 @@ namespace ofxTSPS {
         
         ofFill();
         ofSetHexColor(0x333333);
-        ofRect(0,0,drawWidth,drawHeight);
+        ofDrawRectangle(0,0,drawWidth,drawHeight);
         ofSetHexColor(0xffffff);
         
         ofNoFill();
@@ -1400,7 +1444,7 @@ namespace ofxTSPS {
     
     //---------------------------------------------------------------------------
     bool PeopleTracker::loadFont( string fontName, int fontSize){
-        bFontLoaded = font.loadFont(fontName, fontSize);
+        bFontLoaded = font.load(fontName, fontSize);
         if (bFontLoaded){
             cameraView.setFont(&font);
             adjustedView.setFont(&font);
@@ -1482,8 +1526,25 @@ namespace ofxTSPS {
             p_Settings->inputType = CAMERA_KINECT;
         }
     }
-#endif
     
+    //---------------------------------------------------------------------------
+    bool PeopleTracker::useKinect2(){
+        if (p_Settings == NULL) p_Settings = gui.getSettings();
+        return p_Settings->inputType == CAMERA_KINECT2;
+    }
+    
+    //---------------------------------------------------------------------------
+    void PeopleTracker::setUseKinect2( bool bUseKinect, int deviceIndex ){
+        if ( bUseKinect ){
+            gui.setValueI( "SOURCE_TYPE", gui.getSourceSelectionIndex( CAMERA_KINECT2, deviceIndex) );
+            gui.update();
+            if (p_Settings == NULL) p_Settings = gui.getSettings();
+            p_Settings->inputType = CAMERA_KINECT2;
+        }
+    }
+    
+#endif
+#ifndef TSPS_KINECT2
     //---------------------------------------------------------------------------
     bool    PeopleTracker::useOpenNI(){
         if (p_Settings == NULL) p_Settings = gui.getSettings();
@@ -1499,7 +1560,7 @@ namespace ofxTSPS {
             p_Settings->inputType = CAMERA_OPENNI;
         }
     }
-    
+#endif
     //---------------------------------------------------------------------------
     bool PeopleTracker::useVideoFile(){    
         if (p_Settings == NULL) p_Settings = gui.getSettings();

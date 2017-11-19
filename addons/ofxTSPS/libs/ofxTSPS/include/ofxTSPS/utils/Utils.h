@@ -18,14 +18,14 @@ static void getQuadSubImage(ofImage& inputImage, ofImage& outputImage, vector <o
     
     static unsigned char * inpix;
     static unsigned char * outpix;
-    inpix   = inputImage.getPixels();
-    outpix  = outputImage.getPixels();
+    inpix   = inputImage.getPixels().getData();
+    outpix  = outputImage.getPixels().getData();
     
     int inW, inH, outW, outH;
-    inW = inputImage.width;
-    inH = inputImage.height;
-    outW = outputImage.width;
-    outH = outputImage.height;
+    inW = inputImage.getWidth();
+    inH = inputImage.getHeight();
+    outW = outputImage.getWidth();
+    outH = outputImage.getHeight();
     
     int bpp = 1;
     if (imageType == OF_IMAGE_COLOR){

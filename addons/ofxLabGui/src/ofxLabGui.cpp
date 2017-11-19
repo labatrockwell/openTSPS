@@ -70,7 +70,7 @@ void ofxLabGui::setup(string controlPanelName, float panelX, float panelY, float
 
 //-----------------------------
 void ofxLabGui::loadFont( string fontName, int fontsize ){
-    guiTTFFont.loadFont(fontName, fontsize);
+    guiTTFFont.load(fontName, fontsize);
     bool okay = guiTTFFont.isLoaded();
 
     if(okay){
@@ -1164,13 +1164,13 @@ void ofxLabGui::draw(){
 				//draw the background
 				ofFill();
 				ofSetColor(bgColor.getColor().r,bgColor.getColor().g,bgColor.getColor().b,bgColor.getColor().a);
-				ofRect(0, 0, boundingBox.width, panelH);
+				ofDrawRectangle(0, 0, boundingBox.width, panelH);
 
 				//draw the outline
 				ofNoFill();
 				ofSetColor(outlineColor.getColor().r,outlineColor.getColor().g,outlineColor.getColor().b, outlineColor.getColor().a);
-				ofRect(0, 0, boundingBox.width, panelH);
-				ofLine(0, 20, boundingBox.width, 20);
+				ofDrawRectangle(0, 0, boundingBox.width, panelH);
+				ofDrawLine(0, 20, boundingBox.width, 20);
 			glPopMatrix();
 		} else {
 			glPushMatrix();
@@ -1178,17 +1178,17 @@ void ofxLabGui::draw(){
 					//draw the background
 				ofFill();
 				ofSetColor(bgColor.getColor().r,bgColor.getColor().g, bgColor.getColor().b, bgColor.getColor().a);
-				ofRect(0, 0, boundingBox.width, (int) panelH - panels[0]->getPosY());
+				ofDrawRectangle(0, 0, boundingBox.width, (int) panelH - panels[0]->getPosY());
 
 				//draw the outline
 				ofNoFill();
 				ofSetColor(outlineColor.getColor().r,outlineColor.getColor().b,outlineColor.getColor().g,outlineColor.getColor().a);
-				ofRect(0, 0, boundingBox.width, (int) panelH - panels[0]->getPosY());
-				ofLine(0, 20, boundingBox.width, 20);
+				ofDrawRectangle(0, 0, boundingBox.width, (int) panelH - panels[0]->getPosY());
+				ofDrawLine(0, 20, boundingBox.width, 20);
 			glPopMatrix();
 		}
 
-		if (bCollapsible) ofRect(minimizeButton.x, minimizeButton.y, minimizeButton.width, minimizeButton.height);
+		if (bCollapsible) ofDrawRectangle(minimizeButton.x, minimizeButton.y, minimizeButton.width, minimizeButton.height);
 		saveButton->render();
 		restoreButton->render();
 		loadButton->render();
@@ -1216,7 +1216,7 @@ void ofxLabGui::draw(){
 							ofVertex(panelTabs[i].x+panelTabs[i].width, panelTabs[i].y);
 							ofVertex(panelTabs[i].x+panelTabs[i].width, panelTabs[i].y + panelTabs[i].height);
 							ofEndShape(false);
-                            //ofRect(panelTabs[i].x, panelTabs[i].y, panelTabs[i].width, panelTabs[i].height);
+                            //ofDrawRectangle(panelTabs[i].x, panelTabs[i].y, panelTabs[i].width, panelTabs[i].height);
                             ofSetColor(outlineColor.getColorF());
                         ofPopStyle();
                     }
@@ -1228,7 +1228,7 @@ void ofxLabGui::draw(){
 					ofVertex(panelTabs[i].x+panelTabs[i].width, panelTabs[i].y);
 					ofVertex(panelTabs[i].x+panelTabs[i].width, panelTabs[i].y + panelTabs[i].height);
 					ofEndShape(false);
-					//ofRect(panelTabs[i].x, panelTabs[i].y, panelTabs[i].width, panelTabs[i].height);
+					//ofDrawRectangle(panelTabs[i].x, panelTabs[i].y, panelTabs[i].width, panelTabs[i].height);
                 }*/
 
             ofPushMatrix();{

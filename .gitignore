@@ -13,11 +13,15 @@ docs/html/*
 *.exe
 *.exp
 *.sdf
+*.opensdf
 *.mode1v3
 *.pbxuser
 */*/build/
 obj/
 *.o
+*/*/bin/*.dll
+*.lib
+
 openFrameworks.a
 openFrameworksDebug.a
 openFrameworksUniversal.a

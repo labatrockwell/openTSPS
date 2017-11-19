@@ -26,6 +26,7 @@ namespace ofxTSPS {
         
         int numAvailable(){
             if (!bGrabberInited) init();
+			cout << numAvailableDevices() <<" Kinect 1s"<<endl;
             return numAvailableDevices();
         };
         
@@ -33,17 +34,18 @@ namespace ofxTSPS {
             ofxKinect::update();
 #ifdef TARGET_OSX
             if ( bPublishTexture ){
-                publishToSyphon( ofxKinect::getTextureReference() );
+                publishToSyphon( ofxKinect::getTexture() );
             }
 #endif
         }
         
         bool doProcessFrame(){
+			cout << isFrameNew() <<" Kinect 1 new"<<endl;
             return isFrameNew();
         }
         
         ofPixelsRef getPixelsRef(){
-            return getDepthPixelsRef();
+            return getDepthPixels();
         }
         
         bool openSource( int width, int height, string etc="" ){

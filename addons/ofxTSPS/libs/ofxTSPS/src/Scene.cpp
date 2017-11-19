@@ -53,7 +53,7 @@ namespace ofxTSPS {
                     ofNoFill();
                     ofSetColor(255);
                 }
-                ofRect(check);
+                ofDrawRectangle(check);
             }
         }; ofPopStyle();
     }
