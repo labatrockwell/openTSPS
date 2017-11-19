@@ -7,6 +7,10 @@
   Not recommended as a starting point!
 */
 
+//import OSCP5
+import netP5.*;
+import oscP5.*;
+
 import tsps.*;
 
 TSPS tspsReceiver;

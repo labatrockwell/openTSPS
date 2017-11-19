@@ -7,6 +7,10 @@
   - check "detect and send features in blobs" under the "sensing" panel
 */
 
+//import OSCP5
+import netP5.*;
+import oscP5.*;
+
 // import TSPS
 import tsps.*;
 TSPS tspsReceiver;

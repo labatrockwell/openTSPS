@@ -5,6 +5,10 @@
   Show text when new people enter and leave!
 */
 
+//import OSCP5
+import netP5.*;
+import oscP5.*;
+
 // import TSPS
 import tsps.*;
 TSPS tspsReceiver;
